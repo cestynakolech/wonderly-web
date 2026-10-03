@@ -113,8 +113,34 @@ posun('treni-slider-m', 50);
 ok(el('treni-vypocet').innerHTML.includes(`smykové Ft = ${priklad && priklad[2]} × 500 = <strong>${vysledekPrikladu && vysledekPrikladu[1]} N</strong>`), `simulace dá pro příklad totéž: ${el('treni-vypocet').innerHTML.replace(/<[^>]+>|&nbsp;/g, '')}`);
 
 // ---------- všechny polohy posuvníků ----------
-const k = 0.35;
-let celaCisla = true, hystereze = true, sipky = true, stavy = true, vzorec = true, obrazek = true;
+// šipky (oprava 3. 10. 2026, kolo 2): hrot 16 px celý vedle bedny + dřík 0,55 px/N
+// (dřív 0,35 px/N bez hrotu → u oceli na oceli 15 N jen hrot v obrysu bedny)
+const HROT = 16, k = 0.55;
+
+// ---------- rozvržení scény: šipky a popisky mimo obrys bedny, nepřekrývají se ----------
+const atrHtml = (id) => {
+	const m = html.match(new RegExp(`<\\w+ id="${id}"([^>]*)>`));
+	return m ? Object.fromEntries([...m[1].matchAll(/([\w-]+)="([^"]*)"/g)].map((a) => [a[1], a[2]])) : {};
+};
+const bedna = atrHtml('treni-bedna-rect');
+const bL = +bedna.x, bP = +bedna.x + +bedna.width, bH = +bedna.y, bD = +bedna.y + +bedna.height;
+const sF = atrHtml('treni-sipka-f'), sT = atrHtml('treni-sipka-t'), pF = atrHtml('treni-pop-f'), pT = atrHtml('treni-pop-t');
+const vbT = html.match(/id="treni-svg" viewBox="0 0 (\d+) (\d+)"/);
+ok(+sF.x1 === bP && +sT.x1 === bL && +sF.y1 === +sT.y1 && +sF.y1 > bH && +sF.y1 < bD, `šipky vychází z hran bedny (F z x ${sF.x1}, Ft z x ${sT.x1})`);
+// popisek F začíná vpravo od bedny, popisek Ft končí vlevo od ní; oba nad šipkou (hrot ±9 px, písmo 15)
+const sirkaPop = (t) => t.length * 0.6 * 15;
+ok(pF['text-anchor'] === 'start' && +pF.x >= bP + 4 && pT['text-anchor'] === 'end' && +pT.x <= bL - 4, `popisky sil leží vodorovně mimo obrys bedny (F od x ${pF.x}, Ft do x ${pT.x})`);
+ok(+pF.y + 4 < +sF.y1 - 9 && +pT.y + 4 < +sT.y1 - 9 && +pF.y - 15 > 50, `popisky stojí nad šipkami a pod legendou (y ${pF.y}, šipky y ${sF.y1})`);
+ok(+pF.x + sirkaPop('F = 400 N') <= +vbT[1] && +pT.x - sirkaPop('Ft = 325 N') >= 0, 'nejdelší popisky („F = 400 N“, „Ft = 325 N“) se vejdou do scény');
+// pohybové čárky nesmí ležet přes šipku třecí síly (pás y1 ± 9 px)
+const carky = [...(html.match(/<g id="treni-pohyb"[\s\S]*?<\/g>/) || [''])[0].matchAll(/y1="(\d+)"/g)].map((m) => +m[1]);
+ok(carky.length === 3 && carky.every((y) => Math.abs(y - +sT.y1) > 9 + 1.5 && y < bD), `pohybové čárky neleží přes šipku Ft (y ${carky.join(', ')})`);
+// barvy textu sil mají kontrast ≥ 4,5 : 1 proti pozadí scény #f8f9fa
+const lum = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16) / 255).map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4)).reduce((s, v, i) => s + v * [0.2126, 0.7152, 0.0722][i], 0);
+const kontrast = (a, b) => (Math.max(lum(a), lum(b)) + 0.05) / (Math.min(lum(a), lum(b)) + 0.05);
+ok([pF.fill, pT.fill].every((c) => kontrast(c, '#f8f9fa') >= 4.5), `popisky sil mají kontrast ≥ 4,5 : 1 (${[pF.fill, pT.fill].map((c) => kontrast(c, '#f8f9fa').toFixed(2)).join(', ')})`);
+ok(390 + HROT + 400 * k <= +vbT[1] - 4 && 270 - HROT - 325 * k >= 4, 'nejdelší šipky (F 400 N, Ft 325 N) se vejdou do scény');
+let celaCisla = true, hystereze = true, sipky = true, stavy = true, vzorec = true, obrazek = true, mobil = true;
 const doslo = {};
 for (const [klic, p] of Object.entries(POVRCHY)) {
 	zvolPovrch(klic);
@@ -134,11 +160,15 @@ for (const [klic, p] of Object.entries(POVRCHY)) {
 			const Ft = jede ? smyk : Math.min(F, mez);
 			const popT = el('treni-pop-t').textContent;
 			if (popT !== (Ft > 0 ? `Ft = ${Ft} N` : '')) { hystereze = false; if (hystereze === false && !doslo.chyba) doslo.chyba = `${klic} ${m} kg F=${F}: čekáno Ft=${Ft}, je „${popT}“`; }
-			if (Math.abs(+at('treni-sipka-t', 'x2') - (270 - Ft * k)) > 1e-9 || Math.abs(+at('treni-sipka-f', 'x2') - (390 + F * k)) > 1e-9
-				|| Math.abs(+at('treni-pop-t', 'x') - (270 - (Ft * k) / 2)) > 1e-9 || Math.abs(+at('treni-pop-f', 'x') - (390 + (F * k) / 2)) > 1e-9
+			if (Math.abs(+at('treni-sipka-t', 'x2') - (270 - HROT - Ft * k)) > 1e-9 || Math.abs(+at('treni-sipka-f', 'x2') - (390 + HROT + F * k)) > 1e-9
+				|| at('treni-pop-t', 'x') !== pT.x || at('treni-pop-f', 'x') !== pF.x
 				|| at('treni-sipka-f', 'visibility') !== (F > 0 ? 'visible' : 'hidden') || at('treni-sipka-t', 'visibility') !== (Ft > 0 ? 'visible' : 'hidden')
 				|| el('treni-pop-f').textContent !== (F > 0 ? `F = ${F} N` : '')) sipky = false;
 			if (at('treni-pohyb', 'opacity') !== (jede ? '0.9' : '0')) obrazek = false;
+			// legenda pro telefon opakuje popisky scény (síly, hmotnost, povrch) čitelným písmem
+			const c2 = (x) => x.toFixed(2).replace('.', ',');
+			const cekMobil = `${F > 0 ? `F = ${F} N (modrá šipka, tažná) · ` : ''}${Ft > 0 ? `Ft = ${Ft} N (červená šipka, třecí) · ` : ''}bedna ${m} kg · ${p.text.toUpperCase()} (f = ${c2(p.smyk)} · v klidu ${c2(p.klid)})`;
+			if (el('treni-mobil').textContent !== cekMobil) { mobil = false; doslo.mobil ||= `${klic} ${m} kg F=${F}: „${el('treni-mobil').textContent}“`; }
 			if (el('treni-out-f').textContent !== `${F} N` || el('treni-out-m').textContent !== `${m} kg` || el('treni-bedna-text').textContent !== `${m} kg`) obrazek = false;
 			const st = el('treni-stav').textContent;
 			let cek;
@@ -157,6 +187,9 @@ ok(celaCisla, 'všechny meze tření (3 povrchy × 5 hmotností) vychází v cel
 ok(hystereze, `třecí síla sedí s hysterezí ve všech ${3 * 5 * 161} polohách${doslo.chyba ? ' — ' + doslo.chyba : ''}`);
 ok(sipky, 'šipky F a Ft mají správnou délku, polohu popisku i viditelnost ve všech polohách');
 ok(obrazek, 'pohybové čárky (opacity), výstupy posuvníků a nápis na bedně sedí ve všech polohách');
+ok(mobil, `legenda pro telefon (síly, hmotnost, povrch) sedí ve všech polohách${doslo.mobil ? ' — ' + doslo.mobil : ''}`);
+const stylT = zdroj.match(/<style[^>]*>([\s\S]*?)<\/style>/)?.[1] || '';
+ok(/<p class="treni-mobil" id="treni-mobil" data-mobil-obraz><\/p>/.test(html) && /\.treni-mobil \{ display: none; \}/.test(stylT) && /@media \(max-width: 600px\) \{\s*\.treni-mobil \{ display: block; font-size: 1rem;[^}]*color: #2b2a26;[^}]*background: #fff;/.test(stylT), 'legenda pro telefon je pod scénou (data-mobil-obraz, 16 px, tmavé na bílé), na počítači skrytá');
 ok(stavy, `text stavu (stojí / zrychluje / rovnoměrně) sedí ve všech polohách${doslo.stav ? ' — ' + doslo.stav : ''}`);
 ok(vzorec, 'řádek výpočtu Fn, mez klidu a smykové Ft sedí ve všech polohách');
 ok(Object.keys(POVRCHY).every((kl) => [10, 20, 30, 40, 50].every((m) => doslo[`${kl}-${m}`])), 'rovnováha F = Ft (rovnoměrný pohyb) jde trefit u každého povrchu i hmotnosti');

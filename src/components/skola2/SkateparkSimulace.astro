@@ -34,13 +34,17 @@
 			<rect id="skate-bar-ek" x="588" width="30" fill="#f08c00" stroke="#2b2a26" stroke-width="2" />
 			<rect id="skate-bar-q" x="626" width="26" fill="#e03131" stroke="#2b2a26" stroke-width="2" />
 			<text x="565" y="330" fill="#1971c2">Ep</text>
-			<text x="603" y="330" fill="#f08c00">Ek</text>
+			<!-- barvy TEXTU tmavší než výplň sloupců, ať mají kontrast ≥ 4,5 : 1 na #f8f9fa (kolo 2, 3. 10. 2026) -->
+			<text x="603" y="330" fill="#a84300">Ek</text>
 			<!-- sloupec ztráty třením = VNITŘNÍ ENERGIE (slovo z výkladu; dřív „Q/teplo“, oprava 3. 10. 2026);
-				dva řádky po ~36 px, střed 639 → 621–657, uvnitř pravého okraje 660 -->
-			<text id="skate-q-pop" x="639" y="322" font-size="10" fill="#e03131" visibility="hidden"><tspan x="639">vnitřní</tspan><tspan x="639" dy="11">energie</tspan></text>
+				dva řádky po ~36 px, střed 639 → 621–657, uvnitř pravého okraje 660.
+				Na telefonu je scéna zmenšená (~0,39×) — popisky proto opakuje legenda #skate-mobil pod scénou -->
+			<text id="skate-q-pop" x="639" y="322" font-size="10" fill="#c92a2a" visibility="hidden"><tspan x="639">vnitřní</tspan><tspan x="639" dy="11">energie</tspan></text>
 		</g>
 		<text id="skate-e-text" x="300" y="30" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26"></text>
 	</svg>
+	<!-- legenda pro telefon (≤ 600 px): součet energií a význam sloupců čitelným písmem 16 px -->
+	<p class="skate-mobil" id="skate-mobil" data-mobil-obraz></p>
 	<label class="sim-posuvnik">
 		Hmotnost skatera: <output id="skate-out-m"></output>
 		<input type="range" id="skate-slider-m" min="20" max="60" step="20" value="40" />
@@ -106,7 +110,13 @@
 		nastav('skate-bar-q', { y: 310 - Q * mer, height: Math.max(Q * mer, 0.5) });
 		document.getElementById('skate-q-pop').setAttribute('visibility', rezim === 'treni' ? 'visible' : 'hidden');
 		document.getElementById('skate-bar-q').setAttribute('visibility', rezim === 'treni' ? 'visible' : 'hidden');
-		document.getElementById('skate-e-text').textContent = rezim === 'treni' ? `Ep + Ek + vnitřní energie = ${E0} J` : `E = Ep + Ek = ${E0} J`;
+		// se třením se k součtu Ep a Ek přičítá jen PŘÍRŮSTEK vnitřní energie (co třením přešlo), ne celá
+		// vnitřní energie rampy a koleček — oprava 3. 10. 2026, kolo 2
+		const eText = rezim === 'treni' ? `Ep + Ek + přírůstek vnitřní energie = ${E0} J` : `E = Ep + Ek = ${E0} J`;
+		document.getElementById('skate-e-text').textContent = eText;
+		document.getElementById('skate-mobil').textContent = rezim === 'treni'
+			? `${eText} · sloupce: modrý Ep (polohová), oranžový Ek (pohybová), červený vnitřní energie (o kolik vzrostla třením)`
+			: `${eText} · sloupce: modrý Ep (polohová), oranžový Ek (pohybová)`;
 
 		vypocetEl.innerHTML = `Ep = ${m} × 10 × ${y} = <strong>${Ep} J</strong> &nbsp;·&nbsp; Ek = <strong>${Ek} J</strong>${rezim === 'treni' ? ` &nbsp;·&nbsp; třením přešlo do vnitřní energie <strong>${Q} J</strong>` : ''} &nbsp;·&nbsp; součet vždy <strong>${E0} J</strong>`;
 
@@ -168,7 +178,7 @@
 		const pRaw = -Math.cos(Math.PI * tau);          // −1 → +1 během půlkmitu
 		const p = n % 2 === 0 ? pRaw : -pRaw;           // sudý přejezd zleva, lichý zprava
 		const startovniStrana = n % 2 === 0 ? -1 : 1;
-		// (dřívější „|| p === 0“ nemohlo nastat: −cos(π/2) není v JS přesně 0; na plochém
+		// (dřívější podmínka „nebo p rovno nule“ nemohla nastat: −cos(π/2) není v JS přesně 0; na plochém
 		// dně |p| ≤ 0,3 výška strany stejně nehraje roli)
 		const vyskaStrany = Math.sign(p) === startovniStrana ? hA : hB;
 		const bod = bodJizdy(p, vyskaStrany);
@@ -265,5 +275,9 @@
 	.skate-tl.skate-aktivni { background: #ffe8cc; }
 	.skate-tl:active { transform: translateY(1px); }
 	.skate-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+	.skate-mobil { display: none; }
+	@media (max-width: 600px) {
+		.skate-mobil { display: block; font-size: 1rem; font-weight: 700; line-height: 1.45; color: #2b2a26; margin: 0.5rem 0; padding: 0.4rem 0.6rem; background: #fff; border: 2px solid #2b2a26; border-radius: 8px; }
+	}
 	.skate-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
 </style>

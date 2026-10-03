@@ -356,16 +356,18 @@
 		// popisek tedy na y 66 — uvnitř plátna. (Dřívější větev „pod bodem pro y ≤ 40“
 		// nemohla nastat ani v jedné z 5 poloh posuvníku, byla to mrtvá podmínka.)
 		nastav('sp-b-u-okamzite', { x: Math.min(p.x + 10, 330), y: p.y - 14 });
-		g('sp-b-u-okamzite').textContent = `u = ${p.u} V`;
-		g('sp-b-mobil').textContent = `t = ${t} ms: okamžité u = ${p.u} V (maximum ${UM} V) · obě žárovky svítí stejně: ~ ${UEF} V efektivní = ${UEF} V stejnosměrné`;
+		// záporné číslo se píše se skutečným znaménkem minus (U+2212), ne spojovníkem (OBSAH-PRAVIDLA kap. 8)
+		const uText = String(p.u).replace('-', '−');
+		g('sp-b-u-okamzite').textContent = `u = ${uText} V`;
+		g('sp-b-mobil').textContent = `t = ${t} ms: okamžité u = ${uText} V (maximum ${UM} V) · obě žárovky svítí stejně: ~ ${UEF} V efektivní = ${UEF} V stejnosměrné`;
 
 		let vysvetleni;
 		if (p.u === 0) {
 			vysvetleni = `Při t = ${t} ms prochází okamžité napětí NULOU (u = 0 V) — proud právě mění směr. Při 50 Hz se to stane stokrát za sekundu, a přesto žárovky nepohasnou.`;
 		} else if (Math.abs(p.u) === UM) {
-			vysvetleni = `Při t = ${t} ms je okamžité napětí na svém ${p.u === UM ? 'MAXIMU' : 'MINIMU (opačná polarita)'}: u = ${p.u} V. Taková špička nastává dvakrát za periodu.`;
+			vysvetleni = `Při t = ${t} ms je okamžité napětí na svém ${p.u === UM ? 'MAXIMU' : 'MINIMU (opačná polarita)'}: u = ${uText} V. ${p.u === UM ? 'Maximum' : 'Minimum'} nastává jednou za periodu — špička jedné nebo druhé polarity tedy dvakrát.`;
 		} else {
-			vysvetleni = `Při t = ${t} ms je okamžité napětí u = ${p.u} V.`;
+			vysvetleni = `Při t = ${t} ms je okamžité napětí u = ${uText} V.`;
 		}
 		g('sp-b-stav').textContent = `${vysvetleni} Obě žárovky ale svítí a hřejí POŘÁD STEJNĚ — určuje to efektivní hodnota 230 V, ne tahle okamžitá.`;
 	}

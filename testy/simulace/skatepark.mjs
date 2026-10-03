@@ -44,6 +44,22 @@ ok(!!pop && !!vb && radkyPop.every((r) => r.x === +pop[1] && r.x + sirka(r.t, +p
 const sloupec = html.match(/<rect id="skate-bar-q" x="(\d+)" width="(\d+)"/);
 ok(!!sloupec && !!pop && Math.abs(+sloupec[1] + +sloupec[2] / 2 - +pop[1]) < 1e-9, 'popisek je vystředěný pod sloupcem vnitřní energie');
 
+// ---------- čitelnost (kolo 2, 3. 10. 2026) ----------
+// a) kontrast textů scény ≥ 4,5 : 1 proti pozadí #f8f9fa (dřív Ek #f08c00 = 2,4 a popisek #e03131 = 4,3)
+const lum = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16) / 255).map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4)).reduce((s, v, i) => s + v * [0.2126, 0.7152, 0.0722][i], 0);
+const kontrast = (a, b) => (Math.max(lum(a), lum(b)) + 0.05) / (Math.min(lum(a), lum(b)) + 0.05);
+const svgCast = (bezKomentaru.match(/<svg id="skate-svg"[\s\S]*?<\/svg>/) || [''])[0];
+const barvyTextu = [...svgCast.matchAll(/<text\b[^>]*\bfill="(#[0-9a-f]{6})"/gi)].map((m) => m[1]);
+ok(barvyTextu.length >= 4 && barvyTextu.every((c) => kontrast(c, '#f8f9fa') >= 4.5), `všechny texty scény mají kontrast ≥ 4,5 : 1 (${barvyTextu.map((c) => c + ' ' + kontrast(c, '#f8f9fa').toFixed(1)).join(', ')})`);
+// b) na telefonu je scéna zmenšená ~0,39× → součet a popisky sloupců opakuje HTML legenda pod scénou
+//    (testy/mobil-citelnost.mjs ji pozná podle data-mobil-obraz; zobrazí se jen do 600 px)
+const legenda = bezKomentaru.match(/<p class="skate-mobil" id="skate-mobil" data-mobil-obraz><\/p>/);
+const styl = zdroj.match(/<style[^>]*>([\s\S]*?)<\/style>/)?.[1] || '';
+ok(!!legenda && /\.skate-mobil \{ display: none; \}/.test(styl) && /@media \(max-width: 600px\) \{\s*\.skate-mobil \{ display: block; font-size: 1rem;[^}]*color: #2b2a26;[^}]*background: #fff;/.test(styl), 'pod scénou je legenda pro telefon (data-mobil-obraz, 16 px, tmavé písmo na bílé), na počítači skrytá');
+// c) nadpis součtu se třením se vejde nad rampu a nezasáhne do sloupců (x ≥ 550)
+const eTxt = svgCast.match(/<text id="skate-e-text" x="(\d+)"[^>]*font-size="(\d+)"/);
+ok(!!eTxt && +eTxt[1] + sirka('Ep + Ek + přírůstek vnitřní energie = 2400 J', +eTxt[2]) / 2 < 550, 'nejdelší nadpis „Ep + Ek + přírůstek vnitřní energie = 2400 J“ nezasahuje do sloupců');
+
 // ---------- opora ve výkladu ----------
 const radky = temata.split('\n');
 const iVyklad = radky.findIndex((r, i) => /interakce: 'skatepark',/.test(r) && radky.slice(Math.max(0, i - 4), i).some((x) => /slug: 'zakon-zachovani-mechanicke-energie'/.test(x)));
@@ -110,6 +126,7 @@ for (const m of [20, 40, 60]) for (let h = 1; h <= 5; h++) {
 		const cekSt = y === h ? 'Nahoře' : y === 0 ? 'Dole' : 'Mezi tím';
 		const dobre = vz === `Ep = ${m} × 10 × ${y} = <strong>${Ep} J</strong> &nbsp;·&nbsp; Ek = <strong>${Ek} J</strong> &nbsp;·&nbsp; součet vždy <strong>${E0} J</strong>`
 			&& el('skate-e-text').textContent === `E = Ep + Ek = ${E0} J` && st.includes(cekSt) && sloupceSedi(Ep, Ek, 0, E0)
+			&& el('skate-mobil').textContent === `E = Ep + Ek = ${E0} J · sloupce: modrý Ep (polohová), oranžový Ek (pohybová)`
 			&& el('skate-out-y').textContent === `${y} m` && el('skate-out-m').textContent === `${m} kg` && el('skate-out-h').textContent === `${h} m`
 			&& Number.isInteger(Ep) && Number.isInteger(Ek) && +el('skate-slider-y').max === h;
 		if (!dobre && !chybaI) chybaI = `${m} kg, ${h} m, y ${y}: ${vz.replace(/<[^>]+>|&nbsp;/g, '')} | ${st}`;
@@ -142,7 +159,8 @@ for (const m of [20, 40, 60]) for (let h = 1; h <= 5; h++) {
 			: prej === 0 ? `Každý přejezd sebere energii odpovídající 1 m výšky (${m * 10} J) — promění se třením na VNITŘNÍ ENERGII.`
 				: `Přejezd č. ${prej}: každý přejezd sebere energii odpovídající 1 m výšky (${m * 10} J) — promění se třením na VNITŘNÍ ENERGII. Skater teď vyjede už jen do ${hMax} m.`;
 		const dobre = vz === `Ep = ${m} × 10 × ${hMax} = <strong>${Ep} J</strong> &nbsp;·&nbsp; Ek = <strong>${Ek} J</strong> &nbsp;·&nbsp; třením přešlo do vnitřní energie <strong>${Q} J</strong> &nbsp;·&nbsp; součet vždy <strong>${E0} J</strong>`
-			&& el('skate-e-text').textContent === `Ep + Ek + vnitřní energie = ${E0} J` && st.includes(cekSt) && sloupceSedi(Ep, Ek, Q, E0) && Ek === 0;
+			&& el('skate-e-text').textContent === `Ep + Ek + přírůstek vnitřní energie = ${E0} J` && st.includes(cekSt) && sloupceSedi(Ep, Ek, Q, E0) && Ek === 0
+			&& el('skate-mobil').textContent === `Ep + Ek + přírůstek vnitřní energie = ${E0} J · sloupce: modrý Ep (polohová), oranžový Ek (pohybová), červený vnitřní energie (o kolik vzrostla třením)`;
 		if (!dobre && !chybaT) chybaT = `${m} kg, ${h} m, přejezd ${n}: ${vz.replace(/<[^>]+>|&nbsp;/g, '')} | ${el('skate-e-text').textContent} | ${st}`;
 		treniOk &&= dobre;
 		zaznamenej();

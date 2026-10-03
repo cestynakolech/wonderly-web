@@ -200,7 +200,10 @@
 			const smerVodorovny = vodorovna < 0 ? 'doleva' : 'doprava';
 			text = `Síla míří šikmo nahoru, ale její svislá část nestačí zvednout bednu (tíha ${vel('Fg', Fg)}) — bedna se proto jen sune po podlaze ${smerVodorovny}.`;
 		} else if (liftN > 0) {
-			text = `Síla (${vel('F', F)}) je větší než tíha ${vel('Fg', Fg)} — bedna se ${!jeNula(vodorovna) ? 'zvedá a zároveň sune do strany' : 'zvedá ze země'}!`;
+			// u šikmé síly rozhoduje o zvednutí jen její SVISLÁ část (ne celá F) — oprava 3. 10. 2026, kolo 2
+			text = !jeNula(vodorovna)
+				? `Svislá část síly ${vel('F', F)} je větší než tíha ${vel('Fg', Fg)} — bedna se zvedá a zároveň sune do strany!`
+				: `Síla (${vel('F', F)}) je větší než tíha ${vel('Fg', Fg)} — bedna se zvedá ze země!`;
 		} else {
 			text = `Bedna se rozjíždí směrem ${popisSmeru(deg)} — síla ${vel('F', F)}.`;
 		}

@@ -131,7 +131,8 @@ for (const deg of [180, 135, 90, 45, 0]) {
 		// (původní kód tu měl `nahoru > 0` a u směru doleva psal „Síla míří šikmo nahoru…“)
 		else if (nah > 1e-6 && zdvih === 0 && nula) cek = `Síla míří nahoru, ale není větší než tíha bedny (${vel('Fg', 30)}) — bedna zůstává na podlaze.`;
 		else if (nah > 1e-6 && zdvih === 0) cek = `Síla míří šikmo nahoru, ale její svislá část nestačí zvednout bednu (tíha ${vel('Fg', 30)}) — bedna se proto jen sune po podlaze ${vod > 0 ? 'doprava' : 'doleva'}.`;
-		else if (zdvih > 0) cek = `Síla (${vel('F', F)}) je větší než tíha ${vel('Fg', 30)} — bedna se ${nula ? 'zvedá ze země' : 'zvedá a zároveň sune do strany'}!`;
+		// u šikmé síly rozhoduje svislá část, ne celá F (oprava 3. 10. 2026, kolo 2 — dřív „Síla F je větší než tíha“ i šikmo)
+		else if (zdvih > 0) cek = nula ? `Síla (${vel('F', F)}) je větší než tíha ${vel('Fg', 30)} — bedna se zvedá ze země!` : `Svislá část síly ${vel('F', F)} je větší než tíha ${vel('Fg', 30)} — bedna se zvedá a zároveň sune do strany!`;
 		else cek = `Bedna se rozjíždí směrem ${POPIS[deg]} — síla ${vel('F', F)}.`;
 		const t = el('sv-vysledek').textContent;
 		if (t !== cek) { textyOk = false; chyba.text ||= `${deg}°, ${F} N: „${t}“ ≠ „${cek}“`; }

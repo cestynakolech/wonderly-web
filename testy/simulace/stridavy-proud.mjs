@@ -113,20 +113,25 @@ ok(el('sp-b-out-t').textContent === 't = 5 ms' && el('sp-b-u-okamzite').textCont
 const ocekavane = { 0: 0, 5: 325, 10: 0, 15: -325, 20: 0 };
 for (const [t, u] of Object.entries(ocekavane).map(([a, b]) => [+a, b])) {
 	posun('sp-b-cas', t);
+	// záporné napětí se skutečným minus (U+2212), ne spojovníkem — oprava 3. 10. 2026, kolo 2
+	const uT = u < 0 ? '\u2212' + Math.abs(u) : String(u);
 	const x = 60 + t * 16, y = 210 - u * 0.4;
-	ok(el('sp-b-out-t').textContent === `t = ${t} ms` && el('sp-b-u-okamzite').textContent === `u = ${u} V`, `B, t = ${t} ms: okamžité napětí u = ${u} V (celé číslo)`);
+	ok(el('sp-b-out-t').textContent === `t = ${t} ms` && el('sp-b-u-okamzite').textContent === `u = ${uT} V`, `B, t = ${t} ms: okamžité napětí u = ${uT} V (celé číslo)`);
 	ok(Math.abs(+at('sp-b-bod', 'cx') - x) < 1e-9 && Math.abs(+at('sp-b-bod', 'cy') - y) < 1e-9, `B, t = ${t} ms: bod leží na křivce (${x}, ${y})`);
 	ok(+at('sp-b-u-okamzite', 'x') === Math.min(x + 10, 330) && +at('sp-b-u-okamzite', 'y') === y - 14 && y - 14 > 14, `B, t = ${t} ms: popisek nad bodem a uvnitř scény (y ${at('sp-b-u-okamzite', 'y')})`);
 	const st = el('sp-b-stav').textContent;
-	const cek = u === 0 ? `Při t = ${t} ms prochází okamžité napětí NULOU (u = 0 V)` : `Při t = ${t} ms je okamžité napětí na svém ${u > 0 ? 'MAXIMU' : 'MINIMU (opačná polarita)'}: u = ${u} V`;
+	const cek = u === 0 ? `Při t = ${t} ms prochází okamžité napětí NULOU (u = 0 V)` : `Při t = ${t} ms je okamžité napětí na svém ${u > 0 ? 'MAXIMU' : 'MINIMU (opačná polarita)'}: u = ${uT} V`;
+	const spicka = u === 0 || st.includes(`. ${u > 0 ? 'Maximum' : 'Minimum'} nastává jednou za periodu — špička jedné nebo druhé polarity tedy dvakrát.`);
+	ok(spicka && !/dvakrát za periodu/.test(st), `B, t = ${t} ms: ${u === 0 ? 'nula' : (u > 0 ? 'maximum' : 'minimum') + ' je jednou za periodu, ne dvakrát'}`);
 	ok(st.startsWith(cek) && st.endsWith('určuje to efektivní hodnota 230 V, ne tahle okamžitá.'), `B, t = ${t} ms: vysvětlení „${st.slice(0, 60)}…“`);
-	ok(nbsp(el('sp-b-mobil').textContent) === `t = ${t} ms: okamžité u = ${u} V (maximum 325 V) · obě žárovky svítí stejně: ~ 230 V efektivní = 230 V stejnosměrné`, `B, t = ${t} ms: řádek pro telefon`);
+	ok(nbsp(el('sp-b-mobil').textContent) === `t = ${t} ms: okamžité u = ${uT} V (maximum 325 V) · obě žárovky svítí stejně: ~ 230 V efektivní = 230 V stejnosměrné`, `B, t = ${t} ms: řádek pro telefon`);
 	zaznamenej();
 }
 
 // ---------- 1b) texty ze skriptu ve všech stavech ----------
 const vse = texty.join(' ').replace(/<[^>]+>/g, ' ');
-ok(!nadRamec.test(vse), `žádný text, který skript v kterémkoli stavu vypíše, neobsahuje sin/úhel (${texty.length} textů)`);
+ok(!/(^|[\s=(])-\d/.test(vse) && vse.includes('−325 V'), `záporná čísla ve všech textech mají skutečné minus „−“, ne spojovník „-“`);
+ok(!nadRamec.test(vse),`žádný text, který skript v kterémkoli stavu vypíše, neobsahuje sin/úhel (${texty.length} textů)`);
 
 // ---------- 5) opora čísel ve výkladu ----------
 const radky = temata.split('\n');

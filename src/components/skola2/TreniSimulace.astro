@@ -29,21 +29,25 @@
 			<text id="treni-bedna-text" x="330" y="192" text-anchor="middle" font-size="19" font-weight="bold" fill="#2b2a26"></text>
 		</g>
 		<!-- pohybové čárky -->
+		<!-- čárky leží POD šipkou třecí síly (y 190–214), ne přes ni (oprava 3. 10. 2026, kolo 2) -->
 		<g id="treni-pohyb" stroke="#868e96" stroke-width="3" opacity="0" stroke-linecap="round">
-			<line x1="230" y1="140" x2="255" y2="140" /><line x1="220" y1="170" x2="252" y2="170" /><line x1="232" y1="200" x2="256" y2="200" />
+			<line x1="230" y1="190" x2="255" y2="190" /><line x1="220" y1="202" x2="252" y2="202" /><line x1="232" y1="214" x2="256" y2="214" />
 		</g>
-		<!-- síly -->
+		<!-- síly: šipka vychází z hrany bedny; popisek stojí NAD šipkou, celý MIMO obrys bedny
+			(F od x 398 doprava, Ft končí na x 262) — dřív ležel v půlce krátké šipky přes obrys -->
 		<line id="treni-sipka-f" x1="390" y1="170" x2="390" y2="170" stroke="#1971c2" stroke-width="7" marker-end="url(#treni-mf)" />
-		<line id="treni-sipka-t" x1="270" y1="170" x2="270" y2="170" stroke="#e03131" stroke-width="7" marker-end="url(#treni-mt)" />
-		<text id="treni-pop-f" font-size="15" font-weight="bold" fill="#1971c2" text-anchor="middle" y="150"></text>
-		<text id="treni-pop-t" font-size="15" font-weight="bold" fill="#e03131" text-anchor="middle" y="150"></text>
+		<line id="treni-sipka-t" x1="270" y1="170" x2="270" y2="170" stroke="#c92a2a" stroke-width="7" marker-end="url(#treni-mt)" />
+		<text id="treni-pop-f" x="398" y="150" font-size="15" font-weight="bold" fill="#1971c2" text-anchor="start"></text>
+		<text id="treni-pop-t" x="262" y="150" font-size="15" font-weight="bold" fill="#c92a2a" text-anchor="end"></text>
 		<defs>
 			<marker id="treni-mf" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="14" refY="9" orient="auto"><path d="M0,0 L16,9 L0,18 z" fill="#1971c2" /></marker>
-			<marker id="treni-mt" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="14" refY="9" orient="auto"><path d="M0,0 L16,9 L0,18 z" fill="#e03131" /></marker>
+			<marker id="treni-mt" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="14" refY="9" orient="auto"><path d="M0,0 L16,9 L0,18 z" fill="#c92a2a" /></marker>
 		</defs>
 		<text x="14" y="26" font-size="14" font-weight="bold" fill="#1971c2">→ tažná síla F</text>
-		<text x="14" y="46" font-size="14" font-weight="bold" fill="#e03131">← třecí síla Ft</text>
+		<text x="14" y="46" font-size="14" font-weight="bold" fill="#c92a2a">← třecí síla Ft</text>
 	</svg>
+	<!-- legenda pro telefon (≤ 600 px): scéna je tam zmenšená ~0,39×, popisky sil by měly ~6 px -->
+	<p class="treni-mobil" id="treni-mobil" data-mobil-obraz></p>
 	<label class="sim-posuvnik">
 		Hmotnost bedny: <output id="treni-out-m"></output>
 		<input type="range" id="treni-slider-m" min="10" max="50" step="10" value="20" />
@@ -93,23 +97,23 @@
 		document.getElementById('treni-bedna-text').textContent = m + ' kg';
 		document.getElementById('treni-podlaha').setAttribute('fill', p.barva);
 		document.getElementById('treni-bedna-rect').setAttribute('fill', p.bedna);
-		document.getElementById('treni-podlaha-text').textContent = `${p.nazev} (f = ${cz(p.fSmyk)} · v klidu ${cz(p.fKlid)})`;
+		const podlahaText = `${p.nazev} (f = ${cz(p.fSmyk)} · v klidu ${cz(p.fKlid)})`;
+		document.getElementById('treni-podlaha-text').textContent = podlahaText;
+		document.getElementById('treni-mobil').textContent = `${F > 0 ? `F = ${F} N (modrá šipka, tažná) · ` : ''}${Ft > 0 ? `Ft = ${Ft} N (červená šipka, třecí) · ` : ''}bedna ${m} kg · ${podlahaText}`;
 		document.getElementById('treni-pohyb').setAttribute('opacity', pohyb ? '0.9' : '0');
 
-		// šipky: 0,35 px na newton
-		const k = 0.35;
+		// šipky: hrot 16 px (celý MIMO bednu) + dřík 0,55 px na newton — i nejmenší síla 5 N
+		// je vidět jako celá šipka vedle bedny, delší síla má delší šipku (stejné měřítko pro F i Ft).
+		// I nejdelší šipky (největší tažná a největší třecí síla) se vejdou do scény — hlídá test.
+		const HROT = 16, k = 0.55;
 		const sipkaF = document.getElementById('treni-sipka-f');
-		sipkaF.setAttribute('x2', 390 + F * k);
+		sipkaF.setAttribute('x2', 390 + HROT + F * k);
 		sipkaF.setAttribute('visibility', F > 0 ? 'visible' : 'hidden');
-		const popF = document.getElementById('treni-pop-f');
-		popF.setAttribute('x', 390 + (F * k) / 2);
-		popF.textContent = F > 0 ? 'F = ' + F + ' N' : '';
+		document.getElementById('treni-pop-f').textContent = F > 0 ? 'F = ' + F + ' N' : '';
 		const sipkaT = document.getElementById('treni-sipka-t');
-		sipkaT.setAttribute('x2', 270 - Ft * k);
+		sipkaT.setAttribute('x2', 270 - HROT - Ft * k);
 		sipkaT.setAttribute('visibility', Ft > 0 ? 'visible' : 'hidden');
-		const popT = document.getElementById('treni-pop-t');
-		popT.setAttribute('x', 270 - (Ft * k) / 2);
-		popT.textContent = Ft > 0 ? 'Ft = ' + Ft + ' N' : '';
+		document.getElementById('treni-pop-t').textContent = Ft > 0 ? 'Ft = ' + Ft + ' N' : '';
 
 		vypocetEl.innerHTML = `Fn = Fg = ${m} · 10 = <strong>${Fn} N</strong> &nbsp;·&nbsp; mez klidového tření = ${cz(p.fKlid)} × ${Fn} = <strong>${mezKlid} N</strong> &nbsp;·&nbsp; smykové Ft = ${cz(p.fSmyk)} × ${Fn} = <strong>${FtSmyk} N</strong>`;
 
@@ -144,5 +148,9 @@
 	.treni-tl.treni-aktivni { background: #ffe8cc; }
 	.treni-tl:active { transform: translateY(1px); }
 	.treni-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+	.treni-mobil { display: none; }
+	@media (max-width: 600px) {
+		.treni-mobil { display: block; font-size: 1rem; font-weight: 700; line-height: 1.45; color: #2b2a26; margin: 0.5rem 0; padding: 0.4rem 0.6rem; background: #fff; border: 2px solid #2b2a26; border-radius: 8px; }
+	}
 	.treni-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
 </style>
