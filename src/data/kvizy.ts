@@ -451,12 +451,12 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Čím se liší sloučenina od prvku?',
-			odpovedi: ['Sloučeninu tvoří různé atomy, prvek jen stejné', 'Sloučenina má vždy větší molekuly než prvek', 'Sloučenina je vždy kapalina, prvek pevná látka'],
+			odpovedi: ['Sloučeninu tvoří různé atomy, prvek jen stejné', 'Sloučenina má vždy větší molekuly než prvek', 'Sloučeniny jsou kapaliny, prvky jsou pevné látky'],
 			vysvetleni: 'Prvek je tvořen shodnými částicemi (např. železo Fe), sloučenina vzniká spojením více druhů dohromady (např. voda H₂O).',
 		},
 		{
 			text: 'Proč je vzduch směsí, a ne sloučeninou?',
-			odpovedi: ['Obsahuje víc druhů molekul najednou (N₂, O₂, CO₂…)', 'Protože obsahuje pouze čisté atomy jednoho vzácného prvku', 'Protože jde o jedinou molekulu O₂'],
+			odpovedi: ['Obsahuje víc druhů molekul najednou (N₂, O₂, CO₂…)', 'Protože se skládá z atomů vzácného prvku v pevném stavu', 'Protože jde o jedinou molekulu O₂'],
 			vysvetleni: 'Směs vzniká smícháním více látek s různými druhy molekul a atomů. Vzduch obsahuje N₂, O₂, CO₂ i vodu zároveň, proto je směs.',
 		},
 		{
@@ -1091,7 +1091,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Jak změříme objem malého kamene?',
-			odpovedi: ['ponoříme do vody, odečteme rozdíl', 'změříme ho pravítkem ze všech stran', 'zvážíme ho'],
+			odpovedi: ['ponoříme do vody, odečteme rozdíl', 'změříme délku jeho stran pravítkem', 'zvážíme ho'],
 			vysvetleni: 'V = V₂ − V₁: objem s tělesem minus objem samotné vody. Těleso musí být celé ponořené.',
 		},
 		{
@@ -1908,7 +1908,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Kde je na magnetu magnetická síla nejslabší?',
-			odpovedi: ['uprostřed, v netečném pásmu', 'na obou pólech úplně zároveň', 'na severním pólu'],
+			odpovedi: ['uprostřed, v netečném pásmu', 'v blízkosti magnetických pólů', 'na severním pólu'],
 			vysvetleni: 'Uprostřed magnetu mezi póly je tzv. netečné pásmo, kde je magnetická síla nejslabší — směrem k oběma koncům magnetu naopak stále sílí.',
 		},
 		{
@@ -2023,7 +2023,7 @@ export const kvizy: Record<string, Otazka[]> = {
 	'fyzika/6-rocnik/elektrina-a-magnetismus/jednoduche-elektricke-obvody': [
 		{
 			text: 'Čím vzniká elektrický proud ve vodiči?',
-			odpovedi: ['pohybem volných částic', 'chaotickým pohybem všech atomů', 'zahřátím vodiče'],
+			odpovedi: ['pohybem volných částic', 'chaotickým pohybem atomů', 'zahřátím vodiče'],
 			vysvetleni: 'Proud = uspořádaný pohyb volných elektronů (v kovech) nebo iontů (v roztocích).',
 		},
 		{
@@ -2072,7 +2072,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Co je schéma obvodu?',
-			odpovedi: ['zakreslení značkami', 'fotografie obvodu', 'seznam všech součástek'],
+			odpovedi: ['zakreslení značkami', 'fotografie obvodu', 'seznam použitých součástek'],
 			vysvetleni: 'Každý prvek má dohodnutou značku; vodiče kreslíme přímými čarami, spojení vodičů je uzel.',
 		},
 		{
@@ -2112,7 +2112,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Co je izolant?',
-			odpovedi: ['látka, kterou proud neprochází', 'látka, která proud vždycky vede', 'jiný název pro spotřebič'],
+			odpovedi: ['látka, kterou proud neprochází', 'látka, která vede elektrický proud', 'jiný název pro spotřebič'],
 			vysvetleni: 'Izolant (dřevo, plast, guma) proud nevede — proto se jím obalují vodiče. Spotřebič je prvek obvodu, ne vlastnost látky.',
 		},
 		{
@@ -4489,7 +4489,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Jaké napětí má plochá baterie?', odpovedi: ['4,5 V', '1,5 V', '12 V'], vysvetleni: 'Plochá baterie má vyšší napětí než jeden monočlánek, protože je uvnitř složená z několika článků za sebou.' },
 		{ text: 'Jaké napětí má autobaterie?', odpovedi: ['12 V', '4,5 V', '9 V'], vysvetleni: 'Autobaterie má 12 V — mnohem víc než malé kapesní baterie.' },
 		{ text: 'Co se stane, když voltmetr připojíme obráceně?', odpovedi: ['ukáže zápornou hodnotu', 'okamžitě se zničí', 'přestane měřit úplně'], vysvetleni: 'Voltmetr se přepólováním nepoškodí, u stejnosměrného napětí jen ukáže zápornou hodnotu. Ampérmetr je na špatné zapojení mnohem citlivější.' },
-		{ text: 'Co musíme na voltmetru nastavit před měřením?', odpovedi: ['druh napětí a rozsah', 'jen barvu displeje', 'nic, nastaví se úplně sám'], vysvetleni: 'Voltmetr si sám nic nenastaví — musíme zvolit druh napětí a vhodný rozsah, jinak měření nevyjde.' },
+		{ text: 'Co musíme na voltmetru nastavit před měřením?', odpovedi: ['druh napětí a rozsah', 'jen barvu displeje', 'není potřeba nic přepínat'], vysvetleni: 'Voltmetr si sám nic nenastaví — musíme zvolit druh napětí a vhodný rozsah, jinak měření nevyjde.' },
 		{ text: 'Kolik voltů je 1 MV (megavolt)?', odpovedi: ['1 000 000 V', '10 000 000 V', '1 000 mV'], vysvetleni: '1 MV = 1 000 000 V. S kV (1000 V) se to plete — mega je milionkrát víc, ne tisíckrát.' },
 		{ text: 'Kam kromě spotřebiče můžeme voltmetr ještě zapojit?', odpovedi: ['ke svorkám zdroje', 'do hlavního obvodu', 'kamkoli, i sériově'], vysvetleni: 'Voltmetr se paralelně připojuje i přímo ke svorkám zdroje, ne do hlavního obvodu (tam by jím musel téct proud, který má naopak neprocházet).' },
 		{ text: 'Zvýší se zapojením více zdrojů za sebou i proud v obvodu?', odpovedi: ['ano, roste i proud', 'ne, proud naopak klesne', 'ne, proud zůstane stejný'], vysvetleni: 'Vyšší napětí požene obvodem i větší proud.' },
@@ -4516,7 +4516,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Která součástka se vyrábí z konstantanu a má přesně daný odpor?', odpovedi: ['rezistor', 'pojistka', 'vodič vedení'], vysvetleni: 'Rezistor je součástka s přesně daným odporem; vyrábí se z konstantanu, který má velký odpor.' },
 		{ text: 'Jakou přibližnou teplotu má rozžhavené wolframové vlákno žárovky?', odpovedi: ['až 3000 °C', 'asi 500 °C', 'asi 1000 °C'], vysvetleni: 'Vlákno žárovky se rozžhaví na 2200–3000 °C.' },
 		{ text: 'Který spotřebič v obvodu chrání vedení tím, že se při přetížení přetaví?', odpovedi: ['pojistka', 'žárovička', 'konvička'], vysvetleni: 'Pojistka využívá zahřívání proudem — přetaví se dřív, než se přetíží celé vedení.' },
-		{ text: 'Co znamená, že elektron v kovu je „volný"?', odpovedi: ['může se pohybovat mezi atomy mřížky', 'je pevně vázán jen k jednomu atomu kovu', 'nemá žádný elektrický náboj'], vysvetleni: 'Volné elektrony nejsou vázané k jednomu atomu, proto se mohou pohybovat celým kovem.' },
+		{ text: 'Co znamená, že elektron v kovu je „volný"?', odpovedi: ['může se pohybovat mezi atomy mřížky', 'je pevně vázán jen k jednomu atomu kovu', 'postrádá elektrický náboj'], vysvetleni: 'Volné elektrony nejsou vázané k jednomu atomu, proto se mohou pohybovat celým kovem.' },
 	],
 	'fyzika/8-rocnik/elektrina/zavislost-odporu-na-vodici': [
 		{ text: 'Jak závisí odpor na délce vodiče?', odpovedi: ['delší vodič → větší odpor', 'delší vodič → menší odpor', 'nezávisí'], vysvetleni: 'V delším vodiči narazí elektrony na víc atomů.' },
@@ -4625,7 +4625,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Z čeho je odporová část proměnného rezistoru?', odpovedi: ['z odporového drátu', 'z čisté mědi', 'ze skla'], vysvetleni: 'Bývá to slitina s velkým měrným odporem, navinutá na nevodivém válci.' },
 		{ text: 'Co se u reostatu zvyšuje spolu s proudem, když se sníží jeho odpor?', odpovedi: ['výkon', 'odpor jezdce', 'počet závitů drátu'], vysvetleni: 'Se sníženým odporem obvodem proteče víc proudu, a s ním roste i výkon — proto reostat míval velké tepelné ztráty.' },
 		{ text: 'Jaký starý dopravní prostředek reostat kdysi ovládal?', odpovedi: ['tramvaje', 'malá letadla', 'staré ponorky'], vysvetleni: 'V motorových vozech se reostatem řídil chod trakčního motoru.' },
-		{ text: 'Co udělá jezdec s odporovým drátem u potenciometru?', odpovedi: ['rozdělí ho na dva sériové rezistory', 'přeruší spojení s drátem a rozpojí obvod', 'spojí ho úplně natvrdo nakrátko zkratem'], vysvetleni: 'Jezdec dělí drát na dvě části, mezi které se rozdělí napětí.' },
+		{ text: 'Co udělá jezdec s odporovým drátem u potenciometru?', odpovedi: ['rozdělí ho na dva sériové rezistory', 'přeruší spojení s drátem a rozpojí obvod', 'vytvoří zkrat v místě dotyku drátu'], vysvetleni: 'Jezdec dělí drát na dvě části, mezi které se rozdělí napětí.' },
 		{ text: 'Mimo nastavení síly zvuku se potenciometr běžně používá i k regulaci...', odpovedi: ['jasu a otáček', 'teploty vody', 'tlaku v pneumatice'], vysvetleni: 'Potenciometr se používá i k regulaci jasu displeje nebo otáček motoru.' },
 		{ text: 'Čím delší úsek odporového drátu jezdec u reostatu zapojí do obvodu, tím je odpor...', odpovedi: ['větší', 'menší', 'stále stejný'], vysvetleni: 'Odpor drátu roste s jeho délkou — čím víc závitů je zapojeno, tím větší odpor jezdec nastaví. Kdyby platilo "menší" nebo "stejný", jezdec by odpor vůbec nereguloval.' },
 		{ text: 'Co znamená "jmenovitý výkon" reostatu, například 25 W?', odpovedi: ['kolik tepla dokáže bez poškození vyzářit', 'kolik proudu jím smí bez poškození procházet', 'kolik energie dokáže bez ztrát ušetřit'], vysvetleni: 'Jmenovitý výkon udává hranici, kolik tepla drát uvnitř reostatu snese, aby se nepřepálil. Reostat proud "nevyrábí" ani energii "nešetří".' },
