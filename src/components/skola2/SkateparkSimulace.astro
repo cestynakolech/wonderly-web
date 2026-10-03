@@ -3,7 +3,7 @@
 // Režim „ideální rampa" (bez tření): posuvníky hmotnosti (20–60 kg po 20),
 // startovní výšky (1–5 m po 1) a OKAMŽITÉ výšky skatera — sloupce Ep a Ek
 // se přelévají, součet drží. Režim „skutečný skatepark": každý přejezd ubere
-// energii odpovídající přesně 1 m výšky (promění se třením v teplo), takže
+// energii odpovídající přesně 1 m výšky (promění se třením ve vnitřní energii), takže
 // maximální výška klesá po celých metrech až do zastavení. Všechny energie
 // vychází v celých joulech (g = 10). Kreslí se staticky, bez animační smyčky.
 ---
@@ -28,12 +28,16 @@
 		</g>
 		<!-- sloupce energií -->
 		<g font-size="13" font-weight="bold" text-anchor="middle">
-			<rect id="skate-bar-ep" x="556" width="30" fill="#1971c2" stroke="#2b2a26" stroke-width="2" />
-			<rect id="skate-bar-ek" x="596" width="30" fill="#f08c00" stroke="#2b2a26" stroke-width="2" />
-			<rect id="skate-bar-q" x="636" width="18" fill="#e03131" stroke="#2b2a26" stroke-width="2" />
-			<text x="571" y="330" fill="#1971c2">Ep</text>
-			<text x="611" y="330" fill="#f08c00">Ek</text>
-			<text id="skate-q-pop" x="645" y="330" fill="#e03131">Q</text>
+			<!-- sloupce posunuté o kus doleva (3. 10. 2026), ať se vpravo vejde dvouřádkový popisek;
+				skater na pravé stěně sahá nejvýš po x ≈ 537, první sloupec začíná na 550 -->
+			<rect id="skate-bar-ep" x="550" width="30" fill="#1971c2" stroke="#2b2a26" stroke-width="2" />
+			<rect id="skate-bar-ek" x="588" width="30" fill="#f08c00" stroke="#2b2a26" stroke-width="2" />
+			<rect id="skate-bar-q" x="626" width="26" fill="#e03131" stroke="#2b2a26" stroke-width="2" />
+			<text x="565" y="330" fill="#1971c2">Ep</text>
+			<text x="603" y="330" fill="#f08c00">Ek</text>
+			<!-- sloupec ztráty třením = VNITŘNÍ ENERGIE (slovo z výkladu; dřív „Q/teplo“, oprava 3. 10. 2026);
+				dva řádky po ~36 px, střed 639 → 621–657, uvnitř pravého okraje 660 -->
+			<text id="skate-q-pop" x="639" y="322" font-size="10" fill="#e03131" visibility="hidden"><tspan x="639">vnitřní</tspan><tspan x="639" dy="11">energie</tspan></text>
 		</g>
 		<text id="skate-e-text" x="300" y="30" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26"></text>
 	</svg>
@@ -100,26 +104,26 @@
 		nastav('skate-bar-ep', { y: 310 - Ep * mer, height: Math.max(Ep * mer, 0.5) });
 		nastav('skate-bar-ek', { y: 310 - Ek * mer, height: Math.max(Ek * mer, 0.5) });
 		nastav('skate-bar-q', { y: 310 - Q * mer, height: Math.max(Q * mer, 0.5) });
-		document.getElementById('skate-q-pop').textContent = rezim === 'treni' ? 'Q' : '';
+		document.getElementById('skate-q-pop').setAttribute('visibility', rezim === 'treni' ? 'visible' : 'hidden');
 		document.getElementById('skate-bar-q').setAttribute('visibility', rezim === 'treni' ? 'visible' : 'hidden');
-		document.getElementById('skate-e-text').textContent = `E = Ep + Ek${rezim === 'treni' ? ' (+ teplo Q)' : ''} = ${E0} J`;
+		document.getElementById('skate-e-text').textContent = rezim === 'treni' ? `Ep + Ek + vnitřní energie = ${E0} J` : `E = Ep + Ek = ${E0} J`;
 
-		vypocetEl.innerHTML = `Ep = ${m} × 10 × ${y} = <strong>${Ep} J</strong> &nbsp;·&nbsp; Ek = <strong>${Ek} J</strong>${rezim === 'treni' ? ` &nbsp;·&nbsp; teplo ze tření Q = <strong>${Q} J</strong>` : ''} &nbsp;·&nbsp; součet vždy <strong>${E0} J</strong>`;
+		vypocetEl.innerHTML = `Ep = ${m} × 10 × ${y} = <strong>${Ep} J</strong> &nbsp;·&nbsp; Ek = <strong>${Ek} J</strong>${rezim === 'treni' ? ` &nbsp;·&nbsp; třením přešlo do vnitřní energie <strong>${Q} J</strong>` : ''} &nbsp;·&nbsp; součet vždy <strong>${E0} J</strong>`;
 
 		if (rezim === 'idealni') {
 			if (y === hStart) stavEl.textContent = '⬆️ Nahoře: všechna energie je polohová (Ep maximální, Ek = 0). Skater na okamžik stojí.';
 			else if (y === 0) stavEl.textContent = '⬇️ Dole: všechna energie je pohybová (Ek maximální) — skater je nejrychlejší. Ep se celá proměnila na Ek.';
 			else stavEl.textContent = '↕️ Mezi tím: část energie polohová, část pohybová — přelévají se, ale součet se NEMĚNÍ (zákon zachování).';
 		} else {
-			if (hMax === 0) stavEl.textContent = `🛑 Skater zastavil — všech ${E0} J se postupně proměnilo třením na teplo (Q). Proto se na rampě bez odrážení nedá jezdit věčně.`;
-			else if (prejezd === 0) stavEl.textContent = `👉 Rozjeď skatera tlačítkem ▶ (dojede sám až do zastavení), nebo krokuj tlačítkem „další přejezd". Každý přejezd sebere energii odpovídající 1 m výšky (${m * g} J) — promění se třením na TEPLO.`;
-			else stavEl.textContent = `🛹 Přejezd č. ${prejezd}: každý přejezd sebere energii odpovídající 1 m výšky (${m * g} J) — promění se třením na TEPLO. Skater teď vyjede už jen do ${hMax} m.`;
+			if (hMax === 0) stavEl.textContent = `🛑 Skater zastavil — všech ${E0} J se postupně proměnilo třením na vnitřní energii (rampa, kolečka a vzduch se zahřály). Proto se na rampě bez odrážení nedá jezdit věčně.`;
+			else if (prejezd === 0) stavEl.textContent = `👉 Rozjeď skatera tlačítkem ▶ (dojede sám až do zastavení), nebo krokuj tlačítkem „další přejezd". Každý přejezd sebere energii odpovídající 1 m výšky (${m * g} J) — promění se třením na VNITŘNÍ ENERGII.`;
+			else stavEl.textContent = `🛹 Přejezd č. ${prejezd}: každý přejezd sebere energii odpovídající 1 m výšky (${m * g} J) — promění se třením na VNITŘNÍ ENERGII. Skater teď vyjede už jen do ${hMax} m.`;
 		}
 	}
 
 	// poloha na rampě: strana −1 (vlevo) / +1 (vpravo), výška y (m).
 	// Levá stěna je Bézier Q(40,60)-(40,280)-(200,280): pro výšku y (0–5 m, 44 px/m)
-	// je parametr t = 1 − √(y/5) a x = 40 + 160·t²; pravá stěna zrcadlově kolem x = 280.
+	// je parametr t rovný 1 − √(y/5) a x je 160·t² plus 40; pravá stěna zrcadlově kolem středu 280.
 	function umistiSkatera(strana, y) {
 		const t = 1 - Math.sqrt(Math.max(0, y) / 5);
 		const xL = 40 + 160 * t * t;
@@ -164,7 +168,9 @@
 		const pRaw = -Math.cos(Math.PI * tau);          // −1 → +1 během půlkmitu
 		const p = n % 2 === 0 ? pRaw : -pRaw;           // sudý přejezd zleva, lichý zprava
 		const startovniStrana = n % 2 === 0 ? -1 : 1;
-		const vyskaStrany = Math.sign(p) === startovniStrana || p === 0 ? hA : hB;
+		// (dřívější „|| p === 0“ nemohlo nastat: −cos(π/2) není v JS přesně 0; na plochém
+		// dně |p| ≤ 0,3 výška strany stejně nehraje roli)
+		const vyskaStrany = Math.sign(p) === startovniStrana ? hA : hB;
 		const bod = bodJizdy(p, vyskaStrany);
 		const Emech = hA + (hB - hA) * tau;             // v „metrech" (E = m·g·Emech)
 		return { p, ...bod, Emech, prejezd: n + 1, konec: false };
@@ -195,7 +201,7 @@
 			nastav('skate-bar-q', { y: 310 - Q * mer, height: Math.max(Q * mer, 0.5), visibility: 'visible' });
 			if (s.prejezd !== posledniPrejezd && !s.konec) {
 				posledniPrejezd = s.prejezd;
-				stavEl.textContent = `🛹 Přejezd č. ${s.prejezd}: energie ubývá, na druhé straně vyjede už jen do ${Math.max(h0 - s.prejezd, 0)} m — ztráta se mění třením na teplo Q.`;
+				stavEl.textContent = `🛹 Přejezd č. ${s.prejezd}: energie ubývá, na druhé straně vyjede už jen do ${Math.max(h0 - s.prejezd, 0)} m — ztráta se mění třením na vnitřní energii.`;
 			}
 		}
 		if (s.konec) {
@@ -223,7 +229,7 @@
 			stavEl.textContent = '🛹 Skater jede — sleduj, jak se sloupce Ep a Ek přelévají (na krajích samá Ep, dole samá Ek). Zastav ho a uvidíš přesná čísla.';
 		} else {
 			prejezd = 0;         // jízda se třením startuje z plné výšky a sama dojede do zastavení
-			stavEl.textContent = '🛹 Skater vyráží z plné výšky — každý přejezd vyjede o 1 m níž, ztracená energie se mění na teplo Q. Sleduj červený sloupec.';
+			stavEl.textContent = '🛹 Skater vyráží z plné výšky — každý přejezd vyjede o 1 m níž, ztracená energie se mění třením na vnitřní energii. Sleduj červený sloupec.';
 		}
 		document.getElementById('skate-play').textContent = '⏸ zastav (ukáže přesná čísla)';
 		vypocetEl.style.opacity = '0.4';
@@ -241,7 +247,7 @@
 	});
 	document.getElementById('skate-dalsi').addEventListener('click', () => {
 		const hStart = +sh.value;
-		if (hStart - prejezd > 0) prejezd++;
+		if (prejezd < hStart) prejezd++;
 		prekresli();
 	});
 	document.getElementById('skate-reset').addEventListener('click', () => { prejezd = 0; prekresli(); });

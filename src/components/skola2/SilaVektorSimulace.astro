@@ -16,7 +16,7 @@
 		Sílu kreslíme jako <strong>šipku</strong>: začíná v <strong>působišti</strong>
 		(místo, kde síla působí — tady madlo na bedně), <strong>směr</strong> šipky je
 		směr síly a <strong>délka</strong> šipky odpovídá její <strong>velikosti</strong>
-		(F v newtonech, N). Bednu stále táhne dolů i <strong>tíhová síla Fg = 30 N</strong>.
+		(F v newtonech, N). Bednu stále táhne dolů i <strong>tíhová síla Fg&nbsp;=&nbsp;30&nbsp;N</strong>.
 		Nastav sílu a zkus bednu rozjet!
 	</p>
 
@@ -30,7 +30,7 @@
 	<div class="sv-ovladani">
 		<label>velikost síly F
 			<input id="sv-f" type="range" min="0" max="50" step="5" value="10" />
-			<output id="sv-f-t">10</output> N
+			<output id="sv-f-t">10</output>&nbsp;N
 		</label>
 	</div>
 
@@ -55,6 +55,8 @@
 	const Fg = 30; // tíhová síla bedny v N (pevná, gravitace vždy dolů) — stejné značení jako v temata.ts (Fg = m·g)
 	const AX = 200, AY = 240; // působiště síly (madlo na vrchu bedny), lokální souřadnice bedny při ox=oy=0
 	const SCALE = 3; // px na 1 N (jako "měřítko" z učebnice)
+	// „Fg = 30 N“ se na 400 px lámalo mezi číslem a jednotkou → v textech pod scénou pevné mezery (NBSP)
+	const vel = (znacka, n) => `${znacka}\u00a0=\u00a0${n}\u00a0N`;
 	const EPS = 1e-6; // tolerance pro porovnání desetinného výsledku sin/cos s nulou
 	const VIEW_W = 500, VIEW_H = 400, OKRAJ = 4; // rozměry viewBoxu scény a bezpečný okraj pro popisky i tvary
 
@@ -90,7 +92,7 @@
 		return { dx, dy };
 	}
 
-	// Doořízne vodorovný posun `ox`, aby při velké síle (dlouhá šipka + posunutá bedna
+	// Doořízne vodorovný posun `ox`, aby při velké síle (dlouhá šipka a k tomu posunutá bedna
 	// dohromady) nevyjel žádný TVAR (bedna, šipka) ze scény — počítá se zvlášť od
 	// `poloha()`, protože závisí i na délce šipky (F, deg), ne jen na rychlosti pohybu.
 	function oriznoutOx(ox, F, deg) {
@@ -189,16 +191,18 @@
 		const el = $('sv-vysledek');
 		let text;
 		if (F === 0) {
-			text = `Na bednu nepůsobí žádná tažná síla — jen tíhová síla Fg = ${Fg} N, která ji tlačí k podlaze. Bedna se proto nikam nerozjíždí.`;
-		} else if (nahoru > 0 && liftN === 0 && jeNula(vodorovna)) {
-			text = `Síla míří nahoru, ale není větší než tíha bedny (Fg = ${Fg} N) — bedna zůstává na podlaze.`;
-		} else if (nahoru > 0 && liftN === 0 && !jeNula(vodorovna)) {
-			const smerVodorovny = vodorovna > 0 ? 'doprava' : 'doleva';
-			text = `Síla míří šikmo nahoru, ale její svislá část nestačí zvednout bednu (tíha Fg = ${Fg} N) — bedna se proto jen sune po podlaze ${smerVodorovny}.`;
+			text = `Na bednu nepůsobí žádná tažná síla — jen tíhová síla ${vel('Fg', Fg)}, která ji tlačí k podlaze. Bedna se proto nikam nerozjíždí.`;
+		// (nulová síla je vyřízená výš, směry jsou jen 0–180°, takže „míří nahoru“ = svislá část není nulová;
+		// dřív se tu svislá část porovnávala přímo s nulou, jenže sin 180° v JS není přesně nula → u směru doleva psalo „míří šikmo nahoru“)
+		} else if (!jeNula(nahoru) && liftN === 0 && jeNula(vodorovna)) {
+			text = `Síla míří nahoru, ale není větší než tíha bedny (${vel('Fg', Fg)}) — bedna zůstává na podlaze.`;
+		} else if (!jeNula(nahoru) && liftN === 0 && !jeNula(vodorovna)) {
+			const smerVodorovny = vodorovna < 0 ? 'doleva' : 'doprava';
+			text = `Síla míří šikmo nahoru, ale její svislá část nestačí zvednout bednu (tíha ${vel('Fg', Fg)}) — bedna se proto jen sune po podlaze ${smerVodorovny}.`;
 		} else if (liftN > 0) {
-			text = `Síla (F = ${F} N) je větší než tíha Fg = ${Fg} N — bedna se ${!jeNula(vodorovna) ? 'zvedá a zároveň sune do strany' : 'zvedá ze země'}!`;
+			text = `Síla (${vel('F', F)}) je větší než tíha ${vel('Fg', Fg)} — bedna se ${!jeNula(vodorovna) ? 'zvedá a zároveň sune do strany' : 'zvedá ze země'}!`;
 		} else {
-			text = `Bedna se rozjíždí směrem ${popisSmeru(deg)} — síla F = ${F} N.`;
+			text = `Bedna se rozjíždí směrem ${popisSmeru(deg)} — síla ${vel('F', F)}.`;
 		}
 		el.textContent = text;
 	}

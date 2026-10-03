@@ -26,7 +26,10 @@
 // křivka nikdy nepřekryje ani neuseknte — stejný trik jako jinde na webu.
 //
 // Čísla se drží výkladu (temata.ts, „vlastnosti-stridaveho-proudu"): 230 V,
-// 50 Hz, T = 0,02 s = 20 ms. Maximum U ≈ 325 V (přesně 230·√2 ≈ 325,3 V) —
+// 50 Hz, T = 1 : 50 s = 20 ms (25 Hz → 40 ms, 100 Hz → 10 ms — obojí ve výkladu).
+// Oprava 3. 10. 2026: pod scénou B už není „u = Um · sin(úhel)“ (goniometrie je nad
+// rámec 9. ročníku), změna okamžitého napětí je popsaná slovy; scéna A už neukazuje
+// „0,02 s“ (výklad to číslo nemá, píše „T = 1 : 50 s = 20 ms“). Maximum U ≈ 325 V (přesně 230·√2 ≈ 325,3 V) —
 // NIKDE netvrdíme „230 · 1,4 = 325" (1,4 je jen zaokrouhlený koeficient,
 // přesné číslo by dalo 322 V, ne 325).
 //
@@ -212,7 +215,7 @@
 		Okamžik na křivce: <output id="sp-b-out-t"></output>
 		<input type="range" id="sp-b-cas" min="0" max="20" step="5" value="5" />
 	</label>
-	<p class="sp-vzorec">u = U<sub>m</sub> · sin(úhel) — okamžité napětí se v čase mění, ale žárovky reagují na EFEKTIVNÍ hodnotu 230 V, proto svítí/hřejí pořád stejně, ať posuvník ukazuje cokoli.</p>
+	<p class="sp-vzorec">Okamžité napětí u se v čase pořád mění — roste k maximu, klesá přes nulu k opačnému maximu a zase zpět. Žárovky ale reagují na EFEKTIVNÍ hodnotu 230 V, proto svítí/hřejí pořád stejně, ať posuvník ukazuje cokoli.</p>
 	<p class="sp-stav" id="sp-b-stav"></p>
 </section>
 
@@ -263,7 +266,6 @@
 
 	let frekvence = 50;
 	let ukazatDc = false;
-	const cz = (x, d = 2) => x.toLocaleString('cs-CZ', { minimumFractionDigits: d, maximumFractionDigits: d });
 
 	function prekresliA() {
 		const T = TmsZFrekvence(frekvence);
@@ -275,7 +277,8 @@
 		nastav('sp-a-dc', { visibility: ukazatDc ? 'visible' : 'hidden' });
 		nastav('sp-a-dc-label', { visibility: ukazatDc ? 'visible' : 'hidden' });
 		g('sp-a-dc-tl').textContent = ukazatDc ? '➖ skrýt stejnosměrné napětí' : '➕ přidat stejnosměrné napětí pro srovnání';
-		g('sp-a-vzorec').innerHTML = `T = 1 : f = 1 : ${frekvence} = <strong>${cz(T / 1000)} s</strong> = <strong>${T} ms</strong>`;
+		// zápis přesně jako ve výkladu (perioda v celých milisekundách) — bez desetinného čísla v sekundách, které výklad nemá
+		g('sp-a-vzorec').innerHTML = `T = 1 : f = 1 : ${frekvence} s = <strong>${T} ms</strong>`;
 		const n = pocetPeriodA(frekvence);
 		const jsou = n === 1 ? 'je' : 'jsou';
 		const perioda = n === 1 ? 'perioda' : 'periody';
@@ -308,7 +311,7 @@
 
 	// ═══════════════════ Scéna B: efektivní a maximální hodnota ═════════════════
 	// ČISTÉ FUNKCE (bez DOM — kontrolovatelné výpočtem)
-	const B_X0 = 60, B_SIRKA = 320, B_Y0 = 210, B_AMPL = 130, B_T = 20; // T = 20 ms (síť, 50 Hz)
+	const B_X0 = 60, B_SIRKA = 320, B_Y0 = 210, B_AMPL = 130, B_T = 20; // perioda 20 ms (síť, 50 Hz)
 	const UM = 325, UEF = 230;
 	const PXV = B_AMPL / UM; // 0,4 px na 1 V
 
@@ -349,10 +352,10 @@
 		const p = poziceBoduB(t);
 		g('sp-b-out-t').textContent = `t = ${t} ms`;
 		nastav('sp-b-bod', { cx: p.x, cy: p.y });
-		// popisek okamžité hodnoty: u kladného vrcholu jde NAD bod, jinde POD —
-		// ať nikdy nevyjede mimo plátno (vrchol je jen 16 px pod horním okrajem).
-		const nad = p.y > 40;
-		nastav('sp-b-u-okamzite', { x: Math.min(p.x + 10, 330), y: nad ? p.y - 14 : p.y + 24 });
+		// popisek okamžité hodnoty vždy NAD bodem: nejvyšší bod (vrchol 325 V) leží na y 80,
+		// popisek tedy na y 66 — uvnitř plátna. (Dřívější větev „pod bodem pro y ≤ 40“
+		// nemohla nastat ani v jedné z 5 poloh posuvníku, byla to mrtvá podmínka.)
+		nastav('sp-b-u-okamzite', { x: Math.min(p.x + 10, 330), y: p.y - 14 });
 		g('sp-b-u-okamzite').textContent = `u = ${p.u} V`;
 		g('sp-b-mobil').textContent = `t = ${t} ms: okamžité u = ${p.u} V (maximum ${UM} V) · obě žárovky svítí stejně: ~ ${UEF} V efektivní = ${UEF} V stejnosměrné`;
 
@@ -360,7 +363,7 @@
 		if (p.u === 0) {
 			vysvetleni = `Při t = ${t} ms prochází okamžité napětí NULOU (u = 0 V) — proud právě mění směr. Při 50 Hz se to stane stokrát za sekundu, a přesto žárovky nepohasnou.`;
 		} else if (Math.abs(p.u) === UM) {
-			vysvetleni = `Při t = ${t} ms je okamžité napětí na svém ${p.u > 0 ? 'MAXIMU' : 'MINIMU (opačná polarita)'}: u = ${p.u} V. Taková špička nastává dvakrát za periodu.`;
+			vysvetleni = `Při t = ${t} ms je okamžité napětí na svém ${p.u === UM ? 'MAXIMU' : 'MINIMU (opačná polarita)'}: u = ${p.u} V. Taková špička nastává dvakrát za periodu.`;
 		} else {
 			vysvetleni = `Při t = ${t} ms je okamžité napětí u = ${p.u} V.`;
 		}

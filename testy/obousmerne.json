@@ -622,6 +622,30 @@
 			"podvrh": "Na kopii (scratchpad, src+testy, originál nedotčen) byla v prelozCil nástroje vata-zapis-navrhy.mjs podvržena chyba překladu cíle: (A) qIndex: i + 1 → test skončil kódem 1, 28× SELHALO; (B) const i = 0 → kód 1, 23× SELHALO. Kontrolor 55fe83d: stará verze nástroje bez překladu → 'blok nenalezen', kód 1. Test tedy nepadá jen na 'blok nenalezen', ale i na špatný zdrojový cíl (text otázky i distraktoru).",
 			"zdravy": "Nad nezměněným nástrojem test projde kódem 0: 8 klíčů shrnutí míří na správnou zdrojovou otázku a distraktor, podvržený klíč hlásí 'blok nenalezen', bez schválení se zapíše 0, kolize je hlášena se zdrojovým klíčem. Suchý běh, nic se nezapisuje.",
 			"overeno": "2026-10-03"
+		},
+		"simulace/treni.mjs": {
+			"test": "testy/simulace/treni.mjs (spouští testy/vsechny-simulace.mjs)",
+			"podvrh": "Původní komponenta (HEAD před opravou 3. 10. 2026, kopie mimo repo): test skončil kódem 1, 15 × ❌ — součinitele dřeva 0,4 / 0,5 a led/beton nesouhlasí s tabulkou výkladu, krok síly 10 N nedovolí rovnováhu F = Ft. Mutační test `node testy/mutace.mjs treni`: 19/19 mutací odhaleno (mj. změna g, obrácená hystereze, zvýraznění tlačítka).",
+			"zdravy": "Nad opravenou komponentou projde všech 43 kontrol kódem 0: součinitele 0,65/0,30, 0,55/0,35, 0,15/0,10 čte test přímo z výkladu temata.ts, příklad 50 kg → 175 N sedí, 3 × 5 × 161 poloh posuvníků v celých newtonech.",
+			"overeno": "2026-10-03"
+		},
+		"simulace/stridavy-proud.mjs": {
+			"test": "testy/simulace/stridavy-proud.mjs (spouští testy/vsechny-simulace.mjs)",
+			"podvrh": "Původní komponenta (kopie mimo repo): kód 1, 7 × ❌ — „u = Um · sin(úhel)“ pod scénou B a desetinné „0,02 s“ (výklad má „T = 1 : 50 s = 20 ms“). Mutační test `node testy/mutace.mjs stridavy`: 22/22 odhaleno (po odstranění dvou mrtvých podmínek, které nemohly nastat).",
+			"zdravy": "Nad opravenou komponentou projde všech 77 kontrol kódem 0 (sinusoidy přepočtené bod po bodu, 5 poloh posuvníku 0/325/0/−325/0 V, opora 230 V, 325 V, 25/50/100 Hz, 40/20/10 ms ve výkladu).",
+			"overeno": "2026-10-03"
+		},
+		"simulace/sila-vektor.mjs": {
+			"test": "testy/simulace/sila-vektor.mjs (spouští testy/vsechny-simulace.mjs)",
+			"podvrh": "Původní komponenta (kopie mimo repo): kód 1, 7 × ❌ — „Fg = 30 N“ a „F = … N“ s obyčejnými mezerami v textu mimo SVG (lámalo se na 400 px). Mutační test `node testy/mutace.mjs sila-vektor`: 25/25 odhaleno ve třech po sobě jdoucích bězích (po nahrazení podmínky `nahoru > 0`, která kvůli sin 180° ≠ 0 u směru doleva psala „míří šikmo nahoru“).",
+			"zdravy": "Nad opravenou komponentou projde všech 34 kontrol kódem 0 (55 stavů 11 velikostí × 5 směrů, šipka z působiště 3 px/N, hrot, popisky uvnitř scény, animace a ořez).",
+			"overeno": "2026-10-03"
+		},
+		"simulace/skatepark.mjs": {
+			"test": "testy/simulace/skatepark.mjs (spouští testy/vsechny-simulace.mjs)",
+			"podvrh": "Původní komponenta (kopie mimo repo): kód 1, 11 × ❌ — popisek „Q“ a texty „teplo Q“ místo „vnitřní energie“ z výkladu. Mutační test `node testy/mutace.mjs skatepark`: 25/25 odhaleno (po odstranění mrtvé podmínky `p === 0` a rovnocenné `> 0`).",
+			"zdravy": "Nad opravenou komponentou projde všech 35 kontrol kódem 0 (60 poloh ideální rampy, 15 kombinací se třením, jízda snímek po snímku, čistá funkce stavJizdy přepočtená nezávisle).",
+			"overeno": "2026-10-03"
 		}
 	}
 }

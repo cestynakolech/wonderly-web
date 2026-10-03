@@ -1,9 +1,11 @@
 ---
 // Třecí síla (F7): bedna na podlaze. Posuvníky hmotnosti (10–50 kg po 10)
-// a tažné síly (0–400 N po 10), výběr povrchu. Stejné vzorce jako ve výkladu:
-// Fn = Fg = m·10, Ft = Fn·f — dřevo f = 0,4 sedí s řešeným příkladem (50 kg → 200 N).
-// Klidový součinitel je o 0,1 větší než smykový („v klidu je tření větší").
-// Všechny meze vychází v celých newtonech. Stavový automat drží hysterezi:
+// a tažné síly (0–400 N po 5), výběr dvojice materiálů. Stejné vzorce jako ve výkladu:
+// Fn = Fg = m·10, Ft = Fn·f. Součinitele (v klidu / při pohybu) jsou PŘESNĚ z tabulky
+// výkladu (temata.ts, podtéma třecí síla): dřevo na dřevě 0,65 / 0,30, ocel na dřevě
+// 0,55 / 0,35 (= řešený příklad 50 kg → Ft = 500 · 0,35 = 175 N), ocel na oceli
+// 0,15 / 0,10. Oprava 3. 10. 2026: dřív dřevo 0,5 / 0,4 a led/beton bez opory ve výkladu.
+// Fn je násobek 100 → všechny meze vychází v celých newtonech (násobcích 5). Stavový automat drží hysterezi:
 // bedna se utrhne až nad mezí klidového tření, ale zastaví se, teprve když
 // síla klesne POD smykové tření — přesně jev „utrženou skříň už tlačíš snáz".
 ---
@@ -12,9 +14,9 @@
 	<h2><span class="podtrh">Utrhni bednu — klidové × smykové tření 🕹️</span></h2>
 	<p>Táhni za bednu a sleduj <strong>třecí sílu</strong>. Dokud bedna stojí, klidové tření tvou sílu přesně dorovnává. Utrhne se, až zatáhneš víc než mez — a pak už k pohybu stačí síla menší!</p>
 	<p id="treni-povrchy">
-		<button type="button" class="treni-tl" data-povrch="led">🧊 led</button>
-		<button type="button" class="treni-tl treni-aktivni" data-povrch="drevo">🪵 dřevo</button>
-		<button type="button" class="treni-tl" data-povrch="beton">🧱 beton</button>
+		<button type="button" class="treni-tl treni-aktivni" data-povrch="drevo">🪵 dřevo na dřevě</button>
+		<button type="button" class="treni-tl" data-povrch="ocel-drevo">🔩 ocel na dřevě</button>
+		<button type="button" class="treni-tl" data-povrch="ocel">⚙️ ocel na oceli</button>
 	</p>
 	<svg id="treni-svg" viewBox="0 0 660 300" role="img" aria-label="Bedna tažená po podlaze a síly, které na ni působí">
 		<!-- podlaha -->
@@ -22,7 +24,7 @@
 		<text id="treni-podlaha-text" x="330" y="268" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26"></text>
 		<!-- bedna -->
 		<g id="treni-bedna">
-			<rect x="270" y="120" width="120" height="100" fill="#ffd8a8" stroke="#2b2a26" stroke-width="3.5" rx="6" />
+			<rect id="treni-bedna-rect" x="270" y="120" width="120" height="100" fill="#ffd8a8" stroke="#2b2a26" stroke-width="3.5" rx="6" />
 			<line x1="270" y1="150" x2="390" y2="150" stroke="#2b2a26" stroke-width="2" />
 			<text id="treni-bedna-text" x="330" y="192" text-anchor="middle" font-size="19" font-weight="bold" fill="#2b2a26"></text>
 		</g>
@@ -48,7 +50,7 @@
 	</label>
 	<label class="sim-posuvnik">
 		Tažná síla F: <output id="treni-out-f"></output>
-		<input type="range" id="treni-slider-f" min="0" max="400" step="10" value="0" />
+		<input type="range" id="treni-slider-f" min="0" max="400" step="5" value="0" />
 	</label>
 	<p class="treni-vzorec" id="treni-vypocet"></p>
 	<p class="treni-stav" id="treni-stav"></p>
@@ -56,9 +58,10 @@
 
 <script>
 	const POVRCHY = {
-		led: { nazev: 'LED (f = 0,1 · v klidu 0,2)', fKlid: 0.2, fSmyk: 0.1, barva: '#d0ebff' },
-		drevo: { nazev: 'DŘEVO (f = 0,4 · v klidu 0,5)', fKlid: 0.5, fSmyk: 0.4, barva: '#deb887' },
-		beton: { nazev: 'BETON (f = 0,6 · v klidu 0,7)', fKlid: 0.7, fSmyk: 0.6, barva: '#ced4da' },
+		// hodnoty z tabulky výkladu (v klidu / při pohybu); bedna a podlaha mají barvu materiálu
+		drevo: { nazev: 'DŘEVO NA DŘEVĚ', fKlid: 0.65, fSmyk: 0.3, barva: '#deb887', bedna: '#ffd8a8' },
+		'ocel-drevo': { nazev: 'OCEL NA DŘEVĚ', fKlid: 0.55, fSmyk: 0.35, barva: '#deb887', bedna: '#ced4da' },
+		ocel: { nazev: 'OCEL NA OCELI', fKlid: 0.15, fSmyk: 0.1, barva: '#adb5bd', bedna: '#ced4da' },
 	};
 	let povrch = 'drevo';
 	let pohyb = false;
@@ -70,13 +73,13 @@
 	const vypocetEl = document.getElementById('treni-vypocet');
 	const stavEl = document.getElementById('treni-stav');
 	const povrchyEl = document.getElementById('treni-povrchy');
-	const cz = (n) => String(n).replace('.', ',');
+	const cz = (n) => n.toFixed(2).replace('.', ','); // jako v tabulce výkladu: 0,30 · 0,65
 
 	function prekresli() {
 		const m = +sliderM.value;
 		const F = +sliderF.value;
 		const p = POVRCHY[povrch];
-		const Fn = m * 10;                             // Fn = Fg = m·g, g = 10
+		const Fn = m * 10;                             // Fn = Fg = m·g, g je 10 N/kg
 		const mezKlid = Math.round(p.fKlid * Fn);      // vždy celé (Fn násobek 100)
 		const FtSmyk = Math.round(p.fSmyk * Fn);
 
@@ -89,7 +92,8 @@
 		outF.textContent = F + ' N';
 		document.getElementById('treni-bedna-text').textContent = m + ' kg';
 		document.getElementById('treni-podlaha').setAttribute('fill', p.barva);
-		document.getElementById('treni-podlaha-text').textContent = p.nazev;
+		document.getElementById('treni-bedna-rect').setAttribute('fill', p.bedna);
+		document.getElementById('treni-podlaha-text').textContent = `${p.nazev} (f = ${cz(p.fSmyk)} · v klidu ${cz(p.fKlid)})`;
 		document.getElementById('treni-pohyb').setAttribute('opacity', pohyb ? '0.9' : '0');
 
 		// šipky: 0,35 px na newton

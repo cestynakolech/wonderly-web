@@ -1,0 +1,180 @@
+#!/usr/bin/env node
+// Ověření TreniSimulace.astro (F7 „Třecí síla“, bedna tažená po podložce).
+// Spustí SKUTEČNÝ skript komponenty v Node s náhradním DOM.
+//
+// Proč vznikl (oprava 3. 10. 2026, odložený nález téma 2): simulace měla dřevo
+// f = 0,4 / v klidu 0,5 a k tomu led a beton — výklad přitom uvádí tabulku
+// dřevo na dřevě 0,65 / 0,30, ocel na dřevě 0,55 / 0,35, ocel na oceli 0,15 / 0,10
+// a řešený příklad 50 kg ocel na dřevě → Ft = 175 N. Test proto:
+//  1) skript doběhne a ovladače jsou připojené;
+//  2) každá dvojice materiálů ze simulace má součinitele PŘESNĚ podle tabulky
+//     ve výkladu (čte se ze src/data/temata.ts, ne z komponenty);
+//  3) ve výkladu není materiál, který by simulace ukazovala navíc (led, beton…);
+//  4) řešený příklad výkladu (ocel na dřevě, 50 kg → 175 N) dá simulace stejně;
+//  5) všechny polohy posuvníků (3 povrchy × 5 hmotností × 81 sil, tam i zpět)
+//     dávají celé newtony, správnou hysterezi (utrhne se NAD mezí klidu, zastaví
+//     POD smykovým třením), správné šipky a stav — včetně rovnováhy F = Ft;
+//  6) stav viditelný v náhledu jsou SVG atributy (barva bedny/podlahy, šipky, čárky).
+//
+// Spuštění: node testy/simulace/treni.mjs [cesta] (bez argumentu: src/components/skola2/TreniSimulace.astro)
+import { readFileSync } from 'node:fs';
+import vm from 'node:vm';
+
+const cesta = process.argv[2] || 'src/components/skola2/TreniSimulace.astro';
+const zdroj = readFileSync(cesta, 'utf8');
+const skript = zdroj.match(/<script>([\s\S]*?)<\/script>/)[1];
+const html = zdroj.replace(/^---[\s\S]*?---/, '').replace(/<script>[\s\S]*?<\/script>/, '').replace(/<style>[\s\S]*?<\/style>/g, '');
+const temata = readFileSync(new URL('../../src/data/temata.ts', import.meta.url), 'utf8');
+
+let chyby = 0;
+const ok = (p, t) => { console.log(`${p ? '✅' : '❌'} ${t}`); if (!p) chyby++; };
+const konec = () => { console.log(`\n${chyby ? chyby + ' chyb' : 'vše v pořádku'}`); process.exit(chyby ? 1 : 0); };
+
+// ---------- výklad: blok podtématu s interakcí 'treni' ----------
+const radky = temata.split('\n');
+const iInt = radky.findIndex((r) => /interakce: 'treni',/.test(r));
+const vyklad = iInt >= 0 ? radky.slice(iInt, iInt + 8).join('\n').replace(/ /g, ' ') : '';
+ok(vyklad.length > 1000, 'výklad podtématu s interakcí „treni“ je v temata.ts nalezen');
+const tabulka = {};
+for (const m of vyklad.matchAll(/<li>([^<.]+?) \.\.\. (\d,\d+) \/ (\d,\d+)<\/li>/g)) tabulka[m[1].replace(/\s*\(.*\)/, '').trim()] = [m[2], m[3]];
+ok(tabulka['dřevo na dřevě'] && tabulka['ocel na dřevě'] && tabulka['ocel na oceli'], `tabulka součinitelů ve výkladu: ${JSON.stringify(tabulka)}`);
+
+// ---------- náhradní DOM ----------
+const prvky = new Map();
+for (const m of html.matchAll(/<(\w+)\s([^>]*?)\/?>/g)) {
+	const atr = {};
+	for (const a of m[2].matchAll(/([\w-]+)="([^"]*)"/g)) atr[a[1]] = a[2];
+	if (!atr.id) continue;
+	prvky.set(atr.id, {
+		id: atr.id, tag: m[1], atributy: { ...atr }, textContent: '', innerHTML: '', style: {}, posluchaci: {},
+		value: atr.value ?? '',
+		classList: { add() {}, remove() {}, toggle() {} },
+		setAttribute(k, v) { this.atributy[k] = String(v); },
+		getAttribute(k) { return this.atributy[k]; },
+		addEventListener(ev, fn) { (this.posluchaci[ev] ||= []).push(fn); },
+		querySelectorAll: () => [],
+	});
+}
+const document = { getElementById: (id) => prvky.get(id) || null, querySelectorAll: () => [] };
+vm.createContext({ document, console });
+let vyjimka = null;
+try { vm.runInContext(skript, vm.createContext({ document, console })); } catch (e) { vyjimka = e; }
+ok(!vyjimka, `skript komponenty doběhne bez výjimky${vyjimka ? ' — ' + String(vyjimka).split('\n')[0] : ''}`);
+if (vyjimka) konec();
+
+const el = (id) => prvky.get(id);
+const at = (id, k) => el(id)?.getAttribute(k); // chybějící prvek = nesouhlas, ne pád testu
+const posun = (id, v) => { el(id).value = String(v); (el(id).posluchaci.input || []).forEach((f) => f()); };
+// tlačítka povrchů nemají id → náhradní tlačítka podle data-povrch ve zdroji; třída „aktivní“ se zaznamenává
+const tlacitkaDom = [...html.matchAll(/<button [^>]*class="([^"]*)" data-povrch="([\w-]+)"/g)].map((m) => {
+	const tridy = new Set(m[1].split(' '));
+	return { dataset: { povrch: m[2] }, tridy, classList: { toggle: (t, ano) => (ano ? tridy.add(t) : tridy.delete(t)) } };
+});
+if (el('treni-povrchy')) el('treni-povrchy').querySelectorAll = (sel) => (sel === '.treni-tl' ? tlacitkaDom : []);
+const aktivni = () => tlacitkaDom.filter((b) => b.tridy.has('treni-aktivni')).map((b) => b.dataset.povrch).join();
+const zvolPovrch = (klic) => (el('treni-povrchy').posluchaci.click || []).forEach((f) => f({ target: { closest: (sel) => (sel === '.treni-tl' ? tlacitkaDom.find((b) => b.dataset.povrch === klic) || { dataset: { povrch: klic } } : null) } }));
+
+ok((el('treni-slider-m').posluchaci.input || []).length === 1 && (el('treni-slider-f').posluchaci.input || []).length === 1, 'oba posuvníky jsou připojené');
+ok((el('treni-povrchy').posluchaci.click || []).length === 1, 'výběr povrchu je připojený');
+ok(at('treni-slider-m', 'min') === '10' && at('treni-slider-m', 'max') === '50' && at('treni-slider-m', 'step') === '10', 'hmotnost 10–50 kg po 10');
+ok(at('treni-slider-f', 'min') === '0' && at('treni-slider-f', 'max') === '400' && at('treni-slider-f', 'step') === '5', 'tažná síla 0–400 N po 5 (rovnováha F = Ft musí jít trefit)');
+
+// ---------- výchozí stav ----------
+ok(el('treni-out-m').textContent === '20 kg' && el('treni-out-f').textContent === '0 N', `výchozí stav: ${el('treni-out-m').textContent}, ${el('treni-out-f').textContent}`);
+ok(el('treni-podlaha-text').textContent === 'DŘEVO NA DŘEVĚ (f = 0,30 · v klidu 0,65)', `výchozí povrch: ${el('treni-podlaha-text').textContent}`);
+ok(at('treni-sipka-f', 'visibility') === 'hidden' && at('treni-sipka-t', 'visibility') === 'hidden', 'bez tahu nejsou vidět šipky');
+ok(el('treni-stav').textContent.includes('Zatáhni'), 'bez tahu výzva „Zatáhni“');
+
+// ---------- povrchy ze zdroje vs. tabulka výkladu ----------
+const tlacitka = [...html.matchAll(/data-povrch="([\w-]+)">[^<]*?([a-zěščřžýáíéůú][^<]*)<\/button>/g)].map((m) => ({ klic: m[1], text: m[2].trim() }));
+ok(tlacitka.map((t) => t.klic).join() === 'drevo,ocel-drevo,ocel', `tlačítka povrchů: ${tlacitka.map((t) => t.klic + '=' + t.text).join(', ')}`);
+const cislo = (s) => Number(s.replace(',', '.'));
+const POVRCHY = {};
+for (const t of tlacitka) {
+	zvolPovrch(t.klic);
+	const pop = el('treni-podlaha-text').textContent;
+	const m = pop.match(/^(.+) \(f = (\d,\d\d) · v klidu (\d,\d\d)\)$/);
+	const radek = tabulka[t.text];
+	ok(!!m && pop.startsWith(t.text.toUpperCase()), `${t.text}: popisek podlahy „${pop}“`);
+	ok(!!radek && m && radek[0] === m[3] && radek[1] === m[2], `${t.text}: součinitele v klidu ${m && m[3]} / při pohybu ${m && m[2]} = tabulka výkladu ${radek ? radek.join(' / ') : 'CHYBÍ'}`);
+	if (m) POVRCHY[t.klic] = { klid: cislo(m[3]), smyk: cislo(m[2]), text: t.text };
+	ok(aktivni() === t.klic, `${t.text}: zvýrazněné je právě tohle tlačítko (${aktivni()})`);
+	ok(at('treni-podlaha', 'fill') === (t.klic === 'ocel' ? '#adb5bd' : '#deb887'), `${t.text}: podlaha má barvu ${t.klic === 'ocel' ? 'oceli' : 'dřeva'} (${at('treni-podlaha', 'fill')})`);
+	ok(at('treni-bedna-rect', 'fill') === (t.klic === 'drevo' ? '#ffd8a8' : '#ced4da'), `${t.text}: bedna má barvu ${t.klic === 'drevo' ? 'dřeva' : 'oceli'} (${at('treni-bedna-rect', 'fill')})`);
+}
+ok(!/\b(led|beton)\b/i.test(html.replace(/<!--[\s\S]*?-->/g, '')) && !/led:|beton:/.test(skript), 'simulace už neukazuje led ani beton (bez opory ve výkladu)');
+
+// ---------- řešený příklad výkladu ----------
+const priklad = vyklad.match(/m = (\d+) kg, f = (\d,\d+) \(ocel na dřevě při pohybu\)/);
+const vysledekPrikladu = vyklad.match(/= <strong>(\d+) N<\/strong><\/p>/);
+ok(!!priklad && !!vysledekPrikladu, `výklad má řešený příklad ocel na dřevě (${priklad && priklad[0]} → ${vysledekPrikladu && vysledekPrikladu[1]} N)`);
+zvolPovrch('ocel-drevo');
+posun('treni-slider-m', 50);
+ok(el('treni-vypocet').innerHTML.includes(`smykové Ft = ${priklad && priklad[2]} × 500 = <strong>${vysledekPrikladu && vysledekPrikladu[1]} N</strong>`), `simulace dá pro příklad totéž: ${el('treni-vypocet').innerHTML.replace(/<[^>]+>|&nbsp;/g, '')}`);
+
+// ---------- všechny polohy posuvníků ----------
+const k = 0.35;
+let celaCisla = true, hystereze = true, sipky = true, stavy = true, vzorec = true, obrazek = true;
+const doslo = {};
+for (const [klic, p] of Object.entries(POVRCHY)) {
+	zvolPovrch(klic);
+	for (let m = 10; m <= 50; m += 10) {
+		posun('treni-slider-f', 0);
+		posun('treni-slider-m', m);
+		const Fn = m * 10, mez = Math.round(p.klid * Fn), smyk = Math.round(p.smyk * Fn);
+		if (Math.abs(p.klid * Fn - mez) > 1e-9 || Math.abs(p.smyk * Fn - smyk) > 1e-9) celaCisla = false;
+		let jede = false;
+		const sily = [];
+		for (let F = 0; F <= 400; F += 5) sily.push(F);
+		for (let F = 395; F >= 0; F -= 5) sily.push(F);
+		for (const F of sily) {
+			posun('treni-slider-f', F);
+			if (!jede && F > mez) jede = true;
+			if (jede && F < smyk) jede = false;
+			const Ft = jede ? smyk : Math.min(F, mez);
+			const popT = el('treni-pop-t').textContent;
+			if (popT !== (Ft > 0 ? `Ft = ${Ft} N` : '')) { hystereze = false; if (hystereze === false && !doslo.chyba) doslo.chyba = `${klic} ${m} kg F=${F}: čekáno Ft=${Ft}, je „${popT}“`; }
+			if (Math.abs(+at('treni-sipka-t', 'x2') - (270 - Ft * k)) > 1e-9 || Math.abs(+at('treni-sipka-f', 'x2') - (390 + F * k)) > 1e-9
+				|| Math.abs(+at('treni-pop-t', 'x') - (270 - (Ft * k) / 2)) > 1e-9 || Math.abs(+at('treni-pop-f', 'x') - (390 + (F * k) / 2)) > 1e-9
+				|| at('treni-sipka-f', 'visibility') !== (F > 0 ? 'visible' : 'hidden') || at('treni-sipka-t', 'visibility') !== (Ft > 0 ? 'visible' : 'hidden')
+				|| el('treni-pop-f').textContent !== (F > 0 ? `F = ${F} N` : '')) sipky = false;
+			if (at('treni-pohyb', 'opacity') !== (jede ? '0.9' : '0')) obrazek = false;
+			if (el('treni-out-f').textContent !== `${F} N` || el('treni-out-m').textContent !== `${m} kg` || el('treni-bedna-text').textContent !== `${m} kg`) obrazek = false;
+			const st = el('treni-stav').textContent;
+			let cek;
+			if (!jede) cek = F === 0 ? 'Zatáhni' : `STOJÍ — klidové tření tvou sílu přesně dorovnává (Ft = ${Ft} N). Utrhne se, až zatáhneš víc než ${mez} N.`;
+			else if (F > smyk) cek = `ZRYCHLUJE — F (${F} N) je větší než smykové tření (${smyk} N)`;
+			else cek = `ROVNOMĚRNĚ — síly jsou v rovnováze (F = Ft = ${smyk} N). Klesneš-li pod ${smyk} N`;
+			if (!st.includes(cek)) { stavy = false; if (!doslo.stav) doslo.stav = `${klic} ${m} kg F=${F}: „${st}“`; }
+			if (jede && F === smyk) doslo[`${klic}-${m}`] = true;
+			const vz = el('treni-vypocet').innerHTML;
+			const kc = (x) => x.toFixed(2).replace('.', ',');
+			if (vz !== `Fn = Fg = ${m} · 10 = <strong>${Fn} N</strong> &nbsp;·&nbsp; mez klidového tření = ${kc(p.klid)} × ${Fn} = <strong>${mez} N</strong> &nbsp;·&nbsp; smykové Ft = ${kc(p.smyk)} × ${Fn} = <strong>${smyk} N</strong>`) vzorec = false;
+		}
+	}
+}
+ok(celaCisla, 'všechny meze tření (3 povrchy × 5 hmotností) vychází v celých newtonech');
+ok(hystereze, `třecí síla sedí s hysterezí ve všech ${3 * 5 * 161} polohách${doslo.chyba ? ' — ' + doslo.chyba : ''}`);
+ok(sipky, 'šipky F a Ft mají správnou délku, polohu popisku i viditelnost ve všech polohách');
+ok(obrazek, 'pohybové čárky (opacity), výstupy posuvníků a nápis na bedně sedí ve všech polohách');
+ok(stavy, `text stavu (stojí / zrychluje / rovnoměrně) sedí ve všech polohách${doslo.stav ? ' — ' + doslo.stav : ''}`);
+ok(vzorec, 'řádek výpočtu Fn, mez klidu a smykové Ft sedí ve všech polohách');
+ok(Object.keys(POVRCHY).every((kl) => [10, 20, 30, 40, 50].every((m) => doslo[`${kl}-${m}`])), 'rovnováha F = Ft (rovnoměrný pohyb) jde trefit u každého povrchu i hmotnosti');
+
+// konkrétní kotva (spočítaná ručně): dřevo na dřevě, 20 kg → mez 130 N, smykové 60 N
+zvolPovrch('drevo'); posun('treni-slider-m', 20);
+posun('treni-slider-f', 130);
+ok(el('treni-pop-t').textContent === 'Ft = 130 N' && at('treni-pohyb', 'opacity') === '0', 'dřevo 20 kg, F = 130 N: bedna ještě stojí, Ft = 130 N');
+posun('treni-slider-f', 135);
+ok(el('treni-pop-t').textContent === 'Ft = 60 N' && at('treni-pohyb', 'opacity') === '0.9', 'dřevo 20 kg, F = 135 N: utrhne se, Ft klesne na 60 N');
+posun('treni-slider-m', 30);
+ok(at('treni-pohyb', 'opacity') === '0' && el('treni-pop-t').textContent === 'Ft = 135 N', 'změna hmotnosti bednu zastaví (klidové tření znovu)');
+posun('treni-slider-m', 20); posun('treni-slider-f', 135);
+zvolPovrch('ocel');
+ok(at('treni-pohyb', 'opacity') === '0.9' && el('treni-pop-t').textContent === 'Ft = 20 N', 'ocel na oceli 20 kg, F = 135 N: mez 30 N překročena hned, Ft = 20 N');
+zvolPovrch('drevo');
+ok(at('treni-pohyb', 'opacity') === '0.9' && el('treni-pop-t').textContent === 'Ft = 60 N', 'zpět na dřevo 20 kg při 135 N: nad mezí 130 N se bedna znovu utrhne, Ft = 60 N');
+posun('treni-slider-f', 100); zvolPovrch('ocel'); zvolPovrch('drevo');
+ok(at('treni-pohyb', 'opacity') === '0' && el('treni-pop-t').textContent === 'Ft = 100 N', 'přepnutí povrchu nuluje pohyb: dřevo 20 kg při 100 N stojí, Ft = 100 N');
+
+konec();
