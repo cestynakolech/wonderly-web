@@ -1,10 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 560" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Skok na trampolíně. Dítě dopadne na trampolínu a skákací plocha se pod ním prohne. V tu chvíli dítě tlačí na trampolínu silou dolů a trampolína tlačí na dítě silou nahoru; obě síly jsou oranžové šipky. Plocha se pak zase narovná a vymrští dítě nahoru. Trampolína se prohne a zase narovná, je to pružná deformace.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 590" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Skok na trampolíně. Dítě dopadne na trampolínu a skákací plocha se pod ním prohne. V tu chvíli dítě tlačí na trampolínu silou dolů a trampolína tlačí na dítě silou nahoru; obě síly jsou oranžové šipky. Plocha se pak zase narovná a vymrští dítě nahoru. Trampolína se prohne a zase narovná, je to pružná deformace.">
 <style>
 /* Předloha: úvod výkladu (trampolína) + PDF „Působení těles, deformace“ str. 2 (vzájemné působení) a str. 8 (pružná deformace).
    Animace 6 s, smyčka: 0–30 % pád (zrychluje), 30–45 % plocha se prohýbá až o 50 px, 45–60 % plocha se narovnává a vymrští dítě,
    60–100 % let nahoru (zpomaluje). Síly viditelné 33–57 %.
    Plocha = dvě poloviny (délka 125,4) otáčené kolem okrajů rámu (185 a 415, výška 330) o 0° až 23,5° (tg 23,5° = 50/115);
    hloubka dítěte 0–50 px se stejným časováním (odchylka středu plochy od chodidel do 2 px).
+   Chodidla (286,375 a 314,375): při nejhlubším prohnutí je plocha u x=286 na y = 330 + 101·tg 23,5° ≈ 374 (chodidlo na ploše, ne pod ní);
+   v okamžiku dopadu (dítě −50 px, plocha rovná y330) jsou chodidla na y325 a s kulatým koncem čáry (3,5 px) se dotýkají vršku plochy (y327,5).
+   Síly vzájemného působení jsou stejně velké, proto mají obě šipky stejnou délku 60 px (378→438 a 376→316).
+   Popisek „ty tlačíš na trampolínu“ leží přímo pod šipkou mezi nohama rámu, takže nepotřebuje odkazovou čáru přes nohu rámu.
    Bez animace (prefers-reduced-motion) = nejhlubší prohnutí s oběma silami. */
 .di, .l1, .l2 { transform-box: view-box; }
 .di { animation: di 6s infinite; }
@@ -33,12 +37,12 @@
 <defs>
 <marker id="ptd4h" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#e8590c"/></marker>
 </defs>
-<rect x="3" y="3" width="594" height="554" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
+<rect x="3" y="3" width="594" height="584" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
 <text x="300" y="38" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Skok na trampolíně</text>
 <text x="300" y="66" font-size="22" fill="#212529" text-anchor="middle">ty i trampolína na sebe působíte</text>
-<line x1="20" y1="470" x2="580" y2="470" stroke="#868e96" stroke-width="3"/>
-<line x1="185" y1="330" x2="185" y2="470" stroke="#495057" stroke-width="6"/>
-<line x1="415" y1="330" x2="415" y2="470" stroke="#495057" stroke-width="6"/>
+<line x1="20" y1="504" x2="580" y2="504" stroke="#868e96" stroke-width="3"/>
+<line x1="185" y1="330" x2="185" y2="504" stroke="#495057" stroke-width="6"/>
+<line x1="415" y1="330" x2="415" y2="504" stroke="#495057" stroke-width="6"/>
 <line class="l1" x1="185" y1="330" x2="310.4" y2="330" stroke="#212529" stroke-width="5" stroke-linecap="round"/>
 <line class="l2" x1="415" y1="330" x2="289.6" y2="330" stroke="#212529" stroke-width="5" stroke-linecap="round"/>
 <line x1="171" y1="330" x2="199" y2="330" stroke="#495057" stroke-width="8" stroke-linecap="round"/>
@@ -47,20 +51,19 @@
 <circle cx="300" cy="252" r="22" fill="#f4c7a1" stroke="#8d5b3a" stroke-width="3"/>
 <line x1="300" y1="275" x2="300" y2="335"/>
 <polyline points="268,262 300,290 332,262"/>
-<polyline points="286,380 300,335 314,380"/>
+<polyline points="286,375 300,335 314,375"/>
 </g>
 <g class="si">
-<line x1="284" y1="384" x2="284" y2="444" stroke="#ffffff" stroke-width="11" stroke-linecap="round"/>
-<line x1="284" y1="384" x2="284" y2="440" stroke="#e8590c" stroke-width="6" marker-end="url(#ptd4h)"/>
+<line x1="284" y1="378" x2="284" y2="442" stroke="#ffffff" stroke-width="11" stroke-linecap="round"/>
+<line x1="284" y1="378" x2="284" y2="438" stroke="#e8590c" stroke-width="6" marker-end="url(#ptd4h)"/>
 <line x1="318" y1="376" x2="318" y2="312" stroke="#ffffff" stroke-width="11" stroke-linecap="round"/>
 <line x1="318" y1="376" x2="318" y2="316" stroke="#e8590c" stroke-width="6" marker-end="url(#ptd4h)"/>
-<line x1="172" y1="404" x2="276" y2="428" stroke="#495057" stroke-width="2"/>
-<text x="14" y="382" font-size="22" fill="#212529">ty tlačíš</text>
-<text x="14" y="408" font-size="22" fill="#212529">na trampolínu</text>
+<text x="300" y="466" font-size="22" fill="#212529" text-anchor="middle">ty tlačíš</text>
+<text x="300" y="490" font-size="22" fill="#212529" text-anchor="middle">na trampolínu</text>
 <line x1="326" y1="318" x2="470" y2="276" stroke="#495057" stroke-width="2"/>
 <text x="580" y="226" font-size="22" fill="#212529" text-anchor="end">trampolína</text>
 <text x="580" y="252" font-size="22" fill="#212529" text-anchor="end">tlačí na tebe</text>
 </g>
-<text x="300" y="512" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">Plocha se prohne a zase narovná:</text>
-<text x="300" y="540" font-size="22" fill="#495057" text-anchor="middle">pružná deformace.</text>
+<text x="300" y="542" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">Plocha se prohne a zase narovná:</text>
+<text x="300" y="570" font-size="22" fill="#495057" text-anchor="middle">pružná deformace.</text>
 </svg>
