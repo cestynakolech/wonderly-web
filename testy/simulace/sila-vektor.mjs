@@ -108,6 +108,16 @@ ok((el('sv-jed').posluchaci.click || []).length === 1 && (el('sv-reset').posluch
 ok(el('sv-f-t').textContent === '10' && el('sv-vysledek').textContent === 'Bedna se rozjíždí směrem doprava — síla F = 10 N.', `výchozí stav: ${el('sv-vysledek').textContent}`);
 ok(el('sv-smer-0').tridy.has('sv-smer-aktivni'), 'výchozí směr doprava je zvýrazněný');
 ok(scenaSedi(10, 0, 0, 0), 'výchozí scéna: bedna na místě, šipka 10 N doprava s hrotem, popisky Fg a F uvnitř scény');
+// kontrast nápisu „bedna“ proti výplni bedny ≥ 4,5 : 1 (oprava 3. 10. 2026, kolo 4: bílá na #e8590c měla 3,6 — na telefonu nečitelné)
+{
+	const s = obsah();
+	const rect = s.match(/<rect x="170" y="240" width="60" height="60"[^>]*fill="(#[0-9a-fA-F]{6})"/);
+	const txt = s.match(/<text x="200" y="262"[^>]*fill="(#[0-9a-fA-F]{3}(?:[0-9a-fA-F]{3})?)">bedna<\/text>/);
+	const hex6 = (h) => (h.length === 4 ? '#' + [...h.slice(1)].map((c) => c + c).join('') : h);
+	const lum = (h) => [1, 3, 5].map((i) => parseInt(hex6(h).slice(i, i + 2), 16) / 255).map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4)).reduce((a, v, i) => a + v * [0.2126, 0.7152, 0.0722][i], 0);
+	const kon = rect && txt ? (Math.max(lum(rect[1]), lum(txt[1])) + 0.05) / (Math.min(lum(rect[1]), lum(txt[1])) + 0.05) : 0;
+	ok(kon >= 4.5, `nápis „bedna“ má proti výplni bedny kontrast ≥ 4,5 : 1 (${txt && txt[1]} na ${rect && rect[1]}: ${kon.toFixed(2)})`);
+}
 
 // ---------- 2) + 4) všechny stavy ----------
 const nb = ' ';
