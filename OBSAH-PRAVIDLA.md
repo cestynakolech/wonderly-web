@@ -156,6 +156,7 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
   náš obrázek); vlastní obrázky navíc jsou povoleny.
   **Why:** zadání se od předlohy vzdalovalo, obrázky vycházely moc jednoduché, kdežto animace
   pohybu (konkrétní předměty) učitel hodnotil jako lepší. Paměť `feedback-obrazek-prekreslit-z-pdf`.
+- **PDF je vodítko a vzor, neopravuje se (pokyn učitele 3. 10. 2026):** „pdf opravovat nemusíme důležité je aby se dělalo vše správně na webu pdf je vodítko a vzor ale pokud je tam něco špatně neopravuj to ale dej to na web správně“. Chybu v PDF NEopravovat ani nenavrhovat výměnu; na web dát správně, chybu PDF jen poznamenat v protokolu workera. Paměť `feedback-pdf-vzor-neopravovat`.
 - **Animace místo obrázku (pokyn učitele 3. 10. 2026):** „tam kde by se to nabízelo můžeš dělat místo
   obrázků animace“. U děje/pohybu animované SVG (CSS keyframes, smyčka, bez JS, `prefers-reduced-motion`
   = koncový stav); statický obrázek jen pro stav/popis. Paměť `feedback-animace-misto-obrazku`.
