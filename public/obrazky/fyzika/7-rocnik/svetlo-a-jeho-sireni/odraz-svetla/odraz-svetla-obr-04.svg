@@ -40,9 +40,6 @@
 <!-- kolmice dopadu (0–0) a vodorovná čára (90–90) -->
 <line x1="300" y1="140" x2="300" y2="460" stroke="#495057" stroke-width="1.5"/>
 <line x1="140" y1="300" x2="460" y2="300" stroke="#495057" stroke-width="1.5"/>
-<g font-size="22" font-weight="bold" fill="#212529" text-anchor="middle" stroke="#ffffff" stroke-width="6" paint-order="stroke">
-<text x="174" y="292">90</text><text x="190.9" y="245">60</text><text x="237" y="198.9">30</text><text x="318" y="182">0</text><text x="363" y="198.9">30</text><text x="409.1" y="245">60</text><text x="426" y="292">90</text>
-</g>
 <!-- zrcadlo: odrazná plocha prochází středem úhloměru -->
 <rect x="200" y="300" width="200" height="34" fill="#343a40"/>
 <text x="300" y="325" font-size="22" fill="#ffffff" text-anchor="middle">zrcadlo</text>
@@ -84,5 +81,9 @@
 <text x="300" y="500" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">dopad α = 30° → odraz α′ = 30°</text>
 <text x="300" y="532" font-size="22" fill="#212529" text-anchor="middle">oba úhly měříme od kolmice (čára přes 0)</text>
 </g>
+</g>
+<!-- popisky stupnice až NAD paprsky (bílé lemování), popisky 30 posunuté na 34° od paprsků na 30° -->
+<g font-size="22" font-weight="bold" fill="#212529" text-anchor="middle" stroke="#ffffff" stroke-width="6" paint-order="stroke">
+<text x="174" y="292">90</text><text x="190.9" y="245">60</text><text x="232.3" y="207.7">30</text><text x="318" y="182">0</text><text x="367.7" y="207.7">30</text><text x="409.1" y="245">60</text><text x="426" y="292">90</text>
 </g>
 </svg>

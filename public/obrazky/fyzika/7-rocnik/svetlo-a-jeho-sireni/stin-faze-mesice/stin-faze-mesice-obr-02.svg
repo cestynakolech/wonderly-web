@@ -100,7 +100,7 @@
 <text x="420" y="298" font-size="22" font-weight="bold" fill="#ffffff">nov</text>
 <text x="272" y="148" font-size="22" font-weight="bold" fill="#ffffff">první čtvrť</text>
 <text x="90" y="340" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">úplněk</text>
-<text x="272" y="452" font-size="22" font-weight="bold" fill="#ffffff">poslední čtvrť</text>
+<text x="266" y="479" font-size="22" font-weight="bold" fill="#ffffff">poslední čtvrť</text>
 
 <!-- jak Měsíc vidíme ze Země -->
 <line x1="20" y1="484" x2="580" y2="484" stroke="#495057" stroke-width="2"/>

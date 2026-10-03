@@ -8,14 +8,15 @@
 .castecne { animation: castecne 10s linear infinite; }
 .uplne { animation: uplne 10s linear infinite; }
 @keyframes mesic {
-  0% { transform: translateX(-150px); opacity: 0; }
-  5% { transform: translateX(-150px); opacity: 1; }
+  0% { transform: translateX(150px); opacity: 0; }
+  5% { transform: translateX(150px); opacity: 1; }
   35%, 60% { transform: translateX(0); opacity: 1; }
-  90% { transform: translateX(150px); opacity: 1; }
-  95%, 100% { transform: translateX(150px); opacity: 0; }
+  90% { transform: translateX(-150px); opacity: 1; }
+  95%, 100% { transform: translateX(-150px); opacity: 0; }
 }
-@keyframes obloha { 0%, 26% { fill: #74c0fc; } 34%, 61% { fill: #0b1a2e; } 69%, 100% { fill: #74c0fc; } }
-@keyframes korona { 0%, 34% { opacity: 0; } 36%, 59% { opacity: 1; } 61%, 100% { opacity: 0; } }
+/* Měsíc jde zprava doleva (k východu, pohled k jihu ze severní polokoule). Obloha ztmavne až při plném zákrytu (35–60 %). */
+@keyframes obloha { 0%, 34% { fill: #74c0fc; } 35%, 60% { fill: #0b1a2e; } 61%, 100% { fill: #74c0fc; } }
+@keyframes korona { 0%, 35% { opacity: 0; } 36%, 59% { opacity: 1; } 60%, 100% { opacity: 0; } }
 @keyframes castecne { 0%, 16% { opacity: 0; } 18%, 33% { opacity: 1; } 34.5%, 61.5% { opacity: 0; } 63%, 77% { opacity: 1; } 79%, 100% { opacity: 0; } }
 @keyframes uplne { 0%, 35% { opacity: 0; } 37%, 59% { opacity: 1; } 61%, 100% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .mesic, .obloha, .korona, .castecne, .uplne { animation: none; } }

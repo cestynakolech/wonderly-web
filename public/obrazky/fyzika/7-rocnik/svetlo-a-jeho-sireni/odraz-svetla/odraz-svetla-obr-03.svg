@@ -5,7 +5,8 @@
    Bez animace (prefers-reduced-motion) = koncový stav: atributy níže ukazují vše. */
 .pin { stroke-dasharray: 100; animation: pin 10s linear infinite; }
 .pout { stroke-dasharray: 100; animation: pout 10s linear infinite; }
-.ain, .t1 { animation: ain 10s linear infinite; }
+.ain { animation: ain 10s linear infinite; }
+.t1 { animation: t1 10s linear infinite; }
 .aout { animation: aout 10s linear infinite; }
 .t2 { animation: t2 10s linear infinite; }
 .kol { animation: kol 10s linear infinite; }
@@ -14,7 +15,8 @@
 .rov { animation: rov 10s linear infinite; }
 .celek { animation: celek 10s linear infinite; }
 @keyframes pin { 0%, 5% { stroke-dashoffset: 100; } 25%, 100% { stroke-dashoffset: 0; } }
-@keyframes ain { 0%, 4% { opacity: 0; } 5%, 100% { opacity: 1; } }
+@keyframes t1 { 0%, 4% { opacity: 0; } 5%, 100% { opacity: 1; } }
+@keyframes ain { 0%, 24% { opacity: 0; } 25%, 100% { opacity: 1; } }
 @keyframes kol { 0%, 27% { opacity: 0; } 33%, 100% { opacity: 1; } }
 @keyframes ua { 0%, 35% { opacity: 0; } 40%, 100% { opacity: 1; } }
 @keyframes t2 { 0%, 41% { opacity: 0; } 42%, 100% { opacity: 1; } }

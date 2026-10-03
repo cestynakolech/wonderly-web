@@ -22,13 +22,15 @@
 <text x="24" y="40" font-size="26" font-weight="bold" fill="#212529">Jak vzniká stín</text>
 <text x="590" y="50" font-size="22" fill="#212529" text-anchor="end" class="popisek">osvětlené stínítko</text>
 
+<!-- stín za míčem (kužel) — kreslený POD stínítkem, takže na stínítku je jen tmavý vržený stín s ostrou hranicí -->
+<polygon class="stin" points="239.4,181.4 470,118.5 470,321.5 239.4,258.6" fill="#868e96" opacity="0.6"/>
+
 <!-- stínítko (šikmo, jako na předloze): nesvícené šedé, osvětlené žluté -->
 <polygon points="430,58 510,88 510,382 430,412" fill="#dee2e6" stroke="#495057" stroke-width="2"/>
 <polygon points="430,58 510,88 510,382 430,412" fill="#ffe066" stroke="#495057" stroke-width="2" class="osvetleni"/>
 
-<!-- stín za míčem (kužel) a vržený stín na stínítku -->
+<!-- vržený stín na stínítku -->
 <g class="stin">
-<polygon points="239.4,181.4 470,118.5 470,321.5 239.4,258.6" fill="#868e96" opacity="0.6"/>
 <ellipse cx="470" cy="220" rx="30" ry="101.5" fill="#495057" stroke="#212529" stroke-width="2"/>
 </g>
 
