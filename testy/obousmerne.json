@@ -615,6 +615,12 @@
 			"podvrh": "19 podvrhů vysvětlení (druhá možnost, možnost B, možnost 2 a ne 3, „druhá možnost je ta správná“, „vyber druhou možnost, ta první ne“ …) volá sdílený export zkontrolujPoradi, 3 z nich navíc skutečné CLI na dočasných JSON souborech (exit 1); ostře nad daty našla brána přesně 1 známý nález (informatika/8-rocnik/hromadne-zpracovani-dat/funkce-v-tabulkach, '→ druhá možnost').",
 			"zdravy": "25 zdravých vět mlčí (export; 2 navíc přes CLI exit 0), mj. 'Zvol druhou možnost, jak měřit: stopkami.', 'Možnost 2 a 3 kg závaží.', 'Volba 1 nebo 2 metrů.', falešný poplach 'Odpověď 2 A' (jednotka ampér, kvizy.ts u reostatu), 'první větev', 'druhý krok', 'Možnost 2 A'. Nad celými daty po opravě nálezu 0 (170 bloků / 3329 vysvětlení). Prázdný vstup = exit 1 (měřidlo nic neprošlo).",
 			"overeno": "2026-10-02"
+		},
+		"vata-zapis-shrnuti.mjs": {
+			"test": "testy/vata-zapis-shrnuti.mjs",
+			"podvrh": "Na kopii (scratchpad, src+testy, originál nedotčen) byla v prelozCil nástroje vata-zapis-navrhy.mjs podvržena chyba překladu cíle: (A) qIndex: i + 1 → test skončil kódem 1, 28× SELHALO; (B) const i = 0 → kód 1, 23× SELHALO. Kontrolor 55fe83d: stará verze nástroje bez překladu → 'blok nenalezen', kód 1. Test tedy nepadá jen na 'blok nenalezen', ale i na špatný zdrojový cíl (text otázky i distraktoru).",
+			"zdravy": "Nad nezměněným nástrojem test projde kódem 0: 8 klíčů shrnutí míří na správnou zdrojovou otázku a distraktor, podvržený klíč hlásí 'blok nenalezen', bez schválení se zapíše 0, kolize je hlášena se zdrojovým klíčem. Suchý běh, nic se nezapisuje.",
+			"overeno": "2026-10-03"
 		}
 	}
 }
