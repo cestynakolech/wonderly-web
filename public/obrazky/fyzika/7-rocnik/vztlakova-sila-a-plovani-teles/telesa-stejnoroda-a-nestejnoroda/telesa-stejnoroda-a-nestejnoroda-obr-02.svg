@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Pokus s plastelínou: stejný kousek plastelíny jako kulička klesne ve vodě ke dnu, jako lodička s dutinou plove.">
+<rect x="3" y="3" width="594" height="414" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="300" y="42" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle">Stejný kousek plastelíny</text>
+<!-- levá nádoba -->
+<rect x="40" y="150" width="220" height="180" fill="#a5d8ff"/>
+<line x1="40" y1="150" x2="260" y2="150" stroke="#1c7ed6" stroke-width="3"/>
+<path d="M40,80 L40,330 L260,330 L260,80" fill="none" stroke="#495057" stroke-width="5"/>
+<circle cx="150" cy="303" r="25" fill="#c2703d" stroke="#7a3e17" stroke-width="2"/>
+<path d="M205,200 L205,270" stroke="#e03131" stroke-width="5"/>
+<path d="M193,262 L205,284 L217,262 Z" fill="#e03131"/>
+<text x="150" y="370" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">kulička</text>
+<text x="150" y="398" font-size="20" fill="#495057" text-anchor="middle">klesne ke dnu</text>
+<!-- pravá nádoba -->
+<rect x="340" y="150" width="220" height="180" fill="#a5d8ff"/>
+<path d="M386,124 Q450,196 514,124 L502,124 Q450,180 398,124 Z" fill="#c2703d" stroke="#7a3e17" stroke-width="2"/>
+<line x1="340" y1="150" x2="391" y2="150" stroke="#1c7ed6" stroke-width="3"/>
+<line x1="509" y1="150" x2="560" y2="150" stroke="#1c7ed6" stroke-width="3"/>
+<path d="M340,80 L340,330 L560,330 L560,80" fill="none" stroke="#495057" stroke-width="5"/>
+<line x1="450" y1="104" x2="450" y2="140" stroke="#495057" stroke-width="2"/>
+<text x="450" y="98" font-size="20" fill="#495057" text-anchor="middle">vzduch</text>
+<text x="450" y="370" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">lodička</text>
+<text x="450" y="398" font-size="20" fill="#495057" text-anchor="middle">plove na hladině</text>
+<text x="150" y="230" font-size="20" fill="#1864ab" text-anchor="middle" dx="-40">voda</text>
+<text x="450" y="250" font-size="20" fill="#1864ab" text-anchor="middle">voda</text>
+</svg>

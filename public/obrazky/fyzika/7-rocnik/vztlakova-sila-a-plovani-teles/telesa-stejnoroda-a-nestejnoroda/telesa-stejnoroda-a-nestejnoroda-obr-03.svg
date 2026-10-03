@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Ocelová loď: trup z oceli je dutý a v podpalubí je vzduch, proto je průměrná hustota lodi menší než hustota vody a loď plove.">
+<rect x="3" y="3" width="594" height="414" rx="14" fill="#e7f5ff" stroke="#2b2a26" stroke-width="3"/>
+<text x="300" y="42" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle">Proč plove ocelová loď</text>
+<rect x="5" y="230" width="590" height="185" rx="0" fill="#74c0fc"/>
+<line x1="5" y1="230" x2="595" y2="230" stroke="#1971c2" stroke-width="3"/>
+<!-- nástavba -->
+<rect x="380" y="112" width="110" height="58" fill="#f1f3f5" stroke="#2b2a26" stroke-width="2"/>
+<rect x="420" y="80" width="26" height="32" fill="#fab005" stroke="#2b2a26" stroke-width="2"/>
+<rect x="392" y="128" width="20" height="14" fill="#74c0fc"/>
+<rect x="422" y="128" width="20" height="14" fill="#74c0fc"/>
+<rect x="452" y="128" width="20" height="14" fill="#74c0fc"/>
+<!-- trup -->
+<path d="M50,170 L560,170 L520,300 L100,300 Z" fill="#495057" stroke="#212529" stroke-width="3"/>
+<rect x="120" y="190" width="120" height="90" rx="6" fill="#ffffff" stroke="#212529" stroke-width="2"/>
+<rect x="250" y="190" width="120" height="90" rx="6" fill="#ffffff" stroke="#212529" stroke-width="2"/>
+<rect x="380" y="190" width="120" height="90" rx="6" fill="#ffffff" stroke="#212529" stroke-width="2"/>
+<text x="180" y="242" font-size="20" fill="#495057" text-anchor="middle">vzduch</text>
+<text x="310" y="242" font-size="20" fill="#495057" text-anchor="middle">vzduch</text>
+<text x="440" y="242" font-size="20" fill="#495057" text-anchor="middle">vzduch</text>
+<line x1="80" y1="180" x2="70" y2="110" stroke="#2b2a26" stroke-width="2"/>
+<text x="30" y="100" font-size="20" fill="#212529">ocelový trup</text>
+<text x="30" y="335" font-size="20" fill="#0b3d6b">voda: 1 000 kg/m³</text>
+<text x="30" y="362" font-size="20" fill="#0b3d6b">ocel: asi 7 800 kg/m³</text>
+<text x="30" y="398" font-size="20" font-weight="bold" fill="#0b3d6b">průměrná hustota lodi &lt; 1 000 kg/m³</text>
+</svg>
