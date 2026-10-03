@@ -39,11 +39,10 @@
 		<!-- šipka začíná VNĚ obrysu bedny (hrana + polovina tloušťky čáry), aby neležela přes černý obrys (oprava 3. 10. 2026, kolo 4) -->
 		<path id="treni-sipka-f" d="M391.75,170 Z" fill="#1971c2" visibility="hidden" />
 		<path id="treni-sipka-t" d="M268.25,170 Z" fill="#c92a2a" visibility="hidden" />
-		<!-- čárkovaný kroužek kolem velmi krátké šipky (síla do 20 N): na telefonu je taková šipka jen vlásek, kroužek ukáže, kde ji hledat -->
-		<circle id="treni-kruh-f" cx="406" cy="170" r="13" fill="none" stroke="#1971c2" stroke-width="2.5" stroke-dasharray="4 3" visibility="hidden" />
-		<circle id="treni-kruh-t" cx="254" cy="170" r="13" fill="none" stroke="#c92a2a" stroke-width="2.5" stroke-dasharray="4 3" visibility="hidden" />
-		<text id="treni-pop-f" x="398" y="150" font-size="15" font-weight="bold" fill="#1971c2" text-anchor="start"></text>
-		<text id="treni-pop-t" x="262" y="150" font-size="15" font-weight="bold" fill="#c92a2a" text-anchor="end"></text>
+		<!-- velikost síly stojí číslem přímo u šipky; písmo 32 = na telefonu 375 px (scéna ~263 px, 0,40×) asi 12,7 px,
+			takže i u vlásečnicově krátké šipky (5 N) je hodnota čitelná (oprava 3. 10. 2026, kolo 5: kroužek zrušen) -->
+		<text id="treni-pop-f" x="398" y="150" font-size="32" font-weight="bold" fill="#1971c2" text-anchor="start"></text>
+		<text id="treni-pop-t" x="262" y="150" font-size="32" font-weight="bold" fill="#c92a2a" text-anchor="end"></text>
 		<text x="14" y="26" font-size="14" font-weight="bold" fill="#1971c2">→ tažná síla F</text>
 		<text x="14" y="46" font-size="14" font-weight="bold" fill="#c92a2a">← třecí síla Ft</text>
 	</svg>
@@ -103,16 +102,19 @@
 		// šipky (oprava 3. 10. 2026, kolo 3): délka od hrany bedny po špičku je PŘÍMO úměrná síle,
 		// 0,65 px na newton, stejné měřítko pro F i Ft (80 N a 50 N dají 52 a 32,5 px, poměr 1,6), bez pevného
 		// přídavku. Hrot je dlouhý 16 px; u kratší šipky (malá síla) je hrot zkrácený na celou délku
-		// a zůstává 18 px vysoký. Takový klínek je na telefonu jen vlásek, proto ho obkrouží
-		// čárkovaný kroužek v barvě šipky a legenda to řekne slovy. Nulová síla = šipka skrytá.
+		// a zůstává 18 px vysoký. Takový klínek je na telefonu jen vlásek — proto u každé šipky stojí
+		// její velikost číslem velkým písmem a legenda to řekne slovy (kolo 5: kroužek zrušen, šipku
+		// neobkroužil a legenda „šipka v kroužku“ nebyla pravdivá). Nulová síla = šipka skrytá.
 		// Nejdelší šipky se vejdou do scény — hlídá test.
 		const k = 0.65;
 		const HROT = 16;
 		const kratka = (delka) => delka > 0 && delka < HROT;
-		const popisSipky = (sila, barva, kde) => (kratka(sila * k) ? `velmi krátká ${barva} šipka v ${kde} kroužku` : `${barva} šipka`);
+		const VYSVETLENI = 'Malé síly mají krátkou šipku – velikost síly je napsaná u šipky.';
 		// hodnota síly v legendě drží pohromadě pevnými mezerami (na úzkém telefonu se jinak láme mezi číslem a N)
 		const nb = (t) => t.replaceAll(' ', String.fromCharCode(160));
-		document.getElementById('treni-mobil').textContent = `${F > 0 ? `${nb(`F = ${F} N`)} (${popisSipky(F, 'modrá', 'modrém')}, tažná) · ` : ''}${Ft > 0 ? `${nb(`Ft = ${Ft} N`)} (${popisSipky(Ft, 'červená', 'červeném')}, třecí) · ` : ''}bedna ${m} kg · ${podlahaText}`;
+		// tření nikdy nepřeroste tah (Ft ≤ F), takže nejkratší viditelná šipka je vždy Ft
+		const jeKratka = kratka(Ft * k);
+		document.getElementById('treni-mobil').textContent = `${F > 0 ? `${nb(`F = ${F} N`)} (modrá šipka, tažná) · ` : ''}${Ft > 0 ? `${nb(`Ft = ${Ft} N`)} (červená šipka, třecí) · ` : ''}bedna ${m} kg · ${podlahaText}${jeKratka ? ' · ' + VYSVETLENI : ''}`;
 		document.getElementById('treni-pohyb').setAttribute('opacity', pohyb ? '0.9' : '0');
 
 		const r2 = (x) => Math.round(x * 100) / 100;
@@ -125,12 +127,10 @@
 		const sipkaF = document.getElementById('treni-sipka-f');
 		sipkaF.setAttribute('d', tvarSipky(391.75, 1, F * k));
 		sipkaF.setAttribute('visibility', F > 0 ? 'visible' : 'hidden');
-		document.getElementById('treni-kruh-f').setAttribute('visibility', kratka(F * k) ? 'visible' : 'hidden');
 		document.getElementById('treni-pop-f').textContent = F > 0 ? 'F = ' + F + ' N' : '';
 		const sipkaT = document.getElementById('treni-sipka-t');
 		sipkaT.setAttribute('d', tvarSipky(268.25, -1, Ft * k));
 		sipkaT.setAttribute('visibility', Ft > 0 ? 'visible' : 'hidden');
-		document.getElementById('treni-kruh-t').setAttribute('visibility', kratka(Ft * k) ? 'visible' : 'hidden');
 		document.getElementById('treni-pop-t').textContent = Ft > 0 ? 'Ft = ' + Ft + ' N' : '';
 
 		vypocetEl.innerHTML = `Fn = Fg = ${m} · 10 = <strong>${Fn} N</strong> &nbsp;·&nbsp; mez klidového tření = ${cz(p.fKlid)} × ${Fn} = <strong>${mezKlid} N</strong> &nbsp;·&nbsp; smykové Ft = ${cz(p.fSmyk)} × ${Fn} = <strong>${FtSmyk} N</strong>`;
