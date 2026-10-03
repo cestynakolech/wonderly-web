@@ -2574,6 +2574,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 					materialy: [
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Tání a skupenské teplo (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tani/notebooklm-tani-a-skupenske-teplo.mp4' },
+						{ druh: 'video', nazev: 'Píseň: Tání 🎵', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tani/pisen-tani.m4a' },
 					],
 				},
 				{
