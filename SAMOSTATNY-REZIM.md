@@ -7,6 +7,7 @@
 ## ⚡ ČÍM ZAČÍT — 27. 9. 2026
 
 - **NASAZENO 948dc1a1 3. 10. večer (commit 6e46c77, záložně přes `npx wrangler deploy`, živě 3/3 + SVG, doklad `Omega/predavka/2026-10-03/nasazeni-6e46c77.md`):** úniky, vady D1–D6, SVG, simulace (kolo 3, kontrola-6e46c77), test uniky-v-bloku.
+- **NASAZENO cc9d8e88 3. 10. večer: šipka tření na podlaze, test sila-vektor (0fdba66, kontrola-0fdba66 OK)** — záložně `npx wrangler deploy`, živě SHA1 == dist (treci-sila cfaf02d0…, sila 58234329…), doklad `Omega/predavka/2026-10-03/nasazeni-0fdba66.md`.
 - **NASAZENO eb772b06 3. 10. večer: simulace tření/síla kola 4–5 (3b4830c, a2f8361)** — záložně `npx wrangler deploy`, živě SHA1 == dist (treci-sila s legendou „Malé síly mají krátkou šipku“, sila), doklad `Omega/predavka/2026-10-03/nasazeni-a2f8361.md`.
 - **NASAZENO bd7babae 3. 10. večer: úniky paralel/rovina (c3f4aa1), SVG N7 (fbf0165, 62db738)** — záložně `npx wrangler deploy`, živě 3/3 SHA1 == dist, doklad `Omega/predavka/2026-10-03/nasazeni-c3f4aa1.md`.
 
@@ -740,8 +741,8 @@ Cloudflare Workers Builds mělo incident („Issues with Workers Build failing t
 - Úniky paralel (vysvětlení č. 13, 18, 19) a nakloněná rovina (vysvětlení č. 2, 12, 19) — `kontrola-vady-d1-d6.md`.
 - SVG N7 mřížka uhlíku `vnitrni-energie-obr-01` (věcná chyba); N6 bublina `pohybova-03` (`kontrola-5a9952f.md`, `kontrola-de827ed.md`).
 - SilaVektor: bílý text „bedna“, kontrast 3,6.
-- `TreniSimulace.astro:41`: šipka tření vychází z půlky zadní stěny, ne od podlahy, klame o působišti (`kontrola-a2f8361.md`) — STŘEDNÍ.
-- Test `sila-vektor.mjs:121` počítá šířku i s rámečkem, pustí 11,8 px.
+- HOTOVO 3. 10. (0fdba66, kontrola-0fdba66 OK, nasazeno cc9d8e88): `TreniSimulace.astro:41`: šipka tření vychází z půlky zadní stěny, ne od podlahy, klame o působišti (`kontrola-a2f8361.md`).
+- HOTOVO 3. 10. (0fdba66, kontrola-0fdba66 OK, nasazeno cc9d8e88): test `sila-vektor.mjs:121` počítal šířku i s rámečkem, pustil 11,8 px.
 - Reostat `kvizy.ts:4618`: distraktor = odpověď potenciometru.
 - `uniky.mjs:906` mlčí při cestě se symlinkem nebo diakritikou.
 - Test uniky-v-bloku nechytí 3 mutace (`kontrola-f261481.md`).
