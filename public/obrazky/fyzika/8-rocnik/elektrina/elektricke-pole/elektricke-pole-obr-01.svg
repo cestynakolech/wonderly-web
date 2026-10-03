@@ -5,7 +5,7 @@
    drží do 80 %; 80–95 % tyč odjede a vše se vrátí (po oddálení tyče se náboj zase rozdělí rovnoměrně).
    Popisky „chybějí / přebývají“ a „posunou jen uvnitř atomů“ svítí 42–80 %.
    Popisek „kladně nabitá tyč“ stojí na místě a svítí jen 31–79 %, kdy je tyč u tělesa (nejede přes okraj, neořízne se).
-   Izolant: jádro r = 8, obal rx = 40, levé „−“ obalu končí 7 px před jádrem (nečte se jako „−+“).
+   Izolant: jádro r = 8, obal rx = 40, každý atom má jedno jádro ⊕ a jeden „−“ na straně u tyče (1 : 1 = neutrální atom, kontrola 3. 10. 2026 N3).
    Bez animace = koncový stav: tyč u tělesa, elektrony u tyče, obaly posunuté, popisky viditelné. */
 .ty { animation: ty 8s ease-in-out infinite; }
 @keyframes ty { 0%, 8% { transform: translateX(240px); } 30%, 80% { transform: translateX(0px); } 95%, 100% { transform: translateX(240px); } }
@@ -49,17 +49,17 @@
 <g class="ty"><rect x="370" y="140" width="300" height="40" rx="20" fill="#e7f5ff" stroke="#339af0" stroke-width="2.5"/><path d="M389 160H407M398 151V169" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/><path d="M429 160H447M438 151V169" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/><path d="M469 160H487M478 151V169" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/><path d="M509 160H527M518 151V169" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/></g><text class="tl" x="372" y="128" font-size="22" fill="#212529" font-weight="bold">kladně nabitá tyč</text>
 <text x="30" y="322" font-size="22" fill="#212529" font-weight="bold">Izolant: polarizace</text>
 <rect x="30" y="337" width="310" height="130" rx="24" fill="#fff3bf" stroke="#495057" stroke-width="2.5"/>
-<g class="ob"><ellipse cx="92" cy="370" rx="40" ry="24" fill="#d0ebff" stroke="#1864ab" stroke-width="2" stroke-dasharray="5 4"/><path d="M55 370H62M114 370H124" stroke="#1864ab" stroke-width="3.5" stroke-linecap="round"/></g>
+<g class="ob"><ellipse cx="92" cy="370" rx="40" ry="24" fill="#d0ebff" stroke="#1864ab" stroke-width="2" stroke-dasharray="5 4"/><path d="M114 370H124" stroke="#1864ab" stroke-width="3.5" stroke-linecap="round"/></g>
 <g><circle cx="80" cy="370" r="8" fill="#c92a2a" stroke="#7a1c1c" stroke-width="1.5"/><path d="M75.6 370H84.4M80 365.6V374.4" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></g>
-<g class="ob"><ellipse cx="192" cy="370" rx="40" ry="24" fill="#d0ebff" stroke="#1864ab" stroke-width="2" stroke-dasharray="5 4"/><path d="M155 370H162M214 370H224" stroke="#1864ab" stroke-width="3.5" stroke-linecap="round"/></g>
+<g class="ob"><ellipse cx="192" cy="370" rx="40" ry="24" fill="#d0ebff" stroke="#1864ab" stroke-width="2" stroke-dasharray="5 4"/><path d="M214 370H224" stroke="#1864ab" stroke-width="3.5" stroke-linecap="round"/></g>
 <g><circle cx="180" cy="370" r="8" fill="#c92a2a" stroke="#7a1c1c" stroke-width="1.5"/><path d="M175.6 370H184.4M180 365.6V374.4" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></g>
-<g class="ob"><ellipse cx="292" cy="370" rx="40" ry="24" fill="#d0ebff" stroke="#1864ab" stroke-width="2" stroke-dasharray="5 4"/><path d="M255 370H262M314 370H324" stroke="#1864ab" stroke-width="3.5" stroke-linecap="round"/></g>
+<g class="ob"><ellipse cx="292" cy="370" rx="40" ry="24" fill="#d0ebff" stroke="#1864ab" stroke-width="2" stroke-dasharray="5 4"/><path d="M314 370H324" stroke="#1864ab" stroke-width="3.5" stroke-linecap="round"/></g>
 <g><circle cx="280" cy="370" r="8" fill="#c92a2a" stroke="#7a1c1c" stroke-width="1.5"/><path d="M275.6 370H284.4M280 365.6V374.4" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></g>
-<g class="ob"><ellipse cx="92" cy="434" rx="40" ry="24" fill="#d0ebff" stroke="#1864ab" stroke-width="2" stroke-dasharray="5 4"/><path d="M55 434H62M114 434H124" stroke="#1864ab" stroke-width="3.5" stroke-linecap="round"/></g>
+<g class="ob"><ellipse cx="92" cy="434" rx="40" ry="24" fill="#d0ebff" stroke="#1864ab" stroke-width="2" stroke-dasharray="5 4"/><path d="M114 434H124" stroke="#1864ab" stroke-width="3.5" stroke-linecap="round"/></g>
 <g><circle cx="80" cy="434" r="8" fill="#c92a2a" stroke="#7a1c1c" stroke-width="1.5"/><path d="M75.6 434H84.4M80 429.6V438.4" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></g>
-<g class="ob"><ellipse cx="192" cy="434" rx="40" ry="24" fill="#d0ebff" stroke="#1864ab" stroke-width="2" stroke-dasharray="5 4"/><path d="M155 434H162M214 434H224" stroke="#1864ab" stroke-width="3.5" stroke-linecap="round"/></g>
+<g class="ob"><ellipse cx="192" cy="434" rx="40" ry="24" fill="#d0ebff" stroke="#1864ab" stroke-width="2" stroke-dasharray="5 4"/><path d="M214 434H224" stroke="#1864ab" stroke-width="3.5" stroke-linecap="round"/></g>
 <g><circle cx="180" cy="434" r="8" fill="#c92a2a" stroke="#7a1c1c" stroke-width="1.5"/><path d="M175.6 434H184.4M180 429.6V438.4" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></g>
-<g class="ob"><ellipse cx="292" cy="434" rx="40" ry="24" fill="#d0ebff" stroke="#1864ab" stroke-width="2" stroke-dasharray="5 4"/><path d="M255 434H262M314 434H324" stroke="#1864ab" stroke-width="3.5" stroke-linecap="round"/></g>
+<g class="ob"><ellipse cx="292" cy="434" rx="40" ry="24" fill="#d0ebff" stroke="#1864ab" stroke-width="2" stroke-dasharray="5 4"/><path d="M314 434H324" stroke="#1864ab" stroke-width="3.5" stroke-linecap="round"/></g>
 <g><circle cx="280" cy="434" r="8" fill="#c92a2a" stroke="#7a1c1c" stroke-width="1.5"/><path d="M275.6 434H284.4M280 429.6V438.4" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></g>
 <g class="st"><text x="30" y="496" font-size="22" fill="#1864ab">elektrony se posunou jen uvnitř atomů</text></g>
 <g class="ty"><rect x="370" y="382" width="300" height="40" rx="20" fill="#e7f5ff" stroke="#339af0" stroke-width="2.5"/><path d="M389 402H407M398 393V411" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/><path d="M429 402H447M438 393V411" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/><path d="M469 402H487M478 393V411" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/><path d="M509 402H527M518 393V411" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/></g><text class="tl" x="372" y="370" font-size="22" fill="#212529" font-weight="bold">kladně nabitá tyč</text>
