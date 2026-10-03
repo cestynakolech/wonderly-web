@@ -6,6 +6,8 @@
 
 ## ⚡ ČÍM ZAČÍT — 27. 9. 2026
 
+- **3. 10. 2026 odpoledne (pozdější stav):** HOTOVO: píseň Tání (20605ad, nasazeno 885aee74). HOTOVO: záznam `obousmerne.json` pro vata-zapis-shrnuti (a36508e). HOTOVO: VATA dávka 6, zapsáno 40/49 (6a9bbea, kontrola PROŠLO, nasazeno 08988b98). FRONTA: viz „Fronta po 3. 10. odpoledne“ níže (VATA dávka 7, seřízení uniky-v-bloku.mjs, poslech závěru Tání). Doklady v `Omega/predavka/2026-10-03/`.
+
 - **3. 10. 2026 — VATA dávky 1–5 HOTOVO (48 oprav distraktorů, schváleno 48/99, ~48 %; poslední commit b623883, doklady `Omega/predavka/2026-10-03/vata-schvaleni-davka1–5.md`).** ZBÝVÁ: (1) 51 zamítnutých návrhů → nový návrh (hlavní vada: „obhajitelně pravdivé“ distraktory); (2) 30 bloků „shrnuti“ (pololetní/roční shrnutí) — zápisový skript `vata-zapis-navrhy.mjs` je nenajde („blok nenalezen“), je to OPRAVA NÁSTROJE; (3) 76 položek v jiné fázi než „hotovo“.
 
 - **3. 10. 2026 odpoledne — STAV:** nasazeno 803bbe9 (simulace Var) záložně přes `npx wrangler deploy` kvůli incidentu Cloudflare Workers Builds, živě ověřeno; podrobnosti a drobnosti ve frontě („HOTOVO 3. 10. 2026 Simulace Var…“).
@@ -704,6 +706,13 @@ Cloudflare Workers Builds mělo incident („Issues with Workers Build failing t
 ### [fronta] Vata: shrnutí — zastaralé a kolizní návrhy (3. 10. 2026, kontrola-55fe83d, N3)
 - 6 návrhů pro shrnutí míří na už přepsaný distraktor (zastaralé, puvodniText neplatí).
 - 13 kolizních skupin (více návrhů shrnutí → tentýž zdrojový distraktor) — při dalším schvalování vybrat 1 návrh na zdrojovou otázku.
+
+### [fronta] Fronta po 3. 10. odpoledne (doklady v `Omega/predavka/2026-10-03/`)
+- HOTOVO: píseň Tání (20605ad, nasazeno 885aee74); záznam obousmerne.json pro vata-zapis-shrnuti (a36508e); VATA dávka 6, zapsáno 40/49 (6a9bbea, kontrola PROŠLO, nasazeno 08988b98).
+- FRONTA: VATA dávka 7 (9 nezapsaných + #10, rozpracovaná, `vata-davka7-ke-schvaleni.md`).
+- FRONTA: seřídit měřidlo `testy/uniky-v-bloku.mjs` (`diagnoza-uniky-v-bloku.md`: 1621 falešných nálezů; do prebuild až po kalibraci a obousměrném důkazu).
+- FRONTA: ověřit poslechem závěr Tání (`kontrola-20605ad.md`).
+- Drobnost: zápisový protokol davka6 uvádí #39 místo #38.
 
 ### [drobnost] Zbytky po dnešní práci (3. 10. 2026)
 - Šipka páry u tlakového hrnce: `src/components/skola2/VarSimulace.astro:224–228` (kontrola3).
