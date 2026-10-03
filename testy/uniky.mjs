@@ -923,4 +923,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 	for (const d of dup) console.log(`  ${d.klic}\n    A: ${d.a}\n    B: ${d.b}\n    (${d.duvod})`);
 	console.log(`\nÚNIKY ODPOVĚDÍ: ${un.length}`);
 	for (const u of un) console.log(`  ${u.klic}\n    „${u.prozrazuje}"\n    → prozrazuje: ${u.odpoved}\n    (k otázce: ${u.otazka}; slova: ${u.slova.join(', ')})`);
+	// BRÁNA MUSÍ UMĚT SPADNOUT (kontrola 3. 10. 2026, N2): nalezený únik nebo duplicita = exit 1.
+	// Dřív se exit kód nastavil jen při selhání měřidla, takže 1 únik končil kódem 0.
+	if (dup.length > 0 || un.length > 0) process.exitCode = 1;
 }
