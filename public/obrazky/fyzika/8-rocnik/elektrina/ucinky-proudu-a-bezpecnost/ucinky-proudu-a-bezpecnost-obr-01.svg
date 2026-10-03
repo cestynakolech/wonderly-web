@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 660" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Dvě postavy zepředu. U levé vede proud z levé ruky přes hrudník a srdce do nohou: tato cesta je zvlášť nebezpečná. U pravé se kabel dotkne hlavy a proud vede hlavou do nohou: může poškodit mozek. Animace: oranžové čárky ukazují, kudy proud tělem prochází.">
+<style>
+.tok { animation: tok 0.9s linear infinite; }
+@keyframes tok { to { stroke-dashoffset: -26; } }
+.bije { animation: bije 0.5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes bije { 50% { transform: translate(0, 0) scale(1.15); } }
+@media (prefers-reduced-motion: reduce) { .tok, .bije { animation: none; } }
+</style>
+<rect x="3" y="3" width="594" height="654" rx="14" fill="#f8f9fa"/>
+
+<text x="300" y="44" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Kudy proud tělem projde</text>
+<ellipse cx="160" cy="470" rx="52" ry="8" fill="#000" opacity="0.12"/><path d="M128 344H158L156 456H130Z" fill="#343a40"/><path d="M128 454h30q-4 0 -4 10v6h-26z" fill="#495057"/><rect x="126" y="466" width="40" height="4" rx="2" fill="#212529"/><path d="M162 344H192L190 456H164Z" fill="#343a40"/><path d="M162 454h30q12 0 12 10v6h-42z" fill="#495057"/><rect x="160" y="466" width="40" height="4" rx="2" fill="#212529"/><path d="M120 256q0 -10 12 -12h56q12 0 12 12L196 352H124Z" fill="#1c7ed6"/><path d="M124 346H196" stroke="#000" stroke-opacity="0.18" stroke-width="6"/><path d="M122 260L112 308" stroke="#1c7ed6" stroke-width="20" stroke-linecap="round"/><path d="M112 308L108 356" stroke="#ffd8a8" stroke-width="16" stroke-linecap="round"/><circle cx="108" cy="356" r="11" fill="#ffd8a8" stroke="#d9a066" stroke-width="2"/><path d="M198 260L222 230" stroke="#1c7ed6" stroke-width="20" stroke-linecap="round"/><path d="M222 230L238 174" stroke="#ffd8a8" stroke-width="16" stroke-linecap="round"/><circle cx="238" cy="174" r="11" fill="#ffd8a8" stroke="#d9a066" stroke-width="2"/><rect x="151" y="232" width="18" height="16" fill="#d9a066"/><circle cx="160" cy="204" r="30" fill="#ffd8a8" stroke="#d9a066" stroke-width="2"/><path d="M129 202q2 -34 31 -32q30 -2 31 32q-12 -16 -31 -14q-20 -2 -31 14Z" fill="#6b4423"/><circle cx="149" cy="204" r="3.5" fill="#212529"/><circle cx="171" cy="204" r="3.5" fill="#212529"/><path d="M151 218q9 6 18 0" fill="none" stroke="#a15c38" stroke-width="3" stroke-linecap="round"/>
+<path d="M300 112Q270 130 264 156" fill="none" stroke="#343a40" stroke-width="12" stroke-linecap="round"/>
+<path d="M264 156L246 168" stroke="#d9894f" stroke-width="6" stroke-linecap="round"/>
+<path d="M238 174L222 230L190 260L174 285L160 330L143 410L141 460M160 330L177 410L179 460" fill="none" stroke="#ffe066" stroke-opacity="0.75" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/><path class="tok" d="M238 174L222 230L190 260L174 285L160 330L143 410L141 460M160 330L177 410L179 460" fill="none" stroke="#f08c00" stroke-width="8" stroke-dasharray="14 12" stroke-linecap="round" stroke-linejoin="round"/>
+<g class="bije" transform="translate(174 288)"><path transform="scale(1.2)" d="M0 10C-18 -2 -16 -16 -7 -16C-3 -16 0 -12 0 -9C0 -12 3 -16 7 -16C16 -16 18 -2 0 10Z" fill="#c2255c" stroke="#7d1235" stroke-width="1.5"/></g>
+<g transform="translate(244 162) scale(1.0)"><path d="M0 -16L4 -4L16 0L4 4L0 16L-4 4L-16 0L-4 -4Z" fill="#ffe066" stroke="#e67700" stroke-width="2" stroke-linejoin="round"/></g>
+<path d="M30 470H570" stroke="#868e96" stroke-width="3"/>
+<ellipse cx="440" cy="470" rx="52" ry="8" fill="#000" opacity="0.12"/><path d="M408 344H438L436 456H410Z" fill="#343a40"/><path d="M408 454h30q-4 0 -4 10v6h-26z" fill="#495057"/><rect x="406" y="466" width="40" height="4" rx="2" fill="#212529"/><path d="M442 344H472L470 456H444Z" fill="#343a40"/><path d="M442 454h30q12 0 12 10v6h-42z" fill="#495057"/><rect x="440" y="466" width="40" height="4" rx="2" fill="#212529"/><path d="M400 256q0 -10 12 -12h56q12 0 12 12L476 352H404Z" fill="#2f9e44"/><path d="M404 346H476" stroke="#000" stroke-opacity="0.18" stroke-width="6"/><path d="M402 260L392 308" stroke="#2f9e44" stroke-width="20" stroke-linecap="round"/><path d="M392 308L388 356" stroke="#ffd8a8" stroke-width="16" stroke-linecap="round"/><circle cx="388" cy="356" r="11" fill="#ffd8a8" stroke="#d9a066" stroke-width="2"/><path d="M478 260L488 308" stroke="#2f9e44" stroke-width="20" stroke-linecap="round"/><path d="M488 308L492 356" stroke="#ffd8a8" stroke-width="16" stroke-linecap="round"/><circle cx="492" cy="356" r="11" fill="#ffd8a8" stroke="#d9a066" stroke-width="2"/><rect x="431" y="232" width="18" height="16" fill="#d9a066"/><circle cx="440" cy="204" r="30" fill="#ffd8a8" stroke="#d9a066" stroke-width="2"/><path d="M409 202q2 -34 31 -32q30 -2 31 32q-12 -16 -31 -14q-20 -2 -31 14Z" fill="#e8590c"/><circle cx="429" cy="204" r="3.5" fill="#212529"/><circle cx="451" cy="204" r="3.5" fill="#212529"/><path d="M431 218q9 6 18 0" fill="none" stroke="#a15c38" stroke-width="3" stroke-linecap="round"/>
+<path d="M560 110Q500 150 446 168" fill="none" stroke="#343a40" stroke-width="12" stroke-linecap="round"/>
+<path d="M446 168L434 174" stroke="#d9894f" stroke-width="6" stroke-linecap="round"/>
+<path d="M440 176L440 224L440 330L423 410L421 460M440 330L457 410L459 460" fill="none" stroke="#ffe066" stroke-opacity="0.75" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/><path class="tok" d="M440 176L440 224L440 330L423 410L421 460M440 330L457 410L459 460" fill="none" stroke="#f08c00" stroke-width="8" stroke-dasharray="14 12" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M424 186q-6 -12 6 -14q6 -10 16 -2q12 -2 10 10q8 8 -2 14q-2 10 -14 6q-10 6 -14 -4q-10 -2 -2 -10Z" fill="#fcc2d7" stroke="#a61e4d" stroke-width="2" opacity="0.9"/>
+<g transform="translate(438 166) scale(1.0)"><path d="M0 -16L4 -4L16 0L4 4L0 16L-4 4L-16 0L-4 -4Z" fill="#ffe066" stroke="#e67700" stroke-width="2" stroke-linejoin="round"/></g>
+<rect x="24" y="490" width="268" height="150" rx="10" fill="#fff" stroke="#ced4da" stroke-width="2"/>
+<text x="158" y="522" font-size="21" font-weight="bold" fill="#212529" text-anchor="middle">přes ruku a srdce</text>
+<text x="158" y="550" font-size="21" font-weight="bold" fill="#212529" text-anchor="middle">do nohou</text>
+<text x="158" y="584" font-size="20" fill="#c92a2a" text-anchor="middle">zvlášť nebezpečné</text>
+<text x="158" y="612" font-size="20" fill="#c92a2a" text-anchor="middle">pro srdce</text>
+<rect x="308" y="490" width="268" height="150" rx="10" fill="#fff" stroke="#ced4da" stroke-width="2"/>
+<text x="442" y="522" font-size="21" font-weight="bold" fill="#212529" text-anchor="middle">přes hlavu</text>
+<text x="442" y="550" font-size="21" font-weight="bold" fill="#212529" text-anchor="middle">do nohou</text>
+<text x="442" y="584" font-size="20" fill="#c92a2a" text-anchor="middle">může poškodit</text>
+<text x="442" y="612" font-size="20" fill="#c92a2a" text-anchor="middle">mozek</text>
+<path d="M30 80H72" stroke="#f08c00" stroke-width="8" stroke-dasharray="14 12"/>
+<text x="82" y="88" font-size="20" fill="#212529" text-anchor="start">cesta proudu</text>
+</svg>
