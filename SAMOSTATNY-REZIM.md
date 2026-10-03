@@ -663,6 +663,10 @@ nedoplňují na 21. Důvod: hlavní výklad nedává další látku bez úniků/
 UZAVŘENO 3. 10. 2026 (učitel, varianta 1A): blok skupenske-zmeny-vody-v-prirode má 21/21; nová Q21 „kaluž → tuhnutí“ prošla kontrolou (`Omega/predavka/2026-10-03/kontrola-kviz-voda-A.md`), commit 8d5fee5 nasazen. Q20 ponechána (drobný nález K2-3 nasazení nebrání). Původní záznam:
 Kvíz Skupenské změny vody v přírodě má 20 otázek (cíl 21). Q20: 3× neprošla (duplicity s Tuhnutí/Tání, částečně pravdivý distraktor, mírný únik). Q21: otázka „co následuje po vypaření“ nutí vysvětlení vyvracet pořadím nebo prozrazovat Q5/Q8/Q20. Rozhodnout učitel: jiná otázka, výjimka 20/21 s důvodem, nebo návrh opravy v `Omega/predavka/2026-10-02/kontrola-81bb544.md` (a `prace/kontrola-doplneni-priroda-tani.md` Kolo 3). Pozn. k ověření: výklad Tuhnutí (odst. o jádru tuhnutí) tvrdí, že ze smítka prachu vznikají „kroupy a sněhové vločky“, kdežto PDF Přírody řadí vločky k desublimaci.
 
+### [HOTOVO 3. 10. 2026] Posuvný a otáčivý pohyb — 4 animované obrázky + oprava Země (c68014d, d44cc00)
+HOTOVO 3. 10. 2026: obr. 01–04 (PDF s. 2–5) zapojeny do bloku `posuvny-otacivy-pohyb` místo chybné fotky aut (`posuvny-pohyb.jpg` odkaz odstraněn, soubor v public ponechán); Země = dva otáčivé pohyby (d44cc00). Build 490 stránek prošel, v `dist/` stránce podtématu jsou všechna 4 SVG a jpg 0×. Nepushnuto. Doklady: `Omega/predavka/2026-10-03/posuvny-obrazky.md`, `kontrola-posuvny-obrazky.md`, `kontrola2-posuvny-obrazky.md`.
+- Drobnost do fronty: obr. 04 ř. 70–72 — poloprůhledný „duch“ závitu v mezistavech animace (útržek na náběhu závitu); kosmetické.
+
 ### [HOTOVO 3. 10. 2026] Blok Teplo F8 — přestavba (c706eef + 783cee9, 3 kola oprav vyčerpána)
 Hotovo 3. 10. 2026: přestavba bloku (c706eef) + 3. kolo oprav vazeb Q1, Q5, Q10–Q12 (783cee9); kontrola PŘIJMOUT (`Omega/predavka/2026-10-03/kontrola-teplo-f8-kolo3.md`). Limit 3 kol vyčerpán, zbytek jen jako drobnosti níže. Původní záznam: otázky si napovídaly směr tepla, nálezy `Omega/predavka/2026-10-02/prace/kontrola-b6810b3.md`.
 
