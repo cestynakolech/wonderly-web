@@ -213,6 +213,7 @@ let preskoceno = 0;
 let bezSchvaleni = 0;
 const hlaseni = [];
 const zapsaneKontrolniZaznamy = []; // { klic, qIndex } pro post-write ověření
+const cileVTomtoBehu = new Set(); // zdrojový klíč#q#distraktor už obsazený dřívějším návrhem (kolize shrnutí)
 
 for (const [klic, polozky] of byKlic) {
 	for (const v of polozky) {
@@ -235,6 +236,12 @@ for (const [klic, polozky] of byKlic) {
 		}
 
 		const cilQIndex = cil.qIndex;
+		const cilId = `${cil.klic}#${cil.qIndex}#${v.distraktorIndex}`;
+		if (cileVTomtoBehu.has(cilId)) {
+			preskoceno++;
+			hlaseni.push(`PŘESKOČENO ${klic} Q${v.qIndex + 1}: KOLIZE — zdrojový klíč ${cil.klic} Q${cil.qIndex + 1} distraktor#${v.distraktorIndex} už zapisuje jiný návrh`);
+			continue;
+		}
 		const pozicePole = zacatek + znacka.length - 1; // pozice '['
 		const konec = najdiKonecPole(text, pozicePole);
 		if (konec === -1) {
@@ -315,8 +322,9 @@ for (const [klic, polozky] of byKlic) {
 			text = text.slice(0, pozicePole + 1) + newSliceOriginal + text.slice(konec);
 			zapsaneKontrolniZaznamy.push({ klic: cil.klic, qIndex: cilQIndex, spravnaOdpoved: puvodniOdpovedZero });
 		}
+		cileVTomtoBehu.add(cilId);
 		zapsano++;
-		hlaseni.push(`${ZAPIS ? 'ZAPSÁNO' : 'ZAPSALO BY SE'} ${klic} Q${v.qIndex + 1} distraktor#${v.distraktorIndex}: „${elem.hodnota}" → „${v.navrh}"`);
+		hlaseni.push(`${ZAPIS ? 'ZAPSÁNO' : 'ZAPSALO BY SE'} ${klic} Q${v.qIndex + 1} distraktor#${v.distraktorIndex} [zdroj ${cil.klic} Q${cil.qIndex + 1}]:„${elem.hodnota}" → „${v.navrh}"`);
 	}
 }
 
