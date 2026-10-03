@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 336" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Barevné spektrum: spojitý pás sedmi barev, které do sebe plynule přecházejí — červená, oranžová, žlutá, zelená, modrá, indigová (tmavomodrá), fialová. Červená se láme nejméně a má nejdelší vlnovou délku, fialová se láme nejvíce a má nejkratší vlnovou délku.">
+<!-- Předloha: PDF lekce 28, str. 3 (pás spektra) a str. 4 (pořadí barev, lom). Statický obrázek (stav, ne děj). -->
+<defs>
+<linearGradient id="r2spek" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#e8261c"/>
+<stop offset="0.071" stop-color="#e8261c"/>
+<stop offset="0.214" stop-color="#ff9500"/>
+<stop offset="0.357" stop-color="#f5e600"/>
+<stop offset="0.5" stop-color="#2b9e1a"/>
+<stop offset="0.643" stop-color="#00a8ff"/>
+<stop offset="0.786" stop-color="#1f3fd8"/>
+<stop offset="0.929" stop-color="#9b1fd6"/>
+<stop offset="1" stop-color="#9b1fd6"/>
+</linearGradient>
+<linearGradient id="r2lesk" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#ffffff" stop-opacity="0.35"/><stop offset="0.4" stop-color="#ffffff" stop-opacity="0"/><stop offset="1" stop-color="#000000" stop-opacity="0.12"/>
+</linearGradient>
+<marker id="r2sip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#495057"/></marker>
+</defs>
+<rect x="3" y="3" width="594" height="330" rx="14" fill="#fff9db" stroke="#2b2a26" stroke-width="3"/>
+<text x="300" y="38" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Barevné spektrum</text>
+<text x="300" y="66" font-size="22" fill="#495057" text-anchor="middle">spojitý pás — barvy plynule přecházejí</text>
+
+<!-- pás spektra -->
+<rect x="30" y="112" width="540" height="76" fill="url(#r2spek)"/>
+<rect x="30" y="112" width="540" height="76" fill="url(#r2lesk)" stroke="#495057" stroke-width="2"/>
+
+<!-- popisky: střed každé barvy (horní a dolní řada střídavě, aby se nepřekrývaly) -->
+<g stroke="#495057" stroke-width="2">
+<line x1="68.6" y1="104" x2="68.6" y2="112"/><line x1="222.9" y1="104" x2="222.9" y2="112"/><line x1="377.1" y1="104" x2="377.1" y2="112"/><line x1="531.4" y1="104" x2="531.4" y2="112"/>
+<line x1="145.7" y1="188" x2="145.7" y2="198"/><line x1="300" y1="188" x2="300" y2="198"/><line x1="454.3" y1="188" x2="454.3" y2="198"/>
+</g>
+<g font-size="22" font-weight="bold" text-anchor="middle">
+<text x="68.6" y="98" fill="#c92a2a">červená</text>
+<text x="222.9" y="98" fill="#a07800">žlutá</text>
+<text x="377.1" y="98" fill="#1971c2">modrá</text>
+<text x="531.4" y="98" fill="#862e9c">fialová</text>
+<text x="145.7" y="220" fill="#d9480f">oranžová</text>
+<text x="300" y="220" fill="#2b8a3e">zelená</text>
+<text x="454.3" y="220" fill="#364fc7">indigová</text>
+</g>
+<text x="454.3" y="244" font-size="22" fill="#364fc7" text-anchor="middle">(tmavomodrá)</text>
+
+<!-- lom a vlnová délka -->
+<line x1="215" y1="284" x2="385" y2="284" stroke="#495057" stroke-width="3" marker-end="url(#r2sip)"/>
+<text x="30" y="291" font-size="22" fill="#c92a2a">láme se nejméně</text>
+<text x="570" y="291" font-size="22" fill="#862e9c" text-anchor="end">láme se nejvíce</text>
+<text x="30" y="320" font-size="22" fill="#495057">nejdelší vlnová délka</text>
+<text x="570" y="320" font-size="22" fill="#495057" text-anchor="end">nejkratší vlnová délka</text>
+</svg>

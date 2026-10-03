@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 430" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Rozklad bílého světla optickým hranolem: úzký svazek bílého světla dopadne na skleněný hranol, při průchodu se láme a rozloží na barevné paprsky. Na stínítku vznikne spektrum od červené nahoře po fialovou dole. Červená se láme nejméně, fialová nejvíce. Animace: bílý paprsek doletí k hranolu, v hranolu se rozdělí na barvy a barevné paprsky dopadnou na stínítko.">
+<style>
+/* Animace (8 s, smyčka) podle předlohy (PDF lekce 28, str. 2 — hranol na stole):
+   bílý paprsek doletí (5–25 %), uvnitř hranolu se rozdělí (25–35 %), barevné paprsky k stínítku (35–60 %),
+   barvy na stínítku a popisky (60–66 %), vše zmizí (92–98 %).
+   Bez animace (prefers-reduced-motion) = koncový stav: atributy níže ukazují vše. */
+.bile, .uvn, .ven { stroke-dasharray: 100; }
+.bile { animation: bile 8s linear infinite; }
+.uvn { animation: uvn 8s linear infinite; }
+.ven { animation: ven 8s linear infinite; }
+.popis { animation: popis 8s linear infinite; }
+.celek { animation: celek 8s linear infinite; }
+@keyframes bile { 0%, 5% { stroke-dashoffset: 100; } 25%, 100% { stroke-dashoffset: 0; } }
+@keyframes uvn { 0%, 25% { stroke-dashoffset: 100; } 35%, 100% { stroke-dashoffset: 0; } }
+@keyframes ven { 0%, 35% { stroke-dashoffset: 100; } 60%, 100% { stroke-dashoffset: 0; } }
+@keyframes popis { 0%, 60% { opacity: 0; } 66%, 100% { opacity: 1; } }
+@keyframes celek { 0%, 92% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .bile, .uvn, .ven, .popis, .celek { animation: none; } }
+</style>
+<defs>
+<linearGradient id="r1stul" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#3b4048"/><stop offset="1" stop-color="#22262c"/>
+</linearGradient>
+<linearGradient id="r1sklo" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#e7f5ff" stop-opacity="0.55"/><stop offset="0.5" stop-color="#a5d8ff" stop-opacity="0.28"/><stop offset="1" stop-color="#d0ebff" stop-opacity="0.45"/>
+</linearGradient>
+<linearGradient id="r1stena" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#868e96"/><stop offset="0.45" stop-color="#ced4da"/><stop offset="1" stop-color="#6c757d"/>
+</linearGradient>
+<filter id="r1zare" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="3"/></filter>
+</defs>
+<rect x="3" y="3" width="594" height="424" rx="14" fill="url(#r1stul)" stroke="#2b2a26" stroke-width="3"/>
+<text x="300" y="40" font-size="26" font-weight="bold" fill="#f8f9fa" text-anchor="middle">Rozklad bílého světla hranolem</text>
+
+<!-- stín hranolu na stole -->
+<path d="M150,334 L362,334 L392,346 L170,350 Z" fill="#111418" opacity="0.55"/>
+<!-- hranol: horní stěna (trojúhelník, po ní jde paprsek) + přední svislá stěna -->
+<path d="M145,305.6 L355,305.6 L355,333 L145,333 Z" fill="url(#r1stena)" stroke="#dee2e6" stroke-width="2"/>
+<line x1="160" y1="309" x2="160" y2="330" stroke="#f8f9fa" stroke-width="3" opacity="0.6"/>
+<path d="M250,123.8 L145,305.6 L355,305.6 Z" fill="url(#r1sklo)" stroke="#f1f3f5" stroke-width="3" stroke-linejoin="round"/>
+<path d="M250,140 L163,295" stroke="#ffffff" stroke-width="4" opacity="0.35" stroke-linecap="round"/>
+<path d="M262,150 L338,292" stroke="#ffffff" stroke-width="2" opacity="0.2" stroke-linecap="round"/>
+<text x="250" y="365" font-size="22" fill="#e9ecef" text-anchor="middle">optický hranol</text>
+
+<!-- stínítko -->
+<path d="M500,245 L512,240 L512,330 L500,335 Z" fill="#f8f9fa" stroke="#adb5bd" stroke-width="2"/>
+<path d="M512,240 L518,242 L518,332 L512,330 Z" fill="#ced4da"/>
+
+<text x="20" y="330" font-size="22" fill="#f8f9fa">bílé světlo</text>
+
+<g class="celek">
+<!-- bílé světlo (úzký svazek) -->
+<line x1="10" y1="285.9" x2="197.5" y2="214.7" stroke="#ffffff" stroke-width="9" opacity="0.35" filter="url(#r1zare)" pathLength="100" class="bile"/>
+<line x1="10" y1="285.9" x2="197.5" y2="214.7" stroke="#ffffff" stroke-width="5" stroke-linecap="round" pathLength="100" class="bile"/>
+
+<!-- uvnitř hranolu: každá barva se láme jinak (n = 1,50 … 1,60, rozdíl zvětšen pro názornost) -->
+<g stroke-width="2.5" stroke-linecap="round">
+<line x1="197.5" y1="214.7" x2="301.3" y2="212.7" stroke="#f03e3e" pathLength="100" class="uvn"/>
+<line x1="197.5" y1="214.7" x2="301.7" y2="213.4" stroke="#fd7e14" pathLength="100" class="uvn"/>
+<line x1="197.5" y1="214.7" x2="302.1" y2="214" stroke="#fcc419" pathLength="100" class="uvn"/>
+<line x1="197.5" y1="214.7" x2="302.5" y2="214.7" stroke="#40c057" pathLength="100" class="uvn"/>
+<line x1="197.5" y1="214.7" x2="302.9" y2="215.3" stroke="#339af0" pathLength="100" class="uvn"/>
+<line x1="197.5" y1="214.7" x2="303.2" y2="216" stroke="#5c5ce6" pathLength="100" class="uvn"/>
+<line x1="197.5" y1="214.7" x2="303.6" y2="216.6" stroke="#cc5de8" pathLength="100" class="uvn"/>
+</g>
+
+<!-- barevné paprsky za hranolem: odchylka červená 37°, fialová 46° (od směru bílého světla) -->
+<g stroke-width="4" stroke-linecap="round">
+<line x1="301.3" y1="212.7" x2="500" y2="271.3" stroke="#f03e3e" pathLength="100" class="ven"/>
+<line x1="301.7" y1="213.4" x2="500" y2="277.3" stroke="#fd7e14" pathLength="100" class="ven"/>
+<line x1="302.1" y1="214" x2="500" y2="283.4" stroke="#fcc419" pathLength="100" class="ven"/>
+<line x1="302.5" y1="214.7" x2="500" y2="289.7" stroke="#40c057" pathLength="100" class="ven"/>
+<line x1="302.9" y1="215.3" x2="500" y2="296.3" stroke="#339af0" pathLength="100" class="ven"/>
+<line x1="303.2" y1="216" x2="500" y2="303.3" stroke="#5c5ce6" pathLength="100" class="ven"/>
+<line x1="303.6" y1="216.6" x2="500" y2="310.5" stroke="#cc5de8" pathLength="100" class="ven"/>
+</g>
+
+<g class="popis">
+<!-- spektrum na stínítku (barvy plynule přecházejí) -->
+<defs>
+<linearGradient id="r1spek" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#f03e3e"/><stop offset="0.17" stop-color="#fd7e14"/><stop offset="0.33" stop-color="#fcc419"/><stop offset="0.5" stop-color="#40c057"/><stop offset="0.67" stop-color="#339af0"/><stop offset="0.83" stop-color="#5c5ce6"/><stop offset="1" stop-color="#cc5de8"/>
+</linearGradient>
+</defs>
+<path d="M500,269 L512,264.6 L512,306 L500,312.5 Z" fill="url(#r1spek)"/>
+<text x="492" y="230" font-size="22" font-weight="bold" fill="#ff8787" text-anchor="end">červená</text>
+<text x="488" y="336" font-size="22" font-weight="bold" fill="#e599f7" text-anchor="end">fialová</text>
+<text x="509" y="362" font-size="22" fill="#e9ecef" text-anchor="middle">spektrum</text>
+<text x="300" y="405" font-size="22" fill="#fff3bf" text-anchor="middle">červená se láme nejméně, fialová nejvíce</text>
+</g>
+</g>
+</svg>
