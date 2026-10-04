@@ -8,8 +8,8 @@
 @media (prefers-reduced-motion: reduce) { .h1, .h2, .h3 { animation: none; } }
 </style>
 <rect x="3" y="3" width="954" height="694" rx="14" fill="#f8f9fa"/>
-<rect x="220" y="16" width="520" height="58" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
-<text x="480" y="55" font-size="28" fill="#212529" text-anchor="middle">Galileův teploměr s baňkami</text>
+<rect x="220" y="16" width="520" height="50" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="480" y="51" font-size="28" fill="#212529" text-anchor="middle">Galileův teploměr s baňkami</text>
 <defs><linearGradient id="mosaz" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#a87b22"/><stop offset="0.45" stop-color="#ffe8a3"/><stop offset="1" stop-color="#8f6512"/></linearGradient><linearGradient id="valec" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d0ebff"/><stop offset="0.25" stop-color="#ffffff"/><stop offset="0.8" stop-color="#e7f5ff"/><stop offset="1" stop-color="#a5d8ff"/></linearGradient><radialGradient id="kb" cx="0.35" cy="0.3" r="0.75"><stop offset="0" stop-color="#fff" stop-opacity="0.9"/><stop offset="0.35" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
 <path d="M330 96a14 14 0 1 1 0.1 0" fill="none" stroke="#8f6512" stroke-width="5"/>
 <rect x="308" y="104" width="44" height="18" rx="4" fill="url(#mosaz)" stroke="#8f6512" stroke-width="2"/>

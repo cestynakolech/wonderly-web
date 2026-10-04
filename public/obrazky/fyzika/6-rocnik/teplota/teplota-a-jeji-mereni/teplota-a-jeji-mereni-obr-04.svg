@@ -38,7 +38,7 @@
 <text x="92" y="338" font-size="24" fill="#212529" text-anchor="start">1  teploměr měří — rtuť stoupá</text>
 <text x="92" y="386" font-size="24" fill="#212529" text-anchor="start">2  po sundání ukazuje teplotu dál</text>
 <text x="92" y="434" font-size="24" fill="#212529" text-anchor="start">3  pro nové měření rtuť střepeme</text>
-<path class="krok" d="M80 368l-24 -12v24Z" fill="#c92a2a"/>
+<path class="krok" d="M80 378l-24 -12v24Z" fill="#c92a2a"/>
 <rect x="610" y="296" width="310" height="80" rx="12" fill="#fff" stroke="#1864ab" stroke-width="2.5"/>
 <text x="765" y="330" font-size="24" font-weight="bold" fill="#1864ab" text-anchor="middle">měří od 35 °C</text>
 <text x="765" y="362" font-size="24" font-weight="bold" fill="#1864ab" text-anchor="middle">do 42 °C</text>

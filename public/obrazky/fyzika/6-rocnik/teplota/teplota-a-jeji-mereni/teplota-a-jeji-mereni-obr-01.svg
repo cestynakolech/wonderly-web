@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 690" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: Celsiova teplotní stupnice. Dva stejné lihové teploměry se stupnicí od 0 do 100 stupňů Celsia. Levý je v kádince s vodou a kousky ledu, jeho červený sloupec klesne k 0 °C: při 0 °C taje led. Pravý je v kádince s vroucí vodou na vařiči, sloupec vystoupá ke 100 °C: při 100 °C voda vře.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 690" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: Celsiova teplotní stupnice. Dva stejné kapalinové teploměry se stupnicí od 0 do 100 stupňů Celsia. Levý je v kádince s vodou a kousky ledu, jeho červený sloupec klesne k 0 °C: při 0 °C taje led. Pravý je v kádince s vroucí vodou na vařiči, sloupec vystoupá ke 100 °C: při 100 °C voda vře.">
 <style>
 /* Předloha: PDF Teplota — kresba tří teploměrů s teplotou varu vody a tání ledu. Pro šesťáky jen Celsiova stupnice:
    teploměr v kádince s ledem a teploměr v kádince s vroucí vodou. Překresleno, ne kopie.
@@ -65,10 +65,10 @@
 <rect x="494" y="622" width="250" height="16" rx="4" fill="#e03131"/><rect x="484" y="636" width="270" height="34" rx="6" fill="#495057"/>
 <circle cx="736" cy="653" r="8" fill="#ced4da"/>
 <text x="604" y="661" font-size="20" font-weight="bold" fill="#fff" text-anchor="middle">vroucí voda na vařiči</text>
-<g class="pop"><path d="M327 479H226" stroke="#1864ab" stroke-width="3" stroke-dasharray="8 6"/><rect x="20" y="435" width="206" height="88" rx="12" fill="#fff" stroke="#1864ab" stroke-width="3"/><text x="123" y="473" font-size="34" font-weight="bold" fill="#1864ab" text-anchor="middle">0 °C</text>
-<text x="123" y="507" font-size="24" fill="#212529" text-anchor="middle">led taje</text>
+<g class="pop"><path d="M327 479H200" stroke="#1864ab" stroke-width="3" stroke-dasharray="8 6"/><rect x="14" y="435" width="186" height="88" rx="12" fill="#fff" stroke="#1864ab" stroke-width="3"/><text x="107" y="473" font-size="34" font-weight="bold" fill="#1864ab" text-anchor="middle">0 °C</text>
+<text x="107" y="507" font-size="24" fill="#212529" text-anchor="middle">led taje</text>
 </g>
-<g class="pop"><path d="M627 179H734" stroke="#c92a2a" stroke-width="3" stroke-dasharray="8 6"/><rect x="734" y="135" width="206" height="88" rx="12" fill="#fff" stroke="#c92a2a" stroke-width="3"/><text x="837" y="173" font-size="34" font-weight="bold" fill="#c92a2a" text-anchor="middle">100 °C</text>
+<g class="pop"><path d="M672 179H734" stroke="#c92a2a" stroke-width="3" stroke-dasharray="8 6"/><rect x="734" y="135" width="206" height="88" rx="12" fill="#fff" stroke="#c92a2a" stroke-width="3"/><text x="837" y="173" font-size="34" font-weight="bold" fill="#c92a2a" text-anchor="middle">100 °C</text>
 <text x="837" y="207" font-size="24" fill="#212529" text-anchor="middle">voda vře</text>
 </g>
 </svg>

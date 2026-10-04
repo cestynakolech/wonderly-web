@@ -1,11 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: rodinný dům z cihel se sedlovou střechou, dvěma okny nahoře, oknem a dveřmi dole. Přes levou polovinu přejede obraz termokamery: zdi a střecha jsou modré a fialové, tedy chladnější, okna a dveře žluté až červené, tudy uniká teplo. Pravá polovina je běžný pohled. Dole je barevná stupnice od chladnějšího k teplejšímu.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: rodinný dům z cihel se sedlovou střechou, dvěma okny nahoře, oknem a dveřmi dole. Přes levou polovinu přejede obraz termokamery: zdi a střecha jsou modré a fialové, tedy chladnější, okna žlutá až červená, tudy uniká teplo. Pravá polovina je běžný pohled. Dole je barevná stupnice od chladnějšího k teplejšímu.">
 <style>
 /* Předloha: PDF Teplota — snímek domu, levá polovina pohledem termokamery (modrá a fialová = chladno, žlutá a červená
    u oken a dveří = teplo uniká), pravá polovina běžná fotografie. Překresleno, ne kopie; stupnice bez čísel.
    Cyklus 8 s: 10–50 % obraz termokamery přejede přes levou polovinu domu, drží, na konci zmizí.
    Bez animace = koncový stav (levá polovina termokamerou, pravá běžně). */
 @keyframes sken { 0%, 10% { transform: translate(-480px, 0); } 50%, 94% { transform: translate(0, 0); } 100% { transform: translate(-480px, 0); } }
-@keyframes car { 0%, 10% { transform: translate(-480px, 0); opacity: 0; } 12% { opacity: 1; } 50%, 94% { transform: translate(0, 0); opacity: 1; } 100% { transform: translate(-480px, 0); opacity: 0; } }
+@keyframes car { 0%, 10% { transform: translate(-277px, 0); opacity: 0; } 12% { opacity: 1; } 50%, 94% { transform: translate(0, 0); opacity: 1; } 100% { transform: translate(-277px, 0); opacity: 0; } }
 .sken { animation: sken 8s ease-in-out infinite; } .car { animation: car 8s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) { .sken, .car { animation: none; } }
 </style>

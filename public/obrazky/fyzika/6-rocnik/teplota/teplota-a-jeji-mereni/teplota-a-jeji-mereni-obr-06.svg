@@ -2,7 +2,7 @@
 <style>
 /* Předloha: PDF Teplota — text o digitálním teploměru s elektronickým čidlem (displej) a bezkontaktním teploměru
    (snímá tepelné záření, měří na čele). V PDF k nim fotografie není; kresba podle skutečných přístrojů.
-   Čísla: 25 °C = vlažná voda z pokusu ve výkladu; 37 °C = teplota těla (opora ve výkladu chybí — viz protokol).
+   Čísla: 25 °C = vlažná voda z pokusu ve výkladu; 37 °C = teplota těla (běžný fakt; foto lékařského teploměru PDF s. 7, 98 °F s. 3).
    Cyklus 8 s: displeje nejdřív ukazují čárky, pak naměřenou teplotu; vlnky záření běží od čela k teploměru.
    Bez animace = koncový stav (displeje ukazují teplotu). */
 @keyframes car { 0%, 35% { opacity: 1; } 38%, 100% { opacity: 0; } }
