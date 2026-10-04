@@ -1018,6 +1018,6 @@ export const laborky: Record<string, Laborka> = {
 			'K čemu slouží bleskosvod a z čeho se skládá?',
 		],
 		pozor: 'Svíčku zapaluje a hasí jen učitel. Dlouhé vlasy si sepni a drž odstup od plamene. Svíčka stojí na nehořlavé podložce. Elektroskopu se nedotýkej, ať ho nevybiješ.',
-		tip: 'Bleskosvod vynalezl nezávisle na sobě americký fyzik Benjamin Franklin a český přírodovědec Prokop Diviš.',
+		tip: 'Bleskosvod vynalezli nezávisle na sobě americký fyzik Benjamin Franklin a český přírodovědec Prokop Diviš.',
 	},
 };
