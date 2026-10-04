@@ -2,7 +2,7 @@
 <style>
 /* Předloha: PDF Úvod do fyziky, s. 2 (fotografie blesků nad nočním městem u odstavce Pozorování) – překresleno.
    Blesky blikají ve smyčce 6 s s posunutými fázemi; bez animace (reduced-motion) jsou vidět všechny tři blesky. */
-@keyframes blik { 0% { opacity: 0; } 2% { opacity: 1; } 4% { opacity: 0.2; } 6% { opacity: 1; } 11% { opacity: 0; } 100% { opacity: 0; } }
+@keyframes blik { 0% { opacity: 0.3; } 2% { opacity: 1; } 4% { opacity: 0.45; } 6% { opacity: 1; } 16% { opacity: 0.3; } 100% { opacity: 0.3; } }
 @keyframes zablesk { 0% { opacity: 0; } 2% { opacity: 0.35; } 4% { opacity: 0.05; } 6% { opacity: 0.3; } 11% { opacity: 0; } 100% { opacity: 0; } }
 .b1 { animation: blik 6s linear infinite; }
 .b2 { animation: blik 6s linear -4s infinite; }

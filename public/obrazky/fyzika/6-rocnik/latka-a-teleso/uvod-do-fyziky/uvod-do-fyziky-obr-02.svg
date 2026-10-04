@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Spojnicový graf nejnižší a nejvyšší denní teploty od 1. do 19. února. Vodorovně dny, svisle teplota ve stupních Celsia od minus 7 do 8. Modrá čára nejnižších teplot se drží pod nulou, nejníž na minus 6 stupních. Oranžová čára nejvyšších teplot vystoupá až na 7 stupňů. Animace: obě čáry se postupně kreslí zleva doprava.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Spojnicový graf nejnižší a nejvyšší denní teploty od 1. do 19. února. Vodorovně dny, svisle teplota ve stupních Celsia od minus 7 do 8. Modrá čára nejnižších teplot je pod nulou nebo na nule, nejníž na minus 6 stupních. Oranžová čára nejvyšších teplot vystoupá až na 7 stupňů. Animace: obě čáry se postupně kreslí zleva doprava.">
 <style>
 /* Předloha: PDF Úvod do fyziky, s. 4 (graf „Denní průběh minimální a maximální teploty a její odhad“, 1.–19. 2.).
    Překresleno: hodnoty odečtené z předlohy a zaokrouhlené na celé °C; šedá čára „odhad“ a červené šipky vynechány
