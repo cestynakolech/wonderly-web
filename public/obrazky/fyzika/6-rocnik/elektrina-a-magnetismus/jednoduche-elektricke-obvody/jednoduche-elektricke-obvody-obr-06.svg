@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 390" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: kapesní svítilna v řezu. Uvnitř jsou dva články za sebou (plus jednoho se dotýká minus druhého), vzadu pružina, vpředu žárovka v lesklém reflektoru za sklem. Po horní straně vede kovový pásek jako vodič a na něm je spínač. Když se spínač posune dopředu, kovový můstek spojí přerušený pásek, obvod je uzavřený a žárovka svítí. Když se posune zpět, obvod se přeruší a žárovka zhasne.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 390" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: kapesní svítilna v řezu. Uvnitř jsou dva články za sebou (plus jednoho se dotýká minus druhého), vzadu pružina, vpředu žárovka v lesklém reflektoru za sklem. Plus článku se dotýká středního kontaktu (patky) žárovky, proud jde vláknem a závitem objímky do kovového pásku. Po horní straně vede kovový pásek jako vodič a na něm je spínač. Když se spínač posune dopředu, kovový můstek spojí přerušený pásek, obvod je uzavřený a žárovka svítí. Když se posune zpět, obvod se přeruší a žárovka zhasne.">
 <style>
 /* Předloha: PDF Jednoduché elektrické obvody, kreslený řez kapesní svítilnou (dva články − + − +, spínač nahoře, žárovka v reflektoru) u věty „obvodem prochází proud pouze v případě, že je uzavřen (sepnutý spínač…)“.
    Animace 8 s: 0–30 % spínač vypnutý (můstek posunutý vzad, pásek přerušený); 30–35 % posun vpřed; 35–85 % zapnutý, žárovka svítí;
@@ -49,12 +49,18 @@
 <path d="M254 180H270" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
 <path d="M357 180H373M365 172V188" stroke="#212529" stroke-width="4" stroke-linecap="round"/>
 <!-- objímka a žárovka -->
-<rect x="392" y="160" width="30" height="40" rx="4" fill="url(#kovV)" stroke="#495057" stroke-width="1.5"/>
 <circle cx="440" cy="180" r="18" fill="#f1f8ff" stroke="#868e96" stroke-width="2"/>
 <circle class="zap" cx="440" cy="180" r="17" fill="#ffe066"/>
-<path d="M432 182c2-5 4-5 5 0c2-5 4-5 5 0c2-5 4-5 5 0" fill="none" stroke="#495057" stroke-width="2"/>
+<!-- patice: střední kontakt (patka) + izolant + závit -->
+<rect x="404" y="170" width="28" height="20" fill="#212529"/>
+<rect x="410" y="160" width="22" height="10" rx="2" fill="url(#kovV)" stroke="#495057" stroke-width="1.5"/>
+<rect x="410" y="190" width="22" height="10" rx="2" fill="url(#kovV)" stroke="#495057" stroke-width="1.5"/>
+<rect x="392" y="174" width="12" height="12" rx="2" fill="url(#zlata)" stroke="#9c5f12" stroke-width="1.5"/>
+<path d="M404 180H432" stroke="#f7c873" stroke-width="3"/>
+<!-- vlákno: od patky přes vlákno k závitu (jediná cesta proudu) -->
+<path d="M432 180L433 182c2-5 4-5 5 0c2-5 4-5 5 0c2-5 4-5 5 0L448 180L448 168L430 166" fill="none" stroke="#495057" stroke-width="2"/>
 <!-- kovový pásek = vodič (přerušený pod spínačem) -->
-<path d="M62 180H56V137H250M290 137H406V160" fill="none" stroke="#adb5bd" stroke-width="6"/>
+<path d="M62 180H56V137H250M290 137H421V160" fill="none" stroke="#adb5bd" stroke-width="6"/>
 <!-- spínač: jezdec + kovový můstek -->
 <g class="sp">
 <rect x="246" y="133" width="48" height="8" rx="2" fill="#868e96"/>
