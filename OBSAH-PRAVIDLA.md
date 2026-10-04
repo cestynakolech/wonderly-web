@@ -272,6 +272,8 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
 
 - **Celá čísla.** Příklady i simulace pro děti musí vycházet v celých číslech; desetinné číslo
   jen tam, kde je samo učivem (převody jednotek) nebo jde o naměřenou konstantu (hustota, g, napětí).
+  **Výjimka (učitel 4. 10. 2026, „u měření povol, výpočty ne“):** desetinná čísla jsou povolená při
+  ODEČTU NAMĚŘENÝCH hodnot (laborky, siloměr, teploměr); ve výpočtech, příkladech a simulacích dál jen celá.
   Čísla bez koncových nul (15 cm, ne 15,00 cm), znaménko − místo pomlčky. `feedback-cela-cisla-ve-vypoctech`
 - **Správná odpověď nesmí být systematicky nejdelší** (cíl ~33–40 %, žádný náskok ≥ 10 znaků).
   Míchání pořadí to neřeší. Když vyjde nejdelší, **PRODLUŽ DISTRAKTORY — nekrať správnou odpověď**;
