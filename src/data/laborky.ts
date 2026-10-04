@@ -757,7 +757,7 @@ export const laborky: Record<string, Laborka> = {
 			'Jak se jmenuje změna pevné látky přímo na plyn? Uveď příklad.',
 		],
 		pozor: 'Používej jen teplou vodu z kohoutku, nikdy horkou z konvice. Čokoládu nejez, pokus se dělá v laboratoři. Rozlitou vodu hned utři, aby nikdo neuklouzl.',
-		tip: 'Některé látky mohou přejít z pevného skupenství rovnou na plyn. Říká se tomu sublimace a dělá to například jód.',
+		tip: 'Led, voda a vodní pára jsou tři skupenství téže látky. Mají stejné částice, liší se jen jejich pohybem a silami mezi nimi.',
 	},
 	'fyzika/8-rocnik/elektrina/elektricky-naboj': {
 		nazev: 'Elektrování balonků: přitahování a odpuzování',
@@ -785,11 +785,11 @@ export const laborky: Record<string, Laborka> = {
 	'fyzika/8-rocnik/elektrina/ohmuv-zakon': {
 		nazev: 'Ohmův zákon: proud a napětí na rezistoru',
 		cil: 'Změřit proud rezistorem při třech různých napětích a ověřit, jak spolu proud a napětí souvisí.',
-		pomucky: ['tři tužkové baterie AA s držáky (jeden držák na každou baterii)', 'rezistor 100 Ω na zatížení aspoň 0,5 W', 'ampérmetr s rozsahem aspoň 100 mA', 'voltmetr', 'vodiče', 'tužka'],
+		pomucky: ['šest tužkových baterií AA s držáky (jeden držák na každou baterii)', 'rezistor 300 Ω na zatížení aspoň 0,5 W', 'ampérmetr s rozsahem aspoň 100 mA', 'voltmetr', 'vodiče', 'tužka'],
 		postup: [
-			'Obvod zapoj podle schématu učitele nejdřív s jednou baterií. Ampérmetr patří do série s rezistorem, voltmetr paralelně k němu. Učitel zapojení zkontroluje, a teprve potom ho zapoj.',
+			'Obvod zapoj podle schématu učitele nejdřív se dvěma bateriemi za sebou. Ampérmetr patří do série s rezistorem, voltmetr paralelně k němu. Učitel zapojení zkontroluje, a teprve potom ho zapoj.',
 			'Odečti napětí na voltmetru a proud v mA. Zapiš je do tabulky.',
-			'Odpoj obvod a zapoj dvě baterie za sebou, potom tři baterie za sebou. Vždy nech zapojení zkontrolovat učitelem, odečti napětí i proud a zapiš.',
+			'Odpoj obvod a zapoj čtyři baterie za sebou, potom šest baterií za sebou. Vždy nech zapojení zkontrolovat učitelem, odečti napětí i proud a zapiš.',
 			'Obvod odpoj. Do posledních dvou sloupců napiš, kolikrát je napětí a proud větší než v prvním řádku, zaokrouhleno na celé číslo.',
 			'Vysvětlení: napětí a proud ve vodiči spolu souvisí. Tuto závislost prokázal roku 1826 německý fyzik Georg Simon Ohm.',
 		],
