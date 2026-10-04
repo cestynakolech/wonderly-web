@@ -1508,6 +1508,6 @@ export const laborky: Record<string, Laborka> = {
 			'Elektrickou energii měříme v kilowatthodinách. Kolik watthodin je 1 kWh?',
 		],
 		pozor: 'Pracuj jen s lehkým závažím a pouštěj ho jen do trubice. Ruce a nohy drž mimo dosah závaží. Pracuj na pevné lavici a závaží po pokusu odlož. Po práci si umyj ruce od modelíny.',
-		tip: 'Energii nelze vytvořit ani zničit, může se pouze přeměňovat z jednoho druhu na jiný.',
+		tip: 'Jednotka energie joule je pojmenovaná po anglickém fyzikovi Jamesi Prescottu Joulovi.',
 	},
 };
