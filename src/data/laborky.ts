@@ -1620,7 +1620,7 @@ export const laborky: Record<string, Laborka> = {
 		otazky: [
 			'Jak se měnila teplota směsi, dokud led tál?',
 			'Co se stalo s teplotou po přidání soli? Kde se tato vlastnost využívá?',
-			'Kolik tepla je potřeba k roztátí 3 kg ledu, má-li led měrné skupenské teplo tání 332 kJ/kg? Použij Lt = lt · m.',
+			'Kolik tepla je potřeba k roztátí 4 kg ledu, má-li led měrné skupenské teplo tání 332 kJ/kg? Použij Lt = lt · m.',
 			'Která z látek taje při jedné určité teplotě a která v určitém rozmezí teplot: led, vosk, čokoláda, kuchyňská sůl?',
 		],
 		pozor: 'Teploměr nepoužívej jako míchátko. Led a sůl nejez. Studený kelímek drž krátce, aby ses nepoškodil omrzlinou. Rozlitou vodu hned utři.',
