@@ -101,18 +101,18 @@ const VAROVANI = (r1, r2) =>
 	+ `<text x="530" y="252" text-anchor="middle" font-size="12" font-weight="bold" fill="#e03131">${r1}</text>`
 	+ `<text x="530" y="268" text-anchor="middle" font-size="12" font-weight="bold" fill="#e03131">${r2}</text>`;
 const OCEKAVANE_A = [
-	{ out: 'malá baterie 3 V, suchá kůže', zdrojText: 'malá baterie — 3 V', kuzeText: 'suchá kůže — 150 000 Ω',
+	{ out: 'malá baterie 3 V, v suchu a suché obuvi', zdrojText: 'malá baterie — 3 V', kuzeText: 'odpor člověka 150 000 Ω',
 		x1: '95', y1: '72', navrat: 'M270,281 L270,335 L4,335 L4,160 L95,160 L95,150',
 		ruka: '#ffd8a8', srdce: BARVA.pod1, pismo: TEXT.pod1, pasmoText: 'pod 1 mA', marker: '447,140 463,140 455,148',
 		vypocet: 'I = U : R = 3 V : 150 000 Ω = <strong>20 µA</strong>',
-		stav: 'malá baterie (3 V), suchá kůže: proud 20 µA. Je to méně než 1 mA, kolem kterého člověk proud teprve ucítí jako brnění. Výpočet ukazuje rozdíl proti zásuvce, není návodem zkoušet baterii na těle.',
+		stav: 'malá baterie (3 V), v suchu a suché obuvi: proud 20 µA. Je to méně než 1 mA, kolem kterého člověk proud teprve ucítí jako brnění. Výpočet ukazuje rozdíl proti zásuvce, není návodem zkoušet baterii na těle.',
 		info: INFO('3', '150 000', '20 µA', TEXT.pod1, 'pod 1 mA'),
 		varovani: VAROVANI('Jen výpočet — baterii', 'na těle nezkoušej!'), ikonaObsahuje: '#fab005' },
-	{ out: 'zásuvka 230 V, vlhká kůže', zdrojText: 'zásuvka — 230 V', kuzeText: 'vlhká kůže — 2 000 Ω',
+	{ out: 'zásuvka 230 V, ve vlhku', zdrojText: 'zásuvka — 230 V', kuzeText: 'odpor člověka 2 000 Ω',
 		x1: '105', y1: '110', navrat: 'M270,281 L270,335 L4,335 L4,160 L85,160 L85,120',
 		ruka: '#4dabf7', srdce: BARVA.fibrilace, pismo: TEXT.fibrilace, pasmoText: 'od 30 mA – riziko fibrilace', marker: '597,140 613,140 605,148',
 		vypocet: 'I = U : R = 230 V : 2 000 Ω = <strong>115 mA</strong>',
-		stav: 'zásuvka (230 V), vlhká kůže: proud 115 mA. Od přibližně 30 mA při delším průchodu roste riziko fibrilace: srdce se chvěje a nedokáže účinně pumpovat krev. Zásuvka 230 V je životu nebezpečná — nikdy se to nezkouší.',
+		stav: 'zásuvka (230 V), ve vlhku: proud 115 mA. Od přibližně 30 mA při delším průchodu roste riziko fibrilace: srdce se chvěje a nedokáže účinně pumpovat krev. Zásuvka 230 V je životu nebezpečná — nikdy se to nezkouší.',
 		info: INFO('230', '2 000', '115 mA', TEXT.fibrilace, 'od 30 mA – riziko fibrilace'),
 		varovani: VAROVANI('⚠️ Zásuvka 230 V je životu', 'nebezpečná — nikdy nezkoušet!'), ikonaObsahuje: '#e9ecef' },
 ];

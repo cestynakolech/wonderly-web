@@ -30,7 +30,7 @@
 	<p>Lidské tělo vede proud, takže na něj platí stejný <strong>Ohmův zákon</strong> <em>I = U : R</em> jako na drát. Porovnej dva výpočty z výkladu: malou baterii a zásuvku.</p>
 
 	<h3>⚡ Část A: Malá baterie, nebo zásuvka?</h3>
-	<p>Odpor člověka (i s obuví) není stálé číslo: v suchu a v suché obuvi je asi <strong>150 000 Ω</strong>, ve vlhku přibližně <strong>2 000 Ω</strong> a při vyšším napětí může odpor klesat. Sucho proto nezaručuje ochranu — u zásuvky počítáme s vlhkou kůží.</p>
+	<p>Odpor člověka (i s obuví) není stálé číslo: v suchu a v suché obuvi je asi <strong>150 000 Ω</strong>, ve vlhku přibližně <strong>2 000 Ω</strong> a při vyšším napětí může odpor klesat. Sucho proto nezaručuje ochranu — u zásuvky počítáme s vlhkem.</p>
 	<p><em>Barevná stupnice vpravo je orientační (kolem 1 mA, kolem 10 mA, od přibližně 30 mA) — nejsou to přesné hranice pro každého člověka. Výklad ji uvádí pro střídavý proud (zásuvka); u baterie jen porovnáváme, jak malý proud vyjde. Jde o výpočet, nikdy o pokus s lidským tělem.</em></p>
 	<svg id="upb-a-svg" viewBox="0 0 660 350" role="img" aria-label="Zdroj napětí připojený drátem k ruce postavičky, zpáteční cesta chodidlem zpět ke zdroji, vpravo ampérmetr s barevnou stupnicí 1, 10 a 30 miliampér">
 		<rect x="0" y="0" width="660" height="350" fill="#f8f9fa" />
@@ -69,7 +69,7 @@
 	<p class="upb-stav" id="upb-a-stav"></p>
 
 	<h3><span class="podtrh">🫀 Část B: Kudy proud teče, na tom záleží</span></h3>
-	<p>Napětí necháme napevno na <strong>230 V</strong> a odpor na <strong>2 000 Ω</strong> (vlhká kůže) — stejně jako zásuvka v části A, <strong>nikdy se to nezkouší</strong>. Zvlášť nebezpečná je cesta přes hrudník, například z levé ruky přes srdce. Podívej se, že k ní stačí dotyk jedinou rukou.</p>
+	<p>Napětí necháme napevno na <strong>230 V</strong> a odpor na <strong>2 000 Ω</strong> (ve vlhku) — stejně jako zásuvka v části A, <strong>nikdy se to nezkouší</strong>. Zvlášť nebezpečná je cesta přes hrudník, například z levé ruky přes srdce. Podívej se, že k ní stačí dotyk jedinou rukou.</p>
 	<svg id="upb-b-svg" viewBox="0 0 660 330" role="img" aria-label="Zásuvka připojená drátem k levé ruce postavičky, cesta proudu tělem přes srdce nakreslená nad tělem, čárkovaná zpáteční cesta zpět ke zdroji, vpravo ampérmetr s barevnou stupnicí a trvalé varování nikdy nezkoušet">
 		<rect x="0" y="0" width="660" height="330" fill="#f8f9fa" />
 		<circle cx="250" cy="70" r="22" fill="#ffe8cc" stroke="#2b2a26" stroke-width="3" />
@@ -123,7 +123,7 @@
 
 	// ── Hodnoty z výkladu (jediný domov čísel simulace) ─────────────────────
 	const ODPOR_KUZE = { sucha: 150000, vlhka: 2000 };
-	const KUZE_NAZEV = { sucha: 'suchá kůže', vlhka: 'vlhká kůže' };
+	const KUZE_NAZEV = { sucha: 'v suchu a suché obuvi', vlhka: 've vlhku' };
 	const KUZE_BARVA = { sucha: '#ffd8a8', vlhka: '#4dabf7' };
 
 	// Dvě situace = právě dva výpočty z výkladu (3 V / 150 000 Ω, 230 V / 2 000 Ω).
@@ -222,7 +222,7 @@
 		document.getElementById('upb-a-out-situace').textContent = `${s.zdroj} ${s.U} V, ${KUZE_NAZEV[s.kuze]}`;
 		document.getElementById('upb-a-zdroj').innerHTML = ikonaZdroje(s.klic, 95, 115);
 		document.getElementById('upb-a-zdroj-text').textContent = `${s.zdroj} — ${s.U} V`;
-		document.getElementById('upb-a-kuze-text').textContent = `${KUZE_NAZEV[s.kuze]} — ${tisice(R)} Ω`;
+		document.getElementById('upb-a-kuze-text').textContent = `odpor člověka ${tisice(R)} Ω`;
 		// Vodič k ruce začíná na jednom pólu / kolíku, zpáteční cesta od chodidla končí na druhém.
 		document.getElementById('upb-a-drat-zdroj').setAttribute('x1', String(s.plus.x));
 		document.getElementById('upb-a-drat-zdroj').setAttribute('y1', String(s.plus.y));
