@@ -1106,8 +1106,8 @@ export const laborky: Record<string, Laborka> = {
 		},
 		otazky: [
 			'Za jakých podmínek byl odpor kůže menší? Co z toho vyplývá pro práci s elektrickými spotřebiči?',
-			'Za jakých podmínek jsi naměřil menší odpor kůže? Proč je pro bezpečnost důležité mít při práci s elektrickými spotřebiči suché ruce?',
-			'Při výpočtech bezpečnosti se počítá s nepříznivým odporem těla 2 kΩ. Jaký proud v mA protéká při napětí 12 V? Počítej I = U : R, kde 1 V : 1 kΩ = 1 mA. Při proudu 6 až 15 mA nastává křeč, při které se člověk nemůže uvolnit. Do jaké míry je tvůj výsledek nebezpečný?',
+			'Kudy prochází proud tělem nejnebezpečněji? Proč?',
+			'Při výpočtech bezpečnosti se počítá s nepříznivým odporem těla 2 kΩ. Jaký proud v mA protéká při napětí 12 V? Počítej I = U : R, kde 1 V : 1 kΩ = 1 mA. Při proudu 5 až 15 mA nastává křeč, při které se člověk nemůže uvolnit. Do jaké míry je tvůj výsledek nebezpečný?',
 			'Jak postupuješ jako první, když se zraněný stále dotýká vodiče pod proudem? Které číslo záchranné služby zavoláš?',
 		],
 		pozor: 'Multimetr používej jen na měření odporu a hroty drž jen v rukou, nic jiného nepřipojuj. Nikdy nezkoušej měřit odpor těla u spotřebičů zapojených v zásuvce. Spotřebiče nepoužívej s mokrýma rukama ani ve vodě. Pokus dělej jen s učitelem.',
