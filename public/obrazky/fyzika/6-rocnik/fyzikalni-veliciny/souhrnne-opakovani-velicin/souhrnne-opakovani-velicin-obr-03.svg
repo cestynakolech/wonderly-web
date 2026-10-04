@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: převody jednotek objemu. Nahoře vedle žluté krychle řada krychlových jednotek m³, dm³, cm³, mm³, mezi sousedními jednotkami jsou vždy tři obloučky. Dole vedle hrnce s vodou řada jednotek pro kapaliny hl, l, dl, cl, ml; mezi hl a l jsou dva obloučky, mezi ostatními po jednom. Litr leží pod dm³ a mililitr pod cm³, spojuje je rovnítko: 1 dm³ = 1 l, 1 cm³ = 1 ml. Jeden oblouček je jedna nula. Dole příklady: 1 m³ = 1 000 dm³, 1 dm³ = 1 l, 1 cm³ = 1 ml, 1 hl = 100 l, 1 l = 10 dl, 1 l = 1 000 ml.">
+<style>
+/* Předloha: PDF Souhrnné opakování fyzikálních veličin — ručně psané „Převody jednotek objemu“: žlutá krychle + m³ dm³ cm³ mm³
+   (po 3 obloučcích), hrnec + hl l dl cl ml (2, 1, 1, 1 oblouček), svislé rovnítko (žebříček) dm³ = l a cm³ = ml.
+   Překresleno, ne kopie; styl podle objem-obr-03. Legenda: červený oblouček = 1 nula, modrá čísla = násobíme (na menší).
+   Cyklus 10 s: rozsvítí se krychlové jednotky, pak rovnítka (mosty), pak duté míry. Bez animace = koncový stav. */
+@keyframes r1 { 0%, 6% { opacity: 0.35; } 12%, 94% { opacity: 1; } 100% { opacity: 0.35; } }
+@keyframes most { 0%, 30% { opacity: 0.35; } 36%, 94% { opacity: 1; } 100% { opacity: 0.35; } }
+@keyframes r2 { 0%, 54% { opacity: 0.35; } 60%, 94% { opacity: 1; } 100% { opacity: 0.35; } }
+.r1 { animation: r1 10s linear infinite; } .most { animation: most 10s linear infinite; } .r2 { animation: r2 10s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .r1, .most, .r2 { animation: none; } }
+</style>
+<rect x="3" y="3" width="954" height="594" rx="14" fill="#f8f9fa"/>
+<rect x="280" y="20" width="400" height="56" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="480" y="58" font-size="28" fill="#212529" text-anchor="middle">Převody jednotek objemu</text>
+<!-- žlutá krychle (krychlové jednotky) -->
+<g stroke="#8a4b00" stroke-width="3" stroke-linejoin="round">
+<path d="M40,150 L62,128 L134,128 L112,150 Z" fill="#ffe066"/>
+<path d="M112,150 L134,128 L134,200 L112,222 Z" fill="#f59f00"/>
+<rect x="40" y="150" width="72" height="72" fill="#ffd43b"/>
+</g>
+<path d="M48,160 L48,212" stroke="#fff3bf" stroke-width="4" stroke-linecap="round"/>
+<!-- hrnec s vodou (jednotky pro kapaliny) -->
+<g stroke="#6b3d1c" stroke-width="3" stroke-linejoin="round">
+<path d="M48,302 q-20,2 -18,20 q2,14 22,12" fill="none" stroke-width="5"/>
+<path d="M140,302 q20,2 18,20 q-2,14 -22,12" fill="none" stroke-width="5"/>
+<path d="M46,300 L54,354 Q58,368 74,368 L114,368 Q130,368 134,354 L142,300 Z" fill="#c08457"/>
+<ellipse cx="94" cy="300" rx="50" ry="11" fill="#a8693b"/>
+<ellipse cx="94" cy="302" rx="42" ry="7" fill="#4dabf7" stroke="#1864ab" stroke-width="2"/>
+</g>
+<path d="M60,318 L66,350" stroke="#e0b48a" stroke-width="4" stroke-linecap="round"/>
+<!-- násobky krychlových jednotek -->
+<g font-size="22" font-weight="bold" fill="#1864ab" text-anchor="middle" class="r1">
+<text x="288" y="146">· 1 000</text>
+<text x="545" y="146">· 1 000</text>
+<text x="791" y="146">· 1 000</text>
+</g>
+<!-- krychlové jednotky -->
+<g font-size="40" font-weight="bold" fill="#a85a12" text-anchor="middle">
+<text x="185" y="200">m³</text>
+<text x="400" y="200">dm³</text>
+<text x="690" y="200">cm³</text>
+<text x="895" y="200">mm³</text>
+</g>
+<g fill="none" stroke="#c92a2a" stroke-width="5" stroke-linecap="round" class="r1">
+<path d="M222,212 q22,44 44,0"/><path d="M266,212 q22,44 44,0"/><path d="M310,212 q22,44 44,0"/>
+<path d="M444,212 q33.5,44 67,0"/><path d="M511,212 q33.5,44 67,0"/><path d="M578,212 q33.5,44 67,0"/>
+<path d="M736,212 q18.5,40 37,0"/><path d="M773,212 q18.5,40 37,0"/><path d="M810,212 q18.5,40 37,0"/>
+</g>
+<!-- svislá rovnítka (mosty): 1 dm³ = 1 l, 1 cm³ = 1 ml -->
+<g stroke="#212529" stroke-width="4" stroke-linecap="round" class="most">
+<path d="M393,218 V292 M407,218 V292 M393,240 H407 M393,256 H407 M393,272 H407"/>
+<path d="M683,218 V292 M697,218 V292 M683,240 H697 M683,256 H697 M683,272 H697"/>
+</g>
+<!-- jednotky pro kapaliny -->
+<g font-size="38" font-weight="bold" fill="#a85a12" text-anchor="middle">
+<text x="240" y="330">hl</text>
+<text x="400" y="330">l</text>
+<text x="487" y="330">dl</text>
+<text x="580" y="330">cl</text>
+<text x="690" y="330">ml</text>
+</g>
+<g fill="none" stroke="#c92a2a" stroke-width="5" stroke-linecap="round" class="r2">
+<path d="M266,342 q31,44 62,0"/><path d="M328,342 q31,44 62,0"/>
+<path d="M410,342 q26,44 52,0"/>
+<path d="M512,342 q23,44 46,0"/>
+<path d="M604,342 q27,44 54,0"/>
+</g>
+<g font-size="20" font-weight="bold" fill="#1864ab" text-anchor="middle" class="r2">
+<text x="328" y="396">· 100</text>
+<text x="436" y="396">· 10</text>
+<text x="535" y="396">· 10</text>
+<text x="631" y="396">· 10</text>
+</g>
+<text x="480" y="440" font-size="22" fill="#212529" text-anchor="middle">1 oblouček = 1 nula · na menší jednotku násobíme, na větší dělíme</text>
+<!-- plaketky s příklady -->
+<g font-size="24" font-weight="bold" fill="#212529" text-anchor="middle">
+<g class="r1"><rect x="40" y="466" width="276" height="52" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/><text x="178" y="500">1 m³ = 1 000 dm³</text></g>
+<g class="most"><rect x="342" y="466" width="276" height="52" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/><text x="480" y="500">1 dm³ = 1 l</text></g>
+<g class="most"><rect x="644" y="466" width="276" height="52" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/><text x="782" y="500">1 cm³ = 1 ml</text></g>
+<g class="r2"><rect x="40" y="530" width="276" height="52" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/><text x="178" y="564">1 hl = 100 l</text></g>
+<g class="r2"><rect x="342" y="530" width="276" height="52" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/><text x="480" y="564">1 l = 10 dl</text></g>
+<g class="r2"><rect x="644" y="530" width="276" height="52" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/><text x="782" y="564">1 l = 1 000 ml</text></g>
+</g>
+</svg>

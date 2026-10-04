@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 570" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: převody jednotek hmotnosti. V řadě jsou jednotky t, q, kg, dag, g, mg. Mezi t a q je jeden oblouček, mezi q a kg dva, mezi kg a dag dva, mezi dag a g jeden, mezi g a mg tři. Jeden oblouček je jedna nula. Na menší jednotku násobíme a nuly přidáváme, na větší jednotku dělíme a nuly škrtáme. Dole příklady: 1 t = 10 q, 1 q = 100 kg, 1 kg = 100 dag, 1 dag = 10 g, 1 g = 1 000 mg, 1 kg = 1 000 g.">
+<style>
+/* Předloha: PDF Souhrnné opakování fyzikálních veličin — ručně psané „Převody jednotek hmotnosti“: t q kg dag g mg,
+   pod mezerami červené obloučky (1, 2, 2, 1, 3). Překresleno, ne kopie; styl podle hmotnost-obr-02 a delka-obr-01.
+   Legenda: červený oblouček = 1 nula, modrá = násobíme (na menší), zelená = dělíme (na větší).
+   Cyklus 10 s: postupně se rozsvítí obloučky t→q, q→kg, kg→dag, dag→g, g→mg a s nimi příklady. Bez animace = koncový stav. */
+@keyframes g1 { 0%, 4% { opacity: 0.35; } 10%, 94% { opacity: 1; } 100% { opacity: 0.35; } }
+@keyframes g2 { 0%, 18% { opacity: 0.35; } 24%, 94% { opacity: 1; } 100% { opacity: 0.35; } }
+@keyframes g3 { 0%, 32% { opacity: 0.35; } 38%, 94% { opacity: 1; } 100% { opacity: 0.35; } }
+@keyframes g4 { 0%, 46% { opacity: 0.35; } 52%, 94% { opacity: 1; } 100% { opacity: 0.35; } }
+@keyframes g5 { 0%, 60% { opacity: 0.35; } 66%, 94% { opacity: 1; } 100% { opacity: 0.35; } }
+.g1 { animation: g1 10s linear infinite; } .g2 { animation: g2 10s linear infinite; }
+.g3 { animation: g3 10s linear infinite; } .g4 { animation: g4 10s linear infinite; }
+.g5 { animation: g5 10s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .g1, .g2, .g3, .g4, .g5 { animation: none; } }
+</style>
+<rect x="3" y="3" width="954" height="564" rx="14" fill="#f8f9fa"/>
+<rect x="260" y="20" width="440" height="56" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="480" y="58" font-size="28" fill="#212529" text-anchor="middle">Převody jednotek hmotnosti</text>
+<!-- násobky nad mezerami -->
+<g font-size="22" font-weight="bold" fill="#1864ab" text-anchor="middle">
+<text x="126" y="124" class="g1">· 10</text>
+<text x="266" y="124" class="g2">· 100</text>
+<text x="445" y="124" class="g3">· 100</text>
+<text x="611" y="124" class="g4">· 10</text>
+<text x="761" y="124" class="g5">· 1 000</text>
+</g>
+<!-- jednotky -->
+<g font-size="44" font-weight="bold" fill="#a85a12" text-anchor="middle">
+<text x="69" y="176">t</text>
+<text x="187" y="176">q</text>
+<text x="363" y="176">kg</text>
+<text x="539" y="176">dag</text>
+<text x="657" y="176">g</text>
+<text x="891" y="176">mg</text>
+</g>
+<!-- obloučky: 1 oblouček = 1 nula -->
+<g fill="none" stroke="#c92a2a" stroke-width="5" stroke-linecap="round">
+<path class="g1" d="M82,192 q45,48 90,0"/>
+<g class="g2"><path d="M202,192 q32,48 64,0"/><path d="M266,192 q32,48 64,0"/></g>
+<g class="g3"><path d="M393,192 q26,48 52,0"/><path d="M445,192 q26,48 52,0"/></g>
+<path class="g4" d="M581,192 q30,48 60,0"/>
+<g class="g5"><path d="M672,192 q29.5,48 59,0"/><path d="M731,192 q29.5,48 59,0"/><path d="M790,192 q29.5,48 59,0"/></g>
+</g>
+<text x="480" y="262" font-size="22" fill="#212529" text-anchor="middle">1 oblouček = 1 nula</text>
+<!-- šipka na menší jednotku -->
+<path d="M120 300H820" stroke="#1864ab" stroke-width="5"/><path d="M820 288L844 300L820 312Z" fill="#1864ab"/>
+<text x="480" y="336" font-size="22" font-weight="bold" fill="#1864ab" text-anchor="middle">na menší jednotku: násobíme, nuly přidáváme</text>
+<!-- šipka na větší jednotku -->
+<path d="M140 370H840" stroke="#237032" stroke-width="5"/><path d="M140 358L116 370L140 382Z" fill="#237032"/>
+<text x="480" y="406" font-size="22" font-weight="bold" fill="#237032" text-anchor="middle">na větší jednotku: dělíme, nuly škrtáme</text>
+<!-- plaketky s příklady -->
+<g font-size="24" font-weight="bold" fill="#212529" text-anchor="middle">
+<g class="g1"><rect x="40" y="432" width="276" height="52" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/><text x="178" y="466">1 t = 10 q</text></g>
+<g class="g2"><rect x="342" y="432" width="276" height="52" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/><text x="480" y="466">1 q = 100 kg</text></g>
+<g class="g3"><rect x="644" y="432" width="276" height="52" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/><text x="782" y="466">1 kg = 100 dag</text></g>
+<g class="g4"><rect x="40" y="498" width="276" height="52" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/><text x="178" y="532">1 dag = 10 g</text></g>
+<g class="g5"><rect x="342" y="498" width="276" height="52" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/><text x="480" y="532">1 g = 1 000 mg</text></g>
+<g class="g5"><rect x="644" y="498" width="276" height="52" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/><text x="782" y="532">1 kg = 1 000 g</text></g>
+</g>
+</svg>

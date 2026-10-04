@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: hustota, hmotnost a objem. Vlevo tři vzorce: hustota ρ = m lomeno V, neboli ρ = m : V; hmotnost m = ρ · V; objem V = m lomeno ρ, neboli V = m : ρ. Vpravo červený trojúhelník, nahoře m, pod čarou ρ · V. Šedá kartička postupně zakryje hledanou veličinu: zakryté ρ nechá m nad V, zakryté m nechá ρ · V, zakryté V nechá m nad ρ.">
+<style>
+/* Předloha: PDF Souhrnné opakování fyzikálních veličin — ručně psané „Hustota, hmotnost a objem“: ρ = m/V nebo ρ = m : V,
+   m = ρ · V, V = m/ρ nebo V = m : ρ; vpravo červený trojúhelník se zeleným m nad čarou a ρ · V pod ní.
+   Překresleno, ne kopie; vzorce barvou a písmem jako hustota-obr-02. Kartička „?“ ukazuje, jak se trojúhelník čte.
+   Cyklus 9 s: 0–30 % hledáme ρ (zakryto ρ, zvýrazněn 1. řádek), 33–63 % m (2. řádek), 66–96 % V (3. řádek).
+   Bez animace = trojúhelník bez kartičky a řádky bez zvýraznění. */
+@keyframes k1 { 0%, 2% { opacity: 0; } 4%, 30% { opacity: 1; } 32%, 100% { opacity: 0; } }
+@keyframes k2 { 0%, 35% { opacity: 0; } 37%, 63% { opacity: 1; } 65%, 100% { opacity: 0; } }
+@keyframes k3 { 0%, 68% { opacity: 0; } 70%, 96% { opacity: 1; } 98%, 100% { opacity: 0; } }
+.k1 { animation: k1 9s linear infinite; } .k2 { animation: k2 9s linear infinite; } .k3 { animation: k3 9s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .k1, .k2, .k3 { animation: none; } }
+</style>
+<rect x="3" y="3" width="954" height="514" rx="14" fill="#f8f9fa"/>
+<rect x="260" y="20" width="440" height="56" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="480" y="58" font-size="28" fill="#212529" text-anchor="middle">Hustota, hmotnost a objem</text>
+<!-- pásy řádků, zvýraznění podle hledané veličiny -->
+<rect x="30" y="100" width="566" height="118" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2"/>
+<rect x="30" y="100" width="566" height="118" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="3" opacity="0" class="k1"/>
+<rect x="30" y="230" width="566" height="84" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2"/>
+<rect x="30" y="230" width="566" height="84" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="3" opacity="0" class="k2"/>
+<rect x="30" y="326" width="566" height="118" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2"/>
+<rect x="30" y="326" width="566" height="118" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="3" opacity="0" class="k3"/>
+<!-- 1. řádek: hustota -->
+<g fill="#a85a12">
+<text x="78" y="178" font-size="60" text-anchor="middle" font-style="italic">ρ</text>
+<text x="124" y="174" font-size="48" text-anchor="middle">=</text>
+<text x="190" y="150" font-size="48" text-anchor="middle" font-style="italic">m</text>
+<path d="M156 164H224" stroke="#a85a12" stroke-width="5" stroke-linecap="round"/>
+<text x="190" y="206" font-size="48" text-anchor="middle" font-style="italic">V</text>
+<text x="350" y="176" font-size="44" text-anchor="start"><tspan font-style="italic">ρ</tspan> = <tspan font-style="italic">m</tspan> : <tspan font-style="italic">V</tspan></text>
+</g>
+<text x="292" y="174" font-size="26" fill="#495057" text-anchor="middle">nebo</text>
+<text x="584" y="132" font-size="20" fill="#495057" text-anchor="end">hustota</text>
+<!-- 2. řádek: hmotnost -->
+<text x="60" y="288" font-size="44" fill="#a85a12" text-anchor="start"><tspan font-style="italic">m</tspan> = <tspan font-style="italic">ρ</tspan> · <tspan font-style="italic">V</tspan></text>
+<text x="584" y="262" font-size="20" fill="#495057" text-anchor="end">hmotnost</text>
+<!-- 3. řádek: objem -->
+<g fill="#a85a12">
+<text x="78" y="402" font-size="56" text-anchor="middle" font-style="italic">V</text>
+<text x="124" y="398" font-size="48" text-anchor="middle">=</text>
+<text x="190" y="374" font-size="48" text-anchor="middle" font-style="italic">m</text>
+<path d="M156 388H224" stroke="#a85a12" stroke-width="5" stroke-linecap="round"/>
+<text x="190" y="424" font-size="48" text-anchor="middle" font-style="italic">ρ</text>
+<text x="350" y="400" font-size="44" text-anchor="start"><tspan font-style="italic">V</tspan> = <tspan font-style="italic">m</tspan> : <tspan font-style="italic">ρ</tspan></text>
+</g>
+<text x="292" y="398" font-size="26" fill="#495057" text-anchor="middle">nebo</text>
+<text x="584" y="358" font-size="20" fill="#495057" text-anchor="end">objem</text>
+<!-- trojúhelník -->
+<path d="M785,112 L640,410 Q636,420 648,420 L922,420 Q934,420 930,410 Z" fill="#ffffff" stroke="#c92a2a" stroke-width="6" stroke-linejoin="round"/>
+<g fill="#212529" font-style="italic" text-anchor="middle">
+<text x="785" y="282" font-size="60">m</text>
+<text x="742" y="384" font-size="58">ρ</text>
+<text x="828" y="382" font-size="56">V</text>
+</g>
+<path d="M712 302H858" stroke="#212529" stroke-width="5" stroke-linecap="round"/>
+<circle cx="785" cy="364" r="5" fill="#212529"/>
+<!-- kartička „?“ zakryje hledanou veličinu -->
+<g opacity="0" class="k1"><rect x="712" y="326" width="60" height="70" rx="8" fill="#495057"/><text x="742" y="375" font-size="40" font-weight="bold" fill="#ffffff" text-anchor="middle">?</text></g>
+<g opacity="0" class="k2"><rect x="752" y="228" width="66" height="66" rx="8" fill="#495057"/><text x="785" y="275" font-size="40" font-weight="bold" fill="#ffffff" text-anchor="middle">?</text></g>
+<g opacity="0" class="k3"><rect x="798" y="326" width="60" height="70" rx="8" fill="#495057"/><text x="828" y="375" font-size="40" font-weight="bold" fill="#ffffff" text-anchor="middle">?</text></g>
+<text x="785" y="462" font-size="22" fill="#212529" text-anchor="middle">zakryj, co hledáš —</text>
+<text x="785" y="490" font-size="22" fill="#212529" text-anchor="middle">zbytek je vzorec</text>
+</svg>

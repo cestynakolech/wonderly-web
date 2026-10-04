@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: jednotky času. V řadě jsou jednotky d (den), h (hodina), min (minuta), s (sekunda). Horní šipky na menší jednotku: z dnů na hodiny násobíme 24, z hodin na minuty násobíme 60, z minut na sekundy násobíme 60. Dolní šipky na větší jednotku: dělíme 24, 60 a 60. Upozornění: u času nikdy neposouváme desetinnou čárku, 1 h = 60 min, ne 100 min. Příklady: 1 d = 24 h, 2 h = 120 min, 1 h = 3 600 s, 180 s = 3 min.">
+<style>
+/* Předloha: PDF Souhrnné opakování fyzikálních veličin — ručně psané „Jednotky času“: d h min s, nahoře šipky · 24, · 60, · 60,
+   dole zpětné šipky : 24, : 60, : 60; text „při převodech jednotek pozor — zde nikdy neposouváme desetinnou čárku“.
+   Překresleno, ne kopie. Legenda: modrá = násobíme (na menší), zelená = dělíme (na větší).
+   Cyklus 8 s: 0–45 % zvýrazněny horní šipky (násobení), 50–95 % dolní (dělení). Bez animace = obojí plně viditelné. */
+@keyframes nah { 0%, 45% { opacity: 1; } 50%, 95% { opacity: 0.35; } 100% { opacity: 1; } }
+@keyframes dol { 0%, 45% { opacity: 0.35; } 50%, 95% { opacity: 1; } 100% { opacity: 0.35; } }
+.nah { animation: nah 8s linear infinite; } .dol { animation: dol 8s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .nah, .dol { animation: none; } }
+</style>
+<rect x="3" y="3" width="954" height="554" rx="14" fill="#f8f9fa"/>
+<rect x="320" y="20" width="320" height="56" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="480" y="58" font-size="28" fill="#212529" text-anchor="middle">Jednotky času</text>
+<!-- jednotky -->
+<g font-size="52" font-weight="bold" fill="#a85a12" text-anchor="middle">
+<text x="110" y="234">d</text>
+<text x="360" y="234">h</text>
+<text x="610" y="234">min</text>
+<text x="860" y="234">s</text>
+</g>
+<!-- horní šipky: na menší jednotku násobíme -->
+<g class="nah" fill="none" stroke="#1864ab" stroke-width="6" stroke-linecap="round">
+<path d="M150,180 Q235,100 309,173"/><path d="M400,180 Q485,100 559,173"/><path d="M650,180 Q735,100 809,173"/>
+</g>
+<g class="nah" fill="#1864ab" stroke="#1864ab" stroke-width="3" stroke-linejoin="round">
+<path d="M320,180 L296.4,172.9 L311.5,156.9 Z"/><path d="M570,180 L546.4,172.9 L561.5,156.9 Z"/><path d="M820,180 L796.4,172.9 L811.5,156.9 Z"/>
+</g>
+<g class="nah" font-size="30" font-weight="bold" fill="#1864ab" text-anchor="middle">
+<text x="235" y="124">· 24</text><text x="485" y="124">· 60</text><text x="735" y="124">· 60</text>
+</g>
+<!-- dolní šipky: na větší jednotku dělíme -->
+<g class="dol" fill="none" stroke="#237032" stroke-width="6" stroke-linecap="round">
+<path d="M320,252 Q235,332 161,259"/><path d="M570,252 Q485,332 411,259"/><path d="M820,252 Q735,332 661,259"/>
+</g>
+<g class="dol" fill="#237032" stroke="#237032" stroke-width="3" stroke-linejoin="round">
+<path d="M150,252 L173.6,259.1 L158.5,275.1 Z"/><path d="M400,252 L423.6,259.1 L408.5,275.1 Z"/><path d="M650,252 L673.6,259.1 L658.5,275.1 Z"/>
+</g>
+<g class="dol" font-size="30" font-weight="bold" fill="#237032" text-anchor="middle">
+<text x="235" y="332">: 24</text><text x="485" y="332">: 60</text><text x="735" y="332">: 60</text>
+</g>
+<!-- upozornění -->
+<rect x="80" y="360" width="800" height="88" rx="12" fill="#fff5f5" stroke="#c92a2a" stroke-width="3"/>
+<text x="480" y="396" font-size="24" font-weight="bold" fill="#c92a2a" text-anchor="middle">Pozor: u času nikdy neposouváme desetinnou čárku!</text>
+<text x="480" y="432" font-size="24" fill="#212529" text-anchor="middle">1 h = 60 min, ne 100 min</text>
+<!-- plaketky s příklady -->
+<g font-size="24" font-weight="bold" fill="#212529" text-anchor="middle">
+<g class="nah"><rect x="40" y="474" width="202" height="56" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/><text x="141" y="511">1 d = 24 h</text></g>
+<g class="nah"><rect x="266" y="474" width="202" height="56" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/><text x="367" y="511">2 h = 120 min</text></g>
+<g class="nah"><rect x="492" y="474" width="202" height="56" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/><text x="593" y="511">1 h = 3 600 s</text></g>
+<g class="dol"><rect x="718" y="474" width="202" height="56" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/><text x="819" y="511">180 s = 3 min</text></g>
+</g>
+</svg>
