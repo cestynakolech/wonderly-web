@@ -23,12 +23,12 @@
 <path d="M470 206C590 206 600 280 700 280V394C600 394 590 320 470 320Z" fill="#fd7e14"/>
 <path d="M470 200C590 200 600 110 700 110V116C600 116 590 206 470 206Z" fill="#ffe066" stroke="#f59f00" stroke-width="1.5"/>
 <g fill="none" stroke-linecap="round" class="tok" stroke-dasharray="14 16">
-<path d="M40 260H330" stroke="#fff" stroke-width="4" opacity="0.6"/>
+<path d="M40 300H330" stroke="#fff" stroke-width="4" opacity="0.6"/>
 <path d="M470 263C590 263 600 337 690 337" stroke="#fff" stroke-width="4" opacity="0.6"/>
 <path d="M470 203C590 203 600 113 690 113" stroke="#e67700" stroke-width="2"/>
 </g>
-<text x="56" y="252" font-size="24" font-weight="bold" fill="#212529">příkon</text>
-<text x="56" y="284" font-size="24" font-weight="bold" fill="#212529">100 W</text>
+<text x="56" y="240" font-size="24" font-weight="bold" fill="#212529">příkon</text>
+<text x="56" y="274" font-size="24" font-weight="bold" fill="#212529">100 W</text>
 
 <!-- žárovka (patice vlevo) -->
 <circle class="zar" cx="420" cy="260" r="96" fill="url(#zare)"/>

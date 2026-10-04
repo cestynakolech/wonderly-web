@@ -37,6 +37,7 @@
 </g>
 </g>
 <text x="150" y="344" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">příkon P<tspan font-size="16" dy="5">0</tspan><tspan dy="-5" dx="6">= 2 000 W</tspan></text>
+<text x="150" y="370" font-size="18" fill="#495057" text-anchor="middle">jako na štítku konvice (PDF s. 4)</text>
 
 <!-- stopky -->
 <rect x="440" y="94" width="20" height="16" rx="3" fill="#495057"/>
@@ -55,12 +56,13 @@
 <text x="450" y="260" font-size="18" fill="#212529" text-anchor="middle">30</text>
 <text x="502" y="206" font-size="18" fill="#212529" text-anchor="middle">15</text>
 <text x="398" y="206" font-size="18" fill="#212529" text-anchor="middle">45</text>
-<text x="486" y="180" font-size="18" fill="#495057" text-anchor="middle">min</text>
+<text x="398" y="234" font-size="18" fill="#495057" text-anchor="middle">min</text>
 <g transform="translate(450 200)">
 <g class="rucka" transform="rotate(180)"><path d="M0 12V-32" stroke="#c92a2a" stroke-width="5" stroke-linecap="round"/><path d="M-7 -30L0 -44L7 -30Z" fill="#c92a2a"/></g>
 <circle r="7" fill="#212529"/>
 </g>
 <text x="450" y="344" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">t = 30 min = 1 800 s</text>
+<text x="450" y="370" font-size="18" fill="#495057" text-anchor="middle">celkem za den (modelový příklad)</text>
 
 <!-- sloupec spotřebované energie -->
 <rect x="700" y="96" width="60" height="200" rx="6" fill="#fff" stroke="#495057" stroke-width="2.5"/>
