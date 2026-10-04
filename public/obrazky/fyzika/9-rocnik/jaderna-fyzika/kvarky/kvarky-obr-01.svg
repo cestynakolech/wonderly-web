@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 930" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Zvětšujeme atom až ke kvarkům ve čtyřech krocích. 1: atom má uprostřed malé jádro a kolem obal s elektrony. 2: jádro je složené z protonů a neutronů, drží je jaderné síly. 3: ani proton není nejmenší kousek hmoty. 4: proton se skládá ze tří kvarků, které drží pohromadě velmi silná jaderná síla. Animace: kroky se postupně objevují jako při zvětšování.">
+<style>
+.k2 { animation: k2 12s linear infinite; } @keyframes k2 { 0%, 10% { opacity: 0; } 16%, 94% { opacity: 1; } 100% { opacity: 0; } }
+.k3 { animation: k3 12s linear infinite; } @keyframes k3 { 0%, 34% { opacity: 0; } 40%, 94% { opacity: 1; } 100% { opacity: 0; } }
+.k4 { animation: k4 12s linear infinite; } @keyframes k4 { 0%, 58% { opacity: 0; } 64%, 94% { opacity: 1; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .k2, .k3, .k4 { animation: none; } }
+/* Předloha: PDF není (rozhodnutí učitele 5. 10. 2026) – kresleno PODLE VÝKLADU temata.ts, slug 'kvarky':
+   jádro drží jaderné síly mezi protony a neutrony; proton a neutron nejsou nejmenší kousky hmoty;
+   skládají se ze tří kvarků; kvarky drží velmi silná jaderná síla. Typy kvarků (u, d) ani náboje kvarků výklad
+   neuvádí, proto tu nejsou. Proton, neutron, elektron a jádro ve stylu jadro-atomu-obr-01; kvark žlutý jako v KvarkySimulace,
+   zelená vazba = jaderná síla jako v jadro-atomu-obr-07. Atom = uhlík (6 p, 6 n, 6 e) jako jadro-atomu-obr-01.
+   Smyčka 12 s: kroky 2–4 se postupně objeví (zvětšení), pak vše zmizí a znovu. Bez animace = všechny 4 kroky vidět. */
+</style>
+<defs><marker id="sipZ" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#0b7285"/></marker></defs>
+<rect x="3" y="3" width="594" height="924" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
+<text x="300" y="42" font-size="28" font-weight="bold" fill="#212529" text-anchor="middle">Zvětšujeme atom až ke kvarkům</text>
+<g><circle cx="36" cy="80" r="13" fill="#c92a2a" stroke="#212529" stroke-width="1.5"/><path d="M28.9 80H43.2M36 72.8V87.2" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></g><text x="56" y="87" font-size="20" fill="#212529">proton</text>
+<circle cx="160" cy="80" r="13" fill="#adb5bd" stroke="#212529" stroke-width="1.5"/><text x="180" y="87" font-size="20" fill="#212529">neutron</text>
+<circle cx="296" cy="80" r="11" fill="#1864ab" stroke="#212529" stroke-width="1.5"/><path d="M289.9 80H302.1" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><text x="314" y="87" font-size="20" fill="#212529">elektron</text>
+<circle cx="440" cy="80" r="13" fill="#ffd43b" stroke="#212529" stroke-width="1.5"/><text x="460" y="87" font-size="20" fill="#212529">kvark</text>
+
+<!-- KROK 1: atom -->
+<g>
+<rect x="20" y="110" width="560" height="185" rx="12" fill="#fff" stroke="#ced4da" stroke-width="2"/>
+<circle cx="46" cy="138" r="18" fill="#0b7285"/><text x="46" y="145" font-size="20" font-weight="bold" fill="#fff" text-anchor="middle">1</text>
+<circle cx="170" cy="202" r="80" fill="#e9ecef" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="170" cy="202" r="62" fill="none" stroke="#868e96" stroke-width="2" stroke-dasharray="6 7"/>
+<circle cx="170" cy="202" r="11" fill="#ffe8cc" stroke="#d9480f" stroke-width="2"/>
+<g stroke="#fff" stroke-width="2.5" stroke-linecap="round">
+<circle cx="170" cy="140" r="9" fill="#1864ab" stroke="#212529" stroke-width="1.5"/><path d="M165 140H175"/>
+<circle cx="223.7" cy="171" r="9" fill="#1864ab" stroke="#212529" stroke-width="1.5"/><path d="M218.7 171H228.7"/>
+<circle cx="223.7" cy="233" r="9" fill="#1864ab" stroke="#212529" stroke-width="1.5"/><path d="M218.7 233H228.7"/>
+<circle cx="170" cy="264" r="9" fill="#1864ab" stroke="#212529" stroke-width="1.5"/><path d="M165 264H175"/>
+<circle cx="116.3" cy="233" r="9" fill="#1864ab" stroke="#212529" stroke-width="1.5"/><path d="M111.3 233H121.3"/>
+<circle cx="116.3" cy="171" r="9" fill="#1864ab" stroke="#212529" stroke-width="1.5"/><path d="M111.3 171H121.3"/>
+</g>
+<text x="290" y="168" font-size="26" font-weight="bold" fill="#212529">Atom</text>
+<text x="290" y="203" font-size="20" fill="#212529">uprostřed malé jádro,</text>
+<text x="290" y="233" font-size="20" fill="#212529">kolem obal s elektrony</text>
+</g>
+
+<!-- KROK 2: jádro -->
+<g class="k2">
+<rect x="20" y="315" width="560" height="185" rx="12" fill="#fff" stroke="#ced4da" stroke-width="2"/>
+<circle cx="46" cy="343" r="18" fill="#0b7285"/><text x="46" y="350" font-size="20" font-weight="bold" fill="#fff" text-anchor="middle">2</text>
+<circle cx="170" cy="407" r="80" fill="#ffe8cc" stroke="#d9480f" stroke-width="2"/>
+<g stroke="#212529" stroke-width="1.5">
+<circle cx="188" cy="363" r="17" fill="#adb5bd"/><circle cx="118" cy="393" r="17" fill="#adb5bd"/><circle cx="187" cy="393" r="17" fill="#adb5bd"/>
+<circle cx="153" cy="423" r="17" fill="#adb5bd"/><circle cx="222" cy="423" r="17" fill="#adb5bd"/><circle cx="152" cy="453" r="17" fill="#adb5bd"/>
+<circle cx="152" cy="363" r="17" fill="#c92a2a"/><circle cx="153" cy="393" r="17" fill="#c92a2a"/><circle cx="222" cy="393" r="17" fill="#c92a2a"/>
+<circle cx="118" cy="423" r="17" fill="#c92a2a"/><circle cx="187" cy="423" r="17" fill="#c92a2a"/><circle cx="188" cy="453" r="17" fill="#c92a2a"/>
+</g>
+<path d="M143 363H161M152 354V372M144 393H162M153 384V402M213 393H231M222 384V402M109 423H127M118 414V432M178 423H196M187 414V432M179 453H197M188 444V462" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+<text x="290" y="373" font-size="26" font-weight="bold" fill="#212529">Jádro atomu</text>
+<text x="290" y="408" font-size="20" fill="#212529">protony a neutrony,</text>
+<text x="290" y="438" font-size="20" fill="#212529">drží je jaderné síly</text>
+<!-- zvětšovací rámeček kolem atomového jádra v kroku 1 + linky do kroku 2 -->
+<rect x="152" y="184" width="36" height="36" fill="none" stroke="#0b7285" stroke-width="3"/>
+<path d="M152 220L112 335M188 220L228 335" stroke="#0b7285" stroke-width="2.5" stroke-dasharray="7 5"/>
+</g>
+
+<!-- KROK 3: proton -->
+<g class="k3">
+<rect x="20" y="520" width="560" height="185" rx="12" fill="#fff" stroke="#ced4da" stroke-width="2"/>
+<circle cx="46" cy="548" r="18" fill="#0b7285"/><text x="46" y="555" font-size="20" font-weight="bold" fill="#fff" text-anchor="middle">3</text>
+<circle cx="170" cy="612" r="72" fill="#c92a2a" stroke="#212529" stroke-width="2"/>
+<path d="M132 612H208M170 574V650" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
+<text x="290" y="578" font-size="26" font-weight="bold" fill="#212529">Proton</text>
+<text x="290" y="613" font-size="20" fill="#212529">ani proton (ani neutron)</text>
+<text x="290" y="643" font-size="20" fill="#212529">není nejmenší kousek hmoty</text>
+<!-- zvětšovací rámeček kolem jednoho protonu v kroku 2 + linky do kroku 3 -->
+<rect x="166" y="402" width="42" height="42" fill="none" stroke="#0b7285" stroke-width="3"/>
+<path d="M166 444L118 548M208 444L222 548" stroke="#0b7285" stroke-width="2.5" stroke-dasharray="7 5"/>
+</g>
+
+<!-- KROK 4: kvarky -->
+<g class="k4">
+<rect x="20" y="725" width="560" height="185" rx="12" fill="#fff" stroke="#ced4da" stroke-width="2"/>
+<circle cx="46" cy="753" r="18" fill="#0b7285"/><text x="46" y="760" font-size="20" font-weight="bold" fill="#fff" text-anchor="middle">4</text>
+<circle cx="170" cy="817" r="75" fill="#ffe3e3" stroke="#c92a2a" stroke-width="4"/>
+<path d="M170 780L137 840L203 840Z" fill="none" stroke="#2b8a3e" stroke-width="7" stroke-linejoin="round"/>
+<g fill="#ffd43b" stroke="#212529" stroke-width="2"><circle cx="170" cy="780" r="24"/><circle cx="137" cy="840" r="24"/><circle cx="203" cy="840" r="24"/></g>
+<text x="290" y="783" font-size="26" font-weight="bold" fill="#212529">Kvarky</text>
+<text x="290" y="818" font-size="20" fill="#212529">proton = <tspan font-weight="bold">3 kvarky</tspan>, drží je</text>
+<text x="290" y="848" font-size="20" fill="#212529">velmi silná jaderná síla</text>
+<path d="M290 874H330" stroke="#2b8a3e" stroke-width="7" stroke-linecap="round"/><text x="340" y="881" font-size="18" fill="#212529">= jaderná síla</text>
+<!-- zvětšovací rámeček kolem celého protonu v kroku 3 + linky do kroku 4 -->
+<rect x="94" y="536" width="152" height="152" fill="none" stroke="#0b7285" stroke-width="3"/>
+<path d="M94 688L104 744M246 688L236 744" stroke="#0b7285" stroke-width="2.5" stroke-dasharray="7 5"/>
+</g>
+</svg>
