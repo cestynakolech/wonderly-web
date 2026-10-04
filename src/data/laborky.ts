@@ -1023,9 +1023,9 @@ export const laborky: Record<string, Laborka> = {
 	'fyzika/9-rocnik/elektricky-proud-v-latkach/polovodice-vlastni-vodivost': {
 		nazev: 'Termistor: jak se mění odpor polovodiče s teplotou',
 		cil: 'Změřit odpor termistoru při různých teplotách vody a porovnat výsledky.',
-		pomucky: ['termistor s izolovanými vývody', 'multimetr nastavený na měření odporu', 'teploměr', 'tři plastové kelímky', 'studená voda s ledem', 'voda z kohoutku pokojové teploty', 'teplá voda z kohoutku asi 40 °C', 'tužka'],
+		pomucky: ['termistor NTC (například 10 kΩ) s izolovanými vývody', 'multimetr nastavený na měření odporu', 'teploměr', 'tři plastové kelímky', 'studená voda s ledem', 'voda z kohoutku pokojové teploty', 'teplá voda z kohoutku asi 40 °C', 'tužka'],
 		postup: [
-			'Termistor připoj k multimetru, který měří odpor. Nic nezapojuj k baterii ani k zásuvce.',
+			'Termistor připoj k multimetru, který měří odpor, a zvol rozsah 200 kΩ. Nic nezapojuj k baterii ani k zásuvce.',
 			'Termistor ponoř do kelímku se studenou vodou s ledem. Počkej, až se údaj ustálí. Zapiš teplotu vody v celých °C a odpor v kΩ.',
 			'Totéž změř ve vodě pokojové teploty a v teplé vodě z kohoutku. Termistor mezi měřeními osuš.',
 			'Vysvětlení: polovodiče se nechovají ani jako vodiče, ani jako izolanty.',
@@ -1046,10 +1046,10 @@ export const laborky: Record<string, Laborka> = {
 	'fyzika/9-rocnik/elektricky-proud-v-latkach/polovodice-typu-n-a-p-dioda': {
 		nazev: 'Svítivá dioda: svítí v obou směrech?',
 		cil: 'Zapojit LED do obvodu ve dvou opačných směrech a porovnat, kdy obvodem prochází proud.',
-		pomucky: ['plochá baterie 4,5 V', 'červená LED', 'rezistor 330 Ω', 'vodiče', 'tužka'],
+		pomucky: ['plochá baterie 4,5 V', 'červená LED', 'rezistor 330 Ω', 'vodiče s krokosvorkami', 'tužka'],
 		postup: [
-			'LED vždy zapoj do obvodu s rezistorem 330 Ω v sérii. Bez rezistoru by se mohla zničit. Delší vývod LED je u kladné svorky baterie.',
-			'Obvod sestav s LED delším vývodem u kladného pólu baterie. Zapiš, zda LED svítí.',
+			'LED vždy zapoj do obvodu s rezistorem 330 Ω v sérii. Bez rezistoru by se mohla zničit.',
+			'Obvod sestav tak, aby delší vývod LED byl připojen ke kladnému pólu baterie. Zapiš, zda LED svítí.',
 			'Obvod odpoj, LED otoč a znovu zapoj. Zapiš, zda LED svítí.',
 			'Do tabulky napiš, kterým vývodem byla LED připojena ke kladnému pólu baterie.',
 			'Vysvětlení: LED je svítivá dioda, součástka s přechodem PN.',
@@ -1070,11 +1070,11 @@ export const laborky: Record<string, Laborka> = {
 	'fyzika/9-rocnik/elektricka-energie-a-bezpecnost/elektricka-energie-a-premeny': {
 		nazev: 'Přeměny elektrické energie: žárovka a motorek',
 		cil: 'Pozorovat několik přeměn elektrické energie a přeměnu pohybové energie na elektrickou.',
-		pomucky: ['plochá baterie 4,5 V', 'žárovka 4,5 V v objímce', 'malý elektromotorek', 'voltmetr', 'vodiče', 'tužka'],
+		pomucky: ['plochá baterie 4,5 V', 'žárovka 4,5 V v objímce', 'malý elektromotorek s nití navinutou na hřídeli', 'voltmetr nebo galvanometr s nulou uprostřed na stejnosměrném rozsahu 2 V', 'vodiče', 'tužka'],
 		postup: [
-			'Žárovku připoj vodiči k baterii asi na 10 s. Zapiš, co pozoruješ, a po odpojení se zlehka dotkni skla žárovky a zapiš, jak je teplé.',
+			'Žárovku připoj vodiči k baterii asi na 10 s. Zapiš, co pozoruješ. Po odpojení se zlehka přiblíž hřbetem prstu ke sklu žárovky a zapiš, jak je teplé.',
 			'Motorek připoj k baterii a pozoruj, co dělá. Zapiš to.',
-			'Odpoj baterii a motorek připoj k voltmetru. Hřídel motorku rychle roztoč prstem. Odečti největší napětí v celých V nebo na stupnici a zapiš.',
+			'Odpoj baterii a motorek připoj k voltmetru. Nit na hřídeli rychle zatáhni, aby se hřídel roztočila. Odečti největší napětí v desetinách voltu a zapiš.',
 			'Vysvětlení: elektrickou energii lze přeměnit na jiné druhy energie a jiné druhy energie na elektrickou.',
 		],
 		tabulka: {
@@ -1084,10 +1084,10 @@ export const laborky: Record<string, Laborka> = {
 		otazky: [
 			'Na jaké druhy energie se v žárovce přeměnila energie elektrická?',
 			'Na jakou energii se přeměnila elektrická energie v motorku?',
-			'Co se stalo, když jsi hřídel motorku roztočil prstem? Z jaké energie na jakou se přeměňovala?',
+			'Co se stalo, když jsi hřídel motorku roztočil nití? Z jaké energie na jakou se přeměňovala?',
 			'Jak se jmenuje jev, při kterém se pohybem magnetu v blízkosti cívky vytvoří elektrické napětí?',
 		],
-		pozor: 'Používej jen plochou baterii 4,5 V, nikdy síťovou zásuvku. Žárovku nech chvíli vychladnout, než se jí dotkneš. Vodiče nezkratuj. Při zahřívání nebo zápachu obvod hned odpoj a zavolej učitele.',
-		tip: 'Stejným způsobem pracují elektromotory a alternátory, jen s přeměnou energie opačným směrem.',
+		pozor: 'Používej jen plochou baterii 4,5 V, nikdy síťovou zásuvku. Žárovky se dotýkej jen krátce hřbetem prstu. Vodiče nezkratuj. Při zahřívání nebo zápachu obvod hned odpoj a zavolej učitele.',
+		tip: 'Motorek umí pracovat i jako generátor, takzvané dynamo: pohybovou energii mění na elektrickou.',
 	},
 };
