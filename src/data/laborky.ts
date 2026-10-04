@@ -665,8 +665,8 @@ export const laborky: Record<string, Laborka> = {
 	},
 	'fyzika/7-rocnik/atmosfera-a-tlak-vzduchu/meteorologie-a-mereni-tlaku': {
 		nazev: 'Naše malá meteorologická stanice',
-		cil: 'Několik dní měřit teplotu, srážky a pozorovat oblačnost a vítr jako meteorologové a zapisovat údaje do tabulky.',
-		pomucky: ['venkovní teploměr', 'průhledná válcová nádoba s rovným dnem (například sklenice)', 'pravítko', 'kompas nebo mobil s kompasem', 'proužek lehké látky na tyčce', 'tužka'],
+		cil: 'Několik dní sledovat počasí jako meteorologové a zapisovat údaje do tabulky.',
+		pomucky: ['venkovní teploměr', 'průhledná válcová nádoba s rovným dnem (například plastová láhev s odříznutým hrdlem)', 'pravítko', 'kompas nebo mobil s kompasem', 'proužek lehké látky na tyčce', 'tužka'],
 		postup: [
 			'Vyber s učitelem volné místo venku, kde nestojí překážky a není přímé slunce. Teploměr umísti do stínu.',
 			'Nádobu postav na rovný podklad, aby zachytila déšť. Je to tvůj srážkoměr.',
@@ -684,12 +684,12 @@ export const laborky: Record<string, Laborka> = {
 			'Proč se teploměr umisťuje do stínu a na volné místo bez překážek?',
 			'Teplý vzduch stoupá vzhůru. Jaký tlak vznikne u země a kam pak proudí vzduch z okolí?',
 		],
-		pozor: 'Měření dělej jen na bezpečných místech u školy nebo doma, nikdy na střeše ani u silnice. Nádobu pokud možno nepoužívej skleněnou. Při bouřce nechoď ven.',
+		pozor: 'Měření dělej jen na bezpečných místech u školy nebo doma, nikdy na střeše ani u silnice. Použij plastovou nádobu, ne skleněnou. Při bouřce nechoď ven.',
 		tip: 'Tlak vzduchu se měří barometrem. Když tlak klesá, počasí se často mění k horšímu, srážkám a větru.',
 	},
 	'fyzika/8-rocnik/tepelne-motory/tepelny-motor-parni-stroj': {
 		nazev: 'Teplo, které točí: papírová spirála',
-		cil: 'Pozorovat, jak proudění teplého vzduchu otáčí papírovou spirálou, a porovnat dvě vzdálenosti od zdroje tepla.',
+		cil: 'Pozorovat papírovou spirálu nad zdrojem tepla a porovnat dvě vzdálenosti od plamene.',
 		pomucky: ['papírový kruh o průměru 10 cm', 'nůžky', 'nit 50 cm', 'tužka na zavěšení', 'svíčka v nehořlavém svícnu', 'sirky pro učitele', 'hodinky nebo stopky'],
 		postup: [
 			'Z papírového kruhu vystřihni od okraje spirálu s pruhem širokým asi 1 cm. Do středu uvaž nit.',
@@ -709,11 +709,11 @@ export const laborky: Record<string, Laborka> = {
 			'Účinnost parního stroje je asi 15 %. Kolik ze 100 J energie paliva se přemění na pohyb?',
 		],
 		pozor: 'Svíčku zapaluje jen učitel. Dej dlouhé vlasy za uši, nenoš volné rukávy. Spirála nesmí do plamene a papír nesmí hořet. Svíčku postav na nehořlavou podložku a nechej ji pod dohledem. Po pokusu ji učitel uhasí.',
-		tip: 'Héron z Alexandrie vymyslel první parní stroj už v 1. století. Používal ho jen jako hračku pro diváky.',
+		tip: 'Hérón z Alexandrie vymyslel první parní stroj už v 1. století. Používal ho jen jako hračku pro diváky.',
 	},
 	'fyzika/8-rocnik/tepelne-motory/spalovaci-motory': {
 		nazev: 'Stlačování vzduchu jako ve válci motoru',
-		cil: 'Pomocí stříkačky bez jehly vyzkoušet, jak se stlačuje vzduch jako při druhém taktu spalovacího motoru, a spočítat změnu objemu.',
+		cil: 'Pomocí stříkačky bez jehly vyzkoušet stlačování vzduchu a spočítat změnu objemu.',
 		pomucky: ['plastová stříkačka 20 ml bez jehly', 'pravítko nebo stupnice na stříkačce', 'tužka'],
 		postup: [
 			'Píst stříkačky vytáhni na 20 ml. Zapiš objem do prvního řádku tabulky.',
@@ -723,14 +723,14 @@ export const laborky: Record<string, Laborka> = {
 			'Vysvětlení: spalovací motor spaluje palivo uvnitř válce a mění chemickou energii na pohybovou.',
 		],
 		tabulka: {
-			sloupce: ['pokus', 'objem před (ml)', 'objem po stlačení (ml)', 'co se stalo po puštění pístu'],
+			sloupce: ['pokus', 'objem před (ml)', 'objem po stlačení (ml)', 'síla na pístu (malá / větší / velká)', 'co se stalo po puštění pístu'],
 			radky: 2,
 		},
 		otazky: [
 			'Vzduch ve stříkačce se stlačil z 20 ml na 5 ml. Kolikrát se zmenšil jeho objem?',
 			'Co by se stalo s teplotou vzduchu při prudkém stlačení? Který motor to využívá k zapálení paliva?',
 			'Napiš v pořadí čtyři takty zážehového čtyřtaktního motoru.',
-			'Který takt je pracovní a proč? Čím se liší zážehový a vznětový motor?',
+			'Který takt čtyřtaktního motoru je pracovní a proč?',
 		],
 		pozor: 'Používej jen stříkačku bez jehly. Nestříkej vzduch ani vodu spolužákům do obličeje a neucpávej si otvor stříkačky ústy ani nosem. Píst netlač prudce, ať stříkačka nepraskne.',
 		tip: 'Motory musí být chlazené a mazané. U dvoutaktů se olej přidává přímo do benzínu.',
