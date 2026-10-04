@@ -1162,6 +1162,7 @@ export const temata: Record<string, Tema[]> = {
 							<li>další jednotky: minuta (min), hodina (h), den (d), rok</li>
 							<li>měřidla: <strong>hodiny, stopky</strong></li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/cas/cas-a-jeho-mereni/cas-a-jeho-mereni-obr-08.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/cas/cas-a-jeho-mereni/cas-a-jeho-mereni-obr-08.svg" alt="Mechanické stopky se stupnicí sekund 0 až 60; velká ručička oběhne za minutu, malá ručička na malém ciferníku počítá minuty." loading="lazy" /></a><figcaption>Stopky: velká ručička oběhne ciferník za 60 s = 1 min.</figcaption></figure>
 						<p>👉 V běžné mluvě se říká „vteřina" — fyzika ale tento pojem nezná, používá mezinárodní název <strong>sekunda</strong>. Pozor na značky: sekunda se neznačí „sec" a minuta se neznačí „m" (to je metr).</p>
 						<p>💡 Pro velmi krátké děje se používá <strong>milisekunda (ms)</strong> = tisícina sekundy.</p>
 						<h3>Historické metody měření času</h3>
@@ -1171,6 +1172,10 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>vodní hodiny</strong> — voda odkapává stejně rychle, hmotnost odkapané vody udává čas</li>
 							<li><strong>přesýpací hodiny</strong> — písek se přesýpá stejnou rychlostí (musí se pravidelně otáčet)</li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/cas/cas-a-jeho-mereni/cas-a-jeho-mereni-obr-01.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/cas/cas-a-jeho-mereni/cas-a-jeho-mereni-obr-01.svg" alt="Sluneční hodiny na kamenném podstavci: na bronzové desce stupnice s římskými číslicemi a šikmá tyč, jejíž stín se otáčí, jak Slunce putuje po obloze." loading="lazy" /></a><figcaption>Sluneční hodiny: tyč vrhá stín na stupnici a stín se během dne posouvá.</figcaption></figure>
+						<figure><a href="/obrazky/fyzika/6-rocnik/cas/cas-a-jeho-mereni/cas-a-jeho-mereni-obr-02.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/cas/cas-a-jeho-mereni/cas-a-jeho-mereni-obr-02.svg" alt="Hořící svíčka ve svícnu s vyrytou stupnicí dílků 1 až 6; svíčka se zkracuje a mizí horní dílky." loading="lazy" /></a><figcaption>Svíčkové hodiny: svíčka uhořívá stále stejně rychle, čas se čte na vyryté stupnici.</figcaption></figure>
+						<figure><a href="/obrazky/fyzika/6-rocnik/cas/cas-a-jeho-mereni/cas-a-jeho-mereni-obr-03.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/cas/cas-a-jeho-mereni/cas-a-jeho-mereni-obr-03.svg" alt="Hliněná nádoba na stojanu, z níž kape voda do skleněné nádoby na váze; vody dole přibývá a váha ukazuje větší hmotnost." loading="lazy" /></a><figcaption>Vodní hodiny: voda odkapává stejně rychle, hmotnost odkapané vody udává uplynulý čas.</figcaption></figure>
+						<figure><a href="/obrazky/fyzika/6-rocnik/cas/cas-a-jeho-mereni/cas-a-jeho-mereni-obr-04.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/cas/cas-a-jeho-mereni/cas-a-jeho-mereni-obr-04.svg" alt="Přesýpací hodiny v dřevěném rámu: písek padá zúžením do spodní baňky, pak se hodiny otočí." loading="lazy" /></a><figcaption>Přesýpací hodiny: písek se přesýpá stejnou rychlostí, hodiny se musí pravidelně otáčet.</figcaption></figure>
 						<h3>Moderní hodiny</h3>
 						<ul>
 							<li><strong>mechanický hodinový stroj</strong> s ciferníkem — Pražský orloj (1410)</li>
@@ -1178,6 +1183,9 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>mechanické hodinky</strong> — strojek pohání natažená pružina; krok zajišťuje pravidelný posun ručiček a působí tikot</li>
 							<li><strong>atomové hodiny</strong> — nejpřesnější měření času</li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/cas/cas-a-jeho-mereni/cas-a-jeho-mereni-obr-05.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/cas/cas-a-jeho-mereni/cas-a-jeho-mereni-obr-05.svg" alt="Tmavý železný rám se dvěma do sebe zapadajícími ozubenými koly s paprsky a mosaznými destičkami, vlevo řetěz; kola se pomalu otáčejí opačnými směry." loading="lazy" /></a><figcaption>Mechanický stroj Pražského orloje (1410): ozubená kola v železném rámu.</figcaption></figure>
+						<figure><a href="/obrazky/fyzika/6-rocnik/cas/cas-a-jeho-mereni/cas-a-jeho-mereni-obr-06.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/cas/cas-a-jeho-mereni/cas-a-jeho-mereni-obr-06.svg" alt="Nástěnné kyvadlové hodiny s tmavou skříňkou a věžičkami, mosazný ciferník s římskými číslicemi, pod skříňkou kmitá kyvadlo a visí dvě mosazná závaží." loading="lazy" /></a><figcaption>Kyvadlové hodiny (pendlovky): kyvadlo pravidelně kmitá, klesající závaží ho udržuje v chodu.</figcaption></figure>
+						<figure><a href="/obrazky/fyzika/6-rocnik/cas/cas-a-jeho-mereni/cas-a-jeho-mereni-obr-07.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/cas/cas-a-jeho-mereni/cas-a-jeho-mereni-obr-07.svg" alt="Náramkové hodinky se třemi ručičkami a vedle otevřený strojek: bubínek s pružinou, ozubená kolečka, krok, kmitající nepokoj a šroubky." loading="lazy" /></a><figcaption>Mechanické hodinky: pružina pohání kolečka, krok a nepokoj zajišťují pravidelný posun ručiček a tikot.</figcaption></figure>
 						<h3>🕰️ Cesta dějinami hodin</h3>
 						<ul>
 							<li><strong>~13. století př. n. l.</strong> — nejstarší nalezené <strong>sluneční hodiny</strong> (Egypt, Údolí králů); čas ukazoval pohybující se stín</li>
@@ -1201,9 +1209,12 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>1 h = 60 min = 3 600 s</strong></li>
 							<li><strong>1 d = 24 h</strong></li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/cas/cas-a-jeho-mereni/cas-a-jeho-mereni-obr-09.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/cas/cas-a-jeho-mereni/cas-a-jeho-mereni-obr-09.svg" alt="Schéma převodů jednotek času den, hodina, minuta, sekunda se šipkami krát 24, krát 60 a děleno 24, děleno 60 a upozornění, že 0,75 h je 45 min." loading="lazy" /></a><figcaption>Převody jednotek času: na menší jednotku násobíme, na větší dělíme.</figcaption></figure>
 						<p>👉 POZOR — častá chyba: u času <strong>neposouváme desetinnou čárku</strong>! 0,75 h není 75 minut, ale 45 minut (0,75 × 60).</p>
 						<h3>Výpočet doby trvání</h3>
 						<p>Známe-li čas začátku t₁ a konce t₂ události, doba trvání <strong>t = t₂ − t₁</strong> (např. jak dlouho trvala cesta vlakem).</p>
+						<p>Např. vlak odjel v 8 h 20 min a přijel v 10 h 50 min: t = 10 h 50 min − 8 h 20 min = <strong>2 h 30 min</strong>.</p>
+						<figure><a href="/obrazky/fyzika/6-rocnik/cas/cas-a-jeho-mereni/cas-a-jeho-mereni-obr-10.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/cas/cas-a-jeho-mereni/cas-a-jeho-mereni-obr-10.svg" alt="Dvoje staniční hodiny, odjezd 8:20 a příjezd 10:50, mezi nimi jede vlak; výpočet t = 10 h 50 min − 8 h 20 min = 2 h 30 min." loading="lazy" /></a><figcaption>Doba trvání: t = t₂ − t₁.</figcaption></figure>
 						<h3>🕹️ Praktická úloha: dráha pro robota Ozobota</h3>
 						<p>Ozobota se dá naučit jezdit po dráze poskládané ze stavebnicových dílků do tvaru <strong>obdélníku</strong>. Na dráhu se navíc dají umístit dílky s příkazy — <strong>start</strong>, <strong>zrychlit</strong>, <strong>zatáčka</strong>, <strong>zpomalit</strong> a <strong>cíl</strong>. Než robot vyjede, změříme délku jednoho dílku a spočítáme, kolik dílků je na šířku (a) a kolik na výšku (b) dráhy.</p>
 						<p>Robot jede <strong>po obvodu</strong> obdélníku — obvod je tedy dráha (s), kterou robot skutečně ujede:</p>
