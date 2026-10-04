@@ -29,7 +29,7 @@
 <path d="M626.5 150L380 140" stroke="#212529" stroke-width="2.5"/><circle cx="380" cy="140" r="5" fill="#212529"/>
 <rect x="626.5" y="129" width="267" height="42" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
 <text x="760" y="157.2" font-size="20" font-weight="bold" fill="#212529" text-anchor="middle">tlačítko: start, stop</text>
-<path d="M663.4 278L420 250" stroke="#212529" stroke-width="2.5"/><circle cx="420" cy="250" r="5" fill="#212529"/>
+<path d="M663.4 322L372 366" stroke="#212529" stroke-width="2.5"/><circle cx="372" cy="366" r="5" fill="#212529"/>
 <rect x="663.4" y="278" width="193.3" height="44" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
 <text x="760" y="307.9" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">velká ručička</text>
 <text x="760" y="350" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">1 oběh = 60 s = 1 min</text>

@@ -41,7 +41,7 @@
 <rect x="390" y="512" width="180" height="74" rx="12" fill="url(#vaha3)" stroke="#343a40" stroke-width="2.5"/>
 <path d="M436 568A44 44 0 0 1 524 568" fill="#fff" stroke="#343a40" stroke-width="2"/>
 <line x1="450.6" y1="539" x2="443.6" y2="535" stroke="#212529" stroke-width="2"/><line x1="458.1" y1="530" x2="453" y2="523.8" stroke="#212529" stroke-width="2"/><line x1="468.4" y1="524.1" x2="465.6" y2="516.5" stroke="#212529" stroke-width="2"/><line x1="480" y1="522" x2="480" y2="514" stroke="#212529" stroke-width="2"/><line x1="491.6" y1="524.1" x2="494.4" y2="516.5" stroke="#212529" stroke-width="2"/><line x1="501.9" y1="530" x2="507" y2="523.8" stroke="#212529" stroke-width="2"/><line x1="509.4" y1="539" x2="516.4" y2="535" stroke="#212529" stroke-width="2"/>
-<g class="rucicka3" transform="rotate(60 480 556)"><path d="M480 556L478 522L480 516L482 522Z" fill="#c92a2a" stroke="#c92a2a" stroke-width="2"/></g><circle cx="480" cy="556" r="4" fill="#212529"/>
+<g class="rucicka3" transform="rotate(60)"><path d="M480 556L478 522L480 516L482 522Z" fill="#c92a2a" stroke="#c92a2a" stroke-width="2"/></g><circle cx="480" cy="556" r="4" fill="#212529"/>
 <path d="M292.7 162L420 170" stroke="#212529" stroke-width="2.5"/><circle cx="420" cy="170" r="5" fill="#212529"/>
 <rect x="87.3" y="118" width="205.4" height="44" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
 <text x="190" y="147.9" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">nádoba s vodou</text>

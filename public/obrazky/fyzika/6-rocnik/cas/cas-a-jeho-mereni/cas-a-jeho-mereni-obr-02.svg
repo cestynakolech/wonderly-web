@@ -4,7 +4,7 @@
 .uhori { animation: uhori-k 18s linear infinite; }
 .plamen { transform-box: view-box; transform-origin: 480px 146px; animation: plapolani 0.8s ease-in-out infinite alternate; }
 @keyframes uhori-k { 0% { transform: translateY(0px); } 88%, 100% { transform: translateY(150px); } }
-@keyframes plapolani { from { transform: scale(1, 1); } to { transform: scale(0.9, 1.12); } }
+@keyframes plapolani { from { transform: scale(1, 1); } to { transform: scale(0.93, 1.06); } }
 @media (prefers-reduced-motion: reduce) { .uhori, .plamen { animation: none; } }
 </style>
 <defs>
@@ -33,6 +33,6 @@
 <rect x="667.3" y="278" width="205.4" height="44" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
 <text x="770" y="307.9" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">svíčka uhořívá</text>
 <text x="770" y="350" font-size="22" font-weight="normal" fill="#212529" text-anchor="middle">stále stejně rychle</text>
-<rect x="332.4" y="22" width="295.2" height="56" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
-<text x="480" y="60" font-size="28" fill="#212529" text-anchor="middle">Svíčkové hodiny</text>
+<rect x="332.4" y="10" width="295.2" height="52" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="480" y="46" font-size="28" fill="#212529" text-anchor="middle">Svíčkové hodiny</text>
 </svg>

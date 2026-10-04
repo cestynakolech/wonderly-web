@@ -34,22 +34,22 @@
 <path d="M372 176Q366 200 373 226Q366 250 372 280Q364 330 372 380Q366 410 373 434Q366 460 372 484H384Q390 460 383 434Q390 410 384 380Q392 330 384 280Q390 250 383 226Q390 200 384 176Z" fill="url(#drevo4)" stroke="#3b2414" stroke-width="2"/><path d="M576 176Q570 200 577 226Q570 250 576 280Q568 330 576 380Q570 410 577 434Q570 460 576 484H588Q594 460 587 434Q594 410 588 380Q596 330 588 280Q594 250 587 226Q594 200 588 176Z" fill="url(#drevo4)" stroke="#3b2414" stroke-width="2"/>
 </g>
 <g class="sipka-ot" opacity="0"><path d="M640 220A190 190 0 0 1 640 440" fill="none" stroke="#c92a2a" stroke-width="6"/><path d="M626 430L644 462L660 428Z" fill="#c92a2a"/></g>
-<path d="M222.2 220L430 210" stroke="#212529" stroke-width="2.5"/><circle cx="430" cy="210" r="5" fill="#212529"/>
+<path d="M222.2 220L412 186" stroke="#212529" stroke-width="2.5"/><circle cx="412" cy="186" r="5" fill="#212529"/>
 <rect x="137.8" y="198" width="84.4" height="44" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
 <text x="180" y="227.9" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">sklo</text>
 <path d="M234.3 330L474 330" stroke="#212529" stroke-width="2.5"/><circle cx="474" cy="330" r="5" fill="#212529"/>
 <rect x="125.7" y="308" width="108.6" height="44" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
 <text x="180" y="337.9" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">zúžení</text>
-<path d="M228.2 440L450 460" stroke="#212529" stroke-width="2.5"/><circle cx="450" cy="460" r="5" fill="#212529"/>
+<path d="M228.2 440L450 460" stroke="#212529" stroke-width="2.5"/><circle cx="450" cy="460" r="5" fill="#212529"/><path d="M228.2 436L442 240" stroke="#212529" stroke-width="2.5"/><circle cx="442" cy="240" r="5" fill="#212529"/>
 <rect x="131.8" y="418" width="96.5" height="44" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
 <text x="180" y="447.9" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">písek</text>
 <rect x="650" y="178" width="280" height="44" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
 <text x="790" y="207.9" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">Písek se přesýpá</text>
 <text x="790" y="248" font-size="22" font-weight="normal" fill="#212529" text-anchor="middle">stejnou rychlostí.</text>
-<rect x="650" y="458" width="280" height="44" rx="12" fill="#fff" stroke="#c92a2a" stroke-width="2.5"/>
-<text x="790" y="487.9" font-size="22" font-weight="bold" fill="#c92a2a" text-anchor="middle">Nevýhoda:</text>
-<text x="790" y="528" font-size="22" font-weight="normal" fill="#212529" text-anchor="middle">musí se pravidelně</text>
-<text x="790" y="558" font-size="22" font-weight="normal" fill="#212529" text-anchor="middle">otáčet.</text>
+<rect x="650" y="360" width="280" height="44" rx="12" fill="#fff" stroke="#c92a2a" stroke-width="2.5"/>
+<text x="790" y="389.9" font-size="22" font-weight="bold" fill="#c92a2a" text-anchor="middle">Nevýhoda:</text>
+<text x="790" y="430" font-size="22" font-weight="normal" fill="#212529" text-anchor="middle">musí se pravidelně</text>
+<text x="790" y="460" font-size="22" font-weight="normal" fill="#212529" text-anchor="middle">otáčet.</text>
 <rect x="324.6" y="22" width="310.9" height="56" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
 <text x="480" y="60" font-size="28" fill="#212529" text-anchor="middle">Přesýpací hodiny</text>
 </svg>

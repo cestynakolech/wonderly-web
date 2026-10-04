@@ -42,9 +42,9 @@
 <path d="M703.6 172L685 392" stroke="#212529" stroke-width="2.5"/><circle cx="685" cy="392" r="5" fill="#212529"/>
 <rect x="703.6" y="128" width="132.8" height="44" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
 <text x="770" y="157.9" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">stupnice</text>
-<rect x="87" y="279" width="146" height="42" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
+<path d="M233 306L300 358" stroke="#212529" stroke-width="2.5"/><circle cx="300" cy="358" r="5" fill="#212529"/><rect x="87" y="279" width="146" height="42" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
 <text x="160" y="307.2" font-size="20" font-weight="normal" fill="#212529" text-anchor="middle">stín večer</text>
-<rect x="732.5" y="279" width="135" height="42" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
+<path d="M732.5 306L664 362" stroke="#212529" stroke-width="2.5"/><circle cx="664" cy="362" r="5" fill="#212529"/><rect x="732.5" y="279" width="135" height="42" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
 <text x="800" y="307.2" font-size="20" font-weight="normal" fill="#212529" text-anchor="middle">stín ráno</text>
 <rect x="120" y="560" width="720" height="44" rx="12" fill="#fff" opacity="0.92"/>
 <text x="480" y="589" font-size="22" font-weight="normal" fill="#212529" text-anchor="middle">Slunce nesvítí každý den v roce na stejném místě.</text>
