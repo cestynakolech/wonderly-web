@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 720" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Dvě postavy se dotýkají odkrytého vodiče. Vlevo suché ruce a suchá izolační obuv na suché podlaze: odpor suché kůže je asi 150 000 ohmů, tělem projde jen slabý proud. Vpravo mokré ruce a bosé nohy na mokré zemi: odpor vlhké kůže je asi 2 000 ohmů, proudu projde mnohem víc. Pro 230 V a 2 000 ohmů vychází 115 mA. Ani suché ruce a boty nejsou zárukou bezpečí.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 720" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Dvě postavy se dotýkají odkrytého vodiče. Vlevo suché ruce a suchá izolační obuv na suché podlaze: odpor člověka v suchu a v suché obuvi je asi 150 000 ohmů, tělem projde jen slabý proud. Vpravo mokré ruce a bosé nohy na mokré zemi: odpor člověka ve vlhku a ve vlhké obuvi je asi 2 000 ohmů, proudu projde mnohem víc. Pro 230 V a 2 000 ohmů vychází 115 mA. Ani suché ruce a boty nejsou zárukou bezpečí.">
 <style>
 .pomalu { animation: tok 2.4s linear infinite; }
 .rychle { animation: tok 0.6s linear infinite; }
@@ -7,7 +7,7 @@
 </style>
 <rect x="3" y="3" width="594" height="714" rx="14" fill="#f8f9fa"/>
 
-<text x="300" y="42" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Sucho a vlhko: odpor kůže</text>
+<text x="300" y="42" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Sucho a vlhko: odpor člověka</text>
 <path d="M300 64V480" stroke="#ced4da" stroke-width="2"/>
 <path d="M280 96Q220 100 190 128" fill="none" stroke="#343a40" stroke-width="12" stroke-linecap="round"/>
 <path d="M190 128L180 146" stroke="#d9894f" stroke-width="6" stroke-linecap="round"/>
@@ -27,14 +27,14 @@
 <path class="rychle" d="M477.8 153L477.8 256L430 311.2L414.4 421.6M430 311.2L445.6 421.6" fill="none" stroke="#f08c00" stroke-width="10" stroke-dasharray="14 12" stroke-linecap="round" stroke-linejoin="round"/>
 <g transform="translate(479.8 145) scale(0.8)"><path d="M0 -16L4 -4L16 0L4 4L0 16L-4 4L-16 0L-4 -4Z" fill="#ffe066" stroke="#e67700" stroke-width="2" stroke-linejoin="round"/></g>
 <rect x="24" y="476" width="264" height="112" rx="10" fill="#fff" stroke="#ced4da" stroke-width="2"/>
-<text x="156" y="506" font-size="21" font-weight="bold" fill="#212529" text-anchor="middle">suchá kůže</text>
+<text x="156" y="506" font-size="21" font-weight="bold" fill="#212529" text-anchor="middle">odpor člověka v suchu</text>
 <text x="156" y="536" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">asi 150 000 Ω</text>
-<text x="156" y="568" font-size="19" fill="#212529" text-anchor="middle">suchá izolační obuv</text>
+<text x="156" y="568" font-size="19" fill="#212529" text-anchor="middle">i se suchou obuví</text>
 <rect x="312" y="476" width="264" height="112" rx="10" fill="#fff" stroke="#ced4da" stroke-width="2"/>
-<text x="444" y="506" font-size="21" font-weight="bold" fill="#212529" text-anchor="middle">vlhká kůže</text>
+<text x="444" y="506" font-size="21" font-weight="bold" fill="#212529" text-anchor="middle">odpor člověka ve vlhku</text>
 <text x="444" y="536" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">asi 2 000 Ω</text>
-<text x="444" y="568" font-size="19" fill="#212529" text-anchor="middle">mokré ruce a nohy</text>
+<text x="444" y="568" font-size="19" fill="#212529" text-anchor="middle">i s vlhkou obuví</text>
 <text x="300" y="622" font-size="21" font-weight="bold" fill="#212529" text-anchor="middle">Vlhko snižuje odpor – proudu projde víc.</text>
 <text x="300" y="652" font-size="20" fill="#212529" text-anchor="middle">230 V a 2 000 Ω: I = 115 mA, víc než 30 mA.</text>
-<text x="300" y="690" font-size="20" font-weight="bold" fill="#c92a2a" text-anchor="middle">Ani suché ruce a boty nejsou zárukou bezpečí!</text>
+<text x="300" y="690" font-size="20" font-weight="bold" fill="#c92a2a" text-anchor="middle">Nikdy nezkoušej – ani suchý dotyk není bezpečný!</text>
 </svg>
