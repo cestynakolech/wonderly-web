@@ -107,7 +107,7 @@
 	// vodiče visí na izolátorech pod konci ramen (spodní konec izolátoru IZOLATOR_Y);
 	// pahýl visí z levého izolátoru dolů a VLEVO od stožáru — konstrukcí neprochází
 	const IZOLATOR_Y = RAMENO_Y + 10;
-	const PAHYL_KONEC = [108, 146]; // volný konec visí převážně dolů (gravitace)
+	const PAHYL_KONEC = [108, 146]; // volný konec visí šikmo dolů a vlevo (sklon ≈ 41,5° pod vodorovnou, ne svisle)
 	const PAHYL_RIDICI = [RAMENO_L - 30, 124]; // řídicí bod křivky pahýlu
 	const DRAT_OKRAJ = [378, 122];
 	const DRAT_OD = STOZAR_X + 46, DRAT_DO = STOZAR_X + 118;
@@ -142,6 +142,7 @@
 			text: '230 V ze zásuvky je nebezpečné vždycky a všude: I = U : R = 230 : 2 000 = 0,115 A, tedy 115 mA — hluboko nad 80 mA, v pásmu zástavy srdce. Holou rukou se ho nikdy nedotýkej.' },
 	];
 
+	// POZOR: popisek stožáru stojí VLEVO od něj (x = 70), aby nezakrýval horní konec sloupu (y 60–90).
 	// plaketa sevřená do zadaného panelu [min, max] — nepřeteče přes dělicí čáru.
 	// Písmo 31 ve viewBoxu (na telefonu ≥ 12 px); delší text se zalomí na dva řádky
 	// (mezera zůstává v prvním řádku, text se nemění). textY = svislý střed plakety.
@@ -330,7 +331,7 @@
 	const outNapeti = document.getElementById('bvv-out-napeti');
 
 	document.getElementById('bvv-stozar').innerHTML = stozarHtml() + spadlyDratHtml();
-	document.getElementById('bvv-popisky').innerHTML = plaketa(STOZAR_X, 44,'vedení vysokého napětí', '#2b2a26', LEVY);
+	document.getElementById('bvv-popisky').innerHTML = plaketa(70, 44,'vysoké napětí', '#2b2a26', LEVY);
 
 	function prekresli() {
 		const iS = platnyIndex(sliderSituace.value, SITUACE.length - 1, 0);

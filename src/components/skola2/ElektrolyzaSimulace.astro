@@ -7,7 +7,7 @@
 // Pomědění ve stejné orientaci jako obr-05: anoda Cu VLEVO (+), železná lžička VPRAVO (−).
 // Proud se NEvyčísluje — jen slovy a výchylkou ručičky: neprochází / velmi malý / prochází.
 // Barvy podle jednotné legendy tématu: kation velký červený (#e03131), anion velký
-// fialový (#7048e8); modrá (#1971c2) patří jen pólu −.
+// fialový (#7048e8); modrá (#1864ab) patří jen pólu −.
 // Mobil: scéna 360 jednotek → na telefonu (~235 px) písmo ≥ 19 × 235 / 360 ≈ 12,4 px.
 // Stav je čistá funkce stavElektrolyzy(rezim, kapalina, sepnuto) a rozmístění
 // iontů castice(...) na SVG; ionty se kreslí do innerHTML skupiny #ely-ionty.
@@ -33,7 +33,7 @@
 		<!-- baterie: tlustá krátká deska = −, tenká dlouhá = + (v pomědění se prohodí) -->
 		<line id="ely-deska-l" x1="140" x2="140" y1="26" y2="46" stroke="#2b2a26" stroke-width="8" />
 		<line id="ely-deska-p" x1="152" x2="152" y1="18" y2="54" stroke="#2b2a26" stroke-width="4" />
-		<text id="ely-znak-l" x="126" y="20" text-anchor="middle" font-size="19" font-weight="bold" fill="#1971c2">−</text>
+		<text id="ely-znak-l" x="126" y="20" text-anchor="middle" font-size="19" font-weight="bold" fill="#1864ab">−</text>
 		<text id="ely-znak-p" x="166" y="20" text-anchor="middle" font-size="19" font-weight="bold" fill="#c92a2a">+</text>
 		<text x="146" y="76" text-anchor="middle" font-size="19" font-weight="bold" fill="#2b2a26">baterie 4,5 V</text>
 		<!-- vypínač: páčka se sklopí na pravý kontakt -->
@@ -63,7 +63,7 @@
 		<!-- ionty a molekuly kreslí skript (castice) -->
 		<g id="ely-ionty"></g>
 		<!-- popisky elektrod pod kádinkou -->
-		<text id="ely-pop-l" x="6" y="356" font-size="19" font-weight="bold" fill="#1971c2"></text>
+		<text id="ely-pop-l" x="6" y="356" font-size="19" font-weight="bold" fill="#1864ab"></text>
 		<text id="ely-pop-p" x="354" y="356" text-anchor="end" font-size="19" font-weight="bold" fill="#c92a2a"></text>
 		<text id="ely-pop-l2" x="6" y="384" font-size="19" font-weight="bold" fill="#a0522d"></text>
 		<text id="ely-pop-p2" x="354" y="384" text-anchor="end" font-size="19" font-weight="bold" fill="#495057"></text>
@@ -156,8 +156,8 @@
 		nastav('ely-deska-p', s.katodaVlevo ? tenka : tlusta);
 		g('ely-znak-l').textContent = s.katodaVlevo ? '−' : '+';
 		g('ely-znak-p').textContent = s.katodaVlevo ? '+' : '−';
-		nastav('ely-znak-l', { fill: s.katodaVlevo ? '#1971c2' : '#c92a2a' });
-		nastav('ely-znak-p', { fill: s.katodaVlevo ? '#c92a2a' : '#1971c2' });
+		nastav('ely-znak-l', { fill: s.katodaVlevo ? '#1864ab' : '#c92a2a' });
+		nastav('ely-znak-p', { fill: s.katodaVlevo ? '#c92a2a' : '#1864ab' });
 		// vypínač
 		nastav('ely-packa', sepnuto ? { x2: 222, y2: 36 } : { x2: 218, y2: 18 });
 		g('ely-spinac').textContent = sepnuto ? '✋ rozpoj obvod' : '🔌 sepni obvod';
@@ -176,8 +176,8 @@
 		viditelne('ely-vrstva', s.vrstva);
 		g('ely-pop-l').textContent = s.katodaVlevo ? 'KATODA (−)' : 'ANODA (+)';
 		g('ely-pop-p').textContent = s.katodaVlevo ? 'ANODA (+)' : 'KATODA (−)';
-		nastav('ely-pop-l', { fill: s.katodaVlevo ? '#1971c2' : '#c92a2a' });
-		nastav('ely-pop-p', { fill: s.katodaVlevo ? '#c92a2a' : '#1971c2' });
+		nastav('ely-pop-l', { fill: s.katodaVlevo ? '#1864ab' : '#c92a2a' });
+		nastav('ely-pop-p', { fill: s.katodaVlevo ? '#c92a2a' : '#1864ab' });
 		g('ely-pop-l2').textContent = pomedeni ? 'měď (Cu)' : '';
 		g('ely-pop-p2').textContent = !pomedeni ? '' : s.vrstva ? 'lžička + měď' : 'lžička (Fe)';
 		// přepínač kapalin jen v pokusu

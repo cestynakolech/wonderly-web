@@ -33,8 +33,12 @@
 .n5 { animation: n5 10s linear infinite; }
 @keyframes n5 { 0%, 49.5% { transform: translate(0, 0); opacity: 0; } 50% { transform: translate(0, 0); opacity: 1; } 60% { transform: translate(-160px, -95px); opacity: 1; } 60.5%, 100% { transform: translate(-160px, -95px); opacity: 0; } }
 .n6 { animation: n6 10s linear infinite; }
+.lb1 { animation: lb1 10s step-end infinite; }
+.lb2 { opacity: 0; animation: lb2 10s step-end infinite; }
+@keyframes lb1 { 0% { opacity: 1; } 50% { opacity: 0; } }
+@keyframes lb2 { 0% { opacity: 0; } 50% { opacity: 1; } }
 @keyframes n6 { 0%, 49.5% { transform: translate(0, 0); opacity: 0; } 50% { transform: translate(0, 0); opacity: 1; } 62% { transform: translate(-168px, -62px); opacity: 1; } 62.5%, 100% { transform: translate(-168px, -62px); opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { .n0, .n1, .n2, .n3, .n4, .n5, .n6, .u1, .u2, .fa1, .fb1, .fa2, .fb2, .z1, .z2, .h1, .h2 { animation: none; } .n0, .n1, .n2, .n3, .n4, .n5, .n6, .z1, .z2 { opacity: 0; } .fa1, .fb1, .fa2, .fb2, .h1, .h2 { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .lb1, .lb2 { animation: none; } .lb1 { opacity: 1; } .lb2 { opacity: 0; } .n0, .n1, .n2, .n3, .n4, .n5, .n6, .u1, .u2, .fa1, .fb1, .fa2, .fb2, .z1, .z2, .h1, .h2 { animation: none; } .n0, .n1, .n2, .n3, .n4, .n5, .n6, .z1, .z2 { opacity: 0; } .fa1, .fb1, .fa2, .fb2, .h1, .h2 { opacity: 0; } }
 /* Předloha: PDF 20 Jaderný reaktor – text s. 2 (moderátor zpomaluje rychlé neutrony), s. 4–5 (regulační tyče pohlcují
    neutrony; po každém štěpení smí do další reakce jen jeden neutron, ostatní se pohltí), s. 7 (nová jádra se rozlétají,
    srážkami se materiál zahřívá). Obrázek k tomuto ději PDF nemá – vlastní obrázek navíc.
@@ -51,8 +55,8 @@
 <text x="340" y="112" font-size="20" font-weight="bold" fill="#212529" text-anchor="start">regulační tyč</text>
 <text x="340" y="136" font-size="19" fill="#212529" text-anchor="start">pohlcuje</text>
 <text x="340" y="158" font-size="19" fill="#212529" text-anchor="start">neutrony</text>
-<text x="196" y="362" font-size="19" font-weight="bold" fill="#212529" text-anchor="middle">rychlý</text>
-<text x="372" y="362" font-size="19" font-weight="bold" fill="#212529" text-anchor="middle">pomalý</text>
+<g class="lb1"><text x="196" y="432" font-size="19" font-weight="bold" fill="#212529" text-anchor="middle">rychlý</text><text x="372" y="432" font-size="19" font-weight="bold" fill="#212529" text-anchor="middle">pomalý</text></g><g class="lb2"><text x="444" y="432" font-size="19" font-weight="bold" fill="#212529" text-anchor="middle">rychlý</text><text x="268" y="432" font-size="19" font-weight="bold" fill="#212529" text-anchor="middle">pomalý</text></g>
+
 <text x="310" y="500" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle">voda – moderátor zpomalí neutron</text>
 <circle cx="48" cy="556" r="10" fill="#adb5bd" stroke="#212529" stroke-width="1.5"/><text x="66" y="563" font-size="19" fill="#212529" text-anchor="start">neutron</text>
 <g><circle cx="170" cy="556" r="10" fill="#c92a2a" stroke="#212529" stroke-width="1.5"/><path d="M164.5 556H175.5M170 550.5V561.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></g><text x="188" y="563" font-size="19" fill="#212529" text-anchor="start">proton</text>

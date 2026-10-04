@@ -40,7 +40,7 @@ const PODVRHY = [
 	['E3: šipka Cu²⁺ naráží do vrstvy mědi', '[160, 292]]', '[130, 292]]'],
 	['J6: drobné písmo H₂O na mobilu', 'font-size="19" fill="#495057">H₂O', 'font-size="12" fill="#495057">H₂O'],
 	['J6: slabý kontrast H₂O (3,1 : 1)', 'fill="#495057">H₂O', 'fill="#868e96">H₂O'],
-	['slabý kontrast popisku ANODA (#e03131 na plátně)', "nastav('ely-pop-p', { fill: s.katodaVlevo ? '#c92a2a' : '#1971c2' });", "nastav('ely-pop-p', { fill: s.katodaVlevo ? '#e03131' : '#1971c2' });"],
+	['slabý kontrast popisku ANODA (#e03131 na plátně)', "nastav('ely-pop-p', { fill: s.katodaVlevo ? '#c92a2a' : '#1864ab' });", "nastav('ely-pop-p', { fill: s.katodaVlevo ? '#e03131' : '#1864ab' });"],
 	['bez aria-live', 'id="ely-stav" aria-live="polite"', 'id="ely-stav"'],
 ];
 

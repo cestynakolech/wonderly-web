@@ -59,7 +59,7 @@ const PARU = { '-20': 0, 0: 0, 20: 1, 40: 2, 60: 3, 80: 5, 100: 7 };
 const PROUD = { 0: 'téměř neteče', 1: 'velmi slabý', 2: 'slabý', 3: 'slabý', 5: 'větší', 7: 'větší' };
 const TEXT_T = { '-20': '−20 °C', 0: '0 °C', 20: '20 °C', 40: '40 °C', 60: '60 °C', 80: '80 °C', 100: '100 °C' };
 const RADKY = [114, 136, 158, 180, 202, 224, 246];
-const ELEKTRON = /<circle cx="([\d.]+)" cy="(\d+)" r="10" fill="#1971c2" stroke="#0b4f8a" stroke-width="2" \/>/g;
+const ELEKTRON = /<circle cx="([\d.]+)" cy="(\d+)" r="10" fill="#1864ab" stroke="#2b2a26" stroke-width="2" \/>/g;
 const DIRA = /<circle cx="([\d.]+)" cy="(\d+)" r="10" fill="#ebfbee" stroke="#1b6b2d" stroke-width="2" stroke-dasharray="4 2" \/>/g;
 const kolecka = (re) => [...castice().matchAll(re)].map((m) => [Number(m[1]), Number(m[2])]);
 
@@ -166,7 +166,7 @@ for (const tep of TEPLOTY) {
 
 console.log('— tvar značek jako v obrázcích výkladu —');
 nastav(20);
-ok(/<circle cx="232" cy="114" r="10" fill="#1971c2" stroke="#0b4f8a" stroke-width="2" \/><text x="232" y="119" text-anchor="middle" font-size="17" font-weight="bold" fill="#ffffff">−<\/text>/.test(castice()),
+ok(/<circle cx="232" cy="114" r="10" fill="#1864ab" stroke="#2b2a26" stroke-width="2" \/><text x="232" y="119" text-anchor="middle" font-size="17" font-weight="bold" fill="#ffffff">−<\/text>/.test(castice()),
 	`elektron = modrý kroužek s bílým „−“ na (232, 114): ${castice().slice(0, 100)}`);
 ok(/<circle cx="208" cy="114" r="10" fill="#ebfbee" stroke="#1b6b2d" stroke-width="2" stroke-dasharray="4 2" \/><text x="208" y="119" text-anchor="middle" font-size="17" font-weight="bold" fill="#1b6b2d">\+<\/text>/.test(castice()),
 	'díra = zelený čárkovaný kroužek se zeleným „+“ na (208, 114)');

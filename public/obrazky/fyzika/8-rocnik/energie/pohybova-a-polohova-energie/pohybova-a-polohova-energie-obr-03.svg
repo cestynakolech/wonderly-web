@@ -39,11 +39,11 @@
 <path d="M370.0,232.0 L386.0,220.0 L382.0,232.0 L386.0,244.0 z" fill="#e03131" stroke="#a61e1e" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="322.0" y1="240.0" x2="368.0" y2="232.0" stroke="#f1c9a5" stroke-width="12" stroke-linecap="round"/>
 <circle cx="368.0" cy="232.0" r="9" fill="#f1c9a5" stroke="#2b2a26" stroke-width="2"/>
-<path d="M580,400 L585,340 L606,400 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
-<rect x="560.0" y="400.0" width="364" height="96" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
-<rect x="582" y="397" width="22" height="6" fill="#fff3bf"/>
-<text x="742" y="438" font-size="36" fill="#2b2a26" text-anchor="middle">napnutá tětiva</text>
-<text x="742" y="480" font-size="36" fill="#2b2a26" text-anchor="middle">a ohnutý luk</text>
+<path d="M580,392 L585,340 L606,392 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="560.0" y="392.0" width="364" height="92" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="582" y="389" width="22" height="6" fill="#fff3bf"/>
+<text x="742" y="428" font-size="36" fill="#2b2a26" text-anchor="middle">napnutá tětiva</text>
+<text x="742" y="470" font-size="36" fill="#2b2a26" text-anchor="middle">a ohnutý luk</text>
 <text x="480" y="587" font-size="36" font-weight="bold" fill="#2b2a26" text-anchor="middle">Šíp vystřelí energie</text>
 <text x="480" y="632" font-size="36" font-weight="bold" fill="#2b2a26" text-anchor="middle">uložená v ohnutém luku.</text>
 </svg>

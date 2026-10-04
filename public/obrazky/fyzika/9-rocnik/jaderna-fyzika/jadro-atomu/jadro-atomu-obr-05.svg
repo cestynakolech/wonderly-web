@@ -5,7 +5,7 @@
 @media (prefers-reduced-motion: reduce) { .z1, .z2 { animation: none; } }
 /* Předloha: PDF lekce 17, s. 10 – „Chemický prvek: uhlík C“ (zelené kuličky 6C14, 6C12, 6C12, 6C13, 6C12)
    a „Nuklid uhlíku C 12“ (5× 6C12). Zápis převeden na tvar z výkladu (A vlevo nahoře, Z vlevo dole).
-   Ar = 12 u nuklidu ¹²C z výkladu. Smyčka 6 s: oranžový kroužek postupně označí atomy s jiným nukleonovým
+   Smyčka 6 s: oranžový kroužek postupně označí atomy s jiným nukleonovým
    číslem (14 a 13). Bez animace = kroužky viditelné oba. */
 </style>
 <rect x="3" y="3" width="594" height="574" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>

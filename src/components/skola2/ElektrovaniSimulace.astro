@@ -90,6 +90,7 @@
 		out.textContent = d + ' cm';
 		pravitko.setAttribute('transform', `translate(${PX} ${yProD(d)})`);
 		pravitkoNaboj.textContent = q === 0 ? 'neutrální' : '−'.repeat(q);
+		pravitkoNaboj.setAttribute('fill', q === 0 ? '#495057' : '#1864ab'); // neutrální = šedá, ne barva záporného náboje
 		hadrikNaboj.textContent = q === 0 ? '' : '+'.repeat(q);
 
 		const f = (10 * q) / (d * d);
