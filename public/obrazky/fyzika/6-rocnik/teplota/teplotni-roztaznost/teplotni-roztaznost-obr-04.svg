@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 660" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: nahoře řada šesti jističů v domovním rozvaděči, každý má páčku. Dole zjednodušený pohled dovnitř jednoho jističe: proud teče drátem přes bimetalový pásek a přes sepnuté kontakty dál do vedení. Když teče silný proud, pásek se zahřeje a ohne se, odstrčí západku, pružina rozpojí kontakty a páčka jističe spadne dolů. Obvod je vypnutý a proud neteče.">
+<style>
+/* Předloha: PDF Teplotní roztažnost, ELEKTRICKÝ JISTIČ — fotografie řady jističů v rozvaděči (jeden má páčku dole);
+   text: ochrana vedení před požárem při přetížení, bimetalový pásek se při silném proudu zahřívá a vypne obvod.
+   Fotografie překreslena kresbou (bez nápisů z fotografie), vnitřek jističe zjednodušený. Bez čísel.
+   Smyčka 12 s: 0–20 % proud teče normálně, 20–50 % silný proud, pásek zčervená a ohne se doleva (4 klouby po 5°),
+   48–52 % západka odjede, rameno s kontaktem spadne (6°), páčka dolů, proud přestane téct; 60–80 % pásek vychladne a narovná se,
+   obvod zůstává vypnutý; 94–100 % páčku zase zapneme. Bez animace = vypnutý jistič s ohnutým páskem. */
+@keyframes ohyb { 0%, 25% { transform: rotate(0deg); } 50%, 60% { transform: rotate(5deg); } 80%, 100% { transform: rotate(0deg); } }
+@keyframes zar { 0%, 20% { opacity: 0; } 45%, 55% { opacity: 1; } 75%, 100% { opacity: 0; } }
+@keyframes zap { 0%, 46% { transform: translate(0, 0); } 50%, 94% { transform: translate(-20px, 0); } 98%, 100% { transform: translate(0, 0); } }
+@keyframes ram { 0%, 49% { transform: translate(340px, 478px) rotate(0deg) translate(-340px, -478px); } 52%, 94% { transform: translate(340px, 478px) rotate(6deg) translate(-340px, -478px); } 98%, 100% { transform: translate(340px, 478px) rotate(0deg) translate(-340px, -478px); } }
+@keyframes pac { 0%, 49% { transform: translate(0, 0); } 52%, 94% { transform: translate(0, 20px); } 98%, 100% { transform: translate(0, 0); } }
+@keyframes proud { 0%, 49% { opacity: 0.85; } 51%, 96% { opacity: 0; } 98%, 100% { opacity: 0.85; } }
+@keyframes t1 { 0%, 18% { opacity: 1; } 20%, 97% { opacity: 0; } 99%, 100% { opacity: 1; } }
+@keyframes t2 { 0%, 20% { opacity: 0; } 22%, 48% { opacity: 1; } 50%, 100% { opacity: 0; } }
+@keyframes t3 { 0%, 51% { opacity: 0; } 53%, 94% { opacity: 1; } 96%, 100% { opacity: 0; } }
+.k { animation: ohyb 12s ease-in-out infinite; } .zar { animation: zar 12s ease-in-out infinite; }
+.zap { animation: zap 12s ease-in-out infinite; } .ram { animation: ram 12s ease-in infinite; }
+.pac { animation: pac 12s ease-in infinite; } .proud { animation: proud 12s linear infinite; }
+.t1 { animation: t1 12s linear infinite; } .t2 { animation: t2 12s linear infinite; } .t3 { animation: t3 12s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .k, .zar, .zap, .ram, .pac, .proud, .t1, .t2, .t3 { animation: none; } }
+</style>
+<defs>
+<linearGradient id="k1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ced4da"/><stop offset="1" stop-color="#868e96"/></linearGradient>
+<linearGradient id="k2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ff8a4c"/><stop offset="1" stop-color="#d9480f"/></linearGradient>
+<linearGradient id="plast" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#dee2e6"/><stop offset="0.35" stop-color="#ffffff"/><stop offset="1" stop-color="#ced4da"/></linearGradient>
+<linearGradient id="kov" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9ecef"/><stop offset="1" stop-color="#868e96"/></linearGradient>
+<radialGradient id="sroub" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#868e96"/><stop offset="1" stop-color="#212529"/></radialGradient>
+<g id="cl"><rect x="-9" y="0" width="9" height="26" fill="url(#k1)"/><rect x="0" y="0" width="9" height="26" fill="url(#k2)"/></g>
+<g id="modul"><rect x="0" y="0" width="72" height="140" rx="4" fill="url(#plast)" stroke="#868e96" stroke-width="1.5"/><rect x="0" y="44" width="72" height="8" fill="#1971c2"/><circle cx="36" cy="20" r="10" fill="url(#sroub)"/><path d="M29 20H43" stroke="#adb5bd" stroke-width="2"/><circle cx="36" cy="120" r="10" fill="url(#sroub)"/><path d="M29 120H43" stroke="#adb5bd" stroke-width="2"/><rect x="22" y="56" width="28" height="44" rx="3" fill="#495057"/><rect x="8" y="88" width="9" height="9" fill="#e03131"/></g>
+<g id="packa"><rect x="25" y="59" width="22" height="18" rx="3" fill="#ced4da" stroke="#212529" stroke-width="1.5"/></g>
+</defs>
+<rect x="3" y="3" width="594" height="654" rx="14" fill="#f8f9fa"/>
+<rect x="110" y="16" width="380" height="54" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="300" y="52" font-size="26" fill="#212529" text-anchor="middle">Elektrický jistič</text>
+<!-- rozvaděč s řadou jističů -->
+<rect x="44" y="82" width="512" height="148" rx="6" fill="#adb5bd" stroke="#495057" stroke-width="2"/>
+<g transform="translate(64 86)"><use href="#modul"/><use href="#packa"/></g>
+<g transform="translate(144 86)"><use href="#modul"/><use href="#packa"/></g>
+<g transform="translate(224 86)"><use href="#modul"/><g class="pac" transform="translate(0 20)"><use href="#packa"/></g></g>
+<g transform="translate(304 86)"><use href="#modul"/><use href="#packa"/></g>
+<g transform="translate(384 86)"><use href="#modul"/><use href="#packa"/></g>
+<g transform="translate(464 86)"><use href="#modul"/><use href="#packa"/></g>
+<path d="M224 226L32 292M296 226L568 292" stroke="#868e96" stroke-width="2" stroke-dasharray="6 5"/>
+<!-- vnitřek jističe -->
+<rect x="30" y="292" width="540" height="270" rx="10" fill="#fff" stroke="#868e96" stroke-width="2"/>
+<text x="300" y="322" font-size="21" font-weight="bold" fill="#212529" text-anchor="middle">uvnitř jističe (zjednodušeně)</text>
+<!-- proud: žlutá záře pod vodiči -->
+<g class="proud" opacity="0" fill="none" stroke="#fcc419" stroke-width="12" stroke-linecap="round"><path d="M44 360H300"/><path d="M462 470H556"/></g>
+<path d="M44 360H286" stroke="#b35900" stroke-width="5"/>
+<text x="48" y="350" font-size="20" fill="#212529">přívod</text>
+<path d="M470 470H556" stroke="#b35900" stroke-width="5"/>
+<text x="556" y="496" font-size="20" fill="#212529" text-anchor="end">vedení</text>
+<rect x="284" y="346" width="32" height="20" rx="3" fill="#495057"/>
+<!-- bimetalový pásek, upnutý nahoře -->
+<g transform="translate(300 366)">
+<g class="k" transform="rotate(5)"><use href="#cl"/><rect class="zar" x="-9" y="0" width="18" height="26" fill="#e03131" opacity="1"/>
+<g transform="translate(0 24)"><g class="k" transform="rotate(5)"><use href="#cl"/><rect class="zar" x="-9" y="0" width="18" height="26" fill="#e03131" opacity="1"/>
+<g transform="translate(0 24)"><g class="k" transform="rotate(5)"><use href="#cl"/><rect class="zar" x="-9" y="0" width="18" height="26" fill="#e03131" opacity="1"/>
+<g transform="translate(0 24)"><g class="k" transform="rotate(5)"><use href="#cl"/><rect class="zar" x="-9" y="0" width="18" height="26" fill="#e03131" opacity="1"/>
+</g></g></g></g></g></g></g>
+</g>
+<!-- západka -->
+<g class="zap" transform="translate(-20 0)"><rect x="250" y="448" width="40" height="22" rx="3" fill="#495057" stroke="#212529" stroke-width="1.5"/><path d="M250 448V420" stroke="#495057" stroke-width="4"/></g>
+<!-- rameno s pohyblivým kontaktem, otočné kolem čepu -->
+<g class="ram" transform="rotate(6 340 478)">
+<rect x="272" y="474" width="200" height="9" rx="3" fill="#868e96" stroke="#212529" stroke-width="1.5"/>
+<rect x="450" y="466" width="20" height="8" fill="url(#kov)" stroke="#495057" stroke-width="1"/>
+</g>
+<path d="M330 500L340 482L350 500Z" fill="#495057"/><rect x="320" y="500" width="40" height="8" fill="#495057"/>
+<rect x="450" y="454" width="22" height="10" fill="url(#kov)" stroke="#495057" stroke-width="1"/>
+<path d="M440 488l12 6l-12 6l12 6l-12 6l12 6l-12 6l12 6" fill="none" stroke="#495057" stroke-width="2.5"/>
+<rect x="430" y="536" width="32" height="8" fill="#495057"/>
+<!-- popisky -->
+<path d="M314 400H346" stroke="#212529" stroke-width="2"/><text x="350" y="407" font-size="20" fill="#212529">bimetalový pásek</text>
+<path d="M240 452L206 440" stroke="#212529" stroke-width="2"/><text x="202" y="440" font-size="20" fill="#212529" text-anchor="end">západka</text>
+<text x="490" y="430" font-size="20" fill="#212529">kontakty</text><path d="M500 436L472 456" stroke="#212529" stroke-width="2"/>
+<text x="472" y="532" font-size="20" fill="#212529">pružina</text>
+<!-- stav -->
+<text x="300" y="598" font-size="22" font-weight="bold" fill="#237032" text-anchor="middle" class="t1" opacity="0">Proud teče, jistič je zapnutý.</text>
+<text x="300" y="598" font-size="22" font-weight="bold" fill="#c92a2a" text-anchor="middle" class="t2" opacity="0">Silný proud pásek zahřívá a pásek se ohýbá.</text>
+<text x="300" y="598" font-size="22" font-weight="bold" fill="#1864ab" text-anchor="middle" class="t3">Jistič vypnul obvod, proud neteče.</text>
+<text x="300" y="632" font-size="20" fill="#212529" text-anchor="middle">Jistič chrání elektrické vedení před požárem.</text>
+</svg>

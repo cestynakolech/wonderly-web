@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 680" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace ve dvou částech. Nahoře z boku spoj dvou kolejnic na pražci: konce kolejnic drží spojka se šrouby a mezi nimi je malá mezera, dilatační spára. V zimě se kolejnice zkrátí a spára je širší, v létě se protáhnou a spára se téměř zavře. Dole kolej shora bez spár: v zimě je rovná, v letním horku se kolejnice protáhnou a kolej se uprostřed zkroutí do oblouku.">
+<style>
+/* Předloha: PDF Teplotní roztažnost, Kolejnice a mostové konstrukce — fotografie spoje kolejnic s mezerou, spojkou a šrouby;
+   text: v letním horku se protahují a hrozí kroucení kolejnic, v mrazech se zkracují; řešení dilatační spáry.
+   Prezentace TEPLOTA: mezera mezi kolejnicemi = dilatační spára; fotografie zkroucených kolejí v horku.
+   Fotografie překresleny kresbou. Bez čísel; změny délky jsou pro názornost zvětšené.
+   Smyčka 10 s: 0–10 % zima (spára 20), 10–40 % oteplení, 40–60 % léto (spára 4, kolej bez spár zkroucená), 60–90 % ochlazení.
+   Bez animace = léto. */
+@keyframes kl { 0%, 10% { transform: translate(-8px, 0); } 40%, 60% { transform: translate(0, 0); } 90%, 100% { transform: translate(-8px, 0); } }
+@keyframes kp { 0%, 10% { transform: translate(8px, 0); } 40%, 60% { transform: translate(0, 0); } 90%, 100% { transform: translate(8px, 0); } }
+@keyframes leto { 0%, 20% { opacity: 0; } 35%, 65% { opacity: 1; } 80%, 100% { opacity: 0; } }
+@keyframes zima { 0%, 20% { opacity: 1; } 35%, 65% { opacity: 0; } 80%, 100% { opacity: 1; } }
+.kl { animation: kl 10s ease-in-out infinite; } .kp { animation: kp 10s ease-in-out infinite; }
+.leto { animation: leto 10s ease-in-out infinite; } .zima { animation: zima 10s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .kl, .kp, .leto, .zima { animation: none; } }
+</style>
+<defs>
+<linearGradient id="hlava" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1f3f5"/><stop offset="0.4" stop-color="#adb5bd"/><stop offset="1" stop-color="#6c757d"/></linearGradient>
+<linearGradient id="rez" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a0522d"/><stop offset="1" stop-color="#6b3410"/></linearGradient>
+<linearGradient id="beton" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9ecef"/><stop offset="1" stop-color="#adb5bd"/></linearGradient>
+<radialGradient id="sroub" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#ced4da"/><stop offset="1" stop-color="#495057"/></radialGradient>
+<g id="slunce"><circle r="16" fill="#fcc419" stroke="#f08c00" stroke-width="2"/><path d="M0 -28V-21M0 21V28M-28 0H-21M21 0H28M-20 -20L-15 -15M15 15L20 20M-20 20L-15 15M15 -15L20 -20" stroke="#f08c00" stroke-width="3" stroke-linecap="round"/></g>
+<g id="vlocka" stroke="#1971c2" stroke-width="3" stroke-linecap="round"><path d="M0 -24V24M-21 -12L21 12M-21 12L21 -12"/><path d="M-6 -18L0 -12L6 -18M-6 18L0 12L6 18"/></g>
+<g id="kolejnice"><rect x="0" y="0" width="256" height="22" fill="url(#hlava)" stroke="#495057" stroke-width="1.5"/><rect x="0" y="22" width="256" height="40" fill="url(#rez)" stroke="#495057" stroke-width="1.5"/><rect x="0" y="62" width="256" height="14" fill="url(#rez)" stroke="#495057" stroke-width="1.5"/></g>
+</defs>
+<rect x="3" y="3" width="594" height="674" rx="14" fill="#f8f9fa"/>
+<rect x="60" y="16" width="480" height="54" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="300" y="52" font-size="26" fill="#212529" text-anchor="middle">Kolejnice a dilatační spára</text>
+<!-- roční období -->
+<g class="leto"><use href="#slunce" x="540" y="114"/><text x="506" y="122" font-size="22" font-weight="bold" fill="#c92a2a" text-anchor="end">v létě</text></g>
+<g class="zima" opacity="0"><use href="#vlocka" x="540" y="114"/><text x="506" y="122" font-size="22" font-weight="bold" fill="#1864ab" text-anchor="end">v zimě</text></g>
+<!-- spoj kolejnic z boku -->
+<path d="M30 268Q120 258 300 264T570 266V290H30Z" fill="#ced4da"/>
+<g fill="#868e96"><circle cx="60" cy="276" r="4"/><circle cx="140" cy="272" r="5"/><circle cx="210" cy="280" r="4"/><circle cx="420" cy="276" r="5"/><circle cx="500" cy="280" r="4"/><circle cx="545" cy="272" r="3"/></g>
+<rect x="240" y="236" width="120" height="40" rx="3" fill="url(#beton)" stroke="#868e96" stroke-width="1.5"/>
+<rect x="60" y="236" width="100" height="40" rx="3" fill="url(#beton)" stroke="#868e96" stroke-width="1.5"/>
+<rect x="440" y="236" width="100" height="40" rx="3" fill="url(#beton)" stroke="#868e96" stroke-width="1.5"/>
+<g class="kl"><use href="#kolejnice" x="42" y="160"/></g>
+<g class="kp"><use href="#kolejnice" x="302" y="160"/></g>
+<rect x="210" y="184" width="180" height="34" rx="4" fill="url(#rez)" stroke="#212529" stroke-width="2"/>
+<g><circle cx="236" cy="201" r="9" fill="url(#sroub)" stroke="#212529"/><circle cx="270" cy="201" r="9" fill="url(#sroub)" stroke="#212529"/><circle cx="330" cy="201" r="9" fill="url(#sroub)" stroke="#212529"/><circle cx="364" cy="201" r="9" fill="url(#sroub)" stroke="#212529"/></g>
+<path d="M300 152V132" stroke="#212529" stroke-width="2"/><text x="300" y="124" font-size="21" font-weight="bold" fill="#212529" text-anchor="middle">dilatační spára</text>
+<text x="300" y="316" font-size="20" fill="#212529" text-anchor="middle">spojka se šrouby drží konce kolejnic</text>
+<!-- kolej shora bez spár -->
+<rect x="30" y="346" width="540" height="232" rx="10" fill="#fff" stroke="#868e96" stroke-width="2"/>
+<text x="300" y="376" font-size="21" font-weight="bold" fill="#212529" text-anchor="middle">Kdyby mezi kolejnicemi spáry nebyly:</text>
+<rect x="40" y="420" width="520" height="100" fill="#dee2e6"/>
+<g class="zima" opacity="0" fill="#a0522d" stroke="#6b3410" stroke-width="1"><rect x="54" y="436" width="12" height="68" rx="2"/><rect x="84" y="436" width="12" height="68" rx="2"/><rect x="114" y="436" width="12" height="68" rx="2"/><rect x="144" y="436" width="12" height="68" rx="2"/><rect x="174" y="436" width="12" height="68" rx="2"/><rect x="204" y="436" width="12" height="68" rx="2"/><rect x="234" y="436" width="12" height="68" rx="2"/><rect x="264" y="436" width="12" height="68" rx="2"/><rect x="294" y="436" width="12" height="68" rx="2"/><rect x="324" y="436" width="12" height="68" rx="2"/><rect x="354" y="436" width="12" height="68" rx="2"/><rect x="384" y="436" width="12" height="68" rx="2"/><rect x="414" y="436" width="12" height="68" rx="2"/><rect x="444" y="436" width="12" height="68" rx="2"/><rect x="474" y="436" width="12" height="68" rx="2"/><rect x="504" y="436" width="12" height="68" rx="2"/><rect x="534" y="436" width="12" height="68" rx="2"/>
+<path d="M40 450H560M40 490H560" fill="none" stroke="#495057" stroke-width="7"/><path d="M40 450H560M40 490H560" fill="none" stroke="#ced4da" stroke-width="3"/></g>
+<g class="leto" fill="#a0522d" stroke="#6b3410" stroke-width="1"><rect x="54" y="436" width="12" height="68" rx="2"/><rect x="84" y="436" width="12" height="68" rx="2"/><rect x="114" y="436" width="12" height="68" rx="2"/><rect x="144" y="436" width="12" height="68" rx="2"/><rect x="174" y="436" width="12" height="68" rx="2"/><rect x="204" y="435" width="12" height="68" rx="2"/><rect x="234" y="424" width="12" height="68" rx="2"/><rect x="264" y="409" width="12" height="68" rx="2"/><rect x="294" y="402" width="12" height="68" rx="2"/><rect x="324" y="409" width="12" height="68" rx="2"/><rect x="354" y="424" width="12" height="68" rx="2"/><rect x="384" y="435" width="12" height="68" rx="2"/><rect x="414" y="436" width="12" height="68" rx="2"/><rect x="444" y="436" width="12" height="68" rx="2"/><rect x="474" y="436" width="12" height="68" rx="2"/><rect x="504" y="436" width="12" height="68" rx="2"/><rect x="534" y="436" width="12" height="68" rx="2"/>
+<path d="M40 450H200C250 450 250 416 300 416C350 416 350 450 400 450H560M40 490H200C250 490 250 456 300 456C350 456 350 490 400 490H560" fill="none" stroke="#495057" stroke-width="7"/><path d="M40 450H200C250 450 250 416 300 416C350 416 350 450 400 450H560M40 490H200C250 490 250 456 300 456C350 456 350 490 400 490H560" fill="none" stroke="#ced4da" stroke-width="3"/></g>
+<text x="300" y="552" font-size="21" font-weight="bold" fill="#1864ab" text-anchor="middle" class="zima" opacity="0">V zimě je kolej rovná.</text>
+<text x="300" y="552" font-size="21" font-weight="bold" fill="#c92a2a" text-anchor="middle" class="leto">V horku se kolejnice protáhnou a zkroutí.</text>
+<!-- shrnutí -->
+<text x="300" y="614" font-size="21" fill="#212529" text-anchor="middle">V létě se kolejnice protáhnou, v zimě zkrátí.</text>
+<text x="300" y="646" font-size="21" fill="#212529" text-anchor="middle">Spára jim dává místo.</text>
+</svg>

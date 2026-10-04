@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: bimetalový pásek ze dvou pevně spojených pásů různých kovů, šedého a oranžového, je jedním koncem upnutý ve svěráku. Studený pásek je rovný. Pod pásek postavíme hořící kahan: pásek se zahřeje a ohne se nahoru, protože se každý kov roztahuje jinak. Po zhasnutí kahanu pásek vychladne a narovná se.">
+<style>
+/* Předloha: PDF Teplotní roztažnost, BIMETALOVÝ PÁSEK — spojení dvou tenkých pásů z různých kovů, každý mění rozměry jinak,
+   pevně spojené ⇒ pásek se kroutí. Prezentace TEPLOTA: proužek ze dvou kovů se při změně teploty ohýbá, ohřev svíčkou/kahanem.
+   Barvy kov 1 šedý / kov 2 oranžový jako bimetal v podtématu Teplota a její měření. Bez čísel.
+   Pásek = 8 článků po 50, každý kloub se ohne o 5° (celkem 40°). Kov 2 (dole) se roztahuje víc ⇒ ohyb nahoru.
+   Smyčka 10 s: 0–15 % studený a rovný, 15 % zapálí se kahan, 20–55 % ohyb, 60 % kahan zhasne, 70–90 % narovnání.
+   Bez animace = zahřátý ohnutý pásek nad hořícím kahanem. */
+@keyframes ohyb { 0%, 20% { transform: rotate(0deg); } 55%, 70% { transform: rotate(-5deg); } 90%, 100% { transform: rotate(0deg); } }
+@keyframes ohen { 0%, 14% { opacity: 0; } 17%, 58% { opacity: 1; } 61%, 100% { opacity: 0; } }
+@keyframes tS { 0%, 18% { opacity: 1; } 21%, 87% { opacity: 0; } 90%, 100% { opacity: 1; } }
+@keyframes tH { 0%, 48% { opacity: 0; } 51%, 76% { opacity: 1; } 79%, 100% { opacity: 0; } }
+@keyframes plap { 0%, 100% { transform: scale(1, 1); } 50% { transform: scale(0.92, 1.08); } }
+.k { animation: ohyb 10s ease-in-out infinite; } .ohen { animation: ohen 10s linear infinite; }
+.tS { animation: tS 10s linear infinite; } .tH { animation: tH 10s linear infinite; } .plap { animation: plap 0.8s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .k, .ohen, .tS, .tH, .plap { animation: none; } }
+</style>
+<defs>
+<linearGradient id="k1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ced4da"/><stop offset="1" stop-color="#868e96"/></linearGradient>
+<linearGradient id="k2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff8a4c"/><stop offset="1" stop-color="#d9480f"/></linearGradient>
+<linearGradient id="tyc" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#868e96"/><stop offset="0.4" stop-color="#e9ecef"/><stop offset="1" stop-color="#495057"/></linearGradient>
+<linearGradient id="sklo" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d0ebff"/><stop offset="0.3" stop-color="#ffffff"/><stop offset="1" stop-color="#a5d8ff"/></linearGradient>
+<radialGradient id="plamen" cx="50%" cy="75%" r="70%"><stop offset="0" stop-color="#fff3bf"/><stop offset="0.5" stop-color="#ffa94d"/><stop offset="1" stop-color="#e8590c"/></radialGradient>
+<g id="cl"><rect x="0" y="-9" width="52" height="9" fill="url(#k1)"/><rect x="0" y="0" width="52" height="9" fill="url(#k2)"/></g>
+</defs>
+<rect x="3" y="3" width="594" height="594" rx="14" fill="#f8f9fa"/>
+<rect x="90" y="16" width="420" height="54" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="300" y="52" font-size="26" fill="#212529" text-anchor="middle">Bimetalový pásek</text>
+<!-- stůl a stojan se svěrákem -->
+<rect x="30" y="450" width="540" height="14" rx="3" fill="#d9a066" stroke="#8b4513" stroke-width="2"/>
+<rect x="40" y="436" width="100" height="16" rx="4" fill="url(#tyc)" stroke="#495057" stroke-width="2"/>
+<rect x="74" y="250" width="18" height="190" rx="4" fill="url(#tyc)" stroke="#495057" stroke-width="2"/>
+<!-- rovný pásek (obrys) pro srovnání -->
+<rect x="130" y="291" width="400" height="18" fill="none" stroke="#868e96" stroke-width="2" stroke-dasharray="7 5"/>
+<!-- pásek z 8 článků -->
+<g transform="translate(130 300)">
+<g class="k" transform="rotate(-5)"><use href="#cl"/>
+<g transform="translate(50 0)"><g class="k" transform="rotate(-5)"><use href="#cl"/>
+<g transform="translate(50 0)"><g class="k" transform="rotate(-5)"><use href="#cl"/>
+<g transform="translate(50 0)"><g class="k" transform="rotate(-5)"><use href="#cl"/>
+<g transform="translate(50 0)"><g class="k" transform="rotate(-5)"><use href="#cl"/>
+<g transform="translate(50 0)"><g class="k" transform="rotate(-5)"><use href="#cl"/>
+<g transform="translate(50 0)"><g class="k" transform="rotate(-5)"><use href="#cl"/>
+<g transform="translate(50 0)"><g class="k" transform="rotate(-5)"><rect x="0" y="-9" width="50" height="9" rx="2" fill="url(#k1)"/><rect x="0" y="0" width="50" height="9" rx="2" fill="url(#k2)"/>
+</g></g></g></g></g></g></g></g></g></g></g></g></g></g></g>
+</g>
+<!-- svěrák -->
+<rect x="62" y="270" width="80" height="22" rx="4" fill="url(#tyc)" stroke="#495057" stroke-width="2"/>
+<rect x="62" y="309" width="80" height="22" rx="4" fill="url(#tyc)" stroke="#495057" stroke-width="2"/>
+<path d="M102 258V270M102 331V344" stroke="#495057" stroke-width="6" stroke-linecap="round"/>
+<!-- kahan pod páskem -->
+<g class="ohen"><g transform="translate(330 390)"><g class="plap"><path d="M0 0C-16 -12 -18 -40 0 -76C18 -40 16 -12 0 0Z" fill="url(#plamen)"/><path d="M0 -4C-7 -14 -7 -30 0 -46C7 -30 7 -14 0 -4Z" fill="#fff3bf"/></g></g></g>
+<path d="M330 390V400" stroke="#212529" stroke-width="4"/>
+<rect x="318" y="396" width="24" height="14" rx="3" fill="url(#tyc)" stroke="#495057" stroke-width="1.5"/>
+<path d="M302 410H358Q378 410 382 430V444Q382 450 372 450H288Q278 450 278 444V430Q282 410 302 410Z" fill="url(#sklo)" stroke="#495057" stroke-width="2.5"/>
+<path d="M282 432H378V444Q378 447 370 447H290Q282 447 282 444Z" fill="#74c0fc" opacity="0.5"/>
+<text x="272" y="440" font-size="22" fill="#212529" text-anchor="end">kahan</text>
+<!-- popisky -->
+<text x="300" y="104" font-size="23" font-weight="bold" fill="#1864ab" text-anchor="middle" class="tS" opacity="0">Studený pásek je rovný.</text>
+<text x="300" y="104" font-size="23" font-weight="bold" fill="#c92a2a" text-anchor="middle" class="tH">Zahřátý pásek se ohne.</text>
+<rect x="60" y="490" width="34" height="14" fill="url(#k1)" stroke="#495057" stroke-width="1"/>
+<text x="104" y="504" font-size="21" fill="#212529">kov 1 se roztahuje méně</text>
+<rect x="60" y="526" width="34" height="14" fill="url(#k2)" stroke="#495057" stroke-width="1"/>
+<text x="104" y="540" font-size="21" fill="#212529">kov 2 se roztahuje více</text>
+<text x="300" y="580" font-size="21" fill="#212529" text-anchor="middle">Kovy jsou pevně spojené, a proto se pásek ohne.</text>
+</svg>

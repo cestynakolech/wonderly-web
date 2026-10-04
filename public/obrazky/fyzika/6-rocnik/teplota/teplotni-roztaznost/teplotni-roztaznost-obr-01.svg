@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 640" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: kovová kulička na řetízku s dřevěnou rukojetí a kovový kroužek na stojanu. Studená kulička kroužkem projde. Pak ji nad kahanem zahřejeme, kulička se zvětší a zčervená. Zahřátá kulička kroužkem neprojde, zůstane na něm ležet. Dole: Zahřátím se kulička zvětšila.">
+<style>
+/* Předloha: výklad podtématu (ZAHŘÁTÍ ⇨ zvětšení rozměrů a objemu) — klasický pokus s kuličkou a kroužkem.
+   POZOR: konkrétní pokus s kuličkou a kroužkem v PDF ani v prezentaci NENÍ (zapsáno v protokolu workera).
+   Bez čísel. Kroužek: vnitřní poloměr 44, studená kulička poloměr 40 (projde), zahřátá 46 (scale 1.15, neprojde).
+   Smyčka 12 s: 0–10 % klid, 10–22 % studená kulička projde kroužkem, 30–40 % zpět nahoru, 40–48 % přesun nad kahan,
+   50–66 % ohřev (zčervená, zvětší se), 68–84 % spuštění na kroužek, 84–96 % leží na kroužku, 96–100 % návrat.
+   Bez animace = koncový stav (zahřátá kulička leží na kroužku). */
+@keyframes kul { 0%, 10% { transform: translate(300px, 230px); } 22%, 30% { transform: translate(300px, 460px); }
+  40% { transform: translate(300px, 230px); } 48%, 68% { transform: translate(480px, 330px); }
+  76% { transform: translate(300px, 230px); } 84%, 96% { transform: translate(300px, 347px); } 100% { transform: translate(300px, 230px); } }
+@keyframes vel { 0%, 50% { transform: scale(1); } 66%, 96% { transform: scale(1.15); } 100% { transform: scale(1); } }
+@keyframes zar { 0%, 50% { opacity: 0; } 66%, 96% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes tStud { 0%, 44% { opacity: 1; } 47%, 100% { opacity: 0; } }
+@keyframes tHork { 0%, 84% { opacity: 0; } 86%, 97% { opacity: 1; } 99%, 100% { opacity: 0; } }
+@keyframes plamen { 0%, 100% { transform: translate(480px, 446px) scale(1, 1); } 50% { transform: translate(480px, 446px) scale(0.92, 1.08); } }
+.kul { animation: kul 12s ease-in-out infinite; } .vel { animation: vel 12s ease-in-out infinite; }
+.zar { animation: zar 12s ease-in-out infinite; } .tStud { animation: tStud 12s linear infinite; }
+.tHork { animation: tHork 12s linear infinite; } .plamen { animation: plamen 0.8s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .kul, .vel, .zar, .tStud, .tHork, .plamen { animation: none; } }
+</style>
+<defs>
+<radialGradient id="kov" cx="35%" cy="32%" r="72%"><stop offset="0" stop-color="#ffffff"/><stop offset="0.45" stop-color="#ced4da"/><stop offset="1" stop-color="#6c757d"/></radialGradient>
+<radialGradient id="zhava" cx="35%" cy="32%" r="72%"><stop offset="0" stop-color="#ffe8cc"/><stop offset="0.5" stop-color="#ff922b"/><stop offset="1" stop-color="#c92a2a"/></radialGradient>
+<linearGradient id="drevo" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#a0522d"/><stop offset="0.45" stop-color="#d9a066"/><stop offset="1" stop-color="#8b4513"/></linearGradient>
+<linearGradient id="tyc" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#868e96"/><stop offset="0.4" stop-color="#e9ecef"/><stop offset="1" stop-color="#495057"/></linearGradient>
+<linearGradient id="sklo" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d0ebff"/><stop offset="0.3" stop-color="#ffffff"/><stop offset="1" stop-color="#a5d8ff"/></linearGradient>
+<radialGradient id="ohen" cx="50%" cy="75%" r="70%"><stop offset="0" stop-color="#fff3bf"/><stop offset="0.5" stop-color="#ffa94d"/><stop offset="1" stop-color="#e8590c"/></radialGradient>
+</defs>
+<rect x="3" y="3" width="594" height="634" rx="14" fill="#f8f9fa"/>
+<rect x="70" y="16" width="460" height="54" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="300" y="52" font-size="26" fill="#212529" text-anchor="middle">Projde kulička kroužkem?</text>
+<!-- stůl -->
+<rect x="30" y="520" width="540" height="14" rx="3" fill="#d9a066" stroke="#8b4513" stroke-width="2"/>
+<!-- stojan s kroužkem: zadní polovina kroužku -->
+<rect x="80" y="508" width="90" height="14" rx="4" fill="url(#tyc)" stroke="#495057" stroke-width="2"/>
+<rect x="117" y="300" width="16" height="210" rx="4" fill="url(#tyc)" stroke="#495057" stroke-width="2"/>
+<rect x="125" y="355" width="128" height="10" rx="3" fill="url(#tyc)" stroke="#495057" stroke-width="1.5"/>
+<rect x="113" y="348" width="24" height="24" rx="4" fill="#495057"/>
+<path d="M252 360A48 14 0 0 1 348 360" fill="none" stroke="#495057" stroke-width="10"/>
+<path d="M252 360A48 14 0 0 1 348 360" fill="none" stroke="#adb5bd" stroke-width="5"/>
+<!-- lihový kahan -->
+<g class="plamen" transform="translate(480 446)"><path d="M0 0C-14 -10 -16 -34 0 -66C16 -34 14 -10 0 0Z" fill="url(#ohen)"/><path d="M0 -4C-6 -12 -6 -26 0 -40C6 -26 6 -12 0 -4Z" fill="#fff3bf"/></g>
+<path d="M480 446V456" stroke="#212529" stroke-width="4"/>
+<rect x="468" y="452" width="24" height="14" rx="3" fill="url(#tyc)" stroke="#495057" stroke-width="1.5"/>
+<path d="M452 466H508Q528 466 532 490V512Q532 520 522 520H438Q428 520 428 512V490Q432 466 452 466Z" fill="url(#sklo)" stroke="#495057" stroke-width="2.5"/>
+<path d="M432 494H528V512Q528 516 520 516H440Q432 516 432 512Z" fill="#74c0fc" opacity="0.5"/>
+<!-- kulička na řetízku -->
+<g class="kul" transform="translate(300 347)">
+<path d="M0 -40V-108" stroke="#495057" stroke-width="3" stroke-dasharray="6 3"/>
+<rect x="-9" y="-150" width="18" height="44" rx="6" fill="url(#drevo)" stroke="#8b4513" stroke-width="2"/>
+<g class="vel" transform="scale(1.15)">
+<circle r="40" fill="url(#kov)" stroke="#495057" stroke-width="2"/>
+<circle class="zar" r="40" fill="url(#zhava)" stroke="#a61e4d" stroke-width="2"/>
+</g>
+</g>
+<!-- přední polovina kroužku -->
+<path d="M252 360A48 14 0 0 0 348 360" fill="none" stroke="#495057" stroke-width="10"/>
+<path d="M252 360A48 14 0 0 0 348 360" fill="none" stroke="#adb5bd" stroke-width="5"/>
+<!-- popisky -->
+<path d="M262 372L232 416" stroke="#212529" stroke-width="2"/><text x="228" y="436" font-size="22" fill="#212529" text-anchor="end">kroužek</text>
+<path d="M414 494H428" stroke="#212529" stroke-width="2"/><text x="408" y="501" font-size="22" fill="#212529" text-anchor="end">kahan</text>
+<circle cx="56" cy="112" r="14" fill="url(#kov)" stroke="#495057" stroke-width="2"/><text x="80" y="120" font-size="22" fill="#212529">kovová kulička</text>
+<text x="300" y="568" font-size="23" font-weight="bold" fill="#1864ab" text-anchor="middle" class="tStud" opacity="0">Studená kulička kroužkem projde.</text>
+<text x="300" y="568" font-size="23" font-weight="bold" fill="#c92a2a" text-anchor="middle" class="tHork">Zahřátá kulička kroužkem neprojde.</text>
+<text x="300" y="606" font-size="22" fill="#212529" text-anchor="middle">Zahřátím se kulička zvětšila.</text>
+</svg>

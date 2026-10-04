@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 650" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace pokusu: tři stejné skleněné nádoby s vodou pokojové teploty. Do každé vložíme balónek naplněný vodou a zavázaný provázkem. Balónek s vodou pokojové teploty se ustálí uprostřed. Balónek s horkou vodou vystoupá výš. Balónek se studenou vodou se ustálí níž. Dole: Horká voda má menší hustotu, studená větší.">
+<style>
+/* Předloha: PDF Teplotní roztažnost, Vliv teploty na hustotu tělesa — Pokus: balónek s vodou (bez obrázku, kresba podle textu):
+   balónek s vodou pokojové teploty se ustálí v nějaké výšce, s horkou vodou vystoupá výš, se studenou vodou níž.
+   Bez čísel. Výšky: pokojová 350, horká 240, studená 420 (střed balónku); balónky se vloží ve výšce 320.
+   Smyčka 9 s: 0–8 % balónky se objeví, 8–40 % stoupají / klesají na svou výšku, 40–90 % drží, 90–100 % zmizí.
+   Bez animace = balónky ustálené. */
+@keyframes bP { 0%, 8% { transform: translate(110px, 320px); } 40%, 100% { transform: translate(110px, 350px); } }
+@keyframes bH { 0%, 8% { transform: translate(300px, 320px); } 40%, 100% { transform: translate(300px, 240px); } }
+@keyframes bS { 0%, 8% { transform: translate(490px, 320px); } 40%, 100% { transform: translate(490px, 420px); } }
+@keyframes ob { 0% { opacity: 0; } 6%, 92% { opacity: 1; } 100% { opacity: 0; } }
+.bP { animation: bP 9s ease-in-out infinite; } .bH { animation: bH 9s ease-in-out infinite; } .bS { animation: bS 9s ease-in-out infinite; }
+.ob { animation: ob 9s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .bP, .bH, .bS, .ob { animation: none; } }
+</style>
+<defs>
+<linearGradient id="skloG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d0ebff" stop-opacity="0.8"/><stop offset="0.25" stop-color="#ffffff" stop-opacity="0.3"/><stop offset="1" stop-color="#a5d8ff" stop-opacity="0.8"/></linearGradient>
+<radialGradient id="lesk" cx="35%" cy="30%" r="70%"><stop offset="0" stop-color="#fff" stop-opacity="0.8"/><stop offset="0.4" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<g id="balonek"><path d="M0 -40C26 -40 38 -16 36 6C34 28 16 40 4 42L0 46L-4 42C-16 40 -34 28 -36 6C-38 -16 -26 -40 0 -40Z" stroke="#495057" stroke-width="2"/><path d="M0 -40C26 -40 38 -16 36 6C34 28 16 40 4 42L0 46L-4 42C-16 40 -34 28 -36 6C-38 -16 -26 -40 0 -40Z" fill="url(#lesk)"/><path d="M-6 46H6L4 52H-4Z" fill="#495057"/><path d="M0 52Q8 62 -2 72Q-10 80 2 88" fill="none" stroke="#8b4513" stroke-width="2"/></g>
+<g id="nadoba"><path d="M-80 0H80V340Q80 350 70 350H-70Q-80 350 -80 340Z" fill="#74c0fc" opacity="0.45"/><path d="M-80 0H80" stroke="#1971c2" stroke-width="2.5"/></g>
+<g id="sklo"><path d="M-84 -36V346Q-84 356 -72 356H72Q84 356 84 346V-36" fill="none" stroke="#495057" stroke-width="3"/><rect x="-84" y="-36" width="168" height="392" fill="url(#skloG)" opacity="0.5"/></g>
+</defs>
+<rect x="3" y="3" width="594" height="644" rx="14" fill="#f8f9fa"/>
+<rect x="70" y="16" width="460" height="54" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="300" y="52" font-size="26" fill="#212529" text-anchor="middle">Pokus: balónek s vodou</text>
+<text x="300" y="104" font-size="20" fill="#212529" text-anchor="middle">V nádobách je voda pokojové teploty.</text>
+<use href="#nadoba" x="110" y="160"/><use href="#nadoba" x="300" y="160"/><use href="#nadoba" x="490" y="160"/>
+<path d="M30 350H570" stroke="#495057" stroke-width="2" stroke-dasharray="8 6"/>
+<g class="ob"><g class="bP" transform="translate(110 350)"><use href="#balonek" fill="#ffe066"/></g></g>
+<g class="ob"><g class="bH" transform="translate(300 240)"><use href="#balonek" fill="#ff8787"/></g></g>
+<g class="ob"><g class="bS" transform="translate(490 420)"><use href="#balonek" fill="#74c0fc"/></g></g>
+<use href="#sklo" x="110" y="160"/><use href="#sklo" x="300" y="160"/><use href="#sklo" x="490" y="160"/>
+<text x="110" y="548" font-size="21" font-weight="bold" fill="#212529" text-anchor="middle">pokojová</text>
+<text x="300" y="548" font-size="21" font-weight="bold" fill="#c92a2a" text-anchor="middle">horká</text>
+<text x="490" y="548" font-size="21" font-weight="bold" fill="#1864ab" text-anchor="middle">studená</text>
+<text x="300" y="576" font-size="20" fill="#212529" text-anchor="middle">voda v balónku</text>
+<text x="300" y="610" font-size="20" fill="#212529" text-anchor="middle">Horká voda má menší hustotu – vystoupá výš.</text>
+<text x="300" y="636" font-size="20" fill="#212529" text-anchor="middle">Studená voda má větší hustotu – klesne níž.</text>
+</svg>

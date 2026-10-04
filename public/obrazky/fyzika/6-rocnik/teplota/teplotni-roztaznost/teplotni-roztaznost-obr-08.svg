@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 660" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace ve dvou částech. Nahoře z boku most přes řeku: levý konec mostu je pevně uložený, pravý konec leží na kovovém válci. V létě se most protáhne, jeho konec se posune doprava a válec se pootočí; v zimě se most zkrátí a konec se vrátí. Mezi mostem a pevnou silnicí je spára. Dole tatáž spára shora: dva kovové hřebeny se zuby do sebe zapadají. V létě se zuby zasunou hlouběji, v zimě se vysunou.">
+<style>
+/* Předloha: PDF Teplotní roztažnost, Kolejnice a mostové konstrukce — fotografie hřebenového dilatačního závěru na chodníku mostu
+   (modré zábradlí) a válcového ložiska pod koncem mostu; text: spáry mezi mosty a pevnou silnicí, konce mostu se pohybují na válcích.
+   Fotografie překresleny kresbou. Bez čísel; posuny jsou pro názornost zvětšené.
+   Most: scaleX kolem pevného uložení (x 80) z 1 na 1,0308 (konec mostu o 12 doprava), válec poloměr 16 o 6 doprava a pootočení 21°.
+   Hřebeny: levý hřeben o 32 (zima −16, léto +16). Smyčka 10 s jako u kolejnic: 0–10 % zima, 40–60 % léto. Bez animace = léto. */
+@keyframes most { 0%, 10% { transform: translate(80px, 0) scale(1, 1) translate(-80px, 0); } 40%, 60% { transform: translate(80px, 0) scale(1.0308, 1) translate(-80px, 0); } 90%, 100% { transform: translate(80px, 0) scale(1, 1) translate(-80px, 0); } }
+@keyframes valec { 0%, 10% { transform: translate(442px, 216px) rotate(0deg); } 40%, 60% { transform: translate(448px, 216px) rotate(21deg); } 90%, 100% { transform: translate(442px, 216px) rotate(0deg); } }
+@keyframes hreben { 0%, 10% { transform: translate(-16px, 0); } 40%, 60% { transform: translate(16px, 0); } 90%, 100% { transform: translate(-16px, 0); } }
+@keyframes leto { 0%, 20% { opacity: 0; } 35%, 65% { opacity: 1; } 80%, 100% { opacity: 0; } }
+@keyframes zima { 0%, 20% { opacity: 1; } 35%, 65% { opacity: 0; } 80%, 100% { opacity: 1; } }
+.most { animation: most 10s ease-in-out infinite; } .valec { animation: valec 10s ease-in-out infinite; } .hreben { animation: hreben 10s ease-in-out infinite; }
+.leto { animation: leto 10s ease-in-out infinite; } .zima { animation: zima 10s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .most, .valec, .hreben, .leto, .zima { animation: none; } }
+</style>
+<defs>
+<linearGradient id="beton" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9ecef"/><stop offset="1" stop-color="#adb5bd"/></linearGradient>
+<linearGradient id="ocel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1f3f5"/><stop offset="0.5" stop-color="#adb5bd"/><stop offset="1" stop-color="#495057"/></linearGradient>
+<radialGradient id="valecG" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#f8f9fa"/><stop offset="1" stop-color="#6c757d"/></radialGradient>
+<linearGradient id="rez" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a0522d"/><stop offset="1" stop-color="#6b3410"/></linearGradient>
+<radialGradient id="sroub" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#ced4da"/><stop offset="1" stop-color="#495057"/></radialGradient>
+<g id="slunce"><circle r="16" fill="#fcc419" stroke="#f08c00" stroke-width="2"/><path d="M0 -28V-21M0 21V28M-28 0H-21M21 0H28M-20 -20L-15 -15M15 15L20 20M-20 20L-15 15M15 -15L20 -20" stroke="#f08c00" stroke-width="3" stroke-linecap="round"/></g>
+<g id="vlocka" stroke="#1971c2" stroke-width="3" stroke-linecap="round"><path d="M0 -24V24M-21 -12L21 12M-21 12L21 -12"/><path d="M-6 -18L0 -12L6 -18M-6 18L0 12L6 18"/></g>
+</defs>
+<rect x="3" y="3" width="594" height="654" rx="14" fill="#f8f9fa"/>
+<rect x="110" y="16" width="380" height="54" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="300" y="52" font-size="26" fill="#212529" text-anchor="middle">Most a silnice</text>
+<g class="leto"><use href="#slunce" x="540" y="108"/><text x="506" y="116" font-size="22" font-weight="bold" fill="#c92a2a" text-anchor="end">v létě</text></g>
+<g class="zima" opacity="0"><use href="#vlocka" x="540" y="108"/><text x="506" y="116" font-size="22" font-weight="bold" fill="#1864ab" text-anchor="end">v zimě</text></g>
+<!-- krajina pod mostem -->
+<path d="M30 330Q60 300 110 300V330Z" fill="#8ce99a"/>
+<path d="M110 300Q270 340 430 300V330H110Z" fill="#8ce99a"/>
+<path d="M140 316Q270 346 400 316V330H140Z" fill="#74c0fc"/>
+<rect x="30" y="200" width="80" height="130" fill="url(#beton)" stroke="#868e96" stroke-width="1.5"/>
+<rect x="430" y="232" width="140" height="98" fill="url(#beton)" stroke="#868e96" stroke-width="1.5"/>
+<rect x="476" y="200" width="94" height="32" fill="url(#beton)" stroke="#868e96" stroke-width="1.5"/>
+<rect x="476" y="190" width="94" height="10" fill="#495057"/>
+<rect x="426" y="232" width="44" height="6" fill="url(#ocel)" stroke="#495057"/>
+<!-- pevné uložení -->
+<path d="M68 220L80 200L92 220Z" fill="url(#ocel)" stroke="#495057" stroke-width="1.5"/>
+<!-- válec -->
+<g class="valec" transform="translate(448 216) rotate(21)"><circle r="16" fill="url(#valecG)" stroke="#212529" stroke-width="2"/><path d="M0 -16V16" stroke="#212529" stroke-width="2"/></g>
+<!-- most (mostovka se zábradlím) -->
+<g class="most" transform="translate(80 0) scale(1.0308 1) translate(-80 0)">
+<rect x="54" y="168" width="416" height="32" fill="url(#beton)" stroke="#495057" stroke-width="1.5"/>
+<rect x="54" y="160" width="416" height="8" fill="#495057"/>
+<path d="M60 132H464" stroke="#1971c2" stroke-width="5"/>
+<path d="M70 132V160M110 132V160M150 132V160M190 132V160M230 132V160M270 132V160M310 132V160M350 132V160M390 132V160M430 132V160" stroke="#1971c2" stroke-width="3"/>
+</g>
+<text x="250" y="232" font-size="21" fill="#212529" text-anchor="middle">most</text>
+<text x="523" y="224" font-size="20" fill="#212529" text-anchor="middle">silnice</text>
+<path d="M80 222L112 262" stroke="#212529" stroke-width="2"/><text x="116" y="276" font-size="20" fill="#212529">pevné uložení</text>
+<path d="M434 226L380 270" stroke="#212529" stroke-width="2"/><text x="376" y="284" font-size="20" fill="#212529" text-anchor="end">válec</text>
+<path d="M476 186L510 166" stroke="#212529" stroke-width="2"/><text x="512" y="164" font-size="20" font-weight="bold" fill="#212529">spára</text>
+<path d="M474 186L250 368M474 186L560 368" stroke="#868e96" stroke-width="2" stroke-dasharray="6 5"/>
+<!-- hřebenový závěr shora -->
+<rect x="30" y="368" width="540" height="196" rx="10" fill="#fff" stroke="#868e96" stroke-width="2"/>
+<text x="300" y="396" font-size="21" font-weight="bold" fill="#212529" text-anchor="middle">spára shora: hřebeny ze dvou stran</text>
+<rect x="40" y="410" width="520" height="140" fill="#ced4da"/>
+<g class="hreben" transform="translate(16 0)">
+<path d="M40 414H250V430H310V446H250V462H310V478H250V494H310V510H250V526H310V542H250V546H40Z" fill="url(#rez)" stroke="#212529" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="80" cy="440" r="7" fill="url(#sroub)"/><circle cx="80" cy="520" r="7" fill="url(#sroub)"/><circle cx="150" cy="440" r="7" fill="url(#sroub)"/><circle cx="150" cy="520" r="7" fill="url(#sroub)"/><circle cx="215" cy="480" r="7" fill="url(#sroub)"/>
+</g>
+<path d="M560 414H350V414H350V414H290V430H350V446H290V462H350V478H290V494H350V510H290V526H350V542H350V546H560Z" fill="url(#rez)" stroke="#212529" stroke-width="2" stroke-linejoin="round"/>
+<g><circle cx="520" cy="440" r="7" fill="url(#sroub)"/><circle cx="520" cy="520" r="7" fill="url(#sroub)"/><circle cx="450" cy="440" r="7" fill="url(#sroub)"/><circle cx="450" cy="520" r="7" fill="url(#sroub)"/><circle cx="385" cy="480" r="7" fill="url(#sroub)"/></g>
+<text x="300" y="598" font-size="21" font-weight="bold" fill="#c92a2a" text-anchor="middle" class="leto">V létě se most protáhne, zuby se zasunou.</text>
+<text x="300" y="598" font-size="21" font-weight="bold" fill="#1864ab" text-anchor="middle" class="zima" opacity="0">V zimě se most zkrátí, zuby se vysunou.</text>
+<text x="300" y="634" font-size="20" fill="#212529" text-anchor="middle">Konec mostu se pohybuje na válci.</text>
+</svg>

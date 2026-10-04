@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 620" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: silné zelené teplovodní potrubí vede podél cesty a nad ní se zvedá do velkého oblouku ve tvaru obráceného U. Když potrubím teče horká voda, trubky se protáhnou a ramena oblouku se trochu nakloní k sobě; potrubí se nepoškodí. Když voda vychladne, trubky se zkrátí a ramena se zase narovnají.">
+<style>
+/* Předloha: PDF Teplotní roztažnost, Kovové kotle, teplovodní potrubí — řešení: do potrubí se vkládají ohebná kolena navíc;
+   fotografie zeleného potrubí s obloukem tvaru U nad cestou. Výklad: kompenzátor (smyčka potrubí ve tvaru U).
+   Fotografie překreslena kresbou. Bez čísel; protažení je pro názornost zvětšené.
+   Rovné úseky se posunou o 10 k oblouku, ramena oblouku (výška 250) se nakloní o 2,4° kolem horních kolen.
+   Smyčka 10 s: 0–15 % studené, 15–45 % ohřev, 45–65 % horké, 65–95 % chladne. Bez animace = horké potrubí. */
+@keyframes pl { 0%, 15% { transform: translate(0, 0); } 45%, 65% { transform: translate(10px, 0); } 95%, 100% { transform: translate(0, 0); } }
+@keyframes pp { 0%, 15% { transform: translate(0, 0); } 45%, 65% { transform: translate(-10px, 0); } 95%, 100% { transform: translate(0, 0); } }
+@keyframes rl { 0%, 15% { transform: translate(200px, 200px) rotate(0deg) translate(-200px, -200px); } 45%, 65% { transform: translate(200px, 200px) rotate(-2.4deg) translate(-200px, -200px); } 95%, 100% { transform: translate(200px, 200px) rotate(0deg) translate(-200px, -200px); } }
+@keyframes rp { 0%, 15% { transform: translate(400px, 200px) rotate(0deg) translate(-400px, -200px); } 45%, 65% { transform: translate(400px, 200px) rotate(2.4deg) translate(-400px, -200px); } 95%, 100% { transform: translate(400px, 200px) rotate(0deg) translate(-400px, -200px); } }
+@keyframes hor { 0%, 15% { opacity: 0; } 45%, 65% { opacity: 0.45; } 95%, 100% { opacity: 0; } }
+@keyframes tS { 0%, 20% { opacity: 1; } 25%, 85% { opacity: 0; } 92%, 100% { opacity: 1; } }
+@keyframes tH { 0%, 35% { opacity: 0; } 42%, 70% { opacity: 1; } 76%, 100% { opacity: 0; } }
+.pl { animation: pl 10s ease-in-out infinite; } .pp { animation: pp 10s ease-in-out infinite; }
+.rl { animation: rl 10s ease-in-out infinite; } .rp { animation: rp 10s ease-in-out infinite; }
+.hor { animation: hor 10s ease-in-out infinite; } .tS { animation: tS 10s linear infinite; } .tH { animation: tH 10s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .pl, .pp, .rl, .rp, .hor, .tS, .tH { animation: none; } }
+</style>
+<defs>
+<linearGradient id="trubV" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5c6b47"/><stop offset="0.35" stop-color="#a9b98e"/><stop offset="1" stop-color="#4a5639"/></linearGradient>
+<linearGradient id="trubH" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5c6b47"/><stop offset="0.35" stop-color="#a9b98e"/><stop offset="1" stop-color="#4a5639"/></linearGradient>
+<radialGradient id="koleno" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#a9b98e"/><stop offset="1" stop-color="#4a5639"/></radialGradient>
+<linearGradient id="nebe" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a5d8ff"/><stop offset="1" stop-color="#e7f5ff"/></linearGradient>
+</defs>
+<rect x="3" y="3" width="594" height="614" rx="14" fill="#f8f9fa"/>
+<rect x="90" y="16" width="420" height="54" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="300" y="52" font-size="26" fill="#212529" text-anchor="middle">Teplovodní potrubí</text>
+<!-- krajina -->
+<rect x="20" y="84" width="560" height="430" rx="8" fill="url(#nebe)"/>
+<g fill="#fff" opacity="0.9"><ellipse cx="120" cy="130" rx="46" ry="18"/><ellipse cx="150" cy="118" rx="30" ry="18"/><ellipse cx="470" cy="122" rx="50" ry="18"/></g>
+<g fill="#69db7c" stroke="#2f9e44" stroke-width="1.5"><circle cx="70" cy="330" r="50"/><circle cx="120" cy="300" r="44"/><circle cx="500" cy="320" r="50"/><circle cx="545" cy="290" r="38"/><circle cx="300" cy="380" r="40"/></g>
+<rect x="20" y="420" width="560" height="94" fill="#8ce99a"/>
+<path d="M270 420H330L380 514H220Z" fill="#ced4da" stroke="#adb5bd" stroke-width="1.5"/>
+<g stroke="#2b8a3e" stroke-width="3"><path d="M40 400V460M60 400V460M80 400V460M100 400V460M120 400V460M140 400V460M30 404H150M30 440H150"/></g>
+<!-- potrubí -->
+<g class="pl"><rect x="20" y="432" width="186" height="36" fill="url(#trubH)" stroke="#3b4530" stroke-width="1.5"/><rect class="hor" x="20" y="432" width="186" height="36" fill="#fa5252" opacity="0.45"/><path d="M80 432V468M140 432V468" stroke="#3b4530" stroke-width="1.5"/></g>
+<g class="pp"><rect x="394" y="432" width="186" height="36" fill="url(#trubH)" stroke="#3b4530" stroke-width="1.5"/><rect class="hor" x="394" y="432" width="186" height="36" fill="#fa5252" opacity="0.45"/><path d="M460 432V468M520 432V468" stroke="#3b4530" stroke-width="1.5"/></g>
+<g class="rl" transform="rotate(-2.4 200 200)"><rect x="182" y="200" width="36" height="250" fill="url(#trubV)" stroke="#3b4530" stroke-width="1.5"/><rect class="hor" x="182" y="200" width="36" height="250" fill="#fa5252" opacity="0.45"/><path d="M182 280H218M182 360H218" stroke="#3b4530" stroke-width="1.5"/><circle cx="200" cy="450" r="22" fill="url(#koleno)" stroke="#3b4530" stroke-width="1.5"/></g>
+<g class="rp" transform="rotate(2.4 400 200)"><rect x="382" y="200" width="36" height="250" fill="url(#trubV)" stroke="#3b4530" stroke-width="1.5"/><rect class="hor" x="382" y="200" width="36" height="250" fill="#fa5252" opacity="0.45"/><path d="M382 280H418M382 360H418" stroke="#3b4530" stroke-width="1.5"/><circle cx="400" cy="450" r="22" fill="url(#koleno)" stroke="#3b4530" stroke-width="1.5"/></g>
+<rect x="200" y="182" width="200" height="36" fill="url(#trubH)" stroke="#3b4530" stroke-width="1.5"/>
+<rect class="hor" x="200" y="182" width="200" height="36" fill="#fa5252" opacity="0.45"/>
+<rect x="262" y="176" width="76" height="48" rx="4" fill="url(#trubH)" stroke="#3b4530" stroke-width="1.5"/>
+<circle cx="200" cy="200" r="24" fill="url(#koleno)" stroke="#3b4530" stroke-width="1.5"/>
+<circle cx="400" cy="200" r="24" fill="url(#koleno)" stroke="#3b4530" stroke-width="1.5"/>
+<!-- popisky -->
+<rect x="150" y="100" width="300" height="56" rx="8" fill="#fff" stroke="#868e96" stroke-width="1.5"/>
+<text x="300" y="124" font-size="20" fill="#212529" text-anchor="middle">ohyb potrubí ve tvaru U</text>
+<text x="300" y="148" font-size="20" font-weight="bold" fill="#212529" text-anchor="middle">kompenzátor</text>
+<path d="M300 156V176" stroke="#212529" stroke-width="2"/>
+<text x="300" y="552" font-size="22" font-weight="bold" fill="#1864ab" text-anchor="middle" class="tS" opacity="0">Studené potrubí je kratší.</text>
+<text x="300" y="552" font-size="22" font-weight="bold" fill="#c92a2a" text-anchor="middle" class="tH">Horká voda: trubky se protáhnou.</text>
+<text x="300" y="590" font-size="20" fill="#212529" text-anchor="middle">Ohyb se trochu prohne a potrubí nepraskne.</text>
+</svg>
