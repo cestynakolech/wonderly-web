@@ -124,8 +124,12 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
   děti otevírají stránku podtématu): 2–4 krátké věty na úrovni 5letého dítěte — žádný odborný
   pojem bez vysvětlení, jeden příklad z běžného života dítěte, žádná čísla ani vzorce,
   věcně správně (zjednodušení nesmí být nepravda). Je to vstup do problematiky, ne náhrada výkladu.
-- **ZÁPIS DO SEŠITU = jen to podstatné k zapamatování:** nejvýš **8 řádků a ~70 slov na
-  podtéma** (definice, jednotka, vzorec, 1 příklad). Co je navíc, patří do výkladu, ne do zápisu.
+- **ZÁPIS DO SEŠITU = jen pár řádků, ne celá A4** (pravidlo učitele 4. 10. 2026: „děti by to
+  nestihly opsat ani se naučit. Krátce a všeobecně, žádná přesná data; nejvýš 1 klíčové číslo“;
+  nahrazuje dřívější limit 8 řádků / ~70 slov). **KOTVA: max ~5 bodů, každý jedna krátká věta**
+  (limit auditu: >5 bodů nebo >60 slov = nad limitem). Co je navíc, patří do výkladu, ne do zápisu.
+  Vzor (vesmír): rozpíná se; počátek = velký třesk; stáří ~14 mld. let; tvoří ho galaxie;
+  v galaxii je černá díra. Audit: `node Omega/skripty/audit_zapisu.mjs` → `Omega/predavka/<datum>/audit-zapisu.md`.
 - **OBRÁZKY ZE ZDROJE — vlastní překreslený protějšek každého** (pokyn učitele 29. 9. 2026:
   „koukni na obrázky v PDF, jsou tam dobře udělaný, nekopíruj je, potřebuji, aby sis je ty nebo
   jiný model nakreslil, ale aby tam byly ty obrázky podobné a všechny“). Každý obrázek z PDF /
