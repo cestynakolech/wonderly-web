@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 640" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Klíny dvou seker ve stejném měřítku. Oba jsou dlouhé 12 cm od ostří ke hřbetu. Klín sekery A je u hřbetu tlustý 4 cm, poměr 12 : 4 = 3; potřebuje větší sílu, ale rozevře dřevo po kratší dráze. Klín sekery B je tlustý 2 cm, poměr 12 : 2 = 6; vnikne menší silou, ale musí zajet hlouběji.">
+<defs>
+<linearGradient id="k2-ocel" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#868e96"/><stop offset="0.45" stop-color="#f1f3f5"/><stop offset="1" stop-color="#6c757d"/></linearGradient>
+</defs>
+<rect x="3" y="3" width="954" height="634" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480" y="42" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Dva klíny stejně dlouhé (12 cm), ale jinak tlusté</text>
+<line x1="480" y1="64" x2="480" y2="540" stroke="#adb5bd" stroke-width="3" stroke-dasharray="8 6"/>
+
+<!-- SEKERA A: délka 12 cm, hřbet 4 cm (1 cm = 25 dílků) -->
+<text x="250" y="86" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">sekera A</text>
+<line x1="200" y1="112" x2="300" y2="112" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<line x1="200" y1="102" x2="200" y2="122" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<line x1="300" y1="102" x2="300" y2="122" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<text x="314" y="121" font-size="24" font-weight="bold" fill="#2b2a26" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">4 cm</text>
+<polygon points="200,130 300,130 250,430" fill="url(#k2-ocel)" stroke="#343a40" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="250,430 236,346 264,346" fill="#f8f9fa" opacity="0.85"/>
+<rect x="200" y="126" width="100" height="12" rx="4" fill="#868e96" stroke="#343a40" stroke-width="3"/>
+<line x1="160" y1="130" x2="160" y2="430" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<line x1="150" y1="130" x2="170" y2="130" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<line x1="150" y1="430" x2="170" y2="430" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<text x="146" y="288" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="end" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">12 cm</text>
+<text x="324" y="300" font-size="22" fill="#495057">hřbet nahoře,</text>
+<text x="324" y="327" font-size="22" fill="#495057">ostří dole</text>
+<text x="250" y="478" font-size="30" font-weight="bold" fill="#2b2a26" text-anchor="middle">12 : 4 = 3</text>
+<rect x="40" y="496" width="420" height="72" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/>
+<text x="250" y="525" font-size="22" font-weight="bold" fill="#c92a2a" text-anchor="middle">potřebuje větší sílu,</text>
+<text x="250" y="554" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">ale rozevře dřevo po kratší dráze</text>
+
+<!-- SEKERA B: délka 12 cm, hřbet 2 cm -->
+<text x="710" y="86" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">sekera B</text>
+<line x1="685" y1="112" x2="735" y2="112" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<line x1="685" y1="102" x2="685" y2="122" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<line x1="735" y1="102" x2="735" y2="122" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<text x="749" y="121" font-size="24" font-weight="bold" fill="#2b2a26" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">2 cm</text>
+<polygon points="685,130 735,130 710,430" fill="url(#k2-ocel)" stroke="#343a40" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="710,430 703,346 717,346" fill="#f8f9fa" opacity="0.85"/>
+<rect x="685" y="126" width="50" height="12" rx="4" fill="#868e96" stroke="#343a40" stroke-width="3"/>
+<line x1="620" y1="130" x2="620" y2="430" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<line x1="610" y1="130" x2="630" y2="130" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<line x1="610" y1="430" x2="630" y2="430" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<text x="606" y="288" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="end" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">12 cm</text>
+<text x="710" y="478" font-size="30" font-weight="bold" fill="#2b2a26" text-anchor="middle">12 : 2 = 6</text>
+<rect x="500" y="496" width="420" height="72" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/>
+<text x="710" y="525" font-size="22" font-weight="bold" fill="#c92a2a" text-anchor="middle">stačí menší síla,</text>
+<text x="710" y="554" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">ale musí zajet hlouběji</text>
+
+<text x="480" y="610" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">Štíhlejší klín vnikne snáz, ale musí zajet hlouběji (zlaté pravidlo mechaniky).</text>
+</svg>

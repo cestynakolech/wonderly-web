@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 650" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Stejnou bednu o tíze G = 600 N dostáváme do výšky 1 m dvakrát. Vlevo ji ruka zvedá lanem svisle vzhůru silou F = 600 N po dráze 1 m. Vpravo ji ruka táhne po nakloněné rovině dlouhé 3 m silou F = 200 N po dráze 3 m; bedna jede po rampě déle. Čárkovaně je vyznačeno, kde bedny začínaly.">
+<style>
+/* Obě bedny jedou stejně rychle: svisle urazí 1 m za 1,2 s, po rampě 3 m za 3,6 s (třikrát déle).
+   Cyklus 9 s. Bez animace (prefers-reduced-motion) zůstanou bedny nahoře = koncový stav. */
+.nrA { animation: nrA-k 9s linear infinite; }
+@keyframes nrA-k { 0%, 6% { transform: translate(0px, 120px); } 19.33%, 100% { transform: translate(0px, 0px); } }
+.nrB { animation: nrB-k 9s linear infinite; }
+@keyframes nrB-k { 0%, 6% { transform: translate(-273.41px, 96.67px); } 46%, 100% { transform: translate(0px, 0px); } }
+@media (prefers-reduced-motion: reduce) { .nrA, .nrB { animation: none; } }
+</style>
+<defs>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<linearGradient id="nr-beton" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9ecef"/><stop offset="1" stop-color="#ced4da"/></linearGradient>
+<linearGradient id="nr-prkno" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9a066"/><stop offset="1" stop-color="#a86a32"/></linearGradient>
+<g id="nr-bedna">
+<rect x="0" y="-70" width="70" height="70" rx="3" fill="#d39a5c" stroke="#6b3e16" stroke-width="3"/>
+<line x1="3" y1="-47" x2="67" y2="-47" stroke="#8a5a2b" stroke-width="2"/>
+<line x1="3" y1="-23" x2="67" y2="-23" stroke="#8a5a2b" stroke-width="2"/>
+<rect x="6" y="-64" width="58" height="58" fill="none" stroke="#8a5a2b" stroke-width="3"/>
+<line x1="10" y1="-10" x2="60" y2="-60" stroke="#6b3e16" stroke-width="6" stroke-linecap="round"/>
+<circle cx="10" cy="-60" r="2.5" fill="#495057"/><circle cx="60" cy="-60" r="2.5" fill="#495057"/><circle cx="10" cy="-10" r="2.5" fill="#495057"/><circle cx="60" cy="-10" r="2.5" fill="#495057"/>
+</g>
+</defs>
+<rect x="3" y="3" width="954" height="644" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480" y="40" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">Bednu o tíze G = 600 N dostaneme do výšky 1 m dvěma způsoby</text>
+<line x1="340" y1="62" x2="340" y2="470" stroke="#adb5bd" stroke-width="3" stroke-dasharray="8 6"/>
+
+<!-- zem -->
+<rect x="6" y="470" width="948" height="34" fill="#d8c3a5"/>
+<line x1="6" y1="470" x2="954" y2="470" stroke="#5c4a32" stroke-width="4"/>
+
+<!-- LEVÁ ČÁST: svisle vzhůru -->
+<rect x="195" y="350" width="130" height="120" fill="url(#nr-beton)" stroke="#495057" stroke-width="3"/>
+<line x1="195" y1="390" x2="325" y2="390" stroke="#adb5bd" stroke-width="2"/><line x1="195" y1="430" x2="325" y2="430" stroke="#adb5bd" stroke-width="2"/>
+<line x1="260" y1="350" x2="260" y2="390" stroke="#adb5bd" stroke-width="2"/><line x1="228" y1="390" x2="228" y2="430" stroke="#adb5bd" stroke-width="2"/><line x1="292" y1="390" x2="292" y2="430" stroke="#adb5bd" stroke-width="2"/><line x1="260" y1="430" x2="260" y2="470" stroke="#adb5bd" stroke-width="2"/>
+<rect x="105" y="400" width="70" height="70" rx="3" fill="none" stroke="#868e96" stroke-width="3" stroke-dasharray="8 6"/>
+<line x1="70" y1="350" x2="70" y2="470" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<line x1="60" y1="350" x2="80" y2="350" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<line x1="60" y1="470" x2="80" y2="470" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<line x1="84" y1="350" x2="194" y2="350" stroke="#adb5bd" stroke-width="3" stroke-dasharray="8 6"/>
+<text x="56" y="419" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="end" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">1 m</text>
+<g class="nrA">
+<line x1="140" y1="280" x2="140" y2="70" stroke="#8d4b1f" stroke-width="6" stroke-linecap="round"/>
+<use href="#nr-bedna" transform="translate(105 350)"/>
+<line x1="140" y1="276" x2="140" y2="96" stroke="#e03131" stroke-width="7" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<text x="160" y="196" font-size="28" font-weight="bold" fill="#c92a2a" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">F = 600 N</text>
+<rect x="122" y="62" width="36" height="24" rx="10" fill="#f1c9a5" stroke="#a9744f" stroke-width="2.5"/>
+<line x1="131" y1="66" x2="131" y2="82" stroke="#a9744f" stroke-width="1.8" stroke-linecap="round"/>
+<line x1="140" y1="66" x2="140" y2="82" stroke="#a9744f" stroke-width="1.8" stroke-linecap="round"/>
+<line x1="149" y1="66" x2="149" y2="82" stroke="#a9744f" stroke-width="1.8" stroke-linecap="round"/>
+</g>
+
+<!-- PRAVÁ ČÁST: po nakloněné rovině (l = 3 m, h = 1 m, 1 m = 120 px) -->
+<polygon points="390,470 729.4,350 733.4,361.3 426,470" fill="url(#nr-prkno)" stroke="#6b3e16" stroke-width="3" stroke-linejoin="round"/>
+<line x1="503.1" y1="430" x2="507.1" y2="441.3" stroke="#2b2a26" stroke-width="4"/>
+<line x1="616.3" y1="390" x2="620.3" y2="401.3" stroke="#2b2a26" stroke-width="4"/>
+<text x="571.7" y="446" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle" transform="rotate(-19.471 571.7 446)" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">l = 3 m</text>
+<rect x="729.4" y="350" width="175.6" height="120" fill="url(#nr-beton)" stroke="#495057" stroke-width="3"/>
+<line x1="729.4" y1="390" x2="905" y2="390" stroke="#adb5bd" stroke-width="2"/><line x1="729.4" y1="430" x2="905" y2="430" stroke="#adb5bd" stroke-width="2"/>
+<line x1="817" y1="350" x2="817" y2="390" stroke="#adb5bd" stroke-width="2"/><line x1="773" y1="390" x2="773" y2="430" stroke="#adb5bd" stroke-width="2"/><line x1="861" y1="390" x2="861" y2="430" stroke="#adb5bd" stroke-width="2"/><line x1="817" y1="430" x2="817" y2="470" stroke="#adb5bd" stroke-width="2"/>
+<line x1="932" y1="350" x2="932" y2="470" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<line x1="922" y1="350" x2="942" y2="350" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<line x1="922" y1="470" x2="942" y2="470" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<text x="918" y="419" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="end" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">h = 1 m</text>
+<rect x="0" y="-70" width="70" height="70" rx="3" fill="none" stroke="#868e96" stroke-width="3" stroke-dasharray="8 6" transform="translate(390 470) rotate(-19.471)"/>
+<g class="nrB">
+<g transform="translate(663.41 373.33) rotate(-19.471)">
+<line x1="70" y1="-35" x2="152" y2="-35" stroke="#8d4b1f" stroke-width="6" stroke-linecap="round"/>
+<use href="#nr-bedna"/>
+<line x1="74" y1="-35" x2="134" y2="-35" stroke="#e03131" stroke-width="7" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<rect x="140" y="-53" width="24" height="36" rx="10" fill="#f1c9a5" stroke="#a9744f" stroke-width="2.5"/>
+<line x1="144" y1="-44" x2="160" y2="-44" stroke="#a9744f" stroke-width="1.8" stroke-linecap="round"/>
+<line x1="144" y1="-35" x2="160" y2="-35" stroke="#a9744f" stroke-width="1.8" stroke-linecap="round"/>
+<line x1="144" y1="-26" x2="160" y2="-26" stroke="#a9744f" stroke-width="1.8" stroke-linecap="round"/>
+</g>
+<text x="625" y="262" font-size="28" font-weight="bold" fill="#c92a2a" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">F = 200 N</text>
+</g>
+
+<!-- plakety -->
+<rect x="20" y="516" width="310" height="70" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/>
+<text x="175" y="545" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">svisle: dráha 1 m</text>
+<text x="175" y="574" font-size="22" font-weight="bold" fill="#c92a2a" text-anchor="middle">síla 600 N</text>
+<rect x="420" y="516" width="460" height="70" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/>
+<text x="650" y="545" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">po nakloněné rovině: dráha 3 m</text>
+<text x="650" y="574" font-size="22" font-weight="bold" fill="#c92a2a" text-anchor="middle">síla 200 N (3× menší)</text>
+<text x="480" y="612" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">Po nakloněné rovině stačí 3× menší síla, ale dráha je 3× delší.</text>
+<text x="480" y="637" font-size="20" fill="#495057" text-anchor="middle">Čárkovaně: kde bedna začínala. Bez tření.</text>
+</svg>
