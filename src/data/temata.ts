@@ -2006,6 +2006,7 @@ export const temata: Record<string, Tema[]> = {
 							nazev: 'Dráhy pro Ozobota (k vytištění)',
 							cesta: '/materialy/fyzika/7-rocnik/pohyb-a-rychlost/priklady-na-vypocet-rychlosti/ozobot-drahy.pdf',
 						},
+						{ druh: 'video', nazev: 'Bonus z NotebookLM: Klíč k rychlosti (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/7-rocnik/pohyb-a-rychlost/priklady-na-vypocet-rychlosti/notebooklm-priklady-na-vypocet-rychlosti.mp4' },
 					],
 				},
 			],
