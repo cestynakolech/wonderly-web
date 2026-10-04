@@ -1,0 +1,383 @@
+---
+/**
+ * Hra pro skupinu „Vůči čemu?“ — Klid a pohyb tělesa (fyzika 7).
+ * Pilot složky č. 9 (OBSAH-PRAVIDLA.md kap. 12). Data a bodování:
+ * src/data/hra-klid-a-pohyb.ts, scény: src/components/hry/ScenaKlidPohyb.astro,
+ * test: testy/hra-klid-a-pohyb.mjs. Po načtení stránky nepotřebuje internet ani účty.
+ */
+import SkolaLayout from '../../layouts/SkolaLayout.astro';
+import ScenaKlidPohyb from '../../components/hry/ScenaKlidPohyb.astro';
+import { KOLA, maximumBodu } from '../../data/hra-klid-a-pohyb';
+
+const karty = KOLA.flatMap((k) => k.karty);
+---
+
+<SkolaLayout
+	titulek="Vůči čemu? — hra pro třídu: Klid a pohyb tělesa"
+	drobky={[
+		{ text: '2. stupeň', href: '/skola2/' },
+		{ text: 'Klid a pohyb tělesa', href: '/skola2/fyzika/7-rocnik/pohyb-a-rychlost/klid-a-pohyb-telesa/' },
+	]}
+>
+	<div id="hra-vuci">
+		<!-- NASTAVENÍ -->
+		<section id="nastaveni">
+			<h1><span class="podtrh">🚂 Vůči čemu?</span></h1>
+			<p class="podnadpis">Hra pro třídu · Klid a pohyb tělesa · 7. ročník · asi 12 minut</p>
+			<ol class="pravidla">
+				<li><b>3 kola po 6 kartách:</b> Klid, nebo pohyb? · Přímka, nebo křivka? · Trasa, nebo dráha?</li>
+				<li>Na každé kartě je obrázek a otázka. Týmy se poradí a po odpočtu <b>zvednou kartu A, nebo B</b>.</li>
+				<li>Za správnou odpověď 1 bod, ve <b>FINÁLE 2 body</b>. V 1. kole jde navíc získat
+					<b>⭐ bonus</b>: vůči čemu by to bylo naopak?</li>
+			</ol>
+			<p class="pozn">Karty A/B: <a href="/hry/karty" target="_blank">vytisknout</a> (C se nepoužije),
+				nebo stačí papír s velkým A a B. Max. {maximumBodu()} bodů + bonusy.</p>
+			<div class="volby">
+				<label>Počet týmů
+					<select id="pocet-tymu">{[2, 3, 4, 5, 6].map((n) => <option value={n} selected={n === 4}>{n}</option>)}</select>
+				</label>
+				<label>Čas na kartu
+					<select id="cas-karty"><option value="10">10 s</option><option value="15" selected>15 s</option><option value="20">20 s</option></select>
+				</label>
+			</div>
+			<div id="jmena-tymu"></div>
+			<button id="start" class="velke-tlacitko">Začít hru ▶</button>
+		</section>
+
+		<!-- ÚVOD KOLA -->
+		<section id="uvod-kola" hidden>
+			<p class="cislo-kola" id="uvod-cislo"></p>
+			<h1 id="uvod-nazev"></h1>
+			<p class="pravidlo" id="uvod-pravidlo"></p>
+			<div class="moznosti uvod-moznosti">
+				<div class="moznost moznost-A"><b>A</b><span><span class="m-popis" id="uvod-A"></span><small id="uvod-A2"></small></span></div>
+				<div class="moznost moznost-B"><b>B</b><span><span class="m-popis" id="uvod-B"></span><small id="uvod-B2"></small></span></div>
+			</div>
+			<p class="za-body" id="uvod-body"></p>
+			<button id="hrajeme" class="velke-tlacitko">Hrajeme ▶</button>
+		</section>
+
+		<!-- KARTA -->
+		<section id="karta" hidden>
+			<header class="lista">
+				<span id="lista-kolo"></span>
+				<span id="lista-body" class="lista-body"></span>
+				<span id="odpocet-cislo" class="odpocet-cislo"></span>
+				<button id="cela-obrazovka" class="male-tlacitko" title="Celá obrazovka (na projektor)">⛶</button>
+			</header>
+			<div id="odpocet-pruh"><div id="odpocet-vypln"></div></div>
+			<div class="plocha">
+				<div class="leva">
+					<div class="scena-obal">
+						{karty.map((k) => (
+							<div class="scena" data-karta={k.id} hidden>
+								<ScenaKlidPohyb idKarty={k.id} scena={k.scena} teleso={k.teleso} pozorovatel={k.pozorovatel} />
+							</div>
+						))}
+					</div>
+					<div id="odhaleni" hidden>
+						<p id="proc" class="proc"></p>
+						<p id="bonus" class="bonus">⭐ Bonus +1: Vůči čemu by to bylo naopak?
+							<button id="ukaz-bonus" class="ukaz">ukázat</button><b id="bonus-odpoved" hidden></b></p>
+						<p class="pokyn">Klepni na týmy, které zvedly správnou kartu ↓</p>
+					</div>
+				</div>
+				<div class="prava">
+					<h2 id="otazka"></h2>
+					<div class="moznosti">
+						<div class="moznost moznost-A" data-m="A"><b>A</b><span><span class="m-popis"></span><small></small></span></div>
+						<div class="moznost moznost-B" data-m="B"><b>B</b><span><span class="m-popis"></span><small></small></span></div>
+					</div>
+					<div class="ovladani">
+						<button id="odhalit" class="velke-tlacitko">Odhalit odpověď ✔</button>
+						<button id="dalsi" class="velke-tlacitko" hidden>Další karta ▶</button>
+					</div>
+				</div>
+			</div>
+			<div id="tymy" class="tymy"></div>
+		</section>
+
+		<!-- VÝSLEDKY -->
+		<section id="vysledky" hidden>
+			<h1><span class="podtrh">🎉 Konečné pořadí</span></h1>
+			<ol id="podium"></ol>
+			<p class="shrnuti">Pamatuj: <b>klid a pohyb vždy posuzujeme VŮČI nějakému tělesu.</b>
+				Trasa je čára, dráha je její délka.</p>
+			<button id="znovu" class="velke-tlacitko">Nová hra 🔄</button>
+		</section>
+	</div>
+</SkolaLayout>
+
+<script>
+	import { KOLA, BONUS_NAOPAK, poradi, type Tym } from '../../data/hra-klid-a-pohyb';
+
+	const $ = (id: string) => document.getElementById(id)!;
+	let tymy: Tym[] = [];
+	let iKolo = 0;
+	let iKarta = 0;
+	let casNaKartu = 15;
+	let odpocetId: ReturnType<typeof setInterval> | undefined;
+	let odhaleno = false;
+
+	const kolo = () => KOLA[iKolo];
+	const karta = () => kolo().karty[iKarta];
+
+	function ukaz(sekce: string) {
+		for (const id of ['nastaveni', 'uvod-kola', 'karta', 'vysledky']) $(id).hidden = id !== sekce;
+		// na projektoru má být vidět celá hra, ne hlavička stránky
+		$('hra-vuci').scrollIntoView({ block: 'start' });
+	}
+
+	function vykresliJmena() {
+		const n = +($('pocet-tymu') as HTMLSelectElement).value;
+		const barvy = ['Červení', 'Modří', 'Zelení', 'Žlutí', 'Fialoví', 'Oranžoví'];
+		$('jmena-tymu').innerHTML = Array.from({ length: n }, (_, i) =>
+			`<input class="jmeno-tymu" value="${barvy[i]}" maxlength="16">`).join('');
+	}
+	$('pocet-tymu').addEventListener('change', vykresliJmena);
+	vykresliJmena();
+
+	$('start').addEventListener('click', () => {
+		tymy = [...document.querySelectorAll<HTMLInputElement>('.jmeno-tymu')]
+			.map((el, i) => ({ jmeno: el.value.trim() || `Tým ${i + 1}`, body: 0 }));
+		casNaKartu = +($('cas-karty') as HTMLSelectElement).value;
+		iKolo = 0;
+		uvodKola();
+	});
+
+	function uvodKola() {
+		const k = kolo();
+		$('uvod-cislo').textContent = `Kolo ${k.cislo} ze ${KOLA.length}`;
+		$('uvod-nazev').textContent = k.nazev;
+		$('uvod-pravidlo').textContent = k.pravidlo;
+		$('uvod-A').textContent = k.moznosti.A.popis;
+		$('uvod-A2').textContent = k.moznosti.A.doplnek;
+		$('uvod-B').textContent = k.moznosti.B.popis;
+		$('uvod-B2').textContent = k.moznosti.B.doplnek;
+		$('uvod-body').textContent = k.body === 1
+			? 'Za každou správnou kartu 1 bod.'
+			: `Za každou správnou kartu ${k.body} body!`;
+		ukaz('uvod-kola');
+	}
+
+	$('hrajeme').addEventListener('click', () => {
+		iKarta = 0;
+		ukaz('karta');
+		zobrazKartu();
+	});
+
+	function zobrazKartu() {
+		const k = kolo();
+		const c = karta();
+		odhaleno = false;
+		$('lista-kolo').textContent = `Kolo ${k.cislo}/${KOLA.length} · karta ${iKarta + 1}/${k.karty.length}`;
+		$('lista-body').textContent = k.body === 1 ? 'za 1 bod' : `⭐ FINÁLE · za ${k.body} body`;
+		document.querySelectorAll<HTMLElement>('.scena').forEach((s) => (s.hidden = s.dataset.karta !== c.id));
+		// stopa trasy a nápisy „po odhalení“ zase schovat (SVG atribut, ne třída)
+		document.querySelectorAll(`.scena[data-karta="${c.id}"] [data-odhal]`).forEach((el) => el.setAttribute('opacity', '0'));
+		$('otazka').textContent = c.otazka;
+		document.querySelectorAll<HTMLElement>('#karta .moznost').forEach((el) => {
+			const m = el.dataset.m as 'A' | 'B';
+			el.querySelector('.m-popis')!.textContent = k.moznosti[m].popis;
+			el.querySelector('small')!.textContent = k.moznosti[m].doplnek;
+			el.classList.remove('spravna', 'spatna');
+		});
+		$('odhaleni').hidden = true;
+		$('odhalit').hidden = false;
+		$('dalsi').hidden = true;
+		vykresliTymy();
+		spustOdpocet();
+	}
+
+	function spustOdpocet() {
+		let zbyva = casNaKartu;
+		const vypln = $('odpocet-vypln');
+		$('odpocet-cislo').textContent = `${zbyva} s`;
+		vypln.style.transition = 'none';
+		vypln.style.width = '100%';
+		requestAnimationFrame(() => requestAnimationFrame(() => {
+			vypln.style.transition = `width ${casNaKartu}s linear`;
+			vypln.style.width = '0%';
+		}));
+		clearInterval(odpocetId);
+		odpocetId = setInterval(() => {
+			zbyva--;
+			$('odpocet-cislo').textContent = `${Math.max(zbyva, 0)} s`;
+			if (zbyva <= 3 && zbyva > 0) pipni(600);
+			if (zbyva <= 0) {
+				clearInterval(odpocetId);
+				pipni(880, 0.4);
+				$('odpocet-cislo').textContent = 'Zvedněte karty!';
+			}
+		}, 1000);
+	}
+
+	function pipni(frekvence: number, delka = 0.12) {
+		try {
+			const w = window as unknown as { _ctxHry?: AudioContext };
+			const ctx = (w._ctxHry ??= new AudioContext());
+			const osc = ctx.createOscillator();
+			const gain = ctx.createGain();
+			osc.frequency.value = frekvence;
+			gain.gain.value = 0.15;
+			osc.connect(gain).connect(ctx.destination);
+			osc.start();
+			osc.stop(ctx.currentTime + delka);
+		} catch { /* bez zvuku */ }
+	}
+
+	$('odhalit').addEventListener('click', () => {
+		clearInterval(odpocetId);
+		const c = karta();
+		odhaleno = true;
+		$('odpocet-cislo').textContent = '';
+		$('odpocet-vypln').style.transition = 'none';
+		$('odpocet-vypln').style.width = '0%';
+		document.querySelectorAll<HTMLElement>('#karta .moznost').forEach((el) => {
+			el.classList.toggle('spravna', el.dataset.m === c.spravne);
+			el.classList.toggle('spatna', el.dataset.m !== c.spravne);
+		});
+		document.querySelectorAll(`.scena[data-karta="${c.id}"] [data-odhal]`).forEach((el) => el.setAttribute('opacity', '1'));
+		$('proc').textContent = `✔ ${c.proc}`;
+		$('bonus').hidden = !c.naopak;
+		$('ukaz-bonus').hidden = false;
+		$('bonus-odpoved').hidden = true;
+		$('bonus-odpoved').textContent = c.naopak ? `→ ${c.naopak.odpoved}` : '';
+		$('odhaleni').hidden = false;
+		$('odhalit').hidden = true;
+		$('dalsi').hidden = false;
+		vykresliTymy();
+	});
+
+	function vykresliTymy() {
+		const c = karta();
+		const sBonusem = odhaleno && !!c.naopak;
+		$('tymy').innerHTML = tymy.map((t, i) => `
+			<div class="tym-obal">
+				<button class="tym" data-i="${i}" ${odhaleno ? '' : 'disabled'}>
+					<span class="tym-jmeno">${t.jmeno}</span><b class="tym-body">${t.body}</b>
+				</button>
+				${sBonusem ? `<button class="tym-bonus" data-i="${i}">⭐ +${BONUS_NAOPAK}</button>` : ''}
+			</div>`).join('');
+		document.querySelectorAll<HTMLButtonElement>('.tym, .tym-bonus').forEach((b) =>
+			b.addEventListener('click', () => b.classList.toggle('oznaceny')));
+	}
+
+	$('dalsi').addEventListener('click', () => {
+		const body = kolo().body;
+		document.querySelectorAll<HTMLElement>('.tym.oznaceny').forEach((b) => (tymy[+b.dataset.i!].body += body));
+		document.querySelectorAll<HTMLElement>('.tym-bonus.oznaceny').forEach((b) => (tymy[+b.dataset.i!].body += BONUS_NAOPAK));
+		iKarta++;
+		if (iKarta < kolo().karty.length) return zobrazKartu();
+		iKolo++;
+		if (iKolo < KOLA.length) return uvodKola();
+		konec();
+	});
+
+	function konec() {
+		clearInterval(odpocetId);
+		ukaz('vysledky');
+		const medaile = ['🥇', '🥈', '🥉'];
+		$('podium').innerHTML = poradi(tymy)
+			.map((t) => `<li class="podium-radek">${medaile[t.misto - 1] ?? '🏅'} ${t.misto}. <b>${t.jmeno}</b> — ${t.body} b.</li>`)
+			.join('');
+		for (let i = 0; i < 40; i++) {
+			const k = document.createElement('span');
+			k.className = 'konfeta';
+			k.textContent = ['🎉', '⭐', '🎊', '🚂'][i % 4];
+			k.style.left = Math.random() * 100 + 'vw';
+			k.style.animationDelay = Math.random() * 2 + 's';
+			document.body.appendChild(k);
+		}
+	}
+
+	$('ukaz-bonus').addEventListener('click', () => {
+		$('ukaz-bonus').hidden = true;
+		$('bonus-odpoved').hidden = false;
+	});
+	$('znovu').addEventListener('click', () => location.reload());
+	$('cela-obrazovka').addEventListener('click', () => {
+		if (document.fullscreenElement) document.exitFullscreen();
+		else $('hra-vuci').requestFullscreen?.();
+	});
+</script>
+
+<style>
+	#hra-vuci { max-width: 1200px; margin: 0 auto; background: var(--papir); }
+	#hra-vuci:fullscreen { max-width: none; padding: 1rem 2rem; overflow: auto; }
+	.podnadpis { font-size: 1.3rem; color: #495057; margin-top: -0.6rem; }
+	.pravidla li { margin: 0.3rem 0; }
+	.pozn { color: #5c5f66; font-size: 1.1rem; }
+	.volby { display: flex; gap: 1.5rem; flex-wrap: wrap; margin: 1rem 0; }
+	.volby label { display: flex; flex-direction: column; font-weight: 700; gap: 0.3rem; }
+	.volby select { font-size: 1.2rem; padding: 0.3rem; }
+	#jmena-tymu { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1rem; }
+	#jmena-tymu :global(.jmeno-tymu) { font-size: 1.3rem; padding: 0.4rem; border: 2px solid #333; border-radius: 8px; width: 9rem; font-family: inherit; }
+	.velke-tlacitko { font-size: 1.5rem; padding: 0.6rem 2rem; border-radius: 12px; border: 3px solid #333;
+		background: #ffe066; cursor: pointer; font-weight: 800; font-family: inherit; }
+	.velke-tlacitko:hover { transform: scale(1.04); }
+	.male-tlacitko { font-size: 1rem; padding: 0.4rem 0.8rem; border-radius: 10px; border: 2px solid #888;
+		background: #fff; cursor: pointer; font-family: inherit; margin-left: auto; }
+
+	/* úvod kola */
+	#uvod-kola { text-align: center; padding-top: 1rem; }
+	.cislo-kola { font-size: 1.6rem; font-weight: 800; color: #c2410c; margin: 0; }
+	#uvod-nazev { font-size: 2.9rem; margin: 0.1rem 0 0.4rem; line-height: 1.15; }
+	.pravidlo { font-size: 1.6rem; line-height: 1.35; max-width: 46rem; margin: 0 auto 1rem; }
+	.uvod-moznosti { max-width: 46rem; margin: 0 auto; text-align: left; }
+	.za-body { font-size: 1.6rem; font-weight: 800; }
+
+	/* karta */
+	.lista { display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+		font-size: 1.4rem; font-weight: 800; line-height: 1.2; }
+	.lista-body { color: #c2410c; flex: 1; text-align: center; }
+	.odpocet-cislo { min-width: 5rem; text-align: right; color: #c92a2a; }
+	#odpocet-pruh { height: 12px; background: #e9ecef; border-radius: 6px; overflow: hidden; margin: 0.3rem 0 0.6rem; }
+	#odpocet-vypln { height: 100%; width: 100%; background: linear-gradient(90deg, #40c057, #ffd43b, #fa5252); }
+	.plocha { display: grid; grid-template-columns: 3fr 2fr; gap: 1.2rem; align-items: start; }
+	.scena-obal :global(svg) { display: block; width: 100%; height: auto; border: 3px solid #333; border-radius: 14px; background: #fff; }
+	#otazka { font-size: 1.85rem; line-height: 1.2; margin: 0 0 0.8rem; }
+	.moznosti { display: grid; gap: 0.7rem; }
+	.moznost { display: flex; align-items: center; gap: 0.9rem; padding: 0.45rem 1rem; border: 4px solid #333;
+		border-radius: 14px; background: #fff; transition: opacity 0.3s; }
+	.moznost > b { flex: none; width: 3rem; height: 3rem; border-radius: 50%; color: #fff; font-size: 2rem;
+		display: flex; align-items: center; justify-content: center; }
+	.moznost-A > b { background: #e03131; }
+	.moznost-B > b { background: #1971c2; }
+	.m-popis { display: block; font-size: 2rem; font-weight: 800; line-height: 1.1; }
+	.moznost small { display: block; font-size: 1.1rem; color: #495057; line-height: 1.2; }
+	.moznost.spravna { background: #d3f9d8; border-color: #2b8a3e; box-shadow: 0 0 0 5px #8ce99a; }
+	.moznost.spatna { opacity: 0.35; }
+	.proc { font-size: 1.5rem; font-weight: 700; color: #1b4d2a; margin: 0.5rem 0 0.1rem; line-height: 1.25; }
+	.bonus { font-size: 1.3rem; margin: 0.2rem 0; line-height: 1.25; }
+	.bonus { font-weight: 700; color: #a61e4d; }
+	.bonus .ukaz { font-size: 1rem; font-family: inherit; border: 2px solid #a61e4d; border-radius: 8px;
+		background: #fff; color: #a61e4d; cursor: pointer; padding: 0 0.5rem; }
+	.bonus b { color: var(--inkoust); }
+	.pokyn { font-weight: 700; margin: 0.2rem 0 0; font-size: 1.15rem; color: #495057; }
+	.tymy { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: flex-start; margin-top: 0.7rem; }
+	.tymy :global(.tym-obal) { display: flex; gap: 0.25rem; align-items: stretch; }
+	.tymy :global(.tym) { display: flex; align-items: center; gap: 0.6rem; font-size: 1.3rem; font-family: inherit;
+		padding: 0.3rem 0.8rem; border-radius: 12px; border: 3px solid #333; background: #fff; cursor: pointer; color: inherit; }
+	.tymy :global(.tym:disabled) { cursor: default; opacity: 1; }
+	.tymy :global(.tym-body) { font-size: 1.8rem; min-width: 2rem; text-align: center; }
+	.tymy :global(.tym.oznaceny) { background: #d3f9d8; border-color: #2b8a3e; }
+	.tymy :global(.tym.oznaceny .tym-body::after) { content: ' ✔'; color: #2b8a3e; }
+	.tymy :global(.tym-bonus) { font-size: 1.05rem; font-family: inherit; border: 2px dashed #a61e4d; border-radius: 10px;
+		background: #fff; cursor: pointer; padding: 0.15rem 0.5rem; color: #a61e4d; }
+	.tymy :global(.tym-bonus.oznaceny) { background: #ffdeeb; border-style: solid; }
+	.ovladani { display: flex; justify-content: flex-end; margin-top: 0.9rem; }
+
+	/* výsledky */
+	#podium { padding: 0; list-style: none; }
+	#podium :global(.podium-radek) { font-size: 2rem; margin: 0.5rem 0; }
+	.shrnuti { font-size: 1.4rem; }
+	:global(.konfeta) { position: fixed; top: -3rem; font-size: 1.8rem; animation: pad 3.2s linear infinite; z-index: 99; }
+	@keyframes pad { to { transform: translateY(110vh) rotate(360deg); } }
+
+	@media (max-width: 900px) {
+		.plocha { grid-template-columns: 1fr; }
+		#otazka { font-size: 1.5rem; }
+		.m-popis { font-size: 1.6rem; }
+	}
+</style>

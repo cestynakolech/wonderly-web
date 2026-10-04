@@ -1,0 +1,257 @@
+---
+/**
+ * Kreslené animované scény ke hře „Vůči čemu?“ (Klid a pohyb tělesa, F7).
+ * Styl postav a výtahu/vlaku navazuje na obrázky výkladu
+ * (public/obrazky/fyzika/7-rocnik/pohyb-a-rychlost/klid-a-pohyb-telesa/obr-04, -07, -08).
+ * Pohyb = SMIL (běží i bez skriptu). Prvky s data-odhal mají opacity="0"
+ * a stránka je po odhalení odpovědi zviditelní atributem (stopa trasy, nápis).
+ */
+interface Props {
+	idKarty: string;
+	scena: string;
+	teleso?: string;
+	pozorovatel?: string;
+}
+const { idKarty, scena, teleso, pozorovatel } = Astro.props;
+
+const ORANZ = '#c2410c';
+const MODRA = '#1864ab';
+const FIALOVA = '#6741d9';
+const ZELENA = '#2b8a3e';
+
+/** Štítek se šipkou dolů; (x, y) = hrot šipky. */
+function stitek(x: number, y: number, text: string, barva: string) {
+	const w = text.length * 13 + 28;
+	return `<g class="stitek"><rect x="${x - w / 2}" y="${y - 52}" width="${w}" height="38" rx="10" fill="${barva}"/>
+<path d="M${x - 9},${y - 15} L${x + 9},${y - 15} L${x},${y}" fill="${barva}"/>
+<text x="${x}" y="${y - 26}" text-anchor="middle" font-size="23" font-weight="700" fill="#fff">${text}</text></g>`;
+}
+/** Kroužek kolem pozorovatele. */
+function krouzek(x: number, y: number, rx: number, ry: number) {
+	return `<ellipse cx="${x}" cy="${y}" rx="${rx}" ry="${ry}" fill="none" stroke="${MODRA}" stroke-width="5" stroke-dasharray="12 7"/>`;
+}
+/** Postava (styl obrázků výkladu): (x, y) = chodidla. */
+function osoba(x: number, y: number, barva: string, vlasy = '#5c3d2e', sedi = false) {
+	if (sedi) {
+		return `<g><circle cx="${x}" cy="${y - 62}" r="13" fill="#ffd8a8" stroke="#333" stroke-width="2"/>
+<path d="M${x - 13},${y - 66} q13,-16 26,0" fill="${vlasy}"/>
+<rect x="${x - 11}" y="${y - 48}" width="22" height="34" rx="7" fill="${barva}" stroke="#333" stroke-width="2"/>
+<path d="M${x - 6},${y - 16} h24 v16" fill="none" stroke="#495057" stroke-width="7" stroke-linecap="round"/></g>`;
+	}
+	return `<g><circle cx="${x}" cy="${y - 88}" r="15" fill="#ffd8a8" stroke="#333" stroke-width="2"/>
+<path d="M${x - 15},${y - 92} q15,-18 30,0" fill="${vlasy}"/>
+<rect x="${x - 15}" y="${y - 72}" width="30" height="42" rx="9" fill="${barva}" stroke="#333" stroke-width="2"/>
+<path d="M${x - 7},${y - 31} V${y} M${x + 7},${y - 31} V${y}" stroke="#343a40" stroke-width="7" stroke-linecap="round"/></g>`;
+}
+function strom(x: number, y: number, m = 1) {
+	return `<g><rect x="${x - 9 * m}" y="${y - 60 * m}" width="${18 * m}" height="${60 * m}" fill="#8d5524"/>
+<circle cx="${x}" cy="${y - 95 * m}" r="${48 * m}" fill="#40c057" stroke="#2b8a3e" stroke-width="3"/>
+<circle cx="${x - 30 * m}" cy="${y - 70 * m}" r="${28 * m}" fill="#51cf66" stroke="#2b8a3e" stroke-width="3"/>
+<circle cx="${x + 30 * m}" cy="${y - 70 * m}" r="${28 * m}" fill="#51cf66" stroke="#2b8a3e" stroke-width="3"/></g>`;
+}
+/** Stopa trasy, která se ukáže až po odhalení. */
+function trasa(d: string, barva: string, text: string, tx: number, ty: number) {
+	return `<g data-odhal="1" opacity="0"><path d="${d}" fill="none" stroke="${barva}" stroke-width="6" stroke-dasharray="14 9" stroke-linecap="round"/>
+<rect x="${tx - text.length * 7 - 14}" y="${ty - 28}" width="${text.length * 14 + 28}" height="38" rx="10" fill="#fff" stroke="${barva}" stroke-width="3"/>
+<text x="${tx}" y="${ty}" text-anchor="middle" font-size="25" font-weight="700" fill="${barva}">${text}</text></g>`;
+}
+/** Pohyb po cestě: prvek nakreslený kolem počátku jede po d. */
+function jede(obsah: string, d: string, dur: number, podil = 0.7) {
+	return `<g>${obsah}<animateMotion dur="${dur}s" repeatCount="indefinite" path="${d}" keyPoints="0;1;1" keyTimes="0;${podil};1" calcMode="linear"/></g>`;
+}
+const nebe = `<rect width="800" height="400" fill="#e7f5ff"/>`;
+const tr = (t: string) => (teleso === t ? 1 : 0);
+const po = (p: string) => (pozorovatel === p ? 1 : 0);
+
+let svg = '';
+switch (scena) {
+	case 'vytah': {
+		// Dvě podlaží, šachta uprostřed, výtah se ženou jezdí nahoru a dolů, muž stojí v přízemí.
+		const kabina = `<rect x="330" y="225" width="110" height="135" rx="6" fill="#d0ebff" stroke="${po('kabina') ? MODRA : '#1971c2'}" stroke-width="${po('kabina') ? 8 : 4}" ${po('kabina') ? 'stroke-dasharray="14 7"' : ''}/>
+${osoba(385, 356, '#e8590c', '#862e9c')}
+${tr('zena') ? stitek(385, 252, 'TĚLESO: žena', ORANZ) : ''}
+${po('kabina') ? `<path d="M440,290 H470" stroke="${MODRA}" stroke-width="5"/><rect x="470" y="271" width="290" height="38" rx="10" fill="${MODRA}"/><text x="615" y="298" text-anchor="middle" font-size="23" font-weight="700" fill="#fff">POZOROVATEL: výtah</text>` : ''}`;
+		svg = `<rect width="800" height="400" fill="#f8f9fa"/>
+<rect x="320" y="20" width="130" height="345" fill="#e9ecef" stroke="#adb5bd" stroke-width="2"/>
+<rect x="0" y="185" width="320" height="12" fill="#1971c2"/><rect x="450" y="185" width="350" height="12" fill="#1971c2"/>
+<rect x="0" y="360" width="800" height="40" fill="#1971c2"/>
+<text x="16" y="50" font-size="24" fill="#495057" font-weight="700">patro</text>
+<text x="16" y="225" font-size="24" fill="#495057" font-weight="700">přízemí</text>
+${osoba(190, 360, '#1971c2', '#343a40')}
+${po('muz') ? krouzek(190, 300, 52, 78) + stitek(190, 212, 'POZOROVATEL: muž', MODRA) : ''}
+<g>${kabina}<animateTransform attributeName="transform" type="translate" values="0 0;0 0;0 -175;0 -175;0 0" keyTimes="0;0.15;0.5;0.7;1" dur="6s" repeatCount="indefinite"/></g>`;
+		break;
+	}
+	case 'vlak': {
+		// Vlak jede doleva, uvnitř sedí cestující a spolucestující; dítě u přejezdu mává.
+		const vlak = `<rect x="60" y="120" width="420" height="170" rx="40" fill="#e9ecef" stroke="#495057" stroke-width="4"/>
+<rect x="100" y="145" width="250" height="100" rx="8" fill="#d0ebff" stroke="#495057" stroke-width="3"/>
+<rect x="375" y="145" width="80" height="60" rx="8" fill="#d0ebff" stroke="#495057" stroke-width="3"/>
+<rect x="60" y="250" width="420" height="12" fill="#e8590c"/>
+<circle cx="120" cy="292" r="16" fill="#343a40"/><circle cx="420" cy="292" r="16" fill="#343a40"/>
+<rect x="150" y="205" width="40" height="38" rx="6" fill="#f08c00"/><rect x="250" y="205" width="40" height="38" rx="6" fill="#f08c00"/>
+${osoba(170, 243, '#2f9e44', '#5c3d2e', true)}
+${osoba(270, 243, '#1971c2', '#f08c00', true)}
+${tr('cestujici') ? stitek(150, 172, 'TĚLESO: cestující', ORANZ) : ''}
+${po('soused') ? krouzek(270, 205, 34, 50) + `<path d="M300,108 L282,156" stroke="${MODRA}" stroke-width="4"/>` + stitek(300, 108, 'POZOROVATEL: soused', MODRA) : ''}`;
+		// vlak se kreslí PŘED přejezdem a dítětem, aby štítek dítěte nikdy nepřekryl
+		svg = `${nebe}<rect y="300" width="800" height="100" fill="#d3f9d8"/>
+<rect y="306" width="800" height="8" fill="#868e96"/>
+<g>${vlak}<animateTransform attributeName="transform" type="translate" values="300 0;-60 0;-60 0" keyTimes="0;0.8;1" dur="6s" repeatCount="indefinite"/></g>
+<path d="M600,250 L660,290 M660,250 L600,290" stroke="#e03131" stroke-width="10"/><rect x="626" y="270" width="8" height="40" fill="#495057"/>
+${osoba(710, 392, '#2f9e44', '#862e9c')}
+<path d="M722,322 l18,-26" stroke="#ffd8a8" stroke-width="7" stroke-linecap="round"><animateTransform attributeName="transform" type="rotate" values="0 722 322;-25 722 322;0 722 322" dur="0.8s" repeatCount="indefinite"/></path>
+${po('dite') ? krouzek(710, 335, 48, 72) + stitek(660, 262, 'POZOROVATEL: dítě', MODRA) : ''}
+<text x="20" y="40" font-size="24" font-weight="700" fill="${MODRA}">← vlak jede</text>`;
+		break;
+	}
+	case 'silnice': {
+		// Strom u silnice, auto s řidičem jede doprava.
+		const auto = `<path d="M0,300 v-40 q5,-15 30,-18 l30,-40 h80 l35,40 q25,3 25,20 v38 z" fill="#e03131" stroke="#333" stroke-width="3"/>
+<path d="M68,240 l22,-30 h45 l25,30 z" fill="#d0ebff" stroke="#333" stroke-width="2"/>
+<circle cx="125" cy="228" r="11" fill="#ffd8a8" stroke="#333" stroke-width="2"/>
+<circle cx="45" cy="300" r="17" fill="#343a40"/><circle cx="160" cy="300" r="17" fill="#343a40"/>
+${po('ridic') ? krouzek(125, 228, 30, 30) + stitek(125, 196, 'POZOROVATEL: řidič', MODRA) : ''}`;
+		svg = `${nebe}<rect y="250" width="800" height="150" fill="#d3f9d8"/>
+<rect y="280" width="800" height="70" fill="#868e96"/><path d="M0,315 H800" stroke="#fff" stroke-width="5" stroke-dasharray="30 25"/>
+${strom(560, 270, 1.15)}
+${tr('strom') ? stitek(560, 100, 'TĚLESO: strom', ORANZ) : ''}
+<g>${auto}<animateTransform attributeName="transform" type="translate" values="20 20;640 20;640 20" keyTimes="0;0.85;1" dur="6s" repeatCount="indefinite"/></g>`;
+		break;
+	}
+	case 'slunce': {
+		// Země se stromem obíhá kolem Slunce po (perspektivně zploštělé) oběžné čáře; strom zůstává svisle.
+		const d = 'M630,240 A250,100 0 1,1 130,240 A250,100 0 1,1 630,240';
+		const zeme = `<circle r="32" fill="#4dabf7" stroke="#1864ab" stroke-width="3"/>
+<path d="M-22,-8 q12,-10 24,0 q8,12 -4,20 q-16,4 -20,-20z" fill="#69db7c"/>
+<rect x="-4" y="-56" width="8" height="26" fill="#8d5524"/><circle cx="0" cy="-60" r="14" fill="#40c057" stroke="#2b8a3e" stroke-width="2"/>
+${tr('strom') ? stitek(0, -74, 'TĚLESO: strom', ORANZ) : ''}`;
+		svg = `<rect width="800" height="400" fill="#10182b"/>
+${Array.from({ length: 30 }, (_, i) => `<circle cx="${(i * 137) % 800}" cy="${(i * 71) % 400}" r="2" fill="#fff" opacity="0.7"/>`).join('')}
+<path d="${d}" fill="none" stroke="#868e96" stroke-width="2" stroke-dasharray="8 8"/>
+<circle cx="380" cy="240" r="55" fill="#ffd43b" stroke="#f08c00" stroke-width="5"/>
+${po('slunce') ? krouzek(380, 240, 72, 72) + `<path d="M150,50 L330,188" stroke="${MODRA}" stroke-width="4"/><rect x="12" y="12" width="270" height="38" rx="10" fill="${MODRA}"/><text x="147" y="39" text-anchor="middle" font-size="23" font-weight="700" fill="#fff">POZOROVATEL: Slunce</text>` : ''}
+${jede(zeme, d, 12, 1)}
+<text x="790" y="390" text-anchor="end" font-size="20" fill="#ced4da">Země se stromem obíhá kolem Slunce (zrychleno)</text>`;
+		break;
+	}
+	case 'siska': {
+		const d = 'M440,135 L440,345';
+		svg = `${nebe}<rect y="350" width="800" height="50" fill="#8ce99a"/>
+${strom(400, 352, 2.3)}
+${trasa(d, ZELENA, 'přímka', 560, 260)}
+${jede(`<ellipse cx="0" cy="0" rx="11" ry="17" fill="#8d5524" stroke="#5c3d2e" stroke-width="3"/>${stitek(0, -20, 'TĚLESO: šiška', ORANZ)}`, d, 3, 0.45)}`;
+		break;
+	}
+	case 'slalom': {
+		const d = 'M130,120 C330,110 330,230 420,230 S520,345 700,345';
+		svg = `<rect width="800" height="400" fill="#f1f3f5"/>
+<path d="M0,40 L800,10 L800,400 L0,400z" fill="#fff"/>
+<g stroke="#495057" stroke-width="4"><path d="M300,130 v45"/><path d="M450,280 v45"/><path d="M220,240 v45"/></g>
+<path d="M300,130 l30,8 l-30,8z" fill="#e03131"/><path d="M450,280 l30,8 l-30,8z" fill="#1971c2"/><path d="M220,240 l30,8 l-30,8z" fill="#e03131"/>
+${trasa(d, FIALOVA, 'křivka', 140, 370)}
+${jede(`<circle cx="0" cy="-34" r="11" fill="#ffd8a8" stroke="#333" stroke-width="2"/><rect x="-10" y="-23" width="20" height="24" rx="5" fill="#e8590c"/><path d="M-22,4 H22" stroke="#343a40" stroke-width="5" stroke-linecap="round"/>${stitek(0, -48, 'TĚLESO: lyžař', ORANZ)}`, d, 5)}`;
+		break;
+	}
+	case 'kolotoc': {
+		const d = 'M250,280 A150,48 0 1,1 550,280 A150,48 0 1,1 250,280';
+		svg = `${nebe}<rect y="300" width="800" height="100" fill="#d3f9d8"/>
+<rect x="392" y="110" width="16" height="170" fill="#868e96"/>
+<path d="M260,120 L400,60 L540,120 z" fill="#e03131" stroke="#333" stroke-width="3"/>
+<ellipse cx="400" cy="290" rx="175" ry="58" fill="#ffe066" stroke="#f08c00" stroke-width="4"/>
+${trasa(d, FIALOVA, 'křivka', 700, 230)}
+${jede(`<g transform="translate(0,4)">${osoba(0, 0, '#1971c2', '#f08c00').replace(/<g>/, '<g transform="scale(0.8)">')}</g>${stitek(0, -80, 'TĚLESO: dítě', ORANZ)}`, d, 6, 1)}`;
+		break;
+	}
+	case 'pas': {
+		const d = 'M170,232 L540,232';
+		svg = `<rect width="800" height="400" fill="#f8f9fa"/>
+<rect x="110" y="250" width="470" height="34" rx="17" fill="#495057"/>
+${Array.from({ length: 9 }, (_, i) => `<circle cx="${135 + i * 52}" cy="267" r="9" fill="#adb5bd"/>`).join('')}
+<rect x="110" y="284" width="470" height="100" fill="#ced4da"/>
+<rect x="590" y="190" width="150" height="194" rx="8" fill="#74c0fc" stroke="#1864ab" stroke-width="3"/>
+<text x="665" y="230" text-anchor="middle" font-size="24" font-weight="700" fill="#10182b">pokladna</text>
+${trasa(d, ZELENA, 'přímka', 330, 340)}
+${jede(`<rect x="-30" y="-22" width="60" height="40" rx="5" fill="#f08c00" stroke="#7f4a00" stroke-width="3"/><rect x="-6" y="-22" width="12" height="40" fill="#ffd43b"/>${stitek(0, -26, 'TĚLESO: zboží', ORANZ)}`, d, 4, 0.75)}`;
+		break;
+	}
+	case 'volejbal': {
+		const d = 'M150,280 Q400,-40 650,280';
+		svg = `${nebe}<rect y="330" width="800" height="70" fill="#ffc078"/>
+<rect x="396" y="170" width="8" height="165" fill="#495057"/>
+<rect x="404" y="175" width="6" height="90" fill="url(#sit-${idKarty})"/>
+<defs><pattern id="sit-${idKarty}" width="6" height="12" patternUnits="userSpaceOnUse"><path d="M0,0 H6 M0,0 V12" stroke="#343a40" stroke-width="1.5"/></pattern></defs>
+<rect x="380" y="175" width="40" height="90" fill="none" stroke="#343a40" stroke-width="3"/>
+<path d="M380,195 H420 M380,215 H420 M380,235 H420 M390,175 V265 M400,175 V265 M410,175 V265" stroke="#343a40" stroke-width="1.5"/>
+${osoba(120, 332, '#e03131')}${osoba(680, 332, '#1971c2', '#f08c00')}
+${trasa(d, FIALOVA, 'křivka', 560, 378)}
+${jede(`<circle r="16" fill="#fff" stroke="#f08c00" stroke-width="4"/><path d="M-16,0 Q0,-8 16,0 M0,-16 Q-7,0 0,16" fill="none" stroke="#1971c2" stroke-width="2"/>${stitek(0, -20, 'TĚLESO: míč', ORANZ)}`, d, 3.5, 0.75)}`;
+		break;
+	}
+	case 'vytah-sachta': {
+		const d = 'M400,333 L400,128';
+		svg = `<rect width="800" height="400" fill="#f8f9fa"/>
+<rect x="330" y="20" width="140" height="350" fill="#e7f5ff" stroke="#495057" stroke-width="4"/>
+<path d="M330,165 H470" stroke="#a5d8ff" stroke-width="3"/>
+<rect x="0" y="165" width="330" height="10" fill="#1971c2"/><rect x="470" y="165" width="330" height="10" fill="#1971c2"/>
+<rect x="0" y="370" width="800" height="30" fill="#1971c2"/>
+<text x="16" y="150" font-size="24" font-weight="700" fill="#495057">patro</text>
+<text x="16" y="355" font-size="24" font-weight="700" fill="#495057">přízemí</text>
+${trasa(d, ZELENA, 'přímka', 610, 260)}
+${jede(`<rect x="-45" y="-35" width="90" height="70" rx="5" fill="#adb5bd" stroke="#343a40" stroke-width="4"/><path d="M0,-35 V35" stroke="#343a40" stroke-width="3"/>${stitek(0, -38, 'TĚLESO: výtah', ORANZ)}`, d, 4, 0.6)}`;
+		break;
+	}
+	case 'stopa': {
+		const d = 'M120,60 C300,60 160,170 360,190 S420,330 680,330';
+		const lyzar = `<g transform="translate(680,330)"><circle cx="0" cy="-36" r="12" fill="#ffd8a8" stroke="#333" stroke-width="2"/><rect x="-10" y="-24" width="20" height="25" rx="5" fill="#e8590c"/><path d="M-24,4 H24" stroke="#343a40" stroke-width="5" stroke-linecap="round"/></g>`;
+		svg = `<rect width="800" height="400" fill="#e7f5ff"/>
+<path d="M0,30 L800,0 L800,400 L0,400z" fill="#fff"/>
+<path d="${d}" fill="none" stroke="#868e96" stroke-width="7" stroke-dasharray="1200" stroke-dashoffset="1200">
+<animate attributeName="stroke-dashoffset" values="1200;0;0" keyTimes="0;0.7;1" dur="5s" repeatCount="indefinite"/></path>
+${lyzar}
+${tr('stopa') ? stitek(300, 115, 'TOHLE: stopa ve sněhu', ORANZ) : ''}
+${tr('delka') ? `<path d="M120,95 C300,95 190,205 380,225 S440,365 680,365" fill="none" stroke="${ORANZ}" stroke-width="4" stroke-dasharray="4 8"/>${stitek(420, 290, 'TOHLE: délka stopy … m', ORANZ)}` : ''}`;
+		break;
+	}
+	case 'mapa': {
+		const d = 'M130,250 C220,140 300,300 400,200 S560,120 670,190';
+		svg = `<rect width="800" height="400" fill="#fff9db"/>
+<path d="M60,220 C80,90 250,60 380,90 S640,40 740,150 S700,330 560,340 S200,370 90,320 Z" fill="#ebfbee" stroke="#adb5bd" stroke-width="3"/>
+<path d="${d}" fill="none" stroke="#1971c2" stroke-width="7" stroke-linecap="round"/>
+<circle cx="130" cy="250" r="12" fill="#e03131"/><text x="130" y="292" text-anchor="middle" font-size="26" font-weight="700" fill="#10182b">Praha</text>
+<circle cx="670" cy="190" r="12" fill="#e03131"/><text x="670" y="232" text-anchor="middle" font-size="26" font-weight="700" fill="#10182b">Ostrava</text>
+${jede(`<rect x="-16" y="-10" width="32" height="20" rx="6" fill="#e03131" stroke="#333" stroke-width="2"/>`, d, 6, 0.85)}
+${tr('krivka') ? stitek(400, 185, 'TOHLE: modrá křivka', ORANZ) : ''}
+${tr('cislo') ? `<rect x="250" y="315" width="300" height="60" rx="12" fill="${ORANZ}"/><text x="400" y="356" text-anchor="middle" font-size="34" font-weight="700" fill="#fff">asi 371 km</text>` : ''}`;
+		break;
+	}
+	case 'oval': {
+		const d = 'M250,90 H550 A110,110 0 0,1 550,310 H250 A110,110 0 0,1 250,90';
+		svg = `<rect width="800" height="400" fill="#b2f2bb"/>
+<path d="${d}" fill="none" stroke="#c0392b" stroke-width="58"/>
+<path d="${d}" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="12 10"/>
+<rect x="280" y="170" width="240" height="60" rx="10" fill="#8ce99a"/>
+${jede(`<circle r="13" fill="#1971c2" stroke="#fff" stroke-width="3"/>`, d, 6, 1)}
+${stitek(400, 52, 'TOHLE: oválná závodní dráha', ORANZ)}`;
+		break;
+	}
+	case 'metr': {
+		svg = `<rect width="800" height="400" fill="#f8f9fa"/>
+<rect x="100" y="250" width="600" height="40" fill="#ffd43b" stroke="#f08c00" stroke-width="3"/>
+${Array.from({ length: 21 }, (_, i) => `<path d="M${100 + i * 30},250 v${i % 5 === 0 ? 24 : 12}" stroke="#343a40" stroke-width="2"/>`).join('')}
+<path d="M100,120 V250 M700,120 V250" stroke="#343a40" stroke-width="4"/>
+<path d="M100,120 l40,12 l-40,12z" fill="#2f9e44"/><path d="M700,120 l40,12 l-40,12z" fill="#e03131"/>
+${jede(`<circle r="22" fill="#e8590c" stroke="#7f2704" stroke-width="3"/>`, 'M122,226 L678,226', 4, 0.8)}
+<path d="M110,330 H690" stroke="${ORANZ}" stroke-width="4"/><path d="M110,318 V342 M690,318 V342" stroke="${ORANZ}" stroke-width="4"/>
+<rect x="300" y="300" width="200" height="60" rx="12" fill="${ORANZ}"/>
+<text x="400" y="342" text-anchor="middle" font-size="36" font-weight="700" fill="#fff">s = ? m</text>
+<text x="400" y="80" text-anchor="middle" font-size="26" font-weight="700" fill="#10182b">Značka s, jednotka metr (m)</text>`;
+		break;
+	}
+	default:
+		throw new Error(`Neznámá scéna hry: ${scena}`);
+}
+---
+<svg class="scena-hry" viewBox="0 0 800 400" role="img" aria-label={idKarty} data-karta={idKarty} xmlns="http://www.w3.org/2000/svg">
+	<g font-family="'Patrick Hand', 'Comic Sans MS', sans-serif" set:html={svg} />
+</svg>
