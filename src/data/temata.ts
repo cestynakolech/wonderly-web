@@ -438,12 +438,14 @@ export const temata: Record<string, Tema[]> = {
 					obsah: `
 						<h2>Skupenství látek</h2>
 						<p>Voda může mít tři podoby — led, tekutou vodu a vodní páru. Pro jednotlivé podoby látek používáme pojem <strong>skupenství</strong>. Látky se mohou vyskytovat ve <strong>třech základních skupenstvích</strong>:</p>
+						<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/skupenstvi-latek/skupenstvi-latek-obr-01.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/skupenstvi-latek/skupenstvi-latek-obr-01.svg" alt="Ledovec v moři: led je pevné skupenství, moře kapalné, vodní pára ve vzduchu plynné." loading="lazy" /></a><figcaption>Voda může mít tři podoby: led, vodu a páru.</figcaption></figure>
 						<h3>Pevné skupenství</h3>
 						<ul>
 							<li>zachovává si svou velikost (objem) i tvar</li>
 							<li>nejde snadno dělit (s výjimkou sypkých látek)</li>
 							<li>můžeme určovat tvrdost, křehkost, pružnost, tvárnost, barvu…</li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/skupenstvi-latek/skupenstvi-latek-obr-02.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/skupenstvi-latek/skupenstvi-latek-obr-02.svg" alt="Dům, který drží tvar, a hrad z písku s lopatkou, ze které se sype písek." loading="lazy" /></a><figcaption>Pevné látky drží tvar i objem. Sypké látky (písek) jdou snadno rozdělit.</figcaption></figure>
 						<h3>Kapalné skupenství</h3>
 						<ul>
 							<li>nemění svůj objem, ale <strong>mění tvar</strong> podle dna a stěn nádoby</li>
@@ -451,6 +453,7 @@ export const temata: Record<string, Tema[]> = {
 							<li>tvoří <strong>vodorovnou hladinu</strong></li>
 							<li>je <strong>nestlačitelné</strong></li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/skupenstvi-latek/skupenstvi-latek-obr-03.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/skupenstvi-latek/skupenstvi-latek-obr-03.svg" alt="Moře s vodorovnou hladinou a kulatá mísa s vodou a rybičkami." loading="lazy" /></a><figcaption>Kapalina mění tvar podle nádoby, objem ne. Hladina je vodorovná.</figcaption></figure>
 						<h3>Plynné skupenství</h3>
 						<ul>
 							<li>nemá vlastní tvar ani objem — mění obojí podle nádoby</li>
@@ -459,9 +462,12 @@ export const temata: Record<string, Tema[]> = {
 							<li>je <strong>lehce stlačitelné</strong></li>
 						</ul>
 						<p>👉 Plyny i kapaliny lze přelévat — jsou tekuté, proto pro ně používáme společný název <strong>TEKUTINY</strong>.</p>
+						<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/skupenstvi-latek/skupenstvi-latek-obr-04.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/skupenstvi-latek/skupenstvi-latek-obr-04.svg" alt="Země obalená vrstvou vzduchu a mýdlové bubliny plné vzduchu." loading="lazy" /></a><figcaption>Plyn vyplní celý prostor. Kapaliny a plyny jsou tekutiny.</figcaption></figure>
 						<p>💡 Existuje i čtvrté skupenství — <strong>plazma</strong>. Existuje za velmi vysokých teplot: plamen, Slunce, hvězdy. Příklad svíčky: vosk je pevný, při zahřátí kapalný, při hoření se mění na plyn a plamen je plazma.</p>
+						<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/skupenstvi-latek/skupenstvi-latek-obr-05.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/skupenstvi-latek/skupenstvi-latek-obr-05.svg" alt="Hořící svíčka: pevný vosk, kapalný vosk u knotu, plynný vosk nad knotem a plamen jako plazma." loading="lazy" /></a><figcaption>Vosk svíčky: pevný → kapalný → plyn → plamen je plazma.</figcaption></figure>
 						<h2>Uspořádání částic v látkách</h2>
 						<p>👉 Látka má v různých skupenstvích <strong>stejné složení</strong> (stejné atomy či molekuly) — liší se <strong>pohybem a silovým působením částic</strong>.</p>
+						<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/skupenstvi-latek/skupenstvi-latek-obr-08.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/skupenstvi-latek/skupenstvi-latek-obr-08.svg" alt="Animace částic v pevné, kapalné a plynné látce." loading="lazy" /></a><figcaption>Látka je pořád stejná – liší se pohyb a uspořádání částic.</figcaption></figure>
 						<h3>Částice pevných těles</h3>
 						<ul>
 							<li>jsou blízko u sebe, působí na sebe velkými silami ⇨ <strong>pevnost</strong></li>
@@ -470,6 +476,10 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>amorfní (beztvaré) látky</strong> — nepravidelné uspořádání, méně tvrdé, při zahřátí postupně měknou (parafín, plasty, čokoláda, sklo, asfalt)</li>
 							<li>💡 cukr roztátý na pánvičce zchladne jako amorfní karamel — složení je stejné, změnilo se jen uspořádání částic</li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/skupenstvi-latek/skupenstvi-latek-obr-07.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/skupenstvi-latek/skupenstvi-latek-obr-07.svg" alt="Částice krystalické látky v pravidelných řadách a částice amorfní látky rozházené." loading="lazy" /></a><figcaption>Krystalické látky mají částice pravidelně, amorfní nepravidelně.</figcaption></figure>
+						<p>Pravidelné uspořádání vidíme třeba ve struktuře slídy a grafenu.</p>
+						<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/skupenstvi-latek/skupenstvi-latek-obr-06.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/skupenstvi-latek/skupenstvi-latek-obr-06.svg" alt="Pravidelné uspořádání částic ve slídě a v grafenu." loading="lazy" /></a><figcaption>Krystal: částice jsou uspořádané pravidelně (slída, grafen).</figcaption></figure>
+						<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/skupenstvi-latek/skupenstvi-latek-obr-12.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/skupenstvi-latek/skupenstvi-latek-obr-12.svg" alt="Animace: krystalový cukr na pánvičce roztaje a ztuhne v karamel s nepravidelnými částicemi." loading="lazy" /></a><figcaption>Z krystalového cukru vznikne amorfní karamel – složení stejné, jiné uspořádání.</figcaption></figure>
 						<h3>Částice kapalných těles</h3>
 						<ul>
 							<li>jsou blízko u sebe ⇨ <strong>nestlačitelné</strong></li>
@@ -489,6 +499,10 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>vodorovná hladina</strong> — vodováha: kapalina udržuje hladinu ve stejné rovině i ve spojených nádobách (stavebnictví)</li>
 							<li><strong>nestlačitelnost kapalin</strong> — hydraulická zařízení přenášejí sílu z jednoho pístu na druhý: zvedáky v autodílnách, lisy, brzdy automobilů, bagry, vyklápěcí korby</li>
 						</ul>
+						<p>Hydraulické zařízení tvoří dvě nádoby s pohyblivými písty spojené hadicí a naplněné olejem.</p>
+						<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/skupenstvi-latek/skupenstvi-latek-obr-09.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/skupenstvi-latek/skupenstvi-latek-obr-09.svg" alt="Broušené diamanty a diamant, který dělá rýhu do křemene." loading="lazy" /></a><figcaption>Diamant je nejtvrdší látka. Tvrdší nerost zanechá v měkčím vryp.</figcaption></figure>
+						<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/skupenstvi-latek/skupenstvi-latek-obr-10.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/skupenstvi-latek/skupenstvi-latek-obr-10.svg" alt="Hadicová vodováha se dvěma trubicemi, hladiny v obou ve stejné výšce." loading="lazy" /></a><figcaption>Vodováha: hladiny ve spojených nádobách jsou ve stejné výšce.</figcaption></figure>
+						<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/skupenstvi-latek/skupenstvi-latek-obr-11.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/skupenstvi-latek/skupenstvi-latek-obr-11.svg" alt="Hydraulický zvedák v řezu: malý píst tlačí olej a velký píst zvedá auto." loading="lazy" /></a><figcaption>Hydraulický zvedák: olej přenese sílu z jednoho pístu na druhý.</figcaption></figure>
 					`,
 					materialy: [
 						// Polemika Evy a Marka; scéna „Tři základní skupenství" je POHYBLIVÁ —
