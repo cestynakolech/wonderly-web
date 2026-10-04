@@ -397,7 +397,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Kolik prvků se vyskytuje v přírodě?',
 			odpovedi: ['92', '10', '1 000'],
-			vysvetleni: 'V přírodě se vyskytuje 92 prvků; zbytek periodické soustavy se podařilo připravit teprve uměle v laboratořích.',
+			vysvetleni: 'V přírodě se vyskytuje 92 prvků; ostatní prvky se podařilo připravit teprve uměle v laboratořích.',
 		},
 		{
 			text: 'Jaká je chemická značka železa?',
@@ -426,7 +426,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Co je sloučenina?',
-			odpovedi: ['pevně spojené atomy různých prvků', 'látka, která se rozpouští ve vodě', 'jakákoli smíchaná látka'],
+			odpovedi: ['látka z pevně spojených atomů různých prvků', 'látka, která se dobře rozpouští ve vodě', 'jakákoli látka vzniklá smícháním více látek'],
 			vysvetleni: 'Sloučenina je látka, ve které jsou atomy různých prvků pevně spojené dohromady (ve směsi jsou látky jen promíchané a dají se oddělit) — voda H₂O a oxid uhličitý CO₂ (z molekul). Kuchyňská sůl NaCl je také sloučenina, ale není z molekul: tvoří ji nabité částice (ionty) Na⁺ a Cl⁻ pravidelně uspořádané v krystalu.',
 		},
 		{
@@ -2885,7 +2885,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Proč jde šroub zašroubovat menší silou než zatlouct hřebík?', odpovedi: ['závit prodlužuje dráhu', 'šroub je z tvrdší oceli', 'hřebík má menší hlavičku'], vysvetleni: 'Závit je nakloněná rovina, proto šroub zajede do dřeva po mnoha otáčkách.' },
 		{ text: 'Jak ovlivní skutečnou potřebnou sílu tření mezi břemenem a nakloněnou rovinou?', odpovedi: ['sílu o něco zvětší', 'sílu zmenší', 'tření zvýší hmotnost břemene'], vysvetleni: 'Tření působí proti pohybu, takže táhneme o něco větší silou — bez tření počítáme jen pro jednoduchost.' },
 		{ text: 'Nakloněná rovina zmenší potřebnou sílu čtyřikrát. Jak se změní dráha?', odpovedi: ['bude čtyřikrát delší', 'bude dvakrát delší', 'zůstane stejná'], vysvetleni: 'Zlaté pravidlo mechaniky — kolikrát si usnadníme sílu, tolikrát delší dráhu musíme urazit.' },
-		{ text: 'Bedna o tíze 200 N má stoupnout do výšky 2 m. Silou 50 N ji vytlačíme po nakloněné rovině. Jak dlouhá musí rovina být?', odpovedi: ['8 m', '4 m', '10 m'], vysvetleni: 'Z výpočtu síly plyne l = G · h : F = 200 · 2 : 50 = 8 m.' },
+		{ text: 'Bedna o tíze 200 N má stoupnout do výšky 2 m. Silou 50 N ji vytlačíme po nakloněné rovině. Jak dlouhá musí rovina být?', odpovedi: ['8 m', '4 m', '10 m'], vysvetleni: 'Práce nezávisí na tom, jak je rovina dlouhá: F · l = G · h. Proto l = G · h : F = 200 · 2 : 50 = 8 m.' },
 		{ text: 'Nakloněná rovina je dlouhá 12 m a vysoká 2 m. Kolikrát menší síla stačí oproti svislému zvedání?', odpovedi: ['6×', '2×', '12×'], vysvetleni: 'Poměr l : h = 12 : 2 = 6 — o tolikrát je potřebná síla menší.' },
 		{ text: 'Co se stane s potřebnou silou, když nakloněnou rovinu prodloužíme při stejné výšce?', odpovedi: ['zmenší se', 'zvětší se', 'zůstane stejná'], vysvetleni: 'Delší rovina při stejné výšce je mírnější a do mírnějšího svahu se tlačí snáz.' },
 		{ text: 'Co se stane s potřebnou silou, když zvětšíme výšku nakloněné roviny při stejné délce?', odpovedi: ['zvětší se', 'zmenší se', 'zůstane stejná'], vysvetleni: 'Strmější rovina (větší výška při stejné délce) vyžaduje větší sílu.' },
@@ -2893,7 +2893,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Proč se při nakládání těžkých beden do auta používá nájezdová rampa?', odpovedi: ['stačí menší síla než při zvedání', 'aby se bedna při jízdě v autě neposouvala', 'aby řidič nemusel otevírat celé zadní dveře'], vysvetleni: 'Rampa je nakloněná rovina — bednu po ní vytlačíme menší silou, než jakou bychom ji zvedali svisle.' },
 		{ text: 'Jak namáhavé by bylo tlačit břemeno po nakloněné rovině, jejíž délka l by se rovnala výšce h?', odpovedi: ['stejně namáhavé jako svislé zvedání', 'mnohem snazší nežli svislé zvedání nahoru', 'mnohem namáhavější než svislé zvedání'], vysvetleni: 'Když l = h, vyjde F = G — žádnou sílu bychom neušetřili, rovina by byla vlastně svislá.' },
 		{ text: 'Truhlu vytlačíme silou 50 N po nakloněné rovině dlouhé 6 m až do výšky 2 m (bez tření). Jakou tíhu má truhla?', odpovedi: ['150 N', '50 N', '300 N'], vysvetleni: 'G = F · l : h = 50 · 6 : 2 = 150 N.' },
-		{ text: 'Jak se s nakloněnou rovinou (bez tření) změní práce potřebná ke zvednutí břemene do stejné výšky ve srovnání se svislým zvedáním?', odpovedi: ['práce zůstane stejná, rovina ji jen jinak rozloží', 'práce se zmenší, protože nám rovina při zvedání pomáhá', 'práce se zvětší, protože rovina břemeno brzdí'], vysvetleni: 'Nakloněná rovina práci neušetří, jen ji rozloží pohodlněji — celková vykonaná práce je stejná jako při svislém zvedání.' },
+		{ text: 'Jak se s nakloněnou rovinou (bez tření) změní práce potřebná ke zvednutí břemene do stejné výšky ve srovnání se svislým zvedáním?', odpovedi: ['práce zůstane stejná, rovina ji jen jinak rozloží', 'práce se zmenší, protože nám rovina při zvedání pomáhá', 'práce se zvětší, protože rovina břemeno brzdí'], vysvetleni: 'Nakloněná rovina sníží potřebnou sílu, ale břemeno musíme posunout po delší dráze. Součin síly a dráhy tak zůstává stejný, a proto je i práce stejná jako při svislém zvedání.' },
 		{ text: 'Rovina zůstane stejná (bez tření), ale břemeno bude dvakrát těžší. Jak se změní potřebná síla?', odpovedi: ['zvětší se dvakrát', 'zmenší se dvakrát', 'zůstane stejná'], vysvetleni: 'Síla je přímo úměrná tíze břemene — dvakrát těžší břemeno vyžaduje dvakrát větší sílu.' },
 	],
 	'fyzika/7-rocnik/jednoduche-stroje/jednoduche-stroje-paky': [
@@ -3505,7 +3505,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Stejný hrnec vody ohřejeme jednou z 20 °C na 40 °C a podruhé z 20 °C na 100 °C. Kdy je třeba víc tepla?', odpovedi: ['při ohřevu na 100 °C, protože je tam větší rozdíl teplot', 'při ohřevu na 40 °C, protože voda se ohřívá pomaleji', 'v obou případech stejně, protože voda je pořád stejná'], vysvetleni: 'Při ohřevu na 100 °C se voda ohřeje o 80 °C, při ohřevu na 40 °C jen o 20 °C. Čím větší změna teploty, tím víc tepla je třeba.' },
 		{ text: 'Látka A a látka B mají stejnou hmotnost a dostanou stejné teplo. Látka A se ohřeje o víc stupňů než látka B. Co z toho plyne?', odpovedi: ['látka A má menší měrnou tepelnou kapacitu než látka B', 'látka A má větší měrnou tepelnou kapacitu než látka B', 'nic, protože ohřátí nezávisí na druhu látky tělesa'], vysvetleni: 'Hmotnost i dodané teplo jsou u obou látek stejné, takže o rozdílu ohřátí rozhoduje jen druh látky, tedy její měrná tepelná kapacita. Látka, která se ohřeje o víc stupňů, ji má menší.' },
 		{ text: 'Co udává měrná tepelná kapacita c látky?', odpovedi: ['kolik tepla je třeba na ohřátí 1 kg látky o 1 °C', 'kolik tepla látka odevzdá při chladnutí na 0 °C', 'při jaké teplotě se látka začne vařit'], vysvetleni: 'Měrná tepelná kapacita říká, kolik tepla musíme dodat 1 kg látky, aby se její teplota zvýšila o 1 °C. Hodnoty najdeme v tabulkách. S varem ani s vychladnutím na 0 °C nesouvisí.' },
-		{ text: 'Jaká je jednotka měrné tepelné kapacity?', odpovedi: ['J/(kg · °C)', 'kg/(J · °C)', 'J · kg · °C'], vysvetleni: 'Jednotku zapisujeme jako zlomek: nahoře joule, dole součin kilogramu a stupně Celsia, tedy J/(kg · °C). Zápis s prohozenými veličinami nebo bez zlomku je nesprávný.' },
+		{ text: 'Jaká je jednotka měrné tepelné kapacity?', odpovedi: ['J/(kg · °C)', 'kg/(J · °C)', 'J · kg · °C'], vysvetleni: 'Měrnou tepelnou kapacitu dostaneme tak, že teplo v joulech podělíme hmotností v kilogramech a ohřátím ve stupních Celsia, proto má jednotku J/(kg · °C). Zápis s prohozenými veličinami nebo bez zlomku by neodpovídal tomuto dělení.' },
 		{ text: 'Proč se z kovu vyrábějí žebra chladičů?', odpovedi: ['kov teplo dobře vede, a proto ho snadno přenese do žeber', 'kov teplo dobře izoluje, a proto ho zadrží uvnitř chladiče', 'kov teplo pohltí navždy, a proto se chladič nikdy neohřeje'], vysvetleni: 'Kovová žebra teplo dobře vedou, a proto ho z horkého místa snadno rozvedou po celém chladiči, odkud ho odnáší okolní vzduch. Izolant by teplo naopak zadržel. Kov teplo nepohlcuje navždy: chladič se ohřeje, jen z něj teplo odchází dál.' },
 		{ text: 'Proč se voda hodí k přenosu tepla z tepláren do topení v domácnostech?', odpovedi: ['má vysoké c, a proto v sobě unese hodně energie', 'má malou hmotnost, a proto se v potrubí rychle ohřeje', 'má stejnou teplotu jako vzduch v místnostech, které vytápí'], vysvetleni: 'Voda má vysokou měrnou tepelnou kapacitu, takže je dobrým zásobníkem tepelné energie. Teplo z tepláren se do domácností dostane právě díky tomu, že ho voda v potrubí unese hodně.' },
 		{ text: 'Kus železa o hmotnosti 1 kg přijal při ohřátí o 10 °C teplo 4 500 J. Kolik tepla přijmou 3 kg železa při ohřátí o 10 °C?', odpovedi: ['13 500 J', '4 500 J', '135 000 J'], vysvetleni: 'Látka i ohřátí jsou stejné, mění se jen hmotnost: 3 kg je třikrát víc než 1 kg, takže i teplo je třikrát větší. 3 · 4 500 = 13 500 J.' },
@@ -3817,7 +3817,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Co platí o teplotě tuhnutí a tání u téže krystalické látky?',
-			odpovedi: ['jsou u téže látky stejné', 'tuhnutí bývá vždy vyšší', 'spolu vůbec nesouvisí'],
+			odpovedi: ['jsou u téže látky stejné', 'teplota tuhnutí je vždy vyšší', 'spolu vůbec nesouvisí'],
 			vysvetleni: 'U téže látky porovnáváme dvě shodné tabulkové hodnoty.',
 		},
 		{
@@ -4326,7 +4326,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Co se děje s vodní párou ve velmi chladném vysokém oblaku?',
 			odpovedi: ['Mění se rovnou na pevný led.', 'Mění se na kapky, které padají jako déšť.', 'Mění se v neviditelný plyn bez kapek.'],
-			vysvetleni: 'Nad bodem mrazu by pára kondenzovala, ale ve velkém mrazu se z páry tvoří led přímo. Říká se tomu desublimace.',
+			vysvetleni: 'Nad bodem mrazu by pára kondenzovala, ale ve velkém mrazu se z páry tvoří led přímo, bez kapalné fáze.',
 		},
 		{
 			text: 'Jak se nazývá změna, při které kapalná voda na kaluži zmrzne na led?',
@@ -4987,7 +4987,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Jaká vodivost převládá v polovodiči typu P?', odpovedi: ['děrová', 'elektronová', 'iontová'], vysvetleni: 'Jmenuje se podle nositelů náboje, kteří v typu P převládají.' },
 		{ text: 'Proč se po přidání některých příměsí objeví v krystalu prázdné místo po elektronu?', odpovedi: ['atomu příměsi chybí elektron do jedné vazby', 'atom příměsi má v obalu jeden elektron navíc', 'atom příměsi se z krystalu vypaří'], vysvetleni: 'Do neobsazené vazby může přeskočit elektron ze sousední vazby.' },
 		{ text: 'Co je hradlová vrstva?', odpovedi: ['oblast na styku typu N a typu P', 'vodič mezi diodou a zdrojem', 'kovový obal polovodiče'], vysvetleni: 'Jejím zúžením nebo rozšířením se rozhoduje, zda proud teče.' },
-		{ text: 'Jak se typy N a P připojí ke zdroji tak, aby diodou procházel proud?', odpovedi: ['N k zápornému a P ke kladnému pólu zdroje', 'N ke kladnému a P k zápornému pólu zdroje', 'oba typy společně ke kladnému pólu zdroje'], vysvetleni: 'Elektrony míří ke kladnému pólu a díry opačným směrem.' },
+		{ text: 'Jak se typy N a P připojí ke zdroji tak, aby diodou procházel proud?', odpovedi: ['N k zápornému a P ke kladnému pólu zdroje', 'N ke kladnému a P k zápornému pólu zdroje', 'oba typy společně ke kladnému pólu zdroje'], vysvetleni: 'Elektrony míří ke kladnému pólu a díry opačným směrem.' },
 		{ text: 'Kam se v závěrném směru přesunou volné elektrony a díry?', odpovedi: ['na okraje polovodiče, pryč od styku', 'doprostřed, přímo na styk obou typů polovodiče', 'nikam, zůstanou beze změny na svých místech'], vysvetleni: 'Poblíž styku jich proto zbývá málo.' },
 		{ text: 'Čemu se v závěrném směru podobá polovodič s přechodem PN?', odpovedi: ['vypnutému spínači', 'zapnutému spínači', 'zdroji stejnosměrného napětí'], vysvetleni: 'Obvod je rozpojený, nositelé náboje jím neprocházejí.' },
 		{ text: 'Co ukazuje šipka ve značce diody?', odpovedi: ['směr, kterým proud smí procházet', 'směr, kterým proud procházet nesmí', 'kladný pól, ke kterému se dioda připojuje'], vysvetleni: 'Podle šipky se dioda zapojí tak, aby jí mohl proud procházet.' },
