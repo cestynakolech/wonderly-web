@@ -600,6 +600,7 @@ export const temata: Record<string, Tema[]> = {
 							<li>je <strong>vždy přitažlivá</strong> a působení je vždy vzájemné</li>
 							<li>zákony gravitace popsal anglický fyzik <strong>Isaac Newton</strong></li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/sila/gravitacni-sila/gravitacni-sila-obr-01.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/sila/gravitacni-sila/gravitacni-sila-obr-01.svg" alt="Slunce vlevo a Země vpravo. Od Slunce vede červená šipka k Zemi, od Země stejně dlouhá červená šipka ke Slunci. Slunce a Země se přitahují navzájem." loading="lazy" /></a><figcaption>Slunce a Země se přitahují navzájem.</figcaption></figure>
 						<h3>Na čem závisí velikost gravitační síly?</h3>
 						<ul>
 							<li><strong>Na hmotnostech těles</strong> — čím větší hmotnosti, tím větší síla. Mezi planetami jsou obrovské gravitační síly; mezi malými tělesy (dvě knihy na stole) je síla zanedbatelná, proto ji běžně pozorujeme jen ve vztahu k Zemi.</li>
@@ -617,9 +618,16 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Směr gravitační síly</h3>
 						<ul>
 							<li>gravitační síla směřuje vždy <strong>do středu Země</strong> — tomu říkáme <strong>svislý směr</strong></li>
+						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/sila/gravitacni-sila/gravitacni-sila-obr-02.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/sila/gravitacni-sila/gravitacni-sila-obr-02.svg" alt="Země uprostřed, v jejím středu červený křížek. Kolem Země jablko, kosmonaut, družice, sonda a míčky. Od každého tělesa vede červená šipka do středu Země — i od míčku pod Zemí šipka míří nahoru ke středu." loading="lazy" /></a><figcaption>Země přitahuje všechna tělesa do svého středu.</figcaption></figure>
+						<ul>
 							<li>svislý směr prakticky určíme <strong>olovnicí</strong> (závažíčko na provázku) — důležité pro stabilitu staveb</li>
+						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/sila/gravitacni-sila/gravitacni-sila-obr-03.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/sila/gravitacni-sila/gravitacni-sila-obr-03.svg" alt="Zídka ze dvou betonových tvárnic. Ruka v pracovní rukavici drží na horní hraně provázek se závažíčkem — olovnici. Olovnice se rozkývá, ustálí se a visí svisle; modrá šipka ukazuje svislý směr." loading="lazy" /></a><figcaption>Olovnice se ustálí a ukáže svislý směr.</figcaption></figure>
+						<ul>
 							<li>svislý a vodorovný směr jsou na sebe <strong>kolmé</strong> — svírají úhel <strong>90°</strong></li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/sila/gravitacni-sila/gravitacni-sila-obr-05.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/sila/gravitacni-sila/gravitacni-sila-obr-05.svg" alt="Horské jezero s klidnou hladinou, na břehu komínek z kamenů. Modrá šipka míří svisle dolů (svislý směr), tmavá šipka vede po hladině vodorovně (vodorovný směr). Šipky jsou na sebe kolmé." loading="lazy" /></a><figcaption>Svislý a vodorovný směr jsou na sebe kolmé.</figcaption></figure>
 						<h2>Gravitační pole</h2>
 						<ul>
 							<li>vzniká v okolí <strong>každého</strong> hmotného tělesa; význam má u těles s obrovskou hmotností (hvězdy, planety, měsíce)</li>
@@ -627,14 +635,19 @@ export const temata: Record<string, Tema[]> = {
 							<li>čím větší hmotnost, tím „silnější" pole — Slunce má silnější pole než Země, proto planety obíhají kolem Slunce</li>
 							<li>Měsíc je menší a lehčí než Země — na astronauta na Měsíci působí <strong>6× menší</strong> gravitační síla, proto se při chůzi jakoby vznáší</li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/sila/gravitacni-sila/gravitacni-sila-obr-06.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/sila/gravitacni-sila/gravitacni-sila-obr-06.svg" alt="Sluneční soustava shora: uprostřed Slunce, kolem něj na oběžných drahách osm planet. Planety obíhají kolem Slunce, kolem Země obíhá Měsíc. Na Zemi působí červená šipka gravitační síly Slunce, míří ke Slunci." loading="lazy" /></a><figcaption>Gravitační síla Slunce drží planety na oběžných drahách, gravitační síla Země drží Měsíc.</figcaption></figure>
 						<p>🔎 Proč měsíce obíhají kolem planet, a ne kolem Slunce? Jsou planetám <strong>mnohem blíž</strong>, takže je planety přitahují větší silou než vzdálené Slunce.</p>
 						<h3>Důsledky gravitační síly</h3>
 						<ul>
 							<li><strong>pád těles</strong> — neupevněná tělesa padají svisle dolů, ke středu Země</li>
+						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/sila/gravitacni-sila/gravitacni-sila-obr-04.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/sila/gravitacni-sila/gravitacni-sila-obr-04.svg" alt="Tři obrázky vedle sebe: ruka pouští modrý míček, z větvičky padá jablko a parašutista padá pod letadlem. Vedle každého tělesa jsou svislé modré šipky dolů. Všechny šipky jsou rovnoběžné." loading="lazy" /></a><figcaption>Neupevněná tělesa padají svisle dolů; v našem okolí jsou směry pádu rovnoběžné.</figcaption></figure>
+						<ul>
 							<li><strong>vodorovná hladina kapalin</strong> — molekuly jsou přitahovány dolů a kloužou po sobě, proto se srovnají do stejné výšky</li>
 							<li><strong>pohyb vesmírných těles</strong> — gravitace Slunce drží planety na oběžných drahách, gravitace Země drží Měsíc a družice</li>
 							<li><strong>příliv a odliv</strong> — gravitační síla Měsíce působí na vodu v oceánech</li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/sila/gravitacni-sila/gravitacni-sila-obr-07.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/sila/gravitacni-sila/gravitacni-sila-obr-07.svg" alt="Měsíc vlevo, Země vpravo obalená vrstvou oceánu. Voda je vytažená do stran: na straně k Měsíci a na odvrácené straně je příliv, nahoře a dole odliv. Červená šipka od Měsíce míří k Zemi, červená šipka od vody míří k Měsíci." loading="lazy" /></a><figcaption>Gravitační síla Měsíce působí na Zemi a vodu v oceánech a způsobuje příliv a odliv.</figcaption></figure>
 					`,
 					materialy: [
 						// Hlasy jsou z bezplatného tarifu ElevenLabs, který povoluje jen
