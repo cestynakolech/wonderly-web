@@ -2775,6 +2775,9 @@ export const temata: Record<string, Tema[]> = {
 					odkazy: [
 						{ nazev: 'Vypařování, var a kapalnění (Fyzika007)', url: 'https://www.fyzika007.cz/struktura-avlastnosti-l%C3%A1tek/vypa%C5%99ov%C3%A1n%C3%AD-var-a-kapaln%C4%9Bn%C3%AD' },
 					],
+					materialy: [
+						{ druh: 'video', nazev: 'Píseň: Vypařování 🎵', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/vyparovani/pisen-vyparovani.m4a' },
+					],
 				},
 				{
 					slug: 'var',
@@ -2803,6 +2806,9 @@ export const temata: Record<string, Tema[]> = {
 					odkazy: [
 						{ nazev: 'Techmania Edu — Vypařování a kondenzace', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/skupenstvi/vyparovani-kondenzace' },
 					],
+					materialy: [
+						{ druh: 'video', nazev: 'Píseň: Kondenzace 🎵', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/kondenzace/pisen-kondenzace.m4a' },
+					],
 				},
 				{
 					slug: 'skupenske-zmeny-vody-v-prirode',
@@ -2815,6 +2821,9 @@ export const temata: Record<string, Tema[]> = {
 					odkazy: [
 						{ nazev: 'Jak vznikají kroupy? (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/15702-jak-vznikaji-kroupy' },
 						{ nazev: 'Techmania Edu — Atmosférické srážky', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/meteorologie/atmosfericke-srazky' },
+					],
+					materialy: [
+						{ druh: 'video', nazev: 'Píseň: Koloběh vody 🎵', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/skupenske-zmeny-vody-v-prirode/pisen-skupenske-zmeny-vody-v-prirode.m4a' },
 					],
 				},
 			],
