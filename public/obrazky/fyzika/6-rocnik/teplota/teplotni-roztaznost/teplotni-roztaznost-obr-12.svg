@@ -2,8 +2,8 @@
 <style>
 /* Předloha: PDF Teplotní roztažnost, Vliv teploty na hustotu — „Při vyšší teplotě se částice látky pohybují větší rychlostí ⇒
    pohybují se do větších vzdáleností ⇒ mají mezi sebou větší mezery ⇒ hustota látky se zmenšuje.“ (v PDF bez obrázku).
-   Částice jako ve vzoru Částicové složení látek (modré částice vody, poloměr 13). V obou 16 částic (4 × 4).
-   Studená: rozestup 34, chvění 2 px za 1,2 s. Horká: rozestup 48, chvění 6 px za 0,5 s. Bez animace = částice v klidu na místě. */
+   Částice jako ve vzoru Částicové složení látek (modré částice vody, poloměr 12). V obou 16 částic (4 × 4).
+   Studená: rozestup 34, chvění 1 px za 1,2 s. Horká: rozestup 48, chvění 6 px za 0,5 s. Bez animace = částice v klidu na místě. */
 @keyframes c1 { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(1px, -1px); } 50% { transform: translate(-1px, -1px); } 75% { transform: translate(-1px, 1px); } }
 @keyframes c2 { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(-1px, 1px); } 50% { transform: translate(1px, 1px); } 75% { transform: translate(1px, -1px); } }
 @keyframes h1 { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(6px, -6px); } 50% { transform: translate(-6px, -6px); } 75% { transform: translate(-6px, 6px); } }
