@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Větrná elektrárna. Vítr roztáčí tři listy rotoru, generátor v gondole vyrábí elektřinu a ta jde stožárem do vedení.">
+<style>
+@keyframes rot { to { transform: rotate(360deg); } }
+@keyframes rotz { to { transform: rotate(-360deg); } }
+.rot { animation: rot 1.6s linear infinite; }
+@keyframes tok { to { stroke-dashoffset: -36; } }
+@keyframes tokz { to { stroke-dashoffset: 36; } }
+.tok { stroke-dasharray: 12 24; animation: tok 1s linear infinite; }
+.tokz { stroke-dasharray: 12 24; animation: tokz 1s linear infinite; }
+@keyframes el { to { stroke-dashoffset: -18; } }
+@keyframes elz { to { stroke-dashoffset: 18; } }
+.el { stroke-dasharray: 8 10; animation: el 0.6s linear infinite; }
+.elz { stroke-dasharray: 8 10; animation: elz 0.6s linear infinite; }
+.rotor { animation: rot 4s linear infinite; }
+.vitr { stroke-dasharray: 40 30; animation: vitr 1.4s linear infinite; }
+@keyframes vitr { to { stroke-dashoffset: -70; } }
+/* Vítr (modré čáry) roztáčí rotor, generátor v gondole vyrábí elektřinu (žluté čárky do vedení).
+   Klid: rotor stojí. */
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<rect x="3" y="3" width="594" height="594" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
+<text x="300.0" y="42" font-size="28" font-weight="bold" fill="#212529" text-anchor="middle">Větrná elektrárna</text>
+<defs><marker id="hC" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#c92a2a"/></marker><marker id="hM" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1864ab"/></marker><marker id="hZ" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#e67700"/></marker></defs>
+<rect x="18" y="62" width="564" height="520" rx="12" fill="#e7f5ff"/>
+<path d="M18 520 Q150 488 300 506 T582 494 V570 a12 12 0 0 1 -12 12 H30 a12 12 0 0 1 -12 -12z" fill="#b2d8a0" stroke="#2b8a3e" stroke-width="3"/>
+<path class="vitr" d="M30 160 q 30 -10 60 0 t 60 0" fill="none" stroke="#1864ab" stroke-width="4" stroke-linecap="round"/><path class="vitr" d="M30 222 q 30 -10 60 0 t 60 0" fill="none" stroke="#1864ab" stroke-width="4" stroke-linecap="round"/><path class="vitr" d="M30 284 q 30 -10 60 0 t 60 0" fill="none" stroke="#1864ab" stroke-width="4" stroke-linecap="round"/>
+<g><rect x="39" y="98" width="66" height="32" rx="8" fill="#ffffff" stroke="#868e96" stroke-width="1.5"/><text x="72" y="120" font-size="20" font-weight="bold" fill="#1864ab" text-anchor="middle">vítr</text></g>
+<path d="M290 512 L296 236 H312 L318 512z" fill="#f1f3f5" stroke="#495057" stroke-width="2.5"/>
+<path d="M304 250 V508 Q304 520 320 520 H468" fill="none" stroke="#495057" stroke-width="2.5"/>
+<path class="el" d="M304 250 V508 Q304 520 320 520 H468" fill="none" stroke="#f59f00" stroke-width="4" stroke-linecap="round"/>
+<g stroke="#495057" stroke-width="2.5" fill="none" stroke-linecap="round"><path d="M474 520 L487 410 M506 520 L493 410"/><path d="M474.0 520.0 L503.8 501.7 M506.0 520.0 L476.2 501.7"/><path d="M476.2 501.7 L501.7 483.3 M503.8 501.7 L478.3 483.3"/><path d="M478.3 483.3 L499.5 465.0 M501.7 483.3 L480.5 465.0"/><path d="M480.5 465.0 L497.3 446.7 M499.5 465.0 L482.7 446.7"/><path d="M482.7 446.7 L495.2 428.3 M497.3 446.7 L484.8 428.3"/><path d="M484.8 428.3 L493.0 410.0 M495.2 428.3 L487.0 410.0"/><path d="M464 424 H516 M470 442 H510 M487 410 L490 402 L493 410"/></g><rect x="462" y="424" width="4" height="8" fill="#495057"/><rect x="514" y="424" width="4" height="8" fill="#495057"/><rect x="468" y="442" width="4" height="8" fill="#495057"/><rect x="508" y="442" width="4" height="8" fill="#495057"/>
+<path d="M516 424 Q 550 440 582 432" fill="none" stroke="#495057" stroke-width="2"/>
+<path d="M296 206 H372 q 14 0 14 14 v 16 q 0 14 -14 14 H296z" fill="#f8f9fa" stroke="#495057" stroke-width="2.5"/><line x1="300" y1="228" x2="330" y2="228" stroke="#212529" stroke-width="4"/>
+<rect x="332.0" y="212.0" width="40" height="32" rx="8" fill="#ffffff" stroke="#212529" stroke-width="3"/><circle cx="352" cy="228" r="10.0" fill="#fff9db" stroke="#212529" stroke-width="2"/><path d="M346.0 228 q 3.0 -9.0 6.0 0 t 6.0 0" fill="none" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<g transform="translate(300,228)"><g class="rotor"><g transform="rotate(0)"><path d="M-8 -14 Q-12 -80 -3 -150 Q0 -155 4 -150 Q11 -80 8 -14z" fill="#ffffff" stroke="#495057" stroke-width="2.5"/></g><g transform="rotate(120)"><path d="M-8 -14 Q-12 -80 -3 -150 Q0 -155 4 -150 Q11 -80 8 -14z" fill="#ffffff" stroke="#495057" stroke-width="2.5"/></g><g transform="rotate(240)"><path d="M-8 -14 Q-12 -80 -3 -150 Q0 -155 4 -150 Q11 -80 8 -14z" fill="#ffffff" stroke="#495057" stroke-width="2.5"/></g></g><circle r="16" fill="#e9ecef" stroke="#495057" stroke-width="2.5"/></g>
+<line x1="470" y1="112" x2="312" y2="220" stroke="#495057" stroke-width="2"/>
+<g><rect x="464" y="90" width="71" height="32" rx="8" fill="#ffffff" stroke="#868e96" stroke-width="1.5"/><text x="500" y="112" font-size="20" fill="#212529" text-anchor="middle">rotor</text></g>
+<line x1="470" y1="286" x2="372" y2="236" stroke="#495057" stroke-width="2"/>
+<g><rect x="444" y="278" width="112" height="32" rx="8" fill="#ffffff" stroke="#868e96" stroke-width="1.5"/><text x="500" y="300" font-size="20" fill="#212529" text-anchor="middle">generátor</text></g>
+<line x1="232" y1="430" x2="292" y2="430" stroke="#495057" stroke-width="2"/>
+<g><rect x="149" y="415" width="81" height="32" rx="8" fill="#ffffff" stroke="#868e96" stroke-width="1.5"/><text x="190" y="437" font-size="20" fill="#212529" text-anchor="middle">stožár</text></g>
+<g><rect x="427" y="368" width="81" height="32" rx="8" fill="#ffffff" stroke="#868e96" stroke-width="1.5"/><text x="468" y="390" font-size="20" fill="#212529" text-anchor="middle">vedení</text></g>
+<rect x="22" y="532" width="556" height="44" rx="10" fill="#ffffff" stroke="#868e96" stroke-width="1.5"/>
+<text x="300" y="561" font-size="20" fill="#212529" text-anchor="middle">Vítr roztáčí rotor a generátor vyrábí elektřinu.</text>
+</svg>

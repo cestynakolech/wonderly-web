@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 640" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Tepelná uhelná elektrárna. V kotli hoří uhlí a ohřívá vodu na páru. Pára roztáčí turbínu, ta pohání generátor a elektřina jde do vedení. V kondenzátoru se pára mění zpět na vodu, která se vrací do kotle. Z komína odchází kouř.">
+<style>
+@keyframes rot { to { transform: rotate(360deg); } }
+@keyframes rotz { to { transform: rotate(-360deg); } }
+.rot { animation: rot 1.6s linear infinite; }
+@keyframes tok { to { stroke-dashoffset: -36; } }
+@keyframes tokz { to { stroke-dashoffset: 36; } }
+.tok { stroke-dasharray: 12 24; animation: tok 1s linear infinite; }
+.tokz { stroke-dasharray: 12 24; animation: tokz 1s linear infinite; }
+@keyframes el { to { stroke-dashoffset: -18; } }
+@keyframes elz { to { stroke-dashoffset: 18; } }
+.el { stroke-dasharray: 8 10; animation: el 0.6s linear infinite; }
+.elz { stroke-dasharray: 8 10; animation: elz 0.6s linear infinite; }
+.plamen { transform-origin: 205px 512px; animation: plamen 0.5s ease-in-out infinite alternate; }
+@keyframes plamen { to { transform: scale(1.08, 0.85); } }
+.kour { animation: kour 4s linear infinite; }
+.kour2 { animation: kour 4s linear infinite; animation-delay: -2s; }
+@keyframes kour { 0% { transform: translate(0, 0); opacity: 0; } 15% { opacity: 0.9; } 100% { transform: translate(24px, -60px); opacity: 0; } }
+.pas { animation: pas 3s linear infinite; }
+@keyframes pas { 0% { transform: translate(0, 0); opacity: 0; } 10% { opacity: 1; } 80% { transform: translate(52px, -40px); opacity: 1; } 100% { transform: translate(52px, -40px); opacity: 0; } }
+/* Uhlí se sype do kotle, oheň ohřívá vodu na páru, pára roztáčí turbínu a generátor,
+   v kondenzátoru se pára mění zpět na vodu, z komína jde kouř. Klid: vše stojí. */
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<rect x="3" y="3" width="594" height="634" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
+<text x="300.0" y="42" font-size="28" font-weight="bold" fill="#212529" text-anchor="middle">Tepelná (uhelná) elektrárna</text>
+<defs><marker id="hC" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#c92a2a"/></marker><marker id="hM" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1864ab"/></marker><marker id="hZ" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#e67700"/></marker></defs>
+<rect x="18" y="62" width="564" height="508" rx="12" fill="#f1f3f5"/>
+<path d="M18 524 H582 V558 a12 12 0 0 1 -12 12 H30 a12 12 0 0 1 -12 -12z" fill="#c9b8a6" stroke="#7f5539" stroke-width="2.5"/>
+<path d="M140 280 L148 96 H176 L184 280z" fill="#dee2e6" stroke="#495057" stroke-width="2.5"/><path d="M148 112 H176 M146 140 H178" stroke="#c92a2a" stroke-width="5"/>
+<g class="kour"><circle cx="162" cy="84" r="12" fill="#868e96"/><circle cx="176" cy="76" r="9" fill="#adb5bd"/></g><g class="kour2"><circle cx="162" cy="84" r="12" fill="#868e96"/><circle cx="176" cy="76" r="9" fill="#adb5bd"/></g>
+<path d="M424 364 V496 H262" fill="none" stroke="#1864ab" stroke-width="20" stroke-linejoin="round"/><path d="M424 364 V496 H262" fill="none" stroke="#a5d8ff" stroke-width="13" stroke-linejoin="round"/>
+<path class="tok" d="M424 368 V496 H268" fill="none" stroke="#1864ab" stroke-width="3" stroke-linecap="round"/>
+<path d="M240 286 V232 H424 V262" fill="none" stroke="#c92a2a" stroke-width="22" stroke-linejoin="round"/><path d="M240 286 V232 H424 V262" fill="none" stroke="#ffb3b3" stroke-width="15" stroke-linejoin="round"/>
+<path class="tok" d="M240 282 V232 H424 V258" fill="none" stroke="#c92a2a" stroke-width="3" stroke-linecap="round"/>
+<rect x="150" y="280" width="112" height="240" rx="10" fill="#ffffff" stroke="#212529" stroke-width="3"/><path d="M164 300 H248 V360 H164z" fill="#ffc9c9" stroke="#c92a2a" stroke-width="2"/><path d="M172 470 V372" stroke="#1864ab" stroke-width="5" stroke-linecap="round"/><path d="M188 470 V372" stroke="#1864ab" stroke-width="5" stroke-linecap="round"/><path d="M204 470 V372" stroke="#1864ab" stroke-width="5" stroke-linecap="round"/><path d="M220 470 V372" stroke="#1864ab" stroke-width="5" stroke-linecap="round"/><path d="M236 470 V372" stroke="#1864ab" stroke-width="5" stroke-linecap="round"/>
+<g class="plamen"><path d="M168 512 q 4 -40 18 -54 q -2 22 10 30 q 2 -30 18 -44 q 0 30 12 40 q 6 -14 4 -26 q 16 20 12 54z" fill="#fd7e14" stroke="#c92a2a" stroke-width="2"/><path d="M186 512 q 4 -20 12 -26 q 2 14 8 18 q 4 -14 10 -18 q 6 14 4 26z" fill="#ffd43b"/></g>
+<path d="M44 524 L150 456" stroke="#495057" stroke-width="8" stroke-linecap="round"/>
+<g fill="#343a40" stroke="#000000" stroke-width="1.2"><path d="M42 522 l 3 -11 l 9 -3 l 8 6 l -2 9 z"/><path d="M60 524 l 3 -11 l 9 -3 l 8 6 l -2 9 z"/><path d="M78 522 l 3 -11 l 9 -3 l 8 6 l -2 9 z"/><path d="M51 510 l 3 -11 l 9 -3 l 8 6 l -2 9 z"/><path d="M69 510 l 3 -11 l 9 -3 l 8 6 l -2 9 z"/><path d="M60 498 l 3 -11 l 9 -3 l 8 6 l -2 9 z"/></g>
+<g class="pas"><path d="M80 494 l 3 -10 l 9 -3 l 8 6 l -2 9 z" fill="#343a40" stroke="#000" stroke-width="1"/></g>
+<line x1="330" y1="180" x2="330" y2="206" stroke="#212529" stroke-width="4"/>
+<rect x="300.0" y="137.0" width="60" height="46" rx="8" fill="#ffffff" stroke="#212529" stroke-width="3"/><circle cx="330" cy="160" r="17.0" fill="#fff9db" stroke="#212529" stroke-width="2"/><path d="M317.0 160 q 6.5 -15.3 13.0 0 t 13.0 0" fill="none" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<g transform="translate(330,232)"><circle r="26" fill="#ffffff" stroke="#212529" stroke-width="3"/><g class="rot"><path d="M0 0 Q 14.3 -3.9 22.1 -13.0" transform="rotate(0)" fill="none" stroke="#212529" stroke-width="3" stroke-linecap="round"/><path d="M0 0 Q 14.3 -3.9 22.1 -13.0" transform="rotate(60)" fill="none" stroke="#212529" stroke-width="3" stroke-linecap="round"/><path d="M0 0 Q 14.3 -3.9 22.1 -13.0" transform="rotate(120)" fill="none" stroke="#212529" stroke-width="3" stroke-linecap="round"/><path d="M0 0 Q 14.3 -3.9 22.1 -13.0" transform="rotate(180)" fill="none" stroke="#212529" stroke-width="3" stroke-linecap="round"/><path d="M0 0 Q 14.3 -3.9 22.1 -13.0" transform="rotate(240)" fill="none" stroke="#212529" stroke-width="3" stroke-linecap="round"/><path d="M0 0 Q 14.3 -3.9 22.1 -13.0" transform="rotate(300)" fill="none" stroke="#212529" stroke-width="3" stroke-linecap="round"/></g><circle r="4" fill="#212529"/></g>
+<rect x="398" y="256" width="52" height="112" rx="10" fill="#d0ebff" stroke="#495057" stroke-width="2.5"/><path d="M400 266 H424 V358 H400z" fill="#ffc9c9"/><rect x="414" y="272" width="22" height="7" rx="3" fill="#ffffff"/><rect x="414" y="287" width="22" height="7" rx="3" fill="#ffffff"/><rect x="414" y="302" width="22" height="7" rx="3" fill="#ffffff"/><rect x="414" y="317" width="22" height="7" rx="3" fill="#ffffff"/><rect x="414" y="332" width="22" height="7" rx="3" fill="#ffffff"/><rect x="414" y="347" width="22" height="7" rx="3" fill="#ffffff"/>
+<g stroke="#495057" stroke-width="2.5" fill="none" stroke-linecap="round"><path d="M514 300 L527 170 M546 300 L533 170"/><path d="M514.0 300.0 L543.8 278.3 M546.0 300.0 L516.2 278.3"/><path d="M516.2 278.3 L541.7 256.7 M543.8 278.3 L518.3 256.7"/><path d="M518.3 256.7 L539.5 235.0 M541.7 256.7 L520.5 235.0"/><path d="M520.5 235.0 L537.3 213.3 M539.5 235.0 L522.7 213.3"/><path d="M522.7 213.3 L535.2 191.7 M537.3 213.3 L524.8 191.7"/><path d="M524.8 191.7 L533.0 170.0 M535.2 191.7 L527.0 170.0"/><path d="M504 184 H556 M510 202 H550 M527 170 L530 162 L533 170"/></g><rect x="502" y="184" width="4" height="8" fill="#495057"/><rect x="554" y="184" width="4" height="8" fill="#495057"/><rect x="508" y="202" width="4" height="8" fill="#495057"/><rect x="548" y="202" width="4" height="8" fill="#495057"/>
+<path d="M360 152 Q440 130 504 184" fill="none" stroke="#495057" stroke-width="2.5"/>
+<path class="el" d="M360 152 Q440 130 504 184" fill="none" stroke="#f59f00" stroke-width="4" stroke-linecap="round"/>
+<g><rect x="274" y="98" width="112" height="32" rx="8" fill="#ffffff" stroke="#868e96" stroke-width="1.5"/><text x="330" y="120" font-size="20" fill="#212529" text-anchor="middle">generátor</text></g>
+<g><rect x="284" y="270" width="91" height="32" rx="8" fill="#ffffff" stroke="#868e96" stroke-width="1.5"/><text x="330" y="292" font-size="20" fill="#212529" text-anchor="middle">turbína</text></g>
+<g><rect x="458" y="320" width="121" height="30" rx="8" fill="#ffffff" stroke="#868e96" stroke-width="1.5"/><text x="518" y="340" font-size="18" fill="#212529" text-anchor="middle">kondenzátor</text></g>
+<g><rect x="489" y="128" width="81" height="32" rx="8" fill="#ffffff" stroke="#868e96" stroke-width="1.5"/><text x="530" y="150" font-size="20" fill="#212529" text-anchor="middle">vedení</text></g>
+<g><rect x="30" y="178" width="71" height="32" rx="8" fill="#ffffff" stroke="#868e96" stroke-width="1.5"/><text x="40" y="200" font-size="20" fill="#212529" text-anchor="start">komín</text></g>
+<g><rect x="170" y="530" width="71" height="32" rx="8" fill="#ffffff" stroke="#868e96" stroke-width="1.5"/><text x="206" y="552" font-size="20" fill="#212529" text-anchor="middle">kotel</text></g>
+<g><rect x="40" y="530" width="61" height="32" rx="8" fill="#ffffff" stroke="#868e96" stroke-width="1.5"/><text x="70" y="552" font-size="20" fill="#212529" text-anchor="middle">uhlí</text></g>
+<rect x="300" y="420" width="40" height="16" rx="8" fill="#ffb3b3" stroke="#c92a2a" stroke-width="2.5"/><text x="350" y="435" font-size="20" fill="#212529" text-anchor="start">pára</text><rect x="300" y="452" width="40" height="16" rx="8" fill="#a5d8ff" stroke="#1864ab" stroke-width="2.5"/><text x="350" y="467" font-size="20" fill="#212529" text-anchor="start">voda</text>
+<rect x="22" y="582" width="556" height="46" rx="10" fill="#ffffff" stroke="#868e96" stroke-width="1.5"/>
+<text x="300" y="612" font-size="20" fill="#212529" text-anchor="middle">Hoří uhlí, pára roztáčí turbínu a generátor.</text>
+</svg>

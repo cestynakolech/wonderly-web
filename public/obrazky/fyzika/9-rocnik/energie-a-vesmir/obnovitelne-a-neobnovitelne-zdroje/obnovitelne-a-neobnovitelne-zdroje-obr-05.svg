@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Sluneční (fotovoltaická) elektrárna. Ve dne dopadá sluneční světlo na panely a ty vyrábějí elektřinu, která jde kabelem do domu. V noci Slunce nesvítí a panely elektřinu nevyrábějí.">
+<style>
+@keyframes tok { to { stroke-dashoffset: -36; } }
+@keyframes tokz { to { stroke-dashoffset: 36; } }
+.tok { stroke-dasharray: 12 24; animation: tok 1s linear infinite; }
+.tokz { stroke-dasharray: 12 24; animation: tokz 1s linear infinite; }
+@keyframes el { to { stroke-dashoffset: -18; } }
+@keyframes elz { to { stroke-dashoffset: 18; } }
+.el { stroke-dasharray: 8 10; animation: el 0.6s linear infinite; }
+.elz { stroke-dasharray: 8 10; animation: elz 0.6s linear infinite; }
+.slunce { animation: slunce 10s ease-in-out infinite; }
+@keyframes slunce { 0%, 50% { transform: translate(0, 0); } 62%, 97% { transform: translate(0, 380px); } 100% { transform: translate(0, 0); } }
+.den { animation: den 10s linear infinite; }
+@keyframes den { 0%, 52% { opacity: 1; } 56%, 97% { opacity: 0; } 100% { opacity: 1; } }
+.noc { opacity: 0; animation: noc 10s linear infinite; }
+@keyframes noc { 0%, 56% { opacity: 0; } 62%, 95% { opacity: 1; } 98%, 100% { opacity: 0; } }
+.tma { opacity: 0; animation: tma 10s linear infinite; }
+@keyframes tma { 0%, 52% { opacity: 0; } 62%, 95% { opacity: 0.5; } 100% { opacity: 0; } }
+.okno { animation: okno 10s linear infinite; }
+@keyframes okno { 0%, 54% { fill: #ffe066; } 58%, 97% { fill: #495057; } 100% { fill: #ffe066; } }
+.paprsek { stroke-dasharray: 14 16; animation: papr 0.8s linear infinite; }
+@keyframes papr { to { stroke-dashoffset: -30; } }
+/* Smyčka 10 s: den (paprsky dopadají na panely, kabelem jde elektřina, v okně svítí),
+   noc (Slunce zapadne, panely nevyrábějí, v okně je tma). Klid: den. */
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<rect x="3" y="3" width="594" height="594" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
+<text x="300.0" y="42" font-size="28" font-weight="bold" fill="#212529" text-anchor="middle">Sluneční (fotovoltaická) elektrárna</text>
+<defs><marker id="hC" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#c92a2a"/></marker><marker id="hM" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1864ab"/></marker><marker id="hZ" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#e67700"/></marker></defs>
+<rect x="18" y="62" width="564" height="520" rx="12" fill="#e7f5ff"/>
+<g class="slunce"><g transform="translate(100,120)"><g><line x1="0" y1="-30" x2="0" y2="-44" transform="rotate(0)" stroke="#f59f00" stroke-width="4" stroke-linecap="round"/><line x1="0" y1="-30" x2="0" y2="-44" transform="rotate(45)" stroke="#f59f00" stroke-width="4" stroke-linecap="round"/><line x1="0" y1="-30" x2="0" y2="-44" transform="rotate(90)" stroke="#f59f00" stroke-width="4" stroke-linecap="round"/><line x1="0" y1="-30" x2="0" y2="-44" transform="rotate(135)" stroke="#f59f00" stroke-width="4" stroke-linecap="round"/><line x1="0" y1="-30" x2="0" y2="-44" transform="rotate(180)" stroke="#f59f00" stroke-width="4" stroke-linecap="round"/><line x1="0" y1="-30" x2="0" y2="-44" transform="rotate(225)" stroke="#f59f00" stroke-width="4" stroke-linecap="round"/><line x1="0" y1="-30" x2="0" y2="-44" transform="rotate(270)" stroke="#f59f00" stroke-width="4" stroke-linecap="round"/><line x1="0" y1="-30" x2="0" y2="-44" transform="rotate(315)" stroke="#f59f00" stroke-width="4" stroke-linecap="round"/></g><circle r="26" fill="#ffd43b" stroke="#e67700" stroke-width="2.5"/></g></g>
+<g class="den"><path class="paprsek" d="M126 140 L236 318" stroke="#f59f00" stroke-width="4" stroke-linecap="round"/><path class="paprsek" d="M126 140 L356 318" stroke="#f59f00" stroke-width="4" stroke-linecap="round"/><path class="paprsek" d="M126 140 L476 318" stroke="#f59f00" stroke-width="4" stroke-linecap="round"/></g>
+<path d="M18 410 H582 V570 a12 12 0 0 1 -12 12 H30 a12 12 0 0 1 -12 -12z" fill="#b2d8a0" stroke="#2b8a3e" stroke-width="3"/>
+<path class="tma" d="M30 62 H570 a12 12 0 0 1 12 12 V410 H18 V74 a12 12 0 0 1 12 -12z" fill="#1c2541"/>
+<g class="noc"><path d="M250 90 A20 20 0 0 0 250 130 A25.0 25.0 0 0 1 250 90z" fill="#ffe066" stroke="#e67700" stroke-width="2"/></g>
+<path d="M218 404 V362 M292 404 V352" stroke="#495057" stroke-width="5"/><path d="M212 296 H304 L312 366 H200z" fill="#1864ab" stroke="#0b2f55" stroke-width="2.5"/><line x1="235" y1="296" x2="228" y2="366" stroke="#a5d8ff" stroke-width="1.5"/><line x1="258" y1="296" x2="256" y2="366" stroke="#a5d8ff" stroke-width="1.5"/><line x1="281" y1="296" x2="284" y2="366" stroke="#a5d8ff" stroke-width="1.5"/><line x1="208.0" y1="319.3" x2="306.7" y2="319.3" stroke="#a5d8ff" stroke-width="1.5"/><line x1="204.0" y1="342.7" x2="309.3" y2="342.7" stroke="#a5d8ff" stroke-width="1.5"/>
+<path d="M338 404 V362 M412 404 V352" stroke="#495057" stroke-width="5"/><path d="M332 296 H424 L432 366 H320z" fill="#1864ab" stroke="#0b2f55" stroke-width="2.5"/><line x1="355" y1="296" x2="348" y2="366" stroke="#a5d8ff" stroke-width="1.5"/><line x1="378" y1="296" x2="376" y2="366" stroke="#a5d8ff" stroke-width="1.5"/><line x1="401" y1="296" x2="404" y2="366" stroke="#a5d8ff" stroke-width="1.5"/><line x1="328.0" y1="319.3" x2="426.7" y2="319.3" stroke="#a5d8ff" stroke-width="1.5"/><line x1="324.0" y1="342.7" x2="429.3" y2="342.7" stroke="#a5d8ff" stroke-width="1.5"/>
+<path d="M458 404 V362 M532 404 V352" stroke="#495057" stroke-width="5"/><path d="M452 296 H544 L552 366 H440z" fill="#1864ab" stroke="#0b2f55" stroke-width="2.5"/><line x1="475" y1="296" x2="468" y2="366" stroke="#a5d8ff" stroke-width="1.5"/><line x1="498" y1="296" x2="496" y2="366" stroke="#a5d8ff" stroke-width="1.5"/><line x1="521" y1="296" x2="524" y2="366" stroke="#a5d8ff" stroke-width="1.5"/><line x1="448.0" y1="319.3" x2="546.7" y2="319.3" stroke="#a5d8ff" stroke-width="1.5"/><line x1="444.0" y1="342.7" x2="549.3" y2="342.7" stroke="#a5d8ff" stroke-width="1.5"/>
+<path d="M218 404 V426 H140 V470 M338 404 V426 H218 M458 404 V426 H338" fill="none" stroke="#495057" stroke-width="3"/>
+<g class="den"><path class="el" d="M458 426 H218" fill="none" stroke="#f59f00" stroke-width="4" stroke-linecap="round"/><path class="el" d="M218 404 V426 H140 V470" fill="none" stroke="#f59f00" stroke-width="4" stroke-linecap="round"/></g>
+<path d="M60 520 V470 L110 432 L160 470 V520z" fill="#fff4e6" stroke="#495057" stroke-width="2.5"/><path d="M50 474 L110 426 L170 474" fill="none" stroke="#c92a2a" stroke-width="6" stroke-linejoin="round"/><rect class="okno" x="96" y="478" width="28" height="24" fill="#ffe066" stroke="#495057" stroke-width="2"/>
+<g><rect x="268" y="430" width="224" height="32" rx="8" fill="#ffffff" stroke="#868e96" stroke-width="1.5"/><text x="380" y="452" font-size="20" fill="#212529" text-anchor="middle">fotovoltaické panely</text></g>
+<rect x="330" y="76" width="244" height="74" rx="12" fill="#ffffff" stroke="#868e96" stroke-width="2"/>
+<g class="den"><g transform="translate(358,113)"><g><line x1="0" y1="-15" x2="0" y2="-26" transform="rotate(0)" stroke="#f59f00" stroke-width="3" stroke-linecap="round"/><line x1="0" y1="-15" x2="0" y2="-26" transform="rotate(45)" stroke="#f59f00" stroke-width="3" stroke-linecap="round"/><line x1="0" y1="-15" x2="0" y2="-26" transform="rotate(90)" stroke="#f59f00" stroke-width="3" stroke-linecap="round"/><line x1="0" y1="-15" x2="0" y2="-26" transform="rotate(135)" stroke="#f59f00" stroke-width="3" stroke-linecap="round"/><line x1="0" y1="-15" x2="0" y2="-26" transform="rotate(180)" stroke="#f59f00" stroke-width="3" stroke-linecap="round"/><line x1="0" y1="-15" x2="0" y2="-26" transform="rotate(225)" stroke="#f59f00" stroke-width="3" stroke-linecap="round"/><line x1="0" y1="-15" x2="0" y2="-26" transform="rotate(270)" stroke="#f59f00" stroke-width="3" stroke-linecap="round"/><line x1="0" y1="-15" x2="0" y2="-26" transform="rotate(315)" stroke="#f59f00" stroke-width="3" stroke-linecap="round"/></g><circle r="11" fill="#ffd43b" stroke="#e67700" stroke-width="2.5"/></g><text x="386" y="107" font-size="20" font-weight="bold" fill="#c92a2a" text-anchor="start">DEN</text><text x="386" y="133" font-size="18" fill="#212529" text-anchor="start">panely vyrábějí</text></g>
+<g class="noc"><path d="M358 97 A16 16 0 0 0 358 129 A20.0 20.0 0 0 1 358 97z" fill="#ffe066" stroke="#e67700" stroke-width="2"/><text x="386" y="107" font-size="20" font-weight="bold" fill="#1864ab" text-anchor="start">NOC</text><text x="386" y="133" font-size="18" fill="#212529" text-anchor="start">panely nevyrábějí</text></g>
+<rect x="186" y="530" width="392" height="44" rx="10" fill="#ffffff" stroke="#868e96" stroke-width="1.5"/>
+<text x="382" y="559" font-size="20" fill="#212529" text-anchor="middle">Panely mění světlo na elektřinu.</text>
+</svg>

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 700" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Geotermální elektrárna. Horká pára stoupá vrtem z hloubky, roztáčí turbínu a ta generátor, elektřina jde do vedení. V kondenzátoru se pára mění na vodu a ta se druhým vrtem vrací pod zem.">
+<style>
+@keyframes rot { to { transform: rotate(360deg); } }
+@keyframes rotz { to { transform: rotate(-360deg); } }
+.rot { animation: rot 1.6s linear infinite; }
+@keyframes tok { to { stroke-dashoffset: -36; } }
+@keyframes tokz { to { stroke-dashoffset: 36; } }
+.tok { stroke-dasharray: 12 24; animation: tok 1s linear infinite; }
+.tokz { stroke-dasharray: 12 24; animation: tokz 1s linear infinite; }
+@keyframes el { to { stroke-dashoffset: -18; } }
+@keyframes elz { to { stroke-dashoffset: 18; } }
+.el { stroke-dasharray: 8 10; animation: el 0.6s linear infinite; }
+.elz { stroke-dasharray: 8 10; animation: elz 0.6s linear infinite; }
+.tepl { animation: tepl 1.2s ease-in-out infinite alternate; }
+@keyframes tepl { to { transform: translateX(7px); } }
+.teplz { animation: teplz 1.2s ease-in-out infinite alternate; }
+@keyframes teplz { to { transform: translateX(-7px); } }
+.ven { animation: ven 1.2s ease-in-out infinite alternate; }
+@keyframes ven { to { transform: translateX(7px); } }
+.venz { animation: venz 1.2s ease-in-out infinite alternate; }
+@keyframes venz { to { transform: translateX(-7px); } }
+/* Překresleno podle schématu geotermální elektrárny v předloze: vrt s párou vlevo, turbína
+   a generátor nahoře, stožár vedení, kondenzátor, voda zpět do země vrtem vpravo. */
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<rect x="3" y="3" width="594" height="694" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
+<text x="300.0" y="42" font-size="28" font-weight="bold" fill="#212529" text-anchor="middle">Geotermální elektrárna</text>
+<defs><marker id="hC" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#c92a2a"/></marker><marker id="hM" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1864ab"/></marker><marker id="hZ" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#e67700"/></marker></defs>
+<rect x="18" y="62" width="564" height="620" rx="12" fill="#dbeaf0"/>
+<path d="M18 404 q 20 -8 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 44 0 V670 a12 12 0 0 1 -12 12 H30 a12 12 0 0 1 -12 -12z" fill="#dcc1b6" stroke="#8c6d62" stroke-width="2"/>
+<g stroke="#495057" stroke-width="2.5" fill="none" stroke-linecap="round"><path d="M94 236 L107 106 M126 236 L113 106"/><path d="M94.0 236.0 L123.8 214.3 M126.0 236.0 L96.2 214.3"/><path d="M96.2 214.3 L121.7 192.7 M123.8 214.3 L98.3 192.7"/><path d="M98.3 192.7 L119.5 171.0 M121.7 192.7 L100.5 171.0"/><path d="M100.5 171.0 L117.3 149.3 M119.5 171.0 L102.7 149.3"/><path d="M102.7 149.3 L115.2 127.7 M117.3 149.3 L104.8 127.7"/><path d="M104.8 127.7 L113.0 106.0 M115.2 127.7 L107.0 106.0"/><path d="M84 120 H136 M90 138 H130 M107 106 L110 98 L113 106"/></g><rect x="82" y="120" width="4" height="8" fill="#495057"/><rect x="134" y="120" width="4" height="8" fill="#495057"/><rect x="88" y="138" width="4" height="8" fill="#495057"/><rect x="128" y="138" width="4" height="8" fill="#495057"/>
+<g fill="none" stroke="#495057" stroke-width="1.8"><path d="M18 128 Q 60 140 84 120"/><path d="M136 120 Q 200 150 262 178"/><path d="M130 138 Q 200 175 262 194"/></g>
+<path class="el" d="M262 178 Q 200 150 136 120" fill="none" stroke="#f59f00" stroke-width="3" stroke-linecap="round"/>
+<path d="M150 660 V300 Q150 256 194 256 H408" fill="none" stroke="#c92a2a" stroke-width="26" stroke-linejoin="round"/><path d="M150 660 V300 Q150 256 194 256 H408" fill="none" stroke="#ffb3b3" stroke-width="19" stroke-linejoin="round"/>
+<path class="tok" d="M150 655 V300 Q150 256 194 256 H400" fill="none" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/>
+<path d="M430 214 V96" fill="none" stroke="#c92a2a" stroke-width="20" stroke-linejoin="round"/><path d="M430 214 V96" fill="none" stroke="#ffb3b3" stroke-width="13" stroke-linejoin="round"/>
+<path d="M418 100 L430 78 L442 100z" fill="#c92a2a"/>
+<path class="tok" d="M430 210 V104" fill="none" stroke="#c92a2a" stroke-width="3" stroke-linecap="round"/>
+<path d="M452 300 H470 Q490 300 490 322 V660" fill="none" stroke="#1864ab" stroke-width="26" stroke-linejoin="round"/><path d="M452 300 H470 Q490 300 490 322 V660" fill="none" stroke="#a5d8ff" stroke-width="19" stroke-linejoin="round"/>
+<path class="tok" d="M456 300 H470 Q490 300 490 322 V655" fill="none" stroke="#1864ab" stroke-width="4" stroke-linecap="round"/>
+<rect x="404" y="206" width="52" height="112" rx="10" fill="#d0ebff" stroke="#495057" stroke-width="2.5"/><path d="M406 216 H430 V308 H406z" fill="#ffc9c9"/><rect x="420" y="222" width="22" height="7" rx="3" fill="#ffffff"/><rect x="420" y="237" width="22" height="7" rx="3" fill="#ffffff"/><rect x="420" y="252" width="22" height="7" rx="3" fill="#ffffff"/><rect x="420" y="267" width="22" height="7" rx="3" fill="#ffffff"/><rect x="420" y="282" width="22" height="7" rx="3" fill="#ffffff"/><rect x="420" y="297" width="22" height="7" rx="3" fill="#ffffff"/>
+<g><rect x="456" y="248" width="121" height="30" rx="8" fill="#ffffff" stroke="#868e96" stroke-width="1.5"/><text x="466" y="268" font-size="18" fill="#212529" text-anchor="start">kondenzátor</text></g>
+<line x1="290" y1="204" x2="290" y2="232" stroke="#212529" stroke-width="4"/>
+<rect x="260.0" y="161.0" width="60" height="46" rx="8" fill="#ffffff" stroke="#212529" stroke-width="3"/><circle cx="290" cy="184" r="17.0" fill="#fff9db" stroke="#212529" stroke-width="2"/><path d="M277.0 184 q 6.5 -15.3 13.0 0 t 13.0 0" fill="none" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<g transform="translate(290,256)"><circle r="26" fill="#ffffff" stroke="#212529" stroke-width="3"/><g class="rot"><path d="M0 0 Q 14.3 -3.9 22.1 -13.0" transform="rotate(0)" fill="none" stroke="#212529" stroke-width="3" stroke-linecap="round"/><path d="M0 0 Q 14.3 -3.9 22.1 -13.0" transform="rotate(60)" fill="none" stroke="#212529" stroke-width="3" stroke-linecap="round"/><path d="M0 0 Q 14.3 -3.9 22.1 -13.0" transform="rotate(120)" fill="none" stroke="#212529" stroke-width="3" stroke-linecap="round"/><path d="M0 0 Q 14.3 -3.9 22.1 -13.0" transform="rotate(180)" fill="none" stroke="#212529" stroke-width="3" stroke-linecap="round"/><path d="M0 0 Q 14.3 -3.9 22.1 -13.0" transform="rotate(240)" fill="none" stroke="#212529" stroke-width="3" stroke-linecap="round"/><path d="M0 0 Q 14.3 -3.9 22.1 -13.0" transform="rotate(300)" fill="none" stroke="#212529" stroke-width="3" stroke-linecap="round"/></g><circle r="4" fill="#212529"/></g>
+<g><rect x="234" y="128" width="112" height="32" rx="8" fill="#ffffff" stroke="#868e96" stroke-width="1.5"/><text x="290" y="150" font-size="20" fill="#212529" text-anchor="middle">generátor</text></g>
+<g><rect x="244" y="292" width="91" height="32" rx="8" fill="#ffffff" stroke="#868e96" stroke-width="1.5"/><text x="290" y="314" font-size="20" fill="#212529" text-anchor="middle">turbína</text></g>
+<path d="M132 380 L168 404 L168 380 L132 404z" fill="#868e96" stroke="#212529" stroke-width="2"/><path d="M472 380 L508 404 L508 380 L472 404z" fill="#868e96" stroke="#212529" stroke-width="2"/>
+<g><rect x="168" y="364" width="112" height="32" rx="8" fill="#ffffff" stroke="#868e96" stroke-width="1.5"/><text x="178" y="386" font-size="20" fill="#212529" text-anchor="start">ústí vrtu</text></g>
+<g><rect x="360" y="364" width="112" height="32" rx="8" fill="#ffffff" stroke="#868e96" stroke-width="1.5"/><text x="462" y="386" font-size="20" fill="#212529" text-anchor="end">ústí vrtu</text></g>
+<text x="300" y="444" font-size="20" fill="#212529" text-anchor="middle">povrch země</text>
+<g stroke="#c92a2a" stroke-width="3" fill="none"><g class="tepl"><path d="M72 580 H124" marker-end="url(#hC)"/></g><g class="teplz"><path d="M228 580 H176" marker-end="url(#hC)"/></g><g class="tepl"><path d="M72 594 H124" marker-end="url(#hC)"/></g><g class="teplz"><path d="M228 594 H176" marker-end="url(#hC)"/></g><g class="tepl"><path d="M72 608 H124" marker-end="url(#hC)"/></g><g class="teplz"><path d="M228 608 H176" marker-end="url(#hC)"/></g><g class="tepl"><path d="M72 622 H124" marker-end="url(#hC)"/></g><g class="teplz"><path d="M228 622 H176" marker-end="url(#hC)"/></g><g class="tepl"><path d="M72 636 H124" marker-end="url(#hC)"/></g><g class="teplz"><path d="M228 636 H176" marker-end="url(#hC)"/></g><g class="tepl"><path d="M72 650 H124" marker-end="url(#hC)"/></g><g class="teplz"><path d="M228 650 H176" marker-end="url(#hC)"/></g></g>
+<g stroke="#1864ab" stroke-width="3" fill="none"><g class="venz"><path d="M478 580 H418" marker-end="url(#hM)"/></g><g class="ven"><path d="M502 580 H562" marker-end="url(#hM)"/></g><g class="venz"><path d="M478 594 H418" marker-end="url(#hM)"/></g><g class="ven"><path d="M502 594 H562" marker-end="url(#hM)"/></g><g class="venz"><path d="M478 608 H418" marker-end="url(#hM)"/></g><g class="ven"><path d="M502 608 H562" marker-end="url(#hM)"/></g><g class="venz"><path d="M478 622 H418" marker-end="url(#hM)"/></g><g class="ven"><path d="M502 622 H562" marker-end="url(#hM)"/></g><g class="venz"><path d="M478 636 H418" marker-end="url(#hM)"/></g><g class="ven"><path d="M502 636 H562" marker-end="url(#hM)"/></g><g class="venz"><path d="M478 650 H418" marker-end="url(#hM)"/></g><g class="ven"><path d="M502 650 H562" marker-end="url(#hM)"/></g></g>
+<g><rect x="285" y="504" width="193" height="32" rx="8" fill="#ffffff" stroke="#868e96" stroke-width="1.5"/><text x="468" y="526" font-size="20" fill="#212529" text-anchor="end">voda zpět pod zem</text></g>
+<g><rect x="166" y="504" width="122" height="32" rx="8" fill="#ffffff" stroke="#868e96" stroke-width="1.5"/><text x="176" y="526" font-size="20" fill="#212529" text-anchor="start">horká pára</text></g>
+<rect x="262" y="604" width="40" height="16" rx="8" fill="#ffb3b3" stroke="#c92a2a" stroke-width="2.5"/><text x="312" y="619" font-size="20" fill="#212529" text-anchor="start">pára</text><rect x="262" y="636" width="40" height="16" rx="8" fill="#a5d8ff" stroke="#1864ab" stroke-width="2.5"/><text x="312" y="651" font-size="20" fill="#212529" text-anchor="start">voda</text>
+</svg>

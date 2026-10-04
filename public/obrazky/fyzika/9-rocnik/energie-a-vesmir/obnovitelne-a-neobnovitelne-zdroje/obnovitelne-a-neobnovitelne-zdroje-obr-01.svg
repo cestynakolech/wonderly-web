@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 660" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Dva druhy zdrojů energie. Obnovitelné: slunce, vítr, voda, geotermální teplo, biomasa a vodík – stále se obnovují, jejich zásoba se doplní. Neobnovitelné: uhlí, ropa, zemní plyn, ropné břidlice a písky a jaderné palivo – je jich jen omezené množství a zásoba časem dojde.">
+<style>
+.zasA { transform-origin: 490px 292px; animation: zasA 10s ease-in-out infinite; }
+@keyframes zasA { 0% { transform: scaleY(1); } 35% { transform: scaleY(0.3); } 75%, 100% { transform: scaleY(1); } }
+.zasB { transform-origin: 490px 580px; transform: scaleY(0.1); animation: zasB 10s ease-in-out infinite; }
+@keyframes zasB { 0% { transform: scaleY(1); opacity: 0; } 4% { opacity: 1; } 85%, 100% { transform: scaleY(0.1); opacity: 1; } }
+/* Smyčka 10 s: zásoba obnovitelného zdroje ubude a zase se doplní; zásoba neobnovitelného
+   jen ubývá (na konci smyčky se znovu objeví plná). Klid: obnovitelná plná, neobnovitelná skoro prázdná. */
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<rect x="3" y="3" width="594" height="654" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
+<text x="300.0" y="42" font-size="28" font-weight="bold" fill="#212529" text-anchor="middle">Dva druhy zdrojů energie</text>
+<defs><marker id="hC" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#c92a2a"/></marker><marker id="hM" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1864ab"/></marker><marker id="hZ" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#e67700"/></marker></defs>
+<rect x="22" y="64" width="556" height="272" rx="12" fill="#ebfbee" stroke="#2b8a3e" stroke-width="2.5"/>
+<text x="42" y="98" font-size="24" font-weight="bold" fill="#2b6a35" text-anchor="start">Obnovitelné zdroje</text>
+<text x="42" y="128" font-size="20" fill="#212529" text-anchor="start">stále se obnovují a doplňují</text>
+<g transform="translate(100,178)"><g><line x1="0" y1="-19" x2="0" y2="-31" transform="rotate(0)" stroke="#f59f00" stroke-width="3" stroke-linecap="round"/><line x1="0" y1="-19" x2="0" y2="-31" transform="rotate(45)" stroke="#f59f00" stroke-width="3" stroke-linecap="round"/><line x1="0" y1="-19" x2="0" y2="-31" transform="rotate(90)" stroke="#f59f00" stroke-width="3" stroke-linecap="round"/><line x1="0" y1="-19" x2="0" y2="-31" transform="rotate(135)" stroke="#f59f00" stroke-width="3" stroke-linecap="round"/><line x1="0" y1="-19" x2="0" y2="-31" transform="rotate(180)" stroke="#f59f00" stroke-width="3" stroke-linecap="round"/><line x1="0" y1="-19" x2="0" y2="-31" transform="rotate(225)" stroke="#f59f00" stroke-width="3" stroke-linecap="round"/><line x1="0" y1="-19" x2="0" y2="-31" transform="rotate(270)" stroke="#f59f00" stroke-width="3" stroke-linecap="round"/><line x1="0" y1="-19" x2="0" y2="-31" transform="rotate(315)" stroke="#f59f00" stroke-width="3" stroke-linecap="round"/></g><circle r="15" fill="#ffd43b" stroke="#e67700" stroke-width="2.5"/></g>
+<text x="100" y="222" font-size="18" fill="#212529" text-anchor="middle">slunce</text>
+<g fill="none" stroke="#1864ab" stroke-width="3.5" stroke-linecap="round"><path d="M197 168 H231 q 12 0 12 -9 q 0 -10 -10 -10 q -8 0 -9 7"/><path d="M197 180 H243 q 11 0 11 9 q 0 10 -10 10 q -8 0 -9 -7"/><path d="M203 192 H223"/></g>
+<text x="225" y="222" font-size="18" fill="#212529" text-anchor="middle">vítr</text>
+<g fill="none" stroke="#1864ab" stroke-width="3.5" stroke-linecap="round"><path d="M317 166 q 7 -8 14 0 t 14 0 t 14 0 t 14 0"/><path d="M317 178 q 7 -8 14 0 t 14 0 t 14 0 t 14 0"/><path d="M317 190 q 7 -8 14 0 t 14 0 t 14 0 t 14 0"/></g>
+<text x="345" y="222" font-size="18" fill="#212529" text-anchor="middle">voda</text>
+<rect x="72" y="262" width="56" height="24" rx="4" fill="#d9b99b" stroke="#7f5539" stroke-width="2"/><g fill="none" stroke="#c92a2a" stroke-width="3.5" stroke-linecap="round"><path d="M90 280 q -6 -8 0 -16 t 0 -16 t 0 -10" marker-end="url(#hC)"/><path d="M110 280 q -6 -8 0 -16 t 0 -16 t 0 -10" marker-end="url(#hC)"/></g>
+<text x="100" y="308" font-size="18" fill="#212529" text-anchor="middle">geotermální</text>
+<rect x="221" y="262" width="8" height="26" fill="#8d5524" stroke="#5c3317" stroke-width="1.5"/><g fill="#51cf66" stroke="#2b8a3e" stroke-width="2"><circle cx="214" cy="260" r="11"/><circle cx="236" cy="260" r="11"/><circle cx="225" cy="249" r="13"/></g>
+<text x="225" y="308" font-size="18" fill="#212529" text-anchor="middle">biomasa</text>
+<circle cx="345" cy="264" r="23" fill="#e7f5ff" stroke="#1864ab" stroke-width="2.5"/><text x="345" y="271" font-size="20" font-weight="bold" fill="#1864ab" text-anchor="middle">H₂</text>
+<text x="345" y="308" font-size="18" fill="#212529" text-anchor="middle">vodík</text>
+<text x="490" y="160" font-size="20" font-weight="bold" fill="#212529" text-anchor="middle">zásoba</text>
+<rect x="452" y="172" width="76" height="126" rx="6" fill="#ffffff" stroke="#212529" stroke-width="2.5"/>
+<rect class="zasA" x="456" y="176" width="68" height="116" rx="3" fill="#fab005"/>
+<text x="490" y="322" font-size="20" font-weight="bold" fill="#2b6a35" text-anchor="middle">doplní se</text>
+<rect x="22" y="352" width="556" height="272" rx="12" fill="#fff5f5" stroke="#c92a2a" stroke-width="2.5"/>
+<text x="42" y="386" font-size="24" font-weight="bold" fill="#c92a2a" text-anchor="start">Neobnovitelné zdroje</text>
+<text x="42" y="416" font-size="20" fill="#212529" text-anchor="start">jen omezené množství, časem dojdou</text>
+<g fill="#343a40" stroke="#000000" stroke-width="1.2"><path d="M72 484 l 3 -11 l 9 -3 l 8 6 l -2 9 z"/><path d="M90 486 l 3 -11 l 9 -3 l 8 6 l -2 9 z"/><path d="M108 484 l 3 -11 l 9 -3 l 8 6 l -2 9 z"/><path d="M81 472 l 3 -11 l 9 -3 l 8 6 l -2 9 z"/><path d="M99 472 l 3 -11 l 9 -3 l 8 6 l -2 9 z"/><path d="M90 460 l 3 -11 l 9 -3 l 8 6 l -2 9 z"/></g>
+<text x="100" y="510" font-size="18" fill="#212529" text-anchor="middle">uhlí</text>
+<rect x="208" y="442" width="34" height="48" rx="5" fill="#495057" stroke="#212529" stroke-width="2"/><path d="M208 456 H242 M208 476 H242" stroke="#ced4da" stroke-width="2.5"/><ellipse cx="225" cy="442" rx="17" ry="4" fill="#343a40" stroke="#212529" stroke-width="2"/><path d="M253 460 q 7 10 0 14 q -7 -4 0 -14z" fill="#212529"/>
+<text x="225" y="510" font-size="18" fill="#212529" text-anchor="middle">ropa</text>
+<ellipse cx="345" cy="486" rx="24" ry="6" fill="#adb5bd" stroke="#495057" stroke-width="2"/><path d="M345 442 q 18 18 14 32 q -4 12 -14 12 q -10 0 -14 -12 q -4 -14 14 -32z" fill="#74c0fc" stroke="#1864ab" stroke-width="2"/><path d="M345 462 q 9 9 6 17 q -2 6 -6 6 q -4 0 -6 -6 q -3 -8 6 -17z" fill="#d0ebff"/>
+<text x="345" y="510" font-size="18" fill="#212529" text-anchor="middle">zemní plyn</text>
+<path d="M78 530 q 16 -4 32 0 t 32 0 v 9 q -16 -4 -32 0 t -32 0z" fill="#868e96" stroke="#495057" stroke-width="1"/><path d="M78 539 q 16 -4 32 0 t 32 0 v 9 q -16 -4 -32 0 t -32 0z" fill="#ffe8a1" stroke="#495057" stroke-width="1"/><path d="M78 548 q 16 -4 32 0 t 32 0 v 9 q -16 -4 -32 0 t -32 0z" fill="#495057" stroke="#495057" stroke-width="1"/><path d="M78 557 q 16 -4 32 0 t 32 0 v 9 q -16 -4 -32 0 t -32 0z" fill="#ced4da" stroke="#495057" stroke-width="1"/><path d="M78 566 q 16 -4 32 0 t 32 0 v 9 q -16 -4 -32 0 t -32 0z" fill="#ffe8a1" stroke="#495057" stroke-width="1"/>
+<text x="110" y="596" font-size="18" fill="#212529" text-anchor="middle">břidlice a písky</text>
+<rect x="281" y="526" width="18" height="52" rx="4" fill="#e9ecef" stroke="#212529" stroke-width="2"/><rect x="284" y="530" width="12" height="10" rx="2" fill="#495057"/><rect x="284" y="542" width="12" height="10" rx="2" fill="#495057"/><rect x="284" y="554" width="12" height="10" rx="2" fill="#495057"/><rect x="284" y="566" width="12" height="10" rx="2" fill="#495057"/><rect x="306" y="560" width="12" height="14" rx="2" fill="#495057" stroke="#212529" stroke-width="1.5"/><ellipse cx="312" cy="560" rx="6" ry="2.5" fill="#868e96" stroke="#212529" stroke-width="1.2"/>
+<text x="290" y="596" font-size="18" fill="#212529" text-anchor="middle">jaderné palivo</text>
+<text x="490" y="448" font-size="20" font-weight="bold" fill="#212529" text-anchor="middle">zásoba</text>
+<rect x="452" y="460" width="76" height="126" rx="6" fill="#ffffff" stroke="#212529" stroke-width="2.5"/>
+<rect class="zasB" x="456" y="464" width="68" height="116" rx="3" fill="#fab005"/>
+<text x="490" y="610" font-size="20" font-weight="bold" fill="#c92a2a" text-anchor="middle">dojde</text>
+</svg>
