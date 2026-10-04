@@ -76,11 +76,11 @@ for (const [t, m] of M) ok(blizko(stav(t).m, m, 0.001), `t = ${t} s: proměna š
 const POPISKY = [
 	[0, 'Šipka ukazuje', 'směr proudu ve vodiči.', false], [1.99, 'Šipka ukazuje', 'směr proudu ve vodiči.', false],
 	[2, 'Šipka se mění v šíp:', 'hrot vpředu, opeření vzadu.', false],
-	[3, 'Šíp i vodič se otáčejí…', 'hrot míří k nám.', false], [4.99, 'Šíp i vodič se otáčejí…', 'hrot míří k nám.', false],
+	[3, 'Šíp i vodič se otáčejí…', 'hrot se stáčí k nám.', false], [4.99, 'Šíp i vodič se otáčejí…', 'hrot se stáčí k nám.', false],
 	[5, 'proud teče k nám', 'hrot = tečka v kolečku', true], [7.49, 'proud teče k nám', 'hrot = tečka v kolečku', true],
-	[7.5, 'Šíp i vodič se otáčejí…', 'hrot míří od nás.', false],
+	[7.5, 'Šíp i vodič se otáčejí…', 'hrot se stáčí od nás.', false],
 	[10, 'proud teče od nás', 'opeření = křížek v kolečku', true], [12.49, 'proud teče od nás', 'opeření = křížek v kolečku', true],
-	[12.5, 'Návrat na začátek…', 'šíp se mění zpět v šipku.', false], [13.99, 'Návrat na začátek…', 'šíp se mění zpět v šipku.', false],
+	[12.5, 'Návrat na začátek…', 'šíp se vrací zpět.', false], [13.99, 'Návrat na začátek…', 'šíp se vrací zpět.', false],
 ];
 for (const [t, r1, r2, v] of POPISKY) {
 	const f = stav(t).faze;
@@ -226,6 +226,44 @@ const OCEK = ['Šipka ukazuje', 'Šipka ukazuje', 'Šipka se mění v šíp:', '
 for (let k = 0; k <= 14; k++) {
 	A.posun(k);
 	ok(pop().includes('>' + OCEK[k] + '<') && A.el('zp-out-cas').textContent === (k % 14) + ' s', `posuvník ${k} s: „${OCEK[k]}"`);
+}
+
+// ---------- namluvené vysvětlení: tlačítko, zvuk řídí čas animace ----------
+console.log('— zvuk —');
+{
+	const Z = spust();
+	const au = Z.el('zp-audio');
+	let hrano = 0, pauz = 0;
+	au.play = () => { hrano++; return Promise.resolve(); };
+	au.pause = () => { pauz++; };
+	const popZ = () => Z.el('zp-popisky').innerHTML;
+	ok(hrano === 0, 'bez kliknutí se zvuk sám nepřehrává');
+	ok(/id="zp-zvuk" aria-pressed="false">▶ Poslechni si vysvětlení<\/button>/.test(zdroj), 'tlačítko „▶ Poslechni si vysvětlení", aria-pressed = false');
+	ok(/id="zp-zvuk"[^>]*aria-pressed/.test(zdroj) && /role="status"/.test(zdroj) && /<summary>Text namluveného vysvětlení/.test(zdroj), 'přístupnost: aria-pressed, role=status, text vysvětlení pro neslyšící');
+	ok(/preload="none"/.test(zdroj) && !/autoplay/.test(zdroj), 'audio bez preload a bez autoplay');
+	Z.nastavCas(9000); Z.krok(); // animace běží po hodinách někde uprostřed
+	au.currentTime = 7;
+	Z.klik('zp-zvuk');
+	ok(hrano === 1 && au.currentTime === 0, 'klik spustí zvuk od začátku (play 1×, currentTime 0)');
+	ok(/Šipka ukazuje</.test(popZ()) && Z.el('zp-cas').value === '0', 'klik vrátí animaci na začátek (0 s)');
+	ok(Z.el('zp-zvuk').textContent === '⏹ Zastavit vysvětlení' && Z.el('zp-zvuk').atributy['aria-pressed'] === 'true', 'za hraní: „⏹ Zastavit vysvětlení", aria-pressed = true');
+	au.currentTime = 6.2; Z.nastavCas(9500); Z.krok();
+	ok(/proud teče k nám/.test(popZ()) && Z.el('zp-cas').value === '6', 'čas animace určuje zvuk (6,2 s → „proud teče k nám")');
+	au.currentTime = 10.4; Z.nastavCas(9600); Z.krok();
+	ok(/proud teče od nás/.test(popZ()) && Z.el('zp-cas').value === '10', 'čas animace určuje zvuk (10,4 s → „proud teče od nás")');
+	Z.klik('zp-zvuk');
+	ok(pauz === 1 && Z.el('zp-zvuk').textContent === '▶ Poslechni si vysvětlení', 'druhý klik zvuk zastaví');
+	Z.klik('zp-zvuk');
+	Z.klik('zp-k-nam');
+	ok(pauz === 2 && Z.el('zp-zvuk').textContent === '▶ Poslechni si vysvětlení', 'ruční ovládání animace zvuk zastaví');
+	Z.klik('zp-zvuk');
+	Z.el('zp-audio').posluchaci.ended.forEach((f) => f());
+	ok(Z.el('zp-zvuk').textContent === '▶ Poslechni si vysvětlení' && hrano === 3, 'po dohrání se tlačítko vrátí');
+	Z.klik('zp-zvuk');
+	au.play = () => Promise.reject(new Error('blokováno'));
+	Z.klik('zp-zvuk'); Z.klik('zp-zvuk');
+	await new Promise((r) => setTimeout(r, 0));
+	ok(Z.el('zp-stav').textContent === 'Zvuk se nepodařilo přehrát.', 'selhání přehrání: hláška, tlačítko se vrátí');
 }
 
 // ---------- prefers-reduced-motion ----------

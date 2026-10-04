@@ -22,6 +22,11 @@
 		<button type="button" class="zp-tl" id="zp-k-nam">⊙ proud k nám</button>
 		<button type="button" class="zp-tl" id="zp-od-nas">⊗ proud od nás</button>
 	</p>
+	<p>
+		<button type="button" class="zp-tl" id="zp-zvuk" aria-pressed="false">▶ Poslechni si vysvětlení</button>
+		<span id="zp-stav" role="status" class="zp-stav"></span>
+	</p>
+	<audio id="zp-audio" preload="none" src="/media/fyzika/9-rocnik/magneticke-pole/magneticke-pole-vodice-a-civky/sip-proud-vysvetleni.mp3"></audio>
 	<svg id="zp-svg" viewBox="0 0 480 440" role="img" aria-label="Animace: nad vodorovným vodičem je šipka se směrem proudu, ta se promění v šíp s hrotem vpředu a opeřením vzadu. Šíp i vodič se spolu otočí hrotem k nám: hrot šípu je vidět jako tečka v kolečku a průřez vodiče má stejnou značku, proud teče k nám. Pak se otočí od nás: opeření je vidět jako křížek v kolečku a vodič má křížek, proud teče od nás.">
 		<rect x="0" y="0" width="480" height="440" fill="#f8f9fa" />
 		<g id="zp-sip"></g>
@@ -33,6 +38,10 @@
 		Čas animace: <output id="zp-out-cas"></output>
 		<input type="range" id="zp-cas" min="0" max="14" step="1" value="0" />
 	</label>
+	<details class="zp-text">
+		<summary>Text namluveného vysvětlení</summary>
+		<p>Šipka ukazuje směr proudu. Jako šíp. Otočíme šíp hrotem k nám. Hrot je tečka v kolečku. Proud míří k nám. Teď hrotem od nás. Opeření je křížek v kolečku. Proud teče od nás. A zase zpátky.</p>
+	</details>
 </section>
 
 <script>
@@ -42,11 +51,11 @@
 	const FAZE = [
 		{ od: 0, do: 2, r1: 'Šipka ukazuje', r2: 'směr proudu ve vodiči.' },
 		{ od: 2, do: 3, r1: 'Šipka se mění v šíp:', r2: 'hrot vpředu, opeření vzadu.' },
-		{ od: 3, do: 5, r1: 'Šíp i vodič se otáčejí…', r2: 'hrot míří k nám.' },
+		{ od: 3, do: 5, r1: 'Šíp i vodič se otáčejí…', r2: 'hrot se stáčí k nám.' },
 		{ od: 5, do: 7.5, r1: 'proud teče k nám', r2: 'hrot = tečka v kolečku', vysledek: true },
-		{ od: 7.5, do: 10, r1: 'Šíp i vodič se otáčejí…', r2: 'hrot míří od nás.' },
+		{ od: 7.5, do: 10, r1: 'Šíp i vodič se otáčejí…', r2: 'hrot se stáčí od nás.' },
 		{ od: 10, do: 12.5, r1: 'proud teče od nás', r2: 'opeření = křížek v kolečku', vysledek: true },
-		{ od: 12.5, do: 14, r1: 'Návrat na začátek…', r2: 'šíp se mění zpět v šipku.' },
+		{ od: 12.5, do: 14, r1: 'Návrat na začátek…', r2: 'šíp se vrací zpět.' },
 	];
 
 	const D = 800;                       // vzdálenost kamery od středu tělesa
@@ -217,6 +226,9 @@
 	const posuvnik = document.getElementById('zp-cas');
 	const vystupCasu = document.getElementById('zp-out-cas');
 	const tlHraj = document.getElementById('zp-hraj');
+	const tlZvuk = document.getElementById('zp-zvuk');
+	const zvuk = document.getElementById('zp-audio');
+	const stavZvuku = document.getElementById('zp-stav');
 
 	function vykresli(t) {
 		const s = stav(t);
@@ -244,16 +256,60 @@
 	let hraje = !omezitPohyb;
 	let tPauza = 0;
 	let zacatek = null;
+	let zvukHraje = false;
 
 	function smycka() {
 		if (!hraje) return;
 		const ted = performance.now();
-		if (zacatek === null) zacatek = ted - tPauza * 1000;
-		tPauza = (((ted - zacatek) / 1000) % DELKA);
+		if (zvukHraje) {
+			// zvuk řídí čas animace: obraz a řeč jsou tak vždy přesně spolu
+			tPauza = Math.min(zvuk.currentTime, DELKA - 0.001);
+		} else {
+			if (zacatek === null) zacatek = ted - tPauza * 1000;
+			tPauza = (((ted - zacatek) / 1000) % DELKA);
+		}
 		vykresli(tPauza);
 		requestAnimationFrame(smycka);
 	}
+	function zvukSkonci(zprava) {
+		zvukHraje = false;
+		tlZvuk.textContent = '▶ Poslechni si vysvětlení';
+		tlZvuk.setAttribute('aria-pressed', 'false');
+		stavZvuku.textContent = zprava || '';
+	}
+	function zastavZvuk() {
+		if (!zvukHraje) return;
+		zvuk.pause();
+		zvukSkonci('');
+	}
+	function spustZvuk() {
+		zvukHraje = true;
+		tlZvuk.textContent = '⏹ Zastavit vysvětlení';
+		tlZvuk.setAttribute('aria-pressed', 'true');
+		stavZvuku.textContent = 'Vysvětlení hraje.';
+		zvuk.currentTime = 0;
+		const rozjed = !hraje;
+		hraje = true;
+		zacatek = null;
+		tPauza = 0;
+		tlHraj.textContent = '⏸ Zastavit';
+		vykresli(0);
+		if (rozjed) requestAnimationFrame(smycka);
+		const slib = zvuk.play();
+		if (slib && typeof slib.catch === 'function') {
+			slib.catch(() => zvukSkonci('Zvuk se nepodařilo přehrát.'));
+		}
+	}
+	tlZvuk.addEventListener('click', () => { if (zvukHraje) zastavZvuk(); else spustZvuk(); });
+	zvuk.addEventListener('ended', () => {
+		zvukSkonci('');
+		if (omezitPohyb) zastav(0);
+		else { zacatek = null; tPauza = 0; }
+	});
+	zvuk.addEventListener('error', () => { if (zvukHraje) zvukSkonci('Zvuk se nepodařilo načíst.'); });
+
 	function zastav(t) {
+		zastavZvuk();
 		hraje = false;
 		zacatek = null;
 		tPauza = t;
@@ -262,6 +318,7 @@
 	}
 	tlHraj.addEventListener('click', () => {
 		if (hraje) { zastav(tPauza); return; }
+		zastavZvuk();
 		hraje = true;
 		tlHraj.textContent = '⏸ Zastavit';
 		requestAnimationFrame(smycka);
@@ -292,5 +349,9 @@
 	.zp-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
 	.zp-posuvnik input { width: 100%; max-width: 560px; display: block; margin-top: 0.3rem; }
 	.zp-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.zp-stav { font-weight: 700; margin-left: 0.4rem; }
+	.zp-tl:focus-visible, .zp-posuvnik input:focus-visible, .zp-text summary:focus-visible { outline: 3px solid #1c7ed6; outline-offset: 2px; }
+	.zp-text { margin: 0.5rem 0; }
+	.zp-text summary { cursor: pointer; font-weight: 700; }
 	.zp-tl:active { transform: translateY(1px); }
 </style>
