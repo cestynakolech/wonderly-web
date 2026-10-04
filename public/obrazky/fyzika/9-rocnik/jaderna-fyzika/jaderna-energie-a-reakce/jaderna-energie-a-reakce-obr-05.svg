@@ -12,9 +12,11 @@
 @keyframes f5h { 0%, 30% { transform: scale(.6); opacity: 0; } 36% { transform: scale(1); opacity: 1; } 94% { transform: scale(1); opacity: 1; } 98%, 100% { transform: scale(1); opacity: 0; } }
 @keyframes f5z { 0%, 30% { transform: scale(.2); opacity: 0; } 37% { transform: scale(1.1); opacity: 1; } 44% { transform: scale(1); opacity: 1; } 94% { transform: scale(1); opacity: 1; } 98%, 100% { transform: scale(1); opacity: 0; } }
 @keyframes f5n { 0%, 32% { transform: translate(-220px, -85px); opacity: 0; } 34% { opacity: 1; } 58% { transform: translate(0px, 0px); opacity: 1; } 94% { transform: translate(0px, 0px); opacity: 1; } 98%, 100% { transform: translate(0px, 0px); opacity: 0; } }
+.f5nl { animation: f5nl 6s linear infinite; }
+@keyframes f5nl { 0%, 56% { opacity: 0; } 61%, 94% { opacity: 1; } 98%, 100% { opacity: 0; } }
 .f5l { animation: f5l 6s linear infinite; }
 @keyframes f5l { 0%, 31% { opacity: 0; } 36%, 94% { opacity: 1; } 98%, 100% { opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { .f5d, .f5t, .f5h, .f5z, .f5n, .f5l { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .f5d, .f5t, .f5h, .f5z, .f5n, .f5l, .f5nl { animation: none; } }
 </style>
 <defs>
 <radialGradient id="gp" cx=".36" cy=".34" r=".72"><stop offset="0" stop-color="#ff8787"/><stop offset=".5" stop-color="#e03131"/><stop offset="1" stop-color="#a61e1e"/></radialGradient>
@@ -36,7 +38,8 @@
 <g class="f5l"><text x="320" y="125" font-size="22" fill="#212529" text-anchor="middle" font-weight="bold">energie</text><text x="320" y="315" font-size="22" fill="#212529" text-anchor="middle" font-weight="bold">helium</text></g>
 <g class="f5d" opacity="0"><path d="M70 201H30" stroke="#d9480f" stroke-width="3" stroke-linecap="round"/><path d="M70 215H30" stroke="#d9480f" stroke-width="3" stroke-linecap="round"/><path d="M70 229H30" stroke="#d9480f" stroke-width="3" stroke-linecap="round"/><circle cx="96.7" cy="215" r="14" fill="url(#gp)" stroke="#343a40" stroke-width="1.2"/><circle cx="123.3" cy="215" r="14" fill="url(#gn)" stroke="#343a40" stroke-width="1.2"/><text x="110" y="261" font-size="22" fill="#212529" text-anchor="middle" font-weight="bold">vodík</text></g>
 <g class="f5t" opacity="0"><path d="M570 201H610" stroke="#d9480f" stroke-width="3" stroke-linecap="round"/><path d="M570 215H610" stroke="#d9480f" stroke-width="3" stroke-linecap="round"/><path d="M570 229H610" stroke="#d9480f" stroke-width="3" stroke-linecap="round"/><circle cx="516.7" cy="223" r="14" fill="url(#gp)" stroke="#343a40" stroke-width="1.2"/><circle cx="543.3" cy="223" r="14" fill="url(#gn)" stroke="#343a40" stroke-width="1.2"/><circle cx="530" cy="201" r="14" fill="url(#gn)" stroke="#343a40" stroke-width="1.2"/><text x="530" y="261" font-size="22" fill="#212529" text-anchor="middle" font-weight="bold">vodík</text></g>
-<g class="f5n"><circle cx="540" cy="300" r="13" fill="url(#gn)" stroke="#343a40" stroke-width="1.2"/><text x="540" y="340" font-size="20" fill="#212529" text-anchor="middle" font-weight="bold">neutron</text></g>
+<g class="f5n"><circle cx="540" cy="300" r="13" fill="url(#gn)" stroke="#343a40" stroke-width="1.2"/></g>
+<g class="f5nl"><text x="540" y="340" font-size="20" fill="#212529" text-anchor="middle" font-weight="bold">neutron</text></g>
 <g><circle cx="44" cy="336" r="10" fill="url(#gp)" stroke="#343a40" stroke-width="1.2"/><text x="62" y="342" font-size="18" fill="#212529">proton</text><circle cx="154" cy="336" r="10" fill="url(#gn)" stroke="#343a40" stroke-width="1.2"/><text x="172" y="342" font-size="18" fill="#212529">neutron</text></g>
 <!-- zápis reakce obrázky -->
 <rect x="24" y="378" width="592" height="104" rx="12" fill="#fff" stroke="#adb5bd" stroke-width="2"/>
@@ -49,6 +52,6 @@
 <circle cx="470" cy="418" r="11" fill="url(#gn)" stroke="#343a40" stroke-width="1.2"/><text x="470" y="464" font-size="18" fill="#212529" text-anchor="middle" >neutron</text>
 <text x="530" y="426" font-size="28" fill="#212529" text-anchor="middle" font-weight="bold">+</text>
 <path d="M578 394L582.3 404.7L592.1 398.6L589.3 409.8L600.8 410.6L592 418L600.8 425.4L589.3 426.2L592.1 437.4L582.3 431.3L578 442L573.7 431.3L563.9 437.4L566.7 426.2L555.2 425.4L564 418L555.2 410.6L566.7 409.8L563.9 398.6L573.7 404.7Z" fill="url(#gz)" stroke="#e8590c" stroke-width="2.5" stroke-linejoin="round"/><text x="578" y="464" font-size="18" fill="#212529" text-anchor="middle" >energie</text>
-<rect x="24" y="498" width="592" height="86" rx="12" fill="#e3fafc" stroke="#0b7285" stroke-width="2.5"/><text x="320" y="532" font-size="20" fill="#212529" text-anchor="middle" >Dvě lehčí jádra se spojí v jedno těžší.</text><text x="320" y="564" font-size="20" fill="#212529" text-anchor="middle" >Uvolní se ještě větší energie než při štěpení.</text>
+<rect x="24" y="498" width="592" height="86" rx="12" fill="#e3fafc" stroke="#0b7285" stroke-width="2.5"/><text x="320" y="532" font-size="20" fill="#212529" text-anchor="middle" >Dvě lehčí jádra se spojí v jedno těžší.</text><text x="320" y="564" font-size="20" fill="#212529" text-anchor="middle" >Uvolní se velké množství energie.</text>
 <text x="320" y="650" font-size="20" fill="#212529" text-anchor="middle" >Ve Slunci (asi 15 milionů °C) se tak vodík mění na helium.</text>
 </svg>
