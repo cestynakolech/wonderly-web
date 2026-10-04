@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 600" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Tokamak, zařízení, ve kterém lidé zkoumají fúzi. Rozříznutá komora tvaru prstence se středovým sloupem a měděnými cívkami kolem. Uvnitř svítí růžový prstenec, ve kterém se slučují jádra. Vedle stojí člověk v zeleném obleku, který ukazuje velikost zařízení.">
+<style>
+/* Předloha: PDF 19 Jaderná energie, s. 9 (fotografie vnitřku tokamaku se středovým sloupem a technikem v zeleném obleku) – fotografie nahrazena kresbou.
+   Výklad: § Slučování jader (fúze) – „Lidé fúzi zkoumají v zařízení zvaném tokamak“. Bez dalších údajů (plazma, magnetické pole ve výkladu nejsou).
+   Smyčka 4 s: prstenec uvnitř proudí a pulzuje. Bez animace = klidný prstenec. */
+.t6p { animation: t6p 4s linear infinite; } .t6g { animation: t6g 2s ease-in-out infinite alternate; }
+@keyframes t6p { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -120; } }
+@keyframes t6g { from { opacity: .55; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .t6p, .t6g { animation: none; } }
+</style>
+<defs>
+<radialGradient id="gp" cx=".36" cy=".34" r=".72"><stop offset="0" stop-color="#ff8787"/><stop offset=".5" stop-color="#e03131"/><stop offset="1" stop-color="#a61e1e"/></radialGradient>
+<radialGradient id="gn" cx=".36" cy=".34" r=".72"><stop offset="0" stop-color="#f8f9fa"/><stop offset=".5" stop-color="#adb5bd"/><stop offset="1" stop-color="#6c757d"/></radialGradient>
+<radialGradient id="gz" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff3bf"/><stop offset=".55" stop-color="#ffd43b"/><stop offset="1" stop-color="#fab005"/></radialGradient>
+<marker id="sip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#495057"/></marker>
+<linearGradient id="ocelT" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ced4da"/><stop offset=".5" stop-color="#868e96"/><stop offset="1" stop-color="#495057"/></linearGradient>
+<linearGradient id="sloup" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#495057"/><stop offset=".4" stop-color="#adb5bd"/><stop offset="1" stop-color="#343a40"/></linearGradient>
+<linearGradient id="med" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e8590c"/><stop offset=".4" stop-color="#f08c4a"/><stop offset="1" stop-color="#a33a0b"/></linearGradient>
+<filter id="zare" x="-20%" y="-60%" width="140%" height="220%"><feGaussianBlur stdDeviation="6"/></filter>
+</defs>
+<rect x="3" y="3" width="634" height="594" rx="14" fill="#f8f9fa"/>
+
+<text x="320" y="42" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Tokamak – zařízení pro výzkum fúze</text>
+<!-- podlaha haly -->
+<rect x="20" y="430" width="600" height="30" fill="#dee2e6"/>
+<ellipse cx="300" cy="440" rx="270" ry="22" fill="#000" opacity=".15"/>
+<!-- podstavec -->
+<path d="M150 440L180 380H420L450 440Z" fill="#868e96" stroke="#495057" stroke-width="2"/>
+<!-- zadní stěna komory (vnitřek) -->
+<ellipse cx="300" cy="270" rx="250" ry="120" fill="url(#ocelT)" stroke="#343a40" stroke-width="3"/>
+<ellipse cx="300" cy="264" rx="222" ry="98" fill="#495057"/>
+<!-- žebrování obkladu uvnitř komory -->
+<path d="M130 208.6V319.6" stroke="#343a40" stroke-width="3"/><path d="M180 199.6V325.6" stroke="#343a40" stroke-width="3"/><path d="M230 190.6V331.6" stroke="#343a40" stroke-width="3"/><path d="M370 190.6V331.6" stroke="#343a40" stroke-width="3"/><path d="M420 199.6V325.6" stroke="#343a40" stroke-width="3"/><path d="M470 208.6V319.6" stroke="#343a40" stroke-width="3"/>
+<rect x="141" y="230" width="18" height="26" rx="4" fill="#212529" stroke="#adb5bd" stroke-width="1.5"/><rect x="196" y="230" width="18" height="26" rx="4" fill="#212529" stroke="#adb5bd" stroke-width="1.5"/><rect x="386" y="230" width="18" height="26" rx="4" fill="#212529" stroke="#adb5bd" stroke-width="1.5"/><rect x="441" y="230" width="18" height="26" rx="4" fill="#212529" stroke="#adb5bd" stroke-width="1.5"/>
+<path d="M125 270A175 66 0 0 1 475 270" fill="none" stroke="#f06595" stroke-width="30" stroke-linecap="round" filter="url(#zare)" class="t6g"/>
+<path d="M125 270A175 66 0 0 1 475 270" fill="none" stroke="#fcc2d7" stroke-width="10" stroke-dasharray="40 20" class="t6p"/>
+<!-- středový sloup -->
+<rect x="266" y="174" width="68" height="190" fill="url(#sloup)" stroke="#343a40" stroke-width="2"/>
+<path d="M266 200H334" stroke="#343a40" stroke-width="1.5" opacity=".6"/><path d="M266 230H334" stroke="#343a40" stroke-width="1.5" opacity=".6"/><path d="M266 260H334" stroke="#343a40" stroke-width="1.5" opacity=".6"/><path d="M266 290H334" stroke="#343a40" stroke-width="1.5" opacity=".6"/><path d="M266 320H334" stroke="#343a40" stroke-width="1.5" opacity=".6"/><path d="M266 350H334" stroke="#343a40" stroke-width="1.5" opacity=".6"/>
+<ellipse cx="300" cy="174" rx="34" ry="9" fill="#adb5bd" stroke="#343a40" stroke-width="2"/>
+<path d="M475 270A175 66 0 0 1 125 270" fill="none" stroke="#f06595" stroke-width="30" stroke-linecap="round" filter="url(#zare)" class="t6g"/>
+<path d="M475 270A175 66 0 0 1 125 270" fill="none" stroke="#fcc2d7" stroke-width="10" stroke-dasharray="40 20" class="t6p"/>
+<!-- přední okraj rozříznuté komory -->
+<path d="M50 270A250 120 0 0 0 550 270L522 276A222 98 0 0 1 78 276Z" fill="url(#ocelT)" stroke="#343a40" stroke-width="2.5"/>
+<!-- cívky magnetů -->
+<rect x="46" y="145" width="44" height="250" rx="22" fill="none" stroke="url(#med)" stroke-width="16"/><rect x="46" y="145" width="44" height="250" rx="22" fill="none" stroke="#5c2a06" stroke-width="2" opacity=".6"/><rect x="510" y="145" width="44" height="250" rx="22" fill="none" stroke="url(#med)" stroke-width="16"/><rect x="510" y="145" width="44" height="250" rx="22" fill="none" stroke="#5c2a06" stroke-width="2" opacity=".6"/><rect x="120" y="135" width="40" height="270" rx="20" fill="none" stroke="url(#med)" stroke-width="16"/><rect x="120" y="135" width="40" height="270" rx="20" fill="none" stroke="#5c2a06" stroke-width="2" opacity=".6"/><rect x="440" y="135" width="40" height="270" rx="20" fill="none" stroke="url(#med)" stroke-width="16"/><rect x="440" y="135" width="40" height="270" rx="20" fill="none" stroke="#5c2a06" stroke-width="2" opacity=".6"/>
+<g>
+<ellipse cx="560" cy="454" rx="26" ry="6" fill="#000" opacity=".2"/>
+<path d="M548 452L551 406H569L572 452H562L560 418L558 452Z" fill="#2b8a3e" stroke="#1b5e20" stroke-width="1.5"/>
+<path d="M544 406Q542 368 560 366Q578 368 576 406Z" fill="#40c057" stroke="#1b5e20" stroke-width="1.5"/>
+<path d="M544 372L530 404L535 407L548 382Z" fill="#40c057" stroke="#1b5e20" stroke-width="1.5"/>
+<path d="M576 372L590 352L585 348L572 378Z" fill="#40c057" stroke="#1b5e20" stroke-width="1.5"/>
+<circle cx="560" cy="354" r="12" fill="#ffd8a8" stroke="#8a5a2b" stroke-width="1.5"/>
+<path d="M547 352Q560 330 573 352Z" fill="#f8f9fa" stroke="#495057" stroke-width="1.5"/>
+<rect x="547" y="450" width="11" height="5" rx="2" fill="#212529"/><rect x="562" y="450" width="11" height="5" rx="2" fill="#212529"/>
+</g>
+<rect x="30" y="476" width="580" height="86" rx="12" fill="#e3fafc" stroke="#0b7285" stroke-width="2.5"/><text x="320" y="510" font-size="20" fill="#212529" text-anchor="middle" >Ve svítícím prstenci se slučují jádra.</text><text x="320" y="542" font-size="20" fill="#212529" text-anchor="middle" >Postava ukazuje, jak velké zařízení je.</text>
+</svg>

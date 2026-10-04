@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 680" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Slučování jader, fúze. Při teplotě milionů stupňů Celsia letí proti sobě dvě jádra vodíku: jedno z 1 protonu a 1 neutronu, druhé z 1 protonu a 2 neutronů. Spojí se v jádro helia ze 2 protonů a 2 neutronů, vyletí jeden neutron a uvolní se energie. Dole stejný děj jako zápis: vodík plus vodík dá helium, neutron a energii. Ve Slunci, asi 15 milionů stupňů Celsia, se tak vodík mění na helium.">
+<style>
+/* Předloha: PDF 19 Jaderná energie, s. 3 (slučování: lehčí → těžší, miliony °C, srážka rychlých jader) a s. 4 (Slunce 15 000 000 °C; 3. rovnice 2H + 3H → 4He + n).
+   Výklad: § Slučování jader (fúze). Počty kuliček přesné: 2 + 3 = 4 + 1 nukleon, 1 + 1 = 2 + 0 protonů. Obě vstupní jádra jsou vodík (výklad nerozlišuje izotopy).
+   Smyčka 6 s: jádra se rozletí proti sobě, spojí se v helium, vyletí neutron a záblesk energie. Bez animace = stav po sloučení + zápis pod scénou. */
+.f5d { animation: f5d 6s ease-in infinite; } .f5t { animation: f5t 6s ease-in infinite; }
+.f5h { transform-box: view-box; transform-origin: 320px 215px; animation: f5h 6s ease-out infinite; }
+.f5z { transform-box: view-box; transform-origin: 320px 215px; animation: f5z 6s ease-out infinite; }
+.f5n { animation: f5n 6s ease-out infinite; }
+@keyframes f5d { 0% { transform: translate(0px, 0px); opacity: 1; } 30% { transform: translate(182px, 0px); opacity: 1; } 32%, 100% { transform: translate(182px, 0px); opacity: 0; } }
+@keyframes f5t { 0% { transform: translate(0px, 0px); opacity: 1; } 30% { transform: translate(-182px, 0px); opacity: 1; } 32%, 100% { transform: translate(-182px, 0px); opacity: 0; } }
+@keyframes f5h { 0%, 30% { transform: scale(.6); opacity: 0; } 36% { transform: scale(1); opacity: 1; } 94% { transform: scale(1); opacity: 1; } 98%, 100% { transform: scale(1); opacity: 0; } }
+@keyframes f5z { 0%, 30% { transform: scale(.2); opacity: 0; } 37% { transform: scale(1.1); opacity: 1; } 44% { transform: scale(1); opacity: 1; } 94% { transform: scale(1); opacity: 1; } 98%, 100% { transform: scale(1); opacity: 0; } }
+@keyframes f5n { 0%, 32% { transform: translate(-220px, -85px); opacity: 0; } 34% { opacity: 1; } 58% { transform: translate(0px, 0px); opacity: 1; } 94% { transform: translate(0px, 0px); opacity: 1; } 98%, 100% { transform: translate(0px, 0px); opacity: 0; } }
+.f5l { animation: f5l 6s linear infinite; }
+@keyframes f5l { 0%, 31% { opacity: 0; } 36%, 94% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .f5d, .f5t, .f5h, .f5z, .f5n, .f5l { animation: none; } }
+</style>
+<defs>
+<radialGradient id="gp" cx=".36" cy=".34" r=".72"><stop offset="0" stop-color="#ff8787"/><stop offset=".5" stop-color="#e03131"/><stop offset="1" stop-color="#a61e1e"/></radialGradient>
+<radialGradient id="gn" cx=".36" cy=".34" r=".72"><stop offset="0" stop-color="#f8f9fa"/><stop offset=".5" stop-color="#adb5bd"/><stop offset="1" stop-color="#6c757d"/></radialGradient>
+<radialGradient id="gz" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff3bf"/><stop offset=".55" stop-color="#ffd43b"/><stop offset="1" stop-color="#fab005"/></radialGradient>
+<marker id="sip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#495057"/></marker>
+<radialGradient id="zar" cx=".5" cy=".55" r=".75"><stop offset="0" stop-color="#fff9db"/><stop offset=".6" stop-color="#ffec99"/><stop offset="1" stop-color="#ffd8a8"/></radialGradient>
+</defs>
+<rect x="3" y="3" width="634" height="674" rx="14" fill="#f8f9fa"/>
+
+<text x="320" y="42" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Slučování jader (fúze)</text>
+<rect x="24" y="62" width="592" height="300" rx="14" fill="url(#zar)" stroke="#e8590c" stroke-width="2"/>
+<rect x="38" y="74" width="230" height="40" rx="10" fill="#fff" stroke="#c92a2a" stroke-width="2"/>
+<text x="153" y="101" font-size="20" text-anchor="middle" font-weight="bold" fill="#c92a2a">teplota: miliony °C</text>
+<path d="M146 215L238 215" stroke="#495057" stroke-width="2.5" stroke-dasharray="8 6" fill="none" marker-end="url(#sip)" />
+<path d="M494 215L402 215" stroke="#495057" stroke-width="2.5" stroke-dasharray="8 6" fill="none" marker-end="url(#sip)" />
+<g class="f5z"><path d="M320 135L331.1 166.3L354.7 142.9L351.2 175.9L382.5 165.1L365 193.3L398 197.2L370 215L398 232.8L365 236.7L382.5 264.9L351.2 254.1L354.7 287.1L331.1 263.7L320 295L308.9 263.7L285.3 287.1L288.8 254.1L257.5 264.9L275 236.7L242 232.8L270 215L242 197.2L275 193.3L257.5 165.1L288.8 175.9L285.3 142.9L308.9 166.3Z" fill="url(#gz)" stroke="#e8590c" stroke-width="2.5" stroke-linejoin="round"/></g>
+<g class="f5h"><circle cx="306.7" cy="201.7" r="14" fill="url(#gp)" stroke="#343a40" stroke-width="1.2"/><circle cx="333.3" cy="228.3" r="14" fill="url(#gp)" stroke="#343a40" stroke-width="1.2"/><circle cx="333.3" cy="201.7" r="14" fill="url(#gn)" stroke="#343a40" stroke-width="1.2"/><circle cx="306.7" cy="228.3" r="14" fill="url(#gn)" stroke="#343a40" stroke-width="1.2"/></g>
+<g class="f5l"><text x="320" y="125" font-size="22" fill="#212529" text-anchor="middle" font-weight="bold">energie</text><text x="320" y="315" font-size="22" fill="#212529" text-anchor="middle" font-weight="bold">helium</text></g>
+<g class="f5d" opacity="0"><path d="M70 201H30" stroke="#d9480f" stroke-width="3" stroke-linecap="round"/><path d="M70 215H30" stroke="#d9480f" stroke-width="3" stroke-linecap="round"/><path d="M70 229H30" stroke="#d9480f" stroke-width="3" stroke-linecap="round"/><circle cx="96.7" cy="215" r="14" fill="url(#gp)" stroke="#343a40" stroke-width="1.2"/><circle cx="123.3" cy="215" r="14" fill="url(#gn)" stroke="#343a40" stroke-width="1.2"/><text x="110" y="261" font-size="22" fill="#212529" text-anchor="middle" font-weight="bold">vodík</text></g>
+<g class="f5t" opacity="0"><path d="M570 201H610" stroke="#d9480f" stroke-width="3" stroke-linecap="round"/><path d="M570 215H610" stroke="#d9480f" stroke-width="3" stroke-linecap="round"/><path d="M570 229H610" stroke="#d9480f" stroke-width="3" stroke-linecap="round"/><circle cx="516.7" cy="223" r="14" fill="url(#gp)" stroke="#343a40" stroke-width="1.2"/><circle cx="543.3" cy="223" r="14" fill="url(#gn)" stroke="#343a40" stroke-width="1.2"/><circle cx="530" cy="201" r="14" fill="url(#gn)" stroke="#343a40" stroke-width="1.2"/><text x="530" y="261" font-size="22" fill="#212529" text-anchor="middle" font-weight="bold">vodík</text></g>
+<g class="f5n"><circle cx="540" cy="300" r="13" fill="url(#gn)" stroke="#343a40" stroke-width="1.2"/><text x="540" y="340" font-size="20" fill="#212529" text-anchor="middle" font-weight="bold">neutron</text></g>
+<g><circle cx="44" cy="336" r="10" fill="url(#gp)" stroke="#343a40" stroke-width="1.2"/><text x="62" y="342" font-size="18" fill="#212529">proton</text><circle cx="154" cy="336" r="10" fill="url(#gn)" stroke="#343a40" stroke-width="1.2"/><text x="172" y="342" font-size="18" fill="#212529">neutron</text></g>
+<!-- zápis reakce obrázky -->
+<rect x="24" y="378" width="592" height="104" rx="12" fill="#fff" stroke="#adb5bd" stroke-width="2"/>
+<circle cx="59.6" cy="418" r="11" fill="url(#gp)" stroke="#343a40" stroke-width="1.2"/><circle cx="80.5" cy="418" r="11" fill="url(#gn)" stroke="#343a40" stroke-width="1.2"/><text x="70" y="464" font-size="18" fill="#212529" text-anchor="middle" >vodík</text>
+<text x="125" y="426" font-size="28" fill="#212529" text-anchor="middle" font-weight="bold">+</text>
+<circle cx="169.6" cy="424.3" r="11" fill="url(#gp)" stroke="#343a40" stroke-width="1.2"/><circle cx="190.5" cy="424.3" r="11" fill="url(#gn)" stroke="#343a40" stroke-width="1.2"/><circle cx="180" cy="407" r="11" fill="url(#gn)" stroke="#343a40" stroke-width="1.2"/><text x="180" y="464" font-size="18" fill="#212529" text-anchor="middle" >vodík</text>
+<text x="258" y="426" font-size="30" fill="#212529" text-anchor="middle" font-weight="bold">→</text>
+<circle cx="329.6" cy="407.6" r="11" fill="url(#gp)" stroke="#343a40" stroke-width="1.2"/><circle cx="350.5" cy="428.5" r="11" fill="url(#gp)" stroke="#343a40" stroke-width="1.2"/><circle cx="350.5" cy="407.6" r="11" fill="url(#gn)" stroke="#343a40" stroke-width="1.2"/><circle cx="329.6" cy="428.5" r="11" fill="url(#gn)" stroke="#343a40" stroke-width="1.2"/><text x="340" y="464" font-size="18" fill="#212529" text-anchor="middle" >helium</text>
+<text x="410" y="426" font-size="28" fill="#212529" text-anchor="middle" font-weight="bold">+</text>
+<circle cx="470" cy="418" r="11" fill="url(#gn)" stroke="#343a40" stroke-width="1.2"/><text x="470" y="464" font-size="18" fill="#212529" text-anchor="middle" >neutron</text>
+<text x="530" y="426" font-size="28" fill="#212529" text-anchor="middle" font-weight="bold">+</text>
+<path d="M578 394L582.3 404.7L592.1 398.6L589.3 409.8L600.8 410.6L592 418L600.8 425.4L589.3 426.2L592.1 437.4L582.3 431.3L578 442L573.7 431.3L563.9 437.4L566.7 426.2L555.2 425.4L564 418L555.2 410.6L566.7 409.8L563.9 398.6L573.7 404.7Z" fill="url(#gz)" stroke="#e8590c" stroke-width="2.5" stroke-linejoin="round"/><text x="578" y="464" font-size="18" fill="#212529" text-anchor="middle" >energie</text>
+<rect x="24" y="498" width="592" height="86" rx="12" fill="#e3fafc" stroke="#0b7285" stroke-width="2.5"/><text x="320" y="532" font-size="20" fill="#212529" text-anchor="middle" >Dvě lehčí jádra se spojí v jedno těžší.</text><text x="320" y="564" font-size="20" fill="#212529" text-anchor="middle" >Uvolní se ještě větší energie než při štěpení.</text>
+<text x="320" y="650" font-size="20" fill="#212529" text-anchor="middle" >Ve Slunci (asi 15 milionů °C) se tak vodík mění na helium.</text>
+</svg>
