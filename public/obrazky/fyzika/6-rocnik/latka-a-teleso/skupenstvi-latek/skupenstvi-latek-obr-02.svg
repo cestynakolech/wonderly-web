@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 712" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Pevné skupenství. Nahoře dům, který drží svůj tvar i objem. Dole hrad z písku a lopatka, ze které se sype písek: písek je sypká látka, jde snadno rozdělit. Animace: zrnka písku padají z lopatky.">
+<style>
+.z0 { animation: zr 1.6s linear 0.00s infinite; }.z1 { animation: zr 1.6s linear -0.32s infinite; }.z2 { animation: zr 1.6s linear -0.64s infinite; }.z3 { animation: zr 1.6s linear -0.96s infinite; }.z4 { animation: zr 1.6s linear -1.28s infinite; } @keyframes zr { 0% { transform: translateY(0); opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(90px); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .z0, .z1, .z2, .z3, .z4 { animation: none; } }
+/* Předloha: PDF Skupenství látek, dvojice fotek u Pevného skupenství – dům a hrad z písku. Překresleno. Lopatka se sypajícím se pískem doplňuje bod výkladu o sypkých látkách. */
+</style>
+<defs><clipPath id="pa"><rect x="20" y="62" width="560" height="270" rx="10"/></clipPath><clipPath id="pb"><rect x="20" y="382" width="560" height="270" rx="10"/></clipPath><linearGradient id="zapad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#748ffc"/><stop offset="0.5" stop-color="#ffa94d"/><stop offset="1" stop-color="#ffe8cc"/></linearGradient><linearGradient id="okno" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff3bf"/><stop offset="1" stop-color="#fab005"/></linearGradient><linearGradient id="trava" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#69db7c"/><stop offset="1" stop-color="#2b8a3e"/></linearGradient><linearGradient id="plaz" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d0ebff"/><stop offset="0.5" stop-color="#e7f5ff"/><stop offset="0.52" stop-color="#ffe8cc"/><stop offset="1" stop-color="#e0b98a"/></linearGradient><linearGradient id="pisek" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c9a26b"/><stop offset="0.45" stop-color="#f1d3a1"/><stop offset="1" stop-color="#b38552"/></linearGradient></defs>
+<rect x="3" y="3" width="594" height="706" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
+<text x="300" y="42" font-size="28" font-weight="bold" fill="#212529" text-anchor="middle">Pevné skupenství</text>
+<g clip-path="url(#pa)">
+<rect x="20" y="62" width="560" height="270" fill="url(#zapad)"/>
+<path d="M20 250Q120 220 220 236T420 228T580 236V332H20Z" fill="#5c7a5e"/>
+<path d="M20 268H580V332H20Z" fill="url(#trava)"/>
+<rect x="62" y="190" width="10" height="84" fill="#5c3d1e"/>
+<circle cx="66" cy="180" r="34" fill="#2f9e44"/><circle cx="48" cy="200" r="24" fill="#37b24d"/><circle cx="88" cy="198" r="24" fill="#2b8a3e"/>
+<rect x="150" y="200" width="320" height="76" fill="#f1f3f5" stroke="#495057" stroke-width="2"/>
+<rect x="166" y="212" width="74" height="52" fill="url(#okno)" stroke="#343a40" stroke-width="3"/>
+<rect x="262" y="212" width="190" height="64" fill="url(#okno)" stroke="#343a40" stroke-width="3"/>
+<path d="M310 212V276M357 212V276M404 212V276M203 212V264" stroke="#343a40" stroke-width="3"/>
+<rect x="196" y="140" width="260" height="60" fill="#e9ecef" stroke="#495057" stroke-width="2"/>
+<rect x="214" y="150" width="66" height="40" fill="url(#okno)" stroke="#343a40" stroke-width="3"/>
+<rect x="300" y="150" width="140" height="40" fill="url(#okno)" stroke="#343a40" stroke-width="3"/>
+<path d="M347 150V190M393 150V190" stroke="#343a40" stroke-width="3"/>
+<path d="M176 128L470 128L486 140L170 140Z" fill="#495057" stroke="#212529" stroke-width="2"/>
+<rect x="236" y="104" width="22" height="24" fill="#868e96" stroke="#343a40" stroke-width="2"/>
+<path d="M452 200H486V196H452Z" fill="#495057"/><path d="M262 196H486" stroke="#adb5bd" stroke-width="2"/>
+<path d="M300 276L330 332M318 276L360 332" stroke="#dee2e6" stroke-width="6" opacity="0.8"/>
+<circle cx="140" cy="282" r="18" fill="#2b8a3e"/><circle cx="164" cy="290" r="14" fill="#40c057"/><circle cx="480" cy="284" r="18" fill="#2f9e44"/><circle cx="504" cy="292" r="14" fill="#51cf66"/><circle cx="228" cy="292" r="10" fill="#e64980"/><circle cx="246" cy="296" r="9" fill="#f783ac"/><circle cx="530" cy="296" r="10" fill="#2b8a3e"/>
+</g>
+<rect x="20" y="62" width="560" height="270" rx="10" fill="none" stroke="#495057" stroke-width="2"/>
+<text x="300" y="366" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle">Dům drží svůj tvar i objem.</text>
+<g clip-path="url(#pb)">
+<rect x="20" y="382" width="560" height="270" fill="url(#plaz)"/>
+<path d="M20 470Q140 456 260 470T580 466V492H20Z" fill="#a9c7b0" opacity="0.6"/>
+<path d="M20 600Q160 584 300 598T580 594V652H20Z" fill="#e0b98a"/>
+<path d="M160 612Q300 590 440 612L450 640H150Z" fill="url(#pisek)"/>
+<rect x="234" y="520" width="132" height="92" fill="url(#pisek)" stroke="#8c6a3c" stroke-width="2"/>
+<path d="M234 520V508H250V520H266V508H282V520H298V508H314V520H330V508H346V520H366V508" fill="none" stroke="#8c6a3c" stroke-width="2"/>
+<path d="M234 508H250V520H266V508H282V520H298V508H314V520H330V508H346V520H366V508V520H234Z" fill="#e8c48f"/>
+<path d="M280 612V578Q300 556 320 578V612Z" fill="#5c3d1e"/>
+<rect x="190" y="500" width="44" height="112" fill="url(#pisek)" stroke="#8c6a3c" stroke-width="2"/>
+<rect x="366" y="500" width="44" height="112" fill="url(#pisek)" stroke="#8c6a3c" stroke-width="2"/>
+<rect x="278" y="456" width="44" height="64" fill="url(#pisek)" stroke="#8c6a3c" stroke-width="2"/>
+<path d="M186 500L212 436L238 500Z" fill="#e8c48f" stroke="#8c6a3c" stroke-width="2"/>
+<path d="M362 500L388 436L414 500Z" fill="#e8c48f" stroke="#8c6a3c" stroke-width="2"/>
+<path d="M274 456L300 394L326 456Z" fill="#e8c48f" stroke="#8c6a3c" stroke-width="2"/>
+<rect x="206" y="530" width="10" height="18" rx="5" fill="#5c3d1e"/><rect x="383" y="530" width="10" height="18" rx="5" fill="#5c3d1e"/>
+<rect x="295" y="476" width="10" height="18" rx="5" fill="#5c3d1e"/>
+<path d="M250 540H262M256 534V546M338 540H350M344 534V546" stroke="#8c6a3c" stroke-width="2"/>
+<circle cx="250" cy="520" r="1.4" fill="#8c6a3c" opacity="0.6"/><circle cx="262" cy="545" r="1.4" fill="#8c6a3c" opacity="0.6"/><circle cx="290" cy="530" r="1.4" fill="#8c6a3c" opacity="0.6"/><circle cx="318" cy="560" r="1.4" fill="#8c6a3c" opacity="0.6"/><circle cx="340" cy="515" r="1.4" fill="#8c6a3c" opacity="0.6"/><circle cx="352" cy="575" r="1.4" fill="#8c6a3c" opacity="0.6"/><circle cx="232" cy="590" r="1.4" fill="#8c6a3c" opacity="0.6"/><circle cx="300" cy="595" r="1.4" fill="#8c6a3c" opacity="0.6"/><circle cx="200" cy="560" r="1.4" fill="#8c6a3c" opacity="0.6"/><circle cx="395" cy="548" r="1.4" fill="#8c6a3c" opacity="0.6"/><circle cx="410" cy="590" r="1.4" fill="#8c6a3c" opacity="0.6"/><circle cx="276" cy="575" r="1.4" fill="#8c6a3c" opacity="0.6"/><circle cx="330" cy="600" r="1.4" fill="#8c6a3c" opacity="0.6"/><circle cx="218" cy="520" r="1.4" fill="#8c6a3c" opacity="0.6"/>
+<g transform="translate(470 470) rotate(24)"><rect x="-5" y="-70" width="10" height="70" rx="4" fill="#e03131" stroke="#862e2e" stroke-width="2"/><path d="M-22 0H22L18 40Q0 52 -18 40Z" fill="#fa5252" stroke="#862e2e" stroke-width="2"/><path d="M-18 20Q0 10 18 20L16 38Q0 48 -16 38Z" fill="#e8c48f"/></g>
+<circle class="z0" cx="452" cy="518" r="3" fill="#b38552"/><circle class="z1" cx="458" cy="518" r="3" fill="#b38552"/><circle class="z2" cx="448" cy="518" r="3" fill="#b38552"/><circle class="z3" cx="455" cy="518" r="3" fill="#b38552"/><circle class="z4" cx="461" cy="518" r="3" fill="#b38552"/>
+<path d="M430 612Q456 596 482 612Z" fill="#e0b98a" stroke="#b38552" stroke-width="1.5"/>
+</g>
+<rect x="20" y="382" width="560" height="270" rx="10" fill="none" stroke="#495057" stroke-width="2"/>
+<text x="300" y="686" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle">Písek je sypká látka – jde snadno rozdělit.</text>
+</svg>

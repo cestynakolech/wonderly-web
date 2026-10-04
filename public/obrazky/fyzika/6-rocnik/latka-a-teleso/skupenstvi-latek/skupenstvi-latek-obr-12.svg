@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 484" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: na pánvičce leží krystalový cukr, jeho částice jsou v pravidelných řadách. Pod pánvičkou se zapálí oheň, cukr taje a částice se rozptýlí. Po vychladnutí zůstane karamel s nepravidelně rozmístěnými částicemi. Složení je stejné, změnilo se jen uspořádání částic.">
+<style>
+.sk { animation: sk 12s linear infinite; } @keyframes sk { 0% { opacity: 0; } 4% { opacity: 1; } 92% { opacity: 1; } 98%, 100% { opacity: 0; } }
+.oh { opacity: 0; animation: oh 12s linear infinite; } @keyframes oh { 0%, 18% { opacity: 0; } 22%, 50% { opacity: 1; } 55%, 100% { opacity: 0; } }
+.t1 { opacity: 0; animation: t1 12s linear infinite; } @keyframes t1 { 0%, 20% { opacity: 1; } 22%, 100% { opacity: 0; } }
+.t2 { opacity: 0; animation: t2 12s linear infinite; } @keyframes t2 { 0%, 21% { opacity: 0; } 23%, 50% { opacity: 1; } 52%, 100% { opacity: 0; } }
+.t3 { animation: t3 12s linear infinite; } @keyframes t3 { 0%, 51% { opacity: 0; } 53%, 100% { opacity: 1; } }
+.c0 { animation: c0 12s ease-in-out infinite; } @keyframes c0 { 0%, 24% { transform: translate(18.2px, 21.7px); } 50%, 100% { transform: translate(0, 0); } }
+.c1 { animation: c1 12s ease-in-out infinite; } @keyframes c1 { 0%, 24% { transform: translate(15.9px, 15.6px); } 50%, 100% { transform: translate(0, 0); } }
+.c2 { animation: c2 12s ease-in-out infinite; } @keyframes c2 { 0%, 24% { transform: translate(18.4px, 23.5px); } 50%, 100% { transform: translate(0, 0); } }
+.c3 { animation: c3 12s ease-in-out infinite; } @keyframes c3 { 0%, 24% { transform: translate(19.9px, 21.7px); } 50%, 100% { transform: translate(0, 0); } }
+.c4 { animation: c4 12s ease-in-out infinite; } @keyframes c4 { 0%, 24% { transform: translate(27.6px, 0.0px); } 50%, 100% { transform: translate(0, 0); } }
+.c5 { animation: c5 12s ease-in-out infinite; } @keyframes c5 { 0%, 24% { transform: translate(34.3px, 15.7px); } 50%, 100% { transform: translate(0, 0); } }
+.c6 { animation: c6 12s ease-in-out infinite; } @keyframes c6 { 0%, 24% { transform: translate(5.3px, 18.4px); } 50%, 100% { transform: translate(0, 0); } }
+.c7 { animation: c7 12s ease-in-out infinite; } @keyframes c7 { 0%, 24% { transform: translate(-28.0px, 15.7px); } 50%, 100% { transform: translate(0, 0); } }
+.c8 { animation: c8 12s ease-in-out infinite; } @keyframes c8 { 0%, 24% { transform: translate(-24.3px, -7.9px); } 50%, 100% { transform: translate(0, 0); } }
+.c9 { animation: c9 12s ease-in-out infinite; } @keyframes c9 { 0%, 24% { transform: translate(-24.6px, -16.5px); } 50%, 100% { transform: translate(0, 0); } }
+.c10 { animation: c10 12s ease-in-out infinite; } @keyframes c10 { 0%, 24% { transform: translate(3.8px, -14.9px); } 50%, 100% { transform: translate(0, 0); } }
+.c11 { animation: c11 12s ease-in-out infinite; } @keyframes c11 { 0%, 24% { transform: translate(-19.0px, 14.5px); } 50%, 100% { transform: translate(0, 0); } }
+.c12 { animation: c12 12s ease-in-out infinite; } @keyframes c12 { 0%, 24% { transform: translate(2.7px, -14.3px); } 50%, 100% { transform: translate(0, 0); } }
+.c13 { animation: c13 12s ease-in-out infinite; } @keyframes c13 { 0%, 24% { transform: translate(-32.9px, -10.1px); } 50%, 100% { transform: translate(0, 0); } }
+.c14 { animation: c14 12s ease-in-out infinite; } @keyframes c14 { 0%, 24% { transform: translate(-36.1px, -8.3px); } 50%, 100% { transform: translate(0, 0); } }
+.c15 { animation: c15 12s ease-in-out infinite; } @keyframes c15 { 0%, 24% { transform: translate(21.7px, -20.5px); } 50%, 100% { transform: translate(0, 0); } }
+.c16 { animation: c16 12s ease-in-out infinite; } @keyframes c16 { 0%, 24% { transform: translate(11.4px, -15.0px); } 50%, 100% { transform: translate(0, 0); } }
+.c17 { animation: c17 12s ease-in-out infinite; } @keyframes c17 { 0%, 24% { transform: translate(-19.9px, -12.0px); } 50%, 100% { transform: translate(0, 0); } }
+.c18 { animation: c18 12s ease-in-out infinite; } @keyframes c18 { 0%, 24% { transform: translate(-19.3px, -14.7px); } 50%, 100% { transform: translate(0, 0); } }
+.c19 { animation: c19 12s ease-in-out infinite; } @keyframes c19 { 0%, 24% { transform: translate(-19.1px, -14.8px); } 50%, 100% { transform: translate(0, 0); } }
+@media (prefers-reduced-motion: reduce) { .sk, .oh, .t1, .t2, .t3, .c0, .c1, .c2, .c3, .c4, .c5, .c6, .c7, .c8, .c9, .c10, .c11, .c12, .c13, .c14, .c15, .c16, .c17, .c18, .c19 { animation: none; } }
+/* Předloha: PDF Skupenství látek, Pro zajímavost – krystalový cukr roztátý na pánvičce, po zchladnutí amorfní karamel (bez obrázku v PDF, kresba navíc). Smyčka 12 s. Bez animace = koncový stav: karamel, částice nepravidelně. */
+</style>
+<defs><radialGradient id="cast" cx="0.36" cy="0.32" r="0.72"><stop offset="0" stop-color="#fff4e6"/><stop offset="0.38" stop-color="#ffa94d"/><stop offset="1" stop-color="#d9480f"/></radialGradient><linearGradient id="panev" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#495057"/><stop offset="1" stop-color="#212529"/></linearGradient><radialGradient id="ohen" cx="0.5" cy="1" r="1"><stop offset="0" stop-color="#d0ebff"/><stop offset="0.5" stop-color="#4dabf7"/><stop offset="1" stop-color="#1864ab"/></radialGradient></defs>
+<rect x="3" y="3" width="594" height="478" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
+<text x="300" y="42" font-size="28" font-weight="bold" fill="#212529" text-anchor="middle">Z cukru karamel</text>
+<g transform="translate(0 -150)">
+<rect x="200" y="500" width="240" height="20" rx="4" fill="#343a40"/>
+<rect x="230" y="520" width="180" height="16" fill="#495057"/>
+<g class="oh"><path d="M222 498Q213 482 222 462Q231 482 222 498Z" fill="url(#ohen)"/><path d="M246 498Q237 482 246 462Q255 482 246 498Z" fill="url(#ohen)"/><path d="M270 498Q261 482 270 462Q279 482 270 498Z" fill="url(#ohen)"/><path d="M294 498Q285 482 294 462Q303 482 294 498Z" fill="url(#ohen)"/><path d="M318 498Q309 482 318 462Q327 482 318 498Z" fill="url(#ohen)"/><path d="M342 498Q333 482 342 462Q351 482 342 498Z" fill="url(#ohen)"/><path d="M366 498Q357 482 366 462Q375 482 366 498Z" fill="url(#ohen)"/><path d="M390 498Q381 482 390 462Q399 482 390 498Z" fill="url(#ohen)"/><path d="M414 498Q405 482 414 462Q423 482 414 498Z" fill="url(#ohen)"/></g>
+<path d="M160 440H480L466 462Q460 470 448 470H192Q180 470 174 462Z" fill="url(#panev)"/>
+<path d="M160 440L150 360" stroke="#343a40" stroke-width="8" stroke-linecap="round"/>
+<path d="M480 440L490 360" stroke="#343a40" stroke-width="8" stroke-linecap="round"/>
+<path d="M490 380L580 360" stroke="#5c3d1e" stroke-width="16" stroke-linecap="round"/>
+<path d="M175 440H465" stroke="#868e96" stroke-width="3"/>
+<g class="sk"><circle cx="237.8" cy="402.3" r="15" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="c0"/><circle cx="272.1" cy="408.4" r="15" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="c1"/><circle cx="301.6" cy="400.5" r="15" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="c2"/><circle cx="332.1" cy="402.3" r="15" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="c3"/><circle cx="356.4" cy="424" r="15" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="c4"/><circle cx="221.7" cy="376.3" r="15" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="c5"/><circle cx="282.7" cy="373.6" r="15" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="c6"/><circle cx="348" cy="376.3" r="15" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="c7"/><circle cx="376.3" cy="399.9" r="15" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="c8"/><circle cx="408.6" cy="408.5" r="15" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="c9"/><circle cx="252.2" cy="374.9" r="15" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="c10"/><circle cx="307" cy="345.5" r="15" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="c11"/><circle cx="317.3" cy="374.3" r="15" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="c12"/><circle cx="384.9" cy="370.1" r="15" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="c13"/><circle cx="420.1" cy="368.3" r="15" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="c14"/><circle cx="234.3" cy="348.5" r="15" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="c15"/><circle cx="276.6" cy="343" r="15" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="c16"/><circle cx="339.9" cy="340" r="15" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="c17"/><circle cx="371.3" cy="342.7" r="15" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="c18"/><circle cx="403.1" cy="342.8" r="15" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="c19"/></g>
+</g>
+<rect x="110" y="86" width="380" height="48" rx="10" fill="#ffd8a8" stroke="#e8590c" stroke-width="2"/><text x="300" y="117.9" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle"></text>
+<text x="300" y="118" font-size="23" font-weight="bold" fill="#212529" text-anchor="middle" class="t1">krystalový cukr – pravidelně</text>
+<text x="300" y="118" font-size="23" font-weight="bold" fill="#212529" text-anchor="middle" class="t2">zahříváme – cukr taje</text>
+<text x="300" y="118" font-size="23" font-weight="bold" fill="#212529" text-anchor="middle" class="t3">karamel – nepravidelně</text>
+<text x="300" y="428" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">Složení je stejné, změnilo se jen</text>
+<text x="300" y="456" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">uspořádání částic.</text>
+</svg>

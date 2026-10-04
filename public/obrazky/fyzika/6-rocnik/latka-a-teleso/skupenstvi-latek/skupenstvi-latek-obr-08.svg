@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 892" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace částic ve třech skupenstvích. Pevná látka: částice jsou blízko u sebe v pravidelných řadách a jen kmitají na místě, látka drží tvar i objem. Kapalná látka: částice jsou blízko u sebe na dně nádoby a řady po sobě kloužou, kapalina má tvar podle nádoby. Plynná látka: několik částic daleko od sebe létá volně a rychle po celé nádobě.">
+<style>
+.k0 { animation: k0 0.50s ease-in-out infinite alternate; } @keyframes k0 { from { transform: translate(0, 0); } to { transform: translate(2.5px, -2px); } }
+.k1 { animation: k1 0.63s ease-in-out infinite alternate; } @keyframes k1 { from { transform: translate(0, 0); } to { transform: translate(-2.5px, 1.5px); } }
+.k2 { animation: k2 0.76s ease-in-out infinite alternate; } @keyframes k2 { from { transform: translate(0, 0); } to { transform: translate(2px, 2.5px); } }
+.k3 { animation: k3 0.89s ease-in-out infinite alternate; } @keyframes k3 { from { transform: translate(0, 0); } to { transform: translate(-1.5px, -2.5px); } }
+.kl0 { animation: kl0 14s linear infinite; } @keyframes kl0 { to { transform: translateX(264px); } }
+.kl1 { animation: kl1 18s linear infinite; } @keyframes kl1 { to { transform: translateX(-264px); } }
+.kl2 { animation: kl2 11s linear infinite; } @keyframes kl2 { to { transform: translateX(264px); } }
+.g0 { transform: translate(187.0px, 660.0px); animation: g0 3.50s linear infinite; } @keyframes g0 { 0.00% { transform: translate(187.0px, 660.0px); } 21.64% { transform: translate(271.9px, 812.0px); } 49.65% { transform: translate(50.0px, 772.3px); } 56.33% { transform: translate(86.2px, 812.0px); } 83.32% { transform: translate(241.3px, 660.0px); } 88.26% { transform: translate(280.0px, 669.1px); } 91.88% { transform: translate(252.3px, 660.0px); } 100% { transform: translate(187.0px, 660.0px); } }
+.g1 { transform: translate(229.0px, 660.0px); animation: g1 4.35s linear infinite; } @keyframes g1 { 0.00% { transform: translate(229.0px, 660.0px); } 17.04% { transform: translate(151.3px, 812.0px); } 32.33% { transform: translate(169.4px, 660.0px); } 45.06% { transform: translate(50.0px, 704.7px); } 60.92% { transform: translate(202.4px, 660.0px); } 76.09% { transform: translate(200.6px, 812.0px); } 84.02% { transform: translate(280.0px, 811.6px); } 100% { transform: translate(229.0px, 660.0px); } }
+.g2 { transform: translate(212.8px, 660.0px); animation: g2 4.34s linear infinite; } @keyframes g2 { 0.00% { transform: translate(212.8px, 660.0px); } 15.29% { transform: translate(224.3px, 812.0px); } 35.86% { transform: translate(50.0px, 703.9px); } 49.57% { transform: translate(179.5px, 660.0px); } 61.35% { transform: translate(280.0px, 720.9px); } 78.20% { transform: translate(138.9px, 812.0px); } 96.78% { transform: translate(244.9px, 660.0px); } 100% { transform: translate(212.8px, 660.0px); } }
+.g3 { transform: translate(99.1px, 660.0px); animation: g3 5.44s linear infinite; } @keyframes g3 { 0.00% { transform: translate(99.1px, 660.0px); } 15.56% { transform: translate(280.0px, 731.4px); } 33.97% { transform: translate(50.0px, 720.4px); } 45.46% { transform: translate(180.2px, 660.0px); } 57.83% { transform: translate(280.0px, 778.3px); } 70.33% { transform: translate(127.5px, 812.0px); } 84.98% { transform: translate(280.0px, 710.6px); } 100% { transform: translate(99.1px, 660.0px); } }
+.g4 { transform: translate(50.0px, 775.2px); animation: g4 3.24s linear infinite; } @keyframes g4 { 0.00% { transform: translate(50.0px, 775.2px); } 16.00% { transform: translate(81.0px, 660.0px); } 20.63% { transform: translate(50.0px, 675.4px); } 35.12% { transform: translate(156.9px, 660.0px); } 57.34% { transform: translate(90.9px, 812.0px); } 74.77% { transform: translate(50.0px, 688.6px); } 92.33% { transform: translate(93.9px, 812.0px); } 100% { transform: translate(50.0px, 775.2px); } }
+.g5 { transform: translate(280.0px, 723.7px); animation: g5 4.86s linear infinite; } @keyframes g5 { 0.00% { transform: translate(280.0px, 723.7px); } 19.80% { transform: translate(76.8px, 812.0px); } 37.96% { transform: translate(280.0px, 810.5px); } 58.11% { transform: translate(112.1px, 660.0px); } 65.03% { transform: translate(50.0px, 706.2px); } 71.02% { transform: translate(98.5px, 660.0px); } 92.11% { transform: translate(279.0px, 812.0px); } 100% { transform: translate(280.0px, 723.7px); } }
+@media (prefers-reduced-motion: reduce) { .k0, .k1, .k2, .k3, .kl0, .kl1, .kl2, .g0, .g1, .g2, .g3, .g4, .g5 { animation: none; } }
+/* Předloha: PDF Skupenství látek, obrázek Pevná látka / Kapalná látka / Plynná látka (oranžové kuličky v nádobách). Překresleno a rozpohybováno: pevná – kmitání ±2,5 px; kapalná – tři řady kloužou (14 s, 18 s, 11 s, opačné směry); plynná – 6 částic po uzavřených drahách stěna–stěna rychlostí 230 px/s. Bez animace = částice v klidu na svých místech. */
+</style>
+<defs><radialGradient id="cast" cx="0.36" cy="0.32" r="0.72"><stop offset="0" stop-color="#fff4e6"/><stop offset="0.38" stop-color="#ffa94d"/><stop offset="1" stop-color="#d9480f"/></radialGradient></defs>
+<rect x="3" y="3" width="594" height="886" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
+<text x="300" y="42" font-size="28" font-weight="bold" fill="#212529" text-anchor="middle">Částice ve třech skupenstvích</text>
+<clipPath id="in0"><rect x="33" y="119" width="264" height="186"/></clipPath>
+<rect x="30" y="116" width="270" height="192" fill="#fff" stroke="#495057" stroke-width="3"/>
+<path d="M40 128V296" stroke="#e9ecef" stroke-width="6" stroke-linecap="round"/>
+<rect x="65" y="66" width="200" height="44" rx="10" fill="#ffd8a8" stroke="#e8590c" stroke-width="2"/><text x="165" y="96.6" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle">Pevná látka</text>
+<text x="318" y="176" font-size="22" fill="#212529" text-anchor="start">• blízko u sebe</text>
+<text x="318" y="222" font-size="22" fill="#212529" text-anchor="start">• jen kmitají na místě</text>
+<text x="318" y="268" font-size="22" fill="#212529" text-anchor="start">• drží tvar i objem</text>
+<g clip-path="url(#in0)">
+<circle cx="111" cy="287" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k0" style="animation-delay:-0.00s"/>
+<circle cx="147" cy="287" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k1" style="animation-delay:-0.37s"/>
+<circle cx="183" cy="287" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k2" style="animation-delay:-0.74s"/>
+<circle cx="219" cy="287" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k3" style="animation-delay:-0.11s"/>
+<circle cx="111" cy="251" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k0" style="animation-delay:-0.48s"/>
+<circle cx="147" cy="251" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k1" style="animation-delay:-0.85s"/>
+<circle cx="183" cy="251" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k2" style="animation-delay:-0.22s"/>
+<circle cx="219" cy="251" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k3" style="animation-delay:-0.59s"/>
+<circle cx="111" cy="215" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k0" style="animation-delay:-0.96s"/>
+<circle cx="147" cy="215" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k1" style="animation-delay:-0.33s"/>
+<circle cx="183" cy="215" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k2" style="animation-delay:-0.70s"/>
+<circle cx="219" cy="215" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k3" style="animation-delay:-0.07s"/>
+<circle cx="111" cy="179" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k0" style="animation-delay:-0.44s"/>
+<circle cx="147" cy="179" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k1" style="animation-delay:-0.81s"/>
+<circle cx="183" cy="179" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k2" style="animation-delay:-0.18s"/>
+<circle cx="219" cy="179" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k3" style="animation-delay:-0.55s"/>
+</g>
+<clipPath id="in1"><rect x="33" y="381" width="264" height="186"/></clipPath>
+<rect x="30" y="378" width="270" height="192" fill="#fff" stroke="#495057" stroke-width="3"/>
+<path d="M40 390V558" stroke="#e9ecef" stroke-width="6" stroke-linecap="round"/>
+<rect x="65" y="328" width="200" height="44" rx="10" fill="#ffd8a8" stroke="#e8590c" stroke-width="2"/><text x="165" y="358.6" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle">Kapalná látka</text>
+<text x="318" y="438" font-size="22" fill="#212529" text-anchor="start">• blízko u sebe</text>
+<text x="318" y="484" font-size="22" fill="#212529" text-anchor="start">• kloužou po sobě</text>
+<text x="318" y="530" font-size="22" fill="#212529" text-anchor="start">• tvar podle nádoby</text>
+<g clip-path="url(#in1)">
+<g class="kl0">
+<circle cx="-213" cy="549" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k0"/>
+<circle cx="-175" cy="550" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k1"/>
+<circle cx="-137" cy="549" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k2"/>
+<circle cx="-99" cy="549" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k3"/>
+<circle cx="-62" cy="550" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k0"/>
+<circle cx="-23" cy="550" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k1"/>
+<circle cx="15" cy="548" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k2"/>
+<circle cx="51" cy="549" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k3"/>
+<circle cx="89" cy="550" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k0"/>
+<circle cx="127" cy="549" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k1"/>
+<circle cx="165" cy="549" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k2"/>
+<circle cx="202" cy="550" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k3"/>
+<circle cx="241" cy="550" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k0"/>
+<circle cx="279" cy="548" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k1"/>
+<circle cx="315" cy="549" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k2"/>
+<circle cx="353" cy="550" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k3"/>
+<circle cx="391" cy="549" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k0"/>
+<circle cx="429" cy="549" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k1"/>
+<circle cx="466" cy="550" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k2"/>
+<circle cx="505" cy="550" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k3"/>
+<circle cx="543" cy="548" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k0"/>
+</g>
+<g class="kl1">
+<circle cx="-203" cy="513" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k1"/>
+<circle cx="-161" cy="515" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k2"/>
+<circle cx="-125" cy="514" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k3"/>
+<circle cx="-82" cy="515" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k0"/>
+<circle cx="-41" cy="515" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k1"/>
+<circle cx="1" cy="513" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k2"/>
+<circle cx="61" cy="513" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k3"/>
+<circle cx="103" cy="515" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k0"/>
+<circle cx="139" cy="514" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k1"/>
+<circle cx="182" cy="515" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k2"/>
+<circle cx="223" cy="515" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k3"/>
+<circle cx="265" cy="513" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k0"/>
+<circle cx="325" cy="513" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k1"/>
+<circle cx="367" cy="515" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k2"/>
+<circle cx="403" cy="514" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k3"/>
+<circle cx="446" cy="515" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k0"/>
+<circle cx="487" cy="515" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k1"/>
+<circle cx="529" cy="513" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k2"/>
+</g>
+<g class="kl2">
+<circle cx="-187" cy="478" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k3"/>
+<circle cx="-143" cy="479" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k0"/>
+<circle cx="-83" cy="479" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k1"/>
+<circle cx="-37" cy="478" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k2"/>
+<circle cx="9" cy="478" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k3"/>
+<circle cx="77" cy="478" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k0"/>
+<circle cx="121" cy="479" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k1"/>
+<circle cx="181" cy="479" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k2"/>
+<circle cx="227" cy="478" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k3"/>
+<circle cx="273" cy="478" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k0"/>
+<circle cx="341" cy="478" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k1"/>
+<circle cx="385" cy="479" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k2"/>
+<circle cx="445" cy="479" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k3"/>
+<circle cx="491" cy="478" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k0"/>
+<circle cx="537" cy="478" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="k1"/>
+</g>
+</g>
+<clipPath id="in2"><rect x="33" y="643" width="264" height="186"/></clipPath>
+<rect x="30" y="640" width="270" height="192" fill="#fff" stroke="#495057" stroke-width="3"/>
+<path d="M40 652V820" stroke="#e9ecef" stroke-width="6" stroke-linecap="round"/>
+<rect x="65" y="590" width="200" height="44" rx="10" fill="#ffd8a8" stroke="#e8590c" stroke-width="2"/><text x="165" y="620.6" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle">Plynná látka</text>
+<text x="318" y="700" font-size="22" fill="#212529" text-anchor="start">• daleko od sebe</text>
+<text x="318" y="746" font-size="22" fill="#212529" text-anchor="start">• létají volně a rychle</text>
+<text x="318" y="792" font-size="22" fill="#212529" text-anchor="start">• vyplní celou nádobu</text>
+<g clip-path="url(#in2)">
+<circle cx="0" cy="0" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="g0"/>
+<circle cx="0" cy="0" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="g1"/>
+<circle cx="0" cy="0" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="g2"/>
+<circle cx="0" cy="0" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="g3"/>
+<circle cx="0" cy="0" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="g4"/>
+<circle cx="0" cy="0" r="17" fill="url(#cast)" stroke="#9c3a00" stroke-width="1.5" class="g5"/>
+</g>
+<text x="300" y="868" font-size="23" font-weight="bold" fill="#212529" text-anchor="middle">Látka je pořád stejná – liší se pohyb částic.</text>
+</svg>

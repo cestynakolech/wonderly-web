@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 620" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Hořící svíčka a čtyři skupenství vosku. Svíčka je pevný vosk. Nahoře u knotu je jezírko kapalného vosku. Těsně nad knotem je vosk v plynném skupenství. Plamen je plazma. Animace: plamen se mihotá.">
+<style>
+.pl { transform-box: fill-box; transform-origin: 50% 100%; animation: pl 1.4s ease-in-out infinite alternate; } @keyframes pl { 0% { transform: scale(1, 1) skewX(0deg); } 50% { transform: scale(0.97, 1.05) skewX(-2deg); } 100% { transform: scale(1.02, 0.97) skewX(2deg); } }
+@media (prefers-reduced-motion: reduce) { .pl { animation: none; } }
+/* Předloha: PDF Skupenství látek, foto svíčky s popisky Plazma, Plynné, Kapalné, Pevné (příklad Skupenství vosku). Překresleno. */
+</style>
+<defs><clipPath id="sc"><rect x="20" y="62" width="560" height="500" rx="10"/></clipPath><clipPath id="telo"><path d="M226 360H334V600H226Z"/></clipPath><radialGradient id="zar" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#ffd43b" stop-opacity="0.35"/><stop offset="1" stop-color="#14122b" stop-opacity="0"/></radialGradient><radialGradient id="plamen" cx="0.5" cy="0.62" r="0.62"><stop offset="0" stop-color="#ffffff"/><stop offset="0.35" stop-color="#fff3bf"/><stop offset="0.7" stop-color="#ffd43b"/><stop offset="1" stop-color="#f76707"/></radialGradient><linearGradient id="vosk" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c2255c"/><stop offset="0.4" stop-color="#f783ac"/><stop offset="1" stop-color="#a61e4d"/></linearGradient><radialGradient id="jezirko" cx="0.45" cy="0.4" r="0.6"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#fcc2d7"/></radialGradient></defs>
+<rect x="3" y="3" width="594" height="614" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
+<text x="300" y="42" font-size="28" font-weight="bold" fill="#212529" text-anchor="middle">Skupenství vosku u svíčky</text>
+<g clip-path="url(#sc)">
+<rect x="20" y="62" width="560" height="500" fill="#14122b"/>
+<circle cx="290" cy="230" r="220" fill="url(#zar)"/>
+<g transform="rotate(-6 280 560)">
+<path d="M226 372V600H334V372Z" fill="url(#vosk)"/>
+<g clip-path="url(#telo)"><path d="M180 340L250 340L130 620L60 620Z" fill="#fff0f6" opacity="0.85"/><path d="M290 340L360 340L240 620L170 620Z" fill="#fff0f6" opacity="0.85"/><path d="M400 340L470 340L350 620L280 620Z" fill="#fff0f6" opacity="0.85"/></g>
+<path d="M226 372V600M334 372V600" stroke="#862e5c" stroke-width="2"/>
+<path d="M222 372Q224 352 244 350L316 350Q336 352 338 372Q332 384 280 386Q228 384 222 372Z" fill="#faa2c1" stroke="#a61e4d" stroke-width="2"/>
+<ellipse cx="280" cy="364" rx="44" ry="12" fill="url(#jezirko)"/>
+<path d="M334 372Q342 392 338 414Q336 424 332 414Q330 396 330 382Z" fill="#fcc2d7" stroke="#a61e4d" stroke-width="1.5"/>
+<ellipse cx="266" cy="360" rx="12" ry="3" fill="#fff" opacity="0.9"/>
+<path d="M280 364Q276 330 284 300Q290 280 286 262" stroke="#3b2414" stroke-width="5" fill="none" stroke-linecap="round"/>
+<circle cx="286" cy="262" r="4" fill="#ff922b"/>
+</g>
+<g class="pl">
+<path d="M288 330Q252 300 254 240Q258 170 292 100Q326 170 328 240Q330 300 288 330Z" fill="url(#plamen)"/>
+<path d="M262 300Q270 326 288 332Q306 326 316 300Q306 316 288 318Q270 316 262 300Z" fill="#339af0" opacity="0.85"/>
+</g>
+<ellipse cx="285" cy="300" rx="15" ry="24" fill="#3b3060" opacity="0.4"/>
+<path d="M283 330Q281 312 285 296" stroke="#3b2414" stroke-width="5" fill="none" stroke-linecap="round" transform="rotate(-6 280 560)"/>
+</g>
+<rect x="20" y="62" width="560" height="500" rx="10" fill="none" stroke="#495057" stroke-width="2"/>
+<path d="M410 130L296 180" stroke="#fff" stroke-width="2.5"/><circle cx="296" cy="180" r="5" fill="#fff"/>
+<rect x="410" y="104" width="150" height="52" rx="10" fill="#ffd8a8" stroke="#e8590c" stroke-width="2"/><text x="485" y="139.4" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Plazma</text>
+<path d="M184 300L276 304" stroke="#fff" stroke-width="2.5"/><circle cx="276" cy="304" r="5" fill="#fff"/>
+<rect x="36" y="274" width="150" height="52" rx="10" fill="#ffd8a8" stroke="#e8590c" stroke-width="2"/><text x="111" y="309.4" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Plynné</text>
+<path d="M410 380L300 366" stroke="#fff" stroke-width="2.5"/><circle cx="300" cy="366" r="5" fill="#fff"/>
+<rect x="410" y="354" width="150" height="52" rx="10" fill="#ffd8a8" stroke="#e8590c" stroke-width="2"/><text x="485" y="389.4" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Kapalné</text>
+<path d="M410 486L300 480" stroke="#fff" stroke-width="2.5"/><circle cx="300" cy="480" r="5" fill="#fff"/>
+<rect x="410" y="460" width="150" height="52" rx="10" fill="#ffd8a8" stroke="#e8590c" stroke-width="2"/><text x="485" y="495.4" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Pevné</text>
+<text x="300" y="594" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">Vosk: pevný → kapalný → plyn → plamen je plazma.</text>
+</svg>
