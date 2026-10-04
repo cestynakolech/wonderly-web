@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 680" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: dívka se češe růžovým plastovým hřebenem. Vlasy i hřeben jsou na začátku nenabité. Při česání přejde 5 elektronů z vlasů na hřeben. Na vlasech pak zůstane 5 kladných nábojů a na hřebenu je 5 elektronů: vlasy jsou nabité kladně, hřeben záporně.">
+<style>
+/* Předloha: PDF Elektrické vlastnosti látek, dvojice fotografií dívky s hřebenem: vlevo zelené elektrony se žlutými šipkami přecházejí z vlasů na hřeben, vpravo + u vlasů a − u hřebenu (fotografie → vlastní kresba, obě fáze jako jedna animace). Animace 11 s: 2 tahy hřebenem, 5 elektronů přeletí na hřeben, na vlasech se objeví 5 znaků +. Počty + a − jsou stejné (nabijí se obě tělesa). Bez animace = koncový stav. */
+@keyframes cesani { 0%, 12% { transform: translateY(0); } 19% { transform: translateY(70px); } 26% { transform: translateY(0); } 33% { transform: translateY(70px); } 40%, 100% { transform: translateY(0); } }
+@keyframes plus { 0%, 55% { opacity: 0; } 60%, 95% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes c1 { 0%, 11% { opacity: 1; } 13%, 100% { opacity: 0; } }
+@keyframes c2 { 0%, 11% { opacity: 0; } 13%, 56% { opacity: 1; } 58%, 100% { opacity: 0; } }
+@keyframes c3 { 0%, 56% { opacity: 0; } 58%, 100% { opacity: 1; } }
+.hreben { animation: cesani 11s ease-in-out infinite; } .plus { animation: plus 11s linear infinite; }
+.c1 { animation: c1 11s linear infinite; } .c2 { animation: c2 11s linear infinite; } .c3 { animation: c3 11s linear infinite; }
+@keyframes e0 { 0%, 11% { transform: translate(-48px, 16px); opacity: 0; } 13%, 40% { transform: translate(-48px, 16px); opacity: 1; } 48%, 95% { transform: translate(0, 0); opacity: 1; } 100% { transform: translate(0, 0); opacity: 0; } }
+.e0 { animation: e0 11s ease-in-out infinite; }
+@keyframes e1 { 0%, 11% { transform: translate(-32px, 18px); opacity: 0; } 13%, 43% { transform: translate(-32px, 18px); opacity: 1; } 51%, 95% { transform: translate(0, 0); opacity: 1; } 100% { transform: translate(0, 0); opacity: 0; } }
+.e1 { animation: e1 11s ease-in-out infinite; }
+@keyframes e2 { 0%, 11% { transform: translate(-46px, 20px); opacity: 0; } 13%, 46% { transform: translate(-46px, 20px); opacity: 1; } 54%, 95% { transform: translate(0, 0); opacity: 1; } 100% { transform: translate(0, 0); opacity: 0; } }
+.e2 { animation: e2 11s ease-in-out infinite; }
+@keyframes e3 { 0%, 11% { transform: translate(-30px, 22px); opacity: 0; } 13%, 49% { transform: translate(-30px, 22px); opacity: 1; } 57%, 95% { transform: translate(0, 0); opacity: 1; } 100% { transform: translate(0, 0); opacity: 0; } }
+.e3 { animation: e3 11s ease-in-out infinite; }
+@keyframes e4 { 0%, 11% { transform: translate(-44px, 24px); opacity: 0; } 13%, 52% { transform: translate(-44px, 24px); opacity: 1; } 60%, 95% { transform: translate(0, 0); opacity: 1; } 100% { transform: translate(0, 0); opacity: 0; } }
+.e4 { animation: e4 11s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<defs><radialGradient id="gP" cx="50%" cy="50%" r="50%" fx="35%" fy="30%"><stop offset="0" stop-color="#f19a9a"/><stop offset="0.45" stop-color="#c92a2a"/><stop offset="1" stop-color="#7d1a1a"/></radialGradient>
+<radialGradient id="gE" cx="50%" cy="50%" r="50%" fx="35%" fy="30%"><stop offset="0" stop-color="#7db3e3"/><stop offset="0.45" stop-color="#1864ab"/><stop offset="1" stop-color="#0b3a63"/></radialGradient>
+<radialGradient id="gN" cx="50%" cy="50%" r="50%" fx="35%" fy="30%"><stop offset="0" stop-color="#ffffff"/><stop offset="0.45" stop-color="#adb5bd"/><stop offset="1" stop-color="#5c636a"/></radialGradient>
+<radialGradient id="gObal" cx="50%" cy="50%" r="50%" fx="40%" fy="35%"><stop offset="0" stop-color="#f4fbef"/><stop offset="1" stop-color="#c5e1b0"/></radialGradient>
+<radialGradient id="gJadro" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fff4e6"/><stop offset="1" stop-color="#ffc9a0"/></radialGradient>
+<linearGradient id="gKov" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#6c757d"/><stop offset="0.35" stop-color="#f1f3f5"/><stop offset="0.7" stop-color="#adb5bd"/><stop offset="1" stop-color="#495057"/></linearGradient>
+<linearGradient id="gKovV" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1f3f5"/><stop offset="0.5" stop-color="#ced4da"/><stop offset="1" stop-color="#868e96"/></linearGradient>
+<radialGradient id="gZlato" cx="50%" cy="50%" r="50%" fx="38%" fy="32%"><stop offset="0" stop-color="#fff9db"/><stop offset="0.35" stop-color="#fcc419"/><stop offset="1" stop-color="#a86b00"/></radialGradient>
+<radialGradient id="gSklo" cx="50%" cy="50%" r="50%" fx="30%" fy="25%"><stop offset="0" stop-color="#ffffff"/><stop offset="0.6" stop-color="#e7f5ff"/><stop offset="1" stop-color="#c5f6fa"/></radialGradient>
+<radialGradient id="gKuze" cx="50%" cy="50%" r="50%" fx="40%" fy="35%"><stop offset="0" stop-color="#ffe8d6"/><stop offset="1" stop-color="#eeb48a"/></radialGradient>
+<linearGradient id="gPlast" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd8a8"/><stop offset="0.5" stop-color="#fd7e14"/><stop offset="1" stop-color="#c2410c"/></linearGradient>
+<linearGradient id="gDeska" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#212529"/><stop offset="0.45" stop-color="#6c757d"/><stop offset="1" stop-color="#212529"/></linearGradient></defs>
+<rect x="3" y="3" width="594" height="674" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
+<rect x="90" y="16" width="420" height="48" rx="10" fill="#ffe066" stroke="#e67700" stroke-width="2"/><text x="300" y="49" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Elektrování třením</text>
+<text class="c1" x="300" y="100" font-size="21" font-weight="bold" fill="#212529" text-anchor="middle" opacity="0">Vlasy i hřeben jsou zatím nenabité.</text>
+<text class="c2" x="300" y="100" font-size="21" font-weight="bold" fill="#1864ab" text-anchor="middle" opacity="0">Při česání přecházejí elektrony z vlasů na hřeben.</text>
+<text class="c3" x="300" y="100" font-size="21" font-weight="bold" fill="#212529" text-anchor="middle">Vlasy jsou nabité <tspan fill="#c92a2a">kladně (+)</tspan>, hřeben <tspan fill="#1864ab">záporně (−)</tspan>.</text>
+<path d="M140 596C146 548 196 520 250 508L310 508C364 520 414 548 420 596Z" fill="#8fbc9a" stroke="#4f7a5a" stroke-width="2"/>
+<path d="M256 508C266 532 294 532 304 508" fill="none" stroke="#4f7a5a" stroke-width="3"/>
+<rect x="252" y="430" width="56" height="84" rx="14" fill="url(#gKuze)"/>
+<path d="M166 470C148 380 156 252 228 214C268 194 322 194 348 212C410 252 414 380 396 470C380 486 350 482 340 470L340 300L220 300L220 470C210 484 180 486 166 470Z" fill="#8d5a2b" stroke="#5c3a1a" stroke-width="2"/>
+<ellipse cx="280" cy="352" rx="74" ry="96" fill="url(#gKuze)" stroke="#c98a5e" stroke-width="1.5"/>
+<path d="M200 312C200 238 252 212 292 214C338 216 366 250 362 316C346 278 312 262 280 266C246 270 216 286 200 312Z" fill="#7a4a20"/>
+<path d="M352 230C380 270 384 360 380 460M364 250C392 300 392 380 388 456M230 236C208 280 200 370 206 460M216 260C196 320 194 400 198 462" stroke="#a9713a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<path d="M240 322Q254 312 268 322M292 322Q306 312 320 322" stroke="#5c3a1a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+<ellipse cx="254" cy="342" rx="11" ry="7" fill="#ffffff" stroke="#5c3a1a" stroke-width="1.5"/><circle cx="256" cy="342" r="5" fill="#2b8a3e"/><circle cx="256" cy="342" r="2.2" fill="#212529"/>
+<ellipse cx="306" cy="342" rx="11" ry="7" fill="#ffffff" stroke="#5c3a1a" stroke-width="1.5"/><circle cx="308" cy="342" r="5" fill="#2b8a3e"/><circle cx="308" cy="342" r="2.2" fill="#212529"/>
+<path d="M282 350Q276 374 288 378" stroke="#c98a5e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<path d="M260 402Q282 414 304 402Q282 420 260 402Z" fill="#d6336c" stroke="#a61e4d" stroke-width="1.5"/>
+<ellipse cx="240" cy="380" rx="13" ry="8" fill="#ff8787" opacity="0.35"/><ellipse cx="324" cy="380" rx="13" ry="8" fill="#ff8787" opacity="0.35"/>
+<g class="hreben"><path d="M386 236H399M386 243H399M386 250H399M386 257H399M386 264H399M386 271H399M386 278H399M386 285H399M386 292H399M386 299H399M386 306H399M386 313H399M386 320H399M386 327H399M386 334H399M386 341H399M386 348H399M386 355H399M386 362H399M386 369H399M386 376H399M386 383H399M386 390H399M386 397H399M386 404H399M386 411H399M386 418H399M386 425H399" stroke="#c2255c" stroke-width="3" stroke-linecap="round"/><rect x="396" y="228" width="18" height="214" rx="6" fill="#e64980" stroke="#a61e4d" stroke-width="2"/>
+<path d="M414 430C440 420 470 432 476 460C482 494 452 514 424 506L404 498C396 470 400 444 414 430Z" fill="url(#gKuze)" stroke="#c98a5e" stroke-width="2"/>
+<path d="M398 448C390 446 386 456 394 460L412 462M398 468C390 466 386 476 394 480L412 482M400 488C392 486 390 496 398 500L414 500" fill="url(#gKuze)" stroke="#c98a5e" stroke-width="2"/>
+<path d="M440 506L456 560L500 560L486 500Z" fill="#8fbc9a" stroke="#4f7a5a" stroke-width="2"/></g>
+<g class="plus"><g><circle cx="356" cy="268" r="12" fill="url(#gP)" stroke="#212529" stroke-width="1.5"/><path d="M349.8 268H362.2M356 261.8V274.2" stroke="#fff" stroke-width="2.3" stroke-linecap="round"/></g><g><circle cx="372" cy="306" r="12" fill="url(#gP)" stroke="#212529" stroke-width="1.5"/><path d="M365.8 306H378.2M372 299.8V312.2" stroke="#fff" stroke-width="2.3" stroke-linecap="round"/></g><g><circle cx="358" cy="344" r="12" fill="url(#gP)" stroke="#212529" stroke-width="1.5"/><path d="M351.8 344H364.2M358 337.8V350.2" stroke="#fff" stroke-width="2.3" stroke-linecap="round"/></g><g><circle cx="374" cy="382" r="12" fill="url(#gP)" stroke="#212529" stroke-width="1.5"/><path d="M367.8 382H380.2M374 375.8V388.2" stroke="#fff" stroke-width="2.3" stroke-linecap="round"/></g><g><circle cx="360" cy="420" r="12" fill="url(#gP)" stroke="#212529" stroke-width="1.5"/><path d="M353.8 420H366.2M360 413.8V426.2" stroke="#fff" stroke-width="2.3" stroke-linecap="round"/></g></g>
+<g class="e0"><circle cx="404" cy="252" r="12" fill="url(#gE)" stroke="#212529" stroke-width="1.5"/><path d="M397.8 252H410.2" stroke="#fff" stroke-width="2.3" stroke-linecap="round"/></g><g class="e1"><circle cx="404" cy="288" r="12" fill="url(#gE)" stroke="#212529" stroke-width="1.5"/><path d="M397.8 288H410.2" stroke="#fff" stroke-width="2.3" stroke-linecap="round"/></g><g class="e2"><circle cx="404" cy="324" r="12" fill="url(#gE)" stroke="#212529" stroke-width="1.5"/><path d="M397.8 324H410.2" stroke="#fff" stroke-width="2.3" stroke-linecap="round"/></g><g class="e3"><circle cx="404" cy="360" r="12" fill="url(#gE)" stroke="#212529" stroke-width="1.5"/><path d="M397.8 360H410.2" stroke="#fff" stroke-width="2.3" stroke-linecap="round"/></g><g class="e4"><circle cx="404" cy="396" r="12" fill="url(#gE)" stroke="#212529" stroke-width="1.5"/><path d="M397.8 396H410.2" stroke="#fff" stroke-width="2.3" stroke-linecap="round"/></g>
+<text x="510" y="200" font-size="22" fill="#212529" text-anchor="middle" font-weight="bold">hřeben</text>
+<path d="M488 206L420 236" stroke="#212529" stroke-width="2"/>
+<text x="96" y="250" font-size="22" fill="#212529" text-anchor="middle" font-weight="bold">vlasy</text>
+<path d="M120 256L186 300" stroke="#212529" stroke-width="2"/>
+<rect x="24" y="604" width="552" height="60" rx="12" fill="#ffffff" stroke="#868e96" stroke-width="2"/>
+<text x="300" y="642" font-size="21" fill="#212529" text-anchor="middle">Při tření se nabijí obě tělesa – každé opačně.</text>
+</svg>
