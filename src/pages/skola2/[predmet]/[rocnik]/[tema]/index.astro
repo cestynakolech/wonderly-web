@@ -31,7 +31,8 @@ function odznaky(pt) {
 	const o = [];
 	if (pt.interakce || pt.interakce2) o.push({ znak: '🎮', popis: 'interaktivní simulace' });
 	if (kvizy[`${predmet.slug}/${rocnik.slug}/${tema.slug}/${pt.slug}`]) o.push({ znak: '✏️', popis: 'procvičovací kvíz' });
-	if (pt.materialy?.some((m) => m.druh === 'video' || m.druh === 'youtube')) o.push({ znak: '🎬', popis: 'video' });
+	// písně (.m4a/.mp3…) jsou v datech druh 'video', ale na stránce podtématu jsou <audio> — nepočítat (stejná podmínka jako jeZvuk)
+	if (pt.materialy?.some((m) => m.druh === 'youtube' || (m.druh === 'video' && !/\.(m4a|mp3|wav|ogg|aac)$/i.test(m.cesta ?? '')))) o.push({ znak: '🎬', popis: 'video' });
 	if (laborky[`${predmet.slug}/${rocnik.slug}/${tema.slug}/${pt.slug}`]) o.push({ znak: '🧪', popis: 'laboratorní práce' });
 	return o;
 }

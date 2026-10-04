@@ -3,49 +3,34 @@
  * VideoGrid.astro
  * 
  * Kontejner pro zobrazení videí v responzivním gridu
- * - Automaticky načítá videa z API
- * - Lazy loading + intersection observer
+ * - Karty dostávají stejné údaje jako VideoCard (nazev, cesta, tema, podtema, ai, rocnik)
  * - Responsive grid (1-4 sloupce podle velikosti)
- * - Filtrování podle ročníku
+ * Pozn.: filtr podle délky a součty minut zrušeny — videa už délku v datech nemají.
  */
 
 import VideoCard from './VideoCard.astro';
-import type { Video } from '../../data/videa';
 
-interface Props {
-	rocnik: 'F6' | 'F7' | 'F8' | 'F9';
-	videa?: Video[];
-	title?: string;
-	showFilters?: boolean;
+interface VideoKarta {
+	nazev: string;
+	cesta: string;
+	tema: string;
+	podtema?: string;
+	ai?: string;
+	rocnik: string;
 }
 
-const { rocnik, videa = [], title = `Videa fyziky — ${rocnik}. ročník`, showFilters = true } = Astro.props;
+interface Props {
+	rocnik: '6-rocnik' | '7-rocnik' | '8-rocnik' | '9-rocnik';
+	videa?: VideoKarta[];
+	title?: string;
+}
+
+const { rocnik, videa = [], title = `Videa fyziky — ${rocnik.charAt(0)}. ročník` } = Astro.props;
 ---
 
 <section class="video-grid-section">
 	<div class="container">
 		<h2 class="section-title">{title}</h2>
-
-		{
-			showFilters && (
-				<div class="filters">
-					<div class="filter-group">
-						<label>Typ videa:</label>
-						<div class="filter-buttons">
-							<button class="filter-btn active" data-filter="all">
-								Všechny ({videa.length})
-							</button>
-							<button class="filter-btn" data-filter="short">
-								Krátká (&lt;15 min)
-							</button>
-							<button class="filter-btn" data-filter="long">
-								Dlouhá (&gt;15 min)
-							</button>
-						</div>
-					</div>
-				</div>
-			)
-		}
 
 		<div class="video-grid">
 			{
@@ -63,17 +48,7 @@ const { rocnik, videa = [], title = `Videa fyziky — ${rocnik}. ročník`, show
 			videa.length > 0 && (
 				<div class="video-stats">
 					<p>
-						<strong>{videa.filter((v) => v.delka <= 15).length}</strong> krátkých
-						videí (≤15 minut) · <strong>{videa.filter((v) => v.delka > 15).length}</strong>
-						{' '}
-						dlouhých (>15 minut)
-					</p>
-					<p>
-						Celkový obsah:{' '}
-						<strong>
-							{Math.round(videa.reduce((sum, v) => sum + v.delka, 0) / 60)}
-						</strong>{' '}
-						hodin videa
+						Počet videí: <strong>{videa.length}</strong>
 					</p>
 				</div>
 			)
@@ -231,53 +206,3 @@ const { rocnik, videa = [], title = `Videa fyziky — ${rocnik}. ročník`, show
 	}
 </style>
 
-<script>
-	// Filtrování videí
-	const filterBtns = document.querySelectorAll('.filter-btn');
-	const videoCards = document.querySelectorAll('.video-card');
-
-	filterBtns.forEach((btn) => {
-		btn.addEventListener('click', function () {
-			const filter = this.getAttribute('data-filter');
-
-			// Přepnout aktivní tlačítko
-			filterBtns.forEach((b) => b.classList.remove('active'));
-			this.classList.add('active');
-
-			// Filtrovat videa
-			videoCards.forEach((card) => {
-				const delka = parseInt(card.getAttribute('data-delka') || '0');
-
-				if (filter === 'all') {
-					card.style.display = 'block';
-				} else if (filter === 'short' && delka <= 15) {
-					card.style.display = 'block';
-				} else if (filter === 'long' && delka > 15) {
-					card.style.display = 'block';
-				} else {
-					card.style.display = 'none';
-				}
-			});
-		});
-	});
-
-	// Lazy loading s Intersection Observer
-	if ('IntersectionObserver' in window) {
-		const iframes = document.querySelectorAll('.iframe-container iframe');
-
-		const observer = new IntersectionObserver((entries) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					const iframe = entry.target as HTMLIFrameElement;
-					if (!iframe.src) {
-						// Načíst iframe až když je viditelný
-						iframe.loading = 'lazy';
-					}
-					observer.unobserve(iframe);
-				}
-			});
-		});
-
-		iframes.forEach((iframe) => observer.observe(iframe));
-	}
-</script>
