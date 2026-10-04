@@ -617,11 +617,52 @@ export default {
 				});
 			}
 			const klic = decodeURIComponent(url.pathname.slice('/media/'.length));
-			const objekt = await env.MEDIA.get(klic);
+			const jeHead = request.method === 'HEAD';
+			const rangeHlavicka = request.headers.get('range');
+			// Range (Safari/iOS bez něj mp4 nepřehraje): napřed zjistíme velikost.
+			let rozsah = null;
+			let objekt;
+			if (rangeHlavicka) {
+				const meta = await env.MEDIA.head(klic);
+				if (!meta) {
+					return new Response('Soubor nenalezen', { status: 404 });
+				}
+				const velikost = meta.size;
+				const m = /^bytes=(\d*)-(\d*)$/.exec(rangeHlavicka.trim());
+				if (m && (m[1] !== '' || m[2] !== '')) {
+					let zacatek;
+					let konec;
+					if (m[1] === '') {
+						// bytes=-N = posledních N bajtů
+						const n = parseInt(m[2], 10);
+						zacatek = Math.max(0, velikost - n);
+						konec = velikost - 1;
+					} else {
+						zacatek = parseInt(m[1], 10);
+						konec = m[2] === '' ? velikost - 1 : Math.min(parseInt(m[2], 10), velikost - 1);
+					}
+					if (zacatek >= velikost || zacatek > konec) {
+						return new Response(null, {
+							status: 416,
+							headers: { 'content-range': `bytes */${velikost}`, 'accept-ranges': 'bytes' },
+						});
+					}
+					rozsah = { zacatek, konec, velikost };
+				}
+				// nečitelný Range se podle RFC ignoruje a vrací se celý soubor
+				objekt = jeHead
+					? meta
+					: rozsah
+						? await env.MEDIA.get(klic, { range: { offset: rozsah.zacatek, length: rozsah.konec - rozsah.zacatek + 1 } })
+						: await env.MEDIA.get(klic);
+			} else {
+				objekt = jeHead ? await env.MEDIA.head(klic) : await env.MEDIA.get(klic);
+			}
 			if (!objekt) {
 				return new Response('Soubor nenalezen', { status: 404 });
 			}
 			const hlavicky = new Headers();
+			hlavicky.set('accept-ranges', 'bytes');
 			objekt.writeHttpMetadata(hlavicky);
 			hlavicky.set('etag', objekt.httpEtag);
 			// Dřív tu byl rok s příznakem `immutable`, tedy slib „obsah se nikdy
@@ -637,7 +678,13 @@ export default {
 			if (zna && zna.replace(/^W\//, '') === objekt.httpEtag.replace(/^W\//, '')) {
 				return new Response(null, { status: 304, headers: hlavicky });
 			}
-			return new Response(objekt.body, { headers: hlavicky });
+			if (rozsah) {
+				hlavicky.set('content-range', `bytes ${rozsah.zacatek}-${rozsah.konec}/${rozsah.velikost}`);
+				hlavicky.set('content-length', String(rozsah.konec - rozsah.zacatek + 1));
+				return new Response(jeHead ? null : objekt.body, { status: 206, headers: hlavicky });
+			}
+			hlavicky.set('content-length', String(objekt.size));
+			return new Response(jeHead ? null : objekt.body, { headers: hlavicky });
 		}
 
 		let prefix = null;
