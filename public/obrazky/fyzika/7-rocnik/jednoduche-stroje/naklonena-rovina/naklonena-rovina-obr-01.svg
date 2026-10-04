@@ -1,12 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 650" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Stejnou bednu o tíze G = 600 N dostáváme do výšky 1 m dvakrát. Vlevo ji ruka zvedá lanem svisle vzhůru silou F = 600 N po dráze 1 m. Vpravo ji ruka táhne po nakloněné rovině dlouhé 3 m silou F = 200 N po dráze 3 m; bedna jede po rampě déle. Čárkovaně je vyznačeno, kde bedny začínaly.">
 <style>
-/* Obě bedny jedou stejně rychle: svisle urazí 1 m za 1,2 s, po rampě 3 m za 3,6 s (třikrát déle).
-   Cyklus 9 s. Bez animace (prefers-reduced-motion) zůstanou bedny nahoře = koncový stav. */
+/* Obě bedny jedou stejně rychle (100 px/s): svisle urazí 1 m (120 px) za 1,2 s, po rampě celou délku 3 m (360 px
+   po přeponě, výška 120 px) za 3,6 s, tedy rampa trvá třikrát déle (delší dráha). Nahoře se bedna narovná na plošinu
+   do stejné výšky 1 m jako levá. Cyklus 9 s. Bez animace (prefers-reduced-motion) zůstanou bedny nahoře = koncový stav. */
 .nrA { animation: nrA-k 9s linear infinite; }
 @keyframes nrA-k { 0%, 6% { transform: translate(0px, 120px); } 19.33%, 100% { transform: translate(0px, 0px); } }
 .nrB { animation: nrB-k 9s linear infinite; }
-@keyframes nrB-k { 0%, 6% { transform: translate(-273.41px, 96.67px); } 46%, 100% { transform: translate(0px, 0px); } }
-@media (prefers-reduced-motion: reduce) { .nrA, .nrB { animation: none; } }
+@keyframes nrB-k { 0%, 6% { transform: translate(-339.41px, 120px); } 46%, 100% { transform: translate(0px, 0px); } }
+.nrR { transform-origin: 729.41px 350px; animation: nrR-k 9s linear infinite; }
+@keyframes nrR-k { 0%, 46% { transform: rotate(-19.471deg); } 50%, 100% { transform: rotate(0deg); } }
+@media (prefers-reduced-motion: reduce) { .nrA, .nrB, .nrR { animation: none; } }
 </style>
 <defs>
 <marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
@@ -64,7 +67,8 @@
 <text x="918" y="419" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="end" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">h = 1 m</text>
 <rect x="0" y="-70" width="70" height="70" rx="3" fill="none" stroke="#868e96" stroke-width="3" stroke-dasharray="8 6" transform="translate(390 470) rotate(-19.471)"/>
 <g class="nrB">
-<g transform="translate(663.41 373.33) rotate(-19.471)">
+<g class="nrR">
+<g transform="translate(729.41 350)">
 <line x1="70" y1="-35" x2="152" y2="-35" stroke="#8d4b1f" stroke-width="6" stroke-linecap="round"/>
 <use href="#nr-bedna"/>
 <line x1="74" y1="-35" x2="134" y2="-35" stroke="#e03131" stroke-width="7" marker-end="url(#b-cer)" stroke-linecap="round"/>
@@ -73,8 +77,9 @@
 <line x1="144" y1="-35" x2="160" y2="-35" stroke="#a9744f" stroke-width="1.8" stroke-linecap="round"/>
 <line x1="144" y1="-26" x2="160" y2="-26" stroke="#a9744f" stroke-width="1.8" stroke-linecap="round"/>
 </g>
-<text x="625" y="262" font-size="28" font-weight="bold" fill="#c92a2a" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">F = 200 N</text>
 </g>
+</g>
+<text x="625" y="262" font-size="28" font-weight="bold" fill="#c92a2a" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">F = 200 N</text>
 
 <!-- plakety -->
 <rect x="20" y="516" width="310" height="70" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/>
