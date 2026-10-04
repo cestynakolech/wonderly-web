@@ -1577,6 +1577,6 @@ export const laborky: Record<string, Laborka> = {
 			'Jaká jednotka se kromě joulu dnes používá už jen u potravin?',
 		],
 		pozor: 'Potraviny pro pokus nejez. Dej pozor na alergie spolužáků. Pracuj jen s uzavřenými obaly. Po práci si umyj ruce.',
-		tip: 'Energetická hodnota se na obalech potravin často uvádí v kJ i v kcal.',
+		tip: 'Všechny živé organismy potřebují k životu energii.',
 	},
 };
