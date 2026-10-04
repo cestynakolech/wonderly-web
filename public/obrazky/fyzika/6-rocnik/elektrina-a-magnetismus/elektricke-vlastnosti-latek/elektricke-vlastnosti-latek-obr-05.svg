@@ -8,15 +8,15 @@
 @keyframes c3 { 0%, 56% { opacity: 0; } 58%, 100% { opacity: 1; } }
 .hreben { animation: cesani 11s ease-in-out infinite; } .plus { animation: plus 11s linear infinite; }
 .c1 { animation: c1 11s linear infinite; } .c2 { animation: c2 11s linear infinite; } .c3 { animation: c3 11s linear infinite; }
-@keyframes e0 { 0%, 11% { transform: translate(-48px, 16px); opacity: 0; } 13%, 40% { transform: translate(-48px, 16px); opacity: 1; } 48%, 95% { transform: translate(0, 0); opacity: 1; } 100% { transform: translate(0, 0); opacity: 0; } }
+@keyframes e0 { 0%, 11% { transform: translate(-32px, 16px); opacity: 0; } 13%, 40% { transform: translate(-32px, 16px); opacity: 1; } 48%, 95% { transform: translate(0, 0); opacity: 1; } 100% { transform: translate(0, 0); opacity: 0; } }
 .e0 { animation: e0 11s ease-in-out infinite; }
-@keyframes e1 { 0%, 11% { transform: translate(-32px, 18px); opacity: 0; } 13%, 43% { transform: translate(-32px, 18px); opacity: 1; } 51%, 95% { transform: translate(0, 0); opacity: 1; } 100% { transform: translate(0, 0); opacity: 0; } }
+@keyframes e1 { 0%, 11% { transform: translate(-26px, 18px); opacity: 0; } 13%, 43% { transform: translate(-26px, 18px); opacity: 1; } 51%, 95% { transform: translate(0, 0); opacity: 1; } 100% { transform: translate(0, 0); opacity: 0; } }
 .e1 { animation: e1 11s ease-in-out infinite; }
-@keyframes e2 { 0%, 11% { transform: translate(-46px, 20px); opacity: 0; } 13%, 46% { transform: translate(-46px, 20px); opacity: 1; } 54%, 95% { transform: translate(0, 0); opacity: 1; } 100% { transform: translate(0, 0); opacity: 0; } }
+@keyframes e2 { 0%, 11% { transform: translate(-32px, 20px); opacity: 0; } 13%, 46% { transform: translate(-32px, 20px); opacity: 1; } 54%, 95% { transform: translate(0, 0); opacity: 1; } 100% { transform: translate(0, 0); opacity: 0; } }
 .e2 { animation: e2 11s ease-in-out infinite; }
-@keyframes e3 { 0%, 11% { transform: translate(-30px, 22px); opacity: 0; } 13%, 49% { transform: translate(-30px, 22px); opacity: 1; } 57%, 95% { transform: translate(0, 0); opacity: 1; } 100% { transform: translate(0, 0); opacity: 0; } }
+@keyframes e3 { 0%, 11% { transform: translate(-28px, 22px); opacity: 0; } 13%, 49% { transform: translate(-28px, 22px); opacity: 1; } 57%, 95% { transform: translate(0, 0); opacity: 1; } 100% { transform: translate(0, 0); opacity: 0; } }
 .e3 { animation: e3 11s ease-in-out infinite; }
-@keyframes e4 { 0%, 11% { transform: translate(-44px, 24px); opacity: 0; } 13%, 52% { transform: translate(-44px, 24px); opacity: 1; } 60%, 95% { transform: translate(0, 0); opacity: 1; } 100% { transform: translate(0, 0); opacity: 0; } }
+@keyframes e4 { 0%, 11% { transform: translate(-30px, 24px); opacity: 0; } 13%, 52% { transform: translate(-30px, 24px); opacity: 1; } 60%, 95% { transform: translate(0, 0); opacity: 1; } 100% { transform: translate(0, 0); opacity: 0; } }
 .e4 { animation: e4 11s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
 </style>
