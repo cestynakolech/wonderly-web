@@ -525,10 +525,10 @@ export const temata: Record<string, Tema[]> = {
 						<ul>
 							<li>brankář zastaví míč — a míč při tom tlačí brankáři do rukou</li>
 							<li>kopnu do míče — a míč zatlačí do mé nohy</li>
-							<li>Země přitahuje Měsíc — a Měsíc přitahuje vodu v mořích (příliv a odliv)</li>
+							<li>Země přitahuje Měsíc — a Měsíc přitahuje Zemi (kvůli tomu je v mořích příliv a odliv)</li>
 						</ul>
 						<figure><a href="/obrazky/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/vzajemne-pusobeni-teles-sila-obr-01.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/vzajemne-pusobeni-teles-sila-obr-01.svg" alt="Animace: dívka na zemi natahuje pružný pás přetažený přes chodidla. Ruce působí na pás a pás působí na ruce i nohy." loading="lazy" /></a><figcaption>Ruce natahují pás – a pás zároveň táhne ruce i nohy k sobě.</figcaption></figure>
-						<figure><a href="/obrazky/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/vzajemne-pusobeni-teles-sila-obr-02.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/vzajemne-pusobeni-teles-sila-obr-02.svg" alt="Animace: slečna dosedne do křesla. Oranžová šipka nahoru – křeslo drží slečnu; modrá šipka dolů – slečna tlačí na křeslo." loading="lazy" /></a><figcaption>Slečna tlačí na křeslo dolů, křeslo ji drží silou nahoru.</figcaption></figure>
+						<figure><a href="/obrazky/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/vzajemne-pusobeni-teles-sila-obr-02.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/vzajemne-pusobeni-teles-sila-obr-02.svg" alt="Animace: slečna dosedne do křesla. Červená šipka nahoru – křeslo drží slečnu; červená šipka dolů – slečna tlačí na křeslo." loading="lazy" /></a><figcaption>Slečna tlačí na křeslo dolů, křeslo ji drží silou nahoru.</figcaption></figure>
 						<h3>Účinky vzájemného působení</h3>
 						<ul>
 							<li><strong>Pohybové</strong> — uvedení do pohybu (vykopnutí míče), změna směru (přihrávka), změna rychlosti (cyklista šlape/brzdí), zastavení pohybu (brankář chytne míč)</li>
