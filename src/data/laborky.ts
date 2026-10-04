@@ -1095,7 +1095,7 @@ export const laborky: Record<string, Laborka> = {
 		cil: 'Multimetrem změřit odpor kůže mezi dvěma prsty za sucha a za vlhka a porovnat výsledky.',
 		pomucky: ['multimetr nastavený na měření odporu', 'miska s vodou', 'ručník', 'tužka'],
 		postup: [
-			'Multimetr nastav na měření odporu (Ω) a zvol rozsah v kΩ nebo MΩ. Nic jiného k multimetru nepřipojuj.',
+			'Multimetr nastav na měření odporu (Ω) a začni největším rozsahem (20 MΩ). Hodnotu v MΩ převeď na kΩ (1 MΩ = 1000 kΩ). Nic jiného k multimetru nepřipojuj.',
 			'Suché prsty jedné ruky přilož k hrotům multimetru. Odečti odpor a zapiš ho do tabulky v kΩ.',
 			'Prsty navlhči vodou, krátce otři a měření zopakuj. Zapiš výsledek.',
 			'Vysvětlení: lidské tělo je elektrický vodič a velikost proudu v těle závisí také na odporu kůže.',
@@ -1106,12 +1106,12 @@ export const laborky: Record<string, Laborka> = {
 		},
 		otazky: [
 			'Za jakých podmínek byl odpor kůže menší? Co z toho vyplývá pro práci s elektrickými spotřebiči?',
-			'Podle zdroje je odpor suché kůže kolem 2000 Ω a vlhké 1000 Ω. Kolikrát lépe vede vlhká kůže?',
-			'Napětí 12 V působí na kůži s odporem 2 kΩ. Jaký proud v mA tělem protéká? Počítej I = U : R, kde 1 V : 1 kΩ = 1 mA.',
+			'Za jakých podmínek jsi naměřil menší odpor kůže? Proč je pro bezpečnost důležité mít při práci s elektrickými spotřebiči suché ruce?',
+			'Při výpočtech bezpečnosti se počítá s nepříznivým odporem těla 2 kΩ. Jaký proud v mA protéká při napětí 12 V? Počítej I = U : R, kde 1 V : 1 kΩ = 1 mA. Při proudu 6 až 15 mA nastává křeč, při které se člověk nemůže uvolnit. Do jaké míry je tvůj výsledek nebezpečný?',
 			'Jak postupuješ jako první, když se zraněný stále dotýká vodiče pod proudem? Které číslo záchranné služby zavoláš?',
 		],
 		pozor: 'Multimetr používej jen na měření odporu a hroty drž jen v rukou, nic jiného nepřipojuj. Nikdy nezkoušej měřit odpor těla u spotřebičů zapojených v zásuvce. Spotřebiče nepoužívej s mokrýma rukama ani ve vodě. Pokus dělej jen s učitelem.',
-		tip: 'Nejvyšší bezpečné napětí podle normy je 25 V stejnosměrného a 12 V střídavého proudu.',
+		tip: 'Ve vlhkých prostorách je nejvyšší bezpečné napětí podle normy 25 V stejnosměrného a 12 V střídavého proudu.',
 	},
 	'fyzika/9-rocnik/jaderna-fyzika/jadro-atomu': {
 		nazev: 'Modely atomů uhlíku: izotopy',
@@ -1122,7 +1122,7 @@ export const laborky: Record<string, Laborka> = {
 			'Ze zelené modelíny vytvoř tolik kuliček (elektronů), aby byl atom neutrální. Rozlož je po obvodu papíru jako obal atomu.',
 			'Do jádra přidej ještě 1 neutron, vznikne C-13. Přidej další neutron, vznikne C-14. U každého modelu zapiš počet kuliček každé barvy.',
 			'Do tabulky doplň nukleonové číslo, tedy počet protonů a neutronů dohromady.',
-			'Vysvětlení: protony a neutrony se společně nazývají nukleony.',
+			'Vysvětlení: protony a neutrony se společně nazývají nukleony. Model je zjednodušený a velikosti kuliček neodpovídají skutečnosti.',
 		],
 		tabulka: {
 			sloupce: ['izotop', 'protony', 'neutrony', 'elektrony', 'nukleonové číslo'],
@@ -1159,6 +1159,6 @@ export const laborky: Record<string, Laborka> = {
 			'Uveď dva způsoby ochrany před radioaktivním zářením.',
 		],
 		pozor: 'Mince a knoflíky nedávej do úst. Rozsypané mince hned seber, ať po nich nikdo neuklouzne. Pracuj na lavici.',
-		tip: 'Poločasy rozpadu jsou velmi různé: radon 222 má 3,5 dne a uran 238 má 4 500 000 000 let.',
+		tip: 'Poločasy rozpadu jsou velmi různé: radon 222 má 3,8 dne a uran 238 má 4 500 000 000 let.',
 	},
 };
