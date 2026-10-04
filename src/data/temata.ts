@@ -899,11 +899,14 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<h3>1. Krychlové jednotky</h3>
 						<p>Metr krychlový = objem krychle s hranou 1 m (V = 1 m × 1 m × 1 m).</p>
+						<figure><a href="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/objem/objem-obr-01.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/objem/objem-obr-01.svg" alt="Krychle s hranou 1 metr; postupně se vyznačí délka, výška a hloubka po 1 m a vznikne zápis V = 1 m × 1 m × 1 m = 1 m³." loading="lazy" /></a><figcaption>Metr krychlový je objem krychle s hranou 1 m.</figcaption></figure>
 						<ul>
 							<li>1 m³ = 1 000 dm³</li>
 							<li>1 dm³ = 1 000 cm³</li>
 							<li>1 cm³ = 1 000 mm³</li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/objem/objem-obr-02.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/objem/objem-obr-02.svg" alt="Velká nádrž v kleci na paletě má 1 m³ (lidově kubík) = 1 000 litrů, krabice mléka 1 dm³ = 1 litr, hrací kostka asi 1 cm³ = 1 mililitr, hlavička špendlíku asi 1 mm³." loading="lazy" /></a><figcaption>Kubík vody je 1 000 litrů, krabice mléka 1 litr, kostka asi 1 mililitr.</figcaption></figure>
+						<p>Pro představu: 1 m³ vody (lidově kubík) je 1 000 litrů a 1 cm³ je 1 ml.</p>
 						<h3>2. Dutá míra</h3>
 						<p>Objem kapalin (voda, olej, benzín…) měříme v litrech a jejich násobcích a dílech:</p>
 						<ul>
@@ -911,13 +914,17 @@ export const temata: Record<string, Tema[]> = {
 							<li>1 hl = 100 l</li>
 						</ul>
 						<p>👉 Důležitý „most" mezi krychlovými a dutými jednotkami: <strong>1 litr = 1 decimetr krychlový (1 l = 1 dm³)</strong>.</p>
+						<figure><a href="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/objem/objem-obr-03.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/objem/objem-obr-03.svg" alt="Převody jednotek objemu: řada m³, dm³, cm³, mm³ se třemi obloučky mezi sousedy, pod ní hl, l, dl, cl, ml; litr je spojen mostem s dm³ a mililitr s cm³. Příklad 1 m³ = 1 000 dm³ = 1 000 l." loading="lazy" /></a><figcaption>Mezi krychlovými jednotkami jsou vždy 3 obloučky: 1 m³ = 1 000 dm³ = 1 000 l.</figcaption></figure>
 						<h3>Měření objemu kapalin — odměrný válec</h3>
+						<figure><a href="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/objem/objem-obr-04.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/objem/objem-obr-04.svg" alt="Skleněný odměrný válec s hubičkou a podstavcem na vodorovné podložce; z kádinky se do něj vlévá kapalina. Stupnice v mililitrech, rozsah 250 ml, nejmenší dílek 5 ml." loading="lazy" /></a><figcaption>Odměrný válec stojí na vodorovné podložce; rozsah 250 ml, nejmenší dílek 5 ml.</figcaption></figure>
 						<ol>
 							<li>zvolíme vhodný válec (rozsah stupnice, nejmenší dílek — určuje přesnost)</li>
 							<li>válec postavíme na <strong>vodorovnou podložku</strong> a opatrně vlijeme kapalinu</li>
 							<li>odečítáme <strong>po ustálení hladiny</strong>, v <strong>nejnižší poloze hladiny</strong> (u stěn je zaoblená vzhůru) a <strong>kolmo</strong> — oči v úrovni hladiny</li>
 							<li>zapíšeme s jednotkou: V = 50 ml nebo V = 50 cm³</li>
 						</ol>
+						<figure><a href="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/objem/objem-obr-05.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/objem/objem-obr-05.svg" alt="Zvětšená stupnice od 20 do 50 ml s dílkem 1 ml. Hladina je u stěn zaoblená nahoru, oko v úrovni hladiny se dívá kolmo na její nejnižší místo u značky 28. Zápis V = 28 ml." loading="lazy" /></a><figcaption>Čteme u nejnižšího místa hladiny, oči v její úrovni: V = 28 ml.</figcaption></figure>
+						<p>Např. válec o rozsahu 250 ml má nejmenší dílek 5 ml; hladina na obrázku ukazuje V = 28 ml.</p>
 						<h3>Měření objemu pevného tělesa</h3>
 						<p>Menší pevné těleso změříme pomocí vody a odměrného válce:</p>
 						<ol>
@@ -925,8 +932,11 @@ export const temata: Record<string, Tema[]> = {
 							<li>těleso na provázku <strong>celé ponoříme</strong> pod hladinu a přečteme objem V₂</li>
 							<li><strong>objem tělesa V = V₂ − V₁</strong></li>
 						</ol>
+						<figure><a href="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/objem/objem-obr-06.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/objem/objem-obr-06.svg" alt="Vlevo válec s vodou V1 = 8 ml. Vpravo ruka spouští na provázku šroub, a když je celý pod hladinou, ukazuje válec V2 = 13 ml. Objem šroubu V = 13 ml − 8 ml = 5 ml." loading="lazy" /></a><figcaption>Objem tělesa je rozdíl: V = V₂ − V₁ = 13 ml − 8 ml = 5 ml.</figcaption></figure>
+						<p>Příklad: V₁ = 8 ml, V₂ = 13 ml, tedy V = 13 ml − 8 ml = 5 ml.</p>
 						<h3>Výpočet objemu pravidelných těles</h3>
 						<p>Z matematiky: objem krychle V = a · a · a, objem kvádru V = a · b · c.</p>
+						<figure><a href="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/objem/objem-obr-07.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/objem/objem-obr-07.svg" alt="Žlutá krychle s hranami a a vzorcem V = a · a · a; zelený kvádr s hranami a, b, c a vzorcem V = a · b · c." loading="lazy" /></a><figcaption>Objem krychle V = a · a · a, objem kvádru V = a · b · c.</figcaption></figure>
 					`,
 					materialy: [
 						{
