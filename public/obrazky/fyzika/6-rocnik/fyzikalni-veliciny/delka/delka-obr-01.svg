@@ -37,12 +37,12 @@
 <rect x="40" y="404" width="720" height="136" rx="12" fill="#fff" stroke="#adb5bd" stroke-width="2"/>
 <text x="60" y="436" font-size="22" fill="#212529">Šířka pokoje:</text>
 <text x="190" y="500" font-size="44" font-weight="bold" fill="#212529" text-anchor="middle">5</text>
-<text x="226" y="500" font-size="44" font-weight="bold" fill="#212529" text-anchor="middle">3</text>
-<text x="252" y="500" font-size="44" font-weight="bold" fill="#212529" text-anchor="middle">2</text>
-<path d="M267 512Q252 534 237 512M237 512Q222 534 207 512" fill="none" stroke="#c92a2a" stroke-width="3.5" stroke-linecap="round" class="ob"/>
-<text x="207" y="500" font-size="44" font-weight="bold" fill="#c92a2a" text-anchor="middle" class="ca">,</text>
-<text x="290" y="500" font-size="40" fill="#212529" class="ucm" opacity="0">cm</text>
-<text x="290" y="500" font-size="40" fill="#212529" class="um">m</text>
+<text x="220" y="500" font-size="44" font-weight="bold" fill="#212529" text-anchor="middle">3</text>
+<text x="250" y="500" font-size="44" font-weight="bold" fill="#212529" text-anchor="middle">2</text>
+<path d="M265 512Q250 534 235 512M235 512Q220 534 205 512" fill="none" stroke="#c92a2a" stroke-width="3.5" stroke-linecap="round" class="ob"/>
+<text x="205" y="500" font-size="44" font-weight="bold" fill="#c92a2a" text-anchor="middle" class="ca">,</text>
+<text x="285" y="500" font-size="40" fill="#212529" class="ucm" opacity="0">cm</text>
+<text x="285" y="500" font-size="40" fill="#212529" class="um">m</text>
 <text x="370" y="500" font-size="40" font-weight="bold" fill="#212529" class="kom">= 5 m 32 cm</text>
 
 </svg>

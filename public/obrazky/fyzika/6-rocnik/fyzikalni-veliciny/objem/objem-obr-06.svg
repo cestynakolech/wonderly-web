@@ -2,7 +2,7 @@
 <style>
 /* Předloha: PDF Objem — dva odměrné válce: vlevo voda V1 = 8 ml, vpravo voda se šroubem V2 = 13 ml, mezi nimi kóta V,
    dole V = V2 − V1 = 13 ml − 8 ml = 5 ml. Překresleno, ne kopie. Podle textu PDF šroub visí na tenkém provázku a je celý ponořený.
-   Cyklus 10 s: 10–60 % ruka spouští šroub do vody; hladina stoupá přesně o objem ponořené části (výpočet v generátoru, lineárně po úsecích),
+   Cyklus 10 s: 10–60 % ruka spouští šroub do vody; hladina stoupá přibližně o objem ponořené části (zjednodušený model po úsecích; po zúžení hlavy šroubu na 112 px je odchylka asi 7 %, okem nepoznatelná),
    celý ponořený šroub zvedne hladinu z 8 na 13 ml. Pak se ukáže V2, kóta V a výpočet. Bez animace = koncový stav. */
 @keyframes sroub { 0% { transform: translate(0, -120px); } 10% { transform: translate(0, -120px); } 15% { transform: translate(0, -108px); } 49.6% { transform: translate(0, -24.96px); } 55% { transform: translate(0, -12px); } 60% { transform: translate(0, 0px); } 96% { transform: translate(0, 0); } 100% { transform: translate(0, -120px); } }
 @keyframes voda { 0% { transform: translate(0, 80px); } 10% { transform: translate(0, 80px); } 15% { transform: translate(0, 80px); } 49.6% { transform: translate(0, 23.04px); } 55% { transform: translate(0, 0px); } 60% { transform: translate(0, 0px); } 96% { transform: translate(0, 0); } 100% { transform: translate(0, 80px); } }

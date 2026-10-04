@@ -34,7 +34,7 @@
 <path class="vr" d="M180 538H420" stroke="#495057" stroke-width="3.5" stroke-dasharray="240 260" stroke-linecap="round"/>
 <g class="dd"><rect x="406" y="410" width="28" height="92" rx="6" fill="#868e96" stroke="#343a40" stroke-width="2"/><rect x="402" y="498" width="36" height="14" fill="#495057"/><g transform="translate(420 522) rotate(0) scale(0.340)"><path d="M-50 -14L-30 -34H30L50 -14L0 46Z" fill="#dee2e6" stroke="#495057" stroke-width="2.5"/><path d="M-50 -14H50L0 46Z" fill="#a5d8ff"/><path d="M-50 -14L-18 -14L0 46M50 -14L18 -14L0 46M-18 -14L0 46L18 -14" fill="none" stroke="#4dabf7" stroke-width="2"/><path d="M-30 -34L-18 -14L0 -34L18 -14L30 -34" fill="none" stroke="#868e96" stroke-width="2"/><path d="M-30 -34L-18 -14L-50 -14Z" fill="#f8f9fa"/><path d="M0 -34L18 -14L-18 -14Z" fill="#ffffff"/><path d="M-50 -14L-30 -34H30L50 -14L0 46Z" fill="none" stroke="#495057" stroke-width="2.5"/></g><text x="396" y="470" font-size="24" font-weight="bold" fill="#212529" text-anchor="end">diamant</text></g>
 <text x="300" y="628" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle">křemen</text>
-<text class="vl" x="520" y="470" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle">vryp</text>
-<path class="vl" d="M520 480V564H388V540" fill="none" stroke="#212529" stroke-width="2.5" stroke-linejoin="round"/><circle class="vl" cx="388" cy="538" r="5" fill="#212529"/>
+<text class="vl" x="230" y="470" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle">vryp</text>
+<path class="vl" d="M230 480V532" fill="none" stroke="#212529" stroke-width="2.5" stroke-linejoin="round"/><circle class="vl" cx="230" cy="538" r="5" fill="#212529"/>
 <text x="300" y="676" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle">Tvrdší nerost zanechá v měkčím vryp.</text>
 </svg>
