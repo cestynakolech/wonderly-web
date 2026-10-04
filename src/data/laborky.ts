@@ -1395,25 +1395,25 @@ export const laborky: Record<string, Laborka> = {
 	},
 	'fyzika/7-rocnik/zrcadla-a-cocky/kulova-zrcadla-dute-zrcadlo': {
 		nazev: 'Lžíce jako zrcadlo: duté a vypuklé',
-		cil: 'Pomocí lesklé lžíce porovnat obraz v dutém a ve vypuklém zrcadle při různé vzdálenosti od obličeje.',
+		cil: 'Pomocí lesklé lžíce porovnat obraz v dutém a ve vypuklém zrcadle při různé vzdálenosti předmětu od zrcadla.',
 		pomucky: ['lesklá kovová lžíce', 'pravítko', 'tužka'],
 		postup: [
 			'Lžíci drž stranou, do které se nalévá polévka (dutá strana), ve vzdálenosti 40 cm od obličeje. Pozoruj svůj obraz a zapiš, zda je vzpřímený, nebo převrácený a zda je zvětšený, nebo zmenšený.',
-			'Lžíci pomalu přibliž k oku co nejblíž, asi na 1 až 2 cm, a pozoruj obraz svého oka. Zapiš ho.',
-			'Lžíci otoč na zadní, vypuklou stranu a opakuj pozorování ve vzdálenosti 40 cm a co nejblíž (1 až 2 cm). Zapiš obě pozorování.',
+			'Lžíci drž asi 25 cm od oka. K duté straně přibliž prst až na vzdálenost 1 cm a pozoruj obraz prstu. Zapiš, jak obraz vypadá.',
+			'Lžíci otoč na zadní, vypuklou stranu a opakuj obě pozorování: obličej ve vzdálenosti 40 cm a prst 1 cm od lžíce při oku 25 cm od lžíce. Zapiš obě pozorování.',
 			'Vysvětlení: kulová zrcadla mají odraznou plochu z malé části povrchu koule.',
 		],
 		tabulka: {
-			sloupce: ['strana lžíce', 'vzdálenost od obličeje (cm)', 'obraz (vzpřímený / převrácený, zvětšený / zmenšený)'],
+			sloupce: ['strana lžíce', 'předmět a jeho vzdálenost od lžíce', 'obraz (vzpřímený / převrácený, zvětšený / zmenšený)'],
 			radky: 4,
 		},
 		otazky: [
-			'Jak vypadal obraz na dutém zrcadle z větší vzdálenosti a jak z malé?',
+			'Jak vypadal obraz na dutém zrcadle, když byl předmět daleko, a jak, když byl prst blízko zrcadla?',
 			'Jak vypadal obraz na vypuklém zrcadle? Závisel na vzdálenosti?',
 			'Kam míří po odrazu od dutého zrcadla paprsky, které dopadají rovnoběžně s osou? K čemu se to využívá?',
 			'Kde se využívají vypuklá zrcadla?',
 		],
-		pozor: 'Lžící nikdy nesoustřeďuj sluneční světlo, mohlo by to spálit kůži nebo zapálit předměty. Při přibližování k oku drž lžíci opatrně, ať se neporaníš. Nedívej se lžící do slunce.',
+		pozor: 'Lžící nikdy nesoustřeďuj sluneční světlo, mohlo by to spálit kůži nebo zapálit předměty. Prst přibližuj ke lžíci opatrně, ať se neporaníš o hranu. Nedívej se lžící do slunce.',
 		tip: 'Kulová zrcadla se snadno vyrábějí, ale ostře zobrazují jen předměty v blízkosti osy zrcadla.',
 	},
 	'fyzika/7-rocnik/zrcadla-a-cocky/oko-vady-oka': {
