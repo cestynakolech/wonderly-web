@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 470" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Slunce vlevo a Země vpravo. Od Slunce vede červená šipka k Zemi, od Země stejně dlouhá červená šipka ke Slunci. Slunce a Země se přitahují navzájem.">
+<defs><marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker><marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker><marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker><marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto-start-reverse"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker><marker id="b-bila" markerUnits="userSpaceOnUse" markerWidth="34" markerHeight="34" refX="27" refY="17" orient="auto-start-reverse"><path d="M0,0 L34,17 L0,34 z" fill="#ffffff"/></marker><radialGradient id="slunce01" cx="0.42" cy="0.4" r="0.65"><stop offset="0" stop-color="#fff3bf"/><stop offset="0.45" stop-color="#ffd43b"/><stop offset="1" stop-color="#f59f00"/></radialGradient><radialGradient id="ocean-01" cx="0.38" cy="0.35" r="0.75"><stop offset="0" stop-color="#74c0fc"/><stop offset="0.55" stop-color="#339af0"/><stop offset="1" stop-color="#1864ab"/></radialGradient><radialGradient id="stin-01" cx="0.3" cy="0.28" r="0.85"><stop offset="0" stop-color="#ffffff" stop-opacity="0.35"/><stop offset="0.45" stop-color="#ffffff" stop-opacity="0"/><stop offset="1" stop-color="#000814" stop-opacity="0.45"/></radialGradient><clipPath id="klip-01"><circle cx="790" cy="235" r="74"/></clipPath></defs>
+<rect x="3" y="3" width="954" height="464" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480" y="50" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="middle">Slunce a Země se přitahují navzájem</text>
+<path d="M286.7,226.6 L347.0,235.0 L286.7,243.4 Z" fill="#f59f00"/>
+<path d="M281.4,270.0 L313.6,292.4 L275.0,285.5 Z" fill="#f59f00"/>
+<path d="M259.9,308.0 L296.6,356.6 L248.0,319.9 Z" fill="#f59f00"/>
+<path d="M225.5,335.0 L232.4,373.6 L210.0,341.4 Z" fill="#f59f00"/>
+<path d="M183.4,346.7 L175.0,407.0 L166.6,346.7 Z" fill="#f59f00"/>
+<path d="M140.0,341.4 L117.6,373.6 L124.5,335.0 Z" fill="#f59f00"/>
+<path d="M102.0,319.9 L53.4,356.6 L90.1,308.0 Z" fill="#f59f00"/>
+<path d="M75.0,285.5 L36.4,292.4 L68.6,270.0 Z" fill="#f59f00"/>
+<path d="M63.3,243.4 L3.0,235.0 L63.3,226.6 Z" fill="#f59f00"/>
+<path d="M68.6,200.0 L36.4,177.6 L75.0,184.5 Z" fill="#f59f00"/>
+<path d="M90.1,162.0 L53.4,113.4 L102.0,150.1 Z" fill="#f59f00"/>
+<path d="M124.5,135.0 L117.6,96.4 L140.0,128.6 Z" fill="#f59f00"/>
+<path d="M166.6,123.3 L175.0,63.0 L183.4,123.3 Z" fill="#f59f00"/>
+<path d="M210.0,128.6 L232.4,96.4 L225.5,135.0 Z" fill="#f59f00"/>
+<path d="M248.0,150.1 L296.6,113.4 L259.9,162.0 Z" fill="#f59f00"/>
+<path d="M275.0,184.5 L313.6,177.6 L281.4,200.0 Z" fill="#f59f00"/>
+<circle cx="175" cy="235" r="102" fill="url(#slunce01)" stroke="#e8590c" stroke-width="3"/>
+<circle cx="187" cy="225" r="80" fill="#fff3bf" opacity="0.35"/>
+<circle cx="187" cy="225" r="58" fill="#fff3bf" opacity="0.35"/>
+<circle cx="187" cy="225" r="36" fill="#fff3bf" opacity="0.4"/>
+<circle cx="790" cy="235" r="74" fill="url(#ocean-01)"/>
+<g clip-path="url(#klip-01)"><g transform="translate(790,235) scale(0.740)"><path d="M-12,-18 C4,-28 30,-24 42,-8 C50,6 42,20 31,30 C22,46 14,60 4,74 C-4,60 -6,44 -14,30 C-28,24 -40,14 -42,0 C-37,-11 -24,-16 -12,-18 Z" fill="#69db7c" stroke="#2b8a3e" stroke-width="2.5" stroke-linejoin="round"/><path d="M-18,-34 C-8,-50 14,-60 30,-54 C42,-50 52,-58 62,-46 C58,-34 42,-30 26,-32 C10,-30 -6,-26 -18,-34 Z" fill="#69db7c" stroke="#2b8a3e" stroke-width="2.5" stroke-linejoin="round"/><path d="M44,-16 C57,-13 64,-3 60,10 C53,6 46,-3 44,-16 Z" fill="#69db7c" stroke="#2b8a3e" stroke-width="2.5" stroke-linejoin="round"/><path d="M-98,8 C-82,-2 -66,8 -63,26 C-61,46 -73,61 -84,72 C-92,52 -100,30 -98,8 Z" fill="#69db7c" stroke="#2b8a3e" stroke-width="2.5" stroke-linejoin="round"/><path d="M-58,-74 C-46,-84 -30,-82 -28,-72 C-34,-62 -50,-60 -58,-74 Z" fill="#69db7c" stroke="#2b8a3e" stroke-width="2.5" stroke-linejoin="round"/><path d="M-32,-8 C-12,-17 18,-14 36,-4 C26,6 -8,6 -32,-8 Z" fill="#f4c27a" opacity="0.9"/><ellipse cx="47" cy="46" rx="4" ry="9" fill="#69db7c" stroke="#2b8a3e" stroke-width="2"/></g></g>
+<circle cx="790" cy="235" r="74" fill="url(#stin-01)"/>
+<circle cx="790" cy="235" r="74" fill="none" stroke="#0b4f8a" stroke-width="3"/>
+<line x1="281.0" y1="235.0" x2="460.0" y2="235.0" stroke="#e03131" stroke-width="8" stroke-linecap="round" marker-end="url(#b-cer)"/>
+<line x1="712.0" y1="235.0" x2="530.0" y2="235.0" stroke="#e03131" stroke-width="8" stroke-linecap="round" marker-end="url(#b-cer)"/>
+<rect x="121" y="380" width="109" height="42" rx="10" fill="#ffffff" stroke="#2b2a26" stroke-width="2"/>
+<text x="175" y="410" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">Slunce</text>
+<rect x="749" y="380" width="82" height="42" rx="10" fill="#ffffff" stroke="#2b2a26" stroke-width="2"/>
+<text x="790" y="410" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">Země</text>
+<text x="480" y="300" font-size="22" font-weight="bold" fill="#c92a2a" text-anchor="middle">Gravitační síla</text>
+<text x="480" y="328" font-size="22" fill="#2b2a26" text-anchor="middle">je vždy přitažlivá.</text>
+<text x="480" y="452" font-size="18" fill="#495057" text-anchor="middle">Velikosti těles a jejich vzdálenost nejsou v měřítku.</text>
+</svg>
