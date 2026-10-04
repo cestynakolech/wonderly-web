@@ -391,7 +391,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Co je chemický prvek?',
-			odpovedi: ['látka se stejnými atomy', 'látka tvořená různými atomy', 'směs více látek'],
+			odpovedi: ['látka se stejnými atomy', 'látka, která je vždy pevná', 'směs více látek'],
 			vysvetleni: 'Prvek tvoří jen stejné atomy — např. železo, kyslík, zlato.',
 		},
 		{
@@ -426,8 +426,8 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Co je sloučenina?',
-			odpovedi: ['čistá látka z různých druhů atomů', 'látka, která se rozpouští ve vodě', 'jakákoli smíchaná látka'],
-			vysvetleni: 'Sloučenina = čistá látka složená z různých druhů atomů — voda H₂O a oxid uhličitý CO₂ (z molekul). Kuchyňská sůl NaCl je také sloučenina, ale není z molekul: tvoří ji nabité částice (ionty) Na⁺ a Cl⁻ pravidelně uspořádané v krystalu.',
+			odpovedi: ['látka z různých druhů atomů', 'látka, která se rozpouští ve vodě', 'jakákoli smíchaná látka'],
+			vysvetleni: 'Sloučenina = látka složená z různých druhů atomů — voda H₂O a oxid uhličitý CO₂ (z molekul). Kuchyňská sůl NaCl je také sloučenina, ale není z molekul: tvoří ji nabité částice (ionty) Na⁺ a Cl⁻ pravidelně uspořádané v krystalu.',
 		},
 		{
 			text: 'Jaká je chemická značka zlata?',
@@ -451,7 +451,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Čím se liší sloučenina od prvku?',
-			odpovedi: ['Prvek má atomy jednoho druhu, sloučenina více druhů', 'Sloučenina má vždy větší molekuly než prvek', 'Sloučeniny jsou kapaliny, prvky jsou pevné látky'],
+			odpovedi: ['Prvek má jeden druh atomů, sloučenina více druhů', 'Sloučenina má vždy mnohem větší molekuly než prvek', 'Sloučeniny jsou vždy kapaliny, prvky jsou pevné látky'],
 			vysvetleni: 'Prvek je tvořen shodnými částicemi (např. železo Fe), sloučenina vzniká spojením více druhů dohromady (např. voda H₂O).',
 		},
 		{
