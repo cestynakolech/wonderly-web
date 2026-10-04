@@ -128,6 +128,7 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
   nestihly opsat ani se naučit. Krátce a všeobecně, žádná přesná data; nejvýš 1 klíčové číslo“;
   nahrazuje dřívější limit 8 řádků / ~70 slov). **KOTVA: max ~5 bodů, každý jedna krátká věta**
   (limit auditu: >5 bodů nebo >60 slov = nad limitem). Co je navíc, patří do výkladu, ne do zápisu.
+  Vzorec slovy jako 6. řádek zůstává (je krátký, do limitu bodů se nepočítá; rozhodnutí orchestrátora 5. 10. 2026).
   Vzor (vesmír): rozpíná se; počátek = velký třesk; stáří ~14 mld. let; tvoří ho galaxie;
   v galaxii je černá díra. Audit: `node Omega/skripty/audit_zapisu.mjs` → `Omega/predavka/<datum>/audit-zapisu.md`.
 - **OBRÁZKY ZE ZDROJE — vlastní překreslený protějšek každého** (pokyn učitele 29. 9. 2026:
