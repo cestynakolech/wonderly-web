@@ -137,7 +137,7 @@
 			<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${barva}" stroke-width="5" />
 			<polygon points="${x2},${y2} ${h1x},${h1y} ${h2x},${h2y}" fill="${barva}" />
 		`;
-		return { tvar, tx: x2 + dx * 14, ty: y2 + dy * 14 - 4 };
+		return { tvar, tx: x2 + dx * 14, ty: y2 + dy * 14 - 4, x2, y2 };
 	}
 
 	// Ořízne polohu popisku (plaketa+text), aby celá zůstala uvnitř viewBoxu (VIEW_W×VIEW_H) —
@@ -182,7 +182,14 @@
 		const fgPop = oriznoutPopisek(gx + 10 + ox, gy + gDelka + 4 + oy, `Fg = ${Fg} N`);
 		popisky += plaketa(fgPop.x, fgPop.y, `Fg = ${Fg} N`, '#495057');
 		if (F > 0) {
-			const fPop = oriznoutPopisek(sipkaF.tx + ox, sipkaF.ty + oy, `F = ${F} N`);
+			let fPop = oriznoutPopisek(sipkaF.tx + ox, sipkaF.ty + oy, `F = ${F} N`);
+			// plaketa nesmí krýt hrot šipky (šipka doleva, nebo oříznutí u pravého/levého okraje) —
+			// pak ji zvedneme o 30 px nad čáru (R4 oprava 5. 10. 2026)
+			const sirkaF = `F = ${F} N`.length * 11 + 8;
+			const hx = sipkaF.x2 + ox, hy = sipkaF.y2 + oy;
+			if (hx >= fPop.x - 4 && hx <= fPop.x - 4 + sirkaF && hy >= fPop.y - 20 && hy <= fPop.y + 6) {
+				fPop = oriznoutPopisek(sipkaF.tx + ox, sipkaF.ty + oy - 30, `F = ${F} N`);
+			}
 			popisky += plaketa(fPop.x, fPop.y, `F = ${F} N`, '#e03131');
 		}
 

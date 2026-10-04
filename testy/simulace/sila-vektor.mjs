@@ -84,8 +84,16 @@ function scenaSedi(F, deg, ox, oy) {
 	const cek = [{ ...popisekU(200 + 10 + ox, 300 + 90 + 4 + oy, 'Fg = 30 N'), barva: '#495057' }];
 	const rad = (deg * Math.PI) / 180, c = Math.cos(rad), si = Math.sin(rad);
 	const x2 = 200 + c * F * 3, y2 = 240 - si * F * 3;
-	if (F > 0) cek.push({ ...popisekU(x2 + c * 14 + ox, y2 - si * 14 - 4 + oy, `F = ${F} N`), barva: '#e03131' });
-	const popOk = plakety.length === cek.length && cek.every((p, i) => ['rx', 'ry', 's', 'x', 'y'].every((k) => blizko(plakety[i][k], p[k])) && plakety[i].text === p.text && plakety[i].barva === p.barva)
+	if (F > 0) {
+		let pp = popisekU(x2 + c * 14 + ox, y2 - si * 14 - 4 + oy, `F = ${F} N`);
+		// plaketa kryjící hrot se zvedne o 30 px (viz komponenta)
+		if (x2 + ox >= pp.rx && x2 + ox <= pp.rx + pp.s && y2 + oy >= pp.ry && y2 + oy <= pp.ry + 26) pp = popisekU(x2 + c * 14 + ox, y2 - si * 14 - 4 - 30 + oy, `F = ${F} N`);
+		cek.push({ ...pp, barva: '#e03131' });
+	}
+	// R4 oprava: plaketa F nesmí krýt hrot šipky (bod x2,y2 + posun bedny)
+	const fPlaketa = plakety[plakety.length - 1];
+	const kryjeHrot = F > 0 && fPlaketa && x2 + ox >= fPlaketa.rx && x2 + ox <= fPlaketa.rx + fPlaketa.s && y2 + oy >= fPlaketa.ry && y2 + oy <= fPlaketa.ry + 26;
+	const popOk = !kryjeHrot &&plakety.length === cek.length && cek.every((p, i) => ['rx', 'ry', 's', 'x', 'y'].every((k) => blizko(plakety[i][k], p[k])) && plakety[i].text === p.text && plakety[i].barva === p.barva)
 		&& plakety.every((p) => p.rx >= OKR && p.ry >= OKR && p.rx + p.s <= W - OKR && p.ry + 26 <= H - OKR);
 	const fgHrot = s.includes('<polygon points="200,390 194,380 206,380" fill="#495057" />');
 	let hrotOk = F === 0;

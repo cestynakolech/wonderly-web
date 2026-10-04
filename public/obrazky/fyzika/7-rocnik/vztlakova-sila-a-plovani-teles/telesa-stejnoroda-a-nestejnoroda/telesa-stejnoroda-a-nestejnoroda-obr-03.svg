@@ -22,7 +22,9 @@
 <path d="M5,268 H595 V463 Q595,475 583,475 H17 Q5,475 5,463 Z" fill="#74c0fc"/>
 <line x1="5" y1="268" x2="595" y2="268" stroke="#1971c2" stroke-width="3"/>
 <!-- jeřáb: loď se spouští na lanech, po dosednutí lana zmizí -->
-<rect x="90" y="52" width="440" height="6" rx="2" fill="#495057"/>
+<rect x="572" y="52" width="16" height="418" fill="#495057"/>
+<rect x="70" y="52" width="518" height="6" rx="2" fill="#495057"/>
+<line x1="580" y1="92" x2="540" y2="58" stroke="#495057" stroke-width="3"/>
 <g class="lana" opacity="0"><line x1="100" y1="56" x2="100" y2="230" stroke="#495057" stroke-width="3"/><line x1="520" y1="56" x2="520" y2="230" stroke="#495057" stroke-width="3"/></g>
 <!-- loď (koncová poloha) -->
 <g class="lod">

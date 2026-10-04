@@ -7,7 +7,7 @@
 .miska-voda { transform-box: view-box; transform-origin: 548px 578px; animation: miska 8s linear infinite; }
 .proud { animation: proud 8s linear infinite; }
 .vysledek { animation: vysledek 8s linear infinite; }
-/* konec smyčky (92–100 %): závaží se vrací nahoru do výchozí polohy, miska se vyprázdní až po vynoření (96–100 %) */
+/* konec smyčky (92–100 %): závaží se vrací nahoru do výchozí polohy, miska se na konci smyčky vyprázdní (96–100 %), závaží je v tu chvíli už téměř venku */
 /* posun držáku S: 130 px nahoře, 115 px dotyk hladiny, 18 px celé pod vodou, 0 px konec */
 @keyframes drzak { 0%, 12% { transform: translateY(-130px); } 20% { transform: translateY(-115px); } 50% { transform: translateY(-18px); } 56%, 92% { transform: translateY(0); } 100% { transform: translateY(-130px); } }
 /* protažení pružiny o: 45 px = 70 N, 0 px = 40 N (1,5 px na 1 N); mění se jen během ponořování */

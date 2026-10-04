@@ -55,7 +55,7 @@
 <text x="340" y="112" font-size="20" font-weight="bold" fill="#212529" text-anchor="start">regulační tyč</text>
 <text x="340" y="136" font-size="19" fill="#212529" text-anchor="start">pohlcuje</text>
 <text x="340" y="158" font-size="19" fill="#212529" text-anchor="start">neutrony</text>
-<g class="lb1"><text x="196" y="432" font-size="19" font-weight="bold" fill="#212529" text-anchor="middle">rychlý</text><text x="372" y="432" font-size="19" font-weight="bold" fill="#212529" text-anchor="middle">pomalý</text></g><g class="lb2"><text x="444" y="432" font-size="19" font-weight="bold" fill="#212529" text-anchor="middle">rychlý</text><text x="268" y="432" font-size="19" font-weight="bold" fill="#212529" text-anchor="middle">pomalý</text></g>
+<g class="lb1"><text x="196" y="432" font-size="19" font-weight="bold" fill="#212529" text-anchor="middle">rychlý</text><text x="372" y="432" font-size="19" font-weight="bold" fill="#212529" text-anchor="middle">pomalý</text></g><g class="lb2"><text x="434" y="432" font-size="19" font-weight="bold" fill="#212529" text-anchor="middle">rychlý</text><text x="268" y="432" font-size="19" font-weight="bold" fill="#212529" text-anchor="middle">pomalý</text></g>
 
 <text x="310" y="500" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle">voda – moderátor zpomalí neutron</text>
 <circle cx="48" cy="556" r="10" fill="#adb5bd" stroke="#212529" stroke-width="1.5"/><text x="66" y="563" font-size="19" fill="#212529" text-anchor="start">neutron</text>
