@@ -1524,12 +1524,14 @@ export const temata: Record<string, Tema[]> = {
 					obsah: `
 						<h2>Elektrické vlastnosti látek</h2>
 						<p>Když se češeš plastovým hřebenem nebo skáčeš na trampolíně, vlasy začnou vstávat — <strong>zelektrizovaly se</strong>. Příčinou silového působení je <strong>elektrický náboj</strong>. Známe dva druhy: kladný a záporný.</p>
+						<figure><a href="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/elektricke-vlastnosti-latek/elektricke-vlastnosti-latek-obr-01.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/elektricke-vlastnosti-latek/elektricke-vlastnosti-latek-obr-01.svg" alt="Animace: holčička skáče na trampolíně a vlasy se jí postaví do všech stran." loading="lazy" /></a><figcaption>Při skákání na trampolíně se vlasy zelektrizují. Stejně nabité vlasy se odpuzují.</figcaption></figure>
 						<h3>Stavba atomu</h3>
 						<p>Každý atom se skládá z <strong>jádra a obalu</strong>:</p>
 						<ul>
 							<li><strong>jádro</strong>: <strong>protony</strong> — kladně nabité částice (+), a <strong>neutrony</strong> — bez náboje; jádro je vzhledem k atomu velice maličké</li>
 							<li><strong>obal</strong>: <strong>elektrony</strong> — záporně nabité částice (−)</li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/elektricke-vlastnosti-latek/elektricke-vlastnosti-latek-obr-02.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/elektricke-vlastnosti-latek/elektricke-vlastnosti-latek-obr-02.svg" alt="Stavba atomu dusíku: jádro se 7 protony a 7 neutrony, v obalu 7 elektronů." loading="lazy" /></a><figcaption>Atom: v jádře jsou protony (+) a neutrony, v obalu elektrony (−).</figcaption></figure>
 						<ul>
 							<li><strong>počet protonů určuje chemický prvek</strong> (protonové číslo, najdeme v periodické tabulce)</li>
 							<li>počet protonů a neutronů v jádře běžným zacházením změnit nelze; <strong>počet elektronů lze měnit jednoduše — třeba třením</strong></li>
@@ -1546,12 +1548,15 @@ export const temata: Record<string, Tema[]> = {
 							</li>
 						</ul>
 						<p>👉 Pozor: záporný iont nevznikne odtržením protonů — měnit lze jen elektrony v obalu!</p>
+						<figure><a href="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/elektricke-vlastnosti-latek/elektricke-vlastnosti-latek-obr-03.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/elektricke-vlastnosti-latek/elektricke-vlastnosti-latek-obr-03.svg" alt="Animace: z obalu atomu odletí jeden elektron a atom se stane kladným iontem." loading="lazy" /></a><figcaption>Kladný iont: atom ztratil elektron, převažuje kladný náboj.</figcaption></figure>
+						<figure><a href="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/elektricke-vlastnosti-latek/elektricke-vlastnosti-latek-obr-04.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/elektricke-vlastnosti-latek/elektricke-vlastnosti-latek-obr-04.svg" alt="Animace: do obalu atomu přiletí jeden elektron navíc a atom se stane záporným iontem." loading="lazy" /></a><figcaption>Záporný iont: atom přijal elektron navíc, převažuje záporný náboj.</figcaption></figure>
 						<h3>Elektrování těles</h3>
 						<ul>
 							<li>nabití těles při vzájemném <strong>tření</strong> (vlasy a hřeben, dítě a skluzavka)</li>
 							<li>vždy se nabijí <strong>obě tělesa</strong> — jedno kladně, druhé záporně (plast vždy záporně, sklo kladně)</li>
 							<li>zelektrovaná tělesa na sebe působí <strong>elektrickou silou</strong></li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/elektricke-vlastnosti-latek/elektricke-vlastnosti-latek-obr-05.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/elektricke-vlastnosti-latek/elektricke-vlastnosti-latek-obr-05.svg" alt="Animace: dívka se češe plastovým hřebenem, elektrony přecházejí z vlasů na hřeben." loading="lazy" /></a><figcaption>Elektrování třením: elektrony přejdou z vlasů na hřeben. Vlasy jsou nabité kladně, hřeben záporně.</figcaption></figure>
 						<h3>Vodiče a izolanty</h3>
 						<ul>
 							<li><strong>elektrické vodiče</strong> — snadno přijímají či odevzdávají elektrony, přenášejí náboj: všechny kovy; využití k vedení proudu</li>
@@ -1565,13 +1570,19 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>elektrostatická indukce</strong> — v nenabitém kovovém tělese se volné elektrony přesunou na jednu stranu ⇨ jedna část záporná, druhá kladná</li>
 							<li><strong>polarizace izolantu</strong> — elektrony se posunou jen uvnitř atomů</li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/elektricke-vlastnosti-latek/elektricke-vlastnosti-latek-obr-06.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/elektricke-vlastnosti-latek/elektricke-vlastnosti-latek-obr-06.svg" alt="Animace: hřeben přitáhne kladně nabité vlasy; stejně nabité prameny vlasů se od sebe odtlačí." loading="lazy" /></a><figcaption>Opačně nabitá tělesa se přitahují, stejně nabitá se odpuzují.</figcaption></figure>
 						<p>Pole znázorňujeme <strong>elektrickými siločarami</strong> — ukazují směr síly na kladný náboj, směřují od + k −; čím silnější pole, tím hustší siločáry.</p>
+						<figure><a href="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/elektricke-vlastnosti-latek/elektricke-vlastnosti-latek-obr-07.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/elektricke-vlastnosti-latek/elektricke-vlastnosti-latek-obr-07.svg" alt="Siločáry kolem kladné kuličky míří ven, kolem záporné dovnitř." loading="lazy" /></a><figcaption>Siločáry kolem kladně a záporně nabité kuličky – míří od + a k −.</figcaption></figure>
+						<figure><a href="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/elektricke-vlastnosti-latek/elektricke-vlastnosti-latek-obr-08.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/elektricke-vlastnosti-latek/elektricke-vlastnosti-latek-obr-08.svg" alt="Dvě nabité desky, mezi nimi rovnoběžné siločáry od kladné desky k záporné." loading="lazy" /></a><figcaption>Mezi dvěma opačně nabitými deskami jsou siločáry rovnoběžné.</figcaption></figure>
+						<figure><a href="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/elektricke-vlastnosti-latek/elektricke-vlastnosti-latek-obr-09.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/elektricke-vlastnosti-latek/elektricke-vlastnosti-latek-obr-09.svg" alt="Siločáry vedou v obloucích od kladné kuličky k záporné." loading="lazy" /></a><figcaption>Siločáry mezi dvěma opačnými náboji: u nábojů jsou nejhustší.</figcaption></figure>
 						<h3>Určování elektrického stavu tělesa</h3>
 						<ul>
 							<li><strong>elektroskop</strong> — je-li těleso nabité, vnitřní tyčinka a ručička se nabijí souhlasně, odpuzují se a <strong>ručička se vychýlí</strong>; před dalším měřením elektroskop vybijeme uzemněním</li>
 							<li><strong>elektrometr</strong> — elektroskop se stupnicí; velikosti nábojů jen <strong>porovnává</strong> (čím větší výchylka, tím větší náboj)</li>
 							<li><strong>znaménko náboje</strong> — podle reakce na nabité těleso z plastu (−): přitahuje se ⇨ opačný náboj (+), odpuzuje se ⇨ stejný (−)</li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/elektricke-vlastnosti-latek/elektricke-vlastnosti-latek-obr-11.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/elektricke-vlastnosti-latek/elektricke-vlastnosti-latek-obr-11.svg" alt="Animace: plastová tyč nabije elektroskop a ručička se vychýlí; po dotyku ruky se vybije a ručička se vrátí." loading="lazy" /></a><figcaption>Elektroskop: nabitá tyčinka a ručička se odpuzují a ručička se vychýlí. Dotykem ruky (uzemněním) se elektroskop vybije.</figcaption></figure>
+						<figure><a href="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/elektricke-vlastnosti-latek/elektricke-vlastnosti-latek-obr-10.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/elektricke-vlastnosti-latek/elektricke-vlastnosti-latek-obr-10.svg" alt="Animace: elektrometr s kuličkou a stupnicí; při větším náboji se ručička vychýlí víc." loading="lazy" /></a><figcaption>Elektrometr je elektroskop se stupnicí: čím větší výchylka, tím větší náboj.</figcaption></figure>
 						<p>🌟 Vyzkoušej: <a href="https://phet.colorado.edu/sims/html/john-travoltage/latest/john-travoltage_all.html?locale=cs" target="_blank" rel="noopener">simulace John Travoltage</a> (nabíjení a vybíjení) a <a href="https://phet.colorado.edu/cs/simulations/balloons-and-static-electricity" target="_blank" rel="noopener">Balónek a statická elektřina</a>.</p>
 					`,
 					materialy: [
