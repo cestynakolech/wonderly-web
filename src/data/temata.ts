@@ -987,11 +987,13 @@ export const temata: Record<string, Tema[]> = {
 							<li>📌 k zapamatování: <strong>hustota vody = 1 000 kg/m³</strong></li>
 						</ul>
 						<figure><a href="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/hustota/hustota-obr-01.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/hustota/hustota-obr-01.svg" alt="Čtyři stejně velké krychle o objemu 1 m³ na vahách: zlato 19 300 kg, železo 7 800 kg, hliník 2 700 kg, měď 8 900 kg. Nejtěžší je zlato, má největší hustotu." loading="lazy" /></a><figcaption>Krychle o objemu 1 m³: nejtěžší je ta s největší hustotou.</figcaption></figure>
+						<p>Hustoty látek z obrázku: <strong>zlato 19 300 kg/m³, železo 7 800 kg/m³, měď 8 900 kg/m³, hliník 2 700 kg/m³</strong>. Krychle o objemu 1 m³ z nich váží 19 300 kg, 7 800 kg, 8 900 kg a 2 700 kg.</p>
 						<h3>Výpočet hustoty</h3>
 						<p><strong>ρ = m : V</strong> (hmotnost děleno objem). Ze známé hustoty pak umíme vypočítat hmotnost (m = ρ · V) nebo objem (V = m : ρ).</p>
 						<figure><a href="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/hustota/hustota-obr-02.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/hustota/hustota-obr-02.svg" alt="Vzorec ρ = m lomeno V se šipkami: m v kilogramech, V v metrech krychlových, ρ v kg/m³. Dole tři tvary ρ = m : V, m = ρ · V, V = m : ρ." loading="lazy" /></a><figcaption>Hustota ρ = m : V — hmotnost v kg, objem v m³, hustota v kg/m³.</figcaption></figure>
 						<p>Postup: vypíšeme zadané hodnoty → hustotu látky případně najdeme v tabulkách → převedeme na základní jednotky (kg, m³, kg/m³) → zapíšeme vztah, dosadíme, vypočítáme → k výsledku jednotky a odpověď.</p>
 						<figure><a href="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/hustota/hustota-obr-03.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/hustota/hustota-obr-03.svg" alt="Řešený příklad v sešitě: m = 3 500 kg, V = 5 m³, ρ = m : V = 3 500 kg : 5 m³ = 700 kg/m³. Vedle pět dřevěných krychlí po 1 m³, jedna z nich na váze ukazuje 700 kg." loading="lazy" /></a><figcaption>5 m³ dřeva váží 3 500 kg, 1 m³ váží 700 kg: hustota dřeva je 700 kg/m³.</figcaption></figure>
+						<p>Příklad: 5 m³ dřeva má hmotnost 3 500 kg. Hustota dřeva je ρ = 3 500 kg : 5 m³ = 700 kg/m³, tedy 1 m³ dřeva váží 700 kg.</p>
 						<h3>Další jednotka: g/cm³</h3>
 						<p>V chemii a farmacii se používá <strong>gram na centimetr krychlový</strong>: 1 g/cm³ = 1 000 kg/m³. Pozor — dosazujeme vždy jednotky, které spolu souvisí: kg a m³, nebo g a cm³.</p>
 						<figure><a href="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/hustota/hustota-obr-04.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/hustota/hustota-obr-04.svg" alt="Vzorec hustoty s hmotností v gramech a objemem v cm³. Převod: z g/cm³ na kg/m³ násobíme 1 000, zpět dělíme 1 000. Voda: 1 g/cm³ = 1 000 kg/m³." loading="lazy" /></a><figcaption>1 g/cm³ = 1 000 kg/m³ — voda má 1 g/cm³ neboli 1 000 kg/m³.</figcaption></figure>
@@ -1001,6 +1003,7 @@ export const temata: Record<string, Tema[]> = {
 							<li>tělesa <strong>stejné hmotnosti</strong> — nejmenší je to s největší hustotou (kilogram peří zabere víc místa než kilogram železa)</li>
 						</ul>
 						<figure><a href="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/hustota/hustota-obr-05.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/hustota/hustota-obr-05.svg" alt="Čtyři krychle o hmotnosti 1 kg: zlato 19 300 kg/m³ asi 52 cm³, železo 7 800 kg/m³ asi 128 cm³, hliník 2 700 kg/m³ asi 370 cm³, měď 8 900 kg/m³ asi 112 cm³." loading="lazy" /></a><figcaption>Stejná hmotnost 1 kg: čím větší hustota, tím menší těleso.</figcaption></figure>
+						<p>Kolik místa zabere 1 kg? Kilogram zlata má objem asi 52 cm³, železa asi 128 cm³, mědi asi 112 cm³ a hliníku asi 370 cm³ — čím větší hustota, tím menší těleso.</p>
 						<h3>Chování těles v tekutinách</h3>
 						<ul>
 							<li><strong>větší hustota než okolí ⇨ klesá</strong> — cihla ve vodě, sirup na dně sklenice, studený vzduch u podlahy</li>
