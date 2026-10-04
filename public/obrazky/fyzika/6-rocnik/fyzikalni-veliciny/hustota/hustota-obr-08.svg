@@ -14,7 +14,7 @@
 .nadrz { animation: nadrz 12s linear infinite; transform-box: fill-box; transform-origin: 50% 100%; }
 .bubliny { animation: bubliny 12s linear infinite; opacity: 0; }
 .zn1 { animation: zn1 12s linear infinite; } .zn2 { animation: zn2 12s linear infinite; }
-@media (prefers-reduced-motion: reduce) { .ponorka, .nadrz, .bubliny, .zn1, .zn2 { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .ponorka, .nadrz, .bubliny, .zn1, .zn2 { animation: none; } .zn2 { opacity: 0; } }
 </style>
 <defs>
 <linearGradient id="more" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a5d8ff"/><stop offset="1" stop-color="#74c0fc"/></linearGradient><linearGradient id="trup" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#495057"/><stop offset="0.3" stop-color="#868e96"/><stop offset="0.6" stop-color="#495057"/><stop offset="1" stop-color="#212529"/></linearGradient><linearGradient id="vez" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#343a40"/><stop offset="0.4" stop-color="#868e96"/><stop offset="1" stop-color="#343a40"/></linearGradient>

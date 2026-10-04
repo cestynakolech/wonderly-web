@@ -4,7 +4,7 @@
    ρ = ? (kg/m³); ρ = m/V nebo ρ = m:V; ρ = 3 500 kg : 5 m³ = 700 kg/m³; „Jiný způsob řešení“ 5 m³ … 3 500 kg, 1 m³ … ? kg, :5.
    Překresleno, ne kopie; tuny vynechány (rovnou 3 500 kg, celá čísla). Cyklus 10 s: 10–35 % jedna krychle 1 m³ sjede na váhu,
    38 % „1 m³ … ? kg“, 50 % displej 700 kg a „3 500 kg : 5 = 700 kg“. Bez animace = koncový stav. */
-@keyframes kus { 0%, 10% { transform: translate(-40px, -260px); } 22% { transform: translate(-46px, -140px); } 35%, 92% { transform: translate(0, 0); } 100% { transform: translate(-40px, -260px); } }
+@keyframes kus { 0% { transform: translate(-40px, -260px); opacity: 0; } 3%, 10% { transform: translate(-40px, -260px); opacity: 1; } 22% { transform: translate(-46px, -140px); opacity: 1; } 35%, 92% { transform: translate(0, 0); opacity: 1; } 96%, 100% { transform: translate(0, 0); opacity: 0; } }
 @keyframes txt1 { 0%, 36% { opacity: 0; } 40%, 92% { opacity: 1; } 96%, 100% { opacity: 0; } }
 @keyframes txt2 { 0%, 48% { opacity: 0; } 52%, 92% { opacity: 1; } 96%, 100% { opacity: 0; } }
 @keyframes v1 { 0%, 48% { opacity: 0; } 50%, 92% { opacity: 1; } 96%, 100% { opacity: 0; } }

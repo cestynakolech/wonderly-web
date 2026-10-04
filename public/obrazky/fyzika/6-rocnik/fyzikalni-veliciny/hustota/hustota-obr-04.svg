@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Hustota v gramech na centimetr krychlový: ρ = m lomeno V, hmotnost v gramech, objem v centimetrech krychlových, hustota v g/cm³. Převod: z g/cm³ na kg/m³ násobíme 1 000, zpět dělíme 1 000. Voda: 1 g/cm³ · 1 000 = 1 000 kg/m³ a 1 000 kg/m³ : 1 000 = 1 g/cm³. Dosazujeme jednotky, které spolu souvisí: g a cm³, nebo kg a m³.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Hustota v gramech na centimetr krychlový: ρ = m lomeno V, hmotnost v gramech, objem v centimetrech krychlových, hustota v g/cm³. Převod: z g/cm³ na kg/m³ násobíme 1 000, zpět dělíme 1 000. Voda: 1 g/cm³ po vynásobení 1 000 je 1 000 kg/m³ a 1 000 kg/m³ po vydělení 1 000 je 1 g/cm³. Dosazujeme jednotky, které spolu souvisí: g a cm³, nebo kg a m³.">
 <style>
 /* Předloha: PDF Hustota — ručně psané „Výpočet hustoty“ s šipkami „v g“, „v cm³“, „v g/cm³“ a vedle oranžové obloučky
    g/cm³ → kg/m³ „· 1000“ a zpět „: 1000“; text 1 g/cm³ = 1 000 kg/m³. Překresleno, ne kopie. Příklad s vodou z výkladu (voda 1 000 kg/m³).
@@ -22,8 +22,8 @@
 </g><g class="dol"><path d="M828 296Q745 378 660 296" fill="none" stroke="#237032" stroke-width="5" stroke-linecap="round"/><path d="M660 296L680 304L664 316Z" fill="#237032" stroke="#237032" stroke-width="3" stroke-linejoin="round"/><text x="745" y="382" font-size="30" fill="#237032" text-anchor="middle" font-weight="bold">: 1 000</text>
 </g>
 <rect x="40" y="448" width="880" height="128" rx="12" fill="#fff" stroke="#adb5bd" stroke-width="2"/><text x="66" y="492" font-size="26" fill="#212529" font-weight="bold">Voda:</text>
-<g class="nah"><text x="160" y="492" font-size="26" fill="#c92a2a" font-weight="bold">1 g/cm³ · 1 000 = 1 000 kg/m³</text>
-</g><g class="dol"><text x="160" y="540" font-size="26" fill="#237032" font-weight="bold">1 000 kg/m³ : 1 000 = 1 g/cm³</text>
+<g class="nah"><text x="160" y="492" font-size="26" fill="#c92a2a" font-weight="bold">1 g/cm³ · 1 000 ⇨ 1 000 kg/m³</text>
+</g><g class="dol"><text x="160" y="540" font-size="26" fill="#237032" font-weight="bold">1 000 kg/m³ : 1 000 ⇨ 1 g/cm³</text>
 </g><text x="612" y="492" font-size="21" fill="#212529" >Dosazuj jednotky, které</text>
 <text x="612" y="520" font-size="21" fill="#212529" >spolu souvisí: g a cm³,</text>
 <text x="612" y="548" font-size="21" fill="#212529" >nebo kg a m³.</text>
