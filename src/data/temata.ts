@@ -1443,11 +1443,13 @@ export const temata: Record<string, Tema[]> = {
 					obsah: `
 						<h2>Magnetické vlastnosti látek</h2>
 						<p>Magnet působí silou na některé předměty — kolem magnetu vzniká <strong>magnetické pole</strong>. Čím jsou tělesa od magnetu dál, tím je magnetická síla slabší.</p>
+						<figure><a href="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek/magneticke-vlastnosti-latek-obr-01.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek/magneticke-vlastnosti-latek-obr-01.svg" alt="Ruka drží tyčový magnet, na jeho spodním severním pólu visí chomáč ocelových připínáčků." loading="lazy" /></a><figcaption>Magnet přitahuje některá kovová tělesa – kolem magnetu je magnetické pole.</figcaption></figure>
 						<h3>Rozdělení látek podle reakce na magnetické pole</h3>
 						<ul>
 							<li><strong>feromagnetické</strong> — silně reagují, jsou přitahovány k magnetu a lze je <strong>zmagnetovat</strong>: železo a jeho sloučeniny (ocel), kobalt, nikl</li>
 							<li><strong>nemagnetické</strong> — téměř nereagují: dřevo, papír, korek, plast; z kovů hliník, nerezová ocel, měď, zinek, stříbro</li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek/magneticke-vlastnosti-latek-obr-02.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek/magneticke-vlastnosti-latek-obr-02.svg" alt="Na magnetu visí železný hřebík, ocelová sponka a matice; dřevo, korek, papír, hliníková plechovka a měděná mince zůstaly ležet na stole." loading="lazy" /></a><figcaption>Feromagnetické látky magnet přitahuje, nemagnetické téměř ne.</figcaption></figure>
 						<p>💡 Existují i látky, které magnet nepatrně odpuzuje — <strong>diamagnetické</strong> (uhlík, měď, zlato). Tuha z tužky umí levitovat nad silnými magnety.</p>
 						<h3>Magnety</h3>
 						<ul>
@@ -1455,12 +1457,14 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>umělé</strong> — silnou magnetizací feromagnetického tělesa: feritový, neodymový</li>
 							<li>tvary: tyčový, podkova, magnetka (střelka kompasu)…</li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek/magneticke-vlastnosti-latek-obr-03.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek/magneticke-vlastnosti-latek-obr-03.svg" alt="Podkovy a tyčové magnety s červeným pólem N a modrým S, magnetka a šedé feritové magnety ve tvaru kotouče, kroužku a válečku." loading="lazy" /></a><figcaption>Magnety mají různé tvary: podkova, tyčový magnet, magnetka i feritové a neodymové magnety.</figcaption></figure>
 						<h3>Popis magnetu</h3>
 						<ul>
 							<li>každý magnet má <strong>dva magnetické póly</strong>: severní (N — north, značí se červeně) a jižní (S — south)</li>
 							<li>i po rozdělení magnetu má každá část zase dva póly</li>
 							<li><strong>na pólech je magnetická síla nejsilnější</strong>, mezi póly je <strong>netečné pásmo</strong> (síla nejslabší)</li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek/magneticke-vlastnosti-latek-obr-04.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek/magneticke-vlastnosti-latek-obr-04.svg" alt="Řetěz mincí visí z obou konců tyčového magnetu, uprostřed se mince magnetu nedotýkají; popisky pólů a netečného pásma." loading="lazy" /></a><figcaption>Na pólech je magnetická síla nejsilnější, v netečném pásmu uprostřed nejslabší.</figcaption></figure>
 						<h3>Chování těles v magnetickém poli</h3>
 						<ul>
 							<li>nemagnetické látky — síla na ně nepůsobí</li>
@@ -1473,6 +1477,7 @@ export const temata: Record<string, Tema[]> = {
 							</li>
 							<li>odmagnetování: třením opačným pólem, cívkou se střídavým proudem nebo <strong>zahřátím</strong></li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek/magneticke-vlastnosti-latek-obr-05.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek/magneticke-vlastnosti-latek-obr-05.svg" alt="Animace: dvojice magnetů otočená opačnými póly se k sobě přiblíží, dvojice otočená stejnými póly se od sebe vzdálí." loading="lazy" /></a><figcaption>Opačné póly magnetů se přitahují, stejné póly se odpuzují.</figcaption></figure>
 						<h3>Magnetické pole a indukční čáry</h3>
 						<ul>
 							<li>existenci pole zjišťujeme <strong>magnetkou</strong>; zviditelníme ho <strong>železnými pilinami</strong> — vznikne pilinový obrazec</li>
@@ -1480,6 +1485,10 @@ export const temata: Record<string, Tema[]> = {
 							<li>ukazují směr magnetické síly (směr udává severní pól magnetky); nejhustší jsou u pólů</li>
 							<li>magnety opačnými póly k sobě: nejsilnější pole mezi nimi — přitahují se; stejnými póly: pole mezi nimi nejslabší — odpuzují se</li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek/magneticke-vlastnosti-latek-obr-06.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek/magneticke-vlastnosti-latek-obr-06.svg" alt="Animace: střelka kompasu v ruce se rozkmitá a ustálí červeným, severním koncem k severu." loading="lazy" /></a><figcaption>Existenci magnetického pole zjistíme magnetkou – střelka kompasu ukazuje severním pólem k severu.</figcaption></figure>
+						<figure><a href="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek/magneticke-vlastnosti-latek-obr-07.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek/magneticke-vlastnosti-latek-obr-07.svg" alt="Železné piliny na kartonu nad tyčovým magnetem tvoří oblouky od pólu k pólu, nejhustší u pólů, uprostřed skoro žádné." loading="lazy" /></a><figcaption>Železné piliny zviditelní magnetické pole – vznikne pilinový obrazec.</figcaption></figure>
+						<figure><a href="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek/magneticke-vlastnosti-latek-obr-08.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek/magneticke-vlastnosti-latek-obr-08.svg" alt="Animace: indukční čáry kolem tyčového magnetu se šipkami od N k S; magnetka putuje po čáře a natáčí se podle ní." loading="lazy" /></a><figcaption>Magnetické indukční čáry vedou od severního pólu k jižnímu, severní pól magnetky ukazuje jejich směr.</figcaption></figure>
+						<figure><a href="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek/magneticke-vlastnosti-latek-obr-09.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek/magneticke-vlastnosti-latek-obr-09.svg" alt="Indukční čáry dvou magnetů: při opačných pólech k sobě vedou čáry z jednoho do druhého, při stejných se mezi nimi rozbíhají do stran." loading="lazy" /></a><figcaption>Opačné póly k sobě: pole mezi magnety je nejsilnější. Stejné póly k sobě: nejslabší.</figcaption></figure>
 						<h3>Využití magnetismu</h3>
 						<p>Nástěnka, držáky a těsnění dveří ledničky, kompas a buzola, reproduktory, magnetické stavebnice, pevný disk počítače, malé elektromotory (stěrače), sběrač kovových štěpin. 👉 POZOR: magnet může poškodit hodinky, elektroniku i data na disku!</p>
 						<h3>Magnetické pole Země</h3>
@@ -1489,6 +1498,7 @@ export const temata: Record<string, Tema[]> = {
 							<li>👉 magnetické pole Země nás <strong>chrání před slunečním větrem a kosmickým zářením</strong> — nebezpečné nabité částice odkloní; částice, které proniknou, vytvářejí u pólů <strong>polární záři</strong></li>
 							<li>💡 mořeplavci se orientovali lodním kompasem; stěhovaví ptáci i lišky mají magnetoreceptory</li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek/magneticke-vlastnosti-latek-obr-10.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek/magneticke-vlastnosti-latek-obr-10.svg" alt="Zeměkoule s magnetickými čarami a nakloněným magnetem uvnitř: jeho jižní pól je u severního zeměpisného pólu; magnetka vedle Země ukazuje k severu." loading="lazy" /></a><figcaption>Země se chová jako velký tyčový magnet – u severního zeměpisného pólu je jižní magnetický pól.</figcaption></figure>
 						<p>🌟 Vyzkoušej: <a href="https://phet.colorado.edu/sims/html/magnet-and-compass/latest/magnet-and-compass_all.html?locale=cs" target="_blank" rel="noopener">simulace Magnet a kompas</a> — pohybuj kompasem kolem magnetu, pak si zvol Zemi.</p>
 					`,
 					materialy: [
