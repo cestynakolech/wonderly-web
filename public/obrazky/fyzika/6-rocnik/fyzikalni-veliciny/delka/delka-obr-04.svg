@@ -10,14 +10,14 @@
 <ellipse cx="420" cy="392" rx="330" ry="10" fill="#000" opacity="0.08"/>
 <path d="M90 340V250A160 160 0 0 1 410 250V340H362V250A112 112 0 0 0 138 250V274H138V340Z" fill="url(#ramM)" stroke="#343a40" stroke-width="3"/>
 <path d="M108 240A142 142 0 0 1 300 118" fill="none" stroke="#fff" stroke-width="5" opacity="0.6"/>
-<rect x="138" y="280" width="44" height="40" rx="4" fill="url(#kovV)" stroke="#343a40" stroke-width="2.5"/>
-<path d="M188 230C182 270 192 320 186 374" fill="none" stroke="#5c3d1e" stroke-width="3.5"/>
+<rect x="138" y="280" width="49" height="40" rx="4" fill="url(#kovV)" stroke="#343a40" stroke-width="2.5"/>
+<path d="M187.5 230C190 262 189 290 189 300C189 320 190 350 187.5 374" fill="none" stroke="#5c3d1e" stroke-width="1.5"/>
 <rect x="191" y="285" width="180" height="30" fill="url(#kovV)" stroke="#343a40" stroke-width="2.5"/>
 <rect x="410" y="276" width="150" height="48" fill="url(#kovV)" stroke="#343a40" stroke-width="2.5"/>
 <path d="M414 300H560M420 300V288M425.5 300V308M431 300V288M436.5 300V308M442 300V288M447.5 300V308M453 300V288M458.5 300V308M464 300V288M469.5 300V308M475 300V288M480.5 300V308M486 300V288M491.5 300V308M497 300V288M502.5 300V308M508 300V288M513.5 300V308M519 300V288M524.5 300V308M530 300V288M535.5 300V308M541 300V288M546.5 300V308M552 300V288" stroke="#212529" stroke-width="1.6"/>
 <path d="M560 274L586 256H690V344H586L560 326Z" fill="url(#kovV)" stroke="#343a40" stroke-width="2.5"/>
-<path d="M562 264h8M562 273h8M562 282h8M562 291h8M562 300h14M562 309h8M562 318h8M562 327h8M562 336h8" stroke="#212529" stroke-width="1.6"/>
-<text x="582" y="286" font-size="18" font-weight="bold" fill="#212529">50</text><text x="582" y="306" font-size="18" font-weight="bold" fill="#212529">40</text><text x="582" y="326" font-size="18" font-weight="bold" fill="#212529">30</text>
+<path d="M580.8 261h8M576.4 264h8M572.1 267h8M567.8 270h14M563.4 273h8M562 276h8M562 279h8M562 282h8M562 285h8M562 288h8M562 291h8M562 294h8M562 297h8M562 300h14M562 303h8M562 306h8M562 309h8M562 312h8M562 315h8M562 318h8M562 321h8M562 324h8M563.4 327h8M567.8 330h14M572.1 333h8M576.4 336h8M580.8 339h8" stroke="#212529" stroke-width="1.6"/>
+<text x="592" y="276" font-size="18" font-weight="bold" fill="#212529">50</text><text x="592" y="306" font-size="18" font-weight="bold" fill="#212529">40</text><text x="592" y="336" font-size="18" font-weight="bold" fill="#212529">30</text>
 <rect x="622" y="256" width="68" height="88" fill="url(#ryh)" stroke="#343a40" stroke-width="2.5"/>
 <rect x="690" y="278" width="20" height="44" fill="url(#kovV)" stroke="#343a40" stroke-width="2.5"/>
 <rect x="710" y="270" width="46" height="60" rx="6" fill="url(#kovV)" stroke="#343a40" stroke-width="2.5"/>
@@ -25,7 +25,7 @@
 <path d="M414 280H556M594 260H686" stroke="#fff" stroke-width="3" opacity="0.7"/>
 <rect x="40" y="110" width="116" height="52" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
 <text x="98" y="145.36" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">vlas</text>
-<path d="M120 162L187 250" stroke="#212529" stroke-width="2.5"/><circle cx="187" cy="250" r="5" fill="#212529"/>
+<path d="M120 162L188 250" stroke="#212529" stroke-width="2.5"/><circle cx="188" cy="250" r="5" fill="#212529"/>
 <text x="400" y="420" font-size="22" fill="#212529" text-anchor="middle">měří na setiny milimetru: tloušťku vlasu nebo tenkého vlákna</text>
 
 </svg>

@@ -43,7 +43,7 @@
 <rect x="284" y="120" width="156" height="14" rx="3" fill="url(#ocelT)" stroke="#343a40" stroke-width="2"/>
 <path d="M290 120V80L308 92V120" fill="url(#ocelT)" stroke="#343a40" stroke-width="2.5"/>
 <path d="M290 196V212M294.5 196V206M299 196V206M303.5 196V206M308 196V206M312.5 196V212M317 196V206M321.5 196V206M326 196V206M330.5 196V206M335 196V212" stroke="#212529" stroke-width="1.4"/>
-<text x="290" y="232" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle">0</text><text x="335" y="232" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle">10</text>
+<text x="294" y="232" font-size="18" font-weight="bold" fill="#212529" text-anchor="start">0</text><text x="335" y="232" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle">10</text>
 <circle cx="400" cy="222" r="12" fill="#adb5bd" stroke="#343a40" stroke-width="2"/><path d="M392 222h16M400 214v16" stroke="#495057" stroke-width="1.5"/>
 <circle cx="410" cy="127" r="6" fill="#868e96" stroke="#343a40" stroke-width="1.5"/>
 <rect x="428" y="120" width="12" height="126" fill="url(#ocelT)" stroke="#343a40" stroke-width="2"/>

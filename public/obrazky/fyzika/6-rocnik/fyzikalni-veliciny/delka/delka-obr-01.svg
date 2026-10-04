@@ -3,7 +3,7 @@
 /* Předloha: PDF Délka — převody jednotek (km m dm cm mm s obloučky) a příklad šířky pokoje 532 cm = 5,32 m = 5 m 32 cm.
    Cyklus 10 s: 0–20 % 532 cm, 20–50 % čárka přeskočí dva obloučky doleva, 50–58 % cm → m, 64–94 % = 5 m 32 cm.
    Bez animace = koncový stav (5,32 m = 5 m 32 cm). */
-@keyframes ca { 0%, 12% { transform: translate(80px, 0); opacity: 0; } 18%, 22% { transform: translate(80px, 0); opacity: 1; } 29% { transform: translate(60px, -48px); opacity: 1; } 36% { transform: translate(40px, 0); } 43% { transform: translate(20px, -48px); } 50%, 100% { transform: translate(0, 0); opacity: 1; } }
+@keyframes ca { 0%, 12% { transform: translate(60px, 0); opacity: 0; } 18%, 22% { transform: translate(60px, 0); opacity: 1; } 29% { transform: translate(45px, -48px); opacity: 1; } 36% { transform: translate(30px, 0); } 43% { transform: translate(15px, -48px); } 50%, 100% { transform: translate(0, 0); opacity: 1; } }
 @keyframes ucm { 0%, 50% { opacity: 1; } 56%, 100% { opacity: 0; } }
 @keyframes um { 0%, 52% { opacity: 0; } 58%, 100% { opacity: 1; } }
 @keyframes kom { 0%, 64% { opacity: 0; } 72%, 100% { opacity: 1; } }
@@ -36,13 +36,13 @@
 <text x="400" y="380" font-size="22" fill="#237032" text-anchor="middle">na větší jednotky: nuly škrtáme, čárka doleva</text>
 <rect x="40" y="404" width="720" height="136" rx="12" fill="#fff" stroke="#adb5bd" stroke-width="2"/>
 <text x="60" y="436" font-size="22" fill="#212529">Šířka pokoje:</text>
-<text x="180" y="500" font-size="44" font-weight="bold" fill="#212529" text-anchor="middle">5</text>
+<text x="190" y="500" font-size="44" font-weight="bold" fill="#212529" text-anchor="middle">5</text>
 <text x="220" y="500" font-size="44" font-weight="bold" fill="#212529" text-anchor="middle">3</text>
-<text x="260" y="500" font-size="44" font-weight="bold" fill="#212529" text-anchor="middle">2</text>
-<path d="M280 512Q260 534 240 512M240 512Q220 534 200 512" fill="none" stroke="#c92a2a" stroke-width="3.5" stroke-linecap="round" class="ob"/>
-<text x="200" y="500" font-size="44" font-weight="bold" fill="#c92a2a" text-anchor="middle" class="ca">,</text>
-<text x="298" y="500" font-size="40" fill="#212529" class="ucm" opacity="0">cm</text>
-<text x="298" y="500" font-size="40" fill="#212529" class="um">m</text>
+<text x="250" y="500" font-size="44" font-weight="bold" fill="#212529" text-anchor="middle">2</text>
+<path d="M265 512Q250 534 235 512M235 512Q220 534 205 512" fill="none" stroke="#c92a2a" stroke-width="3.5" stroke-linecap="round" class="ob"/>
+<text x="205" y="500" font-size="44" font-weight="bold" fill="#c92a2a" text-anchor="middle" class="ca">,</text>
+<text x="290" y="500" font-size="40" fill="#212529" class="ucm" opacity="0">cm</text>
+<text x="290" y="500" font-size="40" fill="#212529" class="um">m</text>
 <text x="370" y="500" font-size="40" font-weight="bold" fill="#212529" class="kom">= 5 m 32 cm</text>
 
 </svg>

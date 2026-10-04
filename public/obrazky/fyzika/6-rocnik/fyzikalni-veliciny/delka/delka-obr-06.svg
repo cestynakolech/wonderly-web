@@ -9,7 +9,9 @@
 .tL { animation: tL 8s ease-in-out infinite; }
 .tP { animation: tP 8s ease-in-out infinite; }
 .del { animation: del 8s linear infinite; }
-@media (prefers-reduced-motion: reduce) { .tL, .tP, .del { animation: none; } }
+@keyframes uk { 0%, 40% { opacity: 0; } 46%, 100% { opacity: 1; } }
+.uk { animation: uk 8s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .tL, .tP, .del, .uk { animation: none; } }
 </style>
 <rect x="3" y="3" width="794" height="494" rx="14" fill="#f8f9fa"/>
 <rect x="230" y="18" width="340" height="58" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
@@ -29,12 +31,12 @@
 <path d="M556 350h8M556 340h8M556 330h8M556 320h8M556 310h14M556 300h8M556 290h8M556 280h8M556 270h8M556 260h14M556 250h8M556 240h8M556 230h8M556 220h8M556 210h14M556 200h8M556 190h8M556 180h8" stroke="#0b3d6e" stroke-width="1.6"/>
 </g>
 <g class="del"><path d="M246 400H550" stroke="#c92a2a" stroke-width="4"/><path d="M242 400l14 -8v16zM554 400l-14 -8v16z" fill="#c92a2a"/>
-<text x="398" y="440" font-size="26" font-weight="bold" fill="#c92a2a" text-anchor="middle">délka chodidla l</text></g>
+<text x="398" y="440" font-size="26" font-weight="bold" fill="#c92a2a" text-anchor="middle">délka chodidla <tspan font-family="Georgia, 'Times New Roman', serif" font-style="italic">l</tspan></text></g>
 <rect x="36" y="92" width="200" height="52" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
 <text x="136" y="125.92" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">kolmá pomůcka</text>
 <rect x="600" y="92" width="180" height="52" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
 <text x="690" y="125.92" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">kolmá pomůcka</text>
-<path d="M120 144L228 210" stroke="#212529" stroke-width="2.5"/><circle cx="228" cy="210" r="5" fill="#212529"/>
-<path d="M690 144L568 210" stroke="#212529" stroke-width="2.5"/><circle cx="568" cy="210" r="5" fill="#212529"/>
+<g class="uk"><path d="M120 144L228 210" stroke="#212529" stroke-width="2.5"/><circle cx="228" cy="210" r="5" fill="#212529"/>
+<path d="M690 144L568 210" stroke="#212529" stroke-width="2.5"/><circle cx="568" cy="210" r="5" fill="#212529"/></g>
 
 </svg>
