@@ -4,8 +4,8 @@
    pohybují se do větších vzdáleností ⇒ mají mezi sebou větší mezery ⇒ hustota látky se zmenšuje.“ (v PDF bez obrázku).
    Částice jako ve vzoru Částicové složení látek (modré částice vody, poloměr 13). V obou 16 částic (4 × 4).
    Studená: rozestup 34, chvění 2 px za 1,2 s. Horká: rozestup 48, chvění 6 px za 0,5 s. Bez animace = částice v klidu na místě. */
-@keyframes c1 { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(2px, -2px); } 50% { transform: translate(-2px, -2px); } 75% { transform: translate(-2px, 2px); } }
-@keyframes c2 { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(-2px, 2px); } 50% { transform: translate(2px, 2px); } 75% { transform: translate(2px, -2px); } }
+@keyframes c1 { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(1px, -1px); } 50% { transform: translate(-1px, -1px); } 75% { transform: translate(-1px, 1px); } }
+@keyframes c2 { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(-1px, 1px); } 50% { transform: translate(1px, 1px); } 75% { transform: translate(1px, -1px); } }
 @keyframes h1 { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(6px, -6px); } 50% { transform: translate(-6px, -6px); } 75% { transform: translate(-6px, 6px); } }
 @keyframes h2 { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(-6px, 6px); } 50% { transform: translate(6px, 6px); } 75% { transform: translate(6px, -6px); } }
 .c1 { animation: c1 1.2s linear infinite; } .c2 { animation: c2 1.2s linear 0.3s infinite; } .c3 { animation: c1 1.2s linear 0.6s infinite; } .c4 { animation: c2 1.2s linear 0.9s infinite; }
@@ -14,7 +14,7 @@
 </style>
 <defs>
 <radialGradient id="voda" cx="35%" cy="35%" r="70%"><stop offset="0" stop-color="#e7f5ff"/><stop offset="1" stop-color="#4dabf7"/></radialGradient>
-<circle id="c" r="13" fill="url(#voda)" stroke="#1864ab" stroke-width="1.5"/>
+<circle id="c" r="12" fill="url(#voda)" stroke="#1864ab" stroke-width="1.5"/>
 </defs>
 <rect x="3" y="3" width="594" height="594" rx="14" fill="#f8f9fa"/>
 <rect x="90" y="16" width="420" height="54" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>

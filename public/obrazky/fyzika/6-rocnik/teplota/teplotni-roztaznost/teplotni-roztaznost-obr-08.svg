@@ -8,8 +8,8 @@
 @keyframes most { 0%, 10% { transform: translate(80px, 0) scale(1, 1) translate(-80px, 0); } 40%, 60% { transform: translate(80px, 0) scale(1.0308, 1) translate(-80px, 0); } 90%, 100% { transform: translate(80px, 0) scale(1, 1) translate(-80px, 0); } }
 @keyframes valec { 0%, 10% { transform: translate(442px, 216px) rotate(0deg); } 40%, 60% { transform: translate(448px, 216px) rotate(21deg); } 90%, 100% { transform: translate(442px, 216px) rotate(0deg); } }
 @keyframes hreben { 0%, 10% { transform: translate(-16px, 0); } 40%, 60% { transform: translate(16px, 0); } 90%, 100% { transform: translate(-16px, 0); } }
-@keyframes leto { 0%, 20% { opacity: 0; } 35%, 65% { opacity: 1; } 80%, 100% { opacity: 0; } }
-@keyframes zima { 0%, 20% { opacity: 1; } 35%, 65% { opacity: 0; } 80%, 100% { opacity: 1; } }
+@keyframes leto { 0%, 27% { opacity: 0; } 33%, 67% { opacity: 1; } 73%, 100% { opacity: 0; } }
+@keyframes zima { 0%, 17% { opacity: 1; } 25%, 75% { opacity: 0; } 83%, 100% { opacity: 1; } }
 .most { animation: most 10s ease-in-out infinite; } .valec { animation: valec 10s ease-in-out infinite; } .hreben { animation: hreben 10s ease-in-out infinite; }
 .leto { animation: leto 10s ease-in-out infinite; } .zima { animation: zima 10s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) { .most, .valec, .hreben, .leto, .zima { animation: none; } }

@@ -9,8 +9,8 @@
 @keyframes zav { 0%, 10% { transform: translate(0, -30px); } 40%, 60% { transform: translate(0, 0); } 90%, 100% { transform: translate(0, -30px); } }
 @keyframes pro { 0%, 10% { transform: translate(0, 440px) scale(1, 0.5); } 40%, 60% { transform: translate(0, 440px) scale(1, 1); } 90%, 100% { transform: translate(0, 440px) scale(1, 0.5); } }
 @keyframes pro2 { 0%, 10% { transform: translate(0, 470px) scale(1, 0.5); } 40%, 60% { transform: translate(0, 470px) scale(1, 1); } 90%, 100% { transform: translate(0, 470px) scale(1, 0.5); } }
-@keyframes leto { 0%, 20% { opacity: 0; } 35%, 65% { opacity: 1; } 80%, 100% { opacity: 0; } }
-@keyframes zima { 0%, 20% { opacity: 1; } 35%, 65% { opacity: 0; } 80%, 100% { opacity: 1; } }
+@keyframes leto { 0%, 27% { opacity: 0; } 33%, 67% { opacity: 1; } 73%, 100% { opacity: 0; } }
+@keyframes zima { 0%, 17% { opacity: 1; } 25%, 75% { opacity: 0; } 83%, 100% { opacity: 1; } }
 .lano { animation: lano 10s ease-in-out infinite; } .zav { animation: zav 10s ease-in-out infinite; }
 .pro { animation: pro 10s ease-in-out infinite; } .pro2 { animation: pro2 10s ease-in-out infinite; }
 .leto { animation: leto 10s ease-in-out infinite; } .zima { animation: zima 10s ease-in-out infinite; }
