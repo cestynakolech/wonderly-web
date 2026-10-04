@@ -1161,4 +1161,73 @@ export const laborky: Record<string, Laborka> = {
 		pozor: 'Mince a knoflíky nedávej do úst. Rozsypané mince hned seber, ať po nich nikdo neuklouzne. Pracuj na lavici.',
 		tip: 'Poločasy rozpadu jsou velmi různé: radon 222 má 3,8 dne a uran 238 má 4 500 000 000 let.',
 	},
+	'fyzika/9-rocnik/jaderna-fyzika/jaderna-energie-a-reakce': {
+		nazev: 'Model řetězové reakce z kostek domina',
+		cil: 'Pomocí domina modelovat neřízenou a řízenou řetězovou reakci a spočítat, kolik jader se při nich „rozštěpí“.',
+		pomucky: ['19 kostek domina', 'tlustá kniha', 'tužka'],
+		postup: [
+			'Neřízená reakce: postav 15 kostek do čtyř řad. V první řadě 1 kostka, ve druhé 2, ve třetí 4 a ve čtvrté 8. Každá kostka musí při pádu shodit dvě kostky v další řadě.',
+			'Shoď první kostku. Zapiš, kolik kostek se celkem převrátilo.',
+			'Řízená reakce: postav 4 kostky za sebou do řady. Mezi 2. a 3. kostku vlož tlustou knihu jako pohlcovač. Shoď první kostku. Zapiš, kolik kostek se převrátilo.',
+			'Vysvětlení: při štěpení těžkého jádra se uvolňují neutrony, které mohou štěpit další jádra.',
+		],
+		tabulka: {
+			sloupce: ['pokus', 'počet kostek na začátku', 'počet převrácených kostek'],
+			radky: 2,
+		},
+		otazky: [
+			'Který pokus modeluje atomovou bombu a který jaderný reaktor? Čím se liší?',
+			'Co v reaktoru plní úlohu knihy z pokusu?',
+			'Čím se liší jaderná reakce od radioaktivity?',
+			'Rutherford ostřeloval jádra dusíku 14 alfa částicemi (jádry helia 4) a vznikl kyslík 17 a proton (vodík 1). Spočítej součet nukleonových čísel před reakcí a po ní. Co zjistíš?',
+		],
+		pozor: 'Kostky stav na rovné lavici. Převrácené kostky po pokusu ihned seber, ať po nich nikdo neuklouzne. Knihu nepouštěj z výšky.',
+		tip: 'Při štěpení uranu 235 vznikají asi 3 neutrony, které mohou za vhodných podmínek štěpit další jádra.',
+	},
+	'fyzika/9-rocnik/jaderna-fyzika/jaderny-reaktor-elektrarna': {
+		nazev: 'Model předávání tepla mezi okruhy elektrárny',
+		cil: 'Na jednoduchém modelu sledovat, jak se teplo předává z teplejší vody do studenější přes stěnu nádoby, aniž by se vody smísily.',
+		pomucky: ['menší kovový hrnek nebo konzerva', 'větší nádoba', 'teplá voda z kohoutku asi 45 °C', 'studená voda z kohoutku', 'dva teploměry', 'stopky nebo hodinky', 'tužka'],
+		postup: [
+			'Do větší nádoby nalij studenou vodu. Do menšího hrnku nalij teplou vodu z kohoutku. Hrnek postav do nádoby, aby se vody nesmísily.',
+			'Do každé vody dej jeden teploměr. Zapiš počáteční teploty v celých °C.',
+			'Teploty odečítej a zapisuj po 2, 4 a 6 minutách.',
+			'Vysvětlení: jaderná elektrárna se skládá ze tří okruhů vody.',
+		],
+		tabulka: {
+			sloupce: ['čas (min)', 'teplota vody v hrnku (°C)', 'teplota vody ve větší nádobě (°C)'],
+			radky: 4,
+		},
+		otazky: [
+			'Jak se v průběhu pokusu měnily obě teploty?',
+			'V elektrárně se vody jednotlivých okruhů nemísí. Která voda je radioaktivní a kde proudí?',
+			'K čemu slouží regulační tyče v reaktoru?',
+			'Které dvě jaderné elektrárny vyrábějí elektřinu v České republice?',
+		],
+		pozor: 'Používej jen teplou vodu z kohoutku, ne horkou z konvice. Nádoby postav na rovnou lavici a rozlitou vodu hned utři. Teploměry nepoužívej jako míchátka.',
+		tip: 'Palivem v reaktoru je obohacený uran 235.',
+	},
+	'fyzika/9-rocnik/energie-a-vesmir/obnovitelne-a-neobnovitelne-zdroje': {
+		nazev: 'Malý solární článek: napětí při různém osvětlení',
+		cil: 'Změřit napětí fotovoltaického článku při různém osvětlení a roztřídit zdroje energie na obnovitelné a neobnovitelné.',
+		pomucky: ['malý solární článek (například ze zahradní lampičky)', 'voltmetr na stejnosměrném rozsahu 10 V', 'vodiče', 'stolní LED lampa', 'tužka'],
+		postup: [
+			'Solární článek připoj k voltmetru. Polož ho u okna na světlo. Odečti napětí a zapiš ho do tabulky.',
+			'Článek ve stejné poloze přikryj rukou nebo papírem. Odečti napětí a zapiš ho.',
+			'Článek polož 30 cm pod stolní LED lampu. Odečti napětí a zapiš ho.',
+			'Vysvětlení: fotovoltaický článek mění světelnou energii na elektrickou.',
+		],
+		tabulka: {
+			sloupce: ['osvětlení', 'napětí (V)'],
+			radky: 3,
+		},
+		otazky: [
+			'Kdy bylo napětí největší a kdy nejmenší?',
+			'Roztřiď na obnovitelné a neobnovitelné: sluneční záření, uhlí, vítr, ropa, tekoucí voda, uran.',
+			'Proč uhlí, ropa a zemní plyn řadíme mezi neobnovitelné zdroje?',
+			'Elektrárna Dlouhé stráně přečerpává vodu do horní nádrže v noci. Proč právě v noci?',
+		],
+		pozor: 'Nedívej se přímo do lampy ani do slunce. Lampa se může zahřát, nedotýkej se jí. Použij jen solární článek a voltmetr, žádný jiný zdroj.',
+		tip: 'Přečerpávací elektrárna Dlouhé stráně ukládá energii vody a vrací ji do sítě ve chvílích, kdy je elektřiny potřeba víc.',
+	},
 };
