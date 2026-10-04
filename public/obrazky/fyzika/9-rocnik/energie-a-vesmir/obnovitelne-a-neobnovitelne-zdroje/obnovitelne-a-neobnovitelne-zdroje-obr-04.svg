@@ -12,10 +12,13 @@
 .el { stroke-dasharray: 8 10; animation: el 0.6s linear infinite; }
 .elz { stroke-dasharray: 8 10; animation: elz 0.6s linear infinite; }
 .rotor { animation: rot 4s linear infinite; }
+.bl { transform-origin: 0 0; animation: bl 4s linear infinite; }
+.b1 { transform: scaleY(1); } .b2 { transform: scaleY(-0.5); animation-delay: -1.333s; } .b3 { transform: scaleY(-0.5); animation-delay: -2.667s; }
+@keyframes bl { 0% { transform: scaleY(1); animation-timing-function: ease-in; } 25% { transform: scaleY(0); animation-timing-function: ease-out; } 50% { transform: scaleY(-1); animation-timing-function: ease-in; } 75% { transform: scaleY(0); animation-timing-function: ease-out; } 100% { transform: scaleY(1); } }
 .vitr { stroke-dasharray: 40 30; animation: vitr 1.4s linear infinite; }
 @keyframes vitr { to { stroke-dashoffset: -70; } }
-/* Vítr (modré čáry) roztáčí rotor, generátor v gondole vyrábí elektřinu (žluté čárky do vedení).
-   Klid: rotor stojí. */
+/* Boční pohled: vítr fouká zleva do rotoru, listy se otáčejí v rovině kolmé na vítr (vidíme je z boku, proto se jejich délka mění). Vítr (modré čáry) roztáčí rotor, generátor v gondole vyrábí elektřinu (žluté čárky do vedení).
+   Klid: listy stojí (jeden svisle nahoru, dva šikmo dolů). */
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
 </style>
 <rect x="3" y="3" width="594" height="594" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
@@ -32,7 +35,7 @@
 <path d="M516 424 Q 550 440 582 432" fill="none" stroke="#495057" stroke-width="2"/>
 <path d="M296 206 H372 q 14 0 14 14 v 16 q 0 14 -14 14 H296z" fill="#f8f9fa" stroke="#495057" stroke-width="2.5"/><line x1="300" y1="228" x2="330" y2="228" stroke="#212529" stroke-width="4"/>
 <rect x="332.0" y="212.0" width="40" height="32" rx="8" fill="#ffffff" stroke="#212529" stroke-width="3"/><circle cx="352" cy="228" r="10.0" fill="#fff9db" stroke="#212529" stroke-width="2"/><path d="M346.0 228 q 3.0 -9.0 6.0 0 t 6.0 0" fill="none" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
-<g transform="translate(300,228)"><g class="rotor"><g transform="rotate(0)"><path d="M-8 -14 Q-12 -80 -3 -150 Q0 -155 4 -150 Q11 -80 8 -14z" fill="#ffffff" stroke="#495057" stroke-width="2.5"/></g><g transform="rotate(120)"><path d="M-8 -14 Q-12 -80 -3 -150 Q0 -155 4 -150 Q11 -80 8 -14z" fill="#ffffff" stroke="#495057" stroke-width="2.5"/></g><g transform="rotate(240)"><path d="M-8 -14 Q-12 -80 -3 -150 Q0 -155 4 -150 Q11 -80 8 -14z" fill="#ffffff" stroke="#495057" stroke-width="2.5"/></g></g><circle r="16" fill="#e9ecef" stroke="#495057" stroke-width="2.5"/></g>
+<g transform="translate(300,228)"><g class="bl b1"><path d="M-6 -14 Q-9 -80 0 -150 Q9 -80 6 -14z" fill="#ffffff" stroke="#495057" stroke-width="2.5"/></g><g class="bl b2"><path d="M-6 -14 Q-9 -80 0 -150 Q9 -80 6 -14z" fill="#ffffff" stroke="#495057" stroke-width="2.5"/></g><g class="bl b3"><path d="M-6 -14 Q-9 -80 0 -150 Q9 -80 6 -14z" fill="#ffffff" stroke="#495057" stroke-width="2.5"/></g><ellipse rx="10" ry="16" fill="#e9ecef" stroke="#495057" stroke-width="2.5"/></g>
 <line x1="470" y1="112" x2="312" y2="220" stroke="#495057" stroke-width="2"/>
 <g><rect x="464" y="90" width="71" height="32" rx="8" fill="#ffffff" stroke="#868e96" stroke-width="1.5"/><text x="500" y="112" font-size="20" fill="#212529" text-anchor="middle">rotor</text></g>
 <line x1="470" y1="286" x2="372" y2="236" stroke="#495057" stroke-width="2"/>

@@ -15,7 +15,7 @@
 @keyframes plamen { to { transform: scale(1.08, 0.85); } }
 .kour { animation: kour 4s linear infinite; }
 .kour2 { animation: kour 4s linear infinite; animation-delay: -2s; }
-@keyframes kour { 0% { transform: translate(0, 0); opacity: 0; } 15% { opacity: 0.9; } 100% { transform: translate(24px, -60px); opacity: 0; } }
+@keyframes kour { 0% { transform: translate(0, 0); opacity: 0; } 15% { opacity: 0.9; } 100% { transform: translate(24px, -44px); opacity: 0; } }
 .pas { animation: pas 3s linear infinite; }
 @keyframes pas { 0% { transform: translate(0, 0); opacity: 0; } 10% { opacity: 1; } 80% { transform: translate(52px, -40px); opacity: 1; } 100% { transform: translate(52px, -40px); opacity: 0; } }
 /* Uhlí se sype do kotle, oheň ohřívá vodu na páru, pára roztáčí turbínu a generátor,
@@ -27,8 +27,8 @@
 <defs><marker id="hC" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#c92a2a"/></marker><marker id="hM" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1864ab"/></marker><marker id="hZ" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#e67700"/></marker></defs>
 <rect x="18" y="62" width="564" height="508" rx="12" fill="#f1f3f5"/>
 <path d="M18 524 H582 V558 a12 12 0 0 1 -12 12 H30 a12 12 0 0 1 -12 -12z" fill="#c9b8a6" stroke="#7f5539" stroke-width="2.5"/>
-<path d="M140 280 L148 96 H176 L184 280z" fill="#dee2e6" stroke="#495057" stroke-width="2.5"/><path d="M148 112 H176 M146 140 H178" stroke="#c92a2a" stroke-width="5"/>
-<g class="kour"><circle cx="162" cy="84" r="12" fill="#868e96"/><circle cx="176" cy="76" r="9" fill="#adb5bd"/></g><g class="kour2"><circle cx="162" cy="84" r="12" fill="#868e96"/><circle cx="176" cy="76" r="9" fill="#adb5bd"/></g>
+<path d="M140 280 L146.1 140 H177.9 L184 280z" fill="#dee2e6" stroke="#495057" stroke-width="2.5"/><path d="M148 160 H176 M146.5 188 H177.5" stroke="#c92a2a" stroke-width="5"/>
+<g transform="translate(0 44)"><g class="kour"><circle cx="162" cy="84" r="12" fill="#868e96"/><circle cx="176" cy="76" r="9" fill="#adb5bd"/></g><g class="kour2"><circle cx="162" cy="84" r="12" fill="#868e96"/><circle cx="176" cy="76" r="9" fill="#adb5bd"/></g></g>
 <path d="M424 364 V496 H262" fill="none" stroke="#1864ab" stroke-width="20" stroke-linejoin="round"/><path d="M424 364 V496 H262" fill="none" stroke="#a5d8ff" stroke-width="13" stroke-linejoin="round"/>
 <path class="tok" d="M424 368 V496 H268" fill="none" stroke="#1864ab" stroke-width="3" stroke-linecap="round"/>
 <path d="M240 286 V232 H424 V262" fill="none" stroke="#c92a2a" stroke-width="22" stroke-linejoin="round"/><path d="M240 286 V232 H424 V262" fill="none" stroke="#ffb3b3" stroke-width="15" stroke-linejoin="round"/>
