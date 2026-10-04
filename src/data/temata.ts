@@ -1251,6 +1251,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>💡 Vědci používají také <strong>termodynamickou teplotu</strong> (značka T, jednotka kelvin K) — její stupnice začíná <strong>absolutní nulou</strong>, teoreticky nejnižší teplotou hmoty. Potkáte ji na střední škole.</p>
 						<h3>🧪 Pokus: dá se teplota změřit rukou?</h3>
 						<p>Připrav si tři kádinky: se <strong>studenou</strong> (asi 5 °C), <strong>vlažnou</strong> (asi 25 °C) a <strong>horkou</strong> vodou (asi 45 °C — pozor, ne vroucí!). Levou ruku ponoř do studené, pravou do horké a chvíli počkej. Pak dej <strong>obě ruce do vlažné</strong>: levá ji cítí jako teplou, pravá jako studenou — <strong>a přitom je to tatáž voda</strong>. Tělesný pocit srovnává jen s tím, nač je ruka zvyklá, proto se na něj fyzika nespoléhá a teplotu <strong>měří teploměrem</strong>. Vyzkoušej si pokus v simulaci níže.</p>
+						<figure><a href="/obrazky/fyzika/6-rocnik/teplota/teplota-a-jeji-mereni/teplota-a-jeji-mereni-obr-03.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/teplota/teplota-a-jeji-mereni/teplota-a-jeji-mereni-obr-03.svg" alt="Teploměr ve studené vodě ukáže 5 °C, ve vlažné 25 °C a v horké 45 °C." loading="lazy" /></a><figcaption>Teplotu odečteme na stupnici u konce sloupce.</figcaption></figure>
 						<h3>Historie měření teploty</h3>
 						<ul>
 							<li>dlouho se teplota určovala podle tělesných pocitů či barvy rozžhavených předmětů</li>
@@ -1259,11 +1260,13 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>Anders Celsius</strong> (18. století) — stupnice podle tuhnutí a varu vody, dnes nejpoužívanější (původně byla obrácená!)</li>
 							<li>lékařský teploměr — až 19. století; ve 20. století elektrické a zářením snímající teploměry</li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/teplota/teplota-a-jeji-mereni/teplota-a-jeji-mereni-obr-02.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/teplota/teplota-a-jeji-mereni/teplota-a-jeji-mereni-obr-02.svg" alt="Skleněný válec s kapalinou, nahoře plují tři barevné baňky, dvě klesly ke dnu." loading="lazy" /></a><figcaption>Galileo Galilei vymyslel teploměr s kapalinou a plovoucími baňkami.</figcaption></figure>
 						<h3>Celsiova stupnice</h3>
 						<ul>
 							<li><strong>0 °C — teplota, při které taje led</strong></li>
 							<li><strong>100 °C — teplota, při které voda vře</strong></li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/teplota/teplota-a-jeji-mereni/teplota-a-jeji-mereni-obr-01.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/teplota/teplota-a-jeji-mereni/teplota-a-jeji-mereni-obr-01.svg" alt="Dva teploměry: v kádince s ledem ukazuje 0 °C (led taje), v kádince s vroucí vodou 100 °C (voda vře)." loading="lazy" /></a><figcaption>Při 0 °C taje led, při 100 °C vře voda.</figcaption></figure>
 						<p>👉 Při zápisu teploty vždy uvádíme jednotky — „30 stupňů" může znamenat horko (°C) i mráz (°F ≈ −1 °C).</p>
 						<h3>Jak fungují teploměry?</h3>
 						<ol>
@@ -1271,15 +1274,19 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>elektrické vlastnosti látek</strong></li>
 							<li><strong>záření vzdálených těles</strong></li>
 						</ol>
+						<figure><a href="/obrazky/fyzika/6-rocnik/teplota/teplota-a-jeji-mereni/teplota-a-jeji-mereni-obr-05.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/teplota/teplota-a-jeji-mereni/teplota-a-jeji-mereni-obr-05.svg" alt="Kruhový teploměr se stupnicí −50 až 50 °C ukazuje 25 °C, vedle zvětšený stočený pásek ze dvou kovů." loading="lazy" /></a><figcaption>Bimetalový pásek se při změně teploty stáčí a otáčí ručičkou.</figcaption></figure>
 						<h3>Druhy teploměrů</h3>
 						<ul>
 							<li><strong>kapalinový laboratorní</strong> — rtuťový či lihový, odečítání na stupnici</li>
-							<li><strong>lékařský</strong> — rozsah 35–42 °C, hodnotu ukazuje i po sundání (rtuť se musí „střepat"); dnes se kvůli riziku otravy moc nepoužívá</li>
+							<li><strong>lékařský</strong> — rozsah 35–42 °C, hodnotu ukazuje i po sundání (rtuť se musí „střepat"); dnes se kvůli riziku otravy moc nepoužívá; <strong>normální teplota zdravého lidského těla je asi 37 °C</strong></li>
 							<li><strong>bimetalový</strong> — pásek se při změně teploty stáčí a pohybuje ručičkou</li>
 							<li><strong>digitální s elektronickým čidlem</strong> — přesný, bezpečný, dnes nejčastější</li>
 							<li><strong>bezkontaktní</strong> — snímá tepelné záření (čelo, uši)</li>
 							<li><strong>termokamera</strong> — tepelné záření převádí na obraz (úniky tepla z budov, prokrvení těla)</li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/teplota/teplota-a-jeji-mereni/teplota-a-jeji-mereni-obr-04.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/teplota/teplota-a-jeji-mereni/teplota-a-jeji-mereni-obr-04.svg" alt="Lékařský teploměr se stupnicí 35–42 °C, stříbrná rtuť sahá ke 37 °C." loading="lazy" /></a><figcaption>Lékařský teploměr měří od 35 °C do 42 °C a teplotu ukazuje i po sundání.</figcaption></figure>
+						<figure><a href="/obrazky/fyzika/6-rocnik/teplota/teplota-a-jeji-mereni/teplota-a-jeji-mereni-obr-06.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/teplota/teplota-a-jeji-mereni/teplota-a-jeji-mereni-obr-06.svg" alt="Vlevo digitální teploměr s hrotem ve vodě ukazuje 25 °C, vpravo bezkontaktní teploměr míří na čelo a ukazuje 37 °C." loading="lazy" /></a><figcaption>Digitální teploměr měří čidlem, bezkontaktní snímá tepelné záření.</figcaption></figure>
+						<figure><a href="/obrazky/fyzika/6-rocnik/teplota/teplota-a-jeji-mereni/teplota-a-jeji-mereni-obr-07.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/teplota/teplota-a-jeji-mereni/teplota-a-jeji-mereni-obr-07.svg" alt="Dům napůl v barvách termokamery: okna svítí žlutě a červeně, tudy uniká teplo." loading="lazy" /></a><figcaption>Termokamera ukáže, kudy z domu uniká teplo.</figcaption></figure>
 						<p>📌 Každý teploměr má svůj <strong>měřicí rozsah</strong> — pro měření si musíme vybrat správný teploměr!</p>
 						<h3>Měření teploty vzduchu v čase</h3>
 						<p>Změny teplot zaznamenáváme do tabulek a grafů. V pražském <strong>Klementinu</strong> se teplota měří nepřetržitě od roku 1775 — nejdéle v Evropě (rekordy: +37,8 °C v červenci 1983, −27,6 °C v březnu 1785). <strong>Termograf</strong> v meteostanici zapisuje teplotu ručkou na otáčející se kotouč papíru.</p>
