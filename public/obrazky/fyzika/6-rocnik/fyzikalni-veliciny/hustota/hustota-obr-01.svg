@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: čtyři stejně velké krychle o objemu 1 m³ — zlato, železo, hliník a měď — dosednou postupně na váhy. Váhy ukážou 19 300 kg, 7 800 kg, 2 700 kg a 8 900 kg. Nad zlatem se objeví nápis nejtěžší: při stejném objemu je nejtěžší těleso s největší hustotou.">
+<style>
+/* Předloha: PDF Hustota — „Kolik váží krychle o velikosti 1 m³ vyrobené z různých kovů?“: krychle Zlato, Železo, Hliník, Měď
+   a pod nimi oranžové štítky 19 300 kg, 7 800 kg, 2 700 kg, 8 900 kg. Překresleno, ne kopie; štítky nahrazeny displeji vah.
+   Cyklus 10 s: krychle postupně dosednou na váhy (6–14 %, 21–29 %, 36–44 %, 51–59 %), displej přepne z 0 kg na hmotnost; 75 % „nejtěžší“.
+   Bez animace = koncový stav (krychle na vahách, hmotnosti, popisek). */
+@keyframes k0 { 0% { transform: translate(0, -190px); opacity: 0; } 2% { transform: translate(0, -190px); opacity: 1; } 6% { transform: translate(0, -190px); opacity: 1; } 14% { transform: translate(0, 0); opacity: 1; } 95% { transform: translate(0, 0); opacity: 1; } 99%, 100% { transform: translate(0, 0); opacity: 0; } }
+@keyframes m0 { 0%, 15% { opacity: 0; } 16%, 95% { opacity: 1; } 99%, 100% { opacity: 0; } }
+@keyframes n0 { 0%, 15% { opacity: 1; } 16%, 95% { opacity: 0; } 99%, 100% { opacity: 1; } }
+.k0 { animation: k0 10s ease-in infinite; } .m0 { animation: m0 10s linear infinite; } .n0 { animation: n0 10s linear infinite; }
+@keyframes k1 { 0% { transform: translate(0, -190px); opacity: 0; } 17% { transform: translate(0, -190px); opacity: 1; } 21% { transform: translate(0, -190px); opacity: 1; } 29% { transform: translate(0, 0); opacity: 1; } 95% { transform: translate(0, 0); opacity: 1; } 99%, 100% { transform: translate(0, 0); opacity: 0; } }
+@keyframes m1 { 0%, 30% { opacity: 0; } 31%, 95% { opacity: 1; } 99%, 100% { opacity: 0; } }
+@keyframes n1 { 0%, 30% { opacity: 1; } 31%, 95% { opacity: 0; } 99%, 100% { opacity: 1; } }
+.k1 { animation: k1 10s ease-in infinite; } .m1 { animation: m1 10s linear infinite; } .n1 { animation: n1 10s linear infinite; }
+@keyframes k2 { 0% { transform: translate(0, -190px); opacity: 0; } 32% { transform: translate(0, -190px); opacity: 1; } 36% { transform: translate(0, -190px); opacity: 1; } 44% { transform: translate(0, 0); opacity: 1; } 95% { transform: translate(0, 0); opacity: 1; } 99%, 100% { transform: translate(0, 0); opacity: 0; } }
+@keyframes m2 { 0%, 45% { opacity: 0; } 46%, 95% { opacity: 1; } 99%, 100% { opacity: 0; } }
+@keyframes n2 { 0%, 45% { opacity: 1; } 46%, 95% { opacity: 0; } 99%, 100% { opacity: 1; } }
+.k2 { animation: k2 10s ease-in infinite; } .m2 { animation: m2 10s linear infinite; } .n2 { animation: n2 10s linear infinite; }
+@keyframes k3 { 0% { transform: translate(0, -190px); opacity: 0; } 47% { transform: translate(0, -190px); opacity: 1; } 51% { transform: translate(0, -190px); opacity: 1; } 59% { transform: translate(0, 0); opacity: 1; } 95% { transform: translate(0, 0); opacity: 1; } 99%, 100% { transform: translate(0, 0); opacity: 0; } }
+@keyframes m3 { 0%, 60% { opacity: 0; } 61%, 95% { opacity: 1; } 99%, 100% { opacity: 0; } }
+@keyframes n3 { 0%, 60% { opacity: 1; } 61%, 95% { opacity: 0; } 99%, 100% { opacity: 1; } }
+.k3 { animation: k3 10s ease-in infinite; } .m3 { animation: m3 10s linear infinite; } .n3 { animation: n3 10s linear infinite; }
+@keyframes zaver { 0%, 70% { opacity: 0; } 75%, 95% { opacity: 1; } 99%, 100% { opacity: 0; } }
+.zaver { animation: zaver 10s linear infinite; }
+.n0, .n1, .n2, .n3 { opacity: 0; }
+@media (prefers-reduced-motion: reduce) { .k0, .m0, .n0, .k1, .m1, .n1, .k2, .m2, .n2, .k3, .m3, .n3, .zaver { animation: none; } }
+</style>
+<defs>
+<linearGradient id="p-zl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe066"/><stop offset="1" stop-color="#f5c518"/></linearGradient><linearGradient id="b-zl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9a400"/><stop offset="1" stop-color="#a67c00"/></linearGradient><linearGradient id="v-zl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff3bf"/><stop offset="1" stop-color="#ffe066"/></linearGradient>
+<linearGradient id="p-fe" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#adb5bd"/><stop offset="1" stop-color="#6c757d"/></linearGradient><linearGradient id="b-fe" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#495057"/><stop offset="1" stop-color="#343a40"/></linearGradient><linearGradient id="v-fe" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ced4da"/><stop offset="1" stop-color="#adb5bd"/></linearGradient>
+<linearGradient id="p-al" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f1f3f5"/><stop offset="1" stop-color="#ced4da"/></linearGradient><linearGradient id="b-al" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#adb5bd"/><stop offset="1" stop-color="#868e96"/></linearGradient><linearGradient id="v-al" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e9ecef"/></linearGradient>
+<linearGradient id="p-cu" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f8b98a"/><stop offset="1" stop-color="#e8834a"/></linearGradient><linearGradient id="b-cu" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c46a2e"/><stop offset="1" stop-color="#9a4a1a"/></linearGradient><linearGradient id="v-cu" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffd8b8"/><stop offset="1" stop-color="#f8b98a"/></linearGradient>
+</defs>
+<rect x="3" y="3" width="954" height="614" rx="14" fill="#f8f9fa"/>
+<rect x="230" y="20" width="500" height="58" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="480" y="59" font-size="28" fill="#212529" text-anchor="middle">Kolik váží krychle o objemu 1 m³?</text>
+<ellipse cx="120" cy="514" rx="108" ry="8" fill="#000" opacity="0.08"/>
+<path d="M24 442L216 442L226 504Q226 510 220 510L20 510Q14 510 14 504Z" fill="#e9ecef" stroke="#495057" stroke-width="2.5"/><rect x="16" y="430" width="208" height="12" rx="4" fill="#ced4da" stroke="#495057" stroke-width="2.5"/><rect x="48" y="454" width="144" height="44" rx="6" fill="#212529"/><text class="n0" x="182" y="485" font-size="24" font-weight="bold" fill="#8ce99a" text-anchor="end">0 kg</text><text class="m0" x="182" y="485" font-size="24" font-weight="bold" fill="#8ce99a" text-anchor="end">19 300 kg</text>
+<g class="k0"><path d="M40 302L72 278L200 278L168 302Z" fill="url(#v-zl)" stroke="#8a6500" stroke-width="2.5" stroke-linejoin="round"/><path d="M168 302L200 278L200 406L168 430Z" fill="url(#b-zl)" stroke="#8a6500" stroke-width="2.5" stroke-linejoin="round"/><rect x="40" y="302" width="128" height="128" fill="url(#p-zl)" stroke="#8a6500" stroke-width="2.5"/><path d="M48 310L97.6 310" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity="0.6"/><rect x="60.5" y="349" width="87" height="34" rx="3" fill="#fff" stroke="#212529" stroke-width="2"/><text x="104" y="374" font-size="22" fill="#212529" text-anchor="middle">Zlato</text>
+</g>
+<text x="120" y="546" font-size="21" fill="#1864ab" text-anchor="middle" font-weight="bold">objem 1 m³</text>
+<ellipse cx="360" cy="514" rx="108" ry="8" fill="#000" opacity="0.08"/>
+<path d="M264 442L456 442L466 504Q466 510 460 510L260 510Q254 510 254 504Z" fill="#e9ecef" stroke="#495057" stroke-width="2.5"/><rect x="256" y="430" width="208" height="12" rx="4" fill="#ced4da" stroke="#495057" stroke-width="2.5"/><rect x="288" y="454" width="144" height="44" rx="6" fill="#212529"/><text class="n1" x="422" y="485" font-size="24" font-weight="bold" fill="#8ce99a" text-anchor="end">0 kg</text><text class="m1" x="422" y="485" font-size="24" font-weight="bold" fill="#8ce99a" text-anchor="end">7 800 kg</text>
+<g class="k1"><path d="M280 302L312 278L440 278L408 302Z" fill="url(#v-fe)" stroke="#212529" stroke-width="2.5" stroke-linejoin="round"/><path d="M408 302L440 278L440 406L408 430Z" fill="url(#b-fe)" stroke="#212529" stroke-width="2.5" stroke-linejoin="round"/><rect x="280" y="302" width="128" height="128" fill="url(#p-fe)" stroke="#212529" stroke-width="2.5"/><path d="M288 310L337.6 310" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity="0.6"/><rect x="294" y="349" width="100" height="34" rx="3" fill="#fff" stroke="#212529" stroke-width="2"/><text x="344" y="374" font-size="22" fill="#212529" text-anchor="middle">Železo</text>
+</g>
+<text x="360" y="546" font-size="21" fill="#1864ab" text-anchor="middle" font-weight="bold">objem 1 m³</text>
+<ellipse cx="600" cy="514" rx="108" ry="8" fill="#000" opacity="0.08"/>
+<path d="M504 442L696 442L706 504Q706 510 700 510L500 510Q494 510 494 504Z" fill="#e9ecef" stroke="#495057" stroke-width="2.5"/><rect x="496" y="430" width="208" height="12" rx="4" fill="#ced4da" stroke="#495057" stroke-width="2.5"/><rect x="528" y="454" width="144" height="44" rx="6" fill="#212529"/><text class="n2" x="662" y="485" font-size="24" font-weight="bold" fill="#8ce99a" text-anchor="end">0 kg</text><text class="m2" x="662" y="485" font-size="24" font-weight="bold" fill="#8ce99a" text-anchor="end">2 700 kg</text>
+<g class="k2"><path d="M520 302L552 278L680 278L648 302Z" fill="url(#v-al)" stroke="#495057" stroke-width="2.5" stroke-linejoin="round"/><path d="M648 302L680 278L680 406L648 430Z" fill="url(#b-al)" stroke="#495057" stroke-width="2.5" stroke-linejoin="round"/><rect x="520" y="302" width="128" height="128" fill="url(#p-al)" stroke="#495057" stroke-width="2.5"/><path d="M528 310L577.6 310" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity="0.6"/><rect x="534" y="349" width="100" height="34" rx="3" fill="#fff" stroke="#212529" stroke-width="2"/><text x="584" y="374" font-size="22" fill="#212529" text-anchor="middle">Hliník</text>
+</g>
+<text x="600" y="546" font-size="21" fill="#1864ab" text-anchor="middle" font-weight="bold">objem 1 m³</text>
+<ellipse cx="840" cy="514" rx="108" ry="8" fill="#000" opacity="0.08"/>
+<path d="M744 442L936 442L946 504Q946 510 940 510L740 510Q734 510 734 504Z" fill="#e9ecef" stroke="#495057" stroke-width="2.5"/><rect x="736" y="430" width="208" height="12" rx="4" fill="#ced4da" stroke="#495057" stroke-width="2.5"/><rect x="768" y="454" width="144" height="44" rx="6" fill="#212529"/><text class="n3" x="902" y="485" font-size="24" font-weight="bold" fill="#8ce99a" text-anchor="end">0 kg</text><text class="m3" x="902" y="485" font-size="24" font-weight="bold" fill="#8ce99a" text-anchor="end">8 900 kg</text>
+<g class="k3"><path d="M760 302L792 278L920 278L888 302Z" fill="url(#v-cu)" stroke="#7a3a10" stroke-width="2.5" stroke-linejoin="round"/><path d="M888 302L920 278L920 406L888 430Z" fill="url(#b-cu)" stroke="#7a3a10" stroke-width="2.5" stroke-linejoin="round"/><rect x="760" y="302" width="128" height="128" fill="url(#p-cu)" stroke="#7a3a10" stroke-width="2.5"/><path d="M768 310L817.6 310" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity="0.6"/><rect x="793.5" y="349" width="61" height="34" rx="3" fill="#fff" stroke="#212529" stroke-width="2"/><text x="824" y="374" font-size="22" fill="#212529" text-anchor="middle">Měď</text>
+</g>
+<text x="840" y="546" font-size="21" fill="#1864ab" text-anchor="middle" font-weight="bold">objem 1 m³</text>
+<g class="zaver"><g><rect x="52" y="102" width="136" height="40" rx="12" fill="#fff" stroke="#c92a2a" stroke-width="2.5"/>
+<text x="120" y="129.56" font-size="21" font-weight="bold" fill="#c92a2a" text-anchor="middle">nejtěžší</text>
+</g>
+<path d="M120 142L120 236" stroke="#c92a2a" stroke-width="2.5"/><circle cx="120" cy="236" r="5" fill="#c92a2a"/>
+</g>
+<text x="480" y="600" font-size="24" fill="#212529" text-anchor="middle" font-weight="bold">Stejný objem: nejtěžší je těleso s největší hustotou.</text>
+
+</svg>

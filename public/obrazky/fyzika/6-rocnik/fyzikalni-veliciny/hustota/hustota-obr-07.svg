@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 720" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: nad horami a zelenými kopci stoupá pruhovaný horkovzdušný balon s košem; hořák pod ním hřeje vzduch. Uvnitř balonu je teplý vzduch s menší hustotou, kolem studený vzduch s větší hustotou. Teplý vzduch stoupá a nese balon i ptáky vzhůru.">
+<style>
+/* Předloha: PDF Hustota — fotka horkovzdušných balonů nad horami (k textu „teplý vzduch má menší hustotu než studený ⇨ stoupá
+   jako vzdušný proud vzhůru a nese ptáky a horkovzdušné balony do výšek“). Fotka nahrazena kresbou: hory, kopce, pruhovaný balon s košem a hořákem, ptáci.
+   Cyklus 10 s: hořák plápolá, balon stoupá zdola (posun 260 px) do výšky a na konci cyklu zmizí. Bez animace = koncový stav (balon nahoře). */
+@keyframes balon { 0% { transform: translate(0, 260px); opacity: 0; } 6% { transform: translate(0, 252px); opacity: 1; } 85% { transform: translate(0, 0); opacity: 1; } 94% { transform: translate(0, -6px); opacity: 1; } 100% { transform: translate(0, -10px); opacity: 0; } }
+@keyframes plamen { 0%, 100% { transform: scale(1, 1); } 50% { transform: scale(1.15, 1.3); } }
+.balon { animation: balon 10s linear infinite; }
+.plamen { animation: plamen 0.6s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 100%; }
+@media (prefers-reduced-motion: reduce) { .balon, .plamen { animation: none; } }
+</style>
+<defs>
+<linearGradient id="nebe" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a5d8ff"/><stop offset="0.7" stop-color="#e7f5ff"/></linearGradient>
+</defs>
+<rect x="3" y="3" width="794" height="714" rx="14" fill="#f8f9fa"/>
+<rect x="3" y="3" width="794" height="714" rx="14" fill="url(#nebe)"/><path d="M3 520L110 410L190 470L300 360L400 450L500 380L620 470L720 400L797 450V717H3Z" fill="#b8c7d6"/><path d="M300 360L327 387L314 382L302 392L290 384L278 392L273 387Z M500 380L527 400L514 396L503 405L492 397L480 403L471 400Z" fill="#fff" opacity="0.9"/><path d="M3 600Q150 530 300 580T600 560T797 580V717H3Z" fill="#8ce99a"/><path d="M3 650Q200 600 420 640T797 630V717H3Z" fill="#51cf66"/><path d="M120 640l14 -40l14 40zM160 650l12 -34l12 34zM640 630l14 -40l14 40z" fill="#2b8a3e"/><path d="M600 210q12 -12 24 0q12 -12 24 0M660 260q9 -9 18 0q9 -9 18 0" fill="none" stroke="#212529" stroke-width="3" stroke-linecap="round"/>
+<g><rect x="546" y="96" width="230" height="70" rx="12" fill="#fff" stroke="#1864ab" stroke-width="2.5"/>
+<text x="661" y="125.7" font-size="20" font-weight="bold" fill="#1864ab" text-anchor="middle">studený vzduch:</text>
+<text x="661" y="150.7" font-size="20" font-weight="bold" fill="#1864ab" text-anchor="middle">větší hustota</text>
+</g>
+<path d="M660 300L660 344" stroke="#1971c2" stroke-width="4" stroke-linecap="round"/><path d="M660 360L652 344L668 344Z" fill="#1971c2"/>
+<path d="M720 320L720 364" stroke="#1971c2" stroke-width="4" stroke-linecap="round"/><path d="M720 380L712 364L728 364Z" fill="#1971c2"/>
+<g class="balon"><path d="M170 300C165 190 230 130 290 130C350 130 415 190 410 300C405 370 340 410 324 450H256C240 410 175 370 170 300Z" fill="#e03131" stroke="#7a1515" stroke-width="3"/><path d="M290 130C250 160 220 260 230 340C240 390 264 420 272 450H308C316 420 340 390 350 340C360 260 330 160 290 130Z" fill="#ffd43b" stroke="#7a1515" stroke-width="2"/><path d="M290 130C276 180 268 270 272 350C276 400 282 430 284 450H296C298 430 304 400 308 350C312 270 304 180 290 130Z" fill="#1971c2" stroke="#7a1515" stroke-width="2"/><path d="M178 250Q290 270 402 250M182 340Q290 360 398 340" fill="none" stroke="#7a1515" stroke-width="2" opacity="0.6"/><ellipse cx="230" cy="210" rx="22" ry="40" fill="#fff" opacity="0.25" transform="rotate(20 230 210)"/><path d="M258 450L264 496M322 450L316 496M278 450L280 496M302 450L300 496" stroke="#5c3d00" stroke-width="2.5"/><path d="M260 496H320L316 536H264Z" fill="#c08a4a" stroke="#5c3d00" stroke-width="3"/><path d="M262 510H318M263 524H317M276 496V536M290 496V536M304 496V536" stroke="#7f4d1c" stroke-width="1.8"/><rect x="280" y="476" width="20" height="14" fill="#495057"/><g class="plamen"><path d="M290 422Q276 450 282 472Q290 480 298 472Q304 450 290 422Z" fill="#ff922b"/><path d="M290 442Q284 460 287 472H293Q296 460 290 442Z" fill="#ffe066"/></g><g><rect x="190" y="204" width="200" height="70" rx="12" fill="#fff" stroke="#c92a2a" stroke-width="2.5"/>
+<text x="290" y="233.7" font-size="20" font-weight="bold" fill="#c92a2a" text-anchor="middle">teplý vzduch:</text>
+<text x="290" y="258.7" font-size="20" font-weight="bold" fill="#c92a2a" text-anchor="middle">menší hustota</text>
+</g>
+</g>
+<path d="M470 330L470 212" stroke="#a51d1d" stroke-width="6" stroke-linecap="round"/><path d="M470 190L481 212L459 212Z" fill="#a51d1d"/>
+<text x="486" y="262" font-size="24" fill="#a51d1d" font-weight="bold">stoupá</text>
+<rect x="180" y="18" width="440" height="58" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="400" y="57" font-size="28" fill="#212529" text-anchor="middle">Teplý vzduch nese balon vzhůru</text>
+<rect x="40" y="652" width="720" height="48" rx="10" fill="#fff" stroke="#212529" stroke-width="2"/><text x="400" y="684" font-size="22" fill="#212529" text-anchor="middle" font-weight="bold">Teplý vzduch má menší hustotu než studený ⇨ stoupá.</text>
+
+</svg>

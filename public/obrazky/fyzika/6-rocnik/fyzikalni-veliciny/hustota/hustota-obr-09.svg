@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: ryba ve vodě s vyznačeným vzduchovým měchýřem. Když se měchýř zvětší, ryba má stejnou hmotnost, ale větší objem, menší hustotu a stoupá. Když se měchýř zmenší, má menší objem, větší hustotu a klesá.">
+<style>
+/* Předloha: PDF Hustota — text „Ryby pracují na podobném principu jako ponorky, jen svou hustotou mění stlačením nebo zvětšením
+   vzduchového měchýře (nemění tedy svou hmotnost, ale objem)“. K tomuto textu PDF obrázek nemá (u textu je fotka ponorky) — obrázek navíc.
+   Cyklus 10 s: ryba dole s malým měchýřem; 4–14 % měchýř se zvětší, 10–42 % ryba stoupá (o 220 px); 52–62 % měchýř se zmenší,
+   58–90 % ryba klesá zpět. Bez animace = koncový stav (ryba uprostřed, běžný měchýř, obě vysvětlení). */
+@keyframes ryba { 0%, 10% { transform: translate(0, 110px); } 42%, 58% { transform: translate(-20px, -110px); } 90%, 100% { transform: translate(0, 110px); } }
+@keyframes mechyr { 0%, 4% { transform: scale(0.7, 0.6); } 14%, 52% { transform: scale(1.2, 1.35); } 62%, 100% { transform: scale(0.7, 0.6); } }
+@keyframes zn1 { 0%, 3% { opacity: 0; } 4%, 48% { opacity: 1; } 50%, 100% { opacity: 0; } }
+@keyframes zn2 { 0%, 51% { opacity: 0; } 52%, 97% { opacity: 1; } 99%, 100% { opacity: 0; } }
+.ryba { animation: ryba 10s ease-in-out infinite; }
+.mechyr { animation: mechyr 10s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 50%; }
+.zn1 { animation: zn1 10s linear infinite; } .zn2 { animation: zn2 10s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .ryba, .mechyr, .zn1, .zn2 { animation: none; } }
+</style>
+<defs>
+<linearGradient id="voda9" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d0ebff"/><stop offset="1" stop-color="#74c0fc"/></linearGradient><linearGradient id="ryba" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f08c00"/><stop offset="0.5" stop-color="#ffc078"/><stop offset="1" stop-color="#fff4e6"/></linearGradient>
+</defs>
+<rect x="3" y="3" width="894" height="634" rx="14" fill="#f8f9fa"/>
+<rect x="3" y="84" width="894" height="553" rx="0" fill="url(#voda9)"/><path d="M3 600Q200 585 450 598T897 594V637H3Z" fill="#e3c99a"/>
+<g transform="translate(240 360)"><g class="ryba"><path d="M118 -6L176 -52L166 0L176 52L118 6Z" fill="#f08c00" stroke="#a35200" stroke-width="2.5" stroke-linejoin="round"/><path d="M-30 -44Q10 -96 70 -50Z" fill="#f08c00" stroke="#a35200" stroke-width="2.5"/><path d="M-150 0C-110 -66 60 -74 124 -6L124 6C60 74 -110 66 -150 0Z" fill="url(#ryba)" stroke="#a35200" stroke-width="3"/><path d="M-96 -36Q-80 0 -96 36" fill="none" stroke="#a35200" stroke-width="2.5"/><circle cx="-118" cy="-12" r="10" fill="#fff" stroke="#212529" stroke-width="2"/><circle cx="-120" cy="-12" r="5" fill="#212529"/><path d="M-148 4q8 6 16 2" fill="none" stroke="#a35200" stroke-width="2.5" stroke-linecap="round"/><path d="M-40 30Q-30 62 0 50Z" fill="#f08c00" stroke="#a35200" stroke-width="2"/><g class="mechyr"><ellipse cx="12" cy="-6" rx="54" ry="20" fill="#e7f5ff" stroke="#1864ab" stroke-width="3"/><ellipse cx="0" cy="-12" rx="16" ry="5" fill="#fff"/></g><rect x="-52" y="-122" width="128" height="36" rx="8" fill="#fff" stroke="#1864ab" stroke-width="2"/><text x="12" y="-97" font-size="21" font-weight="bold" fill="#1864ab" text-anchor="middle">měchýř</text><path d="M12 -86V-30" stroke="#1864ab" stroke-width="2.5"/></g></g>
+<rect x="520" y="140" width="356" height="300" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/><g class="zn1"><path d="M532 178l16 10l-16 10z" fill="#237032"/></g><text x="556" y="196" font-size="22" fill="#237032" font-weight="bold">měchýř se zvětší</text>
+<text x="556" y="228" font-size="20" fill="#212529" >stejná hmotnost, větší objem</text>
+<text x="556" y="256" font-size="20" fill="#212529" >⇨ menší hustota</text>
+<text x="556" y="284" font-size="22" fill="#237032" font-weight="bold">⇨ ryba stoupá</text>
+<g class="zn2"><path d="M532 318l16 10l-16 10z" fill="#c92a2a"/></g><text x="556" y="336" font-size="22" fill="#c92a2a" font-weight="bold">měchýř se zmenší</text>
+<text x="556" y="368" font-size="20" fill="#212529" >stejná hmotnost, menší objem</text>
+<text x="556" y="396" font-size="20" fill="#212529" >⇨ větší hustota</text>
+<text x="556" y="424" font-size="22" fill="#c92a2a" font-weight="bold">⇨ ryba klesá</text>
+<rect x="270" y="18" width="360" height="58" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="450" y="57" font-size="28" fill="#212529" text-anchor="middle">Jak ryba stoupá a klesá</text>
+
+</svg>

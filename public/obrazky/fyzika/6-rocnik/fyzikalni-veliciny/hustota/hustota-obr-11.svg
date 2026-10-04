@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: z nakloněné zkumavky kape stříbrně lesklá rtuť do skleněné misky na stole, kde tvoří kaluž a kuličky. Štítek: rtuť 13 500 kg/m³. Rtuť je kapalina s největší hustotou, voda má jen 1 000 kg/m³.">
+<style>
+/* Předloha: PDF Hustota — fotka: z nakloněné nádobky se lije stříbrná rtuť do skleněné Petriho misky, kde tvoří lesklé kuličky.
+   Fotka nahrazena kresbou. Čísla: rtuť 13 500 kg/m³, voda 1 000 kg/m³ (výklad). Cyklus 1,5 s: kapky rtuti padají do misky.
+   Bez animace = kapky stojí u ústí proudu. */
+@keyframes kapka { 0% { transform: translate(0, 0); opacity: 1; } 90% { transform: translate(0, 96px); opacity: 1; } 100% { transform: translate(0, 100px); opacity: 0; } }
+.k1 { animation: kapka 1.5s ease-in infinite; } .k2 { animation: kapka 1.5s ease-in 0.5s infinite; } .k3 { animation: kapka 1.5s ease-in 1s infinite; }
+@media (prefers-reduced-motion: reduce) { .k1, .k2, .k3 { animation: none; } }
+</style>
+<defs>
+<linearGradient id="rtut" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8f9fa"/><stop offset="0.45" stop-color="#adb5bd"/><stop offset="1" stop-color="#495057"/></linearGradient><radialGradient id="kulicka" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#ffffff"/><stop offset="0.4" stop-color="#ced4da"/><stop offset="1" stop-color="#495057"/></radialGradient>
+</defs>
+<rect x="3" y="3" width="794" height="594" rx="14" fill="#f8f9fa"/>
+<rect x="3" y="430" width="794" height="167" fill="#d9b48a"/><path d="M3 430H797" stroke="#a0703e" stroke-width="3"/><ellipse cx="380" cy="440" rx="250" ry="62" fill="#000" opacity="0.12"/><path d="M130 390V420Q130 470 380 476Q630 470 630 420V390" fill="#e7f5ff" fill-opacity="0.6" stroke="#868e96" stroke-width="3"/><ellipse cx="380" cy="390" rx="250" ry="56" fill="#f1f3f5" fill-opacity="0.5" stroke="#868e96" stroke-width="3"/><path d="M260 420Q250 400 290 398Q330 384 380 396Q450 388 480 406Q512 424 470 434Q420 446 360 440Q280 444 260 420Z" fill="url(#rtut)" stroke="#495057" stroke-width="2"/><ellipse cx="350" cy="404" rx="40" ry="6" fill="#fff" opacity="0.8"/><circle cx="200" cy="420" r="14" fill="url(#kulicka)" stroke="#495057" stroke-width="1.5"/><circle cx="540" cy="412" r="12" fill="url(#kulicka)" stroke="#495057" stroke-width="1.5"/><circle cx="232" cy="440" r="8" fill="url(#kulicka)" stroke="#495057" stroke-width="1.5"/><circle cx="510" cy="440" r="9" fill="url(#kulicka)" stroke="#495057" stroke-width="1.5"/><circle cx="570" cy="430" r="6" fill="url(#kulicka)" stroke="#495057" stroke-width="1.5"/><circle cx="180" cy="404" r="6" fill="url(#kulicka)" stroke="#495057" stroke-width="1.5"/><g transform="translate(404 292) rotate(-140)"><path d="M-20 2V60H20V2Z" fill="url(#rtut)"/><path d="M-22 0V172Q-22 192 0 192Q22 192 22 172V0" fill="#f1f3f5" fill-opacity="0.45" stroke="#495057" stroke-width="3"/><path d="M-26 0H26" stroke="#495057" stroke-width="4" stroke-linecap="round"/><path d="M-12 80V160" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity="0.8"/></g><path d="M419 308Q414 350 402 396" stroke="#868e96" stroke-width="6" fill="none" stroke-linecap="round"/><circle class="k1" cx="416" cy="314" r="6" fill="url(#kulicka)" stroke="#495057" stroke-width="1"/><circle class="k2" cx="416" cy="314" r="6" fill="url(#kulicka)" stroke="#495057" stroke-width="1"/><circle class="k3" cx="416" cy="314" r="6" fill="url(#kulicka)" stroke="#495057" stroke-width="1"/><g><rect x="40" y="110" width="330" height="92" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
+<text x="205" y="148.05" font-size="30" font-weight="bold" fill="#212529" text-anchor="middle">rtuť</text>
+<text x="205" y="185.55" font-size="30" font-weight="bold" fill="#212529" text-anchor="middle">13 500 kg/m³</text>
+</g>
+<text x="400" y="520" font-size="26" fill="#212529" text-anchor="middle" font-weight="bold">Rtuť je kapalina s největší hustotou.</text>
+<text x="400" y="560" font-size="24" fill="#1864ab" text-anchor="middle" font-weight="bold">Voda má jen 1 000 kg/m³.</text>
+<rect x="320" y="18" width="160" height="58" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="400" y="57" font-size="28" fill="#212529" text-anchor="middle">Rtuť</text>
+
+</svg>
