@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 830" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Řetěz přeměn energie v jaderné elektrárně ve šesti krocích shora dolů: štěpení jader uranu uvolní energii ukrytou v jádře; úlomky jader zahřejí palivo i vodu; z horké vody vznikne pára; pára roztočí lopatky turbíny; roztočený rotor generátoru vyrábí elektřinu; elektřinu používáme doma. Animace: žluté zvýraznění postupně sjíždí po krocích.">
+<style>
+.r0 { animation: r0 9s linear infinite; }
+@keyframes r0 { 0%, 16.6% { opacity: 1; } 16.7%, 100% { opacity: 0; } }
+.r1 { animation: r1 9s linear infinite; }
+@keyframes r1 { 0%, 16.6% { opacity: 0; } 16.8% { opacity: 1; } 33.3% { opacity: 1; } 33.4%, 100% { opacity: 0; } }
+.r2 { animation: r2 9s linear infinite; }
+@keyframes r2 { 0%, 33.2% { opacity: 0; } 33.4% { opacity: 1; } 50% { opacity: 1; } 50.1%, 100% { opacity: 0; } }
+.r3 { animation: r3 9s linear infinite; }
+@keyframes r3 { 0%, 49.9% { opacity: 0; } 50.1% { opacity: 1; } 66.7% { opacity: 1; } 66.8%, 100% { opacity: 0; } }
+.r4 { animation: r4 9s linear infinite; }
+@keyframes r4 { 0%, 66.6% { opacity: 0; } 66.8% { opacity: 1; } 83.3% { opacity: 1; } 83.4%, 100% { opacity: 0; } }
+.r5 { animation: r5 9s linear infinite; }
+@keyframes r5 { 0%, 83.2% { opacity: 0; } 83.4% { opacity: 1; } 100% { opacity: 1; } 100.1%, 100% { opacity: 0; } }
+.rot { animation: rot 1.4s linear infinite; }
+@keyframes rot { to { transform: rotate(360deg); } }
+.ua { animation: ua 2s ease-in-out infinite; } .ub { animation: ub 2s ease-in-out infinite; }
+@keyframes ua { 0%, 20% { transform: translate(0, 0); } 70%, 100% { transform: translate(-12px, -8px); } }
+@keyframes ub { 0%, 20% { transform: translate(0, 0); } 70%, 100% { transform: translate(12px, 8px); } }
+.vl { animation: vl 1.6s ease-in-out infinite; }
+@keyframes vl { 0%, 100% { transform: translateY(0); opacity: 0.4; } 50% { transform: translateY(-6px); opacity: 1; } }
+.pr { animation: pr 2.4s ease-out infinite; }
+@keyframes pr { 0% { transform: translateY(8px); opacity: 0; } 30% { opacity: 1; } 100% { transform: translateY(-22px); opacity: 0; } }
+.zar { animation: zar 1.2s ease-in-out infinite; }
+@keyframes zar { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .r0, .r1, .r2, .r3, .r4, .r5, .rot, .ua, .ub, .vl, .pr, .zar { animation: none; } .r1, .r2, .r3, .r4, .r5 { opacity: 0; } .r0 { opacity: 1; } }
+/* Předloha: PDF 20, s. 7 (text): energie z řízeného štěpení → úlomky se rozlétají, materiál se zahřívá → horká pára →
+   lopatky turbíny → rotor generátoru → elektrická energie v domácnostech. PDF k tomu obrázek nemá – vlastní obrázek navíc.
+   Animace 9 s: žluté zvýraznění postupně sjede po krocích, ikony se hýbou. Bez animace = zvýrazněný první krok. */
+</style>
+<rect x="3" y="3" width="594" height="824" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
+<defs><marker id="sS" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#1864ab"/></marker><marker id="sH" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#c92a2a"/></marker><marker id="sT" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#212529"/></marker></defs>
+<text x="300" y="42" font-size="28" font-weight="bold" fill="#212529" text-anchor="middle">Od jádra atomu k elektřině</text>
+<text x="300" y="72" font-size="20" fill="#495057" text-anchor="middle">jak se mění energie v jaderné elektrárně</text>
+<rect class="r0" x="24" y="96" width="552" height="92" rx="14" fill="#fff3bf" stroke="#e67700" stroke-width="2.5" opacity="1"/>
+<rect x="24" y="96" width="552" height="92" rx="14" fill="none" stroke="#ced4da" stroke-width="2"/>
+<text x="200" y="136" font-size="24" font-weight="bold" fill="#212529" text-anchor="start">štěpení jader uranu</text>
+<text x="200" y="168" font-size="19" fill="#212529" text-anchor="start">energie ukrytá v jádře</text>
+<path d="M112 190L112 218" stroke="#212529" stroke-width="3.5" marker-end="url(#sT)"/>
+<rect class="r1" x="24" y="216" width="552" height="92" rx="14" fill="#fff3bf" stroke="#e67700" stroke-width="2.5" opacity="0"/>
+<rect x="24" y="216" width="552" height="92" rx="14" fill="none" stroke="#ced4da" stroke-width="2"/>
+<text x="200" y="256" font-size="24" font-weight="bold" fill="#212529" text-anchor="start">teplo</text>
+<text x="200" y="288" font-size="19" fill="#212529" text-anchor="start">úlomky jader zahřejí palivo i vodu</text>
+<path d="M112 310L112 338" stroke="#212529" stroke-width="3.5" marker-end="url(#sT)"/>
+<rect class="r2" x="24" y="336" width="552" height="92" rx="14" fill="#fff3bf" stroke="#e67700" stroke-width="2.5" opacity="0"/>
+<rect x="24" y="336" width="552" height="92" rx="14" fill="none" stroke="#ced4da" stroke-width="2"/>
+<text x="200" y="376" font-size="24" font-weight="bold" fill="#212529" text-anchor="start">pára</text>
+<text x="200" y="408" font-size="19" fill="#212529" text-anchor="start">horká voda vyrobí páru</text>
+<path d="M112 430L112 458" stroke="#212529" stroke-width="3.5" marker-end="url(#sT)"/>
+<rect class="r3" x="24" y="456" width="552" height="92" rx="14" fill="#fff3bf" stroke="#e67700" stroke-width="2.5" opacity="0"/>
+<rect x="24" y="456" width="552" height="92" rx="14" fill="none" stroke="#ced4da" stroke-width="2"/>
+<text x="200" y="496" font-size="24" font-weight="bold" fill="#212529" text-anchor="start">turbína</text>
+<text x="200" y="528" font-size="19" fill="#212529" text-anchor="start">pára roztočí lopatky turbíny</text>
+<path d="M112 550L112 578" stroke="#212529" stroke-width="3.5" marker-end="url(#sT)"/>
+<rect class="r4" x="24" y="576" width="552" height="92" rx="14" fill="#fff3bf" stroke="#e67700" stroke-width="2.5" opacity="0"/>
+<rect x="24" y="576" width="552" height="92" rx="14" fill="none" stroke="#ced4da" stroke-width="2"/>
+<text x="200" y="616" font-size="24" font-weight="bold" fill="#212529" text-anchor="start">generátor</text>
+<text x="200" y="648" font-size="19" fill="#212529" text-anchor="start">roztočený rotor vyrábí elektřinu</text>
+<path d="M112 670L112 698" stroke="#212529" stroke-width="3.5" marker-end="url(#sT)"/>
+<rect class="r5" x="24" y="696" width="552" height="92" rx="14" fill="#fff3bf" stroke="#e67700" stroke-width="2.5" opacity="0"/>
+<rect x="24" y="696" width="552" height="92" rx="14" fill="none" stroke="#ced4da" stroke-width="2"/>
+<text x="200" y="736" font-size="24" font-weight="bold" fill="#212529" text-anchor="start">domácnost</text>
+<text x="200" y="768" font-size="19" fill="#212529" text-anchor="start">elektřinu používáme každý den</text>
+<g class="ua"><circle cx="118.7" cy="150.8" r="6.5" fill="#adb5bd" stroke="#212529" stroke-width="1.5"/><g><circle cx="91.4" cy="127.4" r="6.5" fill="#c92a2a" stroke="#212529" stroke-width="1.2"/><path d="M87.8 127.4H95M91.4 123.8V131" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></g><circle cx="95.5" cy="160.8" r="6.5" fill="#adb5bd" stroke="#212529" stroke-width="1.5"/><g><circle cx="113.5" cy="135.4" r="6.5" fill="#c92a2a" stroke="#212529" stroke-width="1.2"/><path d="M109.9 135.4H117.1M113.5 131.8V139" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></g><circle cx="85.7" cy="141.5" r="6.5" fill="#adb5bd" stroke="#212529" stroke-width="1.5"/><g><circle cx="107.8" cy="154.1" r="6.5" fill="#c92a2a" stroke="#212529" stroke-width="1.2"/><path d="M104.2 154.1H111.3M107.8 150.6V157.7" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></g><circle cx="100.9" cy="133.3" r="6.5" fill="#adb5bd" stroke="#212529" stroke-width="1.5"/><g><circle cx="93.8" cy="149.6" r="6.5" fill="#c92a2a" stroke="#212529" stroke-width="1.2"/><path d="M90.3 149.6H97.4M93.8 146.1V153.2" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></g><circle cx="104.8" cy="144" r="6.5" fill="#adb5bd" stroke="#212529" stroke-width="1.5"/></g><g class="ub"><g><circle cx="144.7" cy="150.8" r="6.5" fill="#c92a2a" stroke="#212529" stroke-width="1.2"/><path d="M141.1 150.8H148.3M144.7 147.3V154.4" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></g><circle cx="117.4" cy="127.4" r="6.5" fill="#adb5bd" stroke="#212529" stroke-width="1.5"/><g><circle cx="121.5" cy="160.8" r="6.5" fill="#c92a2a" stroke="#212529" stroke-width="1.2"/><path d="M117.9 160.8H125.1M121.5 157.2V164.4" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></g><circle cx="139.5" cy="135.4" r="6.5" fill="#adb5bd" stroke="#212529" stroke-width="1.5"/><g><circle cx="111.7" cy="141.5" r="6.5" fill="#c92a2a" stroke="#212529" stroke-width="1.2"/><path d="M108.2 141.5H115.3M111.7 137.9V145.1" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></g><circle cx="133.8" cy="154.1" r="6.5" fill="#adb5bd" stroke="#212529" stroke-width="1.5"/><g><circle cx="126.9" cy="133.3" r="6.5" fill="#c92a2a" stroke="#212529" stroke-width="1.2"/><path d="M123.4 133.3H130.5M126.9 129.7V136.8" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></g><circle cx="119.8" cy="149.6" r="6.5" fill="#adb5bd" stroke="#212529" stroke-width="1.5"/><g><circle cx="130.8" cy="144" r="6.5" fill="#c92a2a" stroke="#212529" stroke-width="1.2"/><path d="M127.3 144H134.4M130.8 140.4V147.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></g></g><circle cx="56" cy="144" r="7" fill="#adb5bd" stroke="#212529" stroke-width="1.5"/>
+<rect x="64" y="228" width="16" height="54" rx="8" fill="#fff" stroke="#212529" stroke-width="2.5"/><circle cx="72" cy="288" r="12" fill="#c92a2a" stroke="#212529" stroke-width="2.5"/><rect x="68" y="242" width="8" height="44" fill="#c92a2a"/>
+<g class="vl"><path d="M108 280q-8 -10 0 -20t0 -20" stroke="#e8590c" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M128 280q-8 -10 0 -20t0 -20" stroke="#e8590c" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M148 280q-8 -10 0 -20t0 -20" stroke="#e8590c" stroke-width="4" fill="none" stroke-linecap="round"/></g>
+<path d="M66 394H154L148 428Q146 436 138 436H82Q74 436 72 428Z" fill="#868e96" stroke="#212529" stroke-width="2.5"/><rect x="60" y="388" width="100" height="8" rx="3" fill="#495057"/>
+<g class="pr" fill="#e7f5ff" stroke="#4dabf7" stroke-width="2"><circle cx="88" cy="378" r="9"/><circle cx="108" cy="376" r="10"/><circle cx="130" cy="378" r="9"/><circle cx="100" cy="366" r="7"/><circle cx="120" cy="365" r="7"/></g>
+<circle cx="110" cy="502" r="38" fill="#ffc9c9" stroke="#c92a2a" stroke-width="2"/>
+<g class="rot" style="transform-origin: 110px 502px"><path d="M110 502l34 0l0 10Z" fill="#868e96" stroke="#212529" stroke-width="1.5"/><path d="M110 502l29.4 17l-5 8.7Z" fill="#868e96" stroke="#212529" stroke-width="1.5"/><path d="M110 502l17 29.4l-8.7 5Z" fill="#868e96" stroke="#212529" stroke-width="1.5"/><path d="M110 502l0 34l-10 0Z" fill="#868e96" stroke="#212529" stroke-width="1.5"/><path d="M110 502l-17 29.4l-8.7 -5Z" fill="#868e96" stroke="#212529" stroke-width="1.5"/><path d="M110 502l-29.4 17l-5 -8.7Z" fill="#868e96" stroke="#212529" stroke-width="1.5"/><path d="M110 502l-34 0l-0 -10Z" fill="#868e96" stroke="#212529" stroke-width="1.5"/><path d="M110 502l-29.4 -17l5 -8.7Z" fill="#868e96" stroke="#212529" stroke-width="1.5"/><path d="M110 502l-17 -29.4l8.7 -5Z" fill="#868e96" stroke="#212529" stroke-width="1.5"/><path d="M110 502l-0 -34l10 -0Z" fill="#868e96" stroke="#212529" stroke-width="1.5"/><path d="M110 502l17 -29.4l8.7 5Z" fill="#868e96" stroke="#212529" stroke-width="1.5"/><path d="M110 502l29.4 -17l5 8.7Z" fill="#868e96" stroke="#212529" stroke-width="1.5"/><circle cx="110" cy="502" r="8" fill="#495057"/></g>
+<rect x="58" y="596" width="84" height="56" rx="8" fill="#ffd43b" stroke="#e67700" stroke-width="3"/><rect x="46" y="620" width="14" height="8" fill="#868e96"/>
+<path class="zar" d="M164 592l-12 26h11l-8 24 21-32h-11l8-18z" fill="#1c7ed6" stroke="#0b4f8a" stroke-width="1.2"/>
+<path d="M62 738L110 702L158 738" fill="#e9ecef" stroke="#212529" stroke-width="3"/><rect x="70" y="736" width="80" height="46" fill="#e9ecef" stroke="#212529" stroke-width="3"/><rect x="78" y="746" width="22" height="20" fill="#fff" stroke="#212529" stroke-width="2"/><circle class="zar" cx="126" cy="752" r="10" fill="#ffd43b" stroke="#e67700" stroke-width="2"/><rect x="121" y="761" width="10" height="7" fill="#495057"/>
+</svg>
