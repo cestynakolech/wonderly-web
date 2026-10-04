@@ -538,6 +538,13 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 			<a class="kviz-tlacitko laborka-odkaz" href="laborka/">Otevřít pracovní list 🧪</a>
 		</section>
 	)}
+	{klicKvizu === 'fyzika/7-rocnik/pohyb-a-rychlost/klid-a-pohyb-telesa' && (
+		<section class="ramecek laborka-pozvanka" id="hra">
+			<h2><span class="podtrh">🎮 Hra pro třídu</span></h2>
+			<p>Procvičování klidu a pohybu tělesa ve třídě, po týmech (stránka je určená učiteli).</p>
+			<a class="kviz-tlacitko laborka-odkaz" href="/hry/klid-a-pohyb-telesa">Otevřít hru 🎮</a>
+		</section>
+	)}
 	{otazky && <Kviz otazky={otazky} />}
 	{(predchozi || dalsi) && (
 		<nav class="sousedni-podtemata">
