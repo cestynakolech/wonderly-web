@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: modrá pastelka dojede nad pravítko tak, že její začátek je přesně na nule. Nad koncem pastelky je oko, které se dívá kolmo na stupnici. Konec pastelky je u dílku 7 centimetrů a 2 milimetry. Zápis: l = 72 mm.">
+<style>
+/* Podle textu PDF Délka — pravidla měření (nula na začátku tělesa, kolmý pohled, nejbližší dílek, zápis s jednotkou, příklad l = 72 mm).
+   Na straně PDF k tomu obrázek není — obrázek navíc. Pastelka je dlouhá 72 mm (1 mm = 6 jednotek).
+   Cyklus 10 s: 0–25 % pastelka dojede začátkem na nulu, 25–90 %: nula → kolmý pohled → l = 72 mm.
+   Bez animace = koncový stav. */
+@keyframes tuz { 0%, 8% { transform: translate(90px, -70px); } 25%, 100% { transform: translate(0, 0); } }
+@keyframes k1 { 0%, 28% { opacity: 0; } 34%, 94% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes k2 { 0%, 44% { opacity: 0; } 50%, 94% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes k3 { 0%, 62% { opacity: 0; } 68%, 94% { opacity: 1; } 100% { opacity: 0; } }
+.tuz { animation: tuz 10s ease-in-out infinite; }
+.k1 { animation: k1 10s linear infinite; }
+.k2 { animation: k2 10s linear infinite; }
+.k3 { animation: k3 10s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .tuz, .k1, .k2, .k3 { animation: none; } }
+</style>
+<defs>
+<linearGradient id="prav" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e7f5ff"/><stop offset="1" stop-color="#a5d8ff"/></linearGradient>
+<linearGradient id="tuzka" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4dabf7"/><stop offset="0.45" stop-color="#1971c2"/><stop offset="1" stop-color="#0b3d6e"/></linearGradient>
+<linearGradient id="drevoT" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4d7a8"/><stop offset="1" stop-color="#c99a5b"/></linearGradient>
+</defs>
+<rect x="3" y="3" width="794" height="514" rx="14" fill="#f8f9fa"/>
+<rect x="190" y="18" width="420" height="58" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="400" y="57" font-size="28" fill="#212529" text-anchor="middle">Odečítáme délku na pravítku</text>
+<rect x="70" y="300" width="660" height="80" rx="6" fill="url(#prav)" stroke="#1864ab" stroke-width="2.5"/>
+<path d="M100 300V328M106 300V312M112 300V312M118 300V312M124 300V312M130 300V320M136 300V312M142 300V312M148 300V312M154 300V312M160 300V328M166 300V312M172 300V312M178 300V312M184 300V312M190 300V320M196 300V312M202 300V312M208 300V312M214 300V312M220 300V328M226 300V312M232 300V312M238 300V312M244 300V312M250 300V320M256 300V312M262 300V312M268 300V312M274 300V312M280 300V328M286 300V312M292 300V312M298 300V312M304 300V312M310 300V320M316 300V312M322 300V312M328 300V312M334 300V312M340 300V328M346 300V312M352 300V312M358 300V312M364 300V312M370 300V320M376 300V312M382 300V312M388 300V312M394 300V312M400 300V328M406 300V312M412 300V312M418 300V312M424 300V312M430 300V320M436 300V312M442 300V312M448 300V312M454 300V312M460 300V328M466 300V312M472 300V312M478 300V312M484 300V312M490 300V320M496 300V312M502 300V312M508 300V312M514 300V312M520 300V328M526 300V312M532 300V312M538 300V312M544 300V312M550 300V320M556 300V312M562 300V312M568 300V312M574 300V312M580 300V328M586 300V312M592 300V312M598 300V312M604 300V312M610 300V320M616 300V312M622 300V312M628 300V312M634 300V312M640 300V328M646 300V312M652 300V312M658 300V312M664 300V312M670 300V320M676 300V312M682 300V312M688 300V312M694 300V312M700 300V328" stroke="#212529" stroke-width="1.6"/>
+<text x="100" y="354" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">0</text>
+<text x="160" y="354" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">1</text>
+<text x="220" y="354" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">2</text>
+<text x="280" y="354" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">3</text>
+<text x="340" y="354" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">4</text>
+<text x="400" y="354" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">5</text>
+<text x="460" y="354" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">6</text>
+<text x="520" y="354" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">7</text>
+<text x="580" y="354" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">8</text>
+<text x="640" y="354" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">9</text>
+<text x="700" y="354" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">10</text>
+<text x="712" y="372" font-size="18" fill="#212529" text-anchor="end">cm</text>
+<g class="tuz">
+<rect x="100" y="244" width="10" height="36" rx="2" fill="#adb5bd" stroke="#495057" stroke-width="2"/>
+<rect x="110" y="244" width="362" height="36" fill="url(#tuzka)" stroke="#0b3d6e" stroke-width="2"/>
+<path d="M112 256H470" stroke="#fff" stroke-width="2" opacity="0.5"/>
+<path d="M472 244L520 258V266L472 280Z" fill="url(#drevoT)" stroke="#8a5526" stroke-width="2"/>
+<path d="M518 257.5L532 262L518 266.5Z" fill="#1971c2" stroke="#0b3d6e" stroke-width="1.5"/>
+</g>
+<g class="k1"><path d="M100 232V330" stroke="#237032" stroke-width="3" stroke-dasharray="6 4"/>
+<rect x="36" y="96" width="236" height="52" rx="12" fill="#fff" stroke="#237032" stroke-width="2.5"/>
+<text x="154" y="129.92" font-size="22" font-weight="bold" fill="#237032" text-anchor="middle">nula na začátku</text>
+<path d="M130 148L100 230" stroke="#212529" stroke-width="2.5"/><circle cx="100" cy="230" r="5" fill="#212529"/>
+</g>
+<g class="k2"><path d="M532 140V330" stroke="#1864ab" stroke-width="3" stroke-dasharray="6 4"/>
+<path d="M498 116Q532 86 566 116Q532 146 498 116Z" fill="#fff" stroke="#212529" stroke-width="2.5"/><circle cx="532" cy="122" r="11" fill="#1971c2"/><circle cx="532" cy="124" r="5" fill="#212529"/>
+<text x="582" y="124" font-size="22" font-weight="bold" fill="#1864ab">díváme se kolmo</text></g>
+<g class="k3"><path d="M532 300V316" stroke="#c92a2a" stroke-width="4"/>
+<rect x="528" y="298" width="8" height="18" fill="none" stroke="#c92a2a" stroke-width="2"/>
+<rect x="250" y="410" width="300" height="70" rx="12" fill="#fff" stroke="#c92a2a" stroke-width="2.5"/>
+<text x="400" y="457.96" font-size="36" font-weight="bold" fill="#c92a2a" text-anchor="middle">l = 72 mm</text>
+</g>
+
+</svg>

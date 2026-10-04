@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 620" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: posuvné měřítko neboli šuplera. Na ocelovém pravítku je stupnice v centimetrech a milimetrech. Posuvná čelist dojede k měděné trubce a sevře ji mezi čelisti, pak se vyznačí průměr trubky. Měří na desetiny milimetru průměr kulatých těles, šířku a hloubku dutin.">
+<style>
+/* Předloha: PDF Délka — fotografie posuvného měřítka, které sevřelo měděnou trubku. Překresleno, ne kopie.
+   Cyklus 8 s: 0–15 % jezdec je odsunutý, 15–50 % čelist dojede k trubce, 55–94 % se ukáže průměr.
+   Bez animace = koncový stav (trubka sevřená, průměr vyznačen). */
+@keyframes jezdec { 0%, 15% { transform: translate(260px, 0); } 50%, 100% { transform: translate(0, 0); } }
+@keyframes prum { 0%, 52% { opacity: 0; } 60%, 94% { opacity: 1; } 100% { opacity: 0; } }
+.jezdec { animation: jezdec 8s ease-in-out infinite; }
+.prum { animation: prum 8s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .jezdec, .prum { animation: none; } }
+</style>
+<defs>
+<linearGradient id="ocel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1f3f5"/><stop offset="0.5" stop-color="#ced4da"/><stop offset="1" stop-color="#adb5bd"/></linearGradient>
+<linearGradient id="ocelT" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#adb5bd"/><stop offset="0.5" stop-color="#dee2e6"/><stop offset="1" stop-color="#868e96"/></linearGradient>
+<radialGradient id="med" cx="0.4" cy="0.35" r="0.7"><stop offset="0" stop-color="#f4a261"/><stop offset="0.6" stop-color="#c8692a"/><stop offset="1" stop-color="#8a3c0f"/></radialGradient>
+<linearGradient id="medB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8955a"/><stop offset="1" stop-color="#9c4a17"/></linearGradient>
+</defs>
+<rect x="3" y="3" width="794" height="614" rx="14" fill="#f8f9fa"/>
+<rect x="190" y="18" width="420" height="58" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="400" y="57" font-size="28" fill="#212529" text-anchor="middle">Posuvné měřítko („šuplera“)</text>
+<path d="M171 291L321 141L419 239L269 389Z" fill="url(#medB)" stroke="#6b2d08" stroke-width="2"/>
+<circle cx="220" cy="340" r="70" fill="url(#med)" stroke="#6b2d08" stroke-width="2.5"/>
+<circle cx="220" cy="340" r="58" fill="#5c2306" stroke="#6b2d08" stroke-width="2"/>
+<circle cx="228" cy="348" r="48" fill="#3b1604"/>
+<rect x="96" y="130" width="660" height="66" fill="url(#ocel)" stroke="#343a40" stroke-width="2.5"/>
+<path d="M150 196V176M155 196V187M160 196V187M165 196V187M170 196V187M175 196V182M180 196V187M185 196V187M190 196V187M195 196V187M200 196V176M205 196V187M210 196V187M215 196V187M220 196V187M225 196V182M230 196V187M235 196V187M240 196V187M245 196V187M250 196V176M255 196V187M260 196V187M265 196V187M270 196V187M275 196V182M280 196V187M285 196V187M290 196V187M295 196V187M300 196V176M305 196V187M310 196V187M315 196V187M320 196V187M325 196V182M330 196V187M335 196V187M340 196V187M345 196V187M350 196V176M355 196V187M360 196V187M365 196V187M370 196V187M375 196V182M380 196V187M385 196V187M390 196V187M395 196V187M400 196V176M405 196V187M410 196V187M415 196V187M420 196V187M425 196V182M430 196V187M435 196V187M440 196V187M445 196V187M450 196V176M455 196V187M460 196V187M465 196V187M470 196V187M475 196V182M480 196V187M485 196V187M490 196V187M495 196V187M500 196V176M505 196V187M510 196V187M515 196V187M520 196V187M525 196V182M530 196V187M535 196V187M540 196V187M545 196V187M550 196V176M555 196V187M560 196V187M565 196V187M570 196V187M575 196V182M580 196V187M585 196V187M590 196V187M595 196V187M600 196V176M605 196V187M610 196V187M615 196V187M620 196V187M625 196V182M630 196V187M635 196V187M640 196V187M645 196V187M650 196V176M655 196V187M660 196V187M665 196V187M670 196V187M675 196V182M680 196V187M685 196V187M690 196V187M695 196V187M700 196V176" stroke="#212529" stroke-width="1.4"/>
+<text x="150" y="170" font-size="20" font-weight="bold" fill="#212529" text-anchor="middle">0</text>
+<text x="200" y="170" font-size="20" font-weight="bold" fill="#212529" text-anchor="middle">1</text>
+<text x="250" y="170" font-size="20" font-weight="bold" fill="#212529" text-anchor="middle">2</text>
+<text x="300" y="170" font-size="20" font-weight="bold" fill="#212529" text-anchor="middle">3</text>
+<text x="350" y="170" font-size="20" font-weight="bold" fill="#212529" text-anchor="middle">4</text>
+<text x="400" y="170" font-size="20" font-weight="bold" fill="#212529" text-anchor="middle">5</text>
+<text x="450" y="170" font-size="20" font-weight="bold" fill="#212529" text-anchor="middle">6</text>
+<text x="500" y="170" font-size="20" font-weight="bold" fill="#212529" text-anchor="middle">7</text>
+<text x="550" y="170" font-size="20" font-weight="bold" fill="#212529" text-anchor="middle">8</text>
+<text x="600" y="170" font-size="20" font-weight="bold" fill="#212529" text-anchor="middle">9</text>
+<text x="650" y="170" font-size="20" font-weight="bold" fill="#212529" text-anchor="middle">10</text>
+<text x="700" y="170" font-size="20" font-weight="bold" fill="#212529" text-anchor="middle">11</text>
+<path d="M96 196H150V430L134 470H118L96 430Z" fill="url(#ocelT)" stroke="#343a40" stroke-width="2.5"/>
+<path d="M132 130V80L150 92V130" fill="url(#ocelT)" stroke="#343a40" stroke-width="2.5"/>
+<g class="jezdec">
+<path d="M290 188V430L306 470H328L348 430V246H440V188Z" fill="url(#ocelT)" stroke="#343a40" stroke-width="2.5"/>
+<rect x="284" y="120" width="156" height="14" rx="3" fill="url(#ocelT)" stroke="#343a40" stroke-width="2"/>
+<path d="M290 120V80L308 92V120" fill="url(#ocelT)" stroke="#343a40" stroke-width="2.5"/>
+<path d="M290 196V212M294.5 196V206M299 196V206M303.5 196V206M308 196V206M312.5 196V212M317 196V206M321.5 196V206M326 196V206M330.5 196V206M335 196V212" stroke="#212529" stroke-width="1.4"/>
+<text x="290" y="232" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle">0</text><text x="335" y="232" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle">10</text>
+<circle cx="400" cy="222" r="12" fill="#adb5bd" stroke="#343a40" stroke-width="2"/><path d="M392 222h16M400 214v16" stroke="#495057" stroke-width="1.5"/>
+<circle cx="410" cy="127" r="6" fill="#868e96" stroke="#343a40" stroke-width="1.5"/>
+<rect x="428" y="120" width="12" height="126" fill="url(#ocelT)" stroke="#343a40" stroke-width="2"/>
+</g>
+<g class="prum"><path d="M156 492H284" stroke="#c92a2a" stroke-width="4"/><path d="M152 492l14 -8v16zM288 492l-14 -8v16z" fill="#c92a2a"/>
+<path d="M150 476V500M290 476V500" stroke="#c92a2a" stroke-width="3"/>
+<text x="220" y="526" font-size="24" font-weight="bold" fill="#c92a2a" text-anchor="middle">průměr trubky</text></g>
+<text x="400" y="568" font-size="22" fill="#212529" text-anchor="middle">měří na desetiny milimetru: průměr kulatých těles,</text>
+<text x="400" y="598" font-size="22" fill="#212529" text-anchor="middle">šířku a hloubku dutin</text>
+
+</svg>

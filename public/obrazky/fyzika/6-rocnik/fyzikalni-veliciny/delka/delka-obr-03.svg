@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 540" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Krejčovský metr: žlutý ohebný pásek, část je smotaná do role a volný konec leží v oblouku. Na pásku jsou čísla centimetrů od 27 dál, nejmenší dílek je 1 centimetr. Měří obvod hlavy nebo pasu.">
+<rect x="3" y="3" width="714" height="534" rx="14" fill="#f8f9fa"/>
+<rect x="210" y="22" width="300" height="58" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="360" y="61" font-size="28" fill="#212529" text-anchor="middle">Krejčovský metr</text>
+<ellipse cx="360" cy="470" rx="300" ry="16" fill="#000" opacity="0.07"/>
+<path d="M138 210V250A92 52 0 0 0 322 250V210" fill="#f2b705" stroke="#9c6b00" stroke-width="2.5"/>
+<path d="M144 268.5v-10M151 276.6v-10M158 282.4v-10M165 286.8v-10M172 290.4v-10M179 293.3v-10M186 295.7v-10M193 297.6v-10M200 299.2v-10M207 300.3v-10M214 301.2v-10M221 301.8v-10M228 302v-10M235 301.9v-10M242 301.6v-10M249 300.9v-10M256 299.9v-10M263 298.5v-10M270 296.8v-10M277 294.7v-10M284 292.1v-10M291 288.9v-10M298 285v-10M305 280.1v-10M312 273.6v-10M319 263.2v-10" stroke="#5c3d00" stroke-width="1.5"/>
+<ellipse cx="230" cy="210" rx="92" ry="52" fill="#ffd43b" stroke="#9c6b00" stroke-width="2.5"/>
+<ellipse cx="230" cy="210" rx="81" ry="45.8" fill="none" stroke="#b08900" stroke-width="2"/>
+<ellipse cx="230" cy="210" rx="70" ry="39.6" fill="none" stroke="#b08900" stroke-width="2"/>
+<ellipse cx="230" cy="210" rx="59" ry="33.4" fill="none" stroke="#b08900" stroke-width="2"/>
+<ellipse cx="230" cy="210" rx="48" ry="27.2" fill="none" stroke="#b08900" stroke-width="2"/>
+<ellipse cx="230" cy="210" rx="37" ry="21" fill="none" stroke="#b08900" stroke-width="2"/>
+<ellipse cx="230" cy="210" rx="26" ry="14.799999999999997" fill="none" stroke="#b08900" stroke-width="2"/>
+<ellipse cx="230" cy="210" rx="15" ry="8.600000000000001" fill="none" stroke="#b08900" stroke-width="2"/>
+<path d="M224 204h14v6h-14z" fill="#868e96" stroke="#495057"/>
+<path d="M156.5 242.2A206 206 0 0 0 559.5 261.2L606 273.2A254 254 0 0 1 109.1 249.7Z" fill="#ffd43b" stroke="#9c6b00" stroke-width="2.5"/>
+<text x="140.6" y="279" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle" dominant-baseline="central" transform="rotate(72.5 140.6 279)">27</text>
+<text x="153.2" y="310.6" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle" dominant-baseline="central" transform="rotate(64.1 153.2 310.6)">28</text>
+<text x="170.2" y="340" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle" dominant-baseline="central" transform="rotate(55.6 170.2 340)">29</text>
+<text x="191.5" y="366.5" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle" dominant-baseline="central" transform="rotate(47.1 191.5 366.5)">30</text>
+<text x="216.3" y="389.6" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle" dominant-baseline="central" transform="rotate(38.7 216.3 389.6)">31</text>
+<text x="244.4" y="408.8" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle" dominant-baseline="central" transform="rotate(30.2 244.4 408.8)">32</text>
+<text x="274.9" y="423.7" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle" dominant-baseline="central" transform="rotate(21.7 274.9 423.7)">33</text>
+<text x="307.3" y="433.9" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle" dominant-baseline="central" transform="rotate(13.2 307.3 433.9)">34</text>
+<text x="340.9" y="439.2" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle" dominant-baseline="central" transform="rotate(4.8 340.9 439.2)">35</text>
+<text x="374.8" y="439.5" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle" dominant-baseline="central" transform="rotate(-3.7 374.8 439.5)">36</text>
+<text x="408.5" y="434.8" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle" dominant-baseline="central" transform="rotate(-12.2 408.5 434.8)">37</text>
+<text x="441.1" y="425.2" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle" dominant-baseline="central" transform="rotate(-20.6 441.1 425.2)">38</text>
+<text x="471.9" y="411" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle" dominant-baseline="central" transform="rotate(-29.1 471.9 411)">39</text>
+<text x="500.3" y="392.3" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle" dominant-baseline="central" transform="rotate(-37.6 500.3 392.3)">40</text>
+<text x="525.6" y="369.6" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle" dominant-baseline="central" transform="rotate(-46 525.6 369.6)">41</text>
+<text x="547.3" y="343.5" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle" dominant-baseline="central" transform="rotate(-54.5 547.3 343.5)">42</text>
+<text x="564.9" y="314.5" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle" dominant-baseline="central" transform="rotate(-63 564.9 314.5)">43</text>
+<text x="578.1" y="283.1" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle" dominant-baseline="central" transform="rotate(-71.5 578.1 283.1)">44</text>
+<path d="M112.7 268.2L124.4 265.4M159.5 257.2L147.8 259.9M124 303.9L135.2 299.5M168.6 286.2L157.5 290.6M140.4 337.7L150.8 331.6M181.9 313.5L171.5 319.6M161.6 368.6L171 361.1M199.1 338.6L189.7 346.1M187.1 396.1L195.3 387.3M219.8 360.9L211.6 369.7M216.4 419.5L223.2 409.6M243.6 379.9L236.8 389.8M248.9 438.4L254.1 427.6M269.9 395.2L264.6 406M283.7 452.3L287.3 440.8M298.1 406.5L294.5 417.9M320.2 460.9L322.1 449M327.8 413.5L325.9 425.3M357.6 464L357.7 452M358.1 416L358 428M395.1 461.6L393.4 449.7M388.4 414L390.1 425.9M431.7 453.7L428.3 442.2M418.2 407.6L421.6 419.1M466.8 440.4L461.8 429.6M446.6 396.9L451.7 407.8M499.6 422.2L493 412.2M473.2 382.1L479.8 392.1M529.3 399.3L521.3 390.4M497.3 363.5L505.3 372.5M555.4 372.3L546.1 364.6M518.5 341.6L527.7 349.3M577.2 341.8L566.9 335.5M536.1 316.9L546.4 323.1M594.2 308.3L583.1 303.7M549.9 289.8L561 294.4" stroke="#212529" stroke-width="2"/>
+<rect x="556.8" y="257.2" width="52" height="20" rx="3" fill="#ced4da" stroke="#495057" stroke-width="2" transform="rotate(-75.6 582.8 267.2)"/>
+<rect x="430" y="110" width="250" height="56" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
+<text x="555" y="147.36" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">dílek 1 cm</text>
+<path d="M470 166L492.9 419.4" stroke="#212529" stroke-width="2.5"/><circle cx="492.9" cy="419.4" r="5" fill="#212529"/>
+<text x="360" y="508" font-size="22" fill="#212529" text-anchor="middle">ohebný pásek: měří obvod hlavy nebo pasu</text>
+
+</svg>

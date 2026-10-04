@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: Převody jednotek délky. Řada km, m, dm, cm, mm. Mezi km a m jsou tři obloučky, mezi ostatními po jednom. Jeden oblouček je jedna nula. Na menší jednotky nuly přidáváme a čárku posouváme doprava, na větší jednotky nuly škrtáme a čárku posouváme doleva. Příklad šířka pokoje: z 532 cm přeskočí čárka dva obloučky doleva a vznikne 5,32 m, tedy 5 m 32 cm.">
+<style>
+/* Předloha: PDF Délka — převody jednotek (km m dm cm mm s obloučky) a příklad šířky pokoje 532 cm = 5,32 m = 5 m 32 cm.
+   Cyklus 10 s: 0–20 % 532 cm, 20–50 % čárka přeskočí dva obloučky doleva, 50–58 % cm → m, 64–94 % = 5 m 32 cm.
+   Bez animace = koncový stav (5,32 m = 5 m 32 cm). */
+@keyframes ca { 0%, 12% { transform: translate(80px, 0); opacity: 0; } 18%, 22% { transform: translate(80px, 0); opacity: 1; } 29% { transform: translate(60px, -48px); opacity: 1; } 36% { transform: translate(40px, 0); } 43% { transform: translate(20px, -48px); } 50%, 100% { transform: translate(0, 0); opacity: 1; } }
+@keyframes ucm { 0%, 50% { opacity: 1; } 56%, 100% { opacity: 0; } }
+@keyframes um { 0%, 52% { opacity: 0; } 58%, 100% { opacity: 1; } }
+@keyframes kom { 0%, 64% { opacity: 0; } 72%, 100% { opacity: 1; } }
+@keyframes ob { 0%, 18% { opacity: 0.25; } 22%, 100% { opacity: 1; } }
+.ca { animation: ca 10s ease-in-out infinite; }
+.ucm { animation: ucm 10s linear infinite; }
+.um { animation: um 10s linear infinite; }
+.kom { animation: kom 10s linear infinite; }
+.ob { animation: ob 10s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .ca, .ucm, .um, .kom, .ob { animation: none; } }
+</style>
+<rect x="3" y="3" width="794" height="554" rx="14" fill="#f8f9fa"/>
+<rect x="210" y="24" width="380" height="58" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="400" y="63" font-size="28" fill="#212529" text-anchor="middle">Převody jednotek délky</text>
+<text x="80" y="150" font-size="40" font-weight="bold" fill="#a85a12" text-anchor="middle">km</text>
+<text x="330" y="150" font-size="40" font-weight="bold" fill="#a85a12" text-anchor="middle">m</text>
+<text x="460" y="150" font-size="40" font-weight="bold" fill="#a85a12" text-anchor="middle">dm</text>
+<text x="590" y="150" font-size="40" font-weight="bold" fill="#a85a12" text-anchor="middle">cm</text>
+<text x="720" y="150" font-size="40" font-weight="bold" fill="#a85a12" text-anchor="middle">mm</text>
+<path d="M115 168Q146.66666666666669 220 178.33333333333334 168" fill="none" stroke="#c92a2a" stroke-width="4.5" stroke-linecap="round"/>
+<path d="M178.33333333333334 168Q210 220 241.66666666666669 168" fill="none" stroke="#c92a2a" stroke-width="4.5" stroke-linecap="round"/>
+<path d="M241.66666666666669 168Q273.33333333333337 220 305 168" fill="none" stroke="#c92a2a" stroke-width="4.5" stroke-linecap="round"/>
+<path d="M352 168Q393.5 220 435 168" fill="none" stroke="#c92a2a" stroke-width="4.5" stroke-linecap="round"/>
+<path d="M485 168Q525 220 565 168" fill="none" stroke="#c92a2a" stroke-width="4.5" stroke-linecap="round"/>
+<path d="M615 168Q655 220 695 168" fill="none" stroke="#c92a2a" stroke-width="4.5" stroke-linecap="round"/>
+<text x="400" y="246" font-size="22" fill="#212529" text-anchor="middle">1 oblouček = 1 nula = čárka o 1 místo</text>
+<path d="M120 286H660" stroke="#1971c2" stroke-width="5"/><path d="M660 274L684 286L660 298Z" fill="#1971c2"/>
+<text x="400" y="320" font-size="22" fill="#1864ab" text-anchor="middle">na menší jednotky: nuly přidáváme, čárka doprava</text>
+<path d="M140 346H680" stroke="#237032" stroke-width="5"/><path d="M140 334L116 346L140 358Z" fill="#237032"/>
+<text x="400" y="380" font-size="22" fill="#237032" text-anchor="middle">na větší jednotky: nuly škrtáme, čárka doleva</text>
+<rect x="40" y="404" width="720" height="136" rx="12" fill="#fff" stroke="#adb5bd" stroke-width="2"/>
+<text x="60" y="436" font-size="22" fill="#212529">Šířka pokoje:</text>
+<text x="180" y="500" font-size="44" font-weight="bold" fill="#212529" text-anchor="middle">5</text>
+<text x="220" y="500" font-size="44" font-weight="bold" fill="#212529" text-anchor="middle">3</text>
+<text x="260" y="500" font-size="44" font-weight="bold" fill="#212529" text-anchor="middle">2</text>
+<path d="M280 512Q260 534 240 512M240 512Q220 534 200 512" fill="none" stroke="#c92a2a" stroke-width="3.5" stroke-linecap="round" class="ob"/>
+<text x="200" y="500" font-size="44" font-weight="bold" fill="#c92a2a" text-anchor="middle" class="ca">,</text>
+<text x="298" y="500" font-size="40" fill="#212529" class="ucm" opacity="0">cm</text>
+<text x="298" y="500" font-size="40" fill="#212529" class="um">m</text>
+<text x="370" y="500" font-size="40" font-weight="bold" fill="#212529" class="kom">= 5 m 32 cm</text>
+
+</svg>

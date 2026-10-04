@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Mikrometr: kovový rám ve tvaru podkovy, vlevo pevný dotek, proti němu vřeteno. Mezi nimi je sevřený vlas. Vpravo je pouzdro se stupnicí, otočný bubínek s čísly a vroubkovaná řehtačka. Měří na setiny milimetru tloušťku vlasu nebo tenkého vlákna.">
+<defs>
+<linearGradient id="kovV" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1f3f5"/><stop offset="0.35" stop-color="#ced4da"/><stop offset="0.7" stop-color="#868e96"/><stop offset="1" stop-color="#495057"/></linearGradient>
+<linearGradient id="ramM" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#dee2e6"/><stop offset="0.5" stop-color="#adb5bd"/><stop offset="1" stop-color="#6c757d"/></linearGradient>
+<pattern id="ryh" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#ced4da"/><path d="M0 0V8M0 0H8" stroke="#6c757d" stroke-width="1.6"/></pattern>
+</defs>
+<rect x="3" y="3" width="794" height="454" rx="14" fill="#f8f9fa"/>
+<rect x="280" y="22" width="240" height="58" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="400" y="61" font-size="28" fill="#212529" text-anchor="middle">Mikrometr</text>
+<ellipse cx="420" cy="392" rx="330" ry="10" fill="#000" opacity="0.08"/>
+<path d="M90 340V250A160 160 0 0 1 410 250V340H362V250A112 112 0 0 0 138 250V274H138V340Z" fill="url(#ramM)" stroke="#343a40" stroke-width="3"/>
+<path d="M108 240A142 142 0 0 1 300 118" fill="none" stroke="#fff" stroke-width="5" opacity="0.6"/>
+<rect x="138" y="280" width="44" height="40" rx="4" fill="url(#kovV)" stroke="#343a40" stroke-width="2.5"/>
+<path d="M188 230C182 270 192 320 186 374" fill="none" stroke="#5c3d1e" stroke-width="3.5"/>
+<rect x="191" y="285" width="180" height="30" fill="url(#kovV)" stroke="#343a40" stroke-width="2.5"/>
+<rect x="410" y="276" width="150" height="48" fill="url(#kovV)" stroke="#343a40" stroke-width="2.5"/>
+<path d="M414 300H560M420 300V288M425.5 300V308M431 300V288M436.5 300V308M442 300V288M447.5 300V308M453 300V288M458.5 300V308M464 300V288M469.5 300V308M475 300V288M480.5 300V308M486 300V288M491.5 300V308M497 300V288M502.5 300V308M508 300V288M513.5 300V308M519 300V288M524.5 300V308M530 300V288M535.5 300V308M541 300V288M546.5 300V308M552 300V288" stroke="#212529" stroke-width="1.6"/>
+<path d="M560 274L586 256H690V344H586L560 326Z" fill="url(#kovV)" stroke="#343a40" stroke-width="2.5"/>
+<path d="M562 264h8M562 273h8M562 282h8M562 291h8M562 300h14M562 309h8M562 318h8M562 327h8M562 336h8" stroke="#212529" stroke-width="1.6"/>
+<text x="582" y="286" font-size="18" font-weight="bold" fill="#212529">50</text><text x="582" y="306" font-size="18" font-weight="bold" fill="#212529">40</text><text x="582" y="326" font-size="18" font-weight="bold" fill="#212529">30</text>
+<rect x="622" y="256" width="68" height="88" fill="url(#ryh)" stroke="#343a40" stroke-width="2.5"/>
+<rect x="690" y="278" width="20" height="44" fill="url(#kovV)" stroke="#343a40" stroke-width="2.5"/>
+<rect x="710" y="270" width="46" height="60" rx="6" fill="url(#kovV)" stroke="#343a40" stroke-width="2.5"/>
+<path d="M716 272V328M722 272V328M728 272V328M734 272V328M740 272V328M746 272V328M752 272V328" stroke="#495057" stroke-width="1.6"/>
+<path d="M414 280H556M594 260H686" stroke="#fff" stroke-width="3" opacity="0.7"/>
+<rect x="40" y="110" width="116" height="52" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
+<text x="98" y="145.36" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">vlas</text>
+<path d="M120 162L187 250" stroke="#212529" stroke-width="2.5"/><circle cx="187" cy="250" r="5" fill="#212529"/>
+<text x="400" y="420" font-size="22" fill="#212529" text-anchor="middle">měří na setiny milimetru: tloušťku vlasu nebo tenkého vlákna</text>
+
+</svg>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: oranžový laserový měřič leží na stole. Vyšle červený světelný paprsek ke zdi z cihel, paprsek se od zdi odrazí a vrátí zpět do přístroje. Je to nejpřesnější měřidlo délky.">
+<style>
+/* Podle textu PDF Délka — laserový měřič: paprsek se odrazí např. od zdi. Na straně PDF k tomu obrázek není — obrázek navíc.
+   Cyklus 4 s: 0–45 % záblesk letí ke zdi, 45–50 % svítí bod na zdi, 50–95 % záblesk letí zpět.
+   Bez animace: oba záblesky skryté, svítí bod na zdi a paprsek. */
+@keyframes tam { 0% { transform: translate(170px, 0); opacity: 1; } 45% { transform: translate(650px, 0); opacity: 1; } 46%, 100% { transform: translate(650px, 0); opacity: 0; } }
+@keyframes zpet { 0%, 49% { transform: translate(650px, 0); opacity: 0; } 50% { transform: translate(650px, 0); opacity: 1; } 95% { transform: translate(170px, 0); opacity: 1; } 96%, 100% { transform: translate(170px, 0); opacity: 0; } }
+@keyframes bod { 0%, 42% { opacity: 0.3; } 46%, 54% { opacity: 1; } 60%, 100% { opacity: 0.3; } }
+.tam { opacity: 0; animation: tam 4s linear infinite; }
+.zpet { opacity: 0; animation: zpet 4s linear infinite; }
+.bod { animation: bod 4s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .tam, .zpet, .bod { animation: none; } }
+</style>
+<defs>
+<linearGradient id="pristroj" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e8590c"/><stop offset="0.5" stop-color="#fd7e14"/><stop offset="1" stop-color="#d9480f"/></linearGradient>
+<pattern id="cihly" width="80" height="40" patternUnits="userSpaceOnUse"><rect width="80" height="40" fill="#c0603a"/><path d="M0 0H80M0 20H80M40 0V20M0 20V40M80 20V40" stroke="#e9d8c9" stroke-width="3"/></pattern>
+</defs>
+<rect x="3" y="3" width="794" height="434" rx="14" fill="#f8f9fa"/>
+<rect x="180" y="18" width="400" height="58" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="380" y="57" font-size="28" fill="#212529" text-anchor="middle">Laserový měřič vzdáleností</text>
+<rect x="20" y="320" width="640" height="18" rx="4" fill="#c99a5b" stroke="#8a5526" stroke-width="2"/>
+<rect x="660" y="90" width="120" height="330" fill="url(#cihly)" stroke="#6b2d08" stroke-width="2.5"/>
+<text x="720" y="370" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle" stroke="#fff" stroke-width="5" paint-order="stroke">zeď</text>
+<rect x="40" y="180" width="110" height="140" rx="16" fill="url(#pristroj)" stroke="#7a2d00" stroke-width="3"/>
+<rect x="54" y="192" width="82" height="48" rx="6" fill="#d3f9d8" stroke="#212529" stroke-width="2.5"/>
+<path d="M64 220h14M84 220h14M104 220h14" stroke="#212529" stroke-width="4"/><text x="128" y="232" font-size="18" font-weight="bold" fill="#212529" text-anchor="end">m</text>
+<circle cx="95" cy="276" r="16" fill="#343a40" stroke="#212529" stroke-width="2"/><circle cx="95" cy="276" r="7" fill="#c92a2a"/>
+<rect x="150" y="240" width="12" height="20" rx="3" fill="#343a40"/>
+<path d="M162 250H660" stroke="#e03131" stroke-width="3" opacity="0.35"/>
+<circle cx="658" cy="250" r="9" fill="#e03131" class="bod"/>
+<g class="tam"><rect x="-40" y="246" width="40" height="8" rx="4" fill="#e03131"/><path d="M0 240L12 250L0 260Z" fill="#e03131"/></g>
+<g class="zpet"><rect x="0" y="246" width="40" height="8" rx="4" fill="#e03131"/><path d="M0 240L-12 250L0 260Z" fill="#e03131"/></g>
+<text x="410" y="220" font-size="22" fill="#c92a2a" text-anchor="middle">→ světelný paprsek letí ke zdi</text>
+<text x="410" y="300" font-size="22" fill="#c92a2a" text-anchor="middle">← odrazí se a vrátí zpět</text>
+<text x="340" y="400" font-size="22" fill="#212529" text-anchor="middle">nejpřesnější měřidlo délky</text>
+
+</svg>

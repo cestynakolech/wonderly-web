@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: bosé chodidlo stojí na podlaze. Ke špičce a k patě přijedou dva průhledné pravoúhlé trojúhelníky s ryskou jako kolmé pomůcky, které se dotknou začátku a konce chodidla. Pak se mezi nimi vyznačí délka chodidla l.">
+<style>
+/* Předloha: PDF Délka — fotografie chodidla mezi dvěma pravoúhlými trojúhelníky s ryskou. Překresleno, ne kopie.
+   Cyklus 8 s: 0–15 % trojúhelníky stojí stranou, 15–45 % přijedou těsně ke špičce a k patě, 55–94 % se vyznačí délka.
+   Bez animace = koncový stav. */
+@keyframes tL { 0%, 15% { transform: translate(-160px, 0); } 45%, 100% { transform: translate(0, 0); } }
+@keyframes tP { 0%, 15% { transform: translate(160px, 0); } 45%, 100% { transform: translate(0, 0); } }
+@keyframes del { 0%, 50% { opacity: 0; } 58%, 94% { opacity: 1; } 100% { opacity: 0; } }
+.tL { animation: tL 8s ease-in-out infinite; }
+.tP { animation: tP 8s ease-in-out infinite; }
+.del { animation: del 8s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .tL, .tP, .del { animation: none; } }
+</style>
+<rect x="3" y="3" width="794" height="494" rx="14" fill="#f8f9fa"/>
+<rect x="230" y="18" width="340" height="58" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="400" y="57" font-size="28" fill="#212529" text-anchor="middle">Měření délky chodidla</text>
+<rect x="20" y="360" width="760" height="116" fill="#e9ecef"/><path d="M20 360H780" stroke="#868e96" stroke-width="2"/>
+<path d="M254 360C244 360 240 352 240 344C240 332 248 324 262 322C280 320 302 320 320 316C370 306 420 274 454 232C468 214 474 190 476 164L478 150H544L542 220C542 260 550 290 554 314C558 336 556 354 534 360Z" fill="#f1c7a3" stroke="#a0613a" stroke-width="2.5"/>
+<path d="M246 330C250 324 260 323 266 327C262 334 250 336 246 330Z" fill="#fbe3cf" stroke="#a0613a" stroke-width="1.6"/>
+<path d="M280 322C284 332 284 346 280 356M300 320C303 330 303 342 300 352" fill="none" stroke="#c98a5e" stroke-width="2"/>
+<ellipse cx="510" cy="248" rx="14" ry="11" fill="#e8b48c" opacity="0.8"/>
+<path d="M270 357H526" stroke="#c98a5e" stroke-width="5" opacity="0.5" stroke-linecap="round"/>
+<path d="M340 306C390 288 430 256 454 220" fill="none" stroke="#fff" stroke-width="5" opacity="0.45"/>
+<path d="M462 90L470 160H556L562 90Z" fill="#495057" stroke="#212529" stroke-width="2.5"/><path d="M470 150H557" stroke="#343a40" stroke-width="3"/>
+<g class="tL"><path d="M240 360V160L40 360ZM216 336V236L116 336Z" fill="#74c0fc" fill-opacity="0.75" fill-rule="evenodd" stroke="#1864ab" stroke-width="2.5"/>
+<path d="M240 350h-8M240 340h-8M240 330h-8M240 320h-8M240 310h-14M240 300h-8M240 290h-8M240 280h-8M240 270h-8M240 260h-14M240 250h-8M240 240h-8M240 230h-8M240 220h-8M240 210h-14M240 200h-8M240 190h-8M240 180h-8" stroke="#0b3d6e" stroke-width="1.6"/>
+</g>
+<g class="tP"><path d="M556 360V160L756 360ZM580 336V236L680 336Z" fill="#74c0fc" fill-opacity="0.75" fill-rule="evenodd" stroke="#1864ab" stroke-width="2.5"/>
+<path d="M556 350h8M556 340h8M556 330h8M556 320h8M556 310h14M556 300h8M556 290h8M556 280h8M556 270h8M556 260h14M556 250h8M556 240h8M556 230h8M556 220h8M556 210h14M556 200h8M556 190h8M556 180h8" stroke="#0b3d6e" stroke-width="1.6"/>
+</g>
+<g class="del"><path d="M246 400H550" stroke="#c92a2a" stroke-width="4"/><path d="M242 400l14 -8v16zM554 400l-14 -8v16z" fill="#c92a2a"/>
+<text x="398" y="440" font-size="26" font-weight="bold" fill="#c92a2a" text-anchor="middle">délka chodidla l</text></g>
+<rect x="36" y="92" width="200" height="52" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
+<text x="136" y="125.92" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">kolmá pomůcka</text>
+<rect x="600" y="92" width="180" height="52" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
+<text x="690" y="125.92" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">kolmá pomůcka</text>
+<path d="M120 144L228 210" stroke="#212529" stroke-width="2.5"/><circle cx="228" cy="210" r="5" fill="#212529"/>
+<path d="M690 144L568 210" stroke="#212529" stroke-width="2.5"/><circle cx="568" cy="210" r="5" fill="#212529"/>
+
+</svg>
