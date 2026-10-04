@@ -1,18 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: rodinný dům z cihel se sedlovou střechou, dvěma okny nahoře, oknem a dveřmi dole. Přes levou polovinu přejede obraz termokamery: zdi a střecha jsou modré a fialové, tedy chladnější, okna žlutá až červená, tudy uniká teplo. Pravá polovina je běžný pohled. Dole je barevná stupnice od chladnějšího k teplejšímu.">
 <style>
 /* Předloha: PDF Teplota — snímek domu, levá polovina pohledem termokamery (modrá a fialová = chladno, žlutá a červená
-   u oken a dveří = teplo uniká), pravá polovina běžná fotografie. Překresleno, ne kopie; stupnice bez čísel.
-   Cyklus 8 s: 10–50 % obraz termokamery přejede přes levou polovinu domu, drží, na konci zmizí.
+   u oken = teplo uniká), pravá polovina běžná fotografie. Překresleno, ne kopie; stupnice bez čísel.
+   Pruh (okraj termokamery) a obraz se posouvají společně o stejných 480 px, pruh je oříznut rámem. Cyklus 8 s: 10–50 % obraz termokamery přejede přes levou polovinu domu, drží, na konci zmizí.
    Bez animace = koncový stav (levá polovina termokamerou, pravá běžně). */
 @keyframes sken { 0%, 10% { transform: translate(-480px, 0); } 50%, 94% { transform: translate(0, 0); } 100% { transform: translate(-480px, 0); } }
-@keyframes car { 0%, 10% { transform: translate(-277px, 0); opacity: 0; } 12% { opacity: 1; } 50%, 94% { transform: translate(0, 0); opacity: 1; } 100% { transform: translate(-277px, 0); opacity: 0; } }
+@keyframes car { 0%, 10% { transform: translate(-480px, 0); opacity: 0; } 12% { opacity: 1; } 50%, 94% { transform: translate(0, 0); opacity: 1; } 100% { transform: translate(-480px, 0); opacity: 0; } }
 .sken { animation: sken 8s ease-in-out infinite; } .car { animation: car 8s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) { .sken, .car { animation: none; } }
 </style>
 <rect x="3" y="3" width="954" height="614" rx="14" fill="#f8f9fa"/>
 <rect x="330" y="16" width="300" height="58" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
 <text x="480" y="55" font-size="28" fill="#212529" text-anchor="middle">Termokamera</text>
-<defs><clipPath id="tk"><rect class="sken" x="200" y="100" width="280" height="460"/></clipPath><linearGradient id="tstup" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1c1b4d"/><stop offset="0.3" stop-color="#3b5bdb"/><stop offset="0.55" stop-color="#7048e8"/><stop offset="0.75" stop-color="#ffd43b"/><stop offset="1" stop-color="#f03e3e"/></linearGradient></defs>
+<defs><clipPath id="ram7"><rect x="200" y="100" width="560" height="460"/></clipPath><clipPath id="tk"><rect class="sken" x="200" y="100" width="280" height="460"/></clipPath><linearGradient id="tstup" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1c1b4d"/><stop offset="0.3" stop-color="#3b5bdb"/><stop offset="0.55" stop-color="#7048e8"/><stop offset="0.75" stop-color="#ffd43b"/><stop offset="1" stop-color="#f03e3e"/></linearGradient></defs>
 <rect x="200" y="100" width="560" height="460" fill="#e7f5ff"/>
 <rect x="200" y="500" width="560" height="60" fill="#8ce99a"/>
 <rect x="640" y="140" width="40" height="80" fill="#a8442c"/>
@@ -32,7 +32,7 @@
 <rect x="292" y="412" width="106" height="86" fill="#f03e3e"/><rect x="300" y="420" width="90" height="70" fill="#ffd43b" stroke="#ffd43b" stroke-width="3"/><path d="M345.0 420v70M300 455.0h90" stroke="#f03e3e" stroke-width="3"/>
 <rect x="562" y="406" width="76" height="112" fill="#f03e3e"/><rect x="570" y="414" width="60" height="96" fill="#ff922b" stroke="#495057" stroke-width="2"/><circle cx="618" cy="464" r="4" fill="#212529"/>
 </g>
-<rect class="car" x="477" y="100" width="6" height="460" fill="#212529"/>
+<g clip-path="url(#ram7)"><rect class="car" x="477" y="100" width="6" height="460" fill="#212529"/></g>
 <rect x="200" y="100" width="560" height="460" fill="none" stroke="#495057" stroke-width="3"/>
 <text x="100" y="140" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">pohled</text>
 <text x="100" y="168" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">termokamerou</text>
