@@ -245,10 +245,14 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
   Hotové snímky se VŽDY prohlédnou očima.
 - **Doplňky ke každému podtématu (pokyn učitele 30. 9. 2026 — JEDINÝ DOMOV tohoto pravidla, jinde jen odkaz):**
   1. **Písnička ze Suno** — stávající samoobslužný řetěz (paměť `feedback-pisnicky-samoobsluzne`, `projekt-hudba-suno`).
-  2. **Bonusový video-rozbor z NotebookLM** — JEN doplněk, NIKDY náhrada polemiky; zdroj = výklad podtématu.
-     Licence NotebookLM k publikaci NENÍ ověřena (viz `NOTEBOOKLM-CO-UDELAT.md`) — před nasazením na web ověřit.
+  2. **Video-rozbor z NotebookLM (fronta B, rozhodnutí učitele 4. 10. 2026)** — ke KAŽDÉMU podtématu jedno video;
+     JEN doplněk, NIKDY náhrada polemiky; zdroj = výklad podtématu. Obsah se NEKONTROLUJE a nasazuje se rovnou
+     (ruší dřívější „až po učiteli" / „před nasazením ověřit licenci"). Úplnost obsahu hlídají polemiky.
   3. **Vlastní video-polemika s POHYBLIVÝMI animacemi**, ne statickými obrázky (kap. 12 bod 6).
   Co jde, dělají lokální modely; Codex pracuje přes soubory v `Omega/koordinace/zpravy/`.
+- **Fronty videí (rozhodnutí učitele 4. 10. 2026, JEDINÝ DOMOV):** každé podtéma má aspoň 1 video; kde žádné není,
+  vyrábí se NEJDŘÍV polemika. Pořadí: téma 1 napříč 7/8/9, pak téma 2 … (`Omega/dokumenty/PORADI-TEMAT-7-9.md`);
+  6. ročník až po 7–9. Zdroj pravdy front: `~/Desktop/Omega/fronty/FRONTA-VIDEI.md`.
 - Zdroj: `~/Desktop/Omega/dokumenty/NAVOD-POLEMIKY-F6.md`, skill `/podkast-video`.
 
 ## 7. SIMULACE
@@ -380,7 +384,7 @@ samostatnou hru vázanou na dané podtéma.
 
 **Doplňkové složky ke každému podtématu (pokyn učitele 30. 9. 2026; do devíti se NEPOČÍTAJÍ,
 pravidlo a podmínky viz kap. 6 „Doplňky ke každému podtématu"):** písnička ze Suno a bonusový
-video-rozbor z NotebookLM (licence k publikaci neověřena, zdroj = výklad; nikdy náhrada polemiky).
+video-rozbor z NotebookLM (fronta B, nasazuje se rovnou bez kontroly obsahu — kap. 6; zdroj = výklad; nikdy náhrada polemiky).
 Video-polemika (bod 6) je vždy s pohyblivými animacemi.
 
 **Pořadí práce:** 1. téma se dodělá KOMPLET (všech 9 složek) u 7., 8. i 9. ročníku
