@@ -28,7 +28,8 @@ const klid = tabulka(klidVystup)
 assert.deepEqual(
 	Object.fromEntries([...klid].map(([k, v]) => [k, v.stav])),
 	{
-		video: 'NE',
+		// 4. 10. 2026: bonus video z NotebookLM v R2 → R2 médium = NEJISTÉ (viz test „R2 média se nesmějí ztratit“)
+		video: 'NEJISTÉ',
 		polemika: 'NE',
 		infografika: 'ANO',
 		kvíz: 'ANO',

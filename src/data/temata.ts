@@ -1927,6 +1927,7 @@ export const temata: Record<string, Tema[]> = {
 							nazev: 'Základy pohybu tělesa: Jak se věci hýbou?',
 							cesta: '/materialy/fyzika/7-rocnik/pohyb-a-rychlost/klid-a-pohyb-telesa/infografika-zaklady-pohybu.jpg',
 						},
+						{ druh: 'video', nazev: 'Bonus z NotebookLM: Iluze klidu a pohybu (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/7-rocnik/pohyb-a-rychlost/klid-a-pohyb-telesa/notebooklm-klid-a-pohyb-telesa.mp4' },
 					],
 				},
 				{
