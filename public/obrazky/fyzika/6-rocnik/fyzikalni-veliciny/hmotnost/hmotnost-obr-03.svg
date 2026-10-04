@@ -15,9 +15,9 @@
 @keyframes vahadlo { 0%, 13% { transform: rotate(-12deg); } 19%, 39% { transform: rotate(-6deg); } 45%, 63% { transform: rotate(-2deg); } 69%, 93% { transform: rotate(0deg); } 98%, 100% { transform: rotate(-12deg); } }
 @keyframes miskaL { 0%, 13% { transform: translateY(48px); } 19%, 39% { transform: translateY(24px); } 45%, 63% { transform: translateY(8px); } 69%, 93% { transform: translateY(0px); } 98%, 100% { transform: translateY(48px); } }
 @keyframes miskaR { 0%, 13% { transform: translateY(-48px); } 19%, 39% { transform: translateY(-24px); } 45%, 63% { transform: translateY(-8px); } 69%, 93% { transform: translateY(0px); } 98%, 100% { transform: translateY(-48px); } }
-@keyframes z50 { 0%, 7% { transform: translateY(-170px); opacity: 0; } 8% { transform: translateY(-170px); opacity: 1; animation-timing-function: cubic-bezier(.55,0,1,.45); } 13%, 90% { transform: translateY(0px); opacity: 1; } 93%, 100% { transform: translateY(0px); opacity: 0; } }
-@keyframes z20 { 0%, 33% { transform: translateY(-170px); opacity: 0; } 34% { transform: translateY(-170px); opacity: 1; animation-timing-function: cubic-bezier(.55,0,1,.45); } 39%, 90% { transform: translateY(0px); opacity: 1; } 93%, 100% { transform: translateY(0px); opacity: 0; } }
-@keyframes z2 { 0%, 57% { transform: translateY(-170px); opacity: 0; } 58% { transform: translateY(-170px); opacity: 1; animation-timing-function: cubic-bezier(.55,0,1,.45); } 63%, 90% { transform: translateY(0px); opacity: 1; } 93%, 100% { transform: translateY(0px); opacity: 0; } }
+@keyframes z50 { 0%, 7% { transform: translateY(-100px); opacity: 0; } 8% { transform: translateY(-100px); opacity: 1; animation-timing-function: cubic-bezier(.55,0,1,.45); } 13%, 90% { transform: translateY(0px); opacity: 1; } 93%, 100% { transform: translateY(0px); opacity: 0; } }
+@keyframes z20 { 0%, 33% { transform: translateY(-100px); opacity: 0; } 34% { transform: translateY(-100px); opacity: 1; animation-timing-function: cubic-bezier(.55,0,1,.45); } 39%, 90% { transform: translateY(0px); opacity: 1; } 93%, 100% { transform: translateY(0px); opacity: 0; } }
+@keyframes z2 { 0%, 57% { transform: translateY(-100px); opacity: 0; } 58% { transform: translateY(-100px); opacity: 1; animation-timing-function: cubic-bezier(.55,0,1,.45); } 63%, 90% { transform: translateY(0px); opacity: 1; } 93%, 100% { transform: translateY(0px); opacity: 0; } }
 @keyframes s0 { 0%, 12% { opacity: 1; } 13%, 97% { opacity: 0; } 98%, 100% { opacity: 1; } }
 @keyframes s1 { 0%, 12% { opacity: 0; } 13%, 38% { opacity: 1; } 39%, 100% { opacity: 0; } }
 @keyframes s2 { 0%, 38% { opacity: 0; } 39%, 62% { opacity: 1; } 63%, 100% { opacity: 0; } }
@@ -66,21 +66,21 @@
 <g class="z50">
 <rect x="650" y="364" width="52" height="46" rx="5" fill="url(#mosaz03)" stroke="#5c3d0c" stroke-width="2"/>
 <rect x="664" y="350" width="24" height="16" rx="5" fill="url(#mosaz03)" stroke="#5c3d0c" stroke-width="2"/>
-<rect x="644" y="320" width="64" height="26" rx="6" fill="#ffffff" stroke="#5c3d0c" stroke-width="2"/>
+<rect x="652" y="320" width="48" height="26" rx="6" fill="#ffffff" stroke="#5c3d0c" stroke-width="2"/>
 <text x="676" y="340" font-size="18" font-weight="bold" fill="#2b2a26" text-anchor="middle">50 g</text>
 </g>
 <g class="z20">
-<rect x="716" y="378" width="38" height="32" rx="4" fill="url(#mosaz03)" stroke="#5c3d0c" stroke-width="2"/>
-<rect x="726" y="368" width="18" height="12" rx="4" fill="url(#mosaz03)" stroke="#5c3d0c" stroke-width="2"/>
-<rect x="703" y="338" width="64" height="26" rx="6" fill="#ffffff" stroke="#5c3d0c" stroke-width="2"/>
-<text x="735" y="358" font-size="18" font-weight="bold" fill="#2b2a26" text-anchor="middle">20 g</text>
+<rect x="704" y="378" width="34" height="32" rx="4" fill="url(#mosaz03)" stroke="#5c3d0c" stroke-width="2"/>
+<rect x="712" y="368" width="18" height="12" rx="4" fill="url(#mosaz03)" stroke="#5c3d0c" stroke-width="2"/>
+<rect x="697" y="338" width="48" height="26" rx="6" fill="#ffffff" stroke="#5c3d0c" stroke-width="2"/>
+<text x="721" y="358" font-size="18" font-weight="bold" fill="#2b2a26" text-anchor="middle">20 g</text>
 </g>
 <g class="z2">
-<rect x="764" y="394" width="20" height="16" rx="3" fill="url(#mosaz03)" stroke="#5c3d0c" stroke-width="2"/>
-<rect x="769" y="388" width="10" height="7" rx="3" fill="url(#mosaz03)" stroke="#5c3d0c" stroke-width="2"/>
-<line x1="774" y1="336" x2="774" y2="388" stroke="#5c3d0c" stroke-width="2"/>
-<rect x="752" y="310" width="48" height="26" rx="6" fill="#ffffff" stroke="#5c3d0c" stroke-width="2"/>
-<text x="776" y="330" font-size="18" font-weight="bold" fill="#2b2a26" text-anchor="middle">2 g</text>
+<rect x="744" y="394" width="20" height="16" rx="3" fill="url(#mosaz03)" stroke="#5c3d0c" stroke-width="2"/>
+<rect x="749" y="388" width="10" height="7" rx="3" fill="url(#mosaz03)" stroke="#5c3d0c" stroke-width="2"/>
+<line x1="754" y1="336" x2="754" y2="388" stroke="#5c3d0c" stroke-width="2"/>
+<rect x="732" y="310" width="44" height="26" rx="6" fill="#ffffff" stroke="#5c3d0c" stroke-width="2"/>
+<text x="754" y="330" font-size="18" font-weight="bold" fill="#2b2a26" text-anchor="middle">2 g</text>
 </g>
 <path d="M624,414 C636,452 784,452 796,414 Z" fill="url(#mosazV03)" stroke="#5c3d0c" stroke-width="3"/>
 <ellipse cx="710" cy="414" rx="86" ry="10" fill="#e9c46a" stroke="#5c3d0c" stroke-width="3"/>

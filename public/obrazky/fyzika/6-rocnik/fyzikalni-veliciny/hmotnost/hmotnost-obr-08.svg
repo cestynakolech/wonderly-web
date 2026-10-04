@@ -4,18 +4,25 @@
 .voda8 { transform-box: view-box; transform-origin: 710px 470px; animation: voda8 12s infinite; }
 .proud { animation: proud 12s infinite; }
 .d300 { animation: d300 12s infinite; }
+.d550 { animation: d550 12s infinite; }
+.d800 { animation: d800 12s infinite; }
+.d1050 { animation: d1050 12s infinite; }
 .d1300 { animation: d1300 12s infinite; }
 .m2pred { animation: m2pred 12s infinite; }
 .m2po { animation: m2po 12s infinite; }
 .vysl8 { animation: vysl8 12s infinite; }
-@keyframes voda8 { 0%, 15% { transform: scaleY(0); } 45%, 92% { transform: scaleY(1); } 97%, 100% { transform: scaleY(0); } }
-@keyframes proud { 0%, 14% { opacity: 0; } 15%, 45% { opacity: 1; } 46%, 100% { opacity: 0; } }
-@keyframes d300 { 0%, 45% { opacity: 1; } 46%, 96% { opacity: 0; } 97%, 100% { opacity: 1; } }
-@keyframes d1300 { 0%, 45% { opacity: 0; } 46%, 96% { opacity: 1; } 97%, 100% { opacity: 0; } }
-@keyframes m2pred { 0%, 46% { opacity: 1; } 47%, 96% { opacity: 0; } 97%, 100% { opacity: 1; } }
-@keyframes m2po { 0%, 46% { opacity: 0; } 47%, 96% { opacity: 1; } 97%, 100% { opacity: 0; } }
-@keyframes vysl8 { 0%, 54% { opacity: 0; } 57%, 92% { opacity: 1; } 94%, 100% { opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { .voda8, .proud, .d300, .d1300, .m2pred, .m2po, .vysl8 { animation: none; } }
+/* hladina po čtvrtinách litru: displej 300 → 550 → 800 → 1 050 → 1 300 g se mění současně s hladinou */
+@keyframes voda8 { 0%, 15% { transform: scaleY(0); } 16%, 22% { transform: scaleY(0.25); } 23%, 29% { transform: scaleY(0.5); } 30%, 36% { transform: scaleY(0.75); } 37%, 96% { transform: scaleY(1); } 97%, 100% { transform: scaleY(0); } }
+@keyframes proud { 0%, 14% { opacity: 0; } 15%, 37% { opacity: 1; } 38%, 100% { opacity: 0; } }
+@keyframes d300 { 0%, 15% { opacity: 1; } 16%, 96% { opacity: 0; } 97%, 100% { opacity: 1; } }
+@keyframes d550 { 0%, 15% { opacity: 0; } 16%, 22% { opacity: 1; } 23%, 100% { opacity: 0; } }
+@keyframes d800 { 0%, 22% { opacity: 0; } 23%, 29% { opacity: 1; } 30%, 100% { opacity: 0; } }
+@keyframes d1050 { 0%, 29% { opacity: 0; } 30%, 36% { opacity: 1; } 37%, 100% { opacity: 0; } }
+@keyframes d1300 { 0%, 36% { opacity: 0; } 37%, 96% { opacity: 1; } 97%, 100% { opacity: 0; } }
+@keyframes m2pred { 0%, 37% { opacity: 1; } 38%, 96% { opacity: 0; } 97%, 100% { opacity: 1; } }
+@keyframes m2po { 0%, 37% { opacity: 0; } 38%, 96% { opacity: 1; } 97%, 100% { opacity: 0; } }
+@keyframes vysl8 { 0%, 54% { opacity: 0; } 57%, 92% { opacity: 1; } 94%, 96% { opacity: 1; } 97%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .voda8, .proud, .d300, .d550, .d800, .d1050, .d1300, .m2pred, .m2po, .vysl8 { animation: none; } }
 </style>
 <defs>
 <linearGradient id="sklo08" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d0ebff"/><stop offset="0.3" stop-color="#f1f8ff"/><stop offset="0.65" stop-color="#e7f5ff"/><stop offset="1" stop-color="#a5d8ff"/></linearGradient>
@@ -51,9 +58,17 @@
 <path d="M570,500 L850,500 L870,470 L590,470 Z" fill="url(#deska08)" stroke="#495057" stroke-width="2"/>
 <rect x="650" y="506" width="120" height="28" rx="4" fill="#d3f9d8" stroke="#212529" stroke-width="1.5"/>
 <text class="d300" x="710" y="528" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle" opacity="0">300 g</text>
+<text class="d550" x="710" y="528" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle" opacity="0">550 g</text>
+<text class="d800" x="710" y="528" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle" opacity="0">800 g</text>
+<text class="d1050" x="710" y="528" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle" opacity="0">1 050 g</text>
 <text class="d1300" x="710" y="528" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">1 300 g</text>
 <!-- proud vody -->
-<path class="proud" d="M700,150 C702,200 704,260 706,460" fill="none" stroke="#4dabf7" stroke-width="10" stroke-linecap="round" opacity="0"/>
+<g class="proud" opacity="0">
+<path d="M668,158 L732,158 L732,206 L668,206 Z" fill="#ffffff" stroke="#1864ab" stroke-width="3"/>
+<path d="M692,206 L708,206 L704,214 L696,214 Z" fill="#ffffff" stroke="#1864ab" stroke-width="3"/>
+<text x="700" y="190" font-size="22" font-weight="bold" fill="#1864ab" text-anchor="middle">1 l</text>
+</g>
+<path class="proud" d="M700,214 C702,230 704,260 706,460" fill="none" stroke="#4dabf7" stroke-width="10" stroke-linecap="round" opacity="0"/>
 <path d="M770,262 C830,252 846,300 834,340 C824,374 802,398 786,412" fill="none" stroke="#a5d8ff" stroke-width="20" stroke-linecap="round"/>
 <path d="M770,262 C830,252 846,300 834,340 C824,374 802,398 786,412" fill="none" stroke="#e7f5ff" stroke-width="7" stroke-linecap="round"/>
 <path d="M640,226 L612,214 C624,232 640,240 644,252 C630,282 594,322 594,376 C594,436 616,466 638,474 L782,474 C804,466 826,436 826,376 C826,322 790,282 776,252 C780,238 784,230 786,220 Z" fill="url(#sklo08)" stroke="#4dabf7" stroke-width="3.5" stroke-linejoin="round"/>
@@ -65,7 +80,7 @@
 </g>
 <path d="M618,330 C612,360 612,390 618,420" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" opacity="0.9"/>
 <g font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">
-<text x="710" y="110">džbán s 1 l vody</text>
+<text x="710" y="110">džbán a 1 litr vody</text>
 <text class="m2pred" x="710" y="142" fill="#1864ab" opacity="0">naléváme vodu…</text>
 <text class="m2po" x="710" y="142" fill="#1864ab">m<tspan font-size="16" dy="6">2</tspan><tspan dy="-6"> = 1 300 g</tspan></text>
 </g>

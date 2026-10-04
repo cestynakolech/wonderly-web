@@ -51,6 +51,7 @@
 <g class="talir">
 <rect x="394" y="238" width="12" height="60" fill="url(#kovT06)" stroke="#2b2a26" stroke-width="1.5"/>
 <ellipse cx="400" cy="240" rx="118" ry="16" fill="url(#kov06)" stroke="#2b2a26" stroke-width="2.5"/>
+<rect x="397" y="296" width="6" height="58" rx="2" fill="#4a4033"/>
 <g class="dopis">
 <path d="M322,240 L458,240 L482,212 L346,212 Z" fill="#ffffff" stroke="#495057" stroke-width="2.5"/>
 <path d="M322,240 L402,224 L482,212" fill="none" stroke="#adb5bd" stroke-width="2"/>
