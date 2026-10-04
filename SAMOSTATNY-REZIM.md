@@ -141,6 +141,8 @@ kontroly nespuštěno pro 7/hydrostaticky-tlak a 7/naklonena-rovina.
 
 ## ❓ Otevřené dotazy na učitele (jediná sekce, oprava V8-6, 27. 9. 2026)
 
+- **VYŘEŠENO 4. 10. 2026 (rozhodl učitel) — šest rozhodnutí:** (1) video NotebookLM Tání (dotaz 3. 10. b): vyrobit NOVÉ, kratší (3–4 min) s opravami (Cín, led plave, J/kg, sůl, délka). (2) Licence videí NotebookLM: pokračovat jako dosud (bonus, ne náhrada). (3) Nakloněná rovina a klín bez PDF předlohy: nechat. (4) Teplota Slunce 4 500 °C podle PDF; ostatní rozpory s PDF (příčné vlnění, heliograf, gymnasta) nechat. (5) Zápis do sešitu jen pár řádků (OBSAH-PRAVIDLA § zápis); pořadí 7, 8, 9 hotovo, pak 6. ročník (zápisy chybí úplně, 31 podtémat). (6) Pracovat samostatně až do hotového webu; potom KVÍZY S OBRÁZKY (nejen text), pořadí po tématech napříč 7/8/9 (téma 1 v 7., 8., 9., pak téma 2 atd.), nakonec 6. ročník.
+
 - **3. 10. 2026 (c) — U14 ochrana Školy ve vrátném má díry:** rozhodnutí a návrh viz `Omega/predavka/2026-10-03/CEKA-NA-UCITELE.md`.
 
 - **3. 10. 2026 (a) — písnička Suno „Účinky proudu“ čeká na poslech:** `Omega/predavka/2026-10-03/suno/ucinky-proudu-v1.mp3`. Poslechnout hlavně 1:01–1:08, 2:37–2:42 („puls nehledej“) a 1:21–1:25 („děleno dvěma tisíci ohmy“); pak nasadit.
@@ -348,6 +350,7 @@ Nikdy kvůli tomuto nestát — jít dál na další úkol.
 
 ## 📌 Živé zadání, fronta a reference
 
+- **FRONTA (rozhodnutí učitele 4. 10. 2026, plán do hotového webu):** (1) nové video NotebookLM Tání 3–4 min s opravami (Cín, led plave, J/kg, sůl, délka). (2) Teplota Slunce na 4 500 °C podle PDF. (3) Zápisy do sešitu (pár řádků dle OBSAH-PRAVIDLA § zápis): 7, 8, 9 dokončit, pak 6. ročník (31 podtémat, zápisy chybí). (4) Po hotovém webu KVÍZY S OBRÁZKY, po tématech napříč 7/8/9 (téma 1 v 7., 8., 9., pak téma 2 …), nakonec 6. ročník. Pracovat samostatně.
 - **DROBNOST (kontrola-6e46c77.md):** šipka 5 N v TreniSimulace na telefonu neviditelná, legenda ji slibuje.
 - **DROBNOST (kontrola-uniky-paralel-rovina.md):** paralel: 3 starší nepřímé vazby 19→13, 10→2, 9→1.
 - **DROBNOST (opravy-simulaci-kolo4.md):** SilaVektor: chybí legenda pro 3 malé popisky.
