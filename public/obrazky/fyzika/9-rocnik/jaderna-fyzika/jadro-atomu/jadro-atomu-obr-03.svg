@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 610" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Izotopy uhlíku. Jádro uhlíku 12 má 6 protonů a 6 neutronů, jádro uhlíku 14 má 6 protonů a 8 neutronů. Oba jsou uhlík, protože mají 6 protonů, liší se počtem neutronů a tím hmotností. Animace: do jádra uhlíku 14 přiletí shora dva neutrony navíc.">
 <style>
 .nv1 { animation: nv1 8s ease-in-out infinite; }
-@keyframes nv1 { 0%, 10% { transform: translate(0, -40px); opacity: 0; } 14% { opacity: 1; } 35%, 100% { transform: translate(0, 0); opacity: 1; } }
+@keyframes nv1 { 0%, 10% { stroke: #e67700; stroke-width: 4; } 35%, 100% { stroke: #212529; stroke-width: 1.5; } }
 .nv2 { animation: nv2 8s ease-in-out infinite; }
-@keyframes nv2 { 0%, 30% { transform: translate(0, -55px); opacity: 0; } 34% { opacity: 1; } 55%, 100% { transform: translate(0, 0); opacity: 1; } }
+@keyframes nv2 { 0%, 30% { stroke: #e67700; stroke-width: 4; } 55%, 100% { stroke: #212529; stroke-width: 1.5; } }
 @media (prefers-reduced-motion: reduce) { .nv1, .nv2 { animation: none; } }
 /* Předloha: PDF lekce 17, s. 7 – jádra ¹²₆C a ¹⁴₆C (oranžové protony s +, šedé neutrony) vedle zápisu značky.
    Počty a výpočty 12 − 6 = 6, 14 − 6 = 8 z výkladu (Pro zvídavé). Smyčka 8 s: do jádra uhlíku 14 přiletí

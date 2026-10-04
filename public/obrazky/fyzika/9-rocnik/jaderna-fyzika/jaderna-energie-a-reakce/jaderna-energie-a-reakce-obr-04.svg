@@ -17,7 +17,7 @@
 @keyframes z42 { 0%, 66% { opacity: 0; } 67% { opacity: 1; } 72%, 100% { opacity: 0; } }
 .s4n { animation: s4n 9s linear infinite; }
 @keyframes s4n { 0% { opacity: 1; } 1%, 100% { opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { [class^="u4"], [class^="f4"], [class^="z4"], [class^="n4"], .s4n { animation: none; } }
+@media (prefers-reduced-motion: reduce) { [class^="u4"], [class^="f4"], [class^="z4"], [class^="n4"], .s4n { animation: none !important; } }
 .n40 { animation: n40 9s linear infinite; }
 @keyframes n40 { 0%, 0% { transform: translate(-90px, 0px); opacity: 0; } 1% { opacity: 1; } 9% { transform: translate(0px, 0px); opacity: 1; } 10%, 100% { transform: translate(0px, 0px); opacity: 0; } }
 .n41 { animation: n41 9s linear infinite; }

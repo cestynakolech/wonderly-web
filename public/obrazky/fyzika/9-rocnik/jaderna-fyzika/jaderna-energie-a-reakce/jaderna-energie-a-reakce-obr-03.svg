@@ -20,7 +20,7 @@
 @keyframes c32 { 0%, 68% { opacity: .7; } 69%, 94% { opacity: 1; } 98%, 100% { opacity: .7; } }
 .s3n { animation: s3n 9s linear infinite; }
 @keyframes s3n { 0% { opacity: 1; } 1%, 100% { opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { [class^="u3"], [class^="f3"], [class^="z3"], [class^="c3"], [class^="n3"], .s3n { animation: none; } }
+@media (prefers-reduced-motion: reduce) { [class^="u3"], [class^="f3"], [class^="z3"], [class^="c3"], [class^="n3"], .s3n { animation: none !important; } }
 .n30 { animation: n30 9s linear infinite; }
 @keyframes n30 { 0%, 0% { transform: translate(-66px, 0px); opacity: 0; } 1% { opacity: 1; } 11% { transform: translate(0px, 0px); opacity: 1; } 12%, 100% { transform: translate(0px, 0px); opacity: 0; } }
 .n31 { animation: n31 9s linear infinite; }

@@ -6,8 +6,8 @@
 .a1 { animation: a1 6s linear infinite; } .a1n { animation: a1n 6s linear infinite; }
 .a1o { animation: a1o 6s linear infinite; } .a1p { animation: a1p 6s ease-out infinite; }
 @keyframes a1 { 0% { transform: translate(0px, 0px); opacity: 1; } 32% { transform: translate(158px, 0px); opacity: 1; } 34%, 100% { transform: translate(158px, 0px); opacity: 0; } }
-@keyframes a1n { 0%, 32% { opacity: 1; } 35%, 96% { opacity: 0; } 100% { opacity: 1; } }
-@keyframes a1o { 0%, 32% { opacity: 0; } 36%, 94% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@keyframes a1n { 0%, 32% { opacity: 1; } 33%, 94% { opacity: 0; } 95%, 100% { opacity: 1; } }
+@keyframes a1o { 0%, 32% { opacity: 0; } 33%, 94% { opacity: 1; } 95%, 100% { opacity: 0; } }
 .a1pl { animation: a1pl 6s linear infinite; }
 @keyframes a1pl { 0%, 58% { opacity: 0; } 63%, 94% { opacity: 1; } 98%, 100% { opacity: 0; } }
 @keyframes a1p { 0%, 34% { transform: translate(-240px, 0px); opacity: 0; } 36% { opacity: 1; } 60% { transform: translate(0px, 0px); } 94% { transform: translate(0px, 0px); opacity: 1; } 98%, 100% { transform: translate(0px, 0px); opacity: 0; } }
