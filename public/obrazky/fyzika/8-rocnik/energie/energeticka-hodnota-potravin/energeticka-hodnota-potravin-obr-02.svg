@@ -4,10 +4,11 @@
    (potrava → tělo spaluje cukry a tuky s kyslíkem → chemická energie → svaly = pohybová, mozek = elektrická).
    PDF na straně nemá obrázek, animace ilustruje text strany. Cyklus 8 s:
    0–25 % jablko a kyslík doputují k ústům a nosu; 28–38 % rozzáří se chemická energie v těle;
-   40–60 % energie běží do mozku a do svalu; 60–90 % blikají blesky u hlavy a noha se pohne; 92–100 % návrat.
+   40–60 % energie běží do mozku a do svalu; 60–90 % blikají blesky u hlavy a noha se pohne; 92–100 % návrat. Šipky a popisky vstupů mizí spolu s jablkem a kyslíkem (29–92 %).
    Bez animace (reduced-motion) = koncový stav: vše vidět, záře svítí, blesky svítí, šipky ukazují cestu. */
 .jidlo { transform-origin: 86px 262px; animation: jidlo 8s ease-in-out infinite; }
 .kys { transform-origin: 86px 112px; animation: kys 8s ease-in-out infinite; }
+.vst { animation: vst 8s ease-in-out infinite; }
 .zare { animation: zare 8s ease-in-out infinite; }
 .pu { opacity: 0; animation: pu 8s ease-in-out infinite; }
 .pd { opacity: 0; animation: pd 8s ease-in-out infinite; }
@@ -15,12 +16,13 @@
 .noha { transform-origin: 302px 400px; animation: noha 8s ease-in-out infinite; }
 @keyframes jidlo { 0%, 4% { transform: translate(0,0) scale(1); opacity: 1; } 24% { transform: translate(172px,-52px) scale(0.3); opacity: 1; } 29% { transform: translate(172px,-52px) scale(0.3); opacity: 0; } 92% { transform: translate(0,0) scale(1); opacity: 0; } 100% { transform: translate(0,0) scale(1); opacity: 1; } }
 @keyframes kys { 0%, 4% { transform: translate(0,0) scale(1); opacity: 1; } 24% { transform: translate(172px,84px) scale(0.4); opacity: 1; } 29% { transform: translate(172px,84px) scale(0.4); opacity: 0; } 92% { transform: translate(0,0) scale(1); opacity: 0; } 100% { transform: translate(0,0) scale(1); opacity: 1; } }
+@keyframes vst { 0%, 24% { opacity: 1; } 29% { opacity: 0; } 92% { opacity: 0; } 100% { opacity: 1; } }
 @keyframes zare { 0%, 27% { opacity: 0.1; } 38%, 90% { opacity: 1; } 100% { opacity: 0.1; } }
 @keyframes pu { 0%, 39% { transform: translate(0,0); opacity: 0; } 41% { opacity: 1; } 58% { transform: translate(12px,-122px); opacity: 1; } 62%, 100% { transform: translate(12px,-122px); opacity: 0; } }
 @keyframes pd { 0%, 39% { transform: translate(0,0); opacity: 0; } 41% { opacity: 1; } 58% { transform: translate(20px,92px); opacity: 1; } 62%, 100% { transform: translate(20px,92px); opacity: 0; } }
 @keyframes blesk { 0%, 59% { opacity: 0; } 60%, 66% { opacity: 1; } 67%, 70% { opacity: 0.2; } 71%, 90% { opacity: 1; } 91%, 100% { opacity: 0; } }
 @keyframes noha { 0%, 60% { transform: rotate(0deg); } 68% { transform: rotate(-14deg); } 76% { transform: rotate(0deg); } 84% { transform: rotate(-14deg); } 90%, 100% { transform: rotate(0deg); } }
-@media (prefers-reduced-motion: reduce) { .jidlo, .kys, .zare, .pu, .pd, .blesk, .noha { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .jidlo, .kys, .vst, .zare, .pu, .pd, .blesk, .noha { animation: none; } }
 </style>
 <defs>
 <radialGradient id="jab" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#ff8787"/><stop offset="1" stop-color="#c92a2a"/></radialGradient>
@@ -83,16 +85,20 @@
 <circle class="pd" cx="280" cy="340" r="10" fill="#ffd43b" stroke="#d9480f" stroke-width="3"/>
 
 <!-- ===== VSTUPY (vlevo) ===== -->
-<path d="M124,124 C180,140 220,170 258,194" fill="none" stroke="#1864ab" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#m-mod)"/>
+<g class="vst">
+<path d="M124,124 C180,140 220,170 262,198" fill="none" stroke="#1864ab" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#m-mod)"/>
 <path d="M128,258 C180,240 220,222 252,212" fill="none" stroke="#495057" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#m-sed)"/>
+</g>
 <g class="kys">
 <circle cx="72" cy="112" r="17" fill="#a5d8ff" stroke="#1864ab" stroke-width="3"/>
 <circle cx="100" cy="112" r="17" fill="#a5d8ff" stroke="#1864ab" stroke-width="3"/>
 <text x="72" y="119" font-size="19" font-weight="bold" fill="#0b3d6b" text-anchor="middle">O</text>
 <text x="100" y="119" font-size="19" font-weight="bold" fill="#0b3d6b" text-anchor="middle">O</text>
 </g>
+<g class="vst">
 <text x="86" y="162" font-size="22" font-weight="bold" fill="#1864ab" text-anchor="middle">kyslík</text>
 <text x="86" y="188" font-size="20" fill="#212529" text-anchor="middle">ze vzduchu</text>
+</g>
 <g class="jidlo">
 <g transform="translate(86,262)">
 <path d="M0,-24 C18,-40 46,-26 42,4 C40,32 18,40 0,32 C-18,40 -40,32 -42,4 C-46,-26 -18,-40 0,-24 Z" fill="url(#jab)" stroke="#8b1a1a" stroke-width="3"/>
@@ -101,8 +107,10 @@
 <ellipse cx="-18" cy="-8" rx="8" ry="12" fill="#ffffff" opacity="0.45"/>
 </g>
 </g>
+<g class="vst">
 <text x="86" y="330" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">potrava</text>
 <text x="86" y="356" font-size="20" fill="#212529" text-anchor="middle">cukry a tuky</text>
+</g>
 
 <!-- ===== VÝSTUPY (vpravo) ===== -->
 <path d="M396,166 L316,162" fill="none" stroke="#495057" stroke-width="3" marker-end="url(#m-sed)"/>

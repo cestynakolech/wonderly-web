@@ -55,8 +55,8 @@
 <text x="160" y="250">vlásky</text>
 <path d="M190 254L222 262" stroke="#495057" stroke-width="2"/>
 </g>
-<text x="270" y="448" font-size="20" font-weight="bold" fill="#a51d1d">nervový signál</text>
-<path d="M266 442L256 442" stroke="#a51d1d" stroke-width="2"/>
+<text x="272" y="430" font-size="20" font-weight="bold" fill="#a51d1d">nervový</text><text x="272" y="452" font-size="20" font-weight="bold" fill="#a51d1d">signál</text>
+<path d="M268 424L258 424" stroke="#a51d1d" stroke-width="2"/>
 
 <!-- PRAVÝ PANEL: poškozené buňky -->
 <text x="710" y="96" font-size="22" font-weight="bold" fill="#a51d1d" text-anchor="middle">Poškozené buňky</text>

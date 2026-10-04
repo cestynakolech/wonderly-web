@@ -49,7 +49,7 @@
 <path d="M126 400C146 414 184 414 204 400" fill="none" stroke="#1971c2" stroke-width="3"/>
 <g fill="url(#pena)" stroke="#c2410c" stroke-width="2.5"><rect x="96" y="380" width="34" height="26" rx="12" transform="rotate(-15 113 393)"/><rect x="200" y="380" width="34" height="26" rx="12" transform="rotate(15 217 393)"/></g>
 <g font-size="20" fill="#212529" text-anchor="middle">
-<text x="165" y="168" font-size="18">protihluková sluchátka</text>
+<text x="165" y="168" font-size="19">protihluková sluchátka</text>
 <text x="165" y="440">špunty do uší</text>
 </g>
 
@@ -81,7 +81,7 @@
 <path d="M-16 -86L-24 -54M16 -86L24 -54" stroke="#f4b98f" stroke-width="8" stroke-linecap="round"/>
 </g>
 <path d="M352 418H576" stroke="#212529" stroke-width="2.5" marker-start="url(#dv)" marker-end="url(#dv)"/>
-<text x="464" y="442" font-size="18" fill="#212529" text-anchor="middle">daleko od zdroje hluku</text>
+<text x="464" y="442" font-size="19" fill="#212529" text-anchor="middle">daleko od zdroje hluku</text>
 
 <!-- PANEL 3: omezení hluku -->
 <rect x="650" y="80" width="290" height="370" rx="12" fill="#fff" stroke="#ced4da" stroke-width="2"/>
@@ -104,7 +104,7 @@
 <path d="M866 366V306H930V366Z" fill="#fff3bf" stroke="#495057" stroke-width="2.5"/>
 <path d="M858 308L898 274L938 308Z" fill="#c92a2a" stroke="#495057" stroke-width="2.5"/>
 <rect x="878" y="322" width="18" height="18" fill="#a5d8ff" stroke="#495057" stroke-width="2"/>
-<g font-size="18" fill="#212529" text-anchor="middle">
+<g font-size="19" fill="#212529" text-anchor="middle">
 <text x="830" y="160">protihluková</text>
 <text x="830" y="182">stěna</text>
 <text x="728" y="442">tlumič výfuku</text>

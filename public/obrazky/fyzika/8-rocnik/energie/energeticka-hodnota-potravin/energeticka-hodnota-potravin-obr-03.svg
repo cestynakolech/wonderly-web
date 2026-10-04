@@ -1,23 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 620" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace laboratorního pokusu: kousek potraviny napíchnutý na jehle v korkovém stojánku hoří. Nad plamenem je ve stojanu upevněná zkumavka s vodou a teploměrem. Od plamene stoupají vlnky tepla ke zkumavce, voda se ohřívá a červený sloupec teploměru stoupá. Dole věta: Teplo uvolněné při hoření udává energetickou hodnotu potraviny.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 620" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: kousek potraviny napíchnutý na jehle v korkovém stojánku hoří. Od plamene stoupají vlnky tepla nahoru. Dole věta: Teplo uvolněné při hoření udává energetickou hodnotu potraviny.">
 <style>
 /* Předloha: PDF „Energetická hodnota potravin“ (8/2 Energie/6), s. 1, oddíl „Jak se určuje energetická hodnota potravin?“
    (spálením potraviny v laboratoři zjistíme množství tepla, které při hoření uvolní; to teplo udává energetickou hodnotu).
-   PDF na straně nemá obrázek, animace ilustruje text strany. Teploměr je bez čísel (PDF ani výklad teploty neuvádí).
-   Cyklus 6 s: plamen stále plápolá; vlnky tepla stoupají; 0–80 % sloupec teploměru stoupá a voda se barví do teplejšího odstínu;
-   80–96 % drží; 96–100 % návrat. Bez animace (reduced-motion) = koncový stav: sloupec nahoře, voda teplá, vlnky vidět. */
-.plamen { transform-origin: 300px 398px; animation: plamen 0.6s ease-in-out infinite alternate; }
-.vlna { animation: vlna 1.5s linear infinite; }
-.vlna2 { animation-delay: 0.75s; }
-.sloupec { transform-origin: 300px 300px; animation: sloupec 6s ease-in-out infinite; }
-.teplo-voda { animation: voda 6s ease-in-out infinite; }
-@keyframes plamen { from { transform: scale(0.9, 0.86); } to { transform: scale(1.06, 1.1); } }
-@keyframes vlna { 0% { transform: translateY(14px); opacity: 0; } 30% { opacity: 1; } 100% { transform: translateY(-16px); opacity: 0; } }
-@keyframes sloupec { 0% { transform: scaleY(0.25); } 80%, 96% { transform: scaleY(1); } 100% { transform: scaleY(0.25); } }
-@keyframes voda { 0% { opacity: 0; } 80%, 96% { opacity: 1; } 100% { opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { .plamen, .vlna, .sloupec, .teplo-voda { animation: none; } }
+   PDF na straně nemá obrázek, animace ilustruje jen text strany: hoří potravina a uvolňuje teplo.
+   Žádná zkumavka, voda ani teploměr (v PDF ani ve výkladu nejsou). Plamen plápolá, tři vlnky tepla stoupají.
+   Bez animace (reduced-motion) = vlnky vidět, plamen v klidu. */
+.plamen { transform-origin: 300px 327px; animation: plamen 0.6s ease-in-out infinite alternate; }
+.vlna { animation: vlna 1.8s linear infinite; }
+.vlna2 { animation-delay: 0.6s; }
+.vlna3 { animation-delay: 1.2s; }
+@keyframes plamen { from { transform: scale(0.92, 0.88); } to { transform: scale(1.06, 1.1); } }
+@keyframes vlna { 0% { transform: translateY(24px); opacity: 0; } 30% { opacity: 1; } 100% { transform: translateY(-30px); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .plamen, .vlna { animation: none; } }
 </style>
 <defs>
-<linearGradient id="tyc" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#868e96"/><stop offset="0.5" stop-color="#dee2e6"/><stop offset="1" stop-color="#868e96"/></linearGradient>
 <linearGradient id="zak" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#868e96"/><stop offset="1" stop-color="#495057"/></linearGradient>
 <linearGradient id="kor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e3b27a"/><stop offset="1" stop-color="#b07a43"/></linearGradient>
 <radialGradient id="pla" cx="50%" cy="75%" r="70%"><stop offset="0" stop-color="#fff3bf"/><stop offset="0.45" stop-color="#ffd43b"/><stop offset="1" stop-color="#fd7e14"/></radialGradient>
@@ -27,59 +23,38 @@
 <rect x="3" y="3" width="714" height="614" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
 <text x="360" y="44" font-size="28" font-weight="bold" fill="#212529" text-anchor="middle">Spálením potraviny zjistíme teplo</text>
 
-<!-- stojan -->
-<rect x="100" y="500" width="290" height="20" rx="5" fill="url(#zak)"/>
-<rect x="146" y="96" width="12" height="406" rx="4" fill="url(#tyc)" stroke="#868e96" stroke-width="1"/>
-<rect x="152" y="186" width="122" height="12" rx="4" fill="url(#tyc)" stroke="#868e96" stroke-width="1"/>
-<rect x="138" y="180" width="28" height="24" rx="4" fill="#495057"/>
-
-<!-- zkumavka s vodou -->
-<path d="M277,192 L277,305 A23,23 0 0 0 323,305 L323,192 Z" fill="#74c0fc" opacity="0.75"/>
-<path class="teplo-voda" d="M277,192 L277,305 A23,23 0 0 0 323,305 L323,192 Z" fill="#ff8787" opacity="1"/>
-<path d="M275,130 L275,305 A25,25 0 0 0 325,305 L325,130" fill="#e7f5ff" fill-opacity="0.25" stroke="#4dabf7" stroke-width="3"/>
-<ellipse cx="300" cy="130" rx="25" ry="5" fill="none" stroke="#4dabf7" stroke-width="3"/>
-<path d="M284,140 L284,300" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
-<!-- čelisti držáku -->
-<rect x="262" y="180" width="14" height="26" rx="3" fill="#495057"/>
-<rect x="324" y="180" width="14" height="26" rx="3" fill="#495057"/>
-
-<!-- teploměr -->
-<rect x="292" y="80" width="16" height="230" rx="8" fill="#ffffff" stroke="#495057" stroke-width="2"/>
-<path d="M309,110 h-6 M309,140 h-6 M309,170 h-6 M309,200 h-6 M309,230 h-6 M309,260 h-6" stroke="#495057" stroke-width="2"/>
-<rect class="sloupec" x="297" y="110" width="6" height="190" fill="#e03131"/>
-<circle cx="300" cy="306" r="11" fill="#e03131" stroke="#a61e1e" stroke-width="2"/>
+<!-- podložka -->
+<rect x="170" y="498" width="260" height="18" rx="5" fill="url(#zak)"/>
 
 <!-- vlnky tepla -->
-<g fill="none" stroke="#e8590c" stroke-width="4" stroke-linecap="round">
-<path class="vlna" d="M262,382 q-8,-10 0,-20 q8,-10 0,-20"/>
-<path class="vlna vlna2" d="M338,382 q-8,-10 0,-20 q8,-10 0,-20"/>
+<g fill="none" stroke="#e8590c" stroke-width="5" stroke-linecap="round">
+<path class="vlna" d="M232,180 q-10,-14 0,-28 q10,-14 0,-28"/>
+<path class="vlna vlna2" d="M300,150 q-10,-14 0,-28 q10,-14 0,-28"/>
+<path class="vlna vlna3" d="M368,180 q-10,-14 0,-28 q10,-14 0,-28"/>
 </g>
 
 <!-- plamen -->
 <g class="plamen">
+<g transform="translate(300 327) scale(1.7) translate(-300 -398)">
 <path d="M300,398 C276,396 270,374 282,356 C288,346 290,336 292,322 C300,334 316,346 318,366 C320,384 314,398 300,398 Z" fill="url(#pla)" stroke="#e8590c" stroke-width="2"/>
 <path d="M300,396 C290,394 288,382 294,372 C298,366 300,358 301,350 C306,360 312,368 310,380 C308,390 306,396 300,396 Z" fill="#fff9db"/>
 </g>
+</g>
 <!-- kousek potraviny na jehle -->
+<g transform="translate(300 327) scale(1.7) translate(-300 -398)">
 <path d="M300,404 L300,472" stroke="#495057" stroke-width="3"/>
 <path d="M280,402 C278,388 292,382 302,384 C316,386 324,396 318,408 C312,418 286,418 280,402 Z" fill="url(#kus)" stroke="#4a2a10" stroke-width="2"/>
 <path d="M290,398 q8,-6 18,-2" fill="none" stroke="#e9c79f" stroke-width="2" opacity="0.8"/>
-<!-- korkový stojánek -->
 <path d="M276,472 L324,472 L330,500 L270,500 Z" fill="url(#kor)" stroke="#8a5a2b" stroke-width="2"/>
 <ellipse cx="300" cy="472" rx="24" ry="5" fill="#e3b27a" stroke="#8a5a2b" stroke-width="2"/>
+</g>
 
 <!-- popisky -->
-<path d="M410,98 L316,98" fill="none" stroke="#495057" stroke-width="3" marker-end="url(#m-sed)"/>
-<text x="420" y="106" font-size="24" font-weight="bold" fill="#212529">teploměr</text>
-<path d="M410,256 L330,256" fill="none" stroke="#495057" stroke-width="3" marker-end="url(#m-sed)"/>
-<text x="420" y="250" font-size="24" font-weight="bold" fill="#1864ab">voda</text>
-<text x="420" y="278" font-size="22" fill="#212529">se ohřívá</text>
-<path d="M410,358 L348,360" fill="none" stroke="#495057" stroke-width="3" marker-end="url(#m-sed)"/>
-<text x="420" y="366" font-size="24" font-weight="bold" fill="#c2410c">teplo</text>
-<path d="M410,430 L322,410" fill="none" stroke="#495057" stroke-width="3" marker-end="url(#m-sed)"/>
-<text x="420" y="428" font-size="24" font-weight="bold" fill="#212529">hořící kousek</text>
-<text x="420" y="456" font-size="22" fill="#212529">potraviny</text>
-<text x="96" y="80" font-size="20" fill="#212529">stojan</text>
+<path d="M470,160 L390,160" fill="none" stroke="#495057" stroke-width="3" marker-end="url(#m-sed)"/>
+<text x="480" y="168" font-size="26" font-weight="bold" fill="#c2410c">teplo</text>
+<path d="M470,330 L348,332" fill="none" stroke="#495057" stroke-width="3" marker-end="url(#m-sed)"/>
+<text x="480" y="328" font-size="24" font-weight="bold" fill="#212529">hořící kousek</text>
+<text x="480" y="356" font-size="22" fill="#212529">potraviny</text>
 
 <!-- shrnutí -->
 <rect x="30" y="540" width="660" height="66" rx="14" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/>

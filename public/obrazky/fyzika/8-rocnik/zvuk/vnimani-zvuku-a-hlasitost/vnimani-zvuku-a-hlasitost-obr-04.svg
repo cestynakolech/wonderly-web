@@ -59,12 +59,12 @@
 <g class="vel"><ellipse cx="0" cy="0" rx="8" ry="32" fill="url(#blana)" stroke="#343a40" stroke-width="3"/></g>
 <path d="M-30 44H30" stroke="#495057" stroke-width="2.5" marker-start="url(#dv)" marker-end="url(#dv)"/>
 </g>
-<text x="875" y="222" font-size="18" fill="#212529" text-anchor="middle">největší výchylka</text>
-<text x="875" y="244" font-size="18" fill="#212529" text-anchor="middle">bubínku</text>
+<text x="872" y="222" font-size="19" fill="#212529" text-anchor="middle">největší výchylka</text>
+<text x="872" y="244" font-size="19" fill="#212529" text-anchor="middle">bubínku</text>
 <g transform="translate(875 540)">
 <g class="mal"><ellipse cx="0" cy="0" rx="8" ry="32" fill="url(#blana)" stroke="#343a40" stroke-width="3"/></g>
 <path d="M-8 44H8" stroke="#495057" stroke-width="2.5" marker-start="url(#dv)" marker-end="url(#dv)"/>
 </g>
-<text x="875" y="610" font-size="18" fill="#212529" text-anchor="middle">nejmenší výchylka</text>
-<text x="875" y="632" font-size="18" fill="#212529" text-anchor="middle">bubínku</text>
+<text x="872" y="610" font-size="19" fill="#212529" text-anchor="middle">nejmenší výchylka</text>
+<text x="872" y="632" font-size="19" fill="#212529" text-anchor="middle">bubínku</text>
 </svg>

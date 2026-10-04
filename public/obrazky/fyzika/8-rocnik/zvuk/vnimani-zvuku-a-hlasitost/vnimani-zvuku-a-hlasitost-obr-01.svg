@@ -115,7 +115,7 @@
 </g>
 
 <!-- pás: čím kmity procházejí -->
-<text x="40" y="616" font-size="20" font-weight="bold" fill="#212529">Kmity postupně procházejí:</text>
+<text x="40" y="616" font-size="20" font-weight="bold" fill="#212529">Zvuk postupně prochází:</text>
 <g font-size="20" font-weight="bold" text-anchor="middle">
 <rect x="40" y="630" width="430" height="52" rx="10" fill="#d0ebff" stroke="#1864ab" stroke-width="2"/>
 <text x="255" y="663" fill="#1864ab">vzduch</text>
