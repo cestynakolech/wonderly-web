@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 660" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Vážení kapaliny. Vlevo prázdný džbán na digitální váze, displej ukazuje 300 g, to je m1. Vpravo stejný džbán na druhé váze, nalije se do něj 1 litr vody a displej se změní z 300 g na 1 300 g, to je m2. Dole bublina: hmotnost vody m = m2 − m1 = 1 300 g − 300 g = 1 000 g = 1 kg.">
+<style>
+/* Nalévání vody (12 s, smyčka). Bez animace (prefers-reduced-motion) zůstává koncový stav z atributů: plný džbán, m2 = 1 300 g, výsledek 1 000 g. */
+.voda8 { transform-box: view-box; transform-origin: 710px 470px; animation: voda8 12s infinite; }
+.proud { animation: proud 12s infinite; }
+.d300 { animation: d300 12s infinite; }
+.d1300 { animation: d1300 12s infinite; }
+.m2pred { animation: m2pred 12s infinite; }
+.m2po { animation: m2po 12s infinite; }
+.vysl8 { animation: vysl8 12s infinite; }
+@keyframes voda8 { 0%, 15% { transform: scaleY(0); } 45%, 92% { transform: scaleY(1); } 97%, 100% { transform: scaleY(0); } }
+@keyframes proud { 0%, 14% { opacity: 0; } 15%, 45% { opacity: 1; } 46%, 100% { opacity: 0; } }
+@keyframes d300 { 0%, 45% { opacity: 1; } 46%, 96% { opacity: 0; } 97%, 100% { opacity: 1; } }
+@keyframes d1300 { 0%, 45% { opacity: 0; } 46%, 96% { opacity: 1; } 97%, 100% { opacity: 0; } }
+@keyframes m2pred { 0%, 46% { opacity: 1; } 47%, 96% { opacity: 0; } 97%, 100% { opacity: 1; } }
+@keyframes m2po { 0%, 46% { opacity: 0; } 47%, 96% { opacity: 1; } 97%, 100% { opacity: 0; } }
+@keyframes vysl8 { 0%, 54% { opacity: 0; } 57%, 92% { opacity: 1; } 94%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .voda8, .proud, .d300, .d1300, .m2pred, .m2po, .vysl8 { animation: none; } }
+</style>
+<defs>
+<linearGradient id="sklo08" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d0ebff"/><stop offset="0.3" stop-color="#f1f8ff"/><stop offset="0.65" stop-color="#e7f5ff"/><stop offset="1" stop-color="#a5d8ff"/></linearGradient>
+<linearGradient id="voda08" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4dabf7"/><stop offset="0.35" stop-color="#74c0fc"/><stop offset="0.75" stop-color="#4dabf7"/><stop offset="1" stop-color="#1c7ed6"/></linearGradient>
+<linearGradient id="telo08" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#495057"/><stop offset="1" stop-color="#212529"/></linearGradient>
+<linearGradient id="deska08" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f1f3f5"/><stop offset="1" stop-color="#adb5bd"/></linearGradient>
+<clipPath id="vnitrek08"><path d="M644,252 C632,282 602,322 602,376 C602,432 622,460 642,466 L778,466 C798,460 818,432 818,376 C818,322 788,282 776,252 Z"/></clipPath>
+</defs>
+<rect x="3" y="3" width="954" height="654" rx="14" fill="#f8f9fa"/>
+<rect x="90" y="10" width="780" height="48" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="480" y="43" font-size="28" fill="#212529" text-anchor="middle">Jak zvážit kapalinu: nádobu zvážíme prázdnou i plnou</text>
+<!-- stůl -->
+<rect x="30" y="540" width="900" height="14" rx="6" fill="#ced4da"/>
+
+<!-- ===== LEVÁ VÁHA: prázdný džbán ===== -->
+<path d="M110,500 L390,500 L390,532 C390,537 386,540 381,540 L119,540 C114,540 110,537 110,532 Z" fill="url(#telo08)"/>
+<path d="M110,500 L390,500 L410,470 L130,470 Z" fill="url(#deska08)" stroke="#495057" stroke-width="2"/>
+<rect x="196" y="506" width="108" height="28" rx="4" fill="#d3f9d8" stroke="#212529" stroke-width="1.5"/>
+<text x="250" y="528" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">300 g</text>
+<g transform="translate(-460,0)">
+<path d="M770,262 C830,252 846,300 834,340 C824,374 802,398 786,412" fill="none" stroke="#a5d8ff" stroke-width="20" stroke-linecap="round"/>
+<path d="M770,262 C830,252 846,300 834,340 C824,374 802,398 786,412" fill="none" stroke="#e7f5ff" stroke-width="7" stroke-linecap="round"/>
+<path d="M640,226 L612,214 C624,232 640,240 644,252 C630,282 594,322 594,376 C594,436 616,466 638,474 L782,474 C804,466 826,436 826,376 C826,322 790,282 776,252 C780,238 784,230 786,220 Z" fill="url(#sklo08)" stroke="#4dabf7" stroke-width="3.5" stroke-linejoin="round"/>
+<path d="M618,330 C612,360 612,390 618,420" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" opacity="0.9"/>
+</g>
+<g font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">
+<text x="250" y="110">prázdný džbán</text>
+<text x="250" y="142" fill="#1864ab">m<tspan font-size="16" dy="6">1</tspan><tspan dy="-6"> = 300 g</tspan></text>
+</g>
+
+<!-- ===== PRAVÁ VÁHA: džbán s vodou ===== -->
+<path d="M570,500 L850,500 L850,532 C850,537 846,540 841,540 L579,540 C574,540 570,537 570,532 Z" fill="url(#telo08)"/>
+<path d="M570,500 L850,500 L870,470 L590,470 Z" fill="url(#deska08)" stroke="#495057" stroke-width="2"/>
+<rect x="650" y="506" width="120" height="28" rx="4" fill="#d3f9d8" stroke="#212529" stroke-width="1.5"/>
+<text class="d300" x="710" y="528" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle" opacity="0">300 g</text>
+<text class="d1300" x="710" y="528" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">1 300 g</text>
+<!-- proud vody -->
+<path class="proud" d="M700,150 C702,200 704,260 706,460" fill="none" stroke="#4dabf7" stroke-width="10" stroke-linecap="round" opacity="0"/>
+<path d="M770,262 C830,252 846,300 834,340 C824,374 802,398 786,412" fill="none" stroke="#a5d8ff" stroke-width="20" stroke-linecap="round"/>
+<path d="M770,262 C830,252 846,300 834,340 C824,374 802,398 786,412" fill="none" stroke="#e7f5ff" stroke-width="7" stroke-linecap="round"/>
+<path d="M640,226 L612,214 C624,232 640,240 644,252 C630,282 594,322 594,376 C594,436 616,466 638,474 L782,474 C804,466 826,436 826,376 C826,322 790,282 776,252 C780,238 784,230 786,220 Z" fill="url(#sklo08)" stroke="#4dabf7" stroke-width="3.5" stroke-linejoin="round"/>
+<g clip-path="url(#vnitrek08)">
+<g class="voda8">
+<rect x="590" y="320" width="240" height="160" fill="url(#voda08)"/>
+<ellipse cx="710" cy="320" rx="110" ry="9" fill="#a5d8ff" stroke="#339af0" stroke-width="2"/>
+</g>
+</g>
+<path d="M618,330 C612,360 612,390 618,420" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" opacity="0.9"/>
+<g font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">
+<text x="710" y="110">džbán s 1 l vody</text>
+<text class="m2pred" x="710" y="142" fill="#1864ab" opacity="0">naléváme vodu…</text>
+<text class="m2po" x="710" y="142" fill="#1864ab">m<tspan font-size="16" dy="6">2</tspan><tspan dy="-6"> = 1 300 g</tspan></text>
+</g>
+
+<!-- výsledek v bublině jako v předloze -->
+<g class="vysl8">
+<path d="M220,568 L740,568 C752,568 760,576 760,588 L760,630 C760,642 752,650 740,650 L220,650 C208,650 200,642 200,630 L200,588 C200,576 208,568 220,568 Z" fill="#ffffff" stroke="#2b2a26" stroke-width="2.5"/>
+<text x="480" y="600" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">Hmotnost vody: m = m<tspan font-size="16" dy="6">2</tspan><tspan dy="-6"> − m</tspan><tspan font-size="16" dy="6">1</tspan></text>
+<text x="480" y="636" font-size="22" font-weight="bold" fill="#c92a2a" text-anchor="middle">m = 1 300 g − 300 g = 1 000 g = 1 kg</text>
+</g>
+</svg>

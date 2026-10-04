@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 560" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Převody jednotek hmotnosti. V řadě jsou jednotky t, q, kg, dag, g, mg. Mezi nimi jsou obloučky, každý oblouček znamená jednu nulu: mezi t a q jeden, mezi q a kg dva, mezi kg a dag dva, mezi dag a g jeden, mezi g a mg tři. Na menší jednotku násobíme a nuly přidáváme, na větší jednotku dělíme a nuly škrtáme. Dole příklady: 1 t = 1 000 kg, 1 q = 100 kg, 1 kg = 1 000 g, 1 dag = 10 g, 1 g = 1 000 mg.">
+<defs>
+<marker id="sip02m" markerUnits="userSpaceOnUse" markerWidth="22" markerHeight="22" refX="20" refY="11" orient="auto"><path d="M0,0 L22,11 L0,22 z" fill="#1864ab"/></marker>
+<marker id="sip02c" markerUnits="userSpaceOnUse" markerWidth="22" markerHeight="22" refX="20" refY="11" orient="auto"><path d="M0,0 L22,11 L0,22 z" fill="#c92a2a"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="554" rx="14" fill="#f8f9fa"/>
+<rect x="270" y="10" width="420" height="50" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="480" y="44" font-size="28" fill="#212529" text-anchor="middle">Převody jednotek hmotnosti</text>
+<!-- horní šipka: na menší jednotku -->
+<line x1="60" y1="92" x2="900" y2="92" stroke="#1864ab" stroke-width="4" marker-end="url(#sip02m)"/>
+<rect x="196" y="72" width="568" height="38" rx="10" fill="#e7f5ff"/>
+<text x="480" y="99" font-size="22" font-weight="bold" fill="#1864ab" text-anchor="middle">na menší jednotku: násobíme, nuly přidáváme</text>
+<!-- násobky nad mezerami -->
+<g font-size="22" font-weight="bold" fill="#1864ab" text-anchor="middle">
+<text x="128" y="160">· 10</text>
+<text x="275" y="160">· 100</text>
+<text x="451" y="160">· 100</text>
+<text x="598" y="160">· 10</text>
+<text x="774" y="160">· 1 000</text>
+</g>
+<!-- jednotky -->
+<g font-size="40" font-weight="bold" fill="#2b2a26" text-anchor="middle">
+<text x="69" y="228">t</text>
+<text x="187" y="228">q</text>
+<text x="363" y="228">kg</text>
+<text x="539" y="228">dag</text>
+<text x="657" y="228">g</text>
+<text x="891" y="228">mg</text>
+</g>
+<!-- obloučky: 1 oblouček = 1 nula -->
+<g fill="none" stroke="#c92a2a" stroke-width="5" stroke-linecap="round">
+<path d="M101,236 q28,34 56,0"/>
+<path d="M219,236 q28,34 56,0"/><path d="M277,236 q28,34 56,0"/>
+<path d="M395,236 q28,34 56,0"/><path d="M453,236 q28,34 56,0"/>
+<path d="M571,236 q28,34 56,0"/>
+<path d="M689,236 q28,34 56,0"/><path d="M747,236 q28,34 56,0"/><path d="M805,236 q28,34 56,0"/>
+</g>
+<!-- počty obloučků = počty nul -->
+<g font-size="18" fill="#2b2a26" text-anchor="middle">
+<text x="128" y="296">1 nula</text>
+<text x="275" y="296">2 nuly</text>
+<text x="451" y="296">2 nuly</text>
+<text x="598" y="296">1 nula</text>
+<text x="774" y="296">3 nuly</text>
+</g>
+<!-- dolní šipka: na větší jednotku -->
+<line x1="900" y1="332" x2="60" y2="332" stroke="#c92a2a" stroke-width="4" marker-end="url(#sip02c)"/>
+<rect x="216" y="312" width="528" height="38" rx="10" fill="#fff5f5"/>
+<text x="480" y="339" font-size="22" font-weight="bold" fill="#c92a2a" text-anchor="middle">na větší jednotku: dělíme, nuly škrtáme</text>
+<!-- plaketky s příklady -->
+<g font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">
+<rect x="40" y="380" width="276" height="48" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/>
+<text x="178" y="412">1 t = 1 000 kg</text>
+<rect x="342" y="380" width="276" height="48" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/>
+<text x="480" y="412">1 q = 100 kg</text>
+<rect x="644" y="380" width="276" height="48" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/>
+<text x="782" y="412">1 kg = 1 000 g</text>
+<rect x="40" y="444" width="276" height="48" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/>
+<text x="178" y="476">1 dag = 10 g</text>
+<rect x="342" y="444" width="276" height="48" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/>
+<text x="480" y="476">1 g = 1 000 mg</text>
+<rect x="644" y="444" width="276" height="48" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/>
+<text x="782" y="476">10 dag = 100 g</text>
+</g>
+<text x="480" y="530" font-size="20" fill="#2b2a26" text-anchor="middle">q = metrický cent („metrák“) · dag = dekagram („deka“) · pozor, q a g se liší!</text>
+</svg>

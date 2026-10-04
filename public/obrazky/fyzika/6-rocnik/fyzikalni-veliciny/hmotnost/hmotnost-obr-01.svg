@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 620" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Skleněný džbán naplněný jedním litrem vody. Na džbánu je cedulka: 1 litr vody má hmotnost 1 kg. Pod tím upozornění: pro jinou kapalinu to neplatí.">
+<defs>
+<linearGradient id="sklo01" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d0ebff"/><stop offset="0.25" stop-color="#f1f8ff"/><stop offset="0.6" stop-color="#e7f5ff"/><stop offset="1" stop-color="#a5d8ff"/></linearGradient>
+<linearGradient id="voda01" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4dabf7"/><stop offset="0.35" stop-color="#74c0fc"/><stop offset="0.75" stop-color="#4dabf7"/><stop offset="1" stop-color="#1c7ed6"/></linearGradient>
+<linearGradient id="hladina01" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a5d8ff"/><stop offset="1" stop-color="#74c0fc"/></linearGradient>
+<clipPath id="vnitrek01"><path d="M365,160 C352,200 318,250 318,330 C318,430 350,500 380,520 L580,520 C610,500 642,430 642,330 C642,250 608,200 595,160 Z"/></clipPath>
+<radialGradient id="stin01" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#868e96" stop-opacity="0.45"/><stop offset="1" stop-color="#868e96" stop-opacity="0"/></radialGradient>
+</defs>
+<rect x="3" y="3" width="954" height="614" rx="14" fill="#f8f9fa"/>
+<rect x="220" y="12" width="520" height="50" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="480" y="46" font-size="28" fill="#212529" text-anchor="middle">Podle čeho byl stanoven 1 kilogram</text>
+<!-- stůl a stín -->
+<rect x="60" y="540" width="840" height="14" rx="7" fill="#c8a27a"/>
+<rect x="60" y="552" width="840" height="10" rx="5" fill="#a47a52"/>
+<ellipse cx="480" cy="532" rx="190" ry="16" fill="url(#stin01)"/>
+<!-- ucho džbánu -->
+<path d="M612,190 C700,170 730,230 712,300 C698,360 660,400 628,430" fill="none" stroke="#a5d8ff" stroke-width="30" stroke-linecap="round"/>
+<path d="M612,190 C700,170 730,230 712,300 C698,360 660,400 628,430" fill="none" stroke="#e7f5ff" stroke-width="12" stroke-linecap="round"/>
+<path d="M612,190 C700,170 730,230 712,300 C698,360 660,400 628,430" fill="none" stroke="#74c0fc" stroke-width="2" stroke-linecap="round" transform="translate(7,4)"/>
+<!-- tělo džbánu (sklo) -->
+<path d="M350,110 L300,92 C318,120 352,136 358,160 C344,200 306,250 306,330 C306,440 342,512 372,532 L588,532 C618,512 654,440 654,330 C654,250 616,200 602,160 C610,130 620,118 622,104 Z" fill="url(#sklo01)" stroke="#4dabf7" stroke-width="4" stroke-linejoin="round"/>
+<!-- voda: přesně 1 litr -->
+<g clip-path="url(#vnitrek01)">
+<rect x="300" y="250" width="360" height="290" fill="url(#voda01)"/>
+<ellipse cx="480" cy="252" rx="170" ry="14" fill="url(#hladina01)" stroke="#339af0" stroke-width="2"/>
+<path d="M340,300 C336,360 344,430 368,486" fill="none" stroke="#e7f5ff" stroke-width="10" stroke-linecap="round" opacity="0.7"/>
+</g>
+<!-- odlesky skla -->
+<path d="M332,250 C326,290 326,320 330,350" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" opacity="0.9"/>
+<path d="M376,140 C370,150 366,160 368,168" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" opacity="0.9"/>
+<!-- okraj hrdla -->
+<path d="M300,92 C340,104 380,108 430,108 C500,108 580,104 622,104" fill="none" stroke="#339af0" stroke-width="5" stroke-linecap="round"/>
+<!-- cedulka jako v předloze -->
+<rect x="356" y="340" width="248" height="74" rx="6" fill="#ffffff" stroke="#f76707" stroke-width="7"/>
+<text x="480" y="372" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">1 litr vody má</text>
+<text x="480" y="400" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">hmotnost 1 kg</text>
+<!-- popisky vedle -->
+<g font-size="22" fill="#2b2a26">
+<line x1="250" y1="262" x2="318" y2="262" stroke="#1864ab" stroke-width="3" stroke-dasharray="7 5"/>
+<text x="240" y="256" text-anchor="end" font-weight="bold" fill="#1864ab">voda: 1 l</text>
+<text x="240" y="284" text-anchor="end">hladina</text>
+</g>
+<rect x="250" y="568" width="460" height="40" rx="10" fill="#fff4e6" stroke="#c92a2a" stroke-width="2"/>
+<text x="480" y="596" font-size="22" font-weight="bold" fill="#c92a2a" text-anchor="middle">Pozor: pro jinou kapalinu to neplatí!</text>
+</svg>

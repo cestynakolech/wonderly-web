@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 660" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Nerovnoramenné váhy. Vlevo přezmen u lékaře: žák stojí na plošině, po rameni se stupnicí 0 až 120 kg se posouvá malé závaží. Konec ramene je nejdřív nahoře, když závaží dojede ke 40 kg, rameno se srovná: rovnováha, m = 40 kg. Vpravo zelená dřevěná decimálka: na velké plošině leží pytel brambor, na malé misce na konci ramene závaží 5 kg. Těleso má 10krát větší hmotnost než závaží: 5 kg krát 10 = 50 kg.">
+<style>
+/* Přezmen (10 s, smyčka). Bez animace (prefers-reduced-motion) zůstává koncový stav z atributů: závaží na 40 kg, rameno vodorovně. */
+.rameno { transform-box: view-box; transform-origin: 112px 196px; animation: rameno 10s infinite; }
+.jezdec { animation: jezdec 10s infinite; }
+.vysl4 { animation: vysl4 10s infinite; }
+@keyframes rameno { 0%, 42% { transform: rotate(-5deg); } 50%, 90% { transform: rotate(0deg); } 96%, 100% { transform: rotate(-5deg); } }
+@keyframes jezdec { 0%, 8% { transform: translateX(-80px); } 46%, 90% { transform: translateX(0px); } 96%, 100% { transform: translateX(-80px); } }
+@keyframes vysl4 { 0%, 50% { opacity: 0; } 53%, 90% { opacity: 1; } 92%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .rameno, .jezdec, .vysl4 { animation: none; } }
+</style>
+<defs>
+<linearGradient id="kov04" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1f3f5"/><stop offset="0.5" stop-color="#ced4da"/><stop offset="1" stop-color="#868e96"/></linearGradient>
+<linearGradient id="kovH04" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#adb5bd"/><stop offset="0.45" stop-color="#f8f9fa"/><stop offset="1" stop-color="#868e96"/></linearGradient>
+<linearGradient id="zel04" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5c940d"/><stop offset="0.5" stop-color="#2b8a3e"/><stop offset="1" stop-color="#1b5e2a"/></linearGradient>
+<linearGradient id="pytel04" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#a47a52"/><stop offset="0.45" stop-color="#e3c9a0"/><stop offset="1" stop-color="#8a6240"/></linearGradient>
+<pattern id="juta04" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M0,4 L8,4 M4,0 L4,8" stroke="#8a6240" stroke-width="1" opacity="0.35"/></pattern>
+</defs>
+<rect x="3" y="3" width="954" height="654" rx="14" fill="#f8f9fa"/>
+<rect x="135" y="10" width="690" height="48" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="480" y="43" font-size="28" fill="#212529" text-anchor="middle">Nerovnoramenné váhy: poměr určují délky ramen</text>
+<line x1="480" y1="70" x2="480" y2="640" stroke="#adb5bd" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="245" y="86" font-size="24" font-weight="bold" fill="#1864ab" text-anchor="middle">přezmen u lékaře</text>
+<text x="715" y="86" font-size="24" font-weight="bold" fill="#1864ab" text-anchor="middle">decimálka</text>
+
+<!-- ===== PŘEZMEN ===== -->
+<!-- plošina a sloup -->
+<rect x="70" y="566" width="300" height="26" rx="6" fill="url(#kov04)" stroke="#495057" stroke-width="2"/>
+<rect x="84" y="592" width="272" height="10" rx="3" fill="#495057"/>
+<rect x="100" y="200" width="24" height="368" rx="4" fill="url(#kovH04)" stroke="#495057" stroke-width="2"/>
+<!-- okénko na konci ramene se značkou rovnováhy -->
+<rect x="402" y="160" width="34" height="72" rx="5" fill="#ffffff" stroke="#495057" stroke-width="3"/>
+<line x1="398" y1="196" x2="440" y2="196" stroke="#c92a2a" stroke-width="3"/>
+<!-- žák na plošině -->
+<g>
+<path d="M186,566 L186,544 L214,544 L214,566 Z M226,566 L226,544 L254,544 L254,566 Z" fill="#343a40"/>
+<path d="M190,546 L196,452 L218,452 L214,546 Z M226,546 L222,452 L244,452 L250,546 Z" fill="#1c3d6e"/>
+<path d="M182,460 C180,400 188,352 220,346 C252,352 260,400 258,460 Z" fill="#e8590c"/>
+<path d="M186,368 C172,400 170,430 174,452" fill="none" stroke="#e8590c" stroke-width="16" stroke-linecap="round"/>
+<path d="M254,368 C268,400 270,430 266,452" fill="none" stroke="#e8590c" stroke-width="16" stroke-linecap="round"/>
+<circle cx="174" cy="458" r="9" fill="#f1c7a3"/><circle cx="266" cy="458" r="9" fill="#f1c7a3"/>
+<rect x="212" y="330" width="16" height="18" fill="#f1c7a3"/>
+<circle cx="220" cy="306" r="30" fill="#f1c7a3"/>
+<path d="M190,302 C188,276 206,268 222,270 C240,270 254,280 250,300 C240,288 214,286 190,302 Z" fill="#5c3d0c"/>
+<circle cx="210" cy="308" r="3" fill="#2b2a26"/><circle cx="232" cy="308" r="3" fill="#2b2a26"/>
+<path d="M210,320 Q221,328 232,320" fill="none" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+</g>
+<!-- rameno se stupnicí a posuvným závažím -->
+<g class="rameno">
+<rect x="104" y="184" width="300" height="24" rx="4" fill="url(#kov04)" stroke="#495057" stroke-width="2"/>
+<path d="M404,190 L418,196 L404,202 Z" fill="#c92a2a"/>
+<g stroke="#2b2a26" stroke-width="2">
+<line x1="140" y1="184" x2="140" y2="196"/><line x1="180" y1="184" x2="180" y2="196"/><line x1="220" y1="184" x2="220" y2="196"/><line x1="260" y1="184" x2="260" y2="196"/><line x1="300" y1="184" x2="300" y2="196"/><line x1="340" y1="184" x2="340" y2="196"/><line x1="380" y1="184" x2="380" y2="196"/>
+</g>
+<g font-size="18" font-weight="bold" fill="#2b2a26" text-anchor="middle">
+<text x="140" y="176">0</text><text x="180" y="176">20</text><text x="220" y="176">40</text><text x="260" y="176">60</text><text x="300" y="176">80</text><text x="340" y="176">100</text><text x="380" y="176">120</text>
+</g>
+<g class="jezdec">
+<rect x="204" y="178" width="32" height="40" rx="4" fill="#495057" stroke="#212529" stroke-width="2"/>
+<path d="M220,182 L214,190 L226,190 Z" fill="#ffffff"/>
+<rect x="212" y="218" width="16" height="12" rx="2" fill="#343a40"/>
+</g>
+</g>
+<circle cx="112" cy="196" r="7" fill="#212529"/>
+<text x="260" y="140" font-size="20" fill="#2b2a26" text-anchor="middle">stupnice v kg</text>
+<g font-size="20" fill="#2b2a26">
+<text x="282" y="262">malé závaží se</text>
+<text x="282" y="286">posouvá po rameni</text>
+</g>
+<g class="vysl4">
+<rect x="60" y="616" width="370" height="34" rx="10" fill="#ebfbee" stroke="#2b8a3e" stroke-width="2"/>
+<text x="245" y="640" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">rovnováha → m = 40 kg</text>
+</g>
+
+<!-- ===== DECIMÁLKA ===== -->
+<!-- stojan -->
+<path d="M560,594 L560,236 L590,236 L590,594 Z" fill="url(#zel04)" stroke="#1b4d1b" stroke-width="2"/>
+<path d="M640,594 L640,236 L666,236 L666,594 Z" fill="url(#zel04)" stroke="#1b4d1b" stroke-width="2"/>
+<rect x="556" y="236" width="114" height="14" fill="#2b8a3e" stroke="#1b4d1b" stroke-width="2"/>
+<path d="M590,300 L640,420 M640,300 L590,420" stroke="#1b5e2a" stroke-width="8"/>
+<!-- velká plošina -->
+<path d="M600,556 L930,556 L910,600 L586,600 Z" fill="url(#zel04)" stroke="#1b4d1b" stroke-width="2"/>
+<g stroke="#1b4d1b" stroke-width="2" opacity="0.7"><line x1="660" y1="560" x2="650" y2="598"/><line x1="740" y1="560" x2="732" y2="598"/><line x1="820" y1="560" x2="814" y2="598"/></g>
+<!-- rameno: krátké k plošině, dlouhé k misce se závažím -->
+<rect x="508" y="226" width="200" height="16" rx="3" fill="#495057" stroke="#212529" stroke-width="2"/>
+<circle cx="575" cy="234" r="7" fill="#212529"/>
+<line x1="700" y1="242" x2="700" y2="556" stroke="#495057" stroke-width="5"/>
+<circle cx="700" cy="242" r="5" fill="#212529"/>
+<!-- malá miska se závažím na řetízcích -->
+<g stroke="#495057" stroke-width="3" stroke-dasharray="6 3"><line x1="516" y1="242" x2="494" y2="380"/><line x1="516" y1="242" x2="538" y2="380"/></g>
+<path d="M484,380 L548,380 L540,400 L492,400 Z" fill="url(#zel04)" stroke="#1b4d1b" stroke-width="2"/>
+<rect x="500" y="346" width="32" height="34" rx="4" fill="#495057" stroke="#212529" stroke-width="2"/>
+<rect x="508" y="336" width="16" height="12" rx="4" fill="#495057" stroke="#212529" stroke-width="2"/>
+<rect x="494" y="410" width="80" height="30" rx="8" fill="#ffffff" stroke="#495057" stroke-width="2"/>
+<text x="534" y="432" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">5 kg</text>
+<!-- pytel brambor na plošině -->
+<path d="M780,556 C760,540 756,470 770,440 C778,420 776,408 790,400 L836,400 C848,408 846,420 854,440 C868,470 866,540 846,556 Z" fill="url(#pytel04)" stroke="#5c3d0c" stroke-width="3"/>
+<path d="M780,556 C760,540 756,470 770,440 C778,420 776,408 790,400 L836,400 C848,408 846,420 854,440 C868,470 866,540 846,556 Z" fill="url(#juta04)"/>
+<path d="M786,412 Q813,402 840,412" fill="none" stroke="#5c3d0c" stroke-width="5"/>
+<path d="M796,396 Q806,380 812,398 Q820,382 830,396" fill="none" stroke="#5c3d0c" stroke-width="3"/>
+<rect x="772" y="466" width="84" height="32" rx="6" fill="#ffffff" stroke="#5c3d0c" stroke-width="2"/>
+<text x="814" y="489" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">?</text>
+<g font-size="20" fill="#2b2a26">
+<text x="610" y="140">závaží na malé misce,</text>
+<text x="610" y="164">těleso na velké plošině</text>
+</g>
+<rect x="500" y="610" width="430" height="40" rx="10" fill="#ebfbee" stroke="#2b8a3e" stroke-width="2"/>
+<text x="715" y="637" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">těleso: 10× víc → 5 kg · 10 = 50 kg</text>
+</svg>

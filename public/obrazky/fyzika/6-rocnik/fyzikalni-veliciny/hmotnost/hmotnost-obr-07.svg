@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 620" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Digitální kuchyňská váha stojí na vodorovném stole, mandarinka leží uprostřed skleněné plochy a displej ukazuje 72 g. Na váze je štítek: rozsah až 5 kg, nejmenší dílek 1 g. Vpravo pět pravidel: 1. vyber vhodné váhy podle rozsahu a nejmenšího dílku, 2. váhy postav na vodorovný povrch, 3. předmět dej doprostřed misky, 4. počkej, až se hodnota ustálí, 5. zapiš číslo i jednotku: m = 72 g. Dole upozornění: těžší předmět, než dovoluje rozsah, může váhu zničit.">
+<defs>
+<linearGradient id="sklo07" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f1f3f5"/><stop offset="0.5" stop-color="#dee2e6"/><stop offset="1" stop-color="#adb5bd"/></linearGradient>
+<linearGradient id="telo07" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#495057"/><stop offset="1" stop-color="#212529"/></linearGradient>
+<radialGradient id="mand07" cx="0.38" cy="0.32" r="0.75"><stop offset="0" stop-color="#ffc078"/><stop offset="0.5" stop-color="#fd7e14"/><stop offset="1" stop-color="#d9480f"/></radialGradient>
+<radialGradient id="stin07" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#495057" stop-opacity="0.45"/><stop offset="1" stop-color="#495057" stop-opacity="0"/></radialGradient>
+<linearGradient id="stul07" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9d8bf"/><stop offset="1" stop-color="#c8a27a"/></linearGradient>
+</defs>
+<rect x="3" y="3" width="954" height="614" rx="14" fill="#f8f9fa"/>
+<rect x="130" y="10" width="700" height="48" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="480" y="43" font-size="28" fill="#212529" text-anchor="middle">Digitální váha a pravidla pro měření hmotnosti</text>
+<!-- stůl -->
+<path d="M30,486 L500,486 L500,520 L30,520 Z" fill="url(#stul07)" stroke="#8a6240" stroke-width="2"/>
+<!-- digitální váha -->
+<ellipse cx="275" cy="488" rx="200" ry="8" fill="url(#stin07)"/>
+<path d="M92,440 L448,440 L448,476 C448,482 444,486 438,486 L102,486 C96,486 92,482 92,476 Z" fill="url(#telo07)" stroke="#212529" stroke-width="2"/>
+<path d="M92,440 L448,440 L476,388 L120,388 Z" fill="url(#sklo07)" stroke="#495057" stroke-width="2.5"/>
+<path d="M140,396 L240,396 L222,432 L124,432" fill="none" stroke="#ffffff" stroke-width="4" opacity="0.8"/>
+<!-- střed plochy -->
+<g stroke="#1864ab" stroke-width="2" stroke-dasharray="6 5"><line x1="106" y1="414" x2="462" y2="414"/><line x1="298" y1="388" x2="270" y2="440"/></g>
+<!-- mandarinka uprostřed -->
+<ellipse cx="284" cy="414" rx="44" ry="8" fill="url(#stin07)"/>
+<circle cx="284" cy="374" r="42" fill="url(#mand07)" stroke="#c2410c" stroke-width="2"/>
+<g fill="#e8590c" opacity="0.6"><circle cx="268" cy="358" r="2"/><circle cx="294" cy="352" r="2"/><circle cx="304" cy="380" r="2"/><circle cx="274" cy="394" r="2"/><circle cx="258" cy="378" r="2"/></g>
+<ellipse cx="270" cy="356" rx="12" ry="7" fill="#ffffff" opacity="0.45"/>
+<path d="M286,334 C294,318 314,316 322,322 C312,330 298,334 286,334 Z" fill="#40c057" stroke="#2b8a3e" stroke-width="2"/>
+<!-- displej a štítek -->
+<rect x="262" y="446" width="120" height="34" rx="5" fill="#d3f9d8" stroke="#212529" stroke-width="2"/>
+<text x="322" y="472" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">72 g</text>
+<circle cx="408" cy="463" r="11" fill="#868e96" stroke="#f8f9fa" stroke-width="2"/>
+<circle cx="432" cy="463" r="8" fill="#868e96" stroke="#f8f9fa" stroke-width="2"/>
+<rect x="104" y="448" width="146" height="30" rx="4" fill="#f8f9fa"/>
+<text x="177" y="470" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle">max 5 kg · d = 1 g</text>
+<!-- popisky k váze -->
+<g font-size="20" fill="#2b2a26">
+<line x1="140" y1="478" x2="120" y2="548" stroke="#495057" stroke-width="2"/>
+<text x="40" y="570">rozsah až 5 kg, nejmenší dílek 1 g</text>
+<line x1="322" y1="480" x2="360" y2="534" stroke="#495057" stroke-width="2"/>
+<text x="330" y="540" font-weight="bold">displej</text>
+<text x="60" y="290">předmět</text>
+<text x="60" y="314">doprostřed</text>
+<line x1="164" y1="306" x2="244" y2="360" stroke="#1864ab" stroke-width="2"/>
+</g>
+<!-- vodorovný × šikmý povrch -->
+<g>
+<rect x="40" y="84" width="440" height="170" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/>
+<text x="260" y="114" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">Váhy musí stát na vodorovném povrchu</text>
+<!-- vodorovně -->
+<rect x="66" y="196" width="170" height="12" rx="3" fill="url(#stul07)" stroke="#8a6240" stroke-width="2"/>
+<rect x="96" y="172" width="110" height="24" rx="4" fill="url(#telo07)"/>
+<rect x="132" y="178" width="38" height="14" rx="2" fill="#d3f9d8"/>
+<path d="M136,140 L148,154 L172,128" fill="none" stroke="#1f6f30" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="151" y="238" font-size="20" font-weight="bold" fill="#1f6f30" text-anchor="middle">vodorovně</text>
+<!-- šikmo -->
+<g transform="rotate(-10 370 200)">
+<rect x="286" y="196" width="170" height="12" rx="3" fill="url(#stul07)" stroke="#8a6240" stroke-width="2"/>
+<rect x="316" y="172" width="110" height="24" rx="4" fill="url(#telo07)"/>
+<rect x="352" y="178" width="38" height="14" rx="2" fill="#d3f9d8"/>
+</g>
+<path d="M352,128 L384,160 M384,128 L352,160" stroke="#c92a2a" stroke-width="6" stroke-linecap="round"/>
+<text x="370" y="238" font-size="20" font-weight="bold" fill="#c92a2a" text-anchor="middle">šikmo</text>
+</g>
+<g>
+</g>
+<!-- pravidla -->
+<g font-size="20" fill="#2b2a26">
+<rect x="520" y="78" width="414" height="70" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/>
+<circle cx="552" cy="113" r="18" fill="#1864ab"/><text x="552" y="120" font-weight="bold" fill="#ffffff" text-anchor="middle">1</text>
+<text x="582" y="106">Vyber vhodné váhy:</text><text x="582" y="132">rozsah a nejmenší dílek.</text>
+<rect x="520" y="160" width="414" height="70" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/>
+<circle cx="552" cy="195" r="18" fill="#1864ab"/><text x="552" y="202" font-weight="bold" fill="#ffffff" text-anchor="middle">2</text>
+<text x="582" y="188">Váhy postav</text><text x="582" y="214">na vodorovný povrch.</text>
+<rect x="520" y="242" width="414" height="70" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/>
+<circle cx="552" cy="277" r="18" fill="#1864ab"/><text x="552" y="284" font-weight="bold" fill="#ffffff" text-anchor="middle">3</text>
+<text x="582" y="270">Předmět dej</text><text x="582" y="296">doprostřed misky.</text>
+<rect x="520" y="324" width="414" height="70" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/>
+<circle cx="552" cy="359" r="18" fill="#1864ab"/><text x="552" y="366" font-weight="bold" fill="#ffffff" text-anchor="middle">4</text>
+<text x="582" y="352">Počkej, až se hodnota</text><text x="582" y="378">ustálí.</text>
+<rect x="520" y="406" width="414" height="70" rx="12" fill="#ebfbee" stroke="#2b8a3e" stroke-width="2"/>
+<circle cx="552" cy="441" r="18" fill="#1f6f30"/><text x="552" y="448" font-weight="bold" fill="#ffffff" text-anchor="middle">5</text>
+<text x="582" y="434">Zapiš číslo i jednotku:</text><text x="582" y="462" font-size="22" font-weight="bold">m = 72 g</text>
+</g>
+<rect x="520" y="500" width="414" height="96" rx="12" fill="#fff5f5" stroke="#c92a2a" stroke-width="2"/>
+<g font-size="20" fill="#2b2a26">
+<text x="540" y="530" font-weight="bold" fill="#c92a2a">Pozor na rozsah!</text>
+<text x="540" y="556">Těžší předmět, než váha</text>
+<text x="540" y="582">dovoluje, ji může zničit.</text>
+</g>
+</svg>
