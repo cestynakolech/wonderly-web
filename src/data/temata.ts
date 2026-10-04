@@ -2484,10 +2484,11 @@ export const temata: Record<string, Tema[]> = {
 					`,
 					zapis: {
 						body: [
-							'V prvním pololetí opakujeme pohyb těles, trajektorii, dráhu a rychlost.',
-							'Sílu měříme siloměrem. Probíráme gravitační a třecí sílu, skládání sil a těžiště tělesa.',
-							'Sledujeme působení těles a deformaci, páku a moment síly.',
-							'U kapalin a pevných těles počítáme tlak a poznáváme tlakovou sílu.',
+							'Čím delší dráhu těleso urazí za stejný čas, tím je rychlejší.',
+							'Gravitační síla přitahuje tělesa k Zemi, třecí síla působí proti pohybu.',
+							'Více sil působících na těleso nahradíme jednou výslednou silou.',
+							'Páka je v rovnováze, když jsou momenty sil na obou stranách stejné.',
+							'Stejná síla na menší plochu dává větší tlak.',
 						],
 						vzorec: 'v = s : t      (odvozeně: s = v · t,  t = s : v)      Fg = m · g      p = F : S      (odvozeně: F = p · S,  S = F : p)      F₁ · a₁ = F₂ · a₂',
 						jednotky: [
@@ -2536,11 +2537,11 @@ export const temata: Record<string, Tema[]> = {
 					`,
 					zapis: {
 						body: [
-							'Pohyb popisujeme pomocí trajektorie, dráhy a rychlosti; klid i pohyb vždy posuzujeme vzhledem k jinému tělesu.',
-							'U sil sledujeme jejich velikost, směr a působiště; síly můžeme skládat a těžiště určuje působiště gravitační síly.',
-							'Jednoduché stroje usnadňují práci a rovnováha páky závisí na síle a jejím rameni.',
-							'V kapalinách a plynech pracujeme s tlakem, vztlakovou silou a zákony, které vysvětlují hydraulická zařízení i plování těles.',
-							'Světlo se odráží a láme; zrcadla a čočky vytvářejí obrazy a oko nám umožňuje vnímat světlo a barvy.',
+							'Čím delší dráhu těleso urazí za stejný čas, tím je rychlejší.',
+							'Více sil působících na těleso nahradíme jednou výslednou silou.',
+							'Jednoduchý stroj: co ušetříme na síle, ztratíme na dráze.',
+							'Tlak v kapalině roste s hloubkou; těleso s menší průměrnou hustotou než kapalina stoupá.',
+							'Zrcadla odrážejí světlo, čočky ho lámou a obě vytvářejí obrazy.',
 						],
 					},
 				},
@@ -3111,12 +3112,14 @@ export const temata: Record<string, Tema[]> = {
 							<li>skupenské teplo tání Lₜ = lₜ · m (J)</li>
 						</ul>
 					`,
+					zvidave: '<p>Šíření tepla vedením, prouděním a sáláním vysvětluje, jak se teplo předává mezi tělesy.</p>',
 					zapis: {
 						body: [
-							'Mechanická práce vzniká působením síly po určité dráze a výkon udává, jak rychle se práce vykoná.',
-							'Pokud nepůsobí tření, přeměňuje se polohová energie na pohybovou a jejich součet zůstává stejný.',
-							'Vnitřní energie tělesa se mění tepelnou výměnou a teplo může způsobit změnu skupenství.',
-							'Šíření tepla vedením, prouděním a sáláním vysvětluje, jak se teplo předává mezi tělesy.',
+							'Práci koná síla, která posune těleso ve směru síly; výkon je práce za určitý čas.',
+							'Bez tření se polohová energie mění na pohybovou a jejich součet zůstává stejný.',
+							'Vnitřní energie tělesa se mění konáním práce nebo tepelnou výměnou.',
+							'Při tepelné výměně předává teplejší těleso energii chladnějšímu.',
+							'Dodané teplo může způsobit změnu skupenství; při tání se teplota nemění.',
 						],
 						zakon: 'Zákon zachování mechanické energie: pokud se mechanická energie nemění v jiné druhy energie, je součet polohové a pohybové energie stále stejný.',
 						vzorec: 'W = F · s      (odvozeně: F = W : s,  s = W : F);  P = W : t      (odvozeně: W = P · t,  t = W : P);  Eₚ = m · g · h;  Q = m · c · (t₂ − t₁);  Lₜ = lₜ · m',
@@ -3162,11 +3165,11 @@ export const temata: Record<string, Tema[]> = {
 					`,
 					zapis: {
 						body: [
-							'Mechanická práce závisí na síle a dráze, výkon vyjadřuje práci vykonanou za určitý čas.',
-							'Energie může být pohybová, polohová nebo vnitřní; při přeměnách platí zákon zachování energie.',
-							'Teplo souvisí s tepelnou výměnou a změnami skupenství: táním, tuhnutím, vypařováním, varem a kondenzací.',
-							'V elektrických obvodech měříme proud a napětí, pracujeme s odporem a Ohmovým zákonem a rozlišujeme sériové a paralelní zapojení.',
-							'Zvuk vzniká kmitáním, šíří se vlněním a jeho hlasitost vyjadřujeme v decibelech.',
+							'Práci koná síla, která posune těleso ve směru síly; výkon je práce za určitý čas.',
+							'Energii nelze vytvořit ani zničit, jen se přeměňuje.',
+							'Teplejší těleso předává energii chladnějšímu; teplo může změnit skupenství.',
+							'V kovovém vodiči je proud tím větší, čím větší je napětí a čím menší odpor.',
+							'Zvuk vzniká kmitáním a šíří se látkou jako vlnění.',
 						],
 					},
 				},
@@ -3534,11 +3537,11 @@ export const temata: Record<string, Tema[]> = {
 					`,
 					zapis: {
 						body: [
-							'Jaderná fyzika popisuje jádro atomu, izotopy, radioaktivitu a druhy záření, poločas rozpadu a jaderné reakce v reaktoru.',
-							'Zdroje energie dělíme na obnovitelné a neobnovitelné; probíráme přehled elektráren.',
-							'Magnetické pole vzniká také kolem vodiče s proudem a cívky; elektromagnet toto pole využívá.',
-							'Elektromagnetická indukce umožňuje vznik střídavého proudu v alternátoru a transformátor mění jeho napětí.',
-							'Střídavý proud v elektrické síti má frekvenci 50 Hz a napětí 230 V.',
+							'Jádro atomu tvoří protony a neutrony; některá jádra jsou radioaktivní a vyzařují záření.',
+							'V jaderném reaktoru se řízeným štěpením těžkých jader uvolňuje energie.',
+							'Zdroje energie dělíme na obnovitelné a neobnovitelné.',
+							'Proud vytváří kolem vodiče magnetické pole; cívka s železným jádrem je elektromagnet.',
+							'Změna magnetického pole u cívky vyvolá proud; využívá ji alternátor i transformátor.',
 						],
 						vzorec: 'N = A − Z      (odvozeně: A = N + Z,  Z = A − N)      E = m · c²      f = 1 : T',
 						jednotky: [
