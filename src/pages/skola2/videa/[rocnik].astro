@@ -1,7 +1,7 @@
 ---
 import SkolaLayout from '../../../layouts/SkolaLayout.astro';
 import VideoCard from '../../../components/skola2/VideoCard.astro';
-import { temata } from '../../../data/temata';
+import { videaRocniku } from '../../../data/videaZTemat';
 
 export function getStaticPaths() {
 	return [
@@ -17,45 +17,8 @@ interface Props {
 }
 
 const rocnikParam = Astro.params.rocnik || '6-rocnik';
-const key = `fyzika/${rocnikParam}` as keyof typeof temata;
-const temaList = temata[key];
 
-if (!temaList) {
-	return Astro.redirect('/skola2/');
-}
-
-// Extrahuj videa
-interface Video {
-	nazev: string;
-	cesta: string;
-	tema: string;
-	podtema: string;
-	ai?: string;
-}
-
-const videos: Video[] = [];
-
-for (const tema of temaList) {
-	if (tema.podtemata) {
-		for (const podtema of tema.podtemata) {
-			if (podtema.materialy) {
-				for (const material of podtema.materialy) {
-					if (material.druh === 'video' && !material.cesta?.endsWith?.('.m4a')) {
-						videos.push({
-							nazev: material.nazev,
-							cesta: material.cesta,
-							tema: tema.nazev,
-							podtema: podtema.nazev,
-							ai: material.ai
-						});
-					}
-				}
-			}
-		}
-	}
-}
-
-const limited = videos.slice(0, 40);
+const limited = videaRocniku(rocnikParam);
 
 // Metadata
 const titles: Record<string, string> = {
@@ -67,7 +30,6 @@ const titles: Record<string, string> = {
 
 const rocnikName = titles[rocnikParam] || rocnikParam;
 const pageTitle = `Videa - Fyzika ${rocnikName}`;
-const progressPercent = Math.round((limited.length / 40) * 100);
 ---
 
 <SkolaLayout title={pageTitle}>
@@ -76,7 +38,6 @@ const progressPercent = Math.round((limited.length / 40) * 100);
 			<h1>🎬 Videa - Fyzika {rocnikName}</h1>
 			<p class="subtitle">
 				Celkem <strong>{limited.length} videí</strong> z ročníku
-				<span class="progress">({progressPercent}% pokrytí cíle 40)</span>
 			</p>
 		</header>
 
@@ -93,6 +54,7 @@ const progressPercent = Math.round((limited.length / 40) * 100);
 						tema={video.tema}
 						podtema={video.podtema}
 						ai={video.ai}
+						rocnik={rocnikParam}
 					/>
 				))}
 			</div>
@@ -100,8 +62,7 @@ const progressPercent = Math.round((limited.length / 40) * 100);
 
 		<footer class="videos-footer">
 			<p>
-				ℹ️ Videa delší než 15 minut se otevírají v samostatné záložce.
-				Kratší videa si můžete přehrát přímo zde.
+				ℹ️ Videa se přehrají přímo na stránce. Písně najdeš u jednotlivých podtémat.
 			</p>
 		</footer>
 	</main>

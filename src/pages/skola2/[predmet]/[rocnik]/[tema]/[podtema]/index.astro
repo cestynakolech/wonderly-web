@@ -201,8 +201,11 @@ const dalsi = mojePoradi >= 0 && mojePoradi < sourozenci.length - 1 ? sourozenci
 const mat = podtema.materialy ?? [];
 const maAnimace = vsechnyAnimace.some((a) => a.podtema === podtema.slug && a.rocnik === parseInt(rocnik.slug, 10));
 const maInfografiky = mat.some((m) => m.druh === 'infografika');
-const maVidea = mat.some((m) => m.druh === 'video' || m.druh === 'youtube');
-const maAudio = mat.some((m) => m.druh === 'audio');
+// písně jsou v datech vedené jako druh 'video', ale jsou to zvukové soubory (.m4a/.mp3…) → přehrávat jako <audio>
+const jeZvuk = (m: { druh: string; cesta: string }) => m.druh === 'audio' || (m.druh === 'video' && /\.(m4a|mp3|wav|ogg|aac)$/i.test(m.cesta ?? ''));
+const jeVideo = (m: { druh: string; cesta: string }) => (m.druh === 'video' && !jeZvuk(m)) || m.druh === 'youtube';
+const maVidea = mat.some(jeVideo);
+const maAudio = mat.some(jeZvuk);
 const maSimulaci = Boolean(podtema.interakce || podtema.interakce2 || podtema.interakce3);
 const rozcestnik = [
 	podtema.zapis && { id: 'zapis', text: '📓 Zápis' },
@@ -325,7 +328,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 						</figure>
 					))}
 				{podtema.materialy
-					.filter((m) => m.druh === 'video')
+					.filter((m) => m.druh === 'video' && !jeZvuk(m))
 					.map((m, i) => (
 						<figure class="video" id={i === 0 ? 'videa' : undefined}>
 							<video src={m.cesta} controls preload="metadata" />
@@ -336,7 +339,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 				{podtema.materialy
 					.filter((m) => m.druh === 'youtube')
 					.map((m, i) => (
-						<figure class="video" id={i === 0 && !mat.some((x) => x.druh === 'video') ? 'videa' : undefined}>
+						<figure class="video" id={i === 0 && !mat.some((x) => x.druh === 'video' && !jeZvuk(x)) ? 'videa' : undefined}>
 							<div class="youtube-obal">
 								<iframe
 									src={`https://www.youtube-nocookie.com/embed/${m.cesta}`}
@@ -350,7 +353,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 						</figure>
 					))}
 				{podtema.materialy
-					.filter((m) => m.druh === 'audio')
+					.filter(jeZvuk)
 					.map((m, i) => (
 						<figure class="audio" id={i === 0 ? 'audio' : undefined}>
 							<audio src={m.cesta} controls preload="metadata" />

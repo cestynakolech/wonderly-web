@@ -1,84 +1,43 @@
 ---
 /**
- * VideoCard.astro
- * 
- * Komponenta pro zobrazení videa v gridu
- * - Videa do 15 minut: iframe (embedded YouTube)
- * - Videa nad 15 minut: link card (s popisem a odkazem)
- * - Lazy loading
- * - Responsive grid (1-4 sloupce)
+ * VideoCard.astro — karta videa v galerii /skola2/videa/<ročník>
+ * Přehrává soubor z /media/ přímo (<video controls>), stejně jako stránky podtémat.
  */
-
 interface Props {
-	id: string;
 	nazev: string;
-	popis: string;
-	delka: number;
-	typ: 'youtube' | 'media' | 'link';
-	zdroj: string;
-	rocnik: 'F6' | 'F7' | 'F8' | 'F9';
+	cesta: string;
 	tema: string;
+	podtema?: string;
+	ai?: string;
+	rocnik: string;
 }
 
-const { id, nazev, popis, delka, typ, zdroj, rocnik, tema } = Astro.props;
-
-const isShort = delka <= 15;
-const iframeUrl = typ === 'youtube' ? `https://www.youtube.com/embed/${zdroj}` : null;
-
-// Barvy ročníku
+const { nazev, cesta, tema, podtema, ai, rocnik } = Astro.props;
 const rocnikColors: Record<string, string> = {
-	F6: '#f59e0b', // Amber
-	F7: '#10b981', // Emerald
-	F8: '#3b82f6', // Blue
-	F9: '#8b5cf6', // Violet
+	'6-rocnik': '#f59e0b',
+	'7-rocnik': '#10b981',
+	'8-rocnik': '#3b82f6',
+	'9-rocnik': '#8b5cf6',
 };
-
 const rocnikColor = rocnikColors[rocnik] || '#6366f1';
+const rocnikText = `${rocnik.charAt(0)}. ročník`;
 ---
 
-<div class="video-card" data-id={id} data-delka={delka} data-rocnik={rocnik}>
-	{
-		isShort && typ === 'youtube' ? (
-			// Krátké videa: iframe
-			<div class="iframe-container">
-				<iframe
-					src={iframeUrl}
-					title={nazev}
-					allowFullScreen
-					loading="lazy"
-					frameborder="0"
-					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-				/>
-			</div>
-		) : (
-			// Dlouhá videa nebo jiné typy: link card
-			<a href={zdroj} class="link-card" target={typ === 'link' ? '_blank' : '_self'} rel={typ === 'link' ? 'noopener noreferrer' : ''}>
-				<div class="link-card-content">
-					<div class="link-card-icon">
-						{typ === 'youtube' ? '▶' : '🔗'}
-					</div>
-					<div class="link-card-text">
-						<h3>{nazev}</h3>
-						<p class="popis">{popis}</p>
-						<div class="meta">
-							<span class="delka">⏱️ {delka} minut</span>
-							<span class="tema">{tema}</span>
-						</div>
-					</div>
-				</div>
-			</a>
-		)
-	}
-
+<div class="video-card" data-rocnik={rocnik}>
+	<div class="iframe-container">
+		<video src={cesta} controls preload="metadata" title={nazev}></video>
+	</div>
+	<div class="link-card">
+		<h3>{nazev}</h3>
+		<div class="meta">
+			<span class="tema">{tema}</span>
+			{podtema && <span class="delka">{podtema}</span>}
+		</div>
+		{ai && <p class="popis">🤖 {ai}</p>}
+	</div>
 	<div class="card-footer">
-		<span class="rocnik-badge" style={`background-color: ${rocnikColor}`}>
-			{rocnik}
-		</span>
-		<span class="typ-badge">
-			{typ === 'youtube' && '▶ YouTube'}
-			{typ === 'media' && '🎬 Video'}
-			{typ === 'link' && '🔗 Odkaz'}
-		</span>
+		<span class="rocnik-badge" style={`background-color: ${rocnikColor}`}>{rocnikText}</span>
+		<span class="typ-badge">🎬 Video</span>
 	</div>
 </div>
 
@@ -108,7 +67,7 @@ const rocnikColor = rocnikColors[rocnik] || '#6366f1';
 		overflow: hidden;
 	}
 
-	.iframe-container iframe {
+	.iframe-container video {
 		position: absolute;
 		top: 0;
 		left: 0;
