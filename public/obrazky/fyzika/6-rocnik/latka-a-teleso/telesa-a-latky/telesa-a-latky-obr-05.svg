@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 1060" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Vlastnosti látek. Deset karet: barva (tři barevné kapky), chuť (jazyk), vůně (nos a vlnky vůně), tvrdost (železný hřebík zatlučený do dřeva), pružnost (ocelová pružina se stlačí a zase narovná), rozpustnost (sůl mizí ve vodě), křehkost (prasklé sklo), sypkost (sůl se sype ze slánky), tvárnost (z kuličky modelíny se vyválí váleček) a tekutost (voda teče ze sklenice do sklenice).">
+<style>
+/* Předloha: PDF Tělesa a látky, oddíl Vlastnosti látek (barva, chuť, vůně, tvrdost, pružnost, rozpustnost,
+   křehkost, sypkost, tvárnost, tekutost). V PDF jen výčet slov; ke každému slovu kresba s látkou z výkladu
+   (železo, dřevo, ocel, sůl, voda, sklo) nebo obecný obrázek. Bez animace (reduced-motion) = klidový stav. */
+@keyframes vune { to { stroke-dashoffset: 32; } }
+@keyframes pruzina { 0%, 20%, 100% { transform: translateY(45px) scaleY(1) translateY(-45px); } 45%, 70% { transform: translateY(45px) scaleY(0.6) translateY(-45px); } }
+@keyframes zavazi { 0%, 20%, 100% { transform: translateY(0); } 45%, 70% { transform: translateY(26px); } }
+@keyframes rozpust { 0%, 15% { opacity: 1; transform: scale(1); } 75%, 100% { opacity: 0; transform: scale(0.3); } }
+@keyframes zrnko { 0% { transform: translate(0, 0); opacity: 1; } 90% { opacity: 1; } 100% { transform: translate(6px, 58px); opacity: 0; } }
+@keyframes proud { to { stroke-dashoffset: -28; } }
+.vu { stroke-dasharray: 10 6; animation: vune 1.2s linear infinite; }
+.pr { animation: pruzina 3s ease-in-out infinite; }
+.za { animation: zavazi 3s ease-in-out infinite; }
+.ro { transform-box: fill-box; transform-origin: center; animation: rozpust 4s ease-in infinite; }
+.ro2 { animation-delay: -1.3s; } .ro3 { animation-delay: -2.6s; }
+.zr { animation: zrnko 0.9s linear infinite; }
+.zr2 { animation-delay: -0.3s; } .zr3 { animation-delay: -0.6s; }
+.pu { stroke-dasharray: 14 14; animation: proud 0.6s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .vu, .pr, .za, .ro, .zr, .pu { animation: none; } }
+</style>
+<defs>
+<linearGradient id="dr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2ad72"/><stop offset="1" stop-color="#9c6431"/></linearGradient>
+<linearGradient id="kov" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#495057"/><stop offset="0.45" stop-color="#e9ecef"/><stop offset="1" stop-color="#6c757d"/></linearGradient>
+<linearGradient id="voda" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a5d8ff"/><stop offset="1" stop-color="#74c0fc"/></linearGradient>
+<radialGradient id="mod" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#ffd43b"/><stop offset="1" stop-color="#e67700"/></radialGradient>
+</defs>
+<rect x="3" y="3" width="594" height="1054" rx="14" fill="#f8f9fa"/>
+<text x="300" y="46" font-size="28" font-weight="bold" fill="#212529" text-anchor="middle">Vlastnosti látek</text>
+<text x="300" y="84" font-size="24" fill="#212529" text-anchor="middle">Různé látky se liší svými vlastnostmi.</text>
+<g fill="#fff" stroke="#ced4da" stroke-width="2">
+<rect x="20" y="105" width="270" height="175" rx="12"/><rect x="310" y="105" width="270" height="175" rx="12"/>
+<rect x="20" y="295" width="270" height="175" rx="12"/><rect x="310" y="295" width="270" height="175" rx="12"/>
+<rect x="20" y="485" width="270" height="175" rx="12"/><rect x="310" y="485" width="270" height="175" rx="12"/>
+<rect x="20" y="675" width="270" height="175" rx="12"/><rect x="310" y="675" width="270" height="175" rx="12"/>
+<rect x="20" y="865" width="270" height="175" rx="12"/><rect x="310" y="865" width="270" height="175" rx="12"/>
+</g>
+<g font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">
+<text x="155" y="262">barva</text><text x="445" y="262">chuť</text>
+<text x="155" y="452">vůně</text><text x="445" y="452">tvrdost</text>
+<text x="155" y="642">pružnost</text><text x="445" y="642">rozpustnost</text>
+<text x="155" y="832">křehkost</text><text x="445" y="832">sypkost</text>
+<text x="155" y="1022">tvárnost</text><text x="445" y="1022">tekutost</text>
+</g>
+
+<!-- 1 barva -->
+<g transform="translate(155 172)" stroke-width="2">
+<path transform="translate(-55 0)" d="M0 -38C14 -16 24 -4 24 10A24 24 0 0 1 -24 10C-24 -4 -14 -16 0 -38Z" fill="#e03131" stroke="#a51d1d"/>
+<path d="M0 -38C14 -16 24 -4 24 10A24 24 0 0 1 -24 10C-24 -4 -14 -16 0 -38Z" fill="#fab005" stroke="#b07a00"/>
+<path transform="translate(55 0)" d="M0 -38C14 -16 24 -4 24 10A24 24 0 0 1 -24 10C-24 -4 -14 -16 0 -38Z" fill="#1971c2" stroke="#0f4c85"/>
+<g fill="#fff" opacity="0.6"><ellipse cx="-63" cy="2" rx="4" ry="8"/><ellipse cx="-8" cy="2" rx="4" ry="8"/><ellipse cx="47" cy="2" rx="4" ry="8"/></g>
+</g>
+<!-- 2 chuť -->
+<g transform="translate(445 172)">
+<path d="M-62 -14Q0 -44 62 -14Q40 40 0 42Q-40 40 -62 -14Z" fill="#5c1a1a" stroke="#c92a2a" stroke-width="9" stroke-linejoin="round"/>
+<path d="M-36 6Q0 -14 36 6Q34 44 0 46Q-34 44 -36 6Z" fill="#f783ac" stroke="#c2255c" stroke-width="2.5"/>
+<path d="M0 -2V34" stroke="#c2255c" stroke-width="2.5" stroke-linecap="round"/>
+<rect x="-44" y="-16" width="88" height="10" rx="4" fill="#fff" stroke="#dee2e6"/>
+</g>
+<!-- 3 vůně -->
+<g transform="translate(155 362)">
+<path d="M-88 -52H-70Q-62 -18 -44 12Q-36 26 -50 30Q-58 32 -62 28L-66 34L-64 52H-88Z" fill="#ffd8a8" stroke="#c98a4a" stroke-width="2.5" stroke-linejoin="round"/>
+<path d="M-56 24Q-52 20 -48 24" stroke="#a8692e" stroke-width="2.5" fill="none"/>
+<circle cx="-80" cy="-30" r="3" fill="#212529"/>
+<g stroke="#7048e8" stroke-width="4" fill="none" stroke-linecap="round">
+<path class="vu" d="M80 -20Q64 -28 48 -20T16 -20T-16 -20T-36 -16"/>
+<path class="vu" d="M84 4Q68 -4 52 4T20 4T-12 4T-34 8"/>
+<path class="vu" d="M80 28Q64 20 48 28T16 28T-14 26"/>
+</g>
+</g>
+<!-- 4 tvrdost -->
+<g transform="translate(445 362)">
+<rect x="-80" y="4" width="160" height="44" rx="3" fill="url(#dr)" stroke="#6b3f17" stroke-width="2"/>
+<path d="M-72 18C-40 14 -10 22 20 16S60 20 72 16M-72 34C-30 30 0 38 40 32S66 36 72 34" stroke="#8a5526" stroke-width="1.5" fill="none"/>
+<rect x="-5" y="-40" width="10" height="46" fill="url(#kov)" stroke="#343a40" stroke-width="1.5"/>
+<rect x="-20" y="-50" width="40" height="10" rx="3" fill="url(#kov)" stroke="#343a40" stroke-width="1.5"/>
+<ellipse cx="0" cy="5" rx="8" ry="2.5" fill="#5a2d0c"/>
+</g>
+<!-- 5 pružnost -->
+<g transform="translate(155 552)">
+<rect x="-50" y="45" width="100" height="10" rx="3" fill="#868e96" stroke="#495057" stroke-width="1.5"/>
+<g class="pr"><path d="M0 45L-26 37L26 29L-26 21L26 13L-26 5L26 -3L-26 -11L26 -19L0 -20" stroke="#495057" stroke-width="5" fill="none" stroke-linejoin="round"/><path d="M0 45L-26 37L26 29L-26 21L26 13L-26 5L26 -3L-26 -11L26 -19L0 -20" stroke="#dee2e6" stroke-width="2" fill="none" stroke-linejoin="round"/></g>
+<g class="za"><rect x="-32" y="-50" width="64" height="30" rx="4" fill="#495057" stroke="#212529" stroke-width="2"/><path d="M-24 -44H24" stroke="#adb5bd" stroke-width="2"/></g>
+</g>
+<!-- 6 rozpustnost -->
+<g transform="translate(445 552)">
+<path d="M-40 -50L-32 50Q-31 56 -25 56L25 56Q31 56 32 50L40 -50" fill="none" stroke="#868e96" stroke-width="3"/>
+<path d="M-37 -20L-32 50Q-31 54 -25 54L25 54Q31 54 32 50L37 -20Z" fill="url(#voda)"/>
+<path d="M-37 -20H37" stroke="#4dabf7" stroke-width="2"/>
+<g fill="#fff" stroke="#495057" stroke-width="1.5">
+<rect class="ro" x="-18" y="36" width="10" height="10"/>
+<rect class="ro ro2" x="2" y="38" width="9" height="9"/>
+<rect class="ro ro3" x="14" y="34" width="10" height="10"/>
+<rect class="ro ro2" x="-6" y="24" width="8" height="8"/>
+</g>
+</g>
+<!-- 7 křehkost -->
+<g transform="translate(155 742)">
+<path d="M-70 -50H70V40H24L14 22L-2 40H-70Z" fill="#d0ebff" stroke="#495057" stroke-width="2.5" stroke-linejoin="round"/>
+<g stroke="#495057" stroke-width="2" fill="none"><path d="M6 -6L-40 -50M6 -6L50 -50M6 -6L70 4M6 -6L-70 -2M6 -6L-30 40M6 -6L14 22M-18 -28L-26 -10M30 -26L36 -14M-34 -4L-24 14"/></g>
+<path d="M18 46L30 58L10 60Z" fill="#d0ebff" stroke="#495057" stroke-width="2"/>
+<path d="M-6 48L2 58L-12 58Z" fill="#d0ebff" stroke="#495057" stroke-width="2"/>
+</g>
+<!-- 8 sypkost -->
+<g transform="translate(445 742)">
+<g transform="rotate(130 -10 -20)"><rect x="-32" y="-48" width="44" height="60" rx="8" fill="#f1f3f5" stroke="#495057" stroke-width="2.5"/><path d="M-32 -30H12" stroke="#adb5bd" stroke-width="2"/><rect x="-28" y="-60" width="36" height="14" rx="5" fill="#adb5bd" stroke="#495057" stroke-width="2"/><g fill="#495057"><circle cx="-18" cy="-53" r="2"/><circle cx="-10" cy="-53" r="2"/><circle cx="-2" cy="-53" r="2"/></g></g>
+<path d="M-20 54Q10 30 40 54Z" fill="#fff" stroke="#868e96" stroke-width="2"/>
+<g fill="#fff" stroke="#495057" stroke-width="1.2">
+<rect class="zr" x="2" y="-6" width="5" height="5"/>
+<rect class="zr zr2" x="8" y="-4" width="5" height="5"/>
+<rect class="zr zr3" x="4" y="-2" width="5" height="5"/>
+<rect x="6" y="20" width="5" height="5"/><rect x="12" y="34" width="5" height="5"/>
+</g>
+</g>
+<!-- 9 tvárnost -->
+<g transform="translate(155 932)">
+<circle cx="-64" cy="10" r="26" fill="url(#mod)" stroke="#a35200" stroke-width="2"/>
+<path d="M-26 10H6" stroke="#212529" stroke-width="4"/><path d="M4 0L18 10L4 20Z" fill="#212529"/>
+<path d="M28 28Q20 -10 44 -24Q70 -36 82 -8Q90 12 70 22Q56 28 52 12" stroke="#a35200" stroke-width="20" fill="none" stroke-linecap="round"/>
+<path d="M28 28Q20 -10 44 -24Q70 -36 82 -8Q90 12 70 22Q56 28 52 12" stroke="url(#mod)" stroke-width="16" fill="none" stroke-linecap="round"/>
+</g>
+<!-- 10 tekutost -->
+<g transform="translate(445 932)">
+<g transform="translate(-24 8) rotate(115 -40 -30)"><path d="M-19 -54L-23 -14L-41.6 -54Z" fill="url(#voda)"/><path d="M-62 -54L-56 4L-24 4L-18 -54" fill="none" stroke="#868e96" stroke-width="3"/></g>
+<path class="pu" d="M-50 8Q-24 6 -4 18T22 40" stroke="#4dabf7" stroke-width="7" fill="none" stroke-linecap="round"/>
+<path d="M-6 6L0 56L48 56L54 6" fill="none" stroke="#868e96" stroke-width="3"/>
+<path d="M-3 34L0 54L48 54L51 34Z" fill="url(#voda)"/>
+</g>
+</svg>

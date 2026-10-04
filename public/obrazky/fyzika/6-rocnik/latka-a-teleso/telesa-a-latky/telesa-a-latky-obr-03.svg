@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 620" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Těleso: kofola ve sklenici. Vysoká sklenice s tmavou kofolou a světlou pěnou nahoře. Ode dna stoupají bublinky. Popisek Kofola ukazuje na nápoj, popisek Oxid uhličitý na bublinky. Animace: bublinky stoupají vzhůru.">
+<style>
+/* Předloha: PDF Tělesa a látky, obrázek Těleso: kofola ve sklenici (popisky Kofola, Oxid uhličitý).
+   Překresleno, ne kopie. Bublinky stoupají 280 px za 3–4 s. Bez animace (reduced-motion) = bublinky stojí. */
+@keyframes stoupa { 0% { transform: translateY(0); opacity: 0; } 12% { opacity: 1; } 85% { opacity: 1; } 100% { transform: translateY(-280px); opacity: 0; } }
+.b { animation: stoupa 3.6s linear infinite; }
+.b2 { animation-duration: 3.1s; animation-delay: -1.2s; }
+.b3 { animation-duration: 4s; animation-delay: -2.5s; }
+.b4 { animation-duration: 3.4s; animation-delay: -0.6s; }
+.b5 { animation-duration: 3.8s; animation-delay: -3s; }
+.b6 { animation-duration: 3.2s; animation-delay: -1.9s; }
+.b7 { animation-duration: 3.7s; animation-delay: -2.2s; }
+@media (prefers-reduced-motion: reduce) { .b { animation: none; } }
+</style>
+<defs>
+<clipPath id="vnitrek"><path d="M198 126Q187 166 200 207L233 494L367 494L400 207Q413 166 402 126Z"/></clipPath>
+<linearGradient id="kofola" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3b2010"/><stop offset="0.45" stop-color="#1e120a"/><stop offset="1" stop-color="#2a170c"/></linearGradient>
+<linearGradient id="kofolaDno" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity="0"/><stop offset="0.7" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#8a4a1f" stop-opacity="0.85"/></linearGradient>
+<linearGradient id="pena" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbf3e2"/><stop offset="1" stop-color="#d9c29a"/></linearGradient>
+<linearGradient id="dno" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9ecef"/><stop offset="1" stop-color="#adb5bd"/></linearGradient>
+</defs>
+<rect x="3" y="3" width="594" height="614" rx="14" fill="#f8f9fa"/>
+<rect x="90" y="24" width="420" height="58" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="300" y="63" font-size="28" fill="#212529" text-anchor="middle">Těleso: kofola ve sklenici</text>
+<ellipse cx="300" cy="534" rx="96" ry="9" fill="#000" opacity="0.12"/>
+<!-- sklenice -->
+<path d="M190 120Q178 165 192 205L226 500Q228 528 252 530L348 530Q372 528 374 500L408 205Q422 165 410 120Z" fill="#e7f5ff" fill-opacity="0.5" stroke="#868e96" stroke-width="3"/>
+<g clip-path="url(#vnitrek)">
+<rect x="180" y="132" width="240" height="46" fill="url(#pena)"/>
+<path d="M180 178Q220 172 250 179T320 177T420 178V500H180Z" fill="url(#kofola)"/>
+<rect x="180" y="178" width="240" height="320" fill="url(#kofolaDno)"/>
+<g fill="#fff" opacity="0.5"><circle cx="230" cy="150" r="6"/><circle cx="262" cy="160" r="5"/><circle cx="300" cy="148" r="7"/><circle cx="345" cy="158" r="5"/><circle cx="378" cy="150" r="6"/></g>
+<!-- bublinky stojící na stěně -->
+<g fill="#c99a6a" opacity="0.9"><circle cx="214" cy="232" r="3"/><circle cx="226" cy="300" r="2.5"/><circle cx="380" cy="262" r="3"/><circle cx="366" cy="340" r="2.5"/><circle cx="244" cy="430" r="3"/><circle cx="330" cy="398" r="5"/><circle cx="341" cy="410" r="3.5"/><circle cx="322" cy="412" r="3"/></g>
+<!-- stoupající bublinky -->
+<g fill="#f1d3ab">
+<circle class="b" cx="262" cy="480" r="4"/>
+<circle class="b b2" cx="290" cy="486" r="3"/>
+<circle class="b b3" cx="312" cy="478" r="4.5"/>
+<circle class="b b4" cx="336" cy="484" r="3"/>
+<circle class="b b5" cx="276" cy="470" r="3.5"/>
+<circle class="b b6" cx="350" cy="476" r="4"/>
+<circle class="b b7" cx="300" cy="490" r="3"/>
+</g>
+</g>
+<path d="M232 494L367 494L374 500Q372 528 348 530L252 530Q228 528 226 500Z" fill="url(#dno)" stroke="#868e96" stroke-width="3"/>
+<path d="M203 140Q196 170 206 205L232 440" stroke="#fff" stroke-width="7" stroke-linecap="round" fill="none" opacity="0.55"/>
+<path d="M398 150L392 200" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity="0.4"/>
+<!-- popisky -->
+<path d="M180 290L250 270" stroke="#212529" stroke-width="2.5"/>
+<circle cx="250" cy="270" r="5" fill="#fff" stroke="#212529" stroke-width="2"/>
+<rect x="24" y="258" width="156" height="64" rx="14" fill="#fff" stroke="#212529" stroke-width="2.5"/>
+<text x="102" y="300" font-size="28" font-weight="bold" fill="#212529" text-anchor="middle">Kofola</text>
+<path d="M392 450L336 406" stroke="#212529" stroke-width="2.5"/>
+<circle cx="336" cy="406" r="14" fill="none" stroke="#212529" stroke-width="2"/>
+<rect x="364" y="440" width="214" height="64" rx="14" fill="#fff" stroke="#212529" stroke-width="2.5"/>
+<text x="471" y="482" font-size="28" font-weight="bold" fill="#212529" text-anchor="middle">Oxid uhličitý</text>
+<text x="300" y="586" font-size="24" fill="#212529" text-anchor="middle">Těleso může být z více látek.</text>
+</svg>

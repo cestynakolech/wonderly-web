@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 560" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: na podlaze leží hromádka tří dřevěných prken s nápisem látka: dřevo. Dvě kratší prkna se postaví jako nohy, delší prkno se zvedne nahoru jako deska a vznikne stůl s nápisem těleso: stůl. Dole stojí: Dřevo je látka. Stůl je těleso.">
+<style>
+/* Předloha: PDF Tělesa a látky, oddíl LÁTKA (z určitého množství látky vytvoříme věc určitého tvaru)
+   a TĚLESO (stůl ze dřeva). Na straně PDF k tomu obrázek není, děj nakreslen podle textu.
+   Cyklus 9 s: 0–15 % hromádka, 15–45 % nohy se postaví, 45–70 % deska vyjede nahoru, 70–94 % hotový stůl.
+   Bez animace (reduced-motion) = koncový stav (stůl). */
+@keyframes nohaL { 0%, 15% { transform: translate(300px, 397px) rotate(90deg); } 30% { transform: translate(230px, 300px) rotate(45deg); } 45%, 100% { transform: translate(186px, 351px) rotate(0deg); } }
+@keyframes nohaP { 0%, 15% { transform: translate(300px, 375px) rotate(90deg); } 30% { transform: translate(370px, 290px) rotate(135deg); } 45%, 100% { transform: translate(414px, 351px) rotate(180deg); } }
+@keyframes deska { 0%, 45% { transform: translate(300px, 419px); } 70%, 100% { transform: translate(300px, 261px); } }
+@keyframes latka { 0%, 15% { opacity: 1; } 22%, 100% { opacity: 0; } }
+@keyframes teleso { 0%, 66% { opacity: 0; } 74%, 100% { opacity: 1; } }
+@keyframes scena { 0% { opacity: 0; } 3%, 95% { opacity: 1; } 100% { opacity: 0; } }
+.nL { animation: nohaL 9s ease-in-out infinite; }
+.nP { animation: nohaP 9s ease-in-out infinite; }
+.de { animation: deska 9s ease-in-out infinite; }
+.pl { animation: latka 9s linear infinite; }
+.pt { animation: teleso 9s linear infinite; }
+.sc { animation: scena 9s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .nL, .nP, .de, .pl, .pt, .sc { animation: none; } }
+</style>
+<defs>
+<linearGradient id="drevoV" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9c6431"/><stop offset="0.35" stop-color="#d39a5e"/><stop offset="1" stop-color="#8a5526"/></linearGradient>
+<linearGradient id="drevoH" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2ad72"/><stop offset="0.5" stop-color="#c88a4c"/><stop offset="1" stop-color="#8a5526"/></linearGradient>
+<linearGradient id="podlaha" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dee2e6"/><stop offset="1" stop-color="#ced4da"/></linearGradient>
+</defs>
+<rect x="3" y="3" width="594" height="554" rx="14" fill="#f8f9fa"/>
+<text x="300" y="46" font-size="28" font-weight="bold" fill="#212529" text-anchor="middle">Z látky vyrobíme těleso</text>
+<rect x="20" y="430" width="560" height="46" fill="url(#podlaha)"/>
+<path d="M20 430H580" stroke="#adb5bd" stroke-width="3"/>
+<g class="sc">
+<ellipse cx="300" cy="434" rx="160" ry="7" fill="#000" opacity="0.12"/>
+<!-- deska stolu: 300 × 22, kreslená kolem středu -->
+<g class="de" transform="translate(300 261)">
+<rect x="-150" y="-11" width="300" height="22" rx="3" fill="url(#drevoH)" stroke="#6b3f17" stroke-width="2"/>
+<path d="M-140 -4C-80 -7 -30 -1 20 -5S110 -2 142 -5M-136 4C-70 1 -20 6 40 2S120 5 140 3" stroke="#8a5526" stroke-width="1.6" fill="none"/>
+<ellipse cx="62" cy="0" rx="9" ry="4" fill="none" stroke="#7a4a1e" stroke-width="1.6"/>
+</g>
+<!-- nohy: 22 × 158, kreslené kolem středu -->
+<g class="nL" transform="translate(186 351)">
+<rect x="-11" y="-79" width="22" height="158" rx="3" fill="url(#drevoV)" stroke="#6b3f17" stroke-width="2"/>
+<path d="M-4 -72C-6 -30 -1 0 -4 40S-2 66 -4 74M4 -72C2 -40 6 -10 3 30S5 60 4 74" stroke="#8a5526" stroke-width="1.5" fill="none"/>
+</g>
+<g class="nP" transform="translate(414 351)">
+<rect x="-11" y="-79" width="22" height="158" rx="3" fill="url(#drevoV)" stroke="#6b3f17" stroke-width="2"/>
+<path d="M-4 -72C-2 -36 -6 -6 -3 34S-5 62 -4 74M4 -72C6 -44 1 -12 4 28S2 58 4 74" stroke="#8a5526" stroke-width="1.5" fill="none"/>
+</g>
+<!-- plakety -->
+<g class="pl" opacity="0">
+<rect x="180" y="96" width="240" height="56" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
+<text x="300" y="133" font-size="26" fill="#212529" text-anchor="middle"><tspan font-weight="bold">látka:</tspan> dřevo</text>
+</g>
+<g class="pt">
+<rect x="180" y="96" width="240" height="56" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
+<text x="300" y="133" font-size="26" fill="#212529" text-anchor="middle"><tspan font-weight="bold">těleso:</tspan> stůl</text>
+</g>
+</g>
+<text x="300" y="518" font-size="24" fill="#212529" text-anchor="middle">Dřevo je <tspan font-weight="bold">látka</tspan>. Stůl je <tspan font-weight="bold">těleso</tspan>.</text>
+</svg>

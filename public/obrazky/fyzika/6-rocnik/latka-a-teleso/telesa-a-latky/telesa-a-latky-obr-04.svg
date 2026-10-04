@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 990" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Příklady těles a látek, ze kterých jsou: stůl ze dřeva, kniha z papíru, mléko v lahvi z mléka, vzduch v balónku ze vzduchu, hřebík ze železa, oblak z vody a okno, které je z části ze skla, z části ze dřeva a z části ze železa.">
+<!-- Předloha: PDF Tělesa a látky, oddíl TĚLESO, výčet příkladů (stůl, kniha, mléko v lahvi, vzduch v balónku,
+     hřebík, oblak, okno). V PDF jen text, kresby doplněny k témuž výčtu; nic navíc. -->
+<defs>
+<linearGradient id="dr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2ad72"/><stop offset="1" stop-color="#9c6431"/></linearGradient>
+<linearGradient id="kov" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9ecef"/><stop offset="0.5" stop-color="#adb5bd"/><stop offset="1" stop-color="#495057"/></linearGradient>
+<radialGradient id="bal" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#ffc078"/><stop offset="0.5" stop-color="#f76707"/><stop offset="1" stop-color="#c2410c"/></radialGradient>
+<linearGradient id="sklo" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d0ebff"/><stop offset="1" stop-color="#a5d8ff"/></linearGradient>
+<linearGradient id="oblak" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#ced4da"/></linearGradient>
+</defs>
+<rect x="3" y="3" width="594" height="984" rx="14" fill="#f8f9fa"/>
+<text x="300" y="48" font-size="28" font-weight="bold" fill="#212529" text-anchor="middle">Těleso a jeho látka</text>
+<g fill="#fff" stroke="#ced4da" stroke-width="2">
+<rect x="20" y="75" width="270" height="210" rx="12"/><rect x="310" y="75" width="270" height="210" rx="12"/>
+<rect x="20" y="300" width="270" height="210" rx="12"/><rect x="310" y="300" width="270" height="210" rx="12"/>
+<rect x="20" y="525" width="270" height="210" rx="12"/><rect x="310" y="525" width="270" height="210" rx="12"/>
+<rect x="20" y="750" width="560" height="220" rx="12"/>
+</g>
+<!-- stůl -->
+<g transform="translate(155 160)">
+<rect x="-55" y="-42" width="9" height="76" fill="#8a5526"/><rect x="46" y="-42" width="9" height="76" fill="#8a5526"/>
+<path d="M-76 -22L76 -22L60 -44L-60 -44Z" fill="#e2ad72" stroke="#6b3f17" stroke-width="2"/>
+<rect x="-76" y="-22" width="152" height="12" fill="url(#dr)" stroke="#6b3f17" stroke-width="2"/>
+<rect x="-70" y="-10" width="11" height="62" fill="url(#dr)" stroke="#6b3f17" stroke-width="2"/><rect x="59" y="-10" width="11" height="62" fill="url(#dr)" stroke="#6b3f17" stroke-width="2"/>
+<path d="M-50 -36C-20 -38 10 -32 40 -36M-40 -28C-10 -30 20 -26 50 -29" stroke="#b8763a" stroke-width="1.4" fill="none"/>
+</g>
+<!-- kniha -->
+<g transform="translate(445 158)">
+<path d="M0 -24Q-44 -44 -86 -30L-86 40Q-44 26 0 46Q44 26 86 40L86 -30Q44 -44 0 -24Z" fill="#2f9e44" stroke="#1b5e2a" stroke-width="2"/>
+<path d="M0 -28Q-40 -46 -78 -36L-78 32Q-40 20 0 38Z" fill="#fff" stroke="#868e96" stroke-width="2"/>
+<path d="M0 -28Q40 -46 78 -36L78 32Q40 20 0 38Z" fill="#fff" stroke="#868e96" stroke-width="2"/>
+<g stroke="#adb5bd" stroke-width="2.5" fill="none"><path d="M-66 -24Q-40 -32 -12 -22M-66 -10Q-40 -18 -12 -8M-66 4Q-40 -4 -12 6M-66 18Q-44 10 -24 18"/><path d="M12 -22Q40 -32 66 -24M12 -8Q40 -18 66 -10M12 6Q40 -4 66 4M24 18Q44 10 66 18"/></g>
+</g>
+<!-- mléko v lahvi -->
+<g transform="translate(155 382)">
+<path d="M-12 -52L12 -52L12 -30Q34 -18 34 4L34 50Q34 60 24 60L-24 60Q-34 60 -34 50L-34 4Q-34 -18 -12 -30Z" fill="#d0ebff" stroke="#868e96" stroke-width="3"/>
+<path d="M-27 -12Q-30 -6 -30 4L-30 50Q-30 56 -22 56L22 56Q30 56 30 50L30 4Q30 -6 27 -12Z" fill="#fff" stroke="#dee2e6" stroke-width="1.5"/>
+<ellipse cx="0" cy="-12" rx="27" ry="4" fill="#f1f3f5" stroke="#ced4da" stroke-width="1.5"/>
+<path d="M-24 0V48" stroke="#dee2e6" stroke-width="5" stroke-linecap="round"/>
+<rect x="-15" y="-62" width="30" height="12" rx="3" fill="#e03131"/>
+</g>
+<!-- balónek -->
+<g transform="translate(445 375)">
+<path d="M0 50Q-6 56 3 60T0 68" stroke="#495057" stroke-width="2" fill="none"/>
+<ellipse cx="0" cy="-4" rx="40" ry="48" fill="url(#bal)" stroke="#a63a07" stroke-width="2"/>
+<path d="M-6 50L6 50L0 42Z" fill="#c2410c"/>
+<ellipse cx="-16" cy="-26" rx="8" ry="14" fill="#fff" opacity="0.55" transform="rotate(25 -16 -26)"/>
+</g>
+<!-- hřebík -->
+<g transform="translate(155 600) rotate(-25)">
+<path d="M-62 -5L58 -5L82 0L58 5L-62 5Z" fill="url(#kov)" stroke="#343a40" stroke-width="2"/>
+<rect x="-74" y="-18" width="12" height="36" rx="3" fill="url(#kov)" stroke="#343a40" stroke-width="2"/>
+<path d="M-56 -2H50" stroke="#fff" stroke-width="2" opacity="0.7"/>
+</g>
+<!-- oblak -->
+<g transform="translate(445 610)">
+<path d="M-70 26Q-92 26 -90 6Q-88 -14 -64 -12Q-62 -40 -30 -42Q-10 -62 18 -46Q48 -58 60 -28Q90 -26 88 2Q86 26 62 26Z" fill="url(#oblak)" stroke="#868e96" stroke-width="3"/>
+</g>
+<!-- popisky šesti karet -->
+<g font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">
+<text x="155" y="245">stůl</text><text x="445" y="245">kniha</text>
+<text x="155" y="470">mléko v lahvi</text><text x="445" y="470">vzduch v balónku</text>
+<text x="155" y="695">hřebík</text><text x="445" y="695">oblak</text>
+</g>
+<g font-size="24" fill="#212529" text-anchor="middle">
+<text x="155" y="273">ze dřeva</text><text x="445" y="273">z papíru</text>
+<text x="155" y="498">z mléka</text><text x="445" y="498">ze vzduchu</text>
+<text x="155" y="723">ze železa</text><text x="445" y="723">z vody</text>
+</g>
+<!-- okno -->
+<rect x="50" y="772" width="180" height="178" rx="3" fill="url(#dr)" stroke="#6b3f17" stroke-width="2.5"/>
+<rect x="64" y="786" width="70" height="150" fill="url(#sklo)" stroke="#6b3f17" stroke-width="2"/>
+<rect x="146" y="786" width="70" height="150" fill="url(#sklo)" stroke="#6b3f17" stroke-width="2"/>
+<path d="M74 830L110 794M74 860L124 810M156 830L192 794M156 860L206 810" stroke="#fff" stroke-width="5" opacity="0.7"/>
+<rect x="134" y="786" width="12" height="150" fill="#b8763a" stroke="#6b3f17" stroke-width="1.5"/>
+<rect x="135" y="852" width="10" height="16" rx="2" fill="url(#kov)" stroke="#343a40" stroke-width="1.5"/>
+<rect x="138" y="862" width="6" height="34" rx="3" fill="url(#kov)" stroke="#343a40" stroke-width="1.5"/>
+<g stroke="#212529" stroke-width="2"><path d="M256 806L196 806"/><path d="M256 866L224 900"/><path d="M256 926L146 884"/></g>
+<g fill="#212529"><circle cx="196" cy="806" r="4"/><circle cx="224" cy="900" r="4"/><circle cx="146" cy="884" r="4"/></g>
+<g font-size="24" fill="#212529"><text x="262" y="814">sklo</text><text x="262" y="874">dřevo</text><text x="262" y="934">železo</text></g>
+<text x="470" y="838" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">okno</text>
+<text x="470" y="874" font-size="24" fill="#212529" text-anchor="middle">z části ze skla,</text>
+<text x="470" y="904" font-size="24" fill="#212529" text-anchor="middle">ze dřeva</text>
+<text x="470" y="934" font-size="24" fill="#212529" text-anchor="middle">a ze železa</text>
+</svg>

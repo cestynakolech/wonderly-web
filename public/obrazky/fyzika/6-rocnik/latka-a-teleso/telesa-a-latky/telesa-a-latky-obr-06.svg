@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 760" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Vlastnosti těles. Dřevěný stůl se šipkou délka nad deskou a šipkou výška od podlahy k desce. Kniha se položí na kuchyňskou váhu a ručička se pohne – hmotnost. Mléko v lahvi s čárkovaně vyznačeným místem, které zabírá – objem. Dole: Vlastnosti těles, které můžeme změřit, jsou fyzikální veličiny.">
+<style>
+/* Předloha: PDF Tělesa a látky, oddíl Vlastnosti těles (tvar, velikost, hmotnost; co můžeme změřit =
+   fyzikální veličiny: délka, výška, hmotnost, objem, hustota). V PDF jen text; kresba ukazuje délku, výšku,
+   hmotnost a objem na tělesech z výkladu (stůl, kniha, mléko v lahvi). Bez čísel.
+   Cyklus 5 s: kniha dosedne (0–30 %), ručička se otočí o 90° (30–50 %), stav drží. Bez animace = kniha leží, ručička vychýlená. */
+@keyframes kniha { 0% { transform: translateY(-70px); opacity: 0; } 8% { opacity: 1; } 30%, 92% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(0); opacity: 0; } }
+@keyframes rucicka { 0%, 30% { transform: rotate(-60deg); } 50%, 100% { transform: rotate(30deg); } }
+.kn { animation: kniha 5s ease-out infinite; }
+.ru { transform-box: view-box; transform-origin: 155px 544px; transform: rotate(30deg); animation: rucicka 5s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .kn, .ru { animation: none; } }
+</style>
+<defs>
+<linearGradient id="dr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2ad72"/><stop offset="1" stop-color="#9c6431"/></linearGradient>
+<linearGradient id="drV" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9c6431"/><stop offset="0.35" stop-color="#d39a5e"/><stop offset="1" stop-color="#8a5526"/></linearGradient>
+<linearGradient id="vaha" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1f3f5"/><stop offset="1" stop-color="#adb5bd"/></linearGradient>
+<marker id="sip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#1864ab"/></marker>
+</defs>
+<rect x="3" y="3" width="594" height="754" rx="14" fill="#f8f9fa"/>
+<text x="300" y="46" font-size="28" font-weight="bold" fill="#212529" text-anchor="middle">Vlastnosti těles</text>
+<text x="300" y="84" font-size="24" fill="#212529" text-anchor="middle">Těleso má tvar, velikost, hmotnost…</text>
+<g fill="#fff" stroke="#ced4da" stroke-width="2">
+<rect x="20" y="105" width="560" height="270" rx="12"/>
+<rect x="20" y="390" width="270" height="240" rx="12"/><rect x="310" y="390" width="270" height="240" rx="12"/>
+</g>
+<!-- stůl s délkou a výškou -->
+<path d="M40 340H560" stroke="#adb5bd" stroke-width="3"/>
+<rect x="186" y="194" width="10" height="138" fill="#8a5526"/><rect x="364" y="194" width="10" height="138" fill="#8a5526"/>
+<path d="M150 200L410 200L392 182L168 182Z" fill="#e2ad72" stroke="#6b3f17" stroke-width="2"/>
+<rect x="150" y="200" width="260" height="16" fill="url(#dr)" stroke="#6b3f17" stroke-width="2"/>
+<rect x="158" y="216" width="16" height="124" fill="url(#drV)" stroke="#6b3f17" stroke-width="2"/>
+<rect x="386" y="216" width="16" height="124" fill="url(#drV)" stroke="#6b3f17" stroke-width="2"/>
+<path d="M190 190C240 188 300 194 380 190" stroke="#b8763a" stroke-width="1.4" fill="none"/>
+<g stroke="#1864ab" stroke-width="3">
+<path d="M150 146V172M410 146V172"/>
+<path d="M156 160H404" marker-start="url(#sip)" marker-end="url(#sip)"/>
+<path d="M436 200H466M436 340H466"/>
+<path d="M451 206V334" marker-start="url(#sip)" marker-end="url(#sip)"/>
+</g>
+<text x="280" y="148" font-size="26" font-weight="bold" fill="#1864ab" text-anchor="middle">délka</text>
+<text x="466" y="279" font-size="26" font-weight="bold" fill="#1864ab">výška</text>
+<!-- váha s knihou -->
+<path d="M84 572L96 516H214L226 572Z" fill="url(#vaha)" stroke="#495057" stroke-width="2"/>
+<rect x="70" y="508" width="170" height="8" rx="3" fill="#868e96" stroke="#495057" stroke-width="1.5"/>
+<circle cx="155" cy="544" r="19" fill="#fff" stroke="#495057" stroke-width="2"/>
+<g stroke="#495057" stroke-width="2"><path d="M155 528V532M140 535L143 537M170 535L167 537"/></g>
+<path class="ru" d="M155 544V530" stroke="#e03131" stroke-width="3" stroke-linecap="round"/>
+<circle cx="155" cy="544" r="3" fill="#212529"/>
+<g class="kn">
+<rect x="98" y="484" width="114" height="24" rx="3" fill="#2f9e44" stroke="#1b5e2a" stroke-width="2"/>
+<rect x="104" y="488" width="108" height="16" fill="#fff" stroke="#868e96" stroke-width="1.5"/>
+<path d="M108 492H210M108 496H210M108 500H210" stroke="#ced4da" stroke-width="1.2"/>
+</g>
+<text x="155" y="612" font-size="26" font-weight="bold" fill="#1864ab" text-anchor="middle">hmotnost</text>
+<!-- mléko v lahvi, objem -->
+<g transform="translate(445 506)">
+<path d="M-15 -66L15 -66L15 -40Q42 -26 42 2L42 62Q42 74 30 74L-30 74Q-42 74 -42 62L-42 2Q-42 -26 -15 -40Z" fill="#d0ebff" stroke="#868e96" stroke-width="3"/>
+<path d="M-35 -16Q-38 -8 -38 2L-38 62Q-38 70 -28 70L28 70Q38 70 38 62L38 2Q38 -8 35 -16Z" fill="#fff" stroke="#dee2e6" stroke-width="1.5"/>
+<ellipse cx="0" cy="-16" rx="35" ry="5" fill="#f1f3f5" stroke="#ced4da" stroke-width="1.5"/>
+<path d="M-35 -16Q-38 -8 -38 2L-38 62Q-38 70 -28 70L28 70Q38 70 38 62L38 2Q38 -8 35 -16Z" fill="none" stroke="#1864ab" stroke-width="3" stroke-dasharray="8 6"/>
+<rect x="-18" y="-78" width="36" height="14" rx="3" fill="#e03131"/>
+</g>
+<text x="445" y="612" font-size="26" font-weight="bold" fill="#1864ab" text-anchor="middle">objem</text>
+<!-- definice -->
+<rect x="20" y="648" width="560" height="96" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2.5"/>
+<text x="300" y="688" font-size="24" fill="#212529" text-anchor="middle">Vlastnosti těles, které můžeme změřit,</text>
+<text x="300" y="722" font-size="24" fill="#212529" text-anchor="middle">jsou <tspan font-weight="bold">fyzikální veličiny</tspan>.</text>
+</svg>
