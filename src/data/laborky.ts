@@ -896,10 +896,10 @@ export const laborky: Record<string, Laborka> = {
 			'Jak se změnila perioda, když jsi točil rychleji?',
 			'Cívka alternátoru udělá 2 otáčky za 1 s. Jaká je frekvence a kolik period proběhne za 10 s?',
 			'Jaké napětí a jakou frekvenci má střídavý proud v rozvodné síti?',
-			'Perioda je doba jedné otáčky cívky alternátoru. Kolik milisekund trvá perioda při frekvenci 50 Hz? Počítej 1 s = 1000 ms.',
+			'Perioda je doba jedné otáčky cívky alternátoru. Kolik milisekund trvá perioda při frekvenci 2 Hz? Počítej 1 s = 1000 ms.',
 		],
 		pozor: 'Zapojení připravuje učitel, nikdy nepoužívej síťovou zásuvku. Klikou netoč prudce a neotáčej s ní, když ji někdo drží. Při zahřívání nebo zápachu hned přestaň a zavolej učitele.',
-		tip: 'V rozvodné síti má střídavý proud frekvenci 50 Hz, tedy 50 period za sekundu.',
+		tip: 'Frekvence a perioda popisují každé kmitání, nejen střídavý proud. Používají se i u zvuku.',
 	},
 	'fyzika/9-rocnik/indukce-a-stridavy-proud/transformator': {
 		nazev: 'Transformátor: kolikrát se změní napětí',
@@ -907,7 +907,7 @@ export const laborky: Record<string, Laborka> = {
 		pomucky: ['školní demonstrační transformátor s vyměnitelnými cívkami (dvě po 300 závitech a jedna se 600 závity)', 'školní zdroj střídavého napětí do 8 V', 'voltmetr pro střídavé napětí s rozsahem aspoň 10 V', 'vodiče', 'tužka'],
 		postup: [
 			'Zapojení připravuje učitel. Na primární cívku s 300 závity připojí zdroj střídavého napětí 4 V. Sekundární cívka má 600 závitů.',
-			'Zapni zdroj. Voltmetrem nejdřív změř napětí U1 na primární cívce a potom U2 na sekundární cívce a zapiš. Zdroj vypni.',
+			'Voltmetr připoj k primární cívce a zapni zdroj. Odečti U1 a zdroj vypni. Při vypnutém zdroji přepoj voltmetr na sekundární cívku, zdroj zapni, odečti U2 a zdroj vypni. Obě hodnoty zapiš.',
 			'Učitel vymění cívky tak, aby obě měly po 300 závitech. Znovu odečti U1 a U2 a zapiš.',
 			'Učitel zapojí primární cívku s 600 závity na 8 V a sekundární s 300 závity. Odečti U1 a U2 a zapiš.',
 			'Vysvětlení: transformátor slouží k přenosu elektrické energie a ke změně velikosti napětí.',
