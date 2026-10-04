@@ -2582,6 +2582,9 @@ export const temata: Record<string, Tema[]> = {
 					uvod: "Vysavač bere elektřinu ze zásuvky. Všechnu ji ale nepoužije na sání, část se ztratí, třeba se motor zahřeje. Účinnost říká, jak velká část toho, co stroj dostane, se opravdu využije.",
 					zvidave: "<p><strong>Kam se ztráty poděly.</strong> Ztracená práce se nejčastěji změní v teplo (tření součástek, odpor vodičů) nebo v hluk. Kladkostroj z příkladu ztrácí těch asi 17 % hlavně třením v kladkách a laně.</p>\n<p><strong>Účinnost z energie.</strong> Stejně se účinnost počítá i z energie: energii, kterou stroj užitečně využil, vydělíme energií, kterou dostal. Motor tak promění na pohyb jen část energie paliva a zbytek uteče jako odpadní teplo.</p>\n<p><strong>Výkon z příkonu.</strong> Ze vzorce η = P : P₀ plyne také P = η · P₀. Motor výtahu: P = 0,96 · 1 000 = 960 W.</p>\n<p><strong>Parní stroje.</strong> Starší parní stroje měly účinnost jen asi 15 % až 20 %. V našem příkladu počítáme s 20 %.</p>",
 					zapis: {"vzorec":"η = P : P₀","jednotky":["η (%), P a P₀ (W)"],"vzorecSlovy":"účinnost = výkon děleno příkon","body":["příkon je práce, kterou stroj dostane za sekundu","výkon je užitečná práce za sekundu","účinnost je vždy menší než 100 %"]},
+					materialy: [
+						{ druh: 'video', nazev: 'Bonus z NotebookLM: Tajemství účinnosti (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/mechanicka-prace-a-vykon/ucinnost/notebooklm-ucinnost.mp4' },
+					],
 				},
 			],
 		},
