@@ -1213,7 +1213,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>👉 POZOR — častá chyba: u času <strong>neposouváme desetinnou čárku</strong>! 0,75 h není 75 minut, ale 45 minut (0,75 × 60).</p>
 						<h3>Výpočet doby trvání</h3>
 						<p>Známe-li čas začátku t₁ a konce t₂ události, doba trvání <strong>t = t₂ − t₁</strong> (např. jak dlouho trvala cesta vlakem).</p>
-						<p>Např. vlak odjel v 8 h 20 min a přijel v 10 h 50 min: t = 10 h 50 min − 8 h 20 min = <strong>2 h 30 min</strong>.</p>
+						<p>Příklad: vlak odjel v 8 h 20 min a přijel v 10 h 50 min: t = 10 h 50 min − 8 h 20 min = <strong>2 h 30 min</strong>.</p>
 						<figure><a href="/obrazky/fyzika/6-rocnik/cas/cas-a-jeho-mereni/cas-a-jeho-mereni-obr-10.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/cas/cas-a-jeho-mereni/cas-a-jeho-mereni-obr-10.svg" alt="Dvoje staniční hodiny, odjezd 8:20 a příjezd 10:50, mezi nimi jede vlak; výpočet t = 10 h 50 min − 8 h 20 min = 2 h 30 min." loading="lazy" /></a><figcaption>Doba trvání: t = t₂ − t₁.</figcaption></figure>
 						<h3>🕹️ Praktická úloha: dráha pro robota Ozobota</h3>
 						<p>Ozobota se dá naučit jezdit po dráze poskládané ze stavebnicových dílků do tvaru <strong>obdélníku</strong>. Na dráhu se navíc dají umístit dílky s příkazy — <strong>start</strong>, <strong>zrychlit</strong>, <strong>zatáčka</strong>, <strong>zpomalit</strong> a <strong>cíl</strong>. Než robot vyjede, změříme délku jednoho dílku a spočítáme, kolik dílků je na šířku (a) a kolik na výšku (b) dráhy.</p>
