@@ -69,12 +69,14 @@ export const temata: Record<string, Tema[]> = {
 						<p><strong>Fyzika je přírodní věda.</strong> Název vznikl z řeckého slova <strong>physis</strong> = příroda.</p>
 						<p>👉 Fyzika zkoumá, popisuje a vysvětluje zákonitosti přírodních jevů — vlastnosti a chování hmoty, přírodních sil, světla i neviditelného záření, tepla, zvuku…</p>
 						<h3>Jak pracuje fyzik?</h3>
+							<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/uvod-do-fyziky/uvod-do-fyziky-obr-01.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/uvod-do-fyziky/uvod-do-fyziky-obr-01.svg" alt="Noční město pod fialovou bouřkovou oblohou, z mraků šlehají tři rozvětvené blesky k domům; blesky postupně problikávají." loading="lazy" /></a><figcaption>Pozorování: fyzik si všímá, jak se příroda chová – třeba jak blesk šlehá z mraků k zemi.</figcaption></figure>
 						<ul>
 							<li><strong>Pozorování</strong> — zkoumá, jak se příroda chová</li>
 							<li><strong>Pokus (experiment)</strong> — vytváří různé podmínky a sleduje výsledky, aby své myšlenky o fungování přírody (<strong>hypotézy</strong>) potvrdil, nebo vyvrátil</li>
 							<li><strong>Měření</strong> — popisuje vlastnosti čísly</li>
 						</ul>
 						<p>Z ověřených poznatků pak fyzici vysloví <strong>fyzikální zákony</strong>.</p>
+							<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/uvod-do-fyziky/uvod-do-fyziky-obr-06.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/uvod-do-fyziky/uvod-do-fyziky-obr-06.svg" alt="Tři karty: Pozorování (oko a mrak s bleskem), Pokus (kulička se kutálí po nakloněném prkně), Měření (stopky a pravítko); šipky vedou k fyzikálnímu zákonu." loading="lazy" /></a><figcaption>Fyzik pozoruje, dělá pokusy a měří. Z ověřených poznatků pak vysloví fyzikální zákon.</figcaption></figure>
 						<h3>Jak to vypadá doopravdy — jeden slavný příklad</h3>
 						<p>Skoro dva tisíce let se učilo, že <strong>těžší tělesa padají rychleji</strong> než lehká.
 						Znělo to rozumně a každý si to mohl potvrdit: kámen dopadne dřív než list papíru.
@@ -87,10 +89,12 @@ export const temata: Record<string, Tema[]> = {
 						<p>Dnes to jde ukázat naprosto nesporně — bez vzduchu. Astronaut mise <strong>Apollo 15</strong>
 						pustil na Měsíci současně <strong>kladivo a ptačí pero</strong>. Dopadly ve stejný okamžik,
 						protože na Měsíci žádný vzduch není.</p>
+							<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/uvod-do-fyziky/uvod-do-fyziky-obr-04.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/uvod-do-fyziky/uvod-do-fyziky-obr-04.svg" alt="Astronaut na Měsíci pustí z jedné ruky kladivo a z druhé ptačí pero; obojí padá stejně rychle a dopadne na povrch ve stejný okamžik." loading="lazy" /></a><figcaption>Na Měsíci není vzduch, a tak kladivo i pero padají stejně rychle a dopadnou zároveň.</figcaption></figure>
 						<p>Zkus to i ty: pusť list papíru a knihu (dopadne kniha), pak <strong>polož list navrch
 						na knihu</strong> a pusť je znovu — kniha mu odhrne vzduch z cesty a dopadnou spolu.
 						Musí to být <strong>list menší než kniha</strong> a nikde nesmí přesahovat přes okraj,
 						jinak se ho vzduch chytí a strhne ho pryč.</p>
+							<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/uvod-do-fyziky/uvod-do-fyziky-obr-05.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/uvod-do-fyziky/uvod-do-fyziky-obr-05.svg" alt="Vlevo padá kniha a vedle ní list papíru – kniha dopadne dřív, papír se kolébá. Vpravo leží menší list na knize a dopadnou spolu." loading="lazy" /></a><figcaption>Samotný papír se opírá o vzduch. Když leží na knize, kniha mu vzduch odhrne a dopadnou spolu.</figcaption></figure>
 						<p>👉 A tohle je na fyzice to nejdůležitější: <strong>rozhoduje pokus, ne to, co si kdo myslí</strong> —
 						ani kdyby si to myslel kdokoli jak dlouho. Když měření nesouhlasí s hypotézou, mění se hypotéza.</p>
 						<h3>Jak se fyzik vyjadřuje?</h3>
@@ -98,6 +102,8 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>odborné pojmy a značky</strong> — např. hmotnost, objem, hustota, tlak…</li>
 							<li><strong>grafy a vzorce</strong> — matematické vyjádření vztahů pomocí písmen a čísel</li>
 						</ul>
+							<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/uvod-do-fyziky/uvod-do-fyziky-obr-03.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/uvod-do-fyziky/uvod-do-fyziky-obr-03.svg" alt="Čtverečkovaný sešit s tužkou a třemi barevně psanými vzorci: v = s/t (rychlost), ρ = m/V (hustota), F = m · g (gravitační síla)." loading="lazy" /></a><figcaption>Vzorec zapisuje vztah mezi veličinami pomocí písmen a čísel.</figcaption></figure>
+							<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/uvod-do-fyziky/uvod-do-fyziky-obr-02.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/uvod-do-fyziky/uvod-do-fyziky-obr-02.svg" alt="Spojnicový graf nejnižší a nejvyšší denní teploty od 1. do 19. února; modrá čára nejnižších teplot je pod nulou, oranžová čára nejvyšších vystoupá až na 7 °C." loading="lazy" /></a><figcaption>Graf ukáže čísla z měření na první pohled: modře nejnižší, oranžově nejvyšší teplota každého dne.</figcaption></figure>
 						<h3>Proč je dobré znát fyziku?</h3>
 						<ul>
 							<li>umíme <strong>vysvětlit</strong>, proč a jak se něco děje</li>
