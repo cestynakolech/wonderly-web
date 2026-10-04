@@ -156,6 +156,7 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Látka</h3>
 						<p><strong>Látka</strong> je fyzikální pojem pro <strong>materiál</strong>. Z určitého množství látky můžeme vytvořit konkrétní věc určitého tvaru.</p>
 						<p>Příklady látek: dřevo, papír, mléko, voda, sůl, kyslík, oxid uhličitý, vzduch, sklo, železo, ocel.</p>
+						<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/telesa-a-latky/telesa-a-latky-obr-01.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/telesa-a-latky/telesa-a-latky-obr-01.svg" alt="Animace: z hromádky dřevěných prken se složí stůl. Dřevo je látka, stůl je těleso." loading="lazy" /></a><figcaption>Z látky (dřeva) vyrobíme těleso (stůl).</figcaption></figure>
 						<h3>Těleso</h3>
 						<p><strong>Těleso</strong> je fyzikální pojem pro <strong>živý či neživý předmět</strong>.</p>
 						<ul>
@@ -163,6 +164,9 @@ export const temata: Record<string, Tema[]> = {
 							<li>těleso může být tvořeno <strong>z jedné nebo více látek</strong></li>
 						</ul>
 						<p>Příklady těles: stůl (ze dřeva), kniha (z papíru), mléko v lahvi (z mléka), vzduch v balónku (ze vzduchu), hřebík (ze železa), oblak (z vody), okno (část ze skla, část ze dřeva a část ze železa).</p>
+						<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/telesa-a-latky/telesa-a-latky-obr-04.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/telesa-a-latky/telesa-a-latky-obr-04.svg" alt="Příklady těles a jejich látek: stůl, kniha, mléko v lahvi, balónek, hřebík, oblak a okno ze skla, dřeva a železa." loading="lazy" /></a><figcaption>Každé těleso je z nějaké látky. Okno je dokonce ze tří.</figcaption></figure>
+						<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/telesa-a-latky/telesa-a-latky-obr-02.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/telesa-a-latky/telesa-a-latky-obr-02.svg" alt="Kladivo s železnou hlavou a dřevěnou násadou." loading="lazy" /></a><figcaption>Kladivo je jedno těleso ze dvou látek: železa a dřeva.</figcaption></figure>
+						<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/telesa-a-latky/telesa-a-latky-obr-03.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/telesa-a-latky/telesa-a-latky-obr-03.svg" alt="Sklenice tmavé kofoly, ze dna stoupají bublinky oxidu uhličitého." loading="lazy" /></a><figcaption>Kofola ve sklenici: v nápoji jsou bublinky oxidu uhličitého.</figcaption></figure>
 						<h3>🔎 Jak je od sebe bezpečně rozeznat</h3>
 						<p>Když si nejsi jistý(á), pomůžou dvě otázky:</p>
 						<ul>
@@ -181,12 +185,14 @@ export const temata: Record<string, Tema[]> = {
 						vzduch v pneumatice nebo v balonku je taky těleso, i když se na něj díváš skrz.</p>
 						<h3>Vlastnosti látek</h3>
 						<p>Různé látky se od sebe odlišují svými vlastnostmi — např. barva, chuť, vůně, tvrdost, pružnost, rozpustnost, křehkost, sypkost, tvárnost, tekutost…</p>
+						<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/telesa-a-latky/telesa-a-latky-obr-05.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/telesa-a-latky/telesa-a-latky-obr-05.svg" alt="Deset obrázků vlastností látek: barva, chuť, vůně, tvrdost, pružnost, rozpustnost, křehkost, sypkost, tvárnost a tekutost." loading="lazy" /></a><figcaption>Látky poznáme podle vlastností — barvy, chuti, tvrdosti, křehkosti…</figcaption></figure>
 						<h3>Vlastnosti těles</h3>
 						<ul>
 							<li>tělesa mají vlastnosti látek, ze kterých jsou vyrobena</li>
 							<li>mají ale i vlastnosti navíc — <strong>tvar, velikost, hmotnost…</strong></li>
 						</ul>
 						<p>👉 Vlastnosti těles, které můžeme <strong>změřit</strong>, se nazývají <strong>fyzikální veličiny</strong> (délka, výška, hmotnost, objem, hustota…).</p>
+						<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/telesa-a-latky/telesa-a-latky-obr-06.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/telesa-a-latky/telesa-a-latky-obr-06.svg" alt="Stůl se šipkami délka a výška, kniha na váze – hmotnost, mléko v lahvi – objem." loading="lazy" /></a><figcaption>Co na tělese změříme (délka, výška, hmotnost, objem…), jsou fyzikální veličiny.</figcaption></figure>
 					`,
 					materialy: [
 						// Hlasy z OpenAI TTS — atribuci uvádět nemusíme.
