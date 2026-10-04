@@ -1181,7 +1181,7 @@ export const laborky: Record<string, Laborka> = {
 			'Čím se liší jaderná reakce od radioaktivity?',
 			'Rutherford ostřeloval jádra dusíku 14 alfa částicemi (jádry helia 4) a vznikl kyslík 17 a proton (vodík 1). Spočítej součet nukleonových čísel před reakcí a po ní. Co zjistíš?',
 		],
-		pozor: 'Kostky stav na rovné lavici. Převrácené kostky po pokusu ihned seber, ať po nich nikdo neuklouzne. Knihu nepouštěj z výšky.',
+		pozor: 'Kostky stav na rovné lavici. Převrácené kostky po pokusu ihned seber, ať po nich nikdo neuklouzne. Kostky domina nehážej a nestav je na okraj lavice.',
 		tip: 'V modelu každá kostka shodí dvě další. Při štěpení uranu 235 vznikají 2 až 3 neutrony, které mohou za vhodných podmínek štěpit další jádra.',
 	},
 	'fyzika/9-rocnik/jaderna-fyzika/jaderny-reaktor-elektrarna': {
