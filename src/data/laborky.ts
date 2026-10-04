@@ -1391,7 +1391,7 @@ export const laborky: Record<string, Laborka> = {
 			'Dá se obraz v rovinném zrcadle zachytit na stínítku? Proč?',
 		],
 		pozor: 'Zrcadlo je skleněné, chraň ho před pádem a neřež se o hrany. Nesviť nikomu do očí a nepoužívej laser. Svítilnu po pokusu vypni.',
-		tip: 'Obraz v rovinném zrcadle je stejně velký a stejně daleko za zrcadlem jako předmět před ním.',
+		tip: 'Rovinná zrcadla používáme například jako kosmetická zrcadla a v periskopech ponorek.',
 	},
 	'fyzika/7-rocnik/zrcadla-a-cocky/kulova-zrcadla-dute-zrcadlo': {
 		nazev: 'Lžíce jako zrcadlo: duté a vypuklé',
@@ -1399,8 +1399,8 @@ export const laborky: Record<string, Laborka> = {
 		pomucky: ['lesklá kovová lžíce', 'pravítko', 'tužka'],
 		postup: [
 			'Lžíci drž stranou, do které se nalévá polévka (dutá strana), ve vzdálenosti 40 cm od obličeje. Pozoruj svůj obraz a zapiš, zda je vzpřímený, nebo převrácený a zda je zvětšený, nebo zmenšený.',
-			'Lžíci pomalu přibliž k oku na vzdálenost asi 2 cm. Znovu pozoruj obraz a zapiš ho.',
-			'Lžíci otoč na zadní, vypuklou stranu a opakuj pozorování ve vzdálenosti 40 cm a 2 cm. Zapiš obě pozorování.',
+			'Lžíci pomalu přibliž k oku co nejblíž, asi na 1 až 2 cm, a pozoruj obraz svého oka. Zapiš ho.',
+			'Lžíci otoč na zadní, vypuklou stranu a opakuj pozorování ve vzdálenosti 40 cm a co nejblíž (1 až 2 cm). Zapiš obě pozorování.',
 			'Vysvětlení: kulová zrcadla mají odraznou plochu z malé části povrchu koule.',
 		],
 		tabulka: {
@@ -1414,14 +1414,14 @@ export const laborky: Record<string, Laborka> = {
 			'Kde se využívají vypuklá zrcadla?',
 		],
 		pozor: 'Lžící nikdy nesoustřeďuj sluneční světlo, mohlo by to spálit kůži nebo zapálit předměty. Při přibližování k oku drž lžíci opatrně, ať se neporaníš. Nedívej se lžící do slunce.',
-		tip: 'Zpětná zrcátka v autech jsou vypuklá a ukazují větší část prostoru než rovinná zrcadla.',
+		tip: 'Kulová zrcadla se snadno vyrábějí, ale ostře zobrazují jen předměty v blízkosti osy zrcadla.',
 	},
 	'fyzika/7-rocnik/zrcadla-a-cocky/oko-vady-oka': {
 		nazev: 'Model oka: čočka a sítnice',
 		cil: 'Pomocí lupy a papíru vytvořit model oka a sledovat, kde vzniká obraz předmětů v různé vzdálenosti.',
 		pomucky: ['lupa s ohniskem asi 10 cm', 'bílý papír na stínítko', 'LED svítilna', 'pravítko', 'okno', 'tužka'],
 		postup: [
-			'Lupu drž mezi oknem a bílým papírem. Papír posouvej, dokud se na něm neobjeví ostrý obraz okna. Zapiš, jaký obraz vidíš a jak daleko je papír od lupy v celých cm.',
+			'Použij okno, do kterého nesvítí Slunce. Lupu drž mezi oknem a bílým papírem. Papír posouvej, dokud se na něm neobjeví ostrý obraz okna. Zapiš, jaký obraz vidíš a jak daleko je papír od lupy v celých cm.',
 			'Svítilnu postav 60 cm od lupy. Papír posunuj, dokud neuvidíš ostrý obraz svítilny, a zapiš vzdálenost papíru od lupy.',
 			'Svítilnu přibliž na 30 cm od lupy. Znovu najdi ostrý obraz a zapiš vzdálenost papíru od lupy.',
 			'Vysvětlení: lupa se v modelu chová jako čočka oka a papír jako sítnice.',
@@ -1436,7 +1436,7 @@ export const laborky: Record<string, Laborka> = {
 			'Při které zrakové vadě vzniká obraz před sítnicí a při které za sítnicí? Jakými brýlemi se vady upravují?',
 			'Jaká je nejvhodnější vzdálenost pro čtení a psaní bez námahy očí?',
 		],
-		pozor: 'Nikdy nepoužívej lupu ke zaostřování slunečního světla na papír, předměty ani oči. Svítilnou nesviť nikomu do očí. Papír a lupu po pokusu ukliď.',
-		tip: 'Zdravé oko zaostří na nekonečno, když je jeho čočka zploštělá.',
+		pozor: 'Okno nesmí směřovat do Slunce. Lupou nikdy nemiř na Slunce ani se jí do něj nedívej, hrozí poškození očí a požár. Nikdy nezaostřuj sluneční světlo na papír, předměty ani oči. Svítilnou nesviť nikomu do očí. Papír a lupu po pokusu ukliď.',
+		tip: 'Zdravé oko vidí ostře i velmi vzdálené předměty.',
 	},
 };
