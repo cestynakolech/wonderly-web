@@ -29,7 +29,7 @@
 <text x="378" y="349" font-size="20" font-weight="bold" fill="#7a1515">150</text>
 <text x="378" y="263" font-size="20" font-weight="bold" fill="#7a1515">200</text>
 <text x="378" y="177" font-size="20" font-weight="bold" fill="#7a1515">250</text>
-<text x="330" y="156" font-size="20" font-weight="bold" fill="#7a1515" text-anchor="middle">ml</text>
+<text x="402" y="156" font-size="20" font-weight="bold" fill="#7a1515" text-anchor="middle">ml</text>
 <g><rect x="480" y="130" width="250" height="56" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
 <text x="605" y="165.92" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">rozsah 250 ml</text>
 </g>

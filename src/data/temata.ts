@@ -933,7 +933,7 @@ export const temata: Record<string, Tema[]> = {
 							<li>zapíšeme s jednotkou: V = 50 ml nebo V = 50 cm³</li>
 						</ol>
 						<figure><a href="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/objem/objem-obr-05.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/objem/objem-obr-05.svg" alt="Zvětšená stupnice od 20 do 50 ml s dílkem 1 ml. Hladina je u stěn zaoblená nahoru, oko v úrovni hladiny se dívá kolmo na její nejnižší místo u značky 28. Zápis V = 28 ml." loading="lazy" /></a><figcaption>Čteme u nejnižšího místa hladiny, oči v její úrovni: V = 28 ml.</figcaption></figure>
-						<p>Např. válec o rozsahu 250 ml má nejmenší dílek 5 ml; hladina na obrázku ukazuje V = 28 ml.</p>
+						<p>Na zvětšené stupnici je nejmenší dílek 1 ml, hladina ukazuje V = 28 ml. (Válec na předchozím obrázku má rozsah 250 ml a nejmenší dílek 5 ml.)</p>
 						<h3>Měření objemu pevného tělesa</h3>
 						<p>Menší pevné těleso změříme pomocí vody a odměrného válce:</p>
 						<ol>

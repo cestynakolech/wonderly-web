@@ -5,12 +5,13 @@
    Cyklus 8 s: 0–10 % oko je vysoko, 10–42 % sjede do úrovně hladiny, 48 % pohled kolmo k nejnižšímu místu, 60 % popisek, 68 % zápis V = 28 ml.
    Bez animace = koncový stav. */
 @keyframes oko { 0%, 10% { transform: translate(0, -230px); } 42%, 96% { transform: translate(0, 0); } 100% { transform: translate(0, -230px); } }
+@keyframes popisoko { 0%, 42% { opacity: 0; } 46%, 94% { opacity: 1; } 100% { opacity: 0; } }
 @keyframes pohled { 0%, 44% { opacity: 0; } 50%, 94% { opacity: 1; } 100% { opacity: 0; } }
 @keyframes cist { 0%, 56% { opacity: 0; } 62%, 94% { opacity: 1; } 100% { opacity: 0; } }
 @keyframes zapis { 0%, 66% { opacity: 0; } 72%, 94% { opacity: 1; } 100% { opacity: 0; } }
-.oko { animation: oko 8s ease-in-out infinite; } .pohled { animation: pohled 8s linear infinite; }
+.oko { animation: oko 8s ease-in-out infinite; } .popisoko { animation: popisoko 8s linear infinite; } .pohled { animation: pohled 8s linear infinite; }
 .cist { animation: cist 8s linear infinite; } .zapis { animation: zapis 8s linear infinite; }
-@media (prefers-reduced-motion: reduce) { .oko, .pohled, .cist, .zapis { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .oko, .popisoko, .pohled, .cist, .zapis { animation: none; } }
 </style>
 <rect x="3" y="3" width="794" height="654" rx="14" fill="#f8f9fa"/>
 <rect x="210" y="16" width="380" height="58" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
@@ -23,7 +24,7 @@
 <text x="460" y="288" font-size="24" font-weight="bold" fill="#212529">40</text>
 <text x="460" y="148" font-size="24" font-weight="bold" fill="#212529">50</text>
 <path d="M262 96V640M518 96V640" stroke="#212529" stroke-width="7"/>
-<g class="oko"><path d="M110 448Q150 418 190 448Q150 478 110 448Z" fill="#fff" stroke="#212529" stroke-width="3"/><circle cx="158" cy="448" r="13" fill="#1971c2"/><circle cx="160" cy="448" r="6" fill="#212529"/><circle cx="155" cy="444" r="3" fill="#fff"/><path d="M108 418Q150 398 192 422" fill="none" stroke="#212529" stroke-width="4" stroke-linecap="round"/><text x="150" y="510" font-size="20" fill="#212529" text-anchor="middle">oči v úrovni</text><text x="150" y="534" font-size="20" fill="#212529" text-anchor="middle">hladiny</text></g>
+<g class="oko"><path d="M110 448Q150 418 190 448Q150 478 110 448Z" fill="#fff" stroke="#212529" stroke-width="3"/><circle cx="158" cy="448" r="13" fill="#1971c2"/><circle cx="160" cy="448" r="6" fill="#212529"/><circle cx="155" cy="444" r="3" fill="#fff"/><path d="M108 418Q150 398 192 422" fill="none" stroke="#212529" stroke-width="4" stroke-linecap="round"/></g><g class="popisoko"><text x="150" y="510" font-size="20" fill="#212529" text-anchor="middle">oči v úrovni</text><text x="150" y="534" font-size="20" fill="#212529" text-anchor="middle">hladiny</text></g>
 <g class="pohled"><path d="M196 448H382" stroke="#c92a2a" stroke-width="3" stroke-dasharray="10 7"/><path d="M368 440L384 448L368 456Z" fill="#c92a2a"/><circle cx="390" cy="448" r="6" fill="#c92a2a"/></g>
 <g><rect x="546" y="120" width="236" height="82" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
 <text x="664" y="155.7" font-size="20" fill="#212529" text-anchor="middle">u stěny se hladina</text>

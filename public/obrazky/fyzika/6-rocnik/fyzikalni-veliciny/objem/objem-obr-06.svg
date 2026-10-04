@@ -17,18 +17,18 @@
 <linearGradient id="sroub" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#495057"/><stop offset="0.35" stop-color="#ced4da"/><stop offset="0.6" stop-color="#868e96"/><stop offset="1" stop-color="#343a40"/></linearGradient>
 <linearGradient id="hlava" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#343a40"/><stop offset="0.3" stop-color="#adb5bd"/><stop offset="0.5" stop-color="#dee2e6"/><stop offset="0.7" stop-color="#868e96"/><stop offset="1" stop-color="#343a40"/></linearGradient>
 <clipPath id="vnitrekP"><rect x="480" y="230" width="160" height="320"/></clipPath>
-<clipPath id="provazek"><rect x="0" y="204" width="800" height="720"/></clipPath>
+<clipPath id="provazek"><rect x="0" y="212" width="800" height="720"/></clipPath>
 </defs>
 <rect x="3" y="3" width="794" height="714" rx="14" fill="#f8f9fa"/>
 <rect x="240" y="14" width="320" height="58" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
 <text x="400" y="53" font-size="28" fill="#212529" text-anchor="middle">Objem pevného tělesa</text>
 <rect x="60" y="566" width="680" height="6" fill="#212529"/>
-<path d="M120 416Q130 422 144 422H256Q270 422 280 416V550H120Z" fill="#74c0fc"/>
-<g clip-path="url(#provazek)"><g class="sroub"><path d="M560 120V354" stroke="#5c3d00" stroke-width="3"/><rect x="509" y="390" width="102" height="140" rx="6" fill="url(#sroub)" stroke="#212529" stroke-width="2"/><path d="M511 406L609 400M511 418L609 412M511 430L609 424M511 442L609 436M511 454L609 448M511 466L609 460M511 478L609 472M511 490L609 484M511 502L609 496M511 514L609 508M511 526L609 520" stroke="#343a40" stroke-width="2.5"/><rect x="496" y="354" width="128" height="36" rx="4" fill="url(#hlava)" stroke="#212529" stroke-width="2"/><path d="M538.6666666666666 354V390M581.3333333333334 354V390" stroke="#495057" stroke-width="2"/></g></g>
-<path d="M790 176H618v34H790Z" fill="#5c7cfa" stroke="#364fc7" stroke-width="2.5"/>
+<path d="M120 416Q130 422 144 422H256Q270 422 280 416V550H120Z" fill="#9acef8"/>
+<g clip-path="url(#provazek)"><g transform="translate(-12 0)"><g class="sroub"><path d="M560 120V354" stroke="#5c3d00" stroke-width="3"/><rect x="509" y="390" width="102" height="140" rx="6" fill="url(#sroub)" stroke="#212529" stroke-width="2"/><path d="M511 406L609 400M511 418L609 412M511 430L609 424M511 442L609 436M511 454L609 448M511 466L609 460M511 478L609 472M511 490L609 484M511 502L609 496M511 514L609 508M511 526L609 520" stroke="#343a40" stroke-width="2.5"/><rect x="496" y="354" width="128" height="36" rx="4" fill="url(#hlava)" stroke="#212529" stroke-width="2"/><path d="M538.6666666666666 354V390M581.3333333333334 354V390" stroke="#495057" stroke-width="2"/></g></g></g>
+<g transform="translate(0 8)"><path d="M790 176H618v34H790Z" fill="#5c7cfa" stroke="#364fc7" stroke-width="2.5"/>
 <rect x="552" y="172" width="70" height="42" rx="18" fill="#f1c27d" stroke="#8d5524" stroke-width="2.5"/>
 <path d="M574 176v34M590 176v34M606 178v30" stroke="#8d5524" stroke-width="2" opacity="0.7"/>
-<ellipse cx="558" cy="204" rx="12" ry="9" fill="#f1c27d" stroke="#8d5524" stroke-width="2.5"/>
+<ellipse cx="558" cy="204" rx="12" ry="9" fill="#f1c27d" stroke="#8d5524" stroke-width="2.5"/></g>
 <g clip-path="url(#vnitrekP)"><g class="voda"><path d="M480 336Q490 342 504 342H616Q630 342 640 336V670H480Z" fill="#4dabf7" opacity="0.55"/><path d="M480 336Q490 342 504 342H616Q630 342 640 336" fill="none" stroke="#1971c2" stroke-width="3"/></g></g>
 <path d="M280 534H256M280 518H256M280 502H256M280 486H256M280 470H234M280 454H256M280 438H256M280 422H256M280 406H256M280 390H234M280 374H256M280 358H256M280 342H256M280 326H256M280 310H234M280 294H256M280 278H256M280 262H256M280 246H256M280 230H234" stroke="#212529" stroke-width="2.5"/>
 <text x="290" y="478" font-size="22" font-weight="bold" fill="#212529">5</text>
