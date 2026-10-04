@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 780" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Slunce. Uprostřed jádro, kde se vodík slučuje na helium při teplotě 15 milionů stupňů Celsia. Povrch má 4 000 až 6 000 stupňů, tmavší sluneční skvrny jsou chladnější. Z okraje vytryskuje protuberance. Animace: skvrny se posouvají, jak se Slunce otáčí, a protuberance vyšlehne.">
+<style>
+.pro { animation: pro 7s ease-in-out infinite; }
+@keyframes pro { 0.000% { stroke-dashoffset:100 } 45.000% { stroke-dashoffset:0 } 80.000% { stroke-dashoffset:0;opacity:1 } 100.000% { stroke-dashoffset:0;opacity:0 } }
+.skv { animation: skv 12s linear infinite; }
+@keyframes skv { 0.000% { transform:translate(0px,0px) } 100.000% { transform:translate(300px,0px) } }
+.puls { animation: puls 2s ease-in-out infinite alternate; }
+@keyframes puls { 0.000% { opacity:1 } 100.000% { opacity:0.55 } }
+@media (prefers-reduced-motion: reduce) { .pro, .skv, .puls { animation: none; } }
+/* Předloha: Slunce s protuberancí. Animace: skvrny přejedou kotouč za 12 s (otáčení Slunce, skutečnost 25 dní), protuberance vyšlehne za 7 s. Bez animace = protuberance celá, skvrny na kotouči. */
+</style>
+<rect x="3" y="3" width="594" height="774" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
+<text x="300" y="42" font-size="28" font-weight="bold" fill="#212529" text-anchor="middle">Slunce</text>
+<radialGradient id="sg" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fff9db"/><stop offset="0.55" stop-color="#ffd43b"/><stop offset="0.85" stop-color="#fd7e14"/><stop offset="1" stop-color="#e8590c"/></radialGradient>
+<clipPath id="sl"><circle cx="300" cy="300" r="158"/></clipPath>
+<path class="pro" d="M349.4 147.8C388.3 66.1 489.6 137.1 426.1 201.5" pathLength="100" fill="none" stroke="#f76707" stroke-width="12" stroke-linecap="round" stroke-dasharray="100 100" opacity="0.95"/>
+<path class="pro" d="M349.4 147.8C388.3 66.1 489.6 137.1 426.1 201.5" pathLength="100" fill="none" stroke="#ffd43b" stroke-width="4" stroke-linecap="round" stroke-dasharray="100 100"/>
+<circle cx="300" cy="300" r="160" fill="url(#sg)" stroke="#e8590c" stroke-width="1.5"/>
+<g clip-path="url(#sl)"><g class="skv"><ellipse cx="150" cy="352" rx="17" ry="11" fill="#7a2e0e"/><ellipse cx="150" cy="352" rx="9" ry="5" fill="#3d1405"/><ellipse cx="188" cy="362" rx="11" ry="7" fill="#7a2e0e"/><ellipse cx="0" cy="346" rx="14" ry="9" fill="#7a2e0e"/></g></g>
+<circle cx="300" cy="300" r="52" fill="#fff9db" stroke="#c2410c" stroke-width="2.5" stroke-dasharray="8 6"/>
+<g class="puls"><text x="300" y="296" font-size="19" font-weight="bold" fill="#212529" text-anchor="middle">H → He</text></g>
+<text x="300" y="322" font-size="19" font-weight="bold" fill="#212529" text-anchor="middle">jádro</text>
+<path d="M470 86L426.1 113.8" stroke="#212529" stroke-width="2"/>
+<rect x="409.4" y="58" width="141.2" height="28" rx="14" fill="#fff4e6" stroke="#d9480f" stroke-width="1.5"/><text x="480" y="79" font-size="20" font-weight="bold" fill="#212529" text-anchor="middle">protuberance</text>
+<path d="M108 168L184.8 189.6" stroke="#212529" stroke-width="2"/><circle cx="184.8" cy="189.6" r="4" fill="#212529"/>
+<rect x="57.2" y="136" width="77.6" height="28" rx="14" fill="#fff4e6" stroke="#d9480f" stroke-width="1.5"/><text x="96" y="157" font-size="20" font-weight="bold" fill="#212529" text-anchor="middle">povrch</text>
+<path d="M170 500L210 370" stroke="#212529" stroke-width="2"/><circle cx="210" cy="370" r="4" fill="#212529"/>
+<rect x="63.5" y="498" width="173" height="28" rx="14" fill="#fff4e6" stroke="#d9480f" stroke-width="1.5"/><text x="150" y="519" font-size="20" font-weight="bold" fill="#212529" text-anchor="middle">sluneční skvrny</text>
+<rect x="30" y="548" width="540" height="177" rx="12" fill="#e3fafc" stroke="#0b7285" stroke-width="2.5"/><text x="48" y="583" font-size="20" fill="#212529" text-anchor="start">Žhavá koule plazmatu, průměr asi 1 400 000 km.</text><text x="48" y="614" font-size="20" fill="#212529" text-anchor="start">Jádro: 15 milionů °C, vodík se slučuje na helium.</text><text x="48" y="645" font-size="20" fill="#212529" text-anchor="start">Povrch: 4 000 °C až 6 000 °C.</text><text x="48" y="676" font-size="20" fill="#212529" text-anchor="start">Skvrny jsou chladnější, proto tmavší.</text><text x="48" y="707" font-size="20" fill="#212529" text-anchor="start">Kolem své osy se otočí jednou za 25 dní.</text>
+</svg>
