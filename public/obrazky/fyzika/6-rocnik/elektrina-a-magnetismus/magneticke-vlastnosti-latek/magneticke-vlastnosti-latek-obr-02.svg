@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Dva stejné tyčové magnety. Vlevo feromagnetické látky: železný hřebík, ocelová sponka a ocelová matice visí přichycené na magnetu. Vpravo nemagnetické látky: dřevěný špalík, korková zátka, list papíru, hliníková plechovka a měděná mince zůstaly ležet na stole pod magnetem.">
+<rect x="3" y="3" width="954" height="594" rx="14" fill="#ffffff" stroke="#ced4da" stroke-width="3"/>
+<rect x="238.9" y="18" width="482.2" height="50" rx="6" fill="#fff4e6" stroke="#e8590c" stroke-width="2"/>
+<text x="480" y="52.4" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Které látky magnet přitahuje?</text>
+<line x1="480" y1="86" x2="480" y2="580" stroke="#ced4da" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="245" y="112" font-size="24" font-weight="bold" fill="#1e6b30" text-anchor="middle">feromagnetické látky</text>
+<text x="245" y="140" font-size="20" fill="#2b2a26" text-anchor="middle">magnet je přitahuje</text>
+<rect x="100" y="174" width="300" height="52" rx="5" fill="#000000" opacity="0.13"/>
+<rect x="95" y="168" width="150" height="52" fill="#1971c2"/><rect x="245" y="168" width="150" height="52" fill="#e03131"/>
+<rect x="101" y="172" width="288" height="6.8" rx="3" fill="#ffffff" opacity="0.35"/><rect x="95" y="209.6" width="300" height="10.4" fill="#000000" opacity="0.14"/>
+<rect x="95" y="168" width="300" height="52" rx="4" fill="none" stroke="#2b2a26" stroke-width="3"/>
+<text x="170" y="203.4" font-size="26" font-weight="bold" fill="#ffffff" text-anchor="middle">S</text>
+<text x="320" y="203.4" font-size="26" font-weight="bold" fill="#ffffff" text-anchor="middle">N</text>
+<g transform="translate(150,220) rotate(0)"><rect x="-14" y="0" width="28" height="7" rx="2" fill="#868e96" stroke="#2b2a26" stroke-width="2"/><path d="M-5,7 L5,7 L5,106 L0,120 L-5,106 Z" fill="#adb5bd" stroke="#2b2a26" stroke-width="2" stroke-linejoin="round"/><line x1="-2" y1="12" x2="-2" y2="104" stroke="#f1f3f5" stroke-width="2"/></g>
+<g transform="translate(245,220) rotate(0)"><path d="M6,70 L6,14 A10,10 0 0 1 26,14 L26,82 A14,14 0 0 1 -2,82 L-2,8 A6,6 0 0 1 10,8 L10,60" fill="none" stroke="#495057" stroke-width="5" stroke-linecap="round" transform="translate(-12,0)"/><path d="M6,70 L6,14 A10,10 0 0 1 26,14 L26,82 A14,14 0 0 1 -2,82 L-2,8 A6,6 0 0 1 10,8 L10,60" fill="none" stroke="#ced4da" stroke-width="1.6" stroke-linecap="round" transform="translate(-12,0)"/></g>
+<polygon points="364,265 338,280 312,265 312,235 338,220 364,235" fill="#adb5bd" stroke="#2b2a26" stroke-width="2.5"/><circle cx="338" cy="250" r="13.5" fill="#ffffff" stroke="#2b2a26" stroke-width="2.5"/><circle cx="338" cy="250" r="9.9" fill="none" stroke="#868e96" stroke-width="2" stroke-dasharray="4 3"/>
+<rect x="40" y="470" width="410" height="16" fill="#c08552" stroke="#8a5a2b" stroke-width="2"/><rect x="40" y="470" width="410" height="4" fill="#e9c08a"/>
+<text x="150" y="372" font-size="19" fill="#2b2a26" text-anchor="middle">hřebík</text>
+<text x="150" y="396" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">železo</text>
+<text x="245" y="372" font-size="19" fill="#2b2a26" text-anchor="middle">sponka</text>
+<text x="245" y="396" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">ocel</text>
+<text x="338" y="372" font-size="19" fill="#2b2a26" text-anchor="middle">matice</text>
+<text x="338" y="396" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">ocel</text>
+<text x="245" y="526" font-size="20" fill="#2b2a26" text-anchor="middle">Silně se přichytí k magnetu.</text>
+<text x="245" y="552" font-size="20" fill="#2b2a26" text-anchor="middle">Patří sem železo, ocel, kobalt, nikl.</text>
+<text x="715" y="112" font-size="24" font-weight="bold" fill="#495057" text-anchor="middle">nemagnetické látky</text>
+<text x="715" y="140" font-size="20" fill="#2b2a26" text-anchor="middle">magnet je nepřitahuje</text>
+<rect x="570" y="174" width="300" height="52" rx="5" fill="#000000" opacity="0.13"/>
+<rect x="565" y="168" width="150" height="52" fill="#1971c2"/><rect x="715" y="168" width="150" height="52" fill="#e03131"/>
+<rect x="571" y="172" width="288" height="6.8" rx="3" fill="#ffffff" opacity="0.35"/><rect x="565" y="209.6" width="300" height="10.4" fill="#000000" opacity="0.14"/>
+<rect x="565" y="168" width="300" height="52" rx="4" fill="none" stroke="#2b2a26" stroke-width="3"/>
+<text x="640" y="203.4" font-size="26" font-weight="bold" fill="#ffffff" text-anchor="middle">S</text>
+<text x="790" y="203.4" font-size="26" font-weight="bold" fill="#ffffff" text-anchor="middle">N</text>
+<rect x="500" y="470" width="430" height="16" fill="#c08552" stroke="#8a5a2b" stroke-width="2"/><rect x="500" y="470" width="430" height="4" fill="#e9c08a"/>
+<rect x="511" y="426" width="68" height="44" rx="4" fill="#d9a066" stroke="#8a5a2b" stroke-width="2.5"/><path d="M517,438 q20,-6 40,0 t20,0 M515,450 q22,6 44,0 t16,0 M519,461 q18,-5 36,0" fill="none" stroke="#8a5a2b" stroke-width="1.6"/>
+<path d="M608,470 L604,424 L656,424 L652,470 Z" fill="#e9c08a" stroke="#8a5a2b" stroke-width="2.5"/><ellipse cx="630" cy="424" rx="26" ry="6" fill="#f3d6a8" stroke="#8a5a2b" stroke-width="2"/><circle cx="620" cy="440" r="2" fill="#8a5a2b"/><circle cx="638" cy="448" r="2" fill="#8a5a2b"/><circle cx="626" cy="458" r="2" fill="#8a5a2b"/><circle cx="642" cy="434" r="2" fill="#8a5a2b"/><circle cx="616" cy="462" r="2" fill="#8a5a2b"/>
+<path d="M685,470 L693,456 L753,456 L745,470 Z" fill="#f8f9fa" stroke="#868e96" stroke-width="2"/><path d="M683,470 L747,470" stroke="#868e96" stroke-width="2"/><path d="M701,464 L737,464" stroke="#a5d8ff" stroke-width="2"/>
+<rect x="778" y="418" width="44" height="52" fill="#ced4da" stroke="#495057" stroke-width="2.5"/><rect x="786" y="422" width="8" height="44" fill="#ffffff" opacity="0.6"/><ellipse cx="800" cy="418" rx="22" ry="6" fill="#e9ecef" stroke="#495057" stroke-width="2"/><ellipse cx="800" cy="470" rx="22" ry="6" fill="#adb5bd" stroke="#495057" stroke-width="2"/>
+<ellipse cx="885" cy="464" rx="24" ry="9" fill="#d9480f" stroke="#862e05" stroke-width="2"/><ellipse cx="885" cy="460" rx="24" ry="9" fill="#f08c4a" stroke="#862e05" stroke-width="2"/><ellipse cx="885" cy="460" rx="15" ry="5" fill="none" stroke="#862e05" stroke-width="1.5"/>
+<text x="545" y="372" font-size="19" fill="#2b2a26" text-anchor="middle">špalík</text>
+<text x="545" y="396" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">dřevo</text>
+<text x="630" y="372" font-size="19" fill="#2b2a26" text-anchor="middle">zátka</text>
+<text x="630" y="396" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">korek</text>
+<text x="715" y="372" font-size="19" fill="#2b2a26" text-anchor="middle">list</text>
+<text x="715" y="396" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">papír</text>
+<text x="800" y="372" font-size="19" fill="#2b2a26" text-anchor="middle">plechovka</text>
+<text x="800" y="396" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">hliník</text>
+<text x="885" y="372" font-size="19" fill="#2b2a26" text-anchor="middle">mince</text>
+<text x="885" y="396" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">měď</text>
+<text x="715" y="526" font-size="20" fill="#2b2a26" text-anchor="middle">Zůstanou ležet na stole.</text>
+<text x="715" y="552" font-size="20" fill="#2b2a26" text-anchor="middle">Magnet na ně téměř nepůsobí.</text>
+</svg>

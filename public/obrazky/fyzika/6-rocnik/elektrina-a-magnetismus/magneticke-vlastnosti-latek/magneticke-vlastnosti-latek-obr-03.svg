@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Tvary magnetů: dvě podkovy s červeným severním pólem N a modrým jižním pólem S, tyčový magnet hranatý a válcový, magnetka čili střelka kompasu s červeným a modrým koncem a šedé feritové nebo neodymové magnety ve tvaru kotouče, kroužku a válečku.">
+<rect x="3" y="3" width="954" height="614" rx="14" fill="#ffffff" stroke="#ced4da" stroke-width="3"/>
+<rect x="275.3" y="18" width="409.4" height="50" rx="6" fill="#fff4e6" stroke="#e8590c" stroke-width="2"/>
+<text x="480" y="52.4" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Magnety mají různé tvary</text>
+<path d="M70,300 L108,300 L108,190 A42,42 0 0 1 192,190 L192,300 L230,300 L230,190 A80,80 0 0 0 70,190 Z" fill="#000000" opacity="0.13" transform="translate(5,6)"/><path d="M70,300 L108,300 L108,190 A42,42 0 0 1 150,148 L150,110 A80,80 0 0 0 70,190 Z" fill="#e03131"/><path d="M230,300 L192,300 L192,190 A42,42 0 0 0 150,148 L150,110 A80,80 0 0 1 230,190 Z" fill="#1971c2"/><path d="M76,190 A74,74 0 0 1 224,190" fill="none" stroke="#ffffff" stroke-width="5" opacity="0.35"/><path d="M70,300 L108,300 L108,190 A42,42 0 0 1 192,190 L192,300 L230,300 L230,190 A80,80 0 0 0 70,190 Z" fill="none" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round"/>
+<text x="89" y="286" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">N</text>
+<text x="211" y="286" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">S</text>
+<path d="M308,300 L340,300 L340,200 A30,30 0 0 1 400,200 L400,300 L432,300 L432,200 A62,62 0 0 0 308,200 Z" fill="#000000" opacity="0.13" transform="translate(5,6)"/><path d="M308,300 L340,300 L340,200 A30,30 0 0 1 370,170 L370,138 A62,62 0 0 0 308,200 Z" fill="#e03131"/><path d="M432,300 L400,300 L400,200 A30,30 0 0 0 370,170 L370,138 A62,62 0 0 1 432,200 Z" fill="#1971c2"/><path d="M314,200 A56,56 0 0 1 426,200" fill="none" stroke="#ffffff" stroke-width="5" opacity="0.35"/><path d="M308,300 L340,300 L340,200 A30,30 0 0 1 400,200 L400,300 L432,300 L432,200 A62,62 0 0 0 308,200 Z" fill="none" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round"/>
+<text x="324" y="286" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">N</text>
+<text x="416" y="286" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">S</text>
+<text x="260" y="340" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">podkova</text>
+<rect x="65" y="396" width="280" height="58" rx="5" fill="#000000" opacity="0.13"/>
+<rect x="60" y="390" width="140" height="58" fill="#e03131"/><rect x="200" y="390" width="140" height="58" fill="#1971c2"/>
+<rect x="66" y="394" width="268" height="7.5" rx="3" fill="#ffffff" opacity="0.35"/><rect x="60" y="436.4" width="280" height="11.6" fill="#000000" opacity="0.14"/>
+<rect x="60" y="390" width="280" height="58" rx="4" fill="none" stroke="#2b2a26" stroke-width="3"/>
+<text x="130" y="429.1" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle">N</text>
+<text x="270" y="429.1" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle">S</text>
+<rect x="385" y="396" width="250" height="60" rx="4" fill="#000000" opacity="0.13" transform="translate(5,6)"/><ellipse cx="635" cy="420" rx="15" ry="30" fill="#1971c2" stroke="#2b2a26" stroke-width="3"/><rect x="385" y="390" width="125" height="60" fill="#e03131"/><rect x="510" y="390" width="125" height="60" fill="#1971c2"/><rect x="395" y="398" width="230" height="8" rx="3" fill="#ffffff" opacity="0.35"/><rect x="385" y="438" width="250" height="12" fill="#000000" opacity="0.14"/><path d="M385,390 L635,390 A15,30 0 0 1 635,450 L385,450" fill="none" stroke="#2b2a26" stroke-width="3"/><ellipse cx="385" cy="420" rx="15" ry="30" fill="#c92a2a" stroke="#2b2a26" stroke-width="3"/>
+<text x="447" y="430" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle">N</text>
+<text x="572" y="430" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle">S</text>
+<text x="345" y="490" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">tyčový magnet</text>
+<g transform="translate(345,545) rotate(180)"><path d="M150,0 L0,-27 L0,27 Z" fill="#e03131" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round"/><path d="M-150,0 L0,-27 L0,27 Z" fill="#1971c2" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round"/><circle r="11.9" fill="#ffffff" stroke="#2b2a26" stroke-width="3"/></g>
+<text x="270" y="554" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">N</text>
+<text x="420" y="554" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">S</text>
+<text x="540" y="548" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="start">magnetka</text>
+<text x="540" y="576" font-size="19" fill="#2b2a26" text-anchor="start">(střelka kompasu)</text>
+<line x1="690" y1="90" x2="690" y2="500" stroke="#ced4da" stroke-width="2" stroke-dasharray="6 6"/>
+<path d="M748,140 L748,170 A62,20 0 0 0 872,170 L872,140 Z" fill="#868e96" stroke="#2b2a26" stroke-width="2.5"/><rect x="756" y="144" width="10" height="24" fill="#ffffff" opacity="0.3"/><ellipse cx="810" cy="140" rx="62" ry="20" fill="#adb5bd" stroke="#2b2a26" stroke-width="2.5"/>
+<path d="M748,240 L748,270 A62,20 0 0 0 872,270 L872,240 Z" fill="#868e96" stroke="#2b2a26" stroke-width="2.5"/><rect x="756" y="244" width="10" height="24" fill="#ffffff" opacity="0.3"/><ellipse cx="810" cy="240" rx="62" ry="20" fill="#adb5bd" stroke="#2b2a26" stroke-width="2.5"/><ellipse cx="810" cy="240" rx="26" ry="8.4" fill="#495057" stroke="#2b2a26" stroke-width="2"/>
+<path d="M764,340 L764,430 A46,16 0 0 0 856,430 L856,340 Z" fill="#868e96" stroke="#2b2a26" stroke-width="2.5"/><rect x="772" y="344" width="10" height="84" fill="#ffffff" opacity="0.3"/><ellipse cx="810" cy="340" rx="46" ry="16" fill="#adb5bd" stroke="#2b2a26" stroke-width="2.5"/>
+<text x="820" y="488" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">feritový nebo</text>
+<text x="820" y="514" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">neodymový magnet</text>
+<text x="820" y="106" font-size="19" fill="#495057" text-anchor="middle">umělé magnety</text>
+</svg>
