@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 720" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: skleněný odměrný válec s hubičkou a podstavcem stojí na vodorovné podložce. Z kádinky se do něj opatrně vlévá kapalina a hladina stoupá. Na stupnici jsou mililitry, rozsah je 250 ml a nejmenší dílek 5 ml.">
+<style>
+/* Předloha: PDF Objem — fotografie skleněného odměrného válce 250 ml (hubička, podstavec, stupnice po 50 ml, dílek 5 ml). Překresleno, ne kopie.
+   Cyklus 8 s: 0–6 % prázdný válec, 6–50 % opatrně vlijeme kapalinu z kádinky, hladina stoupá, pak se ustálí.
+   Bez animace = koncový stav (kapalina ve válci, kádinka skrytá). */
+@keyframes hl { 0%, 6% { transform: translate(0, 258px); } 50%, 96% { transform: translate(0, 0); } 100% { transform: translate(0, 258px); } }
+@keyframes kad { 0%, 3% { opacity: 0; } 6%, 50% { opacity: 1; } 54%, 100% { opacity: 0; } }
+.hl { animation: hl 8s ease-out infinite; }
+.kad { opacity: 0; animation: kad 8s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .hl, .kad { animation: none; } }
+</style>
+<defs>
+<linearGradient id="sklo" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ced4da" stop-opacity="0.9"/><stop offset="0.15" stop-color="#ffffff" stop-opacity="0.6"/><stop offset="0.8" stop-color="#e9ecef" stop-opacity="0.5"/><stop offset="1" stop-color="#adb5bd" stop-opacity="0.9"/></linearGradient>
+<linearGradient id="voda" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#74c0fc"/><stop offset="0.4" stop-color="#a5d8ff"/><stop offset="1" stop-color="#74c0fc"/></linearGradient>
+<clipPath id="vnitrek"><rect x="290" y="40" width="140" height="560"/></clipPath>
+</defs>
+<rect x="3" y="3" width="754" height="714" rx="14" fill="#f8f9fa"/>
+<rect x="480" y="18" width="250" height="58" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="605" y="57" font-size="28" fill="#212529" text-anchor="middle">Odměrný válec</text>
+<rect x="60" y="640" width="640" height="14" rx="3" fill="#ced4da" stroke="#868e96" stroke-width="2"/>
+<path d="M220 640Q224 616 282 610H438Q496 616 500 640Z" fill="url(#sklo)" stroke="#495057" stroke-width="2.5"/>
+<g class="kad"><rect x="324" y="112" width="10" height="488" fill="#74c0fc"/><g transform="translate(330 112) rotate(100)"><rect x="-80" y="0" width="80" height="110" rx="6" fill="url(#sklo)" stroke="#495057" stroke-width="2.5"/><path d="M-18.3 0H0V103.4Z" fill="#74c0fc" stroke="#1971c2" stroke-width="2"/><path d="M-84 0H4" stroke="#495057" stroke-width="4" stroke-linecap="round"/></g></g>
+<g clip-path="url(#vnitrek)"><g class="hl"><path d="M290 336Q360 348 430 336V900H290Z" fill="url(#voda)"/><path d="M290 336Q360 348 430 336" fill="none" stroke="#1971c2" stroke-width="2.5"/></g></g>
+<path d="M290 600V150Q286 132 268 126Q284 120 300 124H434Q440 128 430 134V600Z" fill="url(#sklo)" stroke="#495057" stroke-width="3" stroke-linejoin="round"/>
+<path d="M300 590V160" stroke="#fff" stroke-width="6" opacity="0.8"/>
+<path d="M302 582.8H344M302 574.2H344M302 565.6H344M302 557H357M302 548.4H344M302 539.8H344M302 531.2H344M302 522.6H344M302 514H372M302 505.4H344M302 496.8H344M302 488.2H344M302 479.6H344M302 471H357M302 462.4H344M302 453.8H344M302 445.2H344M302 436.6H344M302 428H372M302 419.4H344M302 410.8H344M302 402.2H344M302 393.6H344M302 385H357M302 376.4H344M302 367.8H344M302 359.2H344M302 350.6H344M302 342H372M302 333.4H344M302 324.8H344M302 316.2H344M302 307.6H344M302 299H357M302 290.4H344M302 281.8H344M302 273.2H344M302 264.6H344M302 256H372M302 247.4H344M302 238.8H344M302 230.2H344M302 221.6H344M302 213H357M302 204.4H344M302 195.8H344M302 187.2H344M302 178.6H344M302 170H372" stroke="#a61e1e" stroke-width="2"/>
+<text x="378" y="521" font-size="20" font-weight="bold" fill="#7a1515">50</text>
+<text x="378" y="435" font-size="20" font-weight="bold" fill="#7a1515">100</text>
+<text x="378" y="349" font-size="20" font-weight="bold" fill="#7a1515">150</text>
+<text x="378" y="263" font-size="20" font-weight="bold" fill="#7a1515">200</text>
+<text x="378" y="177" font-size="20" font-weight="bold" fill="#7a1515">250</text>
+<text x="330" y="156" font-size="20" font-weight="bold" fill="#7a1515" text-anchor="middle">ml</text>
+<g><rect x="480" y="130" width="250" height="56" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
+<text x="605" y="165.92" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">rozsah 250 ml</text>
+</g>
+<path d="M480 158L416 164" stroke="#212529" stroke-width="2.5"/><circle cx="416" cy="164" r="5" fill="#212529"/>
+<path d="M360 204.4h8V213h-8" fill="none" stroke="#1864ab" stroke-width="3"/>
+<g><rect x="480" y="250" width="250" height="82" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
+<text x="605" y="285.17" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">nejmenší dílek</text>
+<text x="605" y="312.67" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">5 ml</text>
+</g>
+<path d="M480 292L370 208.7" stroke="#1864ab" stroke-width="2.5"/><circle cx="370" cy="208.7" r="5" fill="#1864ab"/>
+<g><rect x="480" y="400" width="250" height="82" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
+<text x="605" y="435.17" font-size="22" fill="#212529" text-anchor="middle">stupnice</text>
+<text x="605" y="462.67" font-size="22" fill="#212529" text-anchor="middle">v mililitrech</text>
+</g>
+<path d="M480 440L416 422" stroke="#212529" stroke-width="2.5"/><circle cx="416" cy="422" r="5" fill="#212529"/>
+<g><rect x="30" y="230" width="220" height="56" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
+<text x="140" y="265.92" font-size="22" fill="#212529" text-anchor="middle">hubička</text>
+</g>
+<path d="M140 230L272 127" stroke="#212529" stroke-width="2.5"/><circle cx="272" cy="127" r="5" fill="#212529"/>
+<g><rect x="30" y="520" width="220" height="82" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
+<text x="140" y="555.17" font-size="22" fill="#212529" text-anchor="middle">vodorovná</text>
+<text x="140" y="582.67" font-size="22" fill="#212529" text-anchor="middle">podložka</text>
+</g>
+<path d="M140 602L140 646" stroke="#212529" stroke-width="2.5"/><circle cx="140" cy="646" r="5" fill="#212529"/>
+
+</svg>

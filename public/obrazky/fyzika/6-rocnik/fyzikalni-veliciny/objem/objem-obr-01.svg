@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 650" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: krychle s hranou 1 metr. Postupně se ukáže délka 1 m, výška 1 m a hloubka 1 m a vznikne zápis V = 1 m × 1 m × 1 m = 1 m³ (metr krychlový).">
+<style>
+/* Předloha: PDF Objem — drátěná krychle s hranou 1 m a zápis V = 1 m × 1 m × 1 m = 1 m³. Překresleno, ne kopie.
+   Cyklus 8 s: postupně se ukáží tři hrany po 1 m (délka, výška, hloubka) a s nimi části vzorce, nakonec = 1 m³.
+   Bez animace = koncový stav (vše vidět). */
+@keyframes k1 { 0%, 8% { opacity: 0; } 14%, 94% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes k2 { 0%, 26% { opacity: 0; } 32%, 94% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes k3 { 0%, 44% { opacity: 0; } 50%, 94% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes kv { 0%, 62% { opacity: 0; } 68%, 94% { opacity: 1; } 100% { opacity: 0; } }
+.k1 { animation: k1 8s linear infinite; } .k2 { animation: k2 8s linear infinite; }
+.k3 { animation: k3 8s linear infinite; } .kv { animation: kv 8s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .k1, .k2, .k3, .kv { animation: none; } }
+</style>
+<rect x="3" y="3" width="714" height="644" rx="14" fill="#f8f9fa"/>
+<rect x="230" y="20" width="260" height="58" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="360" y="59" font-size="28" fill="#212529" text-anchor="middle">Metr krychlový</text>
+<ellipse cx="360" cy="498" rx="260" ry="14" fill="#000" opacity="0.07"/>
+<path d="M150 200L270 110L550 110L430 200Z" fill="#d0ebff" opacity="0.9"/>
+<path d="M430 200L550 110L550 390L430 480Z" fill="#a5d8ff" opacity="0.9"/>
+<path d="M150 200L430 200L430 480L150 480Z" fill="#e7f5ff" opacity="0.75"/>
+<path d="M270 390L270 110M270 390L550 390M270 390L150 480" stroke="#495057" stroke-width="4" stroke-dasharray="18 12" fill="none"/>
+<path d="M150 200L430 200L430 480L150 480ZM150 200L270 110L550 110L430 200M550 110L550 390L430 480" stroke="#212529" stroke-width="9" stroke-linejoin="round" fill="none"/>
+<g class="k1"><path d="M150 510L430 510" stroke="#c92a2a" stroke-width="3.5"/><circle cx="150" cy="510" r="6" fill="#c92a2a"/><circle cx="430" cy="510" r="6" fill="#c92a2a"/><text x="290" y="550" font-size="28" font-weight="bold" fill="#c92a2a" text-anchor="middle">1 m</text></g>
+<g class="k2"><path d="M120 480L120 200" stroke="#c92a2a" stroke-width="3.5"/><circle cx="120" cy="480" r="6" fill="#c92a2a"/><circle cx="120" cy="200" r="6" fill="#c92a2a"/><text x="80" y="350" font-size="28" font-weight="bold" fill="#c92a2a" text-anchor="middle">1 m</text></g>
+<g class="k3"><path d="M454 486L574 396" stroke="#c92a2a" stroke-width="3.5"/><circle cx="454" cy="486" r="6" fill="#c92a2a"/><circle cx="574" cy="396" r="6" fill="#c92a2a"/><text x="538" y="465" font-size="28" font-weight="bold" fill="#c92a2a" text-anchor="middle">1 m</text></g>
+<rect x="70" y="566" width="580" height="60" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
+<text x="360" y="607" font-size="28" font-weight="bold" fill="#212529" text-anchor="middle">V = <tspan class="k1">1 m</tspan><tspan class="k2"> × 1 m</tspan><tspan class="k3"> × 1 m</tspan><tspan class="kv" fill="#c92a2a"> = 1 m³</tspan></text>
+
+</svg>

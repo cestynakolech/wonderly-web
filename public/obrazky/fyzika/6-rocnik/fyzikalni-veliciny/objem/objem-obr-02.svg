@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Čtyři předměty podle velikosti: velká nádrž v kovové kleci na paletě má objem 1 metr krychlový, lidově kubík, to je 1 000 litrů. Krabice mléka má 1 decimetr krychlový, tedy 1 litr. Hrací kostka má asi 1 centimetr krychlový, tedy 1 mililitr. Hlavička špendlíku má asi 1 milimetr krychlový.">
+<defs>
+<linearGradient id="nadrz" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#dee2e6"/><stop offset="0.35" stop-color="#ffffff"/><stop offset="1" stop-color="#ced4da"/></linearGradient>
+<linearGradient id="kovI" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#868e96"/><stop offset="0.5" stop-color="#e9ecef"/><stop offset="1" stop-color="#868e96"/></linearGradient>
+<radialGradient id="spend" cx="0.35" cy="0.35" r="0.7"><stop offset="0" stop-color="#ffa8a8"/><stop offset="0.5" stop-color="#e03131"/><stop offset="1" stop-color="#8a1c1c"/></radialGradient>
+</defs>
+<rect x="3" y="3" width="954" height="554" rx="14" fill="#f8f9fa"/>
+<rect x="260" y="20" width="440" height="58" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="480" y="59" font-size="28" fill="#212529" text-anchor="middle">Jak velké jsou jednotky objemu?</text>
+<ellipse cx="139" cy="334" rx="115" ry="9" fill="#000" opacity="0.1"/>
+<path d="M30 122L56 102H246V282L220 302V122Z" fill="#e9ecef" stroke="#868e96" stroke-width="2"/>
+<rect x="30" y="122" width="190" height="180" rx="10" fill="url(#nadrz)" stroke="#868e96" stroke-width="2"/>
+<ellipse cx="138" cy="112" rx="22" ry="7" fill="#495057"/>
+<path d="M30 120V302M61.67 120V302M93.33 120V302M125 120V302M156.67 120V302M188.33 120V302M220 120V302M30 122H220M30 167H220M30 212H220M30 257H220M30 302H220M220 122L246 102M30 122L56 102M56 102H246V282M220 167L246 147M220 212L246 192M220 257L246 237" stroke="url(#kovI)" stroke-width="5" fill="none" stroke-linecap="round"/>
+<path d="M30 120V302M61.67 120V302M93.33 120V302M125 120V302M156.67 120V302M188.33 120V302M220 120V302M30 122H220M30 167H220M30 212H220M30 257H220M30 302H220M220 122L246 102M30 122L56 102M56 102H246V282M220 167L246 147M220 212L246 192M220 257L246 237" stroke="#868e96" stroke-width="1" fill="none"/>
+<rect x="138" y="174" width="52" height="40" fill="#ced4da" stroke="#868e96"/>
+<path d="M144 184h40M144 194h32M144 204h36" stroke="#868e96" stroke-width="2"/>
+<rect x="112" y="278" width="30" height="18" rx="3" fill="#495057"/><rect x="118" y="268" width="6" height="12" fill="#c92a2a"/><rect x="110" y="266" width="22" height="6" rx="2" fill="#c92a2a"/>
+<rect x="26" y="302" width="220" height="12" fill="#343a40"/>
+<rect x="30" y="314" width="34" height="16" fill="#212529"/>
+<rect x="119" y="314" width="34" height="16" fill="#212529"/>
+<rect x="206" y="314" width="34" height="16" fill="#212529"/>
+<ellipse cx="376" cy="330" rx="66" ry="8" fill="#000" opacity="0.1"/>
+<path d="M395 196l34 -14V312l-34 14Z" fill="#4dabf7" stroke="#1864ab" stroke-width="2"/>
+<rect x="325" y="196" width="70" height="130" fill="#fff" stroke="#1864ab" stroke-width="2"/>
+<rect x="325" y="196" width="70" height="54" fill="#74c0fc"/>
+<path d="M325 196L331 156H389L395 196Z" fill="#a5d8ff" stroke="#1864ab" stroke-width="2"/>
+<path d="M389 156l34 -14l0 14L429 182L395 196Z" fill="#339af0" stroke="#1864ab" stroke-width="2"/>
+<path d="M331 156v-10H389l34 -14v10l-34 14Z" fill="#e7f5ff" stroke="#1864ab" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="348" cy="178" r="8" fill="#fff" stroke="#1864ab" stroke-width="2"/>
+<text x="360" y="230" font-size="18" font-weight="bold" fill="#0b3d6e" text-anchor="middle">MLÉKO</text>
+<path d="M360 262c-12 18 -14 28 0 32c14 -4 12 -14 0 -32z" fill="#e7f5ff" stroke="#1864ab" stroke-width="2"/>
+<text x="360" y="320" font-size="20" font-weight="bold" fill="#1864ab" text-anchor="middle">1 l</text>
+<ellipse cx="616" cy="330" rx="52" ry="7" fill="#000" opacity="0.1"/>
+<path d="M570 262l22 -18h60l-22 18Z" fill="#dba06f" stroke="#7a4419" stroke-width="2" stroke-linejoin="round"/>
+<path d="M630 262l22 -18v60l-22 18Z" fill="#a8642f" stroke="#7a4419" stroke-width="2" stroke-linejoin="round"/>
+<rect x="570" y="262" width="60" height="60" rx="4" fill="#c8814a" stroke="#7a4419" stroke-width="2"/>
+<circle cx="584" cy="276" r="5" fill="#3b1f0e"/><circle cx="616" cy="276" r="5" fill="#3b1f0e"/><circle cx="600" cy="292" r="5" fill="#3b1f0e"/><circle cx="584" cy="308" r="5" fill="#3b1f0e"/><circle cx="616" cy="308" r="5" fill="#3b1f0e"/>
+<circle cx="611" cy="253" r="4" fill="#3b1f0e"/>
+<circle cx="636" cy="271.6" r="3.5" fill="#3b1f0e"/><circle cx="641" cy="279.6" r="3.5" fill="#3b1f0e"/><circle cx="646" cy="287.6" r="3.5" fill="#3b1f0e"/>
+<path d="M790 324L844 260" stroke="#868e96" stroke-width="3" stroke-linecap="round"/>
+<path d="M790 324L844 260" stroke="#e9ecef" stroke-width="1"/>
+<circle cx="849" cy="254" r="12" fill="url(#spend)" stroke="#8a1c1c" stroke-width="1.5"/>
+<rect x="11" y="368" width="228" height="164" rx="6" fill="#fff" stroke="#e8590c" stroke-width="3"/>
+<text x="125" y="406" font-size="30" font-weight="bold" fill="#212529" text-anchor="middle">1 m³</text>
+<text x="125" y="440" font-size="21" fill="#212529" text-anchor="middle">metr krychlový</text>
+<text x="125" y="468" font-size="21" fill="#212529" text-anchor="middle">lidově „kubík“</text>
+<text x="125" y="512" font-size="24" font-weight="bold" fill="#c92a2a" text-anchor="middle">= 1 000 litrů</text>
+<rect x="246" y="368" width="228" height="164" rx="6" fill="#fff" stroke="#e8590c" stroke-width="3"/>
+<text x="360" y="406" font-size="30" font-weight="bold" fill="#212529" text-anchor="middle">1 dm³</text>
+<text x="360" y="440" font-size="21" fill="#212529" text-anchor="middle">decimetr krychlový</text>
+<text x="360" y="512" font-size="24" font-weight="bold" fill="#c92a2a" text-anchor="middle">= 1 litr</text>
+<rect x="486" y="368" width="228" height="164" rx="6" fill="#fff" stroke="#e8590c" stroke-width="3"/>
+<text x="600" y="406" font-size="30" font-weight="bold" fill="#212529" text-anchor="middle">1 cm³</text>
+<text x="600" y="440" font-size="21" fill="#212529" text-anchor="middle">centimetr krychlový</text>
+<text x="600" y="512" font-size="24" font-weight="bold" fill="#c92a2a" text-anchor="middle">= 1 mililitr</text>
+<rect x="721" y="368" width="228" height="164" rx="6" fill="#fff" stroke="#e8590c" stroke-width="3"/>
+<text x="835" y="406" font-size="30" font-weight="bold" fill="#212529" text-anchor="middle">1 mm³</text>
+<text x="835" y="440" font-size="21" fill="#212529" text-anchor="middle">milimetr krychlový</text>
+
+</svg>

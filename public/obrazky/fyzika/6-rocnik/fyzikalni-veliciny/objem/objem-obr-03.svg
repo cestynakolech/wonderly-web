@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: převody jednotek objemu. Nahoře řada m³, dm³, cm³, mm³ a mezi sousedními jednotkami vždy tři obloučky. Pod ní řada hl, l, dl, cl, ml; litr je pod dm³ a mililitr pod cm³, spojuje je most. Příklad: s každým obloučkem přibude nula, 1 m³ = 1 000 dm³ = 1 000 l.">
+<style>
+/* Předloha: PDF Objem — ručně psané „Převody jednotek objemu“: krychle + m³ dm³ cm³ mm³ s obloučky (po třech),
+   hrnec + hl l dl cl ml s obloučky, žebříček (most) mezi dm³–l a cm³–ml. Překresleno, ne kopie.
+   Cyklus 10 s: rozsvítí se 3 obloučky m³→dm³ a s každým přibude jedna nula (1 → 1 000), pak most dm³ = l a „= 1 000 l“.
+   Bez animace = koncový stav. */
+@keyframes o1 { 0%, 10% { stroke: #ced4da; } 14%, 100% { stroke: #c92a2a; } }
+@keyframes o2 { 0%, 24% { stroke: #ced4da; } 28%, 100% { stroke: #c92a2a; } }
+@keyframes o3 { 0%, 38% { stroke: #ced4da; } 42%, 100% { stroke: #c92a2a; } }
+@keyframes n1 { 0%, 10% { opacity: 0; } 14%, 94% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes n2 { 0%, 24% { opacity: 0; } 28%, 94% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes n3 { 0%, 38% { opacity: 0; } 42%, 94% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes most { 0%, 52% { opacity: 0.3; } 58%, 100% { opacity: 1; } }
+@keyframes lit { 0%, 60% { opacity: 0; } 66%, 94% { opacity: 1; } 100% { opacity: 0; } }
+.o1 { animation: o1 10s linear infinite; } .o2 { animation: o2 10s linear infinite; } .o3 { animation: o3 10s linear infinite; }
+.n1 { animation: n1 10s linear infinite; } .n2 { animation: n2 10s linear infinite; } .n3 { animation: n3 10s linear infinite; }
+.most { animation: most 10s linear infinite; } .lit { animation: lit 10s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .o1, .o2, .o3, .n1, .n2, .n3, .most, .lit { animation: none; } }
+</style>
+<rect x="3" y="3" width="954" height="634" rx="14" fill="#f8f9fa"/>
+<rect x="290" y="20" width="380" height="58" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="480" y="59" font-size="28" fill="#212529" text-anchor="middle">Převody jednotek objemu</text>
+<path d="M48 140h52v52h-52zM48 140l18 -16h52l-18 16M100 192l18 -16v-52" fill="#ffe066" stroke="#e67700" stroke-width="3" stroke-linejoin="round"/>
+<path d="M44 262h66l-6 46q-27 10 -54 0z" fill="#e9a66b" stroke="#8a4b18" stroke-width="3"/><ellipse cx="77" cy="262" rx="33" ry="8" fill="#74c0fc" stroke="#8a4b18" stroke-width="3"/><path d="M110 272q20 4 8 22" fill="none" stroke="#8a4b18" stroke-width="4"/>
+<text x="190" y="176" font-size="38" font-weight="bold" fill="#a85a12" text-anchor="middle">m³</text>
+<text x="420" y="176" font-size="38" font-weight="bold" fill="#a85a12" text-anchor="middle">dm³</text>
+<text x="650" y="176" font-size="38" font-weight="bold" fill="#a85a12" text-anchor="middle">cm³</text>
+<text x="880" y="176" font-size="38" font-weight="bold" fill="#a85a12" text-anchor="middle">mm³</text>
+<path class="o1" d="M230 190Q254.17 226 278.33 190" fill="none" stroke="#c92a2a" stroke-width="4.5" stroke-linecap="round"/>
+<path class="o2" d="M278.33 190Q302.5 226 326.67 190" fill="none" stroke="#c92a2a" stroke-width="4.5" stroke-linecap="round"/>
+<path class="o3" d="M326.67 190Q350.83 226 375 190" fill="none" stroke="#c92a2a" stroke-width="4.5" stroke-linecap="round"/>
+<path d="M462 190Q485.83 226 509.67 190" fill="none" stroke="#c92a2a" stroke-width="4.5" stroke-linecap="round"/>
+<path d="M509.67 190Q533.5 226 557.33 190" fill="none" stroke="#c92a2a" stroke-width="4.5" stroke-linecap="round"/>
+<path d="M557.33 190Q581.17 226 605 190" fill="none" stroke="#c92a2a" stroke-width="4.5" stroke-linecap="round"/>
+<path d="M692 190Q716.67 226 741.33 190" fill="none" stroke="#c92a2a" stroke-width="4.5" stroke-linecap="round"/>
+<path d="M741.33 190Q766 226 790.67 190" fill="none" stroke="#c92a2a" stroke-width="4.5" stroke-linecap="round"/>
+<path d="M790.67 190Q815.33 226 840 190" fill="none" stroke="#c92a2a" stroke-width="4.5" stroke-linecap="round"/>
+<text x="230" y="300" font-size="38" font-weight="bold" fill="#1864ab" text-anchor="middle">hl</text>
+<text x="420" y="300" font-size="38" font-weight="bold" fill="#1864ab" text-anchor="middle">l</text>
+<text x="497" y="300" font-size="38" font-weight="bold" fill="#1864ab" text-anchor="middle">dl</text>
+<text x="573" y="300" font-size="38" font-weight="bold" fill="#1864ab" text-anchor="middle">cl</text>
+<text x="650" y="300" font-size="38" font-weight="bold" fill="#1864ab" text-anchor="middle">ml</text>
+<path d="M262 312Q295 344 328 312" fill="none" stroke="#c92a2a" stroke-width="4.5" stroke-linecap="round"/>
+<path d="M328 312Q361 344 394 312" fill="none" stroke="#c92a2a" stroke-width="4.5" stroke-linecap="round"/>
+<path d="M436 312Q455 336 474 312" fill="none" stroke="#c92a2a" stroke-width="4.5" stroke-linecap="round"/>
+<path d="M520 312Q535 336 550 312" fill="none" stroke="#c92a2a" stroke-width="4.5" stroke-linecap="round"/>
+<path d="M596 312Q609 336 622 312" fill="none" stroke="#c92a2a" stroke-width="4.5" stroke-linecap="round"/>
+<g class="most"><path d="M410 214V262M430 214V262M410 226H430M410 238H430M410 250H430" stroke="#237032" stroke-width="4" stroke-linecap="round"/></g>
+<g class=""><path d="M640 214V262M660 214V262M640 226H660M640 238H660M640 250H660" stroke="#237032" stroke-width="4" stroke-linecap="round"/></g>
+<text x="480" y="372" font-size="25" fill="#212529" text-anchor="middle">1 oblouček = 1 nula · most: 1 l = 1 dm³, 1 ml = 1 cm³</text>
+<path d="M140 400H800" stroke="#1971c2" stroke-width="5"/><path d="M800 388L824 400L800 412Z" fill="#1971c2"/>
+<text x="480" y="434" font-size="25" fill="#1864ab" text-anchor="middle">na menší jednotky: nuly přidáváme, čárka doprava</text>
+<path d="M160 458H820" stroke="#237032" stroke-width="5"/><path d="M160 446L136 458L160 470Z" fill="#237032"/>
+<text x="480" y="492" font-size="25" fill="#237032" text-anchor="middle">na větší jednotky: nuly škrtáme, čárka doleva</text>
+<rect x="40" y="512" width="880" height="104" rx="12" fill="#fff" stroke="#adb5bd" stroke-width="2"/>
+<text x="66" y="578" font-size="40" font-weight="bold" fill="#212529">1 m³ =</text>
+<text x="232" y="578" font-size="40" font-weight="bold" fill="#212529" text-anchor="middle">1</text>
+<text class="n1" x="270" y="578" font-size="40" font-weight="bold" fill="#c92a2a" text-anchor="middle">0</text>
+<text class="n2" x="296" y="578" font-size="40" font-weight="bold" fill="#c92a2a" text-anchor="middle">0</text>
+<text class="n3" x="322" y="578" font-size="40" font-weight="bold" fill="#c92a2a" text-anchor="middle">0</text>
+<text x="346" y="578" font-size="40" font-weight="bold" fill="#212529">dm³</text>
+<text class="lit" x="432" y="578" font-size="40" font-weight="bold" fill="#237032">= 1 000 l</text>
+
+</svg>
