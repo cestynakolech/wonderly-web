@@ -1957,6 +1957,7 @@ export const temata: Record<string, Tema[]> = {
 							nazev: 'Píseň: Posuvný a otáčivý 🎵',
 							cesta: '/materialy/fyzika/7-rocnik/pohyb-a-rychlost/posuvny-otacivy-pohyb/pisen-posuvny-otacivy.m4a',
 						},
+						{ druh: 'video', nazev: 'Bonus z NotebookLM: Druhy pohybu ve fyzice (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/7-rocnik/pohyb-a-rychlost/posuvny-otacivy-pohyb/notebooklm-posuvny-otacivy-pohyb.mp4' },
 					],
 				},
 				{
