@@ -503,13 +503,13 @@ export const laborky: Record<string, Laborka> = {
 		pomucky: ['školní demonstrační model stejnosměrného elektromotoru', 'zdroj malého napětí ovládaný učitelem', 'tužka'],
 		postup: [
 			'Učitel ukáže model odpojený od zdroje. Nic nezapojuj a nedotýkej se ho. Do prvního řádku tabulky napiš „před ukázkou“ a co na modelu vidíš.',
-			'Najdi pohledem části motoru. Stator je vnější pevná část s magnety nebo elektromagnety. Rotor (kotva) je otáčivá část uvnitř s cívkou. Komutátor je kovový prstenec rozdělený na dvě poloviny. Kartáčky jsou kovové plíšky, které se ho dotýkají. Co se ti nepodaří najít, napiš „není vidět“.',
+			'Najdi na modelu stator, rotor (kotvu), komutátor a kartáčky. Co nenajdeš, napiš „není vidět“.',
 			'Učitel zapne zdroj a motor se rozběhne. Sleduj z bezpečné vzdálenosti, co se otáčí a co stojí na místě. Do druhého řádku napiš „během ukázky“ a jen to, co opravdu vidíš.',
 			'Učitel zdroj vypne. Počkej, až se vše zastaví. Do třetího řádku napiš „po ukázce“ a co vidíš.',
-			'Vysvětlení: na protilehlé strany cívky s proudem působí magnetické síly opačnými směry, a proto se cívka otáčí. Komutátor je mechanický přepínač polarity. Po půl otáčce se jeho poloviny dotknou opačných kartáčků a polarita cívky se změní. Díky tomu se cívka neotočí jen o půl otáčky, ale točí se dál.',
+			'Vysvětlení: na protilehlé strany cívky s proudem působí magnetické síly opačným směrem, a proto se cívka otáčí.',
 		],
 		tabulka: {
-			sloupce: ['stav modelu (před / během / po ukázce)', 'co vidím', 'co se otáčí a co stojí'],
+			sloupce: ['stav modelu (před / během / po ukázce)', 'co vidím'],
 			radky: 3,
 		},
 		otazky: [
@@ -518,6 +518,6 @@ export const laborky: Record<string, Laborka> = {
 			'Co by se stalo, kdyby motor neměl komutátor? Proč by se cívka neotáčela pořád dokola?',
 		],
 		pozor: 'Pracuj jen s modelem, který připravil učitel, a jen pod jeho dohledem. Zdroj zapíná a vypíná učitel. Nepoužívej síťovou zásuvku, nic nezapojuj a nesahej na pohyblivé části. Když se model zahřívá nebo se chová divně, hned upozorni učitele, ten ukázku zastaví.',
-		tip: 'Elektromotory jsou ve ventilátoru, vysavači i v elektromobilech. Pracují stejně jako tenhle model, jen mají víc cívek, aby se otáčely plynuleji.',
+		tip: 'Elektromotory najdeš ve vysavači, v hračkách na baterky i v elektromobilech. Velké motory mají v rotoru víc cívek.',
 	},
 };
