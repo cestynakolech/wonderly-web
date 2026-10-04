@@ -7,13 +7,13 @@
 .miska-voda { transform-box: view-box; transform-origin: 548px 578px; animation: miska 8s linear infinite; }
 .proud { animation: proud 8s linear infinite; }
 .vysledek { animation: vysledek 8s linear infinite; }
-/* konec smyčky (92–100 %): závaží se vrací nahoru do výchozí polohy, miska se na konci smyčky vyprázdní (96–100 %), závaží je v tu chvíli už téměř venku */
+/* konec smyčky (92–100 %): závaží se vrací nahoru do výchozí polohy, miska zůstane plná, dokud závaží nevyjde z vody (hladina je opuštěna v cca 99 %), a vyprázdní se až v 99–100 % */
 /* posun držáku S: 130 px nahoře, 115 px dotyk hladiny, 18 px celé pod vodou, 0 px konec */
 @keyframes drzak { 0%, 12% { transform: translateY(-130px); } 20% { transform: translateY(-115px); } 50% { transform: translateY(-18px); } 56%, 92% { transform: translateY(0); } 100% { transform: translateY(-130px); } }
 /* protažení pružiny o: 45 px = 70 N, 0 px = 40 N (1,5 px na 1 N); mění se jen během ponořování */
 @keyframes tah { 0%, 20% { transform: translateY(45px); } 50%, 92% { transform: translateY(0); } 100% { transform: translateY(45px); } }
 @keyframes pruzina { 0%, 20% { transform: scaleY(1.625); } 50%, 92% { transform: scaleY(1); } 100% { transform: scaleY(1.625); } }
-@keyframes miska { 0%, 20% { transform: scaleY(0); } 50%, 92% { transform: scaleY(1); } 96%, 100% { transform: scaleY(0); } }
+@keyframes miska { 0%, 20% { transform: scaleY(0); } 50%, 99% { transform: scaleY(1); } 100% { transform: scaleY(0); } }
 @keyframes proud { 0%, 19% { opacity: 0; } 21%, 49% { opacity: 1; } 51%, 100% { opacity: 0; } }
 @keyframes vysledek { 0%, 56% { opacity: 0; } 62%, 92% { opacity: 1; } 96%, 100% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) {
