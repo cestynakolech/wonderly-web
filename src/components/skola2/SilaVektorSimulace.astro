@@ -113,10 +113,11 @@
 	// bílá plaketa s barevným okrajem pod textem — ŠÍŘKA VŽDY dynamická podle délky textu
 	// (jediné místo, kde se to počítá — používá ji šipka i popisek Fg, ať se to nikdy nerozejde)
 	function plaketa(textX, textY, text, barva) {
-		const sirka = String(text).length * 8 + 8;
+		// písmo 20 (dřív 13 = na telefonu 375 px jen ~7 px, R4 oprava 5. 10. 2026): 11 px na znak + 8, výška 26
+		const sirka = String(text).length * 11 + 8;
 		return `
-			<rect x="${textX - 4}" y="${textY - 14}" width="${sirka}" height="18" rx="4" fill="#ffffff" stroke="${barva}" stroke-width="1.5" />
-			<text x="${textX}" y="${textY}" font-size="13" font-weight="bold" fill="${barva}">${text}</text>
+			<rect x="${textX - 4}" y="${textY - 20}" width="${sirka}" height="26" rx="5" fill="#ffffff" stroke="${barva}" stroke-width="1.5" />
+			<text x="${textX}" y="${textY}" font-size="20" font-weight="bold" fill="${barva}">${text}</text>
 		`;
 	}
 
@@ -142,10 +143,10 @@
 	// Ořízne polohu popisku (plaketa+text), aby celá zůstala uvnitř viewBoxu (VIEW_W×VIEW_H) —
 	// používá se na VŠECHNY popisky ve scéně, ať žádný nikdy nevyjede mimo plátno.
 	function oriznoutPopisek(x, y, text) {
-		const sirka = String(text).length * 8 + 8;
+		const sirka = String(text).length * 11 + 8;
 		const rectX = Math.max(OKRAJ, Math.min(VIEW_W - OKRAJ - sirka, x - 4));
-		const rectY = Math.max(OKRAJ, Math.min(VIEW_H - OKRAJ - 18, y - 14));
-		return { x: rectX + 4, y: rectY + 14 };
+		const rectY = Math.max(OKRAJ, Math.min(VIEW_H - OKRAJ - 26, y - 20));
+		return { x: rectX + 4, y: rectY + 20 };
 	}
 
 	function prekresli() {

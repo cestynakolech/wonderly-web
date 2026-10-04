@@ -55,11 +55,12 @@
 
 <!-- dešťový mrak a déšť: déšť pokrývá celou oblast, kde stojí oblouky duhy (x od 128) -->
 <g fill="url(#r4mrak)">
+<ellipse cx="170" cy="64" rx="48" ry="20"/>
 <ellipse cx="262" cy="60" rx="66" ry="22"/>
 <ellipse cx="365" cy="48" rx="88" ry="30"/>
 <ellipse cx="470" cy="38" rx="80" ry="32"/>
 <ellipse cx="555" cy="52" rx="60" ry="30"/>
-<rect x="200" y="46" width="397" height="34" rx="17"/>
+<rect x="130" y="50" width="467" height="30" rx="15"/>
 </g>
 <path d="M410,26 Q470,8 530,24" fill="none" stroke="#adb5bd" stroke-width="4" opacity="0.6" stroke-linecap="round"/>
 <g clip-path="url(#r4destclip)">

@@ -68,25 +68,25 @@ const obsah = () => el('sv-obsah').innerHTML;
 const posunBedny = () => { const m = obsah().match(/translate\(([-\d.e]+) ([-\d.e]+)\)/); return m ? [+m[1], +m[2]] : [NaN, NaN]; };
 const SMERY = { 180: 'sv-smer-180', 135: 'sv-smer-135', 90: 'sv-smer-90', 45: 'sv-smer-45', 0: 'sv-smer-0' };
 
-// Geometrie scény přepočtená nezávisle: popisek (plaketa 8 px na znak + 8, výška 18) leží
+// Geometrie scény přepočtená nezávisle: popisek (plaketa 11 px na znak + 8, výška 26) leží
 // u bodu a celý uvnitř scény 500 × 400 s okrajem 4; hrot šipky = dvě ramena 12 px pod ±0,4 rad.
 const W = 500, H = 400, OKR = 4;
 const blizko = (a, b) => Math.abs(a - b) < 1e-6;
 const popisekU = (x, y, text) => {
-	const s = text.length * 8 + 8;
-	const rx = Math.max(OKR, Math.min(W - OKR - s, x - 4)), ry = Math.max(OKR, Math.min(H - OKR - 18, y - 14));
-	return { rx, ry, s, x: rx + 4, y: ry + 14, text };
+	const s = text.length * 11 + 8;
+	const rx = Math.max(OKR, Math.min(W - OKR - s, x - 4)), ry = Math.max(OKR, Math.min(H - OKR - 26, y - 20));
+	return { rx, ry, s, x: rx + 4, y: ry + 20, text };
 };
 function scenaSedi(F, deg, ox, oy) {
 	const s = el('sv-obsah').innerHTML;
-	const plakety = [...s.matchAll(/<rect x="([-\d.e]+)" y="([-\d.e]+)" width="(\d+)" height="18" rx="4" fill="#ffffff" stroke="([^"]+)" stroke-width="1\.5" \/>\s*<text x="([-\d.e]+)" y="([-\d.e]+)" font-size="13" font-weight="bold" fill="\4">([^<]+)<\/text>/g)]
+	const plakety = [...s.matchAll(/<rect x="([-\d.e]+)" y="([-\d.e]+)" width="(\d+)" height="26" rx="5" fill="#ffffff" stroke="([^"]+)" stroke-width="1\.5" \/>\s*<text x="([-\d.e]+)" y="([-\d.e]+)" font-size="20" font-weight="bold" fill="\4">([^<]+)<\/text>/g)]
 		.map((m) => ({ rx: +m[1], ry: +m[2], s: +m[3], barva: m[4], x: +m[5], y: +m[6], text: m[7] }));
 	const cek = [{ ...popisekU(200 + 10 + ox, 300 + 90 + 4 + oy, 'Fg = 30 N'), barva: '#495057' }];
 	const rad = (deg * Math.PI) / 180, c = Math.cos(rad), si = Math.sin(rad);
 	const x2 = 200 + c * F * 3, y2 = 240 - si * F * 3;
 	if (F > 0) cek.push({ ...popisekU(x2 + c * 14 + ox, y2 - si * 14 - 4 + oy, `F = ${F} N`), barva: '#e03131' });
 	const popOk = plakety.length === cek.length && cek.every((p, i) => ['rx', 'ry', 's', 'x', 'y'].every((k) => blizko(plakety[i][k], p[k])) && plakety[i].text === p.text && plakety[i].barva === p.barva)
-		&& plakety.every((p) => p.rx >= OKR && p.ry >= OKR && p.rx + p.s <= W - OKR && p.ry + 18 <= H - OKR);
+		&& plakety.every((p) => p.rx >= OKR && p.ry >= OKR && p.rx + p.s <= W - OKR && p.ry + 26 <= H - OKR);
 	const fgHrot = s.includes('<polygon points="200,390 194,380 206,380" fill="#495057" />');
 	let hrotOk = F === 0;
 	const poly = s.match(/<polygon points="([^"]+)" fill="#e03131"/);

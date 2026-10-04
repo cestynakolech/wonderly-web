@@ -67,6 +67,10 @@
 <line x1="300" y1="440" x2="300" y2="165"/><line x1="240" y1="175" x2="360" y2="175"/>
 <line x1="240" y1="175" x2="240" y2="138" stroke-width="4"/><line x1="360" y1="175" x2="360" y2="150" stroke-width="4"/>
 </g>
+<!-- přerušení stožáru: obrázek není v měřítku, skutečný stožár má asi 10 m -->
+<rect x="288" y="238" width="24" height="14" fill="#f8f9fa" stroke="none"/>
+<path d="M293,236 L307,242 L293,248 L307,254" fill="none" stroke="#495057" stroke-width="3" stroke-linejoin="round"/>
+<text x="316" y="250" font-size="22" fill="#212529">asi 10 m</text>
 <ellipse cx="240" cy="135" rx="34" ry="6" fill="none" stroke="#adb5bd" stroke-width="2" stroke-dasharray="4 4"/>
 <g fill="#495057" stroke="#212529" stroke-width="1.5">
 <circle class="mi m1" cx="240" cy="135" r="9" style="animation-delay:0s"/>

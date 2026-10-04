@@ -41,9 +41,9 @@
 <use href="#o5oko"/>
 <ellipse cx="310" cy="200" rx="8" ry="50" fill="url(#o5cocka)" stroke="#212529" stroke-width="2"/>
 <g class="celek">
-<path class="pr" d="M60,170 L248,170 L490,200" pathLength="100" fill="none" stroke="#e8590c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-<path class="pr" d="M60,230 L248,230 L490,200" pathLength="100" fill="none" stroke="#e8590c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-<g class="si" fill="#e8590c"><path d="M160,170 L146,163 L146,177 Z"/><path d="M160,230 L146,223 L146,237 Z"/></g>
+<path class="pr" d="M50,180 L248,180 L490,200" pathLength="100" fill="none" stroke="#e8590c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="pr" d="M50,220 L248,220 L490,200" pathLength="100" fill="none" stroke="#e8590c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<g class="si" fill="#e8590c"><path d="M160,180 L146,173 L146,187 Z"/><path d="M160,220 L146,213 L146,227 Z"/></g>
 <circle class="bod" cx="490" cy="200" r="6" fill="#e8590c"/>
 </g>
 <text x="380" y="345" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">oko</text>
