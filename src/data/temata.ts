@@ -1098,12 +1098,17 @@ export const temata: Record<string, Tema[]> = {
 							<li>hustota ρ = m : V, objem z hustoty V = m : ρ, hmotnost m = ρ · V</li>
 							<li>1 l = 1 dm³ (most mezi dutými a krychlovými jednotkami)</li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/souhrnne-opakovani-velicin/souhrnne-opakovani-velicin-obr-04.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/souhrnne-opakovani-velicin/souhrnne-opakovani-velicin-obr-04.svg" alt="Vzorce ρ = m : V, m = ρ · V, V = m : ρ a červený trojúhelník s m nahoře a ρ · V dole; šedá kartička zakrývá postupně ρ, m a V." loading="lazy" /></a><figcaption>Jeden vztah, tři tvary: ρ = m : V, m = ρ · V, V = m : ρ. V trojúhelníku zakryj, co hledáš.</figcaption></figure>
 						<h3>Převody jednotek</h3>
 						<ul>
 							<li>na menší jednotky: přidáváme nuly (čárka doprava)</li>
 							<li>na větší jednotky: škrtáme nuly (čárka doleva)</li>
 							<li>👉 <strong>POZOR u času nikdy neposouváme desetinnou čárku</strong> — hodina má 60 minut, minuta 60 sekund!</li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/souhrnne-opakovani-velicin/souhrnne-opakovani-velicin-obr-01.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/souhrnne-opakovani-velicin/souhrnne-opakovani-velicin-obr-01.svg" alt="Převody jednotek délky: řada km, m, dm, cm, mm; mezi km a m tři obloučky, mezi ostatními po jednom. Příklady 1 km = 1 000 m, 1 m = 10 dm, 1 m = 100 cm, 1 cm = 10 mm." loading="lazy" /></a><figcaption>Převody jednotek délky: každý oblouček je jedna nula. Na menší jednotku násobíme, na větší dělíme.</figcaption></figure>
+						<figure><a href="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/souhrnne-opakovani-velicin/souhrnne-opakovani-velicin-obr-02.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/souhrnne-opakovani-velicin/souhrnne-opakovani-velicin-obr-02.svg" alt="Převody jednotek hmotnosti: řada t, q, kg, dag, g, mg s obloučky 1, 2, 2, 1, 3. Příklady 1 t = 10 q, 1 q = 100 kg, 1 kg = 100 dag, 1 dag = 10 g, 1 g = 1 000 mg, 1 kg = 1 000 g." loading="lazy" /></a><figcaption>Převody jednotek hmotnosti: kolik obloučků, tolik nul.</figcaption></figure>
+						<figure><a href="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/souhrnne-opakovani-velicin/souhrnne-opakovani-velicin-obr-03.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/souhrnne-opakovani-velicin/souhrnne-opakovani-velicin-obr-03.svg" alt="Převody jednotek objemu: krychlové jednotky m³, dm³, cm³, mm³ se třemi obloučky mezi sousedy, pod nimi hl, l, dl, cl, ml; litr spojen rovnítkem s dm³, mililitr s cm³. Příklady 1 m³ = 1 000 dm³, 1 hl = 100 l, 1 l = 1 000 ml." loading="lazy" /></a><figcaption>Mezi krychlovými jednotkami jsou vždy 3 obloučky; 1 dm³ = 1 l a 1 cm³ = 1 ml.</figcaption></figure>
+						<figure><a href="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/souhrnne-opakovani-velicin/souhrnne-opakovani-velicin-obr-06.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/souhrnne-opakovani-velicin/souhrnne-opakovani-velicin-obr-06.svg" alt="Jednotky času d, h, min, s: na menší násobíme 24, 60, 60, na větší dělíme. Pozor, čárku neposouváme: 1 h = 60 min, ne 100 min. Příklady 1 d = 24 h, 2 h = 120 min, 1 h = 3 600 s, 180 s = 3 min." loading="lazy" /></a><figcaption>U času nepočítáme po desítkách: den má 24 h, hodina 60 min, minuta 60 s.</figcaption></figure>
 						<h3>⚠️ Značka <em>t</em> znamená dvě různé věci</h3>
 						<p>Všiml sis toho v tabulce? <strong>t</strong> je značka pro <strong>čas</strong>
 						i pro <strong>teplotu</strong>. Není to chyba — fyzika obojí opravdu píše stejně
@@ -1122,6 +1127,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>Ten příklad celý: <em>V</em> = 2 · 3 · 5 = <strong>30 cm³</strong>, pak
 						ρ = <em>m</em> : <em>V</em> = 240 : 30 = <strong>8 g/cm³</strong>, tedy
 						<strong>8 000 kg/m³</strong> — přibližně ocel.</p>
+						<figure><a href="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/souhrnne-opakovani-velicin/souhrnne-opakovani-velicin-obr-05.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/souhrnne-opakovani-velicin/souhrnne-opakovani-velicin-obr-05.svg" alt="Převod jednotek hustoty: z kg/m³ na g/cm³ dělíme 1 000, z g/cm³ na kg/m³ násobíme 1 000. Ocel 8 000 kg/m³ = 8 g/cm³; 1 g/cm³ = 1 000 kg/m³." loading="lazy" /></a><figcaption>Z kg/m³ na g/cm³ dělíme 1 000, zpět násobíme 1 000: ocel 8 000 kg/m³ = 8 g/cm³.</figcaption></figure>
 						<p>👉 <strong>Nejčastější chyba není v počítání, ale v jednotkách</strong>: délky v centimetrech
 						a hmotnost v kilogramech dohromady dají nesmysl. A výsledek bez jednotky není odpověď —
 						„8" samo o sobě neříká vůbec nic.</p>
