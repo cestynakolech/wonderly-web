@@ -1510,4 +1510,73 @@ export const laborky: Record<string, Laborka> = {
 		pozor: 'Pracuj jen s lehkým závažím a pouštěj ho jen do trubice. Ruce a nohy drž mimo dosah závaží. Pracuj na pevné lavici a závaží po pokusu odlož. Po práci si umyj ruce od modelíny.',
 		tip: 'Jednotka energie joule je pojmenovaná po anglickém fyzikovi Jamesi Prescottu Joulovi.',
 	},
+	'fyzika/8-rocnik/energie/pohybova-a-polohova-energie': {
+		nazev: 'Kulička ze svahu: čím výš, tím větší energie',
+		cil: 'Zjistit, jak výška startu kuličky ovlivňuje to, jak daleko posune kelímek, a spočítat polohovou energii.',
+		pomucky: ['ocelová nebo skleněná kulička', 'dvě pravítka na žlábek', 'knížky na podložení', 'lehký plastový kelímek', 'svinovací metr', 'tužka'],
+		postup: [
+			'Z pravítek slož žlábek a jeden konec podlož knihami. Na konec žlábku polož kelímek ležící na boku (otvorem ke žlábku).',
+			'Kuličku pusť z výšky 5 cm nad stolem. Změř, o kolik cm se kelímek posunul, a zapiš.',
+			'Totéž udělej při výšce 10 cm a 15 cm. Pokaždé kelímek vrať na stejné místo.',
+			'Vysvětlení: těleso získá mechanickou energii při konání mechanické práce.',
+		],
+		tabulka: {
+			sloupce: ['výška startu (cm)', 'posun kelímku (cm)'],
+			radky: 3,
+		},
+		otazky: [
+			'Jak souvisí posun kelímku s výškou startu kuličky?',
+			'Jaký druh energie měla kulička na startu a jaký těsně před nárazem do kelímku?',
+			'Těleso o hmotnosti 2 kg zvedneme do výšky 5 m. Jaká je jeho polohová energie? Použij Ep = m · g · h a g = 10 N/kg.',
+			'Rychlost auta se zvětší 2krát. Kolikrát se zvětší jeho pohybová energie?',
+		],
+		pozor: 'Kuličku nehážej, nepusť ji na podlahu, aby po ní nikdo neuklouzl. Knížky podlož stabilně. Pracuj na lavici, ne na zemi.',
+		tip: 'Pohybová energie se využívá například při bowlingu nebo při bourání zdí demoliční koulí.',
+	},
+	'fyzika/8-rocnik/energie/zakon-zachovani-mechanicke-energie': {
+		nazev: 'Skákací míček: kam se ztrácí energie',
+		cil: 'Porovnat výšku, ze které míček padá, s výškou, do které odskočí, a zjistit, zda se mechanická energie zachovává.',
+		pomucky: ['pružný míček', 'svinovací metr nebo značky na stěně', 'tužka'],
+		postup: [
+			'Na stěnu označ výšky 50 cm, 100 cm a 150 cm od podlahy.',
+			'Míček pusť z výšky 50 cm. Spolužák sleduje a odhadne nejvyšší bod prvního odskoku v celých cm. Zapiš do tabulky.',
+			'Totéž udělej z výšky 100 cm a z výšky 150 cm. Při každé výšce pokus zopakuj a zapiš větší odskok.',
+			'Vysvětlení: celková mechanická energie tělesa je součtem jeho polohové a pohybové energie.',
+		],
+		tabulka: {
+			sloupce: ['výška pádu (cm)', 'výška odskoku (cm)'],
+			radky: 3,
+		},
+		otazky: [
+			'Do jaké výšky odskočil míček ve srovnání s výškou, ze které padal?',
+			'Kam se ztratila část mechanické energie míčku?',
+			'Míček o hmotnosti 1 kg pustíme z výšky 5 m. Jakou polohovou energii má na začátku? Jakou pohybovou energii by měl těsně před dopadem, kdyby se nic neztrácelo? Použij Ep = m · g · h a g = 10 N/kg.',
+			'Uveď příklad ze života, kdy kvůli tření nedosáhne těleso původní výšky.',
+		],
+		pozor: 'Při pokusu se nepřibližuj k místu dopadu míčku a dej pozor, aby míček neskončil pod nohama. Nenos míček na schody. Pracuj v prostoru bez křehkých předmětů.',
+		tip: 'Kinetická energie je jiný název pro pohybovou energii a slovo kineze znamená pohyb.',
+	},
+	'fyzika/8-rocnik/energie/energeticka-hodnota-potravin': {
+		nazev: 'Kolik energie je v naší svačině',
+		cil: 'Z údajů na obalech potravin určit energii, kterou obsahují zvolené porce.',
+		pomucky: ['obaly tří potravin s údajem o energii na 100 g (například müsli tyčinka, mléko, pečivo)', 'kuchyňská váha', 'kalkulačka', 'tužka'],
+		postup: [
+			'Na obalu každé potraviny najdi energetickou hodnotu na 100 g v kJ a zapiš ji do tabulky.',
+			'U každé potraviny vyber porci 50 g, 100 g nebo 200 g. Údaj zapiš.',
+			'Energii porce spočítej: energie na 100 g · hmotnost porce : 100. Výsledek v kJ zapiš do tabulky.',
+			'Vysvětlení: energetickou hodnotu potravin udáváme na 100 g potraviny.',
+		],
+		tabulka: {
+			sloupce: ['potravina', 'energie na 100 g (kJ)', 'porce (g)', 'energie porce (kJ)'],
+			radky: 3,
+		},
+		otazky: [
+			'Která z potravin má největší energii na 100 g a která největší energii porce?',
+			'Potravina má 2 000 kJ na 100 g. Kolik kJ je v porci 50 g?',
+			'Jak se energetická hodnota potraviny zjišťuje v laboratoři?',
+			'Jaká jednotka se kromě joulu dnes používá už jen u potravin?',
+		],
+		pozor: 'Potraviny pro pokus nejez. Dej pozor na alergie spolužáků. Pracuj jen s uzavřenými obaly a čistou váhou. Po práci si umyj ruce.',
+		tip: 'Člověk získává energii hlavně z potravy a tělo spaluje cukry a tuky spolu s kyslíkem.',
+	},
 };
