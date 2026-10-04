@@ -54,9 +54,9 @@
 <text x="155" y="612" font-size="26" font-weight="bold" fill="#1864ab" text-anchor="middle">hmotnost</text>
 <!-- mléko v lahvi, objem -->
 <g transform="translate(445 506)">
-<path d="M-15 -66L15 -66L15 -40Q42 -26 42 2L42 62Q42 74 30 74L-30 74Q-42 74 -42 62L-42 2Q-42 -26 -15 -40Z" fill="#d0ebff" stroke="#868e96" stroke-width="3"/>
-<path d="M-35 -16Q-38 -8 -38 2L-38 62Q-38 70 -28 70L28 70Q38 70 38 62L38 2Q38 -8 35 -16Z" fill="#fff" stroke="#dee2e6" stroke-width="1.5"/>
-<ellipse cx="0" cy="-16" rx="35" ry="5" fill="#f1f3f5" stroke="#ced4da" stroke-width="1.5"/>
+<path d="M-15 -66L15 -66L15 -40Q42 -26 42 2L42 62Q42 74 30 74L-30 74Q-42 74 -42 62L-42 2Q-42 -26 -15 -40Z" fill="#a5d8ff" stroke="#495057" stroke-width="3"/>
+<path d="M-35 -16Q-38 -8 -38 2L-38 62Q-38 70 -28 70L28 70Q38 70 38 62L38 2Q38 -8 35 -16Z" fill="#e9ecef" stroke="#868e96" stroke-width="2"/>
+<ellipse cx="0" cy="-16" rx="35" ry="5" fill="#f8f9fa" stroke="#868e96" stroke-width="1.5"/>
 <path d="M-35 -16Q-38 -8 -38 2L-38 62Q-38 70 -28 70L28 70Q38 70 38 62L38 2Q38 -8 35 -16Z" fill="none" stroke="#1864ab" stroke-width="3" stroke-dasharray="8 6"/>
 <rect x="-18" y="-78" width="36" height="14" rx="3" fill="#e03131"/>
 </g>

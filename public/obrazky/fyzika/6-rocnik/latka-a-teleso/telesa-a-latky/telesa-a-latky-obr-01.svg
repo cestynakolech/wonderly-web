@@ -2,13 +2,13 @@
 <style>
 /* Předloha: PDF Tělesa a látky, oddíl LÁTKA (z určitého množství látky vytvoříme věc určitého tvaru)
    a TĚLESO (stůl ze dřeva). Na straně PDF k tomu obrázek není, děj nakreslen podle textu.
-   Cyklus 9 s: 0–15 % hromádka, 15–45 % nohy se postaví, 45–70 % deska vyjede nahoru, 70–94 % hotový stůl.
+   Cyklus 9 s: 0–15 % hromádka, 15–38 % nohy sjedou z desky a postaví se po stranách, 38–56 % deska vyjede nahoru mezi nimi (nic se neprotíná), 56–72 % nohy se zasunou pod desku, 72–94 % hotový stůl.
    Bez animace (reduced-motion) = koncový stav (stůl). */
-@keyframes nohaL { 0%, 15% { transform: translate(300px, 397px) rotate(90deg); } 30% { transform: translate(230px, 300px) rotate(45deg); } 45%, 100% { transform: translate(186px, 351px) rotate(0deg); } }
-@keyframes nohaP { 0%, 15% { transform: translate(300px, 375px) rotate(90deg); } 30% { transform: translate(370px, 290px) rotate(135deg); } 45%, 100% { transform: translate(414px, 351px) rotate(180deg); } }
-@keyframes deska { 0%, 45% { transform: translate(300px, 419px); } 70%, 100% { transform: translate(300px, 261px); } }
+@keyframes nohaL { 0%, 15% { transform: translate(300px, 397px) rotate(90deg); } 20% { transform: translate(225px, 397px) rotate(90deg); } 26% { transform: translate(230px, 300px) rotate(45deg); } 38%, 56% { transform: translate(70px, 351px) rotate(0deg); } 72%, 100% { transform: translate(186px, 351px) rotate(0deg); } }
+@keyframes nohaP { 0%, 15% { transform: translate(300px, 375px) rotate(90deg); } 20% { transform: translate(375px, 375px) rotate(90deg); } 26% { transform: translate(370px, 290px) rotate(135deg); } 38%, 56% { transform: translate(530px, 351px) rotate(180deg); } 72%, 100% { transform: translate(414px, 351px) rotate(180deg); } }
+@keyframes deska { 0%, 38% { transform: translate(300px, 419px); } 56%, 100% { transform: translate(300px, 261px); } }
 @keyframes latka { 0%, 15% { opacity: 1; } 22%, 100% { opacity: 0; } }
-@keyframes teleso { 0%, 66% { opacity: 0; } 74%, 100% { opacity: 1; } }
+@keyframes teleso { 0%, 72% { opacity: 0; } 80%, 100% { opacity: 1; } }
 @keyframes scena { 0% { opacity: 0; } 3%, 95% { opacity: 1; } 100% { opacity: 0; } }
 .nL { animation: nohaL 9s ease-in-out infinite; }
 .nP { animation: nohaP 9s ease-in-out infinite; }

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 990" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Příklady těles a látek, ze kterých jsou: stůl ze dřeva, kniha z papíru, mléko v lahvi z mléka, vzduch v balónku ze vzduchu, hřebík ze železa, oblak z vody a okno, které je z části ze skla, z části ze dřeva a z části ze železa.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 990" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Příklady těles a látek, ze kterých jsou: stůl ze dřeva, kniha z papíru, mléko v lahvi z mléka, vzduch v balónku ze vzduchu, hřebík ze železa, oblak z vody a okno, které je zčásti ze skla, zčásti ze dřeva a zčásti ze železa.">
 <!-- Předloha: PDF Tělesa a látky, oddíl TĚLESO, výčet příkladů (stůl, kniha, mléko v lahvi, vzduch v balónku,
      hřebík, oblak, okno). V PDF jen text, kresby doplněny k témuž výčtu; nic navíc. -->
 <defs>
@@ -79,7 +79,7 @@
 <g fill="#212529"><circle cx="196" cy="806" r="4"/><circle cx="224" cy="900" r="4"/><circle cx="146" cy="884" r="4"/></g>
 <g font-size="24" fill="#212529"><text x="262" y="814">sklo</text><text x="262" y="874">dřevo</text><text x="262" y="934">železo</text></g>
 <text x="470" y="838" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">okno</text>
-<text x="470" y="874" font-size="24" fill="#212529" text-anchor="middle">z části ze skla,</text>
+<text x="470" y="874" font-size="24" fill="#212529" text-anchor="middle">zčásti ze skla,</text>
 <text x="470" y="904" font-size="24" fill="#212529" text-anchor="middle">ze dřeva</text>
 <text x="470" y="934" font-size="24" fill="#212529" text-anchor="middle">a ze železa</text>
 </svg>
