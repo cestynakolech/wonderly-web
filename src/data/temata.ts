@@ -319,28 +319,39 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Atom</h3>
 						<ul>
 							<li><strong>základní stavební částice látek</strong></li>
-							<li>dlouho byl považován za nejmenší nedělitelnou částici — dnes víme, že se skládá z ještě menších částeček</li>
+							<li>dlouho byl považován za nejmenší nedělitelnou částici — dnes víme, že se skládá z ještě menších částeček: v <strong>jádře</strong> jsou <strong>protony</strong> a <strong>neutrony</strong>, kolem jádra v <strong>obalu</strong> jsou <strong>elektrony</strong> (třeba atom helia má 2 protony, 2 neutrony a 2 elektrony)</li>
 							<li>atomy jsou velice malé, nelze je vidět lupou ani běžným mikroskopem</li>
 							<li>💡 Kdybychom natlačili atomy těsně za sebou do řady dlouhé 1 mm, vešlo by se jich tam 10 milionů</li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/atomy-a-molekuly-obr-01.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/atomy-a-molekuly-obr-01.svg" alt="Atom helia: jádro se 2 protony a 2 neutrony, kolem obal se 2 elektrony" loading="lazy" /></a><figcaption>Atom se skládá z ještě menších částeček: v jádře jsou protony a neutrony, v obalu elektrony.</figcaption></figure>
 						<h3>Prvek (chemický prvek)</h3>
 						<ul>
 							<li><strong>látka tvořená stejnými atomy</strong></li>
 							<li>dnešní věda zná 118 různých prvků, v přírodě se jich vyskytuje 92</li>
 							<li>každý prvek má svůj <strong>název</strong> a <strong>chemickou značku</strong>: železo Fe, vodík H, kyslík O, zlato Au, uhlík C, chlor Cl, sodík Na, dusík N…</li>
 							<li>všechny známé prvky jsou zapsány v <strong>periodické soustavě prvků</strong></li>
+							<li>např. balonek naplněný prvkem <strong>helium</strong> (He) obsahuje jen stejné atomy helia</li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/atomy-a-molekuly-obr-02.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/atomy-a-molekuly-obr-02.svg" alt="Balonek naplněný heliem, uvnitř 12 stejných atomů He" loading="lazy" /></a><figcaption>Balonek naplněný prvkem helium — uvnitř jsou jen stejné atomy helia.</figcaption></figure>
+						<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/atomy-a-molekuly-obr-03.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/atomy-a-molekuly-obr-03.svg" alt="Periodická soustava 118 prvků, zvýrazněny H, He, C, N, O, Na, Cl, Fe, Au" loading="lazy" /></a><figcaption>V periodické soustavě prvků jsou zapsány všechny známé prvky. Každý má svůj název a značku.</figcaption></figure>
 						<h3>Molekuly</h3>
 						<p><strong>Molekuly vznikají spojením dvou a více atomů.</strong> Atomy se téměř vždy spojují do molekul.</p>
 						<ul>
 							<li><strong>molekuly ze stejných atomů</strong> — např. molekula kyslíku O₂ (2 atomy kyslíku), vodíku H₂, dusíku N₂</li>
-							<li><strong>molekuly z různých atomů</strong> — např. molekula vody H₂O (2 atomy vodíku + 1 atom kyslíku), oxid uhličitý CO₂ (1 atom uhlíku + 2 atomy kyslíku)</li>
+							<li><strong>molekuly z různých atomů</strong> — např. molekula vody H₂O (2 atomy vodíku + 1 atom kyslíku), oxid uhličitý CO₂ (1 atom uhlíku + 2 atomy kyslíku), kyselina chlorovodíková HCl (1 atom chloru + 1 atom vodíku)</li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/atomy-a-molekuly-obr-04.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/atomy-a-molekuly-obr-04.svg" alt="Molekuly kyslíku O₂, vodíku H₂ a dusíku N₂, každá ze 2 stejných atomů" loading="lazy" /></a><figcaption>Molekuly ze stejných atomů: kyslík O₂, vodík H₂, dusík N₂.</figcaption></figure>
+						<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/atomy-a-molekuly-obr-05.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/atomy-a-molekuly-obr-05.svg" alt="Molekuly vody H₂O, oxidu uhličitého CO₂ a kyseliny chlorovodíkové HCl" loading="lazy" /></a><figcaption>Molekuly z různých atomů: voda H₂O, oxid uhličitý CO₂, kyselina chlorovodíková HCl.</figcaption></figure>
+						<p>💡 Pro zajímavost: molekuly látek v živých organismech (třeba bílkoviny, cukry nebo <strong>DNA</strong>) jsou velice dlouhé a složité.</p>
+						<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/atomy-a-molekuly-obr-06.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/atomy-a-molekuly-obr-06.svg" alt="Kousek molekuly DNA — dlouhá stočená šroubovice z mnoha atomů" loading="lazy" /></a><figcaption>Pro zajímavost: molekuly v živých organismech, třeba DNA, jsou velmi dlouhé a složité.</figcaption></figure>
 						<h3>Sloučenina</h3>
-						<p><strong>Látka složená ze stejných molekul, které vznikly z různých atomů</strong> — např. voda (H₂O), sůl (chlorid sodný NaCl), oxid uhličitý (CO₂).</p>
+						<p><strong>Látka složená ze stejných molekul, které vznikly z různých atomů</strong> — např. voda (H₂O), oxid uhličitý (CO₂). Sůl (chlorid sodný NaCl) je sloučenina z atomů sodíku a chloru, které se v krystalku pravidelně střídají.</p>
+						<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/atomy-a-molekuly-obr-07.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/atomy-a-molekuly-obr-07.svg" alt="Kapka vody s molekulami H₂O a krystalek soli z pravidelně střídaných atomů sodíku a chloru" loading="lazy" /></a><figcaption>Sloučeniny: voda je jen z molekul H₂O, v krystalku soli se pravidelně střídají sodík a chlor.</figcaption></figure>
 						<h3>Směs</h3>
-						<p><strong>Látka, která vznikne smícháním více látek</strong> — je složena z různých druhů molekul a atomů. Např. vzduch (molekuly dusíku N₂ + kyslíku O₂ + oxidu uhličitého CO₂ + vody H₂O + …).</p>
+						<p><strong>Látka, která vznikne smícháním více látek</strong> — je složena z různých druhů molekul a atomů. Např. vzduch (molekuly dusíku N₂ + kyslíku O₂ + oxidu uhličitého CO₂ + vody H₂O + vodíku H₂ + …).</p>
+						<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/atomy-a-molekuly-obr-08.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/atomy-a-molekuly-obr-08.svg" alt="Oblak vzduchu se smíchanými molekulami dusíku, kyslíku, oxidu uhličitého, vody a vodíku" loading="lazy" /></a><figcaption>Vzduch je směs — jsou v něm smíchané různé molekuly, nejvíc molekul dusíku.</figcaption></figure>
 						<h3>👉 Shrnutí</h3>
+						<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/atomy-a-molekuly-obr-09.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/atomy-a-molekuly-obr-09.svg" alt="Srovnání prvku, sloučeniny a směsi ve zvětšených kruzích" loading="lazy" /></a><figcaption>Prvek = stejné atomy, sloučenina = stejné molekuly z různých atomů, směs = smíchané různé látky.</figcaption></figure>
 						<ul>
 							<li>Všechny látky jsou tvořeny z atomů.</li>
 							<li>Molekuly vznikají spojením dvou a více atomů — stejných, nebo různých.</li>
