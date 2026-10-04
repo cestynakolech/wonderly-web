@@ -3,13 +3,15 @@
 .kam { animation: kam 9s linear infinite; }
 @keyframes kam { 0.000% { transform:translate(140px,150px) scale(1);opacity:1 } 33.333% { transform:translate(300px,290px) scale(1);opacity:1 } 51.111% { transform:translate(400px,430px) scale(0.55);opacity:1 } 62.222% { transform:translate(448px,534px) scale(0.5);opacity:1 } 94.444% { transform:translate(448px,534px) scale(0.5);opacity:1 } 100.000% { transform:translate(448px,534px) scale(0.5);opacity:0 } }
 .zare { animation: zare 9s linear infinite; }
-@keyframes zare { 0.000% { opacity:0 } 33.333% { opacity:0 } 36.667% { opacity:1 } 55.556% { opacity:1 } 68.889% { opacity:0 } 100.000% { opacity:0 } }
+.st { animation: st 9s linear infinite; }
+@keyframes st { 0.000% { stroke-dasharray:0 100 } 33.333% { stroke-dasharray:0 100 } 51.111% { stroke-dasharray:100 100 } 100.000% { stroke-dasharray:100 100 } }
+@keyframes zare { 0.000% { opacity:0 } 33.333% { opacity:0 } 33.8% { opacity:1 } 55.556% { opacity:1 } 68.889% { opacity:0 } 100.000% { opacity:0 } }
 .ohn { animation: ohn 9s linear infinite; }
 @keyframes ohn { 0.000% { transform:translate(300px,290px);opacity:0 } 33.333% { transform:translate(300px,290px);opacity:0 } 35.556% { transform:translate(308px,297px);opacity:1 } 51.111% { transform:translate(400px,430px);opacity:1 } 54.444% { transform:translate(406px,442px);opacity:0 } 100.000% { transform:translate(400px,430px);opacity:0 } }
 .dop { animation: dop 9s linear infinite; }
 @keyframes dop { 0.000% { opacity:0 } 62.222% { opacity:0 } 63.333% { opacity:1 } 94.444% { opacity:1 } 100.000% { opacity:0 } }
-@media (prefers-reduced-motion: reduce) { .kam, .zare, .ohn, .dop { animation: none; } .kam { opacity: 0; } }
-/* Předloha: kometa, meteory a meteorit. Animace 9 s: 0–3 s meteoroid letí k atmosféře, 3–4,6 s hoří (meteor) a zmenšuje se, 5,6 s zbytek dopadne (meteorit). Bez animace = meteorit na zemi, kámen v letu skrytý. */
+@media (prefers-reduced-motion: reduce) { .kam, .zare, .st, .ohn, .dop { animation: none; } .kam { opacity: 0; } }
+/* Předloha: kometa, meteory a meteorit. Animace 9 s: 0–3 s meteoroid letí k atmosféře, 3–4,6 s hoří (meteor) a zmenšuje se, 5,6 s zbytek dopadne (meteorit). Stopa meteoru se kreslí za tělesem (stroke-dasharray od 0 do 100). Bez animace = meteorit na zemi, kámen v letu skrytý. */
 </style>
 <rect x="3" y="3" width="594" height="794" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
 <text x="300" y="42" font-size="28" font-weight="bold" fill="#212529" text-anchor="middle">Meteoroid, meteor, meteorit</text>
@@ -25,7 +27,7 @@
 <circle cx="138" cy="134" r="2.5" fill="#ced4da"/>
 <circle cx="122" cy="150" r="2.5" fill="#ced4da"/>
 <g class="kam" transform="translate(140 150)"><path d="M-9 -4L-3 -9L6 -7L9 0L5 7L-4 8L-9 2z" fill="#adb5bd" stroke="#f1f3f5" stroke-width="1.2"/></g>
-<g class="zare" opacity="0"><line x1="300" y1="290" x2="400" y2="430" stroke="#ffe066" stroke-width="7" stroke-linecap="round" opacity="0.9"/><line x1="300" y1="290" x2="400" y2="430" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></g>
+<g class="zare" opacity="0"><line class="st" pathLength="100" x1="300" y1="290" x2="400" y2="430" stroke="#ffe066" stroke-width="7" stroke-linecap="round" opacity="0.9"/><line class="st" pathLength="100" x1="300" y1="290" x2="400" y2="430" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></g>
 <g class="ohn" opacity="0"><circle cx="0" cy="0" r="13" fill="#ffd43b" opacity="0.85"/><circle cx="0" cy="0" r="7" fill="#fff"/></g>
 <g class="dop"><g transform="translate(448 534) scale(0.5)"><path d="M-9 -4L-3 -9L6 -7L9 0L5 7L-4 8L-9 2z" fill="#adb5bd" stroke="#f1f3f5" stroke-width="1.2"/></g></g>
 <rect x="294.7" y="102" width="130.6" height="28" rx="14" fill="#fff" stroke="#495057" stroke-width="1.5"/><text x="360" y="123" font-size="20" font-weight="bold" fill="#212529" text-anchor="middle">1 meteoroid</text>
