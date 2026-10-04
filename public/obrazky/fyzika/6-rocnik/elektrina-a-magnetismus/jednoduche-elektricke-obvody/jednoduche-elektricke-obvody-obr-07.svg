@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 520" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: schéma obvodu s článkem, spínačem a žárovkou. Když je spínač otevřený, obvod není uzavřený, elektrony stojí a žárovka nesvítí. Když se spínač zavře, obvod je uzavřený: volné elektrony (modré kuličky se znaménkem minus) se pohybují od záporné svorky článku přes žárovku a spínač ke kladné svorce a žárovka svítí.">
+<style>
+/* Předloha: PDF Jednoduché elektrické obvody, dvě schémata vedle sebe (spínač otevřený – žárovka nesvítí; spínač zavřený – žárovka svítí).
+   Překresleno jako jedna animace, styl značek jako 8. ročník (zapojení spotřebičů za sebou).
+   Elektrony podle výkladu: odpuzovány od záporné svorky, přitahovány ke kladné → jdou od − přes obvod k +.
+   12 s: 0–20 % spínač otevřený, elektrony stojí; 20–25 % spínač se zavře; 25–75 % elektrony jdou, žárovka svítí;
+   75–80 % spínač se otevře; 80–100 % otevřený. Elektrony se posunou přesně o 3 rozestupy (25 % dráhy), proto smyčka nepřeskočí.
+   Délka dráhy 1260, rozestup 105 (8,3333 %), fáze 42 → v klidu žádný elektron nestojí v mezeře spínače ani v žárovce.
+   Bez animace (reduced-motion) = koncový děj: spínač zavřený, žárovka svítí. */
+.ps { animation: ps 12s ease-in-out infinite; }
+@keyframes ps { 0%, 20% { transform: rotate(-26deg); } 25%, 75% { transform: rotate(0deg); } 80%, 100% { transform: rotate(-26deg); } }
+.zap { animation: zap 12s step-end infinite; }
+.vyp { opacity: 0; animation: vyp 12s step-end infinite; }
+@keyframes zap { 0% { opacity: 0; } 25% { opacity: 1; } 75% { opacity: 0; } }
+@keyframes vyp { 0% { opacity: 1; } 25% { opacity: 0; } 75% { opacity: 1; } }
+.el { offset-path: path('M130 270V390H500V130H130V250Z'); offset-rotate: 0deg; offset-anchor: 0 0; offset-distance: var(--d); animation: jed 12s linear infinite; }
+@keyframes jed { 0%, 25% { offset-distance: var(--d); } 75%, 100% { offset-distance: calc(var(--d) + 25%); } }
+@media (prefers-reduced-motion: reduce) { .ps, .zap, .vyp, .el { animation: none; } }
+</style>
+<defs>
+<radialGradient id="svit" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fff9db"/><stop offset="0.55" stop-color="#ffe066"/><stop offset="1" stop-color="#ffe066" stop-opacity="0"/></radialGradient>
+<mask id="bezClanku" maskUnits="userSpaceOnUse" x="0" y="0" width="640" height="520"><rect width="640" height="520" fill="#fff"/><rect x="90" y="242" width="80" height="36" fill="#000"/></mask>
+</defs>
+<rect x="3" y="3" width="634" height="514" rx="14" fill="#f8f9fa"/>
+<text x="320" y="42" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Proud prochází jen uzavřeným obvodem</text>
+<!-- záře žárovky (jen při zavřeném spínači) -->
+<g class="zap">
+<circle cx="500" cy="260" r="66" fill="url(#svit)"/>
+<path d="M542 260L560 260M534.4 284.1L549.1 294.4M534.4 235.9L549.1 225.6M458 260L440 260M465.6 284.1L450.9 294.4M465.6 235.9L450.9 225.6" stroke="#e67700" stroke-width="5" stroke-linecap="round"/>
+</g>
+<!-- vodiče -->
+<path d="M130 250V130H279M351 130H500V228M500 292V390H130V270" fill="none" stroke="#212529" stroke-width="4" stroke-linecap="square"/>
+<!-- žárovka -->
+<circle cx="500" cy="260" r="32" fill="#fff" stroke="#212529" stroke-width="4"/>
+<circle class="zap" cx="500" cy="260" r="30" fill="#ffd43b"/>
+<path d="M477.4 237.4L522.6 282.6M522.6 237.4L477.4 282.6" stroke="#212529" stroke-width="4"/>
+<!-- článek: dlouhá tenká deska +, krátká tlustá deska − -->
+<path d="M100 250H160" stroke="#212529" stroke-width="4"/>
+<path d="M115 270H145" stroke="#212529" stroke-width="9"/>
+<path d="M76 240H92M84 232V248" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/>
+<path d="M76 284H92" stroke="#1864ab" stroke-width="4" stroke-linecap="round"/>
+<!-- elektrony (pod deskami článku skryté maskou) -->
+<g mask="url(#bezClanku)">
+<g class="el" style="--d:3.3333%"><circle r="9" fill="#1971c2"/><path d="M-5 0H5" stroke="#fff" stroke-width="2.6"/></g>
+<g class="el" style="--d:11.6667%"><circle r="9" fill="#1971c2"/><path d="M-5 0H5" stroke="#fff" stroke-width="2.6"/></g>
+<g class="el" style="--d:20%"><circle r="9" fill="#1971c2"/><path d="M-5 0H5" stroke="#fff" stroke-width="2.6"/></g>
+<g class="el" style="--d:28.3333%"><circle r="9" fill="#1971c2"/><path d="M-5 0H5" stroke="#fff" stroke-width="2.6"/></g>
+<g class="el" style="--d:36.6667%"><circle r="9" fill="#1971c2"/><path d="M-5 0H5" stroke="#fff" stroke-width="2.6"/></g>
+<g class="el" style="--d:45%"><circle r="9" fill="#1971c2"/><path d="M-5 0H5" stroke="#fff" stroke-width="2.6"/></g>
+<g class="el" style="--d:53.3333%"><circle r="9" fill="#1971c2"/><path d="M-5 0H5" stroke="#fff" stroke-width="2.6"/></g>
+<g class="el" style="--d:61.6667%"><circle r="9" fill="#1971c2"/><path d="M-5 0H5" stroke="#fff" stroke-width="2.6"/></g>
+<g class="el" style="--d:70%"><circle r="9" fill="#1971c2"/><path d="M-5 0H5" stroke="#fff" stroke-width="2.6"/></g>
+<g class="el" style="--d:78.3333%"><circle r="9" fill="#1971c2"/><path d="M-5 0H5" stroke="#fff" stroke-width="2.6"/></g>
+<g class="el" style="--d:86.6667%"><circle r="9" fill="#1971c2"/><path d="M-5 0H5" stroke="#fff" stroke-width="2.6"/></g>
+<g class="el" style="--d:95%"><circle r="9" fill="#1971c2"/><path d="M-5 0H5" stroke="#fff" stroke-width="2.6"/></g>
+</g>
+<!-- spínač -->
+<circle cx="285" cy="130" r="6" fill="#fff" stroke="#212529" stroke-width="3"/>
+<circle cx="345" cy="130" r="6" fill="#fff" stroke="#212529" stroke-width="3"/>
+<path class="ps" style="transform-origin:285px 130px" d="M291 128L347 127" stroke="#212529" stroke-width="4" stroke-linecap="round"/>
+<!-- popisky -->
+<text x="315" y="96" font-size="22" fill="#212529" text-anchor="middle">spínač</text>
+<text x="150" y="308" font-size="22" fill="#212529">článek</text>
+<text x="500" y="438" font-size="22" fill="#212529" text-anchor="middle">žárovka</text>
+<text class="zap" x="318" y="196" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">Spínač zavřený:</text>
+<text class="zap" x="318" y="228" font-size="22" fill="#212529" text-anchor="middle">obvod je uzavřený,</text>
+<text class="zap" x="318" y="260" font-size="22" fill="#212529" text-anchor="middle">žárovka svítí.</text>
+<text class="vyp" x="318" y="196" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">Spínač otevřený:</text>
+<text class="vyp" x="318" y="228" font-size="22" fill="#212529" text-anchor="middle">obvod není uzavřený,</text>
+<text class="vyp" x="318" y="260" font-size="22" fill="#212529" text-anchor="middle">žárovka nesvítí.</text>
+<!-- legenda -->
+<circle cx="150" cy="482" r="9" fill="#1971c2"/><path d="M145 482H155" stroke="#fff" stroke-width="2.6"/>
+<text x="168" y="489" font-size="20" fill="#212529">volný elektron – jde od − ke +</text>
+</svg>

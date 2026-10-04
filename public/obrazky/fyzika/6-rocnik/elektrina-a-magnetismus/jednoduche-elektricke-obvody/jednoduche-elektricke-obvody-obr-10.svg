@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 340" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Tři tužkové články po 1,5 V zapojené za sebou: kladná svorka plus jednoho článku se vždy dotýká záporné svorky minus dalšího. Dohromady dávají napětí 1,5 V + 1,5 V + 1,5 V = 4,5 V.">
+<!-- Obrázek navíc (PDF k němu obrázek nemá): podle výkladu „více baterií za sebou ➪ vyšší napětí (3 × 1,5 V = 4,5 V); dodržet orientaci (+ k −)“. -->
+<defs>
+<linearGradient id="cerna" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#495057"/><stop offset="0.3" stop-color="#6c757d"/><stop offset="1" stop-color="#1a1d20"/></linearGradient>
+<linearGradient id="zlata" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#d9932b"/><stop offset="0.3" stop-color="#f7c873"/><stop offset="1" stop-color="#9c5f12"/></linearGradient>
+<linearGradient id="kovV" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#868e96"/><stop offset="0.4" stop-color="#f1f3f5"/><stop offset="1" stop-color="#6c757d"/></linearGradient>
+<g id="clanek">
+<rect x="170" y="21" width="10" height="24" rx="2" fill="url(#kovV)" stroke="#495057" stroke-width="1.2"/>
+<rect x="0" y="0" width="172" height="66" rx="9" fill="url(#cerna)"/>
+<path d="M130 0H163Q172 0 172 9V57Q172 66 163 66H130Z" fill="url(#zlata)"/>
+<rect x="8" y="8" width="156" height="7" rx="3" fill="#fff" opacity="0.22"/>
+<path d="M16 33H32" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+<path d="M142 33H160M151 24V42" stroke="#212529" stroke-width="4" stroke-linecap="round"/>
+</g>
+<marker id="sip" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#495057"/></marker>
+</defs>
+<rect x="3" y="3" width="634" height="334" rx="14" fill="#f8f9fa"/>
+<text x="320" y="40" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Články za sebou</text>
+<ellipse cx="310" cy="204" rx="280" ry="7" fill="#000" opacity="0.1"/>
+<use href="#clanek" x="38" y="130"/>
+<use href="#clanek" x="220" y="130"/>
+<use href="#clanek" x="402" y="130"/>
+<g font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">
+<text x="124" y="118">1,5 V</text>
+<text x="306" y="118">1,5 V</text>
+<text x="488" y="118">1,5 V</text>
+</g>
+<g font-size="20" fill="#495057" text-anchor="middle">
+<text x="215" y="80">+ k −</text>
+<text x="397" y="80">+ k −</text>
+</g>
+<path d="M215 86V126" stroke="#495057" stroke-width="2" marker-end="url(#sip)"/>
+<path d="M397 86V126" stroke="#495057" stroke-width="2" marker-end="url(#sip)"/>
+<path d="M38 214Q38 228 58 228H290Q310 228 310 244Q310 228 330 228H572Q592 228 592 214" fill="none" stroke="#212529" stroke-width="3"/>
+<text x="310" y="276" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">4,5 V</text>
+<text x="310" y="316" font-size="22" fill="#212529" text-anchor="middle">1,5 V + 1,5 V + 1,5 V = 4,5 V</text>
+</svg>

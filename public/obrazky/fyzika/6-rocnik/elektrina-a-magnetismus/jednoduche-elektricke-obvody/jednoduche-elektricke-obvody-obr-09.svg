@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Tavné pojistky: skleněná trubičková pojistka z elektroniky s tenkým drátkem uvnitř, červená nožová pojistka z auta a bílá šroubovací pojistka z domácnosti. Animace: velkým proudem se tenký drátek ve skleněné pojistce rozžhaví, roztaví a přeruší obvod.">
+<style>
+/* Předloha: PDF Jednoduché elektrické obvody, fotografie tří pojistek (skleněná trubičková – elektronické přístroje, nožová – automobil, šroubovací – domácnost).
+   Fotografie → vlastní kresba; čísla proudů z fotografie (10 A, 6 A) vynechána, výklad je nemá.
+   Animace 8 s: 0–15 % drátek celý; 15–55 % velký proud, drátek žhne; 55–92 % drátek roztavený a přerušený; 92–100 % znovu celý.
+   Bez animace (reduced-motion) = koncový děj: drátek přerušený. */
+.cely { opacity: 0; animation: cely 8s step-end infinite; }
+@keyframes cely { 0% { opacity: 1; } 55% { opacity: 0; } 92% { opacity: 1; } }
+.prer { animation: prer 8s step-end infinite; }
+@keyframes prer { 0% { opacity: 0; } 55% { opacity: 1; } 92% { opacity: 0; } }
+.zhava { opacity: 0; animation: zhava 8s linear infinite; }
+@keyframes zhava { 0%, 15% { opacity: 0; } 50% { opacity: 1; } 55%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .cely, .prer, .zhava { animation: none; } }
+</style>
+<defs>
+<linearGradient id="kov" x1="0" x2="1"><stop offset="0" stop-color="#868e96"/><stop offset="0.4" stop-color="#f1f3f5"/><stop offset="1" stop-color="#6c757d"/></linearGradient>
+<linearGradient id="kovV" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#868e96"/><stop offset="0.4" stop-color="#f1f3f5"/><stop offset="1" stop-color="#6c757d"/></linearGradient>
+<linearGradient id="porcelan" x1="0" x2="1"><stop offset="0" stop-color="#ced4da"/><stop offset="0.4" stop-color="#ffffff"/><stop offset="1" stop-color="#adb5bd"/></linearGradient>
+<linearGradient id="cervena" x1="0" x2="1"><stop offset="0" stop-color="#c92a2a"/><stop offset="0.4" stop-color="#ff6b6b"/><stop offset="1" stop-color="#a61e1e"/></linearGradient>
+<marker id="sip" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#495057"/></marker>
+</defs>
+<rect x="3" y="3" width="634" height="434" rx="14" fill="#f8f9fa"/>
+<text x="320" y="42" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Tavné pojistky</text>
+<ellipse cx="120" cy="300" rx="90" ry="7" fill="#000" opacity="0.1"/>
+<ellipse cx="320" cy="300" rx="64" ry="7" fill="#000" opacity="0.1"/>
+<ellipse cx="520" cy="326" rx="76" ry="8" fill="#000" opacity="0.1"/>
+
+<!-- skleněná trubičková pojistka -->
+<rect x="64" y="182" width="112" height="36" fill="#e7f5ff" stroke="#74c0fc" stroke-width="2"/>
+<path class="zhava" d="M70 200H170" stroke="#ff922b" stroke-width="9" stroke-linecap="round"/>
+<path class="cely" d="M70 200H170" stroke="#495057" stroke-width="2.5"/>
+<g class="prer"><path d="M70 200H106M134 200H170" stroke="#495057" stroke-width="2.5"/><circle cx="108" cy="202" r="3.5" fill="#495057"/><circle cx="132" cy="202" r="3.5" fill="#495057"/></g>
+<rect x="72" y="186" width="96" height="6" rx="3" fill="#fff" opacity="0.8"/>
+<rect x="36" y="178" width="34" height="44" rx="5" fill="url(#kovV)" stroke="#6c757d" stroke-width="1.5"/>
+<rect x="170" y="178" width="34" height="44" rx="5" fill="url(#kovV)" stroke="#6c757d" stroke-width="1.5"/>
+<text x="120" y="130" font-size="20" fill="#212529" text-anchor="middle">tenký drátek</text>
+<path d="M120 138V194" stroke="#495057" stroke-width="2" marker-end="url(#sip)"/>
+<text class="zhava" x="120" y="258" font-size="20" font-weight="bold" fill="#c92a2a" text-anchor="middle">velký proud!</text>
+
+<!-- nožová pojistka do auta -->
+<rect x="276" y="222" width="28" height="70" rx="3" fill="url(#kov)" stroke="#6c757d" stroke-width="1.5"/>
+<rect x="336" y="222" width="28" height="70" rx="3" fill="url(#kov)" stroke="#6c757d" stroke-width="1.5"/>
+<rect x="262" y="148" width="116" height="80" rx="8" fill="url(#cervena)"/>
+<rect x="262" y="148" width="116" height="16" rx="6" fill="#a61e1e"/>
+<rect x="282" y="172" width="76" height="42" rx="4" fill="#ffc9c9"/>
+<path d="M296 214V198Q320 178 344 198V214" fill="none" stroke="#868e96" stroke-width="4"/>
+
+<!-- šroubovací pojistka do domácnosti -->
+<rect x="505" y="296" width="30" height="24" rx="3" fill="url(#kov)" stroke="#6c757d" stroke-width="1.5"/>
+<rect x="455" y="166" width="130" height="136" rx="14" fill="url(#porcelan)" stroke="#adb5bd" stroke-width="1.5"/>
+<rect x="458" y="136" width="124" height="42" rx="10" fill="url(#kov)" stroke="#6c757d" stroke-width="1.5"/>
+<ellipse cx="520" cy="138" rx="62" ry="14" fill="#dee2e6" stroke="#868e96" stroke-width="1.5"/>
+<circle cx="520" cy="138" r="8" fill="#e03131" stroke="#a61e1e" stroke-width="1.5"/>
+<rect x="466" y="186" width="10" height="104" rx="4" fill="#fff" opacity="0.8"/>
+
+<!-- popisky -->
+<g font-size="21" font-weight="bold" fill="#212529" text-anchor="middle">
+<text x="120" y="356">elektronika</text>
+<text x="320" y="356">auto</text>
+<text x="520" y="356">domácnost</text>
+</g>
+<text x="320" y="410" font-size="20" fill="#212529" text-anchor="middle">Velký proud drátek roztaví a obvod se přeruší.</text>
+</svg>

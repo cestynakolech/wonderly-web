@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 530" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Zkrat: dva články v držáku, zavřený nožový spínač a žárovka v objímce jsou spojeny červenými vodiči. Jeden vodič ale vede od svorky baterie přímo ke spínači, takže svorky zdroje jsou vodivě propojeny bez spotřebiče. Žlutě zvýrazněná cesta ukazuje, že proud jde nejsnazší cestou jen vodičem, žárovkou neprochází a ta je přeškrtnutá. Vzniká zkrat: velký proud, vodič se zahřívá a hrozí požár.">
+<style>
+/* Předloha: PDF Jednoduché elektrické obvody, fotomontáž zkratu (baterie ve držáku + − + −, nožový spínač, žárovka v objímce přeškrtnutá,
+   žlutá cesta proudu a bublina „Proud poteče nejjednodušší cestou, poteče pouze spojovacím vodičem, spotřebičem nepoteče. Vzniká ZKRAT.“).
+   Fotomontáž → vlastní kresba. Navíc jen pulzující oranžová záře zkratového vodiče (výklad: vodiče se zahřívají). Bez animace = záře stojí. */
+.hor { opacity: 0.8; animation: hor 1.6s ease-in-out infinite alternate; }
+@keyframes hor { from { opacity: 0.25; } to { opacity: 0.95; } }
+@media (prefers-reduced-motion: reduce) { .hor { animation: none; } }
+</style>
+<defs>
+<linearGradient id="cerna" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#495057"/><stop offset="0.3" stop-color="#6c757d"/><stop offset="1" stop-color="#1a1d20"/></linearGradient>
+<linearGradient id="zlata" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#d9932b"/><stop offset="0.3" stop-color="#f7c873"/><stop offset="1" stop-color="#9c5f12"/></linearGradient>
+<linearGradient id="mosaz" x1="0" x2="1"><stop offset="0" stop-color="#a87b2b"/><stop offset="0.45" stop-color="#f2d38a"/><stop offset="1" stop-color="#8f6620"/></linearGradient>
+<linearGradient id="mosazV" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#f2d38a"/><stop offset="1" stop-color="#a87b2b"/></linearGradient>
+<radialGradient id="sroub" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#f8f9fa"/><stop offset="1" stop-color="#868e96"/></radialGradient>
+<linearGradient id="porcelan" x1="0" x2="1"><stop offset="0" stop-color="#ced4da"/><stop offset="0.4" stop-color="#ffffff"/><stop offset="1" stop-color="#adb5bd"/></linearGradient>
+<radialGradient id="sklo" cx="45%" cy="38%" r="65%"><stop offset="0" stop-color="#ffffff"/><stop offset="0.7" stop-color="#e7f1fa"/><stop offset="1" stop-color="#c5dced"/></radialGradient>
+</defs>
+<rect x="3" y="3" width="634" height="524" rx="14" fill="#f8f9fa"/>
+<text x="320" y="40" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Zkrat</text>
+<!-- žlutá cesta zkratového proudu -->
+<path d="M490 126H150C80 126 52 200 56 300C58 380 80 402 114 402V359H264V402C330 300 480 210 490 126" fill="none" stroke="#fcc419" stroke-width="18" stroke-linejoin="round" opacity="0.6"/>
+<!-- držák a články (+ − + −) -->
+<rect x="160" y="112" width="320" height="26" rx="4" fill="#212529"/>
+<rect x="176" y="62" width="142" height="56" rx="8" fill="url(#cerna)"/>
+<path d="M222 62H184Q176 62 176 70V110Q176 118 184 118H222Z" fill="url(#zlata)"/>
+<rect x="322" y="62" width="142" height="56" rx="8" fill="url(#cerna)"/>
+<path d="M368 62H330Q322 62 322 70V110Q322 118 330 118H368Z" fill="url(#zlata)"/>
+<path d="M190 90H208M199 81V99M336 90H354M345 81V99" stroke="#212529" stroke-width="4" stroke-linecap="round"/>
+<path d="M288 90H304M434 90H450" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+<rect x="138" y="118" width="26" height="16" rx="3" fill="url(#mosaz)"/>
+<rect x="476" y="118" width="26" height="16" rx="3" fill="url(#mosaz)"/>
+<!-- nožový spínač (zavřený) -->
+<rect x="50" y="418" width="270" height="28" rx="4" fill="#343a40"/>
+<rect x="50" y="414" width="270" height="10" rx="3" fill="#495057"/>
+<rect x="96" y="360" width="36" height="58" rx="3" fill="url(#mosaz)"/>
+<rect x="246" y="360" width="36" height="58" rx="3" fill="url(#mosaz)"/>
+<rect x="96" y="350" width="206" height="16" rx="3" fill="url(#mosazV)" stroke="#8f6620" stroke-width="1.5"/>
+<rect x="294" y="346" width="48" height="24" rx="11" fill="#495057"/>
+<circle cx="114" cy="358" r="5" fill="url(#sroub)" stroke="#495057"/>
+<circle cx="264" cy="358" r="5" fill="url(#sroub)" stroke="#495057"/>
+<!-- objímka a žárovka (nesvítí) -->
+<rect x="470" y="420" width="120" height="34" rx="12" fill="url(#porcelan)" stroke="#adb5bd" stroke-width="1.5"/>
+<ellipse cx="530" cy="420" rx="60" ry="10" fill="#f1f3f5" stroke="#adb5bd" stroke-width="1.5"/>
+<rect x="508" y="390" width="44" height="30" fill="url(#mosaz)"/>
+<path d="M510 392C510 378 486 368 486 340A44 44 0 1 1 574 340C574 368 550 378 550 392Z" fill="url(#sklo)" stroke="#868e96" stroke-width="2"/>
+<path d="M522 390V360L514 330M538 390V360L546 330" fill="none" stroke="#495057" stroke-width="2"/>
+<path d="M514 330c2-6 4-6 6 0c2-6 4-6 6 0c2-6 4-6 6 0c2-6 4-6 6 0c2-6 4-6 6 0c2-6 4-6 6 0" fill="none" stroke="#343a40" stroke-width="2.4"/>
+<path d="M500 318A34 34 0 0 1 520 302" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+<!-- vodiče -->
+<g fill="none" stroke="#c92a2a" stroke-width="5" stroke-linecap="round">
+<path d="M150 126C80 126 52 200 56 300C58 380 80 402 114 402"/>
+<path d="M264 402C340 440 420 450 482 436"/>
+<path d="M578 436C630 420 628 140 490 126"/>
+</g>
+<!-- zkratový vodič: přímo od svorky zdroje ke spínači, žhne -->
+<path class="hor" d="M490 126C480 210 330 300 264 402" fill="none" stroke="#ff922b" stroke-width="13" stroke-linecap="round"/>
+<path d="M490 126C480 210 330 300 264 402" fill="none" stroke="#c92a2a" stroke-width="6" stroke-linecap="round"/>
+<!-- šroubky svorek -->
+<circle cx="150" cy="126" r="6" fill="url(#sroub)" stroke="#495057"/>
+<circle cx="490" cy="126" r="6" fill="url(#sroub)" stroke="#495057"/>
+<circle cx="114" cy="402" r="7" fill="url(#sroub)" stroke="#495057"/>
+<circle cx="264" cy="402" r="7" fill="url(#sroub)" stroke="#495057"/>
+<circle cx="482" cy="436" r="5" fill="url(#sroub)" stroke="#495057"/>
+<circle cx="578" cy="436" r="5" fill="url(#sroub)" stroke="#495057"/>
+<!-- přeškrtnutá žárovka -->
+<path d="M482 298L578 390M578 298L482 390" stroke="#e8590c" stroke-width="6" stroke-linecap="round"/>
+<!-- bublina -->
+<rect x="90" y="166" width="276" height="126" rx="22" fill="#fff3bf" stroke="#e67700" stroke-width="3"/>
+<path d="M364 216L412 232L364 248" fill="#fff3bf" stroke="#e67700" stroke-width="3" stroke-linejoin="round"/>
+<path d="M362 219V245" stroke="#fff3bf" stroke-width="5"/>
+<g font-size="20" fill="#212529" text-anchor="middle">
+<text x="228" y="200">Proud jde nejsnazší cestou:</text>
+<text x="228" y="228">jen vodičem, žárovkou ne.</text>
+<text x="228" y="270" font-size="24" font-weight="bold" fill="#c92a2a">Vzniká ZKRAT!</text>
+</g>
+<!-- popisky -->
+<g font-size="20" fill="#212529" text-anchor="middle">
+<text x="185" y="474">spínač (zavřený)</text>
+<text x="530" y="480">žárovka nesvítí</text>
+</g>
+<text x="320" y="514" font-size="21" font-weight="bold" fill="#212529" text-anchor="middle">Velký proud – vodiče se zahřívají, hrozí požár!</text>
+</svg>

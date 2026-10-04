@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 460" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Svítící žárovka je dvěma vodiči připojená k článku: modrý vodič vede od výčnělku dole na žárovce k záporné svorce článku, červený vodič od kladné svorky článku k patici žárovky. Obvod je uzavřený, a proto žárovka svítí.">
+<!-- Předloha: PDF Jednoduché elektrické obvody, ilustrace svítící žárovky spojené dvěma vodiči (červeným a modrým) s baterií. Ilustrace → vlastní kresba. -->
+<defs>
+<radialGradient id="zare" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fff3bf"/><stop offset="0.5" stop-color="#ffe066" stop-opacity="0.7"/><stop offset="1" stop-color="#ffe066" stop-opacity="0"/></radialGradient>
+<radialGradient id="sklo" cx="45%" cy="40%" r="65%"><stop offset="0" stop-color="#fffbe6"/><stop offset="0.7" stop-color="#fff3bf"/><stop offset="1" stop-color="#ffd43b"/></radialGradient>
+<linearGradient id="kov" x1="0" x2="1"><stop offset="0" stop-color="#6c757d"/><stop offset="0.3" stop-color="#e9ecef"/><stop offset="0.55" stop-color="#ced4da"/><stop offset="1" stop-color="#495057"/></linearGradient>
+<linearGradient id="cerna" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#495057"/><stop offset="0.3" stop-color="#6c757d"/><stop offset="1" stop-color="#1a1d20"/></linearGradient>
+<linearGradient id="zlata" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#d9932b"/><stop offset="0.3" stop-color="#f7c873"/><stop offset="1" stop-color="#9c5f12"/></linearGradient>
+<linearGradient id="kovV" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#868e96"/><stop offset="0.4" stop-color="#f1f3f5"/><stop offset="1" stop-color="#6c757d"/></linearGradient>
+</defs>
+<rect x="3" y="3" width="634" height="454" rx="14" fill="#f8f9fa"/>
+<text x="320" y="42" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Žárovka připojená k článku</text>
+<!-- záře -->
+<circle cx="170" cy="176" r="150" fill="url(#zare)"/>
+<!-- baňka -->
+<path d="M130 288C130 256 82 236 82 172A88 88 0 1 1 258 172C258 236 210 256 210 288Z" fill="url(#sklo)" stroke="#e67700" stroke-width="2"/>
+<path d="M106 160A66 66 0 0 1 142 106" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" opacity="0.9"/>
+<path d="M163 290L166 214H174L177 290Z" fill="#fff9db" stroke="#e0b84d" stroke-width="1.5"/>
+<path d="M160 290V240L146 156M180 290V240L194 156" fill="none" stroke="#495057" stroke-width="2.2"/>
+<!-- žhavé vlákno -->
+<path d="M146 156c2-7 5-7 8 0c2-7 5-7 8 0c2-7 5-7 8 0c2-7 5-7 8 0c2-7 5-7 8 0c2-7 5-7 8 0" fill="none" stroke="#e8590c" stroke-width="3.2" stroke-linejoin="round"/>
+<!-- patice -->
+<rect x="134" y="286" width="72" height="62" fill="url(#kov)"/>
+<rect x="129" y="291" width="82" height="11" rx="5.5" fill="url(#kov)" stroke="#495057" stroke-width="1.2"/>
+<rect x="129" y="306" width="82" height="11" rx="5.5" fill="url(#kov)" stroke="#495057" stroke-width="1.2"/>
+<rect x="129" y="321" width="82" height="11" rx="5.5" fill="url(#kov)" stroke="#495057" stroke-width="1.2"/>
+<rect x="129" y="336" width="82" height="11" rx="5.5" fill="url(#kov)" stroke="#495057" stroke-width="1.2"/>
+<path d="M140 349H200L190 363H150Z" fill="#212529"/>
+<path d="M161 363H179L176 372Q170 376 164 372Z" fill="url(#kov)" stroke="#495057" stroke-width="1.2"/>
+<!-- článek ležící: − vlevo, + vpravo -->
+<ellipse cx="455" cy="380" rx="135" ry="8" fill="#000" opacity="0.12"/>
+<rect x="580" y="322" width="14" height="26" rx="3" fill="url(#kovV)" stroke="#495057" stroke-width="1.5"/>
+<rect x="330" y="300" width="256" height="70" rx="10" fill="url(#cerna)"/>
+<path d="M516 300H576Q586 300 586 310V360Q586 370 576 370H516Z" fill="url(#zlata)"/>
+<rect x="338" y="308" width="240" height="7" rx="3" fill="#fff" opacity="0.22"/>
+<path d="M542 335H560M551 326V344" stroke="#212529" stroke-width="4" stroke-linecap="round"/>
+<path d="M346 335H362" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+<!-- vodiče -->
+<path d="M170 376C172 432 300 428 328 342" fill="none" stroke="#1864ab" stroke-width="7" stroke-linecap="round"/>
+<path d="M594 335C636 330 630 236 520 234C400 232 270 296 212 316" fill="none" stroke="#c92a2a" stroke-width="7" stroke-linecap="round"/>
+<!-- popisky -->
+<g font-size="22" fill="#212529">
+<text x="276" y="118">žárovka svítí</text>
+<text x="455" y="410" text-anchor="middle">článek</text>
+<text x="452" y="216" text-anchor="middle">vodiče</text>
+</g>
+</svg>

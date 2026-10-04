@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 390" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: kapesní svítilna v řezu. Uvnitř jsou dva články za sebou (plus jednoho se dotýká minus druhého), vzadu pružina, vpředu žárovka v lesklém reflektoru za sklem. Po horní straně vede kovový pásek jako vodič a na něm je spínač. Když se spínač posune dopředu, kovový můstek spojí přerušený pásek, obvod je uzavřený a žárovka svítí. Když se posune zpět, obvod se přeruší a žárovka zhasne.">
+<style>
+/* Předloha: PDF Jednoduché elektrické obvody, kreslený řez kapesní svítilnou (dva články − + − +, spínač nahoře, žárovka v reflektoru) u věty „obvodem prochází proud pouze v případě, že je uzavřen (sepnutý spínač…)“.
+   Animace 8 s: 0–30 % spínač vypnutý (můstek posunutý vzad, pásek přerušený); 30–35 % posun vpřed; 35–85 % zapnutý, žárovka svítí;
+   85–90 % posun zpět; 90–100 % vypnutý. Bez animace (reduced-motion) = koncový děj: zapnuto, svítí. */
+.sp { animation: sp 8s ease-in-out infinite; }
+@keyframes sp { 0%, 30% { transform: translateX(-30px); } 35%, 85% { transform: translateX(0); } 90%, 100% { transform: translateX(-30px); } }
+.zap { animation: zap 8s step-end infinite; }
+.vyp { opacity: 0; animation: vyp 8s step-end infinite; }
+@keyframes zap { 0% { opacity: 0; } 35% { opacity: 1; } 85% { opacity: 0; } }
+@keyframes vyp { 0% { opacity: 1; } 35% { opacity: 0; } 85% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .sp, .zap, .vyp { animation: none; } }
+</style>
+<defs>
+<linearGradient id="trup" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#1c7ed6"/><stop offset="0.35" stop-color="#1864ab"/><stop offset="1" stop-color="#0b3a63"/></linearGradient>
+<linearGradient id="cerna" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#495057"/><stop offset="0.3" stop-color="#6c757d"/><stop offset="1" stop-color="#1a1d20"/></linearGradient>
+<linearGradient id="zlata" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#d9932b"/><stop offset="0.3" stop-color="#f7c873"/><stop offset="1" stop-color="#9c5f12"/></linearGradient>
+<linearGradient id="kovV" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#868e96"/><stop offset="0.4" stop-color="#f1f3f5"/><stop offset="1" stop-color="#6c757d"/></linearGradient>
+<linearGradient id="reflektor" x1="0" x2="1"><stop offset="0" stop-color="#868e96"/><stop offset="0.5" stop-color="#e9ecef"/><stop offset="1" stop-color="#ced4da"/></linearGradient>
+<radialGradient id="svit" cx="0" cy="0.5" r="1"><stop offset="0" stop-color="#fff9db"/><stop offset="0.5" stop-color="#ffe066" stop-opacity="0.85"/><stop offset="1" stop-color="#ffe066" stop-opacity="0"/></radialGradient>
+<marker id="sip" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#495057"/></marker>
+</defs>
+<rect x="3" y="3" width="634" height="384" rx="14" fill="#f8f9fa"/>
+<text x="320" y="38" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Kapesní svítilna v řezu</text>
+<ellipse cx="300" cy="312" rx="270" ry="9" fill="#000" opacity="0.1"/>
+<!-- hlava svítilny a reflektor -->
+<path d="M410 120L556 58Q574 180 556 302L410 240Z" fill="url(#trup)"/>
+<path d="M420 134L556 72V288L420 226Z" fill="url(#reflektor)"/>
+<path class="zap" d="M430 180L556 72V288Z" fill="url(#svit)"/>
+<rect x="552" y="62" width="18" height="236" rx="6" fill="#a5d8ff" opacity="0.85" stroke="#1864ab" stroke-width="2"/>
+<path class="zap" d="M572 80L636 50V310L572 280Z" fill="url(#svit)" opacity="0.8"/>
+<!-- trup -->
+<rect x="40" y="120" width="382" height="120" rx="14" fill="url(#trup)"/>
+<rect x="56" y="132" width="358" height="96" rx="6" fill="#dee6ee"/>
+<rect x="20" y="112" width="40" height="136" rx="12" fill="url(#trup)"/>
+<path d="M28 120V240M36 116V244M44 116V244M52 120V240" stroke="#0b3a63" stroke-width="2"/>
+<!-- pružina -->
+<path d="M60 152L68 208L74 152L80 208L86 152L92 208" fill="none" stroke="#868e96" stroke-width="3" stroke-linejoin="round"/>
+<!-- článek 1 -->
+<rect x="92" y="146" width="142" height="68" rx="8" fill="url(#cerna)"/>
+<path d="M196 146H226Q234 146 234 154V206Q234 214 226 214H196Z" fill="url(#zlata)"/>
+<rect x="234" y="168" width="8" height="24" rx="2" fill="url(#kovV)"/>
+<path d="M104 180H120" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+<path d="M207 180H223M215 172V188" stroke="#212529" stroke-width="4" stroke-linecap="round"/>
+<!-- článek 2 -->
+<rect x="242" y="146" width="142" height="68" rx="8" fill="url(#cerna)"/>
+<path d="M346 146H376Q384 146 384 154V206Q384 214 376 214H346Z" fill="url(#zlata)"/>
+<rect x="384" y="168" width="8" height="24" rx="2" fill="url(#kovV)"/>
+<path d="M254 180H270" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+<path d="M357 180H373M365 172V188" stroke="#212529" stroke-width="4" stroke-linecap="round"/>
+<!-- objímka a žárovka -->
+<rect x="392" y="160" width="30" height="40" rx="4" fill="url(#kovV)" stroke="#495057" stroke-width="1.5"/>
+<circle cx="440" cy="180" r="18" fill="#f1f8ff" stroke="#868e96" stroke-width="2"/>
+<circle class="zap" cx="440" cy="180" r="17" fill="#ffe066"/>
+<path d="M432 182c2-5 4-5 5 0c2-5 4-5 5 0c2-5 4-5 5 0" fill="none" stroke="#495057" stroke-width="2"/>
+<!-- kovový pásek = vodič (přerušený pod spínačem) -->
+<path d="M62 180H56V137H250M290 137H406V160" fill="none" stroke="#adb5bd" stroke-width="6"/>
+<!-- spínač: jezdec + kovový můstek -->
+<g class="sp">
+<rect x="246" y="133" width="48" height="8" rx="2" fill="#868e96"/>
+<rect x="258" y="112" width="24" height="22" fill="#495057"/>
+<rect x="234" y="98" width="72" height="18" rx="7" fill="#e03131" stroke="#a61e1e" stroke-width="2"/>
+<path d="M244 104H296M244 110H296" stroke="#ffa8a8" stroke-width="2"/>
+</g>
+<!-- popisky -->
+<g font-size="21" fill="#212529">
+<text x="26" y="72">vodič (kovový pásek)</text>
+<text x="300" y="88" font-weight="bold" text-anchor="middle">spínač</text>
+<text x="163" y="268" text-anchor="middle">článek</text>
+<text x="313" y="268" text-anchor="middle">článek</text>
+<text x="470" y="340" text-anchor="middle">žárovka</text>
+</g>
+<g stroke="#495057" stroke-width="2" fill="none">
+<path d="M120 80L120 128" marker-end="url(#sip)"/>
+<path d="M462 320L444 204" marker-end="url(#sip)"/>
+</g>
+<text class="zap" x="300" y="372" font-size="20" font-weight="bold" fill="#212529" text-anchor="middle">Spínač zapnutý: obvod je uzavřený, žárovka svítí.</text>
+<text class="vyp" x="300" y="372" font-size="20" font-weight="bold" fill="#212529" text-anchor="middle">Spínač vypnutý: obvod je přerušený, žárovka nesvítí.</text>
+</svg>

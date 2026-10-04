@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 470" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Schéma jednoduchého obvodu: vlevo článek jako zdroj napětí (dlouhá tenká deska je kladná svorka plus, krátká tlustá deska záporná svorka minus), nahoře otevřený spínač, vpravo žárovka. Prvky spojují vodiče kreslené pravoúhlými čarami.">
+<!-- Předloha: PDF Jednoduché elektrické obvody, schéma jednoduchého obvodu ve škole (článek vlevo, + nahoře, otevřený spínač nahoře, žárovka vpravo).
+     Styl značek sjednocen s 8. ročníkem (zapojení spotřebičů za sebou): čára 4, článek = dlouhá tenká + krátká tlustá deska, + červeně, − modře. -->
+<rect x="3" y="3" width="634" height="464" rx="14" fill="#f8f9fa"/>
+<text x="320" y="42" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Schéma jednoduchého obvodu</text>
+<path d="M130 250V130H279M351 130H500V228M500 292V390H130V270" fill="none" stroke="#212529" stroke-width="4" stroke-linecap="square"/>
+<!-- spínač otevřený -->
+<circle cx="285" cy="130" r="6" fill="#fff" stroke="#212529" stroke-width="3"/>
+<circle cx="345" cy="130" r="6" fill="#fff" stroke="#212529" stroke-width="3"/>
+<path d="M290.5 127.5L349 101" stroke="#212529" stroke-width="4" stroke-linecap="round"/>
+<!-- žárovka -->
+<circle cx="500" cy="260" r="32" fill="#fff" stroke="#212529" stroke-width="4"/>
+<path d="M477.4 237.4L522.6 282.6M522.6 237.4L477.4 282.6" stroke="#212529" stroke-width="4"/>
+<!-- článek -->
+<path d="M100 250H160" stroke="#212529" stroke-width="4"/>
+<path d="M115 270H145" stroke="#212529" stroke-width="9"/>
+<path d="M76 240H92M84 232V248" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/>
+<path d="M76 284H92" stroke="#1864ab" stroke-width="4" stroke-linecap="round"/>
+<!-- popisky -->
+<text x="315" y="84" font-size="22" fill="#212529" text-anchor="middle">spínač (otevřený)</text>
+<text x="176" y="256" font-size="22" fill="#212529">zdroj napětí</text>
+<text x="176" y="284" font-size="20" fill="#495057">(článek)</text>
+<text x="456" y="266" font-size="22" fill="#212529" text-anchor="end">žárovka</text>
+<text x="315" y="378" font-size="22" fill="#212529" text-anchor="middle">vodič</text>
+<text x="320" y="440" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">Spínač je otevřený – obvod není uzavřený.</text>
+</svg>
