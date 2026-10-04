@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Vodní hodiny: z hliněné nádoby na dřevěném stojanu odkapává malým otvorem voda do skleněné nádoby, která stojí na váze. Voda odkapává stále stejně rychle, dole jí přibývá a ručička váhy ukazuje větší hmotnost. Hmotnost odkapané vody udává uplynulý čas.">
+<style>
+/* Voda z horní nádoby odkapává stále stejně rychle, ve spodní nádobě vody přibývá a ručička váhy ukazuje větší hmotnost (16 s, smyčka).
+   Bez animace platí atributy = konečný stav (horní nádoba skoro prázdná, spodní plná, ručička vychýlená). */
+.hore { animation: hore-k 16s linear infinite; }
+.dole { animation: dole-k 16s linear infinite; }
+.rucicka3 { transform-box: view-box; transform-origin: 480px 556px; animation: ruc-k 16s linear infinite; }
+.kapka { animation: kapka-k 1.2s linear infinite; }
+.k2 { animation-delay: -0.4s; } .k3 { animation-delay: -0.8s; }
+@keyframes hore-k { 0% { transform: translateY(-80px); } 92%, 100% { transform: translateY(0px); } }
+@keyframes dole-k { 0% { transform: translateY(96px); } 92%, 100% { transform: translateY(0px); } }
+@keyframes ruc-k { 0% { transform: rotate(-60deg); } 92%, 100% { transform: rotate(60deg); } }
+@keyframes kapka-k { 0% { transform: translateY(0px); opacity: 1; } 90% { transform: translateY(130px); opacity: 1; } 100% { transform: translateY(140px); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .hore, .dole, .rucicka3, .kapka { animation: none; } .kapka { opacity: 0; } }
+</style>
+<defs>
+<linearGradient id="hlina3" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#a0522d"/><stop offset="0.45" stop-color="#e08a4f"/><stop offset="1" stop-color="#8b4513"/></linearGradient>
+<linearGradient id="voda3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#74c0fc"/><stop offset="1" stop-color="#1c7ed6"/></linearGradient>
+<linearGradient id="drevo3" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#6b4423"/><stop offset="0.5" stop-color="#a0703f"/><stop offset="1" stop-color="#6b4423"/></linearGradient>
+<linearGradient id="vaha3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9ecef"/><stop offset="1" stop-color="#adb5bd"/></linearGradient>
+<clipPath id="horni3"><path d="M402 110Q480 122 558 110L536 230Q480 246 424 230Z"/></clipPath>
+<clipPath id="spodni3"><rect x="412" y="378" width="136" height="110" rx="6"/></clipPath>
+</defs>
+<rect x="3" y="3" width="954" height="634" rx="14" fill="#f8f9fa"/>
+<rect x="372" y="236" width="18" height="350" fill="url(#drevo3)" stroke="#3b2414" stroke-width="2"/>
+<rect x="570" y="236" width="18" height="350" fill="url(#drevo3)" stroke="#3b2414" stroke-width="2"/>
+<rect x="360" y="226" width="240" height="18" rx="4" fill="url(#drevo3)" stroke="#3b2414" stroke-width="2"/>
+<rect x="3" y="586" width="954" height="51" fill="#dee2e6"/><path d="M3 586H957" stroke="#868e96" stroke-width="2"/>
+<g clip-path="url(#horni3)"><rect x="390" y="100" width="180" height="150" fill="#f1f3f5"/><g class="hore" transform="translate(0 0)"><rect x="390" y="196" width="180" height="140" fill="url(#voda3)"/><path d="M390 196H570" stroke="#d0ebff" stroke-width="3"/></g></g>
+<path d="M396 104Q480 118 564 104L540 232Q480 252 420 232Z" fill="none" stroke="#5c2c0e" stroke-width="10" opacity="0.9"/>
+<path d="M396 104Q480 118 564 104L540 232Q480 252 420 232Z" fill="none" stroke="url(#hlina3)" stroke-width="7"/>
+<ellipse cx="480" cy="104" rx="90" ry="12" fill="none" stroke="#8b4513" stroke-width="5"/>
+<path d="M410 150q70 10 140 0M416 190q64 9 128 0" stroke="#5c2c0e" stroke-width="2" fill="none" opacity="0.6"/>
+<rect x="474" y="244" width="12" height="16" rx="3" fill="#5c2c0e"/>
+<g class="kapka k1"><path d="M480 262q-6 10 0 14q6 -4 0 -14z" fill="#1c7ed6"/></g><g class="kapka k2"><path d="M480 262q-6 10 0 14q6 -4 0 -14z" fill="#1c7ed6"/></g><g class="kapka k3"><path d="M480 262q-6 10 0 14q6 -4 0 -14z" fill="#1c7ed6"/></g>
+<g clip-path="url(#spodni3)"><g class="dole" transform="translate(0 0)"><rect x="412" y="400" width="136" height="100" fill="url(#voda3)" opacity="0.9"/><path d="M412 400H548" stroke="#d0ebff" stroke-width="3"/></g></g>
+<rect x="410" y="376" width="140" height="114" rx="8" fill="#e7f5ff" fill-opacity="0.25" stroke="#495057" stroke-width="3"/>
+<path d="M424 386V476" stroke="#fff" stroke-width="5" opacity="0.7"/>
+<rect x="398" y="490" width="164" height="12" rx="4" fill="#868e96" stroke="#343a40" stroke-width="2"/>
+<path d="M470 502H490V512H470Z" fill="#495057"/>
+<rect x="390" y="512" width="180" height="74" rx="12" fill="url(#vaha3)" stroke="#343a40" stroke-width="2.5"/>
+<path d="M436 568A44 44 0 0 1 524 568" fill="#fff" stroke="#343a40" stroke-width="2"/>
+<line x1="450.6" y1="539" x2="443.6" y2="535" stroke="#212529" stroke-width="2"/><line x1="458.1" y1="530" x2="453" y2="523.8" stroke="#212529" stroke-width="2"/><line x1="468.4" y1="524.1" x2="465.6" y2="516.5" stroke="#212529" stroke-width="2"/><line x1="480" y1="522" x2="480" y2="514" stroke="#212529" stroke-width="2"/><line x1="491.6" y1="524.1" x2="494.4" y2="516.5" stroke="#212529" stroke-width="2"/><line x1="501.9" y1="530" x2="507" y2="523.8" stroke="#212529" stroke-width="2"/><line x1="509.4" y1="539" x2="516.4" y2="535" stroke="#212529" stroke-width="2"/>
+<g class="rucicka3" transform="rotate(60 480 556)"><path d="M480 556L478 522L480 516L482 522Z" fill="#c92a2a" stroke="#c92a2a" stroke-width="2"/></g><circle cx="480" cy="556" r="4" fill="#212529"/>
+<path d="M292.7 162L420 170" stroke="#212529" stroke-width="2.5"/><circle cx="420" cy="170" r="5" fill="#212529"/>
+<rect x="87.3" y="118" width="205.4" height="44" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
+<text x="190" y="147.9" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">nádoba s vodou</text>
+<path d="M301.6 290L476 300" stroke="#212529" stroke-width="2.5"/><circle cx="476" cy="300" r="5" fill="#212529"/>
+<rect x="108.3" y="268" width="193.3" height="44" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
+<text x="205" y="297.9" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">voda odkapává</text>
+<text x="205" y="340" font-size="22" font-weight="normal" fill="#212529" text-anchor="middle">stále stejně rychle</text>
+<path d="M683.4 420L548 440" stroke="#212529" stroke-width="2.5"/><circle cx="548" cy="440" r="5" fill="#212529"/>
+<rect x="683.4" y="398" width="193.3" height="44" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
+<text x="780" y="427.9" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">odkapaná voda</text>
+<path d="M737.8 540L560 548" stroke="#212529" stroke-width="2.5"/><circle cx="560" cy="548" r="5" fill="#212529"/>
+<rect x="737.8" y="518" width="84.4" height="44" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
+<text x="780" y="547.9" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">váha</text>
+<text x="200" y="470" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">Hmotnost odkapané</text>
+<text x="200" y="500" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">vody udává</text>
+<text x="200" y="530" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">uplynulý čas.</text>
+<rect x="355.9" y="22" width="248.2" height="56" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="480" y="60" font-size="28" fill="#212529" text-anchor="middle">Vodní hodiny</text>
+</svg>

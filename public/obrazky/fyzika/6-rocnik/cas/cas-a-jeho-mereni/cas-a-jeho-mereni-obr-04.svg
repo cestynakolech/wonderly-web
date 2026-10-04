@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Přesýpací hodiny v dřevěném rámu se třemi soustruženými sloupky. Skleněná baňka je uprostřed zúžená. Písek se z horní části přesýpá do spodní stále stejnou rychlostí. Když je všechen dole, musí se hodiny otočit, aby měřily dál.">
+<style>
+/* Písek se přesýpá stále stejně rychle (0–80 %), pak se hodiny otočí (86–96 %) a děj se opakuje (14 s, smyčka).
+   Bez animace platí atributy = konečný stav: písek je celý dole. */
+.pisek-h { animation: ph-k 14s linear infinite; }
+.pisek-d { animation: pd-k 14s linear infinite; }
+.proud { animation: proud-k 14s linear infinite; }
+.preklop { transform-box: view-box; transform-origin: 480px 330px; animation: preklop-k 14s ease-in-out infinite; }
+.sipka-ot { animation: sipka-k 14s linear infinite; }
+@keyframes ph-k { 0% { transform: translateY(0px); } 80%, 100% { transform: translateY(124px); } }
+@keyframes pd-k { 0% { transform: translateY(124px); } 80%, 100% { transform: translateY(0px); } }
+@keyframes proud-k { 0%, 79% { opacity: 1; } 80%, 100% { opacity: 0; } }
+@keyframes preklop-k { 0%, 86% { transform: rotate(0deg); } 96%, 100% { transform: rotate(180deg); } }
+@keyframes sipka-k { 0%, 80% { opacity: 0; } 84%, 96% { opacity: 1; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .pisek-h, .pisek-d, .proud, .preklop, .sipka-ot { animation: none; } .proud { opacity: 0; } }
+</style>
+<defs>
+<linearGradient id="drevo4" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5c3a1c"/><stop offset="0.45" stop-color="#b07a42"/><stop offset="1" stop-color="#5c3a1c"/></linearGradient>
+<linearGradient id="pisek4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2c46d"/><stop offset="1" stop-color="#d9962b"/></linearGradient>
+<clipPath id="horni4"><path d="M412 166C412 262 472 296 475 330L485 330C488 296 548 262 548 166Z"/></clipPath>
+<clipPath id="spodni4"><path d="M475 330C472 364 412 398 412 494L548 494C548 398 488 364 485 330Z"/></clipPath>
+</defs>
+<rect x="3" y="3" width="954" height="634" rx="14" fill="#f8f9fa"/>
+<rect x="3" y="522" width="954" height="115" fill="#dee2e6"/><path d="M3 522H957" stroke="#868e96" stroke-width="2"/>
+<ellipse cx="480" cy="524" rx="140" ry="10" fill="#000" opacity="0.15"/>
+<g class="preklop" transform="rotate(0 480 330)">
+<path d="M412 166C412 262 472 296 475 330C472 364 412 398 412 494L548 494C548 398 488 364 485 330C488 296 548 262 548 166Z" fill="#f1f3f5"/>
+<g clip-path="url(#horni4)"><g class="pisek-h" transform="translate(0 124)"><path d="M400 206Q480 226 560 206V340H400Z" fill="url(#pisek4)"/></g></g>
+<rect class="proud" x="478" y="328" width="4" height="166" fill="#d9962b" opacity="0"/>
+<g clip-path="url(#spodni4)"><g class="pisek-d" transform="translate(0 0)"><path d="M400 420Q480 360 560 420V500H400Z" fill="url(#pisek4)"/></g></g>
+<path d="M412 166C412 262 472 296 475 330C472 364 412 398 412 494L548 494C548 398 488 364 485 330C488 296 548 262 548 166Z" fill="#d0ebff" fill-opacity="0.18" stroke="#495057" stroke-width="3"/>
+<path d="M426 186C428 250 456 280 466 300M426 474C428 420 450 392 462 374" stroke="#fff" stroke-width="6" fill="none" opacity="0.75" stroke-linecap="round"/>
+<rect x="360" y="140" width="240" height="26" rx="6" fill="url(#drevo4)" stroke="#3b2414" stroke-width="2.5"/><rect x="372" y="166" width="216" height="10" rx="3" fill="#7a4f27" stroke="#3b2414" stroke-width="1.5"/><rect x="360" y="494" width="240" height="26" rx="6" fill="url(#drevo4)" stroke="#3b2414" stroke-width="2.5"/><rect x="372" y="484" width="216" height="10" rx="3" fill="#7a4f27" stroke="#3b2414" stroke-width="1.5"/>
+<path d="M372 176Q366 200 373 226Q366 250 372 280Q364 330 372 380Q366 410 373 434Q366 460 372 484H384Q390 460 383 434Q390 410 384 380Q392 330 384 280Q390 250 383 226Q390 200 384 176Z" fill="url(#drevo4)" stroke="#3b2414" stroke-width="2"/><path d="M576 176Q570 200 577 226Q570 250 576 280Q568 330 576 380Q570 410 577 434Q570 460 576 484H588Q594 460 587 434Q594 410 588 380Q596 330 588 280Q594 250 587 226Q594 200 588 176Z" fill="url(#drevo4)" stroke="#3b2414" stroke-width="2"/>
+</g>
+<g class="sipka-ot" opacity="0"><path d="M640 220A190 190 0 0 1 640 440" fill="none" stroke="#c92a2a" stroke-width="6"/><path d="M626 430L644 462L660 428Z" fill="#c92a2a"/></g>
+<path d="M222.2 220L430 210" stroke="#212529" stroke-width="2.5"/><circle cx="430" cy="210" r="5" fill="#212529"/>
+<rect x="137.8" y="198" width="84.4" height="44" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
+<text x="180" y="227.9" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">sklo</text>
+<path d="M234.3 330L474 330" stroke="#212529" stroke-width="2.5"/><circle cx="474" cy="330" r="5" fill="#212529"/>
+<rect x="125.7" y="308" width="108.6" height="44" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
+<text x="180" y="337.9" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">zúžení</text>
+<path d="M228.2 440L450 460" stroke="#212529" stroke-width="2.5"/><circle cx="450" cy="460" r="5" fill="#212529"/>
+<rect x="131.8" y="418" width="96.5" height="44" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
+<text x="180" y="447.9" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">písek</text>
+<rect x="650" y="178" width="280" height="44" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
+<text x="790" y="207.9" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">Písek se přesýpá</text>
+<text x="790" y="248" font-size="22" font-weight="normal" fill="#212529" text-anchor="middle">stejnou rychlostí.</text>
+<rect x="650" y="458" width="280" height="44" rx="12" fill="#fff" stroke="#c92a2a" stroke-width="2.5"/>
+<text x="790" y="487.9" font-size="22" font-weight="bold" fill="#c92a2a" text-anchor="middle">Nevýhoda:</text>
+<text x="790" y="528" font-size="22" font-weight="normal" fill="#212529" text-anchor="middle">musí se pravidelně</text>
+<text x="790" y="558" font-size="22" font-weight="normal" fill="#212529" text-anchor="middle">otáčet.</text>
+<rect x="324.6" y="22" width="310.9" height="56" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="480" y="60" font-size="28" fill="#212529" text-anchor="middle">Přesýpací hodiny</text>
+</svg>
