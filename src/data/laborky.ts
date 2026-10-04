@@ -969,17 +969,17 @@ export const laborky: Record<string, Laborka> = {
 			'K jaké elektrodě putují kladné ionty sodíku a k jaké záporné ionty chloru? Jak se elektrody jmenují?',
 			'Uveď jedno využití elektrolýzy z praxe.',
 		],
-		pozor: 'Používej jen plochou baterii 4,5 V, nikdy síťovou zásuvku. Obvod nech zapnutý jen na chvíli a elektrody po pokusu omyj. Roztoky nepij a po pokusu si umyj ruce. Elektrody nedávej do úst.',
-		tip: 'I pitná voda může vést proud, protože obsahuje rozpuštěné minerální látky.',
+		pozor: 'Používej jen plochou baterii 4,5 V, nikdy síťovou zásuvku. Obvod nech zapnutý jen na chvíli a elektrody po pokusu omyj. Roztoky nepij a po pokusu si umyj ruce. Elektrody nedávej do úst. Místnost větrej, používej ochranné brýle a nečichej k elektrodám, protože při delším pokusu mohou vznikat plyny.',
+		tip: 'I voda z kohoutku vede proud, ale velmi slabě. Žárovku proto nemusí rozsvítit.',
 	},
 	'fyzika/9-rocnik/elektricky-proud-v-latkach/chemicke-zdroje-napeti': {
 		nazev: 'Citronový článek',
 		cil: 'Vytvořit jednoduchý chemický zdroj napětí z citronu a dvou různých kovů a změřit jeho napětí.',
-		pomucky: ['tři citrony', 'tři pozinkované hřebíky nebo šrouby', 'tři měděné mince nebo kousky měděného drátu', 'vodiče s krokosvorkami', 'voltmetr', 'tužka'],
+		pomucky: ['tři citrony', 'tři pozinkované hřebíky nebo šrouby', 'tři kousky měděného drátu nebo měděné plíšky', 'vodiče s krokosvorkami', 'voltmetr na stejnosměrném rozsahu 2 V nebo 20 V', 'tužka'],
 		postup: [
 			'Do jednoho citronu zasuň pozinkovaný hřebík a asi 3 cm od něj měděný předmět. Nesmí se dotýkat.',
 			'Voltmetr připoj k oběma kovům. Odečti napětí a zapiš ho do tabulky.',
-			'Spoj za sebou dva citrony. Měděný předmět prvního citronu spoj vodičem se zinkovým předmětem druhého. Voltmetr připoj ke zbylým dvěma kovům. Odečti napětí.',
+			'Spoj za sebou dva citrony. Měděný drát prvního citronu spoj vodičem s pozinkovaným hřebíkem druhého. Voltmetr připoj ke zbylým dvěma kovům. Odečti napětí.',
 			'Totéž udělej se třemi citrony za sebou a zapiš výsledek.',
 			'Vysvětlení: takový zdroj se nazývá galvanický článek.',
 		],
@@ -990,11 +990,11 @@ export const laborky: Record<string, Laborka> = {
 		otazky: [
 			'Co v tvém článku představovalo elektrody a co elektrolyt?',
 			'Jak se změnilo napětí, když jsi spojil citrony za sebou?',
-			'Suchý článek má napětí 1,5 V. Z kolika takových článků se skládá plochá baterie 4,5 V?',
+			'Plochá baterie se skládá ze suchých článků zapojených za sebou. Kolik jich je?',
 			'Jaké baterie používáme v hračkách a v automobilech?',
 		],
 		pozor: 'Citrony nejez a po pokusu si umyj ruce. Nedotýkej se šťávou očí. Použij jen citrony a voltmetr, žádný jiný zdroj. Hřebíky a drát jsou špičaté, dávej pozor na prsty.',
-		tip: 'Nevýhodou suchých článků je, že po opotřebování z nich může vytékat kyselina, a proto je z přístrojů včas vyndáváme.',
+		tip: 'Nevýhodou suchých článků je, že po opotřebování z nich může vytékat kyselina, a proto je z přístrojů včas vyjímáme.',
 	},
 	'fyzika/9-rocnik/elektricky-proud-v-latkach/vedeni-proudu-v-plynech': {
 		nazev: 'Vybíjení elektroskopu: vede vzduch proud?',
@@ -1002,13 +1002,13 @@ export const laborky: Record<string, Laborka> = {
 		pomucky: ['školní elektroskop', 'ebonitová tyč a kožešina', 'svíčka v nehořlavém svícnu', 'stopky', 'tužka'],
 		postup: [
 			'Učitel elektroskop nabije třením tyče o kožešinu a dotykem. Žák sleduje plíšky a nic nepřepojuje.',
-			'Spusť stopky a měř dobu, za kterou se plíšky elektroskopu sklopí, nejvýš 60 s. Zapiš čas v celých s.',
-			'Učitel elektroskop nabije znovu, přibližně na stejné vychýlení plíšků, a zapálí svíčku asi 10 cm od elektroskopu. Znovu měř čas do sklopení plíšků, nejvýš 60 s.',
+			'Spusť stopky a pozoruj plíšky nejvýš 60 s. Zapiš čas v celých s. Když se plíšky nesklopí, zapiš „více než 60 s“ a poznamenej, jak moc se výchylka zmenšila (trochu, hodně).',
+			'Učitel elektroskop nabije znovu, přibližně na stejné vychýlení plíšků, a zapálí svíčku asi 10 cm od elektroskopu. Znovu pozoruj plíšky nejvýš 60 s a zapiš čas nebo „více než 60 s“.',
 			'Zapiš, jak se plíšky chovaly v obou případech.',
 			'Vysvětlení: vzduch je za běžných podmínek velmi špatný vodič, ale není dokonalý izolant.',
 		],
 		tabulka: {
-			sloupce: ['podmínky', 'doba do sklopení plíšků (s)', 'pozorování'],
+			sloupce: ['podmínky', 'doba do sklopení plíšků (s, nejvýš 60)', 'pozorování'],
 			radky: 2,
 		},
 		otazky: [
@@ -1017,7 +1017,7 @@ export const laborky: Record<string, Laborka> = {
 			'Hrom uslyšíš 3 s po záblesku blesku. Zvuk ve vzduchu se šíří 340 m/s. Jak daleko od tebe blesk udeřil?',
 			'K čemu slouží bleskosvod a z čeho se skládá?',
 		],
-		pozor: 'Svíčku zapaluje a hasí jen učitel. Dej dlouhé vlasy za uši a odstup od plamene. Svíčka stojí na nehořlavé podložce. Elektroskopu se nedotýkej, ať ho nevybiješ.',
-		tip: 'Prokop Diviš z Moravy vynalezl hromosvod nezávisle na Benjaminu Franklinovi.',
+		pozor: 'Svíčku zapaluje a hasí jen učitel. Dlouhé vlasy si sepni a drž odstup od plamene. Svíčka stojí na nehořlavé podložce. Elektroskopu se nedotýkej, ať ho nevybiješ.',
+		tip: 'Bleskosvod vynalezl nezávisle na sobě americký fyzik Benjamin Franklin a český přírodovědec Prokop Diviš.',
 	},
 };
