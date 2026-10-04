@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 732" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: lihový laboratorní teploměr se stupnicí od 0 do 50 stupňů Celsia, nejmenší dílek 1 °C. Teploměr se postupně ponoří do tří kádinek: ve studené vodě ukáže 5 °C, ve vlažné 25 °C a v horké 45 °C. Teplotu odečteme na stupnici u konce červeného sloupce.">
+<style>
+/* Předloha: PDF Teplota — kapalinový laboratorní teploměr (lihový, červený), odečet na stupnici. Překresleno, ne kopie.
+   Čísla z pokusu ve výkladu: studená asi 5 °C, vlažná asi 25 °C, horká asi 45 °C. Stupnice 0–50 °C, nejmenší dílek 1 °C.
+   Cyklus 15 s: teploměr se ponoří do studené (sloupec 5 °C), přejede do vlažné (25 °C) a do horké (45 °C);
+   vpravo nahoře se ukáže odečtená teplota. Bez animace = koncový stav (horká voda, 45 °C). */
+@keyframes jed { 0% { transform: translate(-560px, -130px); } 5%, 30% { transform: translate(-560px, 0); }
+  34% { transform: translate(-560px, -130px); } 39% { transform: translate(-280px, -130px); } 43%, 63% { transform: translate(-280px, 0); }
+  67% { transform: translate(-280px, -130px); } 72% { transform: translate(0, -130px); } 76%, 94% { transform: translate(0, 0); }
+  97% { transform: translate(0, -130px); } 100% { transform: translate(-560px, -130px); } }
+@keyframes sl { 0%, 5% { transform: translate(0, 120px); } 15%, 43% { transform: translate(0, 240px); } 53%, 76% { transform: translate(0, 120px); }
+  86%, 97% { transform: translate(0, 0); } 100% { transform: translate(0, 120px); } }
+@keyframes c5 { 0%, 15% { opacity: 0; } 17%, 31% { opacity: 1; } 33%, 100% { opacity: 0; } }
+@keyframes c25 { 0%, 53% { opacity: 0; } 55%, 64% { opacity: 1; } 66%, 100% { opacity: 0; } }
+@keyframes c45 { 0%, 86% { opacity: 0; } 88%, 95% { opacity: 1; } 97%, 100% { opacity: 0; } }
+.jed { animation: jed 15s ease-in-out infinite; } .sl { animation: sl 15s ease-in-out infinite; }
+.c5 { animation: c5 15s linear infinite; } .c25 { animation: c25 15s linear infinite; } .c45 { animation: c45 15s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .jed, .sl, .c5, .c25, .c45 { animation: none; } }
+</style>
+<rect x="3" y="3" width="954" height="726" rx="14" fill="#f8f9fa"/>
+<rect x="30" y="16" width="420" height="58" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="240" y="55" font-size="28" fill="#212529" text-anchor="middle">Měříme teplotu vody</text>
+<rect x="560" y="16" width="380" height="58" rx="12" fill="#fff" stroke="#212529" stroke-width="2.5"/>
+<text x="590" y="56" font-size="22" fill="#212529" text-anchor="start">teploměr ukazuje:</text>
+<text x="910" y="57" font-size="30" font-weight="bold" fill="#1864ab" text-anchor="end" class="c5" opacity="0">5 °C</text>
+<text x="910" y="57" font-size="30" font-weight="bold" fill="#237032" text-anchor="end" class="c25" opacity="0">25 °C</text>
+<text x="910" y="57" font-size="30" font-weight="bold" fill="#c92a2a" text-anchor="end" class="c45">45 °C</text>
+<g class="jed"><defs><clipPath id="kapc"><rect x="733" y="218" width="8" height="382" rx="4"/><ellipse cx="737" cy="600" rx="11" ry="20"/></clipPath><linearGradient id="skloc" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#dee2e6"/><stop offset="0.3" stop-color="#ffffff"/><stop offset="1" stop-color="#e9ecef"/></linearGradient></defs>
+<path d="M719 228Q719 210 737 210H777Q795 210 795 228V570Q795 576 785 576H751Q753 580 753 578Q753 628 737 628Q721 628 721 578Q721 580 719 570Z" fill="url(#skloc)" stroke="#495057" stroke-width="2.5"/>
+<rect x="733" y="218" width="8" height="382" rx="4" fill="#fff" stroke="#adb5bd" stroke-width="1"/>
+<path d="M744 554h22M744 548h9M744 542h9M744 536h9M744 530h9M744 524h14M744 518h9M744 512h9M744 506h9M744 500h9M744 494h22M744 488h9M744 482h9M744 476h9M744 470h9M744 464h14M744 458h9M744 452h9M744 446h9M744 440h9M744 434h22M744 428h9M744 422h9M744 416h9M744 410h9M744 404h14M744 398h9M744 392h9M744 386h9M744 380h9M744 374h22M744 368h9M744 362h9M744 356h9M744 350h9M744 344h14M744 338h9M744 332h9M744 326h9M744 320h9M744 314h22M744 308h9M744 302h9M744 296h9M744 290h9M744 284h14M744 278h9M744 272h9M744 266h9M744 260h9M744 254h22" stroke="#212529" stroke-width="2"/>
+<text x="769" y="561" font-size="20" font-weight="bold" fill="#212529" text-anchor="start">0</text>
+<text x="769" y="501" font-size="20" font-weight="bold" fill="#212529" text-anchor="start">10</text>
+<text x="769" y="441" font-size="20" font-weight="bold" fill="#212529" text-anchor="start">20</text>
+<text x="769" y="381" font-size="20" font-weight="bold" fill="#212529" text-anchor="start">30</text>
+<text x="769" y="321" font-size="20" font-weight="bold" fill="#212529" text-anchor="start">40</text>
+<text x="769" y="261" font-size="20" font-weight="bold" fill="#212529" text-anchor="start">50</text>
+<g clip-path="url(#kapc)"><ellipse cx="737" cy="600" rx="11" ry="20" fill="#c92a2a"/><rect class="sl" x="733" y="284" width="8" height="816" fill="#c92a2a"/></g>
+<path d="M726 230V564" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+<text x="789" y="234" font-size="18" font-weight="bold" fill="#212529" text-anchor="end">°C</text>
+</g>
+<path d="M124 536H276V640Q276 646 266 646H134Q124 646 124 640Z" fill="#74c0fc" opacity="0.55"/>
+<path d="M124 536H276" stroke="#1971c2" stroke-width="2.5"/>
+<path d="M112 504Q120 506 120 516V638Q120 650 132 650H268Q280 650 280 638V510" fill="none" stroke="#495057" stroke-width="3" stroke-linejoin="round"/>
+<path d="M250 620h18M250 595h12M250 570h18" stroke="#868e96" stroke-width="2"/>
+<text x="200" y="684" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">studená</text>
+<path d="M404 536H556V640Q556 646 546 646H414Q404 646 404 640Z" fill="#d0ebff" opacity="0.55"/>
+<path d="M404 536H556" stroke="#1971c2" stroke-width="2.5"/>
+<path d="M392 504Q400 506 400 516V638Q400 650 412 650H548Q560 650 560 638V510" fill="none" stroke="#495057" stroke-width="3" stroke-linejoin="round"/>
+<path d="M530 620h18M530 595h12M530 570h18" stroke="#868e96" stroke-width="2"/>
+<text x="480" y="684" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">vlažná</text>
+<path d="M684 536H836V640Q836 646 826 646H694Q684 646 684 640Z" fill="#ffc078" opacity="0.55"/>
+<path d="M684 536H836" stroke="#1971c2" stroke-width="2.5"/>
+<path d="M672 504Q680 506 680 516V638Q680 650 692 650H828Q840 650 840 638V510" fill="none" stroke="#495057" stroke-width="3" stroke-linejoin="round"/>
+<path d="M810 620h18M810 595h12M810 570h18" stroke="#868e96" stroke-width="2"/>
+<text x="760" y="684" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">horká</text>
+<text x="480" y="716" font-size="22" fill="#212529" text-anchor="middle">Teplotu čteme u konce sloupce, nejmenší dílek je 1 °C.</text>
+</svg>

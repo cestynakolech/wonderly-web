@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 700" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Galileův teploměr: vysoký skleněný válec s mosazným víčkem a podstavcem je plný průhledné kapaliny. V kapalině jsou barevné skleněné baňky, na každé visí kovový štítek. Tři baňky plovou nahoře, dvě klesly ke dnu. Takový teploměr s plovoucími baňkami vymyslel Galileo Galilei v 17. století.">
+<style>
+/* Předloha: PDF Teplota — fotografie skleněného válce s kapalinou a barevnými plovoucími baňkami se štítky
+   (Galileův teploměr). Překresleno, ne kopie. Čísla na štítcích záměrně nejsou (ve výkladu nemají oporu).
+   Baňky se jen lehce pohupují. Bez animace = klidový stav. */
+@keyframes hup { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(0, -6px); } }
+.h1 { animation: hup 3s ease-in-out infinite; } .h2 { animation: hup 3.6s ease-in-out 0.4s infinite; } .h3 { animation: hup 3.2s ease-in-out 0.8s infinite; }
+@media (prefers-reduced-motion: reduce) { .h1, .h2, .h3 { animation: none; } }
+</style>
+<rect x="3" y="3" width="954" height="694" rx="14" fill="#f8f9fa"/>
+<rect x="220" y="16" width="520" height="58" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="480" y="55" font-size="28" fill="#212529" text-anchor="middle">Galileův teploměr s baňkami</text>
+<defs><linearGradient id="mosaz" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#a87b22"/><stop offset="0.45" stop-color="#ffe8a3"/><stop offset="1" stop-color="#8f6512"/></linearGradient><linearGradient id="valec" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d0ebff"/><stop offset="0.25" stop-color="#ffffff"/><stop offset="0.8" stop-color="#e7f5ff"/><stop offset="1" stop-color="#a5d8ff"/></linearGradient><radialGradient id="kb" cx="0.35" cy="0.3" r="0.75"><stop offset="0" stop-color="#fff" stop-opacity="0.9"/><stop offset="0.35" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+<path d="M330 96a14 14 0 1 1 0.1 0" fill="none" stroke="#8f6512" stroke-width="5"/>
+<rect x="308" y="104" width="44" height="18" rx="4" fill="url(#mosaz)" stroke="#8f6512" stroke-width="2"/>
+<path d="M296 124h68l8 22H288Z" fill="url(#mosaz)" stroke="#8f6512" stroke-width="2"/>
+<rect x="260" y="146" width="140" height="440" fill="url(#valec)" stroke="#495057" stroke-width="2.5"/>
+<path d="M278 160V570" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity="0.9"/>
+<path d="M288 586H372l8 18H280Z" fill="url(#mosaz)" stroke="#8f6512" stroke-width="2"/>
+<rect x="240" y="604" width="180" height="26" rx="6" fill="url(#mosaz)" stroke="#8f6512" stroke-width="2"/>
+<ellipse cx="330" cy="638" rx="100" ry="7" fill="#000" opacity="0.12"/>
+<g class="h1"><circle cx="304" cy="186" r="25" fill="#1971c2" stroke="#212529" stroke-width="1.5"/><circle cx="304" cy="186" r="25" fill="url(#kb)"/><path d="M304 211v8" stroke="#8f6512" stroke-width="2"/><circle cx="304" cy="230" r="12" fill="url(#mosaz)" stroke="#8f6512" stroke-width="2"/></g>
+<g class="h2"><circle cx="354" cy="236" r="25" fill="#e03131" stroke="#212529" stroke-width="1.5"/><circle cx="354" cy="236" r="25" fill="url(#kb)"/><path d="M354 261v8" stroke="#8f6512" stroke-width="2"/><circle cx="354" cy="280" r="12" fill="url(#mosaz)" stroke="#8f6512" stroke-width="2"/></g>
+<g class="h3"><circle cx="312" cy="290" r="25" fill="#2f9e44" stroke="#212529" stroke-width="1.5"/><circle cx="312" cy="290" r="25" fill="url(#kb)"/><path d="M312 315v8" stroke="#8f6512" stroke-width="2"/><circle cx="312" cy="334" r="12" fill="url(#mosaz)" stroke="#8f6512" stroke-width="2"/></g>
+<g class=""><circle cx="352" cy="462" r="25" fill="#f59f00" stroke="#212529" stroke-width="1.5"/><circle cx="352" cy="462" r="25" fill="url(#kb)"/><path d="M352 487v8" stroke="#8f6512" stroke-width="2"/><circle cx="352" cy="506" r="12" fill="url(#mosaz)" stroke="#8f6512" stroke-width="2"/></g>
+<g class=""><circle cx="306" cy="506" r="25" fill="#7048e8" stroke="#212529" stroke-width="1.5"/><circle cx="306" cy="506" r="25" fill="url(#kb)"/><path d="M306 531v8" stroke="#8f6512" stroke-width="2"/><circle cx="306" cy="550" r="12" fill="url(#mosaz)" stroke="#8f6512" stroke-width="2"/></g>
+<path d="M380 236L552 202" stroke="#212529" stroke-width="2.5"/><circle cx="380" cy="236" r="5" fill="#212529"/>
+<text x="560" y="210" font-size="24" fill="#212529" text-anchor="start">plovoucí</text>
+<text x="560" y="240" font-size="24" fill="#212529" text-anchor="start">skleněné baňky</text>
+<path d="M390 400L552 392" stroke="#212529" stroke-width="2.5"/><circle cx="390" cy="400" r="5" fill="#212529"/>
+<text x="560" y="400" font-size="24" fill="#212529" text-anchor="start">skleněný válec</text>
+<text x="560" y="430" font-size="24" fill="#212529" text-anchor="start">s kapalinou</text>
+<path d="M376 462L552 512" stroke="#212529" stroke-width="2.5"/><circle cx="376" cy="462" r="5" fill="#212529"/>
+<text x="560" y="520" font-size="24" fill="#212529" text-anchor="start">baňky, které klesly</text>
+<text x="560" y="550" font-size="24" fill="#212529" text-anchor="start">ke dnu</text>
+<rect x="540" y="96" width="390" height="70" rx="12" fill="#fff" stroke="#adb5bd" stroke-width="2"/>
+<text x="735" y="128" font-size="24" font-weight="bold" fill="#1864ab" text-anchor="middle">Galileo Galilei</text>
+<text x="735" y="156" font-size="22" fill="#212529" text-anchor="middle">17. století</text>
+<text x="480" y="680" font-size="22" fill="#212529" text-anchor="middle">teploměr s kapalinou a plovoucími baňkami</text>
+</svg>

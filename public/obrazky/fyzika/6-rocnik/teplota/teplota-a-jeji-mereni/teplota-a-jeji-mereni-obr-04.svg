@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: lékařský teploměr, skleněná tyčinka se stupnicí od 35 do 42 stupňů Celsia, dílky po jedné desetině, číslo 37 je červené. Krok 1: teploměr měří a stříbrná rtuť vystoupá ke 37 °C. Krok 2: po sundání z těla ukazuje teplotu dál. Krok 3: pro nové měření se teploměr střepe a rtuť klesne. Měří od 35 °C do 42 °C. Rtuť je jedovatá, při rozbití hrozí otrava.">
+<style>
+/* Předloha: PDF Teplota — fotografie lékařského teploměru: hranolová skleněná tyčinka, stupnice 35–42 °C
+   s dílky po desetinách, číslo 37 červeně, stříbrný sloupec rtuti, zúžení nad baňkou. Překresleno, ne kopie.
+   Cyklus 12 s: 5–30 % rtuť vystoupá k 37 °C (měření), 35–60 % po sundání zůstává (ukazuje dál),
+   60–75 % teploměr se třepe a rtuť klesne zpět. Šipka vlevo dole ukazuje krok 1, 2, 3.
+   Bez animace = stav po sundání (rtuť u 37 °C, šipka u kroku 2). */
+@keyframes rt { 0%, 5% { transform: translate(-236px, 0); } 30%, 62% { transform: translate(0, 0); } 75%, 100% { transform: translate(-236px, 0); } }
+@keyframes trep { 0%, 60% { transform: translate(0, 0); } 62% { transform: translate(0, -18px); } 64% { transform: translate(0, 18px); }
+  66% { transform: translate(0, -18px); } 68% { transform: translate(0, 18px); } 70% { transform: translate(0, -18px); } 72% { transform: translate(0, 18px); } 75%, 100% { transform: translate(0, 0); } }
+@keyframes krok { 0%, 33% { transform: translate(0, -48px); } 35%, 58% { transform: translate(0, 0); } 60%, 100% { transform: translate(0, 48px); } }
+.rt { animation: rt 12s ease-in-out infinite; } .trep { animation: trep 12s linear infinite; } .krok { animation: krok 12s steps(1, end) infinite; }
+@media (prefers-reduced-motion: reduce) { .rt, .trep, .krok { animation: none; } }
+</style>
+<rect x="3" y="3" width="954" height="554" rx="14" fill="#f8f9fa"/>
+<rect x="310" y="16" width="340" height="58" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="480" y="55" font-size="28" fill="#212529" text-anchor="middle">Lékařský teploměr</text>
+<defs><linearGradient id="hranol" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="0.25" stop-color="#e7f5ff"/><stop offset="0.75" stop-color="#f1f3f5"/><stop offset="1" stop-color="#ced4da"/></linearGradient><linearGradient id="rtut" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1f3f5"/><stop offset="0.5" stop-color="#868e96"/><stop offset="1" stop-color="#495057"/></linearGradient><clipPath id="kapl"><rect x="100" y="203" width="770" height="6" rx="3"/><rect x="40" y="198" width="70" height="16" rx="8"/></clipPath></defs>
+<g class="trep"><path d="M60 160H900Q926 160 926 186V226Q926 252 900 252H60Q32 252 32 226V186Q32 160 60 160Z" fill="url(#hranol)" stroke="#495057" stroke-width="2.5"/>
+<path d="M60 170H896" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+<rect x="160" y="168" width="710" height="74" fill="#fff" opacity="0.85"/>
+<rect x="40" y="198" width="70" height="16" rx="8" fill="url(#rtut)"/>
+<rect x="100" y="203" width="770" height="6" rx="3" fill="#f8f9fa" stroke="#adb5bd" stroke-width="1"/>
+<path d="M126 201l6 4l-6 4" fill="none" stroke="#495057" stroke-width="1.5"/>
+<path d="M200 198v-24M209 198v-10M218 198v-10M227 198v-10M236 198v-10M245 198v-16M254 198v-10M263 198v-10M272 198v-10M281 198v-10M290 198v-24M299 198v-10M308 198v-10M317 198v-10M326 198v-10M335 198v-16M344 198v-10M353 198v-10M362 198v-10M371 198v-10M380 198v-24M389 198v-10M398 198v-10M407 198v-10M416 198v-10M425 198v-16M434 198v-10M443 198v-10M452 198v-10M461 198v-10M470 198v-24M479 198v-10M488 198v-10M497 198v-10M506 198v-10M515 198v-16M524 198v-10M533 198v-10M542 198v-10M551 198v-10M560 198v-24M569 198v-10M578 198v-10M587 198v-10M596 198v-10M605 198v-16M614 198v-10M623 198v-10M632 198v-10M641 198v-10M650 198v-24M659 198v-10M668 198v-10M677 198v-10M686 198v-10M695 198v-16M704 198v-10M713 198v-10M722 198v-10M731 198v-10M740 198v-24M749 198v-10M758 198v-10M767 198v-10M776 198v-10M785 198v-16M794 198v-10M803 198v-10M812 198v-10M821 198v-10M830 198v-24" stroke="#212529" stroke-width="1.6"/>
+<text x="200" y="238" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">35</text>
+<text x="290" y="238" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">36</text>
+<text x="380" y="238" font-size="26" font-weight="bold" fill="#c92a2a" text-anchor="middle">37</text>
+<text x="470" y="238" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">38</text>
+<text x="560" y="238" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">39</text>
+<text x="650" y="238" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">40</text>
+<text x="740" y="238" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">41</text>
+<text x="830" y="238" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">42</text>
+<text x="864" y="238" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">°C</text>
+<g clip-path="url(#kapl)"><rect class="rt" x="40" y="198" width="340" height="16" fill="url(#rtut)"/></g>
+</g>
+<rect x="40" y="296" width="540" height="168" rx="12" fill="#fff" stroke="#adb5bd" stroke-width="2"/>
+<text x="92" y="338" font-size="24" fill="#212529" text-anchor="start">1  teploměr měří — rtuť stoupá</text>
+<text x="92" y="386" font-size="24" fill="#212529" text-anchor="start">2  po sundání ukazuje teplotu dál</text>
+<text x="92" y="434" font-size="24" fill="#212529" text-anchor="start">3  pro nové měření rtuť střepeme</text>
+<path class="krok" d="M80 368l-24 -12v24Z" fill="#c92a2a"/>
+<rect x="610" y="296" width="310" height="80" rx="12" fill="#fff" stroke="#1864ab" stroke-width="2.5"/>
+<text x="765" y="330" font-size="24" font-weight="bold" fill="#1864ab" text-anchor="middle">měří od 35 °C</text>
+<text x="765" y="362" font-size="24" font-weight="bold" fill="#1864ab" text-anchor="middle">do 42 °C</text>
+<rect x="610" y="390" width="310" height="74" rx="12" fill="#fff4e6" stroke="#e8590c" stroke-width="2.5"/>
+<text x="765" y="422" font-size="22" font-weight="bold" fill="#a33c06" text-anchor="middle">rtuť je jedovatá —</text>
+<text x="765" y="450" font-size="20" fill="#a33c06" text-anchor="middle">rozbitý teploměr je nebezpečný</text>
+<text x="480" y="520" font-size="22" fill="#212529" text-anchor="middle">Dnes se rtuťový teploměr kvůli riziku otravy moc nepoužívá.</text>
+</svg>

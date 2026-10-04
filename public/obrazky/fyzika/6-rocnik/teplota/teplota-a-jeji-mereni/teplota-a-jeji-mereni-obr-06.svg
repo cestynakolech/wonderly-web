@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace. Vlevo digitální teploměr s elektronickým čidlem: kovový hrot je ponořený ve vlažné vodě a displej po chvíli ukáže 25 °C. Vpravo bezkontaktní teploměr míří na čelo dítěte, snímá tepelné záření a displej ukáže 37 °C.">
+<style>
+/* Předloha: PDF Teplota — text o digitálním teploměru s elektronickým čidlem (displej) a bezkontaktním teploměru
+   (snímá tepelné záření, měří na čele). V PDF k nim fotografie není; kresba podle skutečných přístrojů.
+   Čísla: 25 °C = vlažná voda z pokusu ve výkladu; 37 °C = teplota těla (opora ve výkladu chybí — viz protokol).
+   Cyklus 8 s: displeje nejdřív ukazují čárky, pak naměřenou teplotu; vlnky záření běží od čela k teploměru.
+   Bez animace = koncový stav (displeje ukazují teplotu). */
+@keyframes car { 0%, 35% { opacity: 1; } 38%, 100% { opacity: 0; } }
+@keyframes hod { 0%, 35% { opacity: 0; } 38%, 100% { opacity: 1; } }
+@keyframes vln { 0% { transform: translate(0, 0); opacity: 0; } 20% { opacity: 1; } 80% { opacity: 1; } 100% { transform: translate(120px, 0); opacity: 0; } }
+.car { animation: car 8s linear infinite; } .hod { animation: hod 8s linear infinite; }
+.v1 { animation: vln 2.4s linear infinite; } .v2 { animation: vln 2.4s linear 0.8s infinite; } .v3 { animation: vln 2.4s linear 1.6s infinite; }
+@media (prefers-reduced-motion: reduce) { .car, .hod, .v1, .v2, .v3 { animation: none; } }
+</style>
+<rect x="3" y="3" width="954" height="614" rx="14" fill="#f8f9fa"/>
+<rect x="40" y="16" width="400" height="58" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="240" y="55" font-size="26" fill="#212529" text-anchor="middle">Digitální teploměr</text>
+<rect x="520" y="16" width="400" height="58" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="720" y="55" font-size="26" fill="#212529" text-anchor="middle">Bezkontaktní teploměr</text>
+<path d="M480 96V600" stroke="#ced4da" stroke-width="2"/>
+<defs><linearGradient id="kov" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#868e96"/><stop offset="0.5" stop-color="#f1f3f5"/><stop offset="1" stop-color="#868e96"/></linearGradient><linearGradient id="plast" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e9ecef"/><stop offset="0.4" stop-color="#ffffff"/><stop offset="1" stop-color="#ced4da"/></linearGradient></defs>
+<rect x="206" y="300" width="12" height="230" rx="4" fill="url(#kov)" stroke="#495057" stroke-width="1.5"/>
+<path d="M206 526L212 548L218 526Z" fill="#868e96" stroke="#495057" stroke-width="1.5"/>
+<rect x="132" y="112" width="160" height="196" rx="26" fill="url(#plast)" stroke="#495057" stroke-width="2.5"/>
+<rect x="148" y="134" width="128" height="64" rx="6" fill="#d3f9d8" stroke="#495057" stroke-width="2"/>
+<text x="212" y="178" font-size="30" font-weight="bold" fill="#212529" text-anchor="middle" class="car" opacity="0">– – –</text>
+<text x="212" y="180" font-size="34" font-weight="bold" fill="#212529" text-anchor="middle" class="hod">25 °C</text>
+<circle cx="182" cy="240" r="14" fill="#e03131" stroke="#495057" stroke-width="2"/><circle cx="242" cy="240" r="14" fill="#adb5bd" stroke="#495057" stroke-width="2"/>
+<rect x="194" y="298" width="36" height="14" rx="3" fill="#495057"/>
+<path d="M126 450H298V570Q298 576 288 576H136Q126 576 126 570Z" fill="#d0ebff" opacity="0.55"/>
+<path d="M126 450H298" stroke="#1971c2" stroke-width="2.5"/>
+<path d="M114 404Q122 406 122 416V568Q122 580 134 580H290Q302 580 302 568V410" fill="none" stroke="#495057" stroke-width="3" stroke-linejoin="round"/>
+<path d="M272 550h18M272 525h12M272 500h18" stroke="#868e96" stroke-width="2"/>
+<text x="212" y="606" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">vlažná voda</text>
+<path d="M226 540H330" stroke="#212529" stroke-width="2.5"/><circle cx="222" cy="540" r="5" fill="#212529"/>
+<text x="338" y="534" font-size="22" fill="#212529" text-anchor="start">čidlo</text>
+<text x="338" y="560" font-size="22" fill="#212529" text-anchor="start">v hrotu</text>
+<path d="M280 166H340" stroke="#212529" stroke-width="2.5"/>
+<text x="346" y="172" font-size="22" fill="#212529" text-anchor="start">displej</text>
+<path d="M560 200C500 200 494 270 500 320C506 370 528 400 540 440L600 440L606 404C616 398 628 396 640 396C652 396 656 384 652 372L650 362C658 360 662 354 656 346L652 336C664 332 668 324 660 316L648 300C654 288 652 272 646 258C640 230 610 200 560 200Z" fill="#ffd8b5" stroke="#8a4b18" stroke-width="2.5"/>
+<path d="M500 316C484 252 506 186 572 180C624 178 652 214 650 252C628 236 604 232 590 240C574 228 548 228 530 250C520 266 516 292 516 320Z" fill="#7a4a1f" stroke="#5c3510" stroke-width="2"/>
+<ellipse cx="560" cy="322" rx="14" ry="22" fill="#f4b98e" stroke="#8a4b18" stroke-width="2"/>
+<path d="M612 290q10 -6 20 0" fill="none" stroke="#5c3510" stroke-width="3" stroke-linecap="round"/><circle cx="624" cy="304" r="4" fill="#212529"/>
+<path d="M626 380q10 4 18 0" fill="none" stroke="#c92a2a" stroke-width="3" stroke-linecap="round"/>
+<path d="M530 440L524 520H620L606 440Z" fill="#74c0fc" stroke="#1864ab" stroke-width="2.5"/>
+<path class="v1" d="M662 248q8 -10 0 -20t0 -20M662 248q8 10 0 20t0 20" fill="none" stroke="#e8590c" stroke-width="4" stroke-linecap="round"/>
+<path class="v2" d="M662 248q8 -10 0 -20t0 -20M662 248q8 10 0 20t0 20" fill="none" stroke="#e8590c" stroke-width="4" stroke-linecap="round"/>
+<path class="v3" d="M662 248q8 -10 0 -20t0 -20M662 248q8 10 0 20t0 20" fill="none" stroke="#e8590c" stroke-width="4" stroke-linecap="round"/>
+<path d="M800 200H908Q926 200 926 218V262Q926 278 908 278H866L880 400Q882 414 868 414H836Q822 414 822 400L810 278H800Z" fill="url(#plast)" stroke="#495057" stroke-width="2.5"/>
+<path d="M800 210H780V268H800Z" fill="#495057"/><ellipse cx="780" cy="239" rx="6" ry="24" fill="#343a40"/>
+<path d="M846 290q-14 22 -6 46" fill="none" stroke="#495057" stroke-width="3"/>
+<rect x="820" y="112" width="110" height="60" rx="8" fill="#d3f9d8" stroke="#495057" stroke-width="2"/>
+<path d="M860 172L866 200" stroke="#495057" stroke-width="2" stroke-dasharray="4 4"/>
+<text x="875" y="154" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle" class="car" opacity="0">– – –</text>
+<text x="875" y="155" font-size="30" font-weight="bold" fill="#212529" text-anchor="middle" class="hod">37 °C</text>
+<text x="820" y="104" font-size="20" fill="#212529" text-anchor="start">displej</text>
+<text x="780" y="478" font-size="22" font-weight="bold" fill="#a33c06" text-anchor="middle">snímá tepelné záření</text>
+<text x="780" y="508" font-size="22" fill="#212529" text-anchor="middle">teploměr se čela nedotýká</text>
+<text x="780" y="566" font-size="22" fill="#212529" text-anchor="middle">měří na čele nebo v uších</text>
+</svg>

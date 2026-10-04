@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 690" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: Celsiova teplotní stupnice. Dva stejné lihové teploměry se stupnicí od 0 do 100 stupňů Celsia. Levý je v kádince s vodou a kousky ledu, jeho červený sloupec klesne k 0 °C: při 0 °C taje led. Pravý je v kádince s vroucí vodou na vařiči, sloupec vystoupá ke 100 °C: při 100 °C voda vře.">
+<style>
+/* Předloha: PDF Teplota — kresba tří teploměrů s teplotou varu vody a tání ledu. Pro šesťáky jen Celsiova stupnice:
+   teploměr v kádince s ledem a teploměr v kádince s vroucí vodou. Překresleno, ne kopie.
+   Cyklus 10 s: oba sloupce začínají stejně vysoko (bez čísla), 10–40 % levý klesne na 0 °C a pravý vystoupá na 100 °C,
+   45 % se objeví popisky „0 °C led taje“ a „100 °C voda vře“. Bubliny ve vroucí vodě stoupají. Bez animace = koncový stav. */
+@keyframes sl0 { 0%, 10% { transform: translate(0, -75px); } 40%, 100% { transform: translate(0, 0); } }
+@keyframes sl100 { 0%, 10% { transform: translate(0, 225px); } 40%, 100% { transform: translate(0, 0); } }
+@keyframes pop { 0%, 42% { opacity: 0; } 48%, 100% { opacity: 1; } }
+@keyframes bub { 0% { transform: translate(0, 0); opacity: 0; } 15% { opacity: 1; } 100% { transform: translate(0, -95px); opacity: 0; } }
+@keyframes para { 0%, 100% { transform: translate(0, 0); opacity: 0.4; } 50% { transform: translate(0, -14px); opacity: 1; } }
+.sl0 { animation: sl0 10s ease-in-out infinite; } .sl100 { animation: sl100 10s ease-in-out infinite; }
+.pop { animation: pop 10s linear infinite; }
+.b1 { animation: bub 1.6s linear infinite; } .b2 { animation: bub 1.6s linear 0.5s infinite; } .b3 { animation: bub 1.6s linear 1s infinite; }
+.para { animation: para 3s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .sl0, .sl100, .pop, .b1, .b2, .b3, .para { animation: none; } }
+</style>
+<rect x="3" y="3" width="954" height="684" rx="14" fill="#f8f9fa"/>
+<rect x="260" y="16" width="440" height="58" rx="4" fill="#f79a4a" stroke="#c8692a" stroke-width="2"/>
+<text x="480" y="55" font-size="28" fill="#212529" text-anchor="middle">Celsiova teplotní stupnice</text>
+<defs><clipPath id="kapa"><rect x="296" y="113" width="8" height="442" rx="4"/><ellipse cx="300" cy="555" rx="11" ry="20"/></clipPath><linearGradient id="skloa" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#dee2e6"/><stop offset="0.3" stop-color="#ffffff"/><stop offset="1" stop-color="#e9ecef"/></linearGradient></defs>
+<path d="M282 123Q282 105 300 105H348Q366 105 366 123V525Q366 531 356 531H314Q316 535 316 533Q316 583 300 583Q284 583 284 533Q284 535 282 525Z" fill="url(#skloa)" stroke="#495057" stroke-width="2.5"/>
+<rect x="296" y="113" width="8" height="442" rx="4" fill="#fff" stroke="#adb5bd" stroke-width="1"/>
+<path d="M307 509h14M307 494h9M307 479h22M307 464h9M307 449h14M307 434h9M307 419h22M307 404h9M307 389h14M307 374h9M307 359h22M307 344h9M307 329h14M307 314h9M307 299h22M307 284h9M307 269h14M307 254h9M307 239h22M307 224h9M307 209h14M307 194h9M307 179h22M307 164h9M307 149h14" stroke="#212529" stroke-width="2"/>
+<text x="332" y="486" font-size="20" font-weight="bold" fill="#212529" text-anchor="start">0</text>
+<text x="332" y="426" font-size="20" font-weight="bold" fill="#212529" text-anchor="start">20</text>
+<text x="332" y="366" font-size="20" font-weight="bold" fill="#212529" text-anchor="start">40</text>
+<text x="332" y="306" font-size="20" font-weight="bold" fill="#212529" text-anchor="start">60</text>
+<text x="332" y="246" font-size="20" font-weight="bold" fill="#212529" text-anchor="start">80</text>
+<text x="332" y="186" font-size="20" font-weight="bold" fill="#212529" text-anchor="start">100</text>
+<g clip-path="url(#kapa)"><ellipse cx="300" cy="555" rx="11" ry="20" fill="#c92a2a"/><rect class="sl0" x="296" y="479" width="8" height="576" fill="#c92a2a"/></g>
+<path d="M289 125V519" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+<text x="360" y="129" font-size="18" font-weight="bold" fill="#212529" text-anchor="end">°C</text>
+<defs><clipPath id="kapb"><rect x="596" y="113" width="8" height="442" rx="4"/><ellipse cx="600" cy="555" rx="11" ry="20"/></clipPath><linearGradient id="sklob" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#dee2e6"/><stop offset="0.3" stop-color="#ffffff"/><stop offset="1" stop-color="#e9ecef"/></linearGradient></defs>
+<path d="M582 123Q582 105 600 105H648Q666 105 666 123V525Q666 531 656 531H614Q616 535 616 533Q616 583 600 583Q584 583 584 533Q584 535 582 525Z" fill="url(#sklob)" stroke="#495057" stroke-width="2.5"/>
+<rect x="596" y="113" width="8" height="442" rx="4" fill="#fff" stroke="#adb5bd" stroke-width="1"/>
+<path d="M607 509h14M607 494h9M607 479h22M607 464h9M607 449h14M607 434h9M607 419h22M607 404h9M607 389h14M607 374h9M607 359h22M607 344h9M607 329h14M607 314h9M607 299h22M607 284h9M607 269h14M607 254h9M607 239h22M607 224h9M607 209h14M607 194h9M607 179h22M607 164h9M607 149h14" stroke="#212529" stroke-width="2"/>
+<text x="632" y="486" font-size="20" font-weight="bold" fill="#212529" text-anchor="start">0</text>
+<text x="632" y="426" font-size="20" font-weight="bold" fill="#212529" text-anchor="start">20</text>
+<text x="632" y="366" font-size="20" font-weight="bold" fill="#212529" text-anchor="start">40</text>
+<text x="632" y="306" font-size="20" font-weight="bold" fill="#212529" text-anchor="start">60</text>
+<text x="632" y="246" font-size="20" font-weight="bold" fill="#212529" text-anchor="start">80</text>
+<text x="632" y="186" font-size="20" font-weight="bold" fill="#212529" text-anchor="start">100</text>
+<g clip-path="url(#kapb)"><ellipse cx="600" cy="555" rx="11" ry="20" fill="#c92a2a"/><rect class="sl100" x="596" y="179" width="8" height="876" fill="#c92a2a"/></g>
+<path d="M589 125V519" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+<text x="660" y="129" font-size="18" font-weight="bold" fill="#212529" text-anchor="end">°C</text>
+<rect x="232" y="486" width="34" height="30" rx="5" fill="#e7f5ff" stroke="#74c0fc" stroke-width="2.5" transform="rotate(-8 249 501)"/>
+<rect x="372" y="490" width="34" height="30" rx="5" fill="#e7f5ff" stroke="#74c0fc" stroke-width="2.5" transform="rotate(10 389 505)"/>
+<rect x="250" y="520" width="34" height="30" rx="5" fill="#e7f5ff" stroke="#74c0fc" stroke-width="2.5" transform="rotate(14 267 535)"/>
+<path d="M218 494H420V610Q420 616 410 616H228Q218 616 218 610Z" fill="#a5d8ff" opacity="0.55"/>
+<path d="M218 494H420" stroke="#1971c2" stroke-width="2.5"/>
+<path d="M206 454Q214 456 214 466V608Q214 620 226 620H412Q424 620 424 608V460" fill="none" stroke="#495057" stroke-width="3" stroke-linejoin="round"/>
+<path d="M394 590h18M394 565h12M394 540h18" stroke="#868e96" stroke-width="2"/>
+<text x="319" y="654" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">led ve vodě</text>
+<circle class="b1" cx="546" cy="600" r="7" fill="#fff" stroke="#1971c2" stroke-width="2"/>
+<circle class="b2" cx="690" cy="596" r="7" fill="#fff" stroke="#1971c2" stroke-width="2"/>
+<circle class="b3" cx="572" cy="590" r="7" fill="#fff" stroke="#1971c2" stroke-width="2"/>
+<circle class="b1" cx="668" cy="606" r="7" fill="#fff" stroke="#1971c2" stroke-width="2"/>
+<circle class="b2" cx="700" cy="604" r="7" fill="#fff" stroke="#1971c2" stroke-width="2"/>
+<path d="M518 494H720V610Q720 616 710 616H528Q518 616 518 610Z" fill="#a5d8ff" opacity="0.55"/>
+<path d="M518 494H720" stroke="#1971c2" stroke-width="2.5"/>
+<path d="M506 454Q514 456 514 466V608Q514 620 526 620H712Q724 620 724 608V460" fill="none" stroke="#495057" stroke-width="3" stroke-linejoin="round"/>
+<path d="M694 590h18M694 565h12M694 540h18" stroke="#868e96" stroke-width="2"/>
+<g class="para"><path d="M530 446q-12 -18 0 -36t0 -36M708 446q12 -18 0 -36t0 -36" fill="none" stroke="#868e96" stroke-width="4" stroke-linecap="round"/></g>
+<rect x="494" y="622" width="250" height="16" rx="4" fill="#e03131"/><rect x="484" y="636" width="270" height="34" rx="6" fill="#495057"/>
+<circle cx="736" cy="653" r="8" fill="#ced4da"/>
+<text x="604" y="661" font-size="20" font-weight="bold" fill="#fff" text-anchor="middle">vroucí voda na vařiči</text>
+<g class="pop"><path d="M327 479H226" stroke="#1864ab" stroke-width="3" stroke-dasharray="8 6"/><rect x="20" y="435" width="206" height="88" rx="12" fill="#fff" stroke="#1864ab" stroke-width="3"/><text x="123" y="473" font-size="34" font-weight="bold" fill="#1864ab" text-anchor="middle">0 °C</text>
+<text x="123" y="507" font-size="24" fill="#212529" text-anchor="middle">led taje</text>
+</g>
+<g class="pop"><path d="M627 179H734" stroke="#c92a2a" stroke-width="3" stroke-dasharray="8 6"/><rect x="734" y="135" width="206" height="88" rx="12" fill="#fff" stroke="#c92a2a" stroke-width="3"/><text x="837" y="173" font-size="34" font-weight="bold" fill="#c92a2a" text-anchor="middle">100 °C</text>
+<text x="837" y="207" font-size="24" fill="#212529" text-anchor="middle">voda vře</text>
+</g>
+</svg>
