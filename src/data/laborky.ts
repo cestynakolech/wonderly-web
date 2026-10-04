@@ -1279,10 +1279,10 @@ export const laborky: Record<string, Laborka> = {
 	'fyzika/7-rocnik/tlak-v-kapalinach/hydrostaticky-tlak': {
 		nazev: 'Hydrostatický tlak: kdo stříká nejdál',
 		cil: 'Zjistit, jak dalece vystříkne voda z otvorů v různé hloubce pod hladinou, a spočítat hydrostatický tlak.',
-		pomucky: ['PET láhev se třemi malými otvory ve výškách 5, 10 a 15 cm od dna (připraví učitel)', 'lepicí páska', 'voda', 'stůl s okrajem (výška aspoň 70 cm)', 'fólie nebo noviny na podlahu', 'svinovací metr', 'tužka'],
+		pomucky: ['PET láhev se třemi malými otvory ve výškách 5, 10 a 15 cm od dna (připraví učitel)', 'lepicí páska', 'voda', 'stůl s okrajem (výška aspoň 70 cm)', 'fólie nebo noviny na podlahu', 'provázek se závažím (olovnice)', 'svinovací metr', 'tužka'],
 		postup: [
 			'Otvory zalep páskou a láhev naplň vodou do výšky 25 cm od dna. Výšku si označ tužkou. Postav ji na okraj stolu tak, aby voda stříkala dolů na podlahu. Na podlahu polož fólii nebo noviny.',
-			'Ze všech tří otvorů odlep pásku současně. Spolužák hned označí místa, kam dopadají jednotlivé proudy. Od láhve k místu dopadu každého proudu změř svinovacím metrem vzdálenost v celých cm a zapiš.',
+			'Ze všech tří otvorů odlep pásku současně. Spolužák hned označí místa, kam dopadají jednotlivé proudy. Pod láhev spusť olovnici a místo na podlaze pod ní označ. Od této značky změř svinovacím metrem vodorovně po podlaze vzdálenost k místu dopadu každého proudu v celých cm a zapiš.',
 			'Do tabulky doplň hloubku každého otvoru pod hladinou: 25 cm minus výška otvoru od dna.',
 			'Vysvětlení: hydrostatický tlak vzniká působením gravitační síly Země.',
 		],
@@ -1302,11 +1302,11 @@ export const laborky: Record<string, Laborka> = {
 	'fyzika/7-rocnik/svetlo-a-jeho-sireni/svetlo-jeho-zdroje': {
 		nazev: 'Jak se světlo šíří a čím prochází',
 		cil: 'Vyzkoušet, kterými materiály světlo prochází, a ověřit, jak se světlo šíří.',
-		pomucky: ['kapesní LED svítilna', 'čirá plastová fólie', 'pauzovací papír', 'karton', 'alobal', 'tři kartičky s dírkou uprostřed', 'nit nebo tužka', 'tužka'],
+		pomucky: ['kapesní LED svítilna', 'čirá plastová fólie', 'pauzovací papír', 'karton', 'alobal', 'tři kartičky s dírkou uprostřed', 'modelína na stojánky kartiček', 'tužka'],
 		postup: [
 			'Svítilnu polož na lavici a rozsviť ji. Do světelného kužele postupně dávej čirou fólii, pauzovací papír, karton a alobal. Pozoruj, kolik světla projde, a zapiš to.',
 			'Za jednotlivé materiály podrž předmět nebo svou ruku. Zapiš, zda předmět vidíš jasně, rozmazaně, nebo vůbec.',
-			'Tři kartičky s dírkou postav do řady za sebou a rozsviť svítilnu za první z nich. Posouvej kartičky tak, aby světlo prošlo všemi třemi dírkami. Zapiš, jak byly kartičky uspořádané, když světlo prošlo.',
+			'Tři kartičky s dírkou postav do kousků modelíny do řady za sebou a rozsviť svítilnu za první z nich. Posouvej kartičky tak, aby světlo prošlo všemi třemi dírkami. Zapiš, jak byly kartičky uspořádané, když světlo prošlo.',
 			'Vysvětlení: světlo je druh záření, které vidíme zrakem.',
 		],
 		tabulka: {
@@ -1320,7 +1320,7 @@ export const laborky: Record<string, Laborka> = {
 			'Je Měsíc zdrojem světla? Proč?',
 		],
 		pozor: 'Nesviť svítilnou nikomu do očí. Nepoužívej laser. Alobal má ostré hrany, zacházej s ním opatrně. Svítilnu po použití vypni.',
-		tip: 'Světlo ze Slunce doletí na Zem přibližně za 8 minut.',
+		tip: 'Rychlost světla ve vakuu je nejvyšší možná rychlost ve vesmíru.',
 	},
 	'fyzika/7-rocnik/svetlo-a-jeho-sireni/lom-svetla': {
 		nazev: 'Mince ve vodě a zlomená tužka: lom světla',
@@ -1338,7 +1338,7 @@ export const laborky: Record<string, Laborka> = {
 		},
 		otazky: [
 			'Proč jsi viděl minci až po nalití vody?',
-			'Láme se světlo při přechodu ze vzduchu do vody ke kolmici, nebo od kolmice?',
+			'Láme se světlo při přechodu ze vzduchu do vody ke kolmici, nebo od kolmice? A jak se láme při přechodu z vody do vzduchu, jak ukázal pokus s mincí?',
 			'Světlo má ve vakuu rychlost 300 000 km/s a ve vodě 225 000 km/s. O kolik km/s je ve vodě pomalejší?',
 			'Uveď jednu situaci z běžného života, ve které vidíme následky lomu světla.',
 		],
@@ -1351,10 +1351,10 @@ export const laborky: Record<string, Laborka> = {
 		pomucky: ['stolní LED lampa nebo svítilna', 'malý kelímek vysoký 10 cm', 'bílý list papíru jako stínítko', 'malý míček na špejli nebo tužce', 'pravítko', 'tužka'],
 		postup: [
 			'Zatemni místnost. Svítilnu polož 40 cm od zdi. Zeď je stínítko, nebo na ni přilep papír. Kelímek postav 10 cm od svítilny a změř výšku stínu na stínítku. Zapiš v celých cm.',
-			'Kelímek posuň na vzdálenost 30 cm od svítilny. Znovu změř výšku stínu v celých cm a zapiš.',
-			'Lampu postav na stůl a stůj v zatemněné místnosti bokem k ní. Míček drž natažený před sebou. Pomalu se otáčej a pozoruj osvětlenou část míčku ve čtyřech polohách: míček mezi tebou a lampou, míček napravo od tebe, míček před lampou za tebou, míček nalevo od tebe.',
+			'Kelímek posuň na vzdálenost 20 cm od svítilny. Znovu změř výšku stínu v celých cm a zapiš.',
+			'Lampu postav na stůl a stůj v zatemněné místnosti několik metrů od ní. Míček drž natažený před sebou a mírně nad hlavou. Pomalu se otáčej a pozoruj osvětlenou část míčku ve čtyřech polohách: čelem k lampě, lampa nalevo od tebe, zády k lampě, lampa napravo od tebe.',
 			'Do tabulky zapiš pro každou polohu, jaký tvar má osvětlená část míčku z pohledu od tebe.',
-			'Vysvětlení: stín je prostor za překážkou, kam nesvítí žádné světlo.',
+			'Vysvětlení: stín je prostor za překážkou, kam nesvítí žádné světlo. Fázi Měsíce určuje, jakou část Sluncem osvětlené polokoule Měsíce vidíme ze Země.',
 		],
 		tabulka: {
 			sloupce: ['pokus', 'podmínky', 'výška stínu (cm) nebo tvar osvětlené části'],
@@ -1362,7 +1362,7 @@ export const laborky: Record<string, Laborka> = {
 		},
 		otazky: [
 			'Kdy byl stín kelímku větší, když byl blíž ke svítilně, nebo dál? Čím to je?',
-			'Jak se jmenují fáze, při kterých vidíš z míčku jen malý okraj nebo osvětlenou polovinu? Jak se jmenuje fáze, kdy Měsíc nevidíme?',
+			'Jaké tvary osvětlené části jsi viděl ve čtyřech polohách? Jak se jmenuje fáze, kdy Měsíc nevidíme?',
 			'Kdy nastává zatmění Měsíce? V jaké fázi je Měsíc?',
 			'Měsíc oběhne Zemi přibližně za 30 dní. Kolikrát ji oběhne za 90 dní?',
 		],
