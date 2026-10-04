@@ -527,11 +527,15 @@ export const temata: Record<string, Tema[]> = {
 							<li>kopnu do míče — a míč zatlačí do mé nohy</li>
 							<li>Země přitahuje Měsíc — a Měsíc přitahuje vodu v mořích (příliv a odliv)</li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/vzajemne-pusobeni-teles-sila-obr-01.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/vzajemne-pusobeni-teles-sila-obr-01.svg" alt="Animace: dívka na zemi natahuje pružný pás přetažený přes chodidla. Ruce působí na pás a pás působí na ruce i nohy." loading="lazy" /></a><figcaption>Ruce natahují pás – a pás zároveň táhne ruce i nohy k sobě.</figcaption></figure>
+						<figure><a href="/obrazky/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/vzajemne-pusobeni-teles-sila-obr-02.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/vzajemne-pusobeni-teles-sila-obr-02.svg" alt="Animace: slečna dosedne do křesla. Oranžová šipka nahoru – křeslo drží slečnu; modrá šipka dolů – slečna tlačí na křeslo." loading="lazy" /></a><figcaption>Slečna tlačí na křeslo dolů, křeslo ji drží silou nahoru.</figcaption></figure>
 						<h3>Účinky vzájemného působení</h3>
 						<ul>
 							<li><strong>Pohybové</strong> — uvedení do pohybu (vykopnutí míče), změna směru (přihrávka), změna rychlosti (cyklista šlape/brzdí), zastavení pohybu (brankář chytne míč)</li>
 							<li><strong>Deformační</strong> — změna tvaru tělesa: <strong>dočasná</strong> (matrace se vrátí do původního tvaru) nebo <strong>trvalá</strong> (plastelína zůstane zmáčknutá)</li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/vzajemne-pusobeni-teles-sila-obr-05.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/vzajemne-pusobeni-teles-sila-obr-05.svg" alt="Animace: hráč vykopne míč, druhý hráč změní směr míče, cyklista zrychlí a zpomalí, brankář chytí míč." loading="lazy" /></a><figcaption>Pohybové účinky: uvedení do pohybu, změna směru, změna rychlosti a zastavení.</figcaption></figure>
+						<figure><a href="/obrazky/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/vzajemne-pusobeni-teles-sila-obr-06.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/vzajemne-pusobeni-teles-sila-obr-06.svg" alt="Animace: ruka zmáčkne matraci, která se pak vrátí do původního tvaru, a kuličku plastelíny, která zůstane placatá." loading="lazy" /></a><figcaption>Dočasná deformace (matrace se vrátí) a trvalá deformace (plastelína zůstane zmáčknutá).</figcaption></figure>
 						<h3>Síla</h3>
 						<p>Pro vyjádření vzájemného působení těles používáme pojem <strong>síla</strong>.</p>
 						<p>👉 Pozor: síla neexistuje sama o sobě — <strong>vždy existuje těleso, které je příčinou silového působení</strong> na jiné těleso. „Síla zvyku" nebo „silné emoce" nejsou síly ve fyzikálním smyslu.</p>
@@ -547,6 +551,7 @@ export const temata: Record<string, Tema[]> = {
 								</ul>
 							</li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/vzajemne-pusobeni-teles-sila-obr-07.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/vzajemne-pusobeni-teles-sila-obr-07.svg" alt="Šest obrázků: ruka tlačí krabici, ruka natahuje pružinu, magnet přitahuje magnet, hřeben zvedá vlasy, Země přitahuje Měsíc, jaderná síla drží jádro atomu." loading="lazy" /></a><figcaption>Tělesa na sebe působí při dotyku (tlak, tah) nebo na dálku silovým polem.</figcaption></figure>
 						<h3>Síla jako fyzikální veličina</h3>
 						<ul>
 							<li>popisuje vzájemné působení těles — určuje <strong>velikost i směr</strong></li>
@@ -555,9 +560,12 @@ export const temata: Record<string, Tema[]> = {
 							<li>velikost síly zapisujeme číslem s jednotkou (F = 35 N)</li>
 							<li>směr síly znázorňujeme <strong>úsečkou se šipkou</strong> — začátek v <strong>působišti síly</strong>, délka šipky odpovídá velikosti síly</li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/vzajemne-pusobeni-teles-sila-obr-08.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/vzajemne-pusobeni-teles-sila-obr-08.svg" alt="Animace: dítě táhne sáňky za provaz. Červená šipka síly F = 35 N začíná tam, kde je provaz uvázaný k sáňkám, a míří ve směru provazu." loading="lazy" /></a><figcaption>Šipka síly začíná v působišti, míří ve směru síly a její délka odpovídá velikosti (F = 35 N).</figcaption></figure>
 						<h3>Měření síly — siloměr</h3>
 						<p>Klasický <strong>pružinový siloměr</strong> tvoří pružina s háčkem a stupnice. Princip: <strong>protažení pružiny je přímo úměrné působící síle</strong> — kolikrát větší síla, tolikrát větší prodloužení. Při překročení rozsahu se pružina trvale poškodí a měřit už nelze.</p>
+						<figure><a href="/obrazky/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/vzajemne-pusobeni-teles-sila-obr-03.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/vzajemne-pusobeni-teles-sila-obr-03.svg" alt="Animace siloměru: pružina v okénku, stupnice a háček. Ruka zatáhne za háček a siloměr ukáže 20 N." loading="lazy" /></a><figcaption>Pružinový siloměr: bez síly ukazuje 0 N, když ruka táhne háček, ukáže 20 N.</figcaption></figure>
 						<p>Pravidla měření: zkontrolovat nulu, zjistit jednotky stupnice, hodnotu nejmenšího dílku a rozsah; odchylka měření = polovina nejmenšího dílku.</p>
+						<figure><a href="/obrazky/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/vzajemne-pusobeni-teles-sila-obr-04.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/vzajemne-pusobeni-teles-sila-obr-04.svg" alt="Animace: čtyři siloměry, na které se postupně zavěsí 1 až 4 závaží po 100 g. Ukážou 1 N, 2 N, 3 N a 4 N." loading="lazy" /></a><figcaption>Kolikrát víc závaží, tolikrát větší síla a tolikrát větší protažení pružiny.</figcaption></figure>
 						<p>💡 Síla 1 N odpovídá přibližně síle, kterou Země přitahuje těleso o hmotnosti 100 g. Na tomto principu fungují pružinové váhy.</p>
 					`,
 					materialy: [
