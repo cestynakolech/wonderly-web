@@ -736,6 +736,7 @@ export const temata: Record<string, Tema[]> = {
 							<li>1 km = 1 000 m</li>
 						</ul>
 						<p>👉 Při převodu na <strong>menší</strong> jednotky přidáváme nuly (čárka doprava), při převodu na <strong>větší</strong> jednotky nuly škrtáme (čárka doleva).</p>
+						<figure><a href="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/delka/delka-obr-01.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/delka/delka-obr-01.svg" alt="Převody jednotek délky: řada km, m, dm, cm, mm s obloučky; čárka v čísle 532 cm přeskočí dva obloučky doleva a vznikne 5,32 m, tedy 5 m 32 cm." loading="lazy" /></a><figcaption>Kolik obloučků, o tolik míst posuneme čárku: 532 cm = 5,32 m = 5 m 32 cm.</figcaption></figure>
 						<h3>Starší a jiné jednotky</h3>
 						<p>Dříve se měřilo podle lidského těla — lokty, stopy, pídě, palce. Nevýhoda: v každém městě byly jinak velké. V anglicky mluvících zemích se dodnes používá palec (inch), stopa (ft), yard (yd) a míle (mi).</p>
 						<p>💡 Ve vesmíru se používá <strong>astronomická jednotka</strong> (AU) = vzdálenost Země–Slunce = 150 milionů km (Jupiter je od Slunce asi 5 AU). A <strong>světelný rok</strong> = vzdálenost, kterou světlo urazí za 1 rok (Polárka je od nás 433 světelných let).</p>
@@ -749,6 +750,11 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>mikrometr</strong> — na setiny milimetru, tloušťka vlákna či vlasu</li>
 							<li><strong>laserový měřič vzdáleností</strong> — nejpřesnější, princip odrazu světelného paprsku</li>
 						</ul>
+						<figure><a href="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/delka/delka-obr-02.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/delka/delka-obr-02.svg" alt="Svinovací metr: z pouzdra vytažený žlutý pásek s háčkem a stupnicí v centimetrech, nejmenší dílek 1 mm." loading="lazy" /></a><figcaption>Svinovací metr měří na milimetry, rovné vzdálenosti až několik metrů.</figcaption></figure>
+						<figure><a href="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/delka/delka-obr-03.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/delka/delka-obr-03.svg" alt="Krejčovský metr: žlutý ohebný pásek, část smotaná do role, na pásku centimetry od 27, nejmenší dílek 1 cm." loading="lazy" /></a><figcaption>Krejčovský metr je ohebný — změří obvod hlavy nebo pasu.</figcaption></figure>
+						<figure><a href="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/delka/delka-obr-04.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/delka/delka-obr-04.svg" alt="Mikrometr: kovový rám ve tvaru podkovy, mezi dotekem a vřetenem je sevřený vlas, vpravo bubínek se stupnicí." loading="lazy" /></a><figcaption>Mikrometr měří na setiny milimetru, třeba tloušťku vlasu.</figcaption></figure>
+						<figure><a href="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/delka/delka-obr-05.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/delka/delka-obr-05.svg" alt="Posuvné měřítko: posuvná čelist dojede k měděné trubce a sevře ji, pak se vyznačí průměr trubky." loading="lazy" /></a><figcaption>Posuvné měřítko („šuplera“) měří na desetiny milimetru průměr kulatých těles.</figcaption></figure>
+						<figure><a href="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/delka/delka-obr-08.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/delka/delka-obr-08.svg" alt="Laserový měřič na stole vyšle červený paprsek ke zdi z cihel, paprsek se odrazí a vrátí zpět do přístroje." loading="lazy" /></a><figcaption>Laserový měřič: světelný paprsek se odrazí od zdi a vrátí zpět.</figcaption></figure>
 						<h3>Pravidla pro měření délky</h3>
 						<ol>
 							<li>zvolíme vhodné měřidlo (jednotky stupnice)</li>
@@ -760,6 +766,8 @@ export const temata: Record<string, Tema[]> = {
 							<li>délku odečteme na nejbližším dílku</li>
 							<li>zapíšeme číslem <strong>s jednotkou</strong>, např. l = 72 mm</li>
 						</ol>
+						<figure><a href="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/delka/delka-obr-06.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/delka/delka-obr-06.svg" alt="Bosé chodidlo mezi dvěma pravoúhlými trojúhelníky, které se dotýkají špičky a paty; mezi nimi je vyznačena délka chodidla." loading="lazy" /></a><figcaption>Kolmé pomůcky přesně označí začátek a konec chodidla.</figcaption></figure>
+						<figure><a href="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/delka/delka-obr-07.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/delka/delka-obr-07.svg" alt="Pastelka leží nad pravítkem začátkem na nule, oko se dívá kolmo na její konec u dílku 7 cm 2 mm, zápis l = 72 mm." loading="lazy" /></a><figcaption>Nula na začátku tělesa, díváme se kolmo, zapíšeme s jednotkou: l = 72 mm.</figcaption></figure>
 						<p>💡 Zápis lze kombinovat: 532 cm = 5,32 m = 5 m 32 cm.</p>
 						<h3>Odchylka měření</h3>
 						<p>Naměřená hodnota je „zaokrouhlená" na nejbližší dílek. <strong>Odchylka = polovina nejmenšího dílku stupnice.</strong> Čím menší dílek, tím přesnější měření.</p>
