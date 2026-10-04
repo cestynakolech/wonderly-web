@@ -1446,29 +1446,29 @@ export const laborky: Record<string, Laborka> = {
 		postup: [
 			'Zatemni místnost. Svítilnu se štěrbinou polož na lavici tak, aby tenký svazek světla dopadal na papír.',
 			'Do cesty svazku postav hranol a pomalu s ním otáčej, dokud na papíru neuvidíš barevný pruh.',
-			'Barvy v pruhu zapiš shora dolů v celých řádcích tabulky. Pomůže ti, když si označíš, která barva je nejblíž původnímu směru svazku.',
+			'Barvy v pruhu zapiš shora dolů do řádků tabulky. Nepotřebné řádky nech prázdné. Pomůže ti, když si označíš, která barva je nejblíž původnímu směru svazku.',
 			'Spočítej, kolik barev jsi rozlišil.',
 			'Vysvětlení: bílé světlo se při průchodu hranolem rozkládá na barevné paprsky.',
 		],
 		tabulka: {
 			sloupce: ['pořadí', 'barva', 'poloha vzhledem k původnímu směru světla'],
-			radky: 7,
+			radky: 8,
 		},
 		otazky: [
 			'V jakém pořadí se barvy řadily? Která byla nejblíž původnímu směru a která nejdál?',
 			'Která barva se při průchodu hranolem láme nejméně a která nejvíce?',
 			'Za jakých podmínek můžeš pozorovat duhu na obloze?',
-			'Kdo v 17. století správně vysvětlil duhu a jak to dokázal?',
+			'Který český fyzik a lékař v 17. století vysvětlil duhu lomem světla? Jak to dokázal?',
 		],
 		pozor: 'Nesviť nikomu do očí a nepoužívej laser. Hranolem nehážej a chraň ho před pádem. Na slunce se nedívej přímo ani přes hranol.',
-		tip: 'Isaac Newton poprvé popsal rozklad světla hranolem roku 1671 a nazval vzniklý pruh barev spektrum.',
+		tip: 'Isaac Newton popsal roku 1671 pruh barev, který vzniká při průchodu světla hranolem, a nazval ho spektrum.',
 	},
 	'fyzika/7-rocnik/zrcadla-a-cocky/vnimani-barev': {
 		nazev: 'Skládání barevných světel',
 		cil: 'Zjistit, jaké barvy vzniknou skládáním červeného, zeleného a modrého světla.',
-		pomucky: ['tři LED svítilny', 'červená, zelená a modrá průhledná fólie', 'bílý papír na stěnu', 'gumičky na upevnění fólií', 'tužka'],
+		pomucky: ['tři barevné LED svítilny (červená, zelená, modrá) nebo svítilny s divadelními filtry', 'bílý papír na stěnu', 'tužka'],
 		postup: [
-			'Na každou svítilnu upevni gumičkou jednu barevnou fólii. Zatemni místnost a nasměruj svítilny na bílý papír na stěně.',
+			'Zatemni místnost a nasměruj tři svítilny (červenou, zelenou, modrou) na bílý papír na stěně. Posouváním svítilen vyrovnej jas skvrn.',
 			'Rozsviť červenou a zelenou svítilnu tak, aby se jejich světelné skvrny částečně překrývaly. Zapiš barvu překrytí.',
 			'Totéž udělej pro zelenou a modrou a pak pro červenou a modrou svítilnu.',
 			'Nakonec rozsviť všechny tři svítilny tak, aby se skvrny překrývaly. Zapiš barvu překrytí.',
@@ -1484,7 +1484,7 @@ export const laborky: Record<string, Laborka> = {
 			'Proč říkáme, že černá barva světla neexistuje?',
 			'Jak se změní barva směsi barviv, když smícháš víc různých barviv? Jak se jmenuje tiskový systém, který používá azurovou, purpurovou a žlutou?',
 		],
-		pozor: 'Nesviť nikomu do očí. Svítilny nepřibližuj k tváři a po pokusu je vypni. Dbej, ať fólie nepřijdou do kontaktu se žhavým povrchem.',
+		pozor: 'Nesviť nikomu do očí. Svítilny nepřibližuj k tváři a po pokusu je vypni. Barvy mohou vyjít méně čisté, než popisuje výklad.',
 		tip: 'Oko má tři druhy zrakových buněk, které reagují na červené, zelené a modré světlo.',
 	},
 	'fyzika/8-rocnik/energie/energie-a-jeji-premeny': {
@@ -1508,6 +1508,6 @@ export const laborky: Record<string, Laborka> = {
 			'Elektrickou energii měříme v kilowatthodinách. Kolik watthodin je 1 kWh?',
 		],
 		pozor: 'Pracuj jen s lehkým závažím a pouštěj ho jen do trubice. Ruce a nohy drž mimo dosah závaží. Pracuj na pevné lavici a závaží po pokusu odlož. Po práci si umyj ruce od modelíny.',
-		tip: 'Zvednuté kladivo má větší energii, čím výše je, a při dopadu na hřebík vykoná větší práci.',
+		tip: 'Energii nelze vytvořit ani zničit, může se pouze přeměňovat z jednoho druhu na jiný.',
 	},
 };
