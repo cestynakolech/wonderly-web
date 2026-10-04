@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: převody jednotek délky. V řadě jsou jednotky km, m, dm, cm, mm. Mezi km a m jsou tři obloučky, mezi m a dm, dm a cm, cm a mm po jednom obloučku. Jeden oblouček je jedna nula. Na menší jednotku násobíme a nuly přidáváme, na větší jednotku dělíme a nuly škrtáme. Dole příklady: 1 km = 1 000 m, 1 m = 10 dm, 1 m = 100 cm, 1 cm = 10 mm.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: převody jednotek délky. V řadě jsou jednotky km, m, dm, cm, mm. Mezi km a m jsou tři obloučky, mezi m a dm, dm a cm, cm a mm po jednom obloučku. Jeden oblouček je jedna nula. Na menší jednotku násobíme a nuly přidáváme, na větší jednotku dělíme a nuly škrtáme. Dole příklady: 1 km = 1 000 m, 1 m = 10 dm, 1 dm = 10 cm, 1 cm = 10 mm.">
 <style>
 /* Předloha: PDF Souhrnné opakování fyzikálních veličin — ručně psané „Převody jednotek délky“: km m dm cm mm,
    pod mezerami červené obloučky (3, 1, 1, 1). Překresleno, ne kopie; styl podle delka-obr-01.
@@ -48,7 +48,7 @@
 <g font-size="24" font-weight="bold" fill="#212529" text-anchor="middle">
 <g class="g1"><rect x="40" y="432" width="202" height="56" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/><text x="141" y="469">1 km = 1 000 m</text></g>
 <g class="g2"><rect x="266" y="432" width="202" height="56" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/><text x="367" y="469">1 m = 10 dm</text></g>
-<g class="g3"><rect x="492" y="432" width="202" height="56" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/><text x="593" y="469">1 m = 100 cm</text></g>
+<g class="g3"><rect x="492" y="432" width="202" height="56" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/><text x="593" y="469">1 dm = 10 cm</text></g>
 <g class="g4"><rect x="718" y="432" width="202" height="56" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/><text x="819" y="469">1 cm = 10 mm</text></g>
 </g>
 </svg>

@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: hustota, hmotnost a objem. Vlevo tři vzorce: hustota ρ = m lomeno V, neboli ρ = m : V; hmotnost m = ρ · V; objem V = m lomeno ρ, neboli V = m : ρ. Vpravo červený trojúhelník, nahoře m, pod čarou ρ · V. Šedá kartička postupně zakryje hledanou veličinu: zakryté ρ nechá m nad V, zakryté m nechá ρ · V, zakryté V nechá m nad ρ.">
 <style>
 /* Předloha: PDF Souhrnné opakování fyzikálních veličin — ručně psané „Hustota, hmotnost a objem“: ρ = m/V nebo ρ = m : V,
-   m = ρ · V, V = m/ρ nebo V = m : ρ; vpravo červený trojúhelník se zeleným m nad čarou a ρ · V pod ní.
+   m = ρ · V, V = m/ρ nebo V = m : ρ; vpravo červený trojúhelník s černým m nad čarou a ρ · V pod ní.
    Překresleno, ne kopie; vzorce barvou a písmem jako hustota-obr-02. Kartička „?“ ukazuje, jak se trojúhelník čte.
    Cyklus 9 s: 0–30 % hledáme ρ (zakryto ρ, zvýrazněn 1. řádek), 33–63 % m (2. řádek), 66–96 % V (3. řádek).
    Bez animace = trojúhelník bez kartičky a řádky bez zvýraznění. */

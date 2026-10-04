@@ -56,6 +56,6 @@
 <g class="g3"><rect x="644" y="432" width="276" height="52" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/><text x="782" y="466">1 kg = 100 dag</text></g>
 <g class="g4"><rect x="40" y="498" width="276" height="52" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/><text x="178" y="532">1 dag = 10 g</text></g>
 <g class="g5"><rect x="342" y="498" width="276" height="52" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/><text x="480" y="532">1 g = 1 000 mg</text></g>
-<g class="g5"><rect x="644" y="498" width="276" height="52" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/><text x="782" y="532">1 kg = 1 000 g</text></g>
+<g class="g4"><rect x="644" y="498" width="276" height="52" rx="12" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/><text x="782" y="532">1 kg = 1 000 g</text></g>
 </g>
 </svg>

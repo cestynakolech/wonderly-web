@@ -29,7 +29,7 @@
 <g class="o-uran"><circle cx="233.8" cy="300.4" r="14" fill="#66d9e8" stroke="#0b7285" stroke-width="2"/><circle cx="233.8" cy="300.4" r="14" fill="url(#koule06)"/></g>
 <g class="o-neptun"><circle cx="578.5" cy="660.6" r="14" fill="#4c6ef5" stroke="#364fc7" stroke-width="2"/><circle cx="578.5" cy="660.6" r="14" fill="url(#koule06)"/></g>
 <text x="480" y="46" font-size="26" font-weight="bold" fill="#ffffff" text-anchor="middle">Gravitační síla Slunce drží planety na oběžných drahách</text>
-<rect x="420" y="436" width="120" height="30" rx="8" fill="#060a1f" opacity="0.8"/><text x="480" y="458" font-size="22" font-weight="bold" fill="#ffe066" text-anchor="middle">Slunce</text>
+<text x="480" y="397" font-size="19" font-weight="bold" fill="#5c2300" text-anchor="middle">Slunce</text>
 <rect x="20" y="708" width="920" height="58" rx="12" fill="#060a1f" stroke="#a5b4fc" stroke-width="1.5" opacity="0.92"/>
 <line x1="36.0" y1="737.0" x2="84.0" y2="737.0" stroke="#e03131" stroke-width="6" stroke-linecap="round" marker-end="url(#a-cer)"/>
 <text x="98" y="744" font-size="20" fill="#ffffff" text-anchor="start">gravitační síla Slunce</text>

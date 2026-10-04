@@ -2,13 +2,14 @@
 <style>
 /* Předloha: PDF Elektrické vlastnosti látek, oddíl Určení, zda je těleso nabité (text bez obrázku: kovová destička, vnitřní tyčinka a otočná ručička se nabijí souhlasně a odpuzují se; vybití uzemněním dotykem ruky). Tělo přístroje kresleno jako elektrometr z PDF, ale bez stupnice a s destičkou. Animace 12 s: dotyk tyče → elektrony na tyčince a ručičce → výchylka 34° → dotyk ruky → vybití → ručička zpět. Bez animace = stav po nabití (výchylka 34°). */
 @keyframes tyc { 0% { transform: translate(-70px, -30px); opacity: 0; } 4% { transform: translate(-70px, -30px); opacity: 1; } 14%, 40% { transform: translate(0, 0); opacity: 1; } 50% { transform: translate(-70px, -30px); opacity: 0; } 100% { transform: translate(-70px, -30px); opacity: 0; } }
+@keyframes tyl { 0% { opacity: 0; } 4%, 38% { opacity: 1; } 48%, 100% { opacity: 0; } }
 @keyframes nb { 0%, 13% { opacity: 0; } 18%, 64% { opacity: 1; } 72%, 100% { opacity: 0; } }
 @keyframes ru { 0%, 16% { transform: rotate(0deg); } 28%, 64% { transform: rotate(34deg); } 76%, 100% { transform: rotate(0deg); } }
 @keyframes ruka { 0%, 52% { transform: translateX(90px); opacity: 0; } 58% { transform: translateX(90px); opacity: 1; } 62%, 80% { transform: translateX(0); opacity: 1; } 88%, 100% { transform: translateX(90px); opacity: 0; } }
 @keyframes s1 { 0%, 15% { opacity: 1; } 17%, 100% { opacity: 0; } }
 @keyframes s2 { 0%, 15% { opacity: 0; } 17%, 54% { opacity: 1; } 56%, 100% { opacity: 0; } }
 @keyframes s3 { 0%, 54% { opacity: 0; } 56%, 100% { opacity: 1; } }
-.tyc { animation: tyc 12s ease-in-out infinite; } .nb { animation: nb 12s linear infinite; }
+.tyc { animation: tyc 12s ease-in-out infinite; } .tyl { animation: tyl 12s ease-in-out infinite; } .nb { animation: nb 12s linear infinite; }
 .ru { transform-box: view-box; transform-origin: 300px 420px; transform: rotate(34deg); animation: ru 12s ease-in-out infinite; }
 .ruka { opacity: 0; animation: ruka 12s ease-in-out infinite; }
 .s1 { animation: s1 12s linear infinite; } .s2 { animation: s2 12s linear infinite; } .s3 { animation: s3 12s linear infinite; }
@@ -34,7 +35,7 @@
 <circle cx="300" cy="420" r="8" fill="url(#gKovV)" stroke="#343a40" stroke-width="2"/>
 <g class="tyc"><path d="M96 104L250 166" stroke="#c2410c" stroke-width="26" stroke-linecap="round"/><path d="M96 104L250 166" stroke="url(#gPlast)" stroke-width="22" stroke-linecap="round"/><g><circle cx="130" cy="118" r="9" fill="url(#gE)" stroke="#212529" stroke-width="1.5"/><path d="M125.3 118H134.7" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></g><g><circle cx="170" cy="134" r="9" fill="url(#gE)" stroke="#212529" stroke-width="1.5"/><path d="M165.3 134H174.7" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></g><g><circle cx="210" cy="150" r="9" fill="url(#gE)" stroke="#212529" stroke-width="1.5"/><path d="M205.3 150H214.7" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></g></g>
 <g class="ruka"><path d="M600 120L520 126C500 118 470 120 456 136L378 160C366 164 366 178 378 180L452 172C470 190 504 194 524 184L600 182Z" fill="url(#gKuze)" stroke="#c98a5e" stroke-width="2"/><path d="M462 150C480 146 494 150 500 160" stroke="#c98a5e" stroke-width="2" fill="none"/><path d="M560 112L600 112L600 196L560 196Z" fill="#adb5bd" stroke="#495057" stroke-width="2"/></g>
-<text x="30" y="226" font-size="20" font-weight="bold" fill="#212529" text-anchor="start">plastová tyč (−)</text>
+<text class="tyl" x="30" y="226" font-size="20" font-weight="bold" fill="#212529" text-anchor="start">plastová tyč (−)</text>
 <text x="520" y="250" font-size="20" fill="#212529" text-anchor="middle" font-weight="bold">destička</text>
 <path d="M488 248L378 190" stroke="#212529" stroke-width="2"/>
 <text x="520" y="470" font-size="20" fill="#212529" text-anchor="middle" font-weight="bold">ručička</text>

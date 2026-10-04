@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 740" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: elektrometr – kovová kulička nahoře, skleněné kruhové pouzdro s otočnou ručičkou a stupnicí bez čísel, kovový stojan. Nejdřív má kulička malý náboj a ručička se vychýlí jen málo. Pak má větší náboj a ručička se vychýlí víc. Čím větší výchylka, tím větší náboj.">
 <style>
-/* Předloha: PDF Elektrické vlastnosti látek, kresba elektrometru (zlatá kulička, kruhové prosklené pouzdro, ručička, stupnice vlevo dole, stojan s kruhovou patkou). Překresleno. Stupnice bez čísel a jednotek (jen porovnání). Animace 10 s: 2 elektrony → výchylka 18°, 5 elektronů → výchylka 46°. Bez animace = koncový stav (5 elektronů, 46°). */
+/* Předloha: PDF Elektrické vlastnosti látek, kresba elektrometru (zlatá kulička, kruhové prosklené pouzdro, ručička, stupnice vlevo dole, stojan s kruhovou patkou). Překresleno. Stupnice bez čísel a jednotek (jen porovnání). Animace 10 s: 2 elektrony → výchylka 18°, vybití (ručička na nule, žádné elektrony 47–56 %), 5 elektronů → výchylka 46°. Bez animace = koncový stav (5 elektronů, 46°). */
 @keyframes ru { 0%, 6% { transform: rotate(0deg); } 16%, 40% { transform: rotate(18deg); } 48%, 54% { transform: rotate(0deg); } 66%, 92% { transform: rotate(46deg); } 100% { transform: rotate(0deg); } }
-@keyframes q1 { 0%, 4% { opacity: 0; } 8%, 94% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes q1 { 0%, 4% { opacity: 0; } 8%, 44% { opacity: 1; } 47%, 56% { opacity: 0; } 58%, 94% { opacity: 1; } 100% { opacity: 0; } }
 @keyframes q2 { 0%, 52% { opacity: 0; } 58%, 94% { opacity: 1; } 100% { opacity: 0; } }
-@keyframes k1 { 0%, 48% { opacity: 1; } 50%, 100% { opacity: 0; } }
-@keyframes k2 { 0%, 48% { opacity: 0; } 50%, 100% { opacity: 1; } }
+@keyframes k1 { 0%, 55% { opacity: 1; } 56%, 100% { opacity: 0; } }
+@keyframes k2 { 0%, 57% { opacity: 0; } 58%, 100% { opacity: 1; } }
 .ru { transform-box: view-box; transform-origin: 300px 420px; transform: rotate(46deg); animation: ru 10s ease-in-out infinite; }
 .q1 { animation: q1 10s linear infinite; } .q2 { animation: q2 10s linear infinite; } .k1 { animation: k1 10s linear infinite; } .k2 { animation: k2 10s linear infinite; }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }

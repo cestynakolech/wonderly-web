@@ -6,13 +6,8 @@
 <path d="M138 210V250A92 52 0 0 0 322 250V210" fill="#f2b705" stroke="#9c6b00" stroke-width="2.5"/>
 <path d="M144 268.5v-10M151 276.6v-10M158 282.4v-10M165 286.8v-10M172 290.4v-10M179 293.3v-10M186 295.7v-10M193 297.6v-10M200 299.2v-10M207 300.3v-10M214 301.2v-10M221 301.8v-10M228 302v-10M235 301.9v-10M242 301.6v-10M249 300.9v-10M256 299.9v-10M263 298.5v-10M270 296.8v-10M277 294.7v-10M284 292.1v-10M291 288.9v-10M298 285v-10M305 280.1v-10M312 273.6v-10M319 263.2v-10" stroke="#5c3d00" stroke-width="1.5"/>
 <ellipse cx="230" cy="210" rx="92" ry="52" fill="#ffd43b" stroke="#9c6b00" stroke-width="2.5"/>
-<ellipse cx="230" cy="210" rx="81" ry="45.8" fill="none" stroke="#b08900" stroke-width="2"/>
-<ellipse cx="230" cy="210" rx="70" ry="39.6" fill="none" stroke="#b08900" stroke-width="2"/>
-<ellipse cx="230" cy="210" rx="59" ry="33.4" fill="none" stroke="#b08900" stroke-width="2"/>
-<ellipse cx="230" cy="210" rx="48" ry="27.2" fill="none" stroke="#b08900" stroke-width="2"/>
-<ellipse cx="230" cy="210" rx="37" ry="21" fill="none" stroke="#b08900" stroke-width="2"/>
-<ellipse cx="230" cy="210" rx="26" ry="14.799999999999997" fill="none" stroke="#b08900" stroke-width="2"/>
-<ellipse cx="230" cy="210" rx="15" ry="8.600000000000001" fill="none" stroke="#b08900" stroke-width="2"/>
+<ellipse cx="230" cy="210" rx="62" ry="35" fill="none" stroke="#b08900" stroke-width="2"/>
+<ellipse cx="230" cy="210" rx="32" ry="18.1" fill="none" stroke="#b08900" stroke-width="2"/>
 <path d="M224 204h14v6h-14z" fill="#868e96" stroke="#495057"/>
 <path d="M156.5 242.2A206 206 0 0 0 559.5 261.2L606 273.2A254 254 0 0 1 109.1 249.7Z" fill="#ffd43b" stroke="#9c6b00" stroke-width="2.5"/>
 <text x="140.6" y="279" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle" dominant-baseline="central" transform="rotate(72.5 140.6 279)">27</text>

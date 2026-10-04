@@ -4,8 +4,7 @@
 @keyframes skok { 0%, 10% { transform: translateY(0); } 17% { transform: translateY(-34px); } 24% { transform: translateY(0); } 31% { transform: translateY(-34px); } 38% { transform: translateY(0); } 45% { transform: translateY(-34px); } 52%, 100% { transform: translateY(0); } }
 @keyframes stoji { 0%, 12% { opacity: 0; } 50%, 94% { opacity: 1; } 100% { opacity: 0; } }
 @keyframes lezi { 0%, 12% { opacity: 1; } 50%, 94% { opacity: 0; } 100% { opacity: 1; } }
-@keyframes pop { 0%, 52% { opacity: 0; } 58%, 94% { opacity: 1; } 100% { opacity: 0; } }
-.skok { animation: skok 9s ease-in-out infinite; } .stoji { animation: stoji 9s linear infinite; } .lezi { opacity: 0; animation: lezi 9s linear infinite; } .pop { animation: pop 9s linear infinite; }
+.skok { animation: skok 9s ease-in-out infinite; } .stoji { animation: stoji 9s linear infinite; } .lezi { opacity: 0; animation: lezi 9s linear infinite; }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
 </style>
 <defs><radialGradient id="gP" cx="50%" cy="50%" r="50%" fx="35%" fy="30%"><stop offset="0" stop-color="#f19a9a"/><stop offset="0.45" stop-color="#c92a2a"/><stop offset="1" stop-color="#7d1a1a"/></radialGradient>
