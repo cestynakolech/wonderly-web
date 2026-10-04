@@ -2,7 +2,7 @@
 // Interaktivní atom a molekuly (podle animace atomu v prezentaci učitele
 // „Stavba látek"): režim ATOM — jádro (protony červené, neutrony šedé)
 // a elektrony obíhající po slupkách (2 + zbytek), výběr prvku H/He/C/O;
-// režim MOLEKULY — stavebnice H₂, O₂, H₂O, CO₂, NaCl s rozlišením
+// režim MOLEKULY — stavebnice H₂, O₂, H₂O, CO₂, HCl s rozlišením
 // prvek (stejné atomy) × sloučenina (různé atomy).
 ---
 
@@ -24,7 +24,7 @@
 		<button type="button" class="atm-tl atm-mol" data-mol="O2">O₂ kyslík</button>
 		<button type="button" class="atm-tl atm-mol" data-mol="H2O">H₂O voda</button>
 		<button type="button" class="atm-tl atm-mol" data-mol="CO2">CO₂ oxid uhličitý</button>
-		<button type="button" class="atm-tl atm-mol" data-mol="NaCl">NaCl sůl</button>
+		<button type="button" class="atm-tl atm-mol" data-mol="HCl">HCl chlorovodík</button>
 	</p>
 	<svg id="atm-svg" viewBox="0 0 520 320" role="img" aria-label="Model atomu s obíhajícími elektrony a modely molekul">
 		<rect x="0" y="0" width="520" height="320" fill="#101426" />
@@ -119,9 +119,9 @@
 		O2: { druh: 'prvek', text: 'molekula kyslíku — 2 STEJNÉ atomy → PRVEK', atomy: [['O', -34, 0], ['O', 34, 0]] },
 		H2O: { druh: 'sloučenina', text: 'voda — 2 vodíky + 1 kyslík (RŮZNÉ atomy) → SLOUČENINA', atomy: [['O', 0, -10], ['H', -46, 26], ['H', 46, 26]] },
 		CO2: { druh: 'sloučenina', text: 'oxid uhličitý — 1 uhlík + 2 kyslíky → SLOUČENINA', atomy: [['C', 0, 0], ['O', -70, 0], ['O', 70, 0]] },
-		NaCl: { druh: 'sloučenina', text: 'kuchyňská sůl — sodík + chlor → SLOUČENINA', atomy: [['Na', -38, 0], ['Cl', 40, 0]] },
+		HCl: { druh: 'sloučenina', text: 'chlorovodík — 1 vodík + 1 chlor (RŮZNÉ atomy) → SLOUČENINA', atomy: [['H', -30, 0], ['Cl', 34, 0]] },
 	};
-	const VZHLED = { H: ['#f1f3f5', 16, '#2b2a26'], O: ['#e03131', 26, '#fff'], C: ['#343a40', 24, '#fff'], Na: ['#f59f00', 22, '#fff'], Cl: ['#2f9e44', 26, '#fff'] };
+	const VZHLED = { H: ['#f1f3f5', 16, '#2b2a26'], O: ['#e03131', 26, '#fff'], C: ['#343a40', 24, '#fff'], Na: ['#7048e8', 22, '#fff'], Cl: ['#69db7c', 26, '#212529'] };
 
 	function postavMolekulu(klic) {
 		smaz(molekulaG);

@@ -38,7 +38,14 @@
 .bs1 { animation: bs1 6s ease-in-out infinite, sipky 6s linear infinite; }
 @keyframes bs2 { 0% { transform: translate(352px, 592px) } 15% { transform: translate(352px, 592px) } 40% { transform: translate(338px, 592px) } 65% { transform: translate(338px, 592px) } 85% { transform: translate(352px, 592px) } 100% { transform: translate(352px, 592px) } }
 .bs2 { animation: bs2 6s ease-in-out infinite, sipky 6s linear infinite; }
-@media (prefers-reduced-motion: reduce) { * { animation: none !important; } .dr { stroke-dasharray: none !important; } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } .dr { stroke-dasharray: none !important; }
+/* klidový stav = koncový stav animace (natažená pružina, stlačený míček, šipky sil viditelné) */
+.pz { transform: translate(92px, 150px) scale(1.4348, 1); } .dp { transform: translate(434px, 150px); }
+.ac0 { transform: translate(192px, 262px); } .ac1 { transform: translate(264px, 262px); } .ac2 { transform: translate(336px, 262px); } .ac3 { transform: translate(408px, 262px); }
+.as0 { transform: translate(228px, 232px); opacity: 1; } .as1 { transform: translate(300px, 232px); opacity: 1; } .as2 { transform: translate(372px, 232px); opacity: 1; }
+.mi { transform: translate(300px, 530px) scale(1.25, 0.72); } .dl { transform: translate(300px, 460.9px); }
+.bc0 { transform: translate(243px, 622px); } .bc1 { transform: translate(281px, 622px); } .bc2 { transform: translate(319px, 622px); } .bc3 { transform: translate(357px, 622px); }
+.bs0 { transform: translate(262px, 592px); opacity: 1; } .bs1 { transform: translate(300px, 592px); opacity: 1; } .bs2 { transform: translate(338px, 592px); opacity: 1; } }
 </style>
 <rect x="3" y="3" width="594" height="709" rx="14" fill="#f8f9fa"/>
 <defs><radialGradient id="castice" cx="35%" cy="35%" r="70%"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#ced4da"/></radialGradient></defs>

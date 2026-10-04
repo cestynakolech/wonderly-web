@@ -135,7 +135,7 @@
 <path style="animation: f0_9 5.502s linear infinite; animation-delay: -4.015s;" opacity="0" d="M98.1 140.7A100 100 0 0 1 124.3 123.7" fill="none" stroke="#e03131" stroke-width="7" stroke-linecap="round"/>
 <path style="animation: f0_9 5.502s linear infinite; animation-delay: -2.181s;" opacity="0" d="M134.1 310.1A100 100 0 0 1 106.3 295.9" fill="none" stroke="#e03131" stroke-width="7" stroke-linecap="round"/>
 <g class="g0_9" transform="translate(215.8 190.3)"><circle cx="0" cy="0" r="7" fill="url(#vzduch)" stroke="#495057" stroke-width="1.5"/></g>
-<text x="165" y="432" font-size="22" font-weight="bold" fill="#1864ab" text-anchor="middle">chladný plyn</text>
+<rect x="93" y="412" width="144" height="40" rx="6" fill="#f8f9fa"/><text x="165" y="432" font-size="22" font-weight="bold" fill="#1864ab" text-anchor="middle">chladný plyn</text>
 <path d="M435 323Q417 365 439 395Q457 425 429 450" fill="none" stroke="#495057" stroke-width="2"/>
 <path d="M426 327L435 313L444 327Z" fill="#f59f00" stroke="#e67700" stroke-width="2"/>
 <circle cx="435" cy="215" r="100" fill="url(#balon)" stroke="#f59f00" stroke-width="6"/>
@@ -204,7 +204,7 @@
 <path style="animation: f1_9 4.677s linear infinite; animation-delay: -3.413s;" opacity="0" d="M368.1 140.7A100 100 0 0 1 394.3 123.7" fill="none" stroke="#e03131" stroke-width="7" stroke-linecap="round"/>
 <path style="animation: f1_9 4.677s linear infinite; animation-delay: -1.854s;" opacity="0" d="M404.1 310.1A100 100 0 0 1 376.3 295.9" fill="none" stroke="#e03131" stroke-width="7" stroke-linecap="round"/>
 <g class="g1_9" transform="translate(485.8 190.3)"><circle cx="0" cy="0" r="7" fill="url(#vzduch)" stroke="#495057" stroke-width="1.5"/></g>
-<text x="435" y="432" font-size="22" font-weight="bold" fill="#c92a2a" text-anchor="middle">teplý plyn</text>
+<rect x="363" y="412" width="144" height="40" rx="6" fill="#f8f9fa"/><text x="435" y="432" font-size="22" font-weight="bold" fill="#c92a2a" text-anchor="middle">teplý plyn</text>
 <circle cx="70" cy="470" r="8" fill="url(#vzduch)" stroke="#495057" stroke-width="1.5"/><text x="86" y="477" font-size="20" fill="#212529" text-anchor="start">částice vzduchu</text>
 <path d="M330 478A40 40 0 0 1 356 466" fill="none" stroke="#e03131" stroke-width="7" stroke-linecap="round"/><text x="368" y="477" font-size="20" fill="#212529" text-anchor="start">náraz do stěny</text>
 <text x="300" y="522" font-size="22" fill="#212529" text-anchor="middle">Částice narážejí do stěn – to je tlak plynu.</text>
