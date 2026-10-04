@@ -33,7 +33,8 @@
 <radialGradient id="cm" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#e3fafc"/><stop offset="1" stop-color="#1098ad"/></radialGradient>
 <radialGradient id="cs" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#ffc9c9"/><stop offset="1" stop-color="#e03131"/></radialGradient>
 <g id="sl"><circle cy="140" r="7" fill="url(#cm)" stroke="#0b7285" stroke-width="2"/><circle cy="170" r="7" fill="url(#cm)" stroke="#0b7285" stroke-width="2"/><circle cy="200" r="7" fill="url(#cm)" stroke="#0b7285" stroke-width="2"/><circle cy="230" r="7" fill="url(#cm)" stroke="#0b7285" stroke-width="2"/></g>
-<g id="sc"><circle cy="140" r="7" fill="url(#cm)" stroke="#0b7285" stroke-width="2"/><path d="M-30 170H30" stroke="#c92a2a" stroke-width="4"/><path d="M-22 162L-36 170L-22 178ZM22 162L36 170L22 178Z" fill="#c92a2a"/><circle cy="170" r="9" fill="url(#cs)" stroke="#a51d1d" stroke-width="2.5"/><circle cy="200" r="7" fill="url(#cm)" stroke="#0b7285" stroke-width="2"/><circle cy="230" r="7" fill="url(#cm)" stroke="#0b7285" stroke-width="2"/></g>
+<g id="sc"><circle cy="140" r="7" fill="url(#cm)" stroke="#0b7285" stroke-width="2"/><circle cy="200" r="7" fill="url(#cm)" stroke="#0b7285" stroke-width="2"/><circle cy="230" r="7" fill="url(#cm)" stroke="#0b7285" stroke-width="2"/></g>
+<g id="sa"><path d="M-30 170H30" stroke="#c92a2a" stroke-width="4"/><path d="M-22 162L-36 170L-22 178ZM22 162L36 170L22 178Z" fill="#c92a2a"/><circle cy="170" r="9" fill="url(#cs)" stroke="#a51d1d" stroke-width="2.5"/></g>
 </defs>
 <rect x="3" y="3" width="894" height="474" rx="14" fill="#f8f9fa"/>
 <text x="450" y="40" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Podélné vlnění</text>
@@ -48,6 +49,7 @@
 <use href="#sl" x="80" class="p0"/><use href="#sl" x="100" class="p1"/><use href="#sl" x="120" class="p2"/><use href="#sl" x="140" class="p3"/><use href="#sl" x="160" class="p4"/><use href="#sc" x="180" class="p5"/><use href="#sl" x="200" class="p6"/><use href="#sl" x="220" class="p7"/><use href="#sl" x="240" class="p8"/><use href="#sl" x="260" class="p9"/><use href="#sl" x="280" class="p10"/><use href="#sl" x="300" class="p11"/>
 <use href="#sl" x="320" class="p0"/><use href="#sl" x="340" class="p1"/><use href="#sl" x="360" class="p2"/><use href="#sl" x="380" class="p3"/><use href="#sl" x="400" class="p4"/><use href="#sc" x="420" class="p5"/><use href="#sl" x="440" class="p6"/><use href="#sl" x="460" class="p7"/><use href="#sl" x="480" class="p8"/><use href="#sl" x="500" class="p9"/><use href="#sl" x="520" class="p10"/><use href="#sl" x="540" class="p11"/>
 <use href="#sl" x="560" class="p0"/><use href="#sl" x="580" class="p1"/><use href="#sl" x="600" class="p2"/><use href="#sl" x="620" class="p3"/><use href="#sl" x="640" class="p4"/><use href="#sc" x="660" class="p5"/><use href="#sl" x="680" class="p6"/><use href="#sl" x="700" class="p7"/><use href="#sl" x="720" class="p8"/><use href="#sl" x="740" class="p9"/><use href="#sl" x="760" class="p10"/><use href="#sl" x="780" class="p11"/>
+<use href="#sa" x="180" class="p5"/><use href="#sa" x="420" class="p5"/><use href="#sa" x="660" class="p5"/>
 <use href="#sl" x="800" class="p0"/><use href="#sl" x="820" class="p1"/><use href="#sl" x="840" class="p2"/>
 <!-- legenda -->
 <path d="M84 304H126" stroke="#c92a2a" stroke-width="4"/><path d="M90 296L76 304L90 312ZM120 296L134 304L120 312Z" fill="#c92a2a"/>
@@ -55,7 +57,7 @@
 <path d="M520 304H760" stroke="#1864ab" stroke-width="5"/><path d="M756 292L780 304L756 316Z" fill="#1864ab"/>
 <text x="650" y="338" font-size="20" fill="#212529" text-anchor="middle">směr šíření vlnění</text>
 <rect x="60" y="364" width="780" height="92" rx="12" fill="#e3fafc" stroke="#0b7285" stroke-width="2.5"/>
-<text x="450" y="397" font-size="20" fill="#212529" text-anchor="middle">Částice kmitají <tspan font-weight="bold">ve směru</tspan> šíření vlnění.</text>
-<text x="450" y="424" font-size="20" fill="#212529" text-anchor="middle">Vzniká nahuštěním a zředěním částic. Příklad: zvuk.</text>
-<text x="450" y="447" font-size="18" fill="#212529" text-anchor="middle">Podélné vlnění existuje ve všech skupenstvích.</text>
+<text x="450" y="394" font-size="22" fill="#212529" text-anchor="middle">Částice kmitají <tspan font-weight="bold">ve směru</tspan> šíření vlnění.</text>
+<text x="450" y="421" font-size="22" fill="#212529" text-anchor="middle">Vzniká nahuštěním a zředěním částic. Příklad: zvuk.</text>
+<text x="450" y="448" font-size="22" fill="#212529" text-anchor="middle">Podélné vlnění existuje ve všech skupenstvích.</text>
 </svg>
