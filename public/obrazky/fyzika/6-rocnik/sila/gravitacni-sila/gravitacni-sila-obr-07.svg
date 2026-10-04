@@ -21,5 +21,7 @@
 <text x="800" y="115.1" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">odliv</text>
 <path d="M788,524 L680,451 L812,524 Z" fill="#ffffff" stroke="#2b2a26" stroke-width="2" stroke-linejoin="round"/><rect x="747" y="500" width="107" height="48" rx="12" fill="#ffffff" stroke="#2b2a26" stroke-width="2"/><path d="M790,524 L810,524" stroke="#ffffff" stroke-width="4"/>
 <text x="800" y="533.1" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">odliv</text>
+<rect x="602" y="283" width="96" height="44" rx="10" fill="#ffffff" stroke="#2b2a26" stroke-width="2"/>
+<text x="650" y="314" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">Země</text>
 <text x="250" y="556" font-size="18" fill="#495057" text-anchor="middle">Velikosti a vzdálenost nejsou v měřítku.</text>
 </svg>

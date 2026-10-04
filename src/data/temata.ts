@@ -608,7 +608,7 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>🔎 Země a míč se přitahují navzájem stejně velkou silou — proč vidíme padat míč, a ne Zemi? Lehký míč se uvede do pohybu snadno, zatímco obrovskou Zemi stejná síla pohne jen neznatelně.</p>
 						<p>🔎 A proč se astronauti na vesmírné stanici vznášejí? Ve výšce 400 km je gravitace stále téměř tak silná jako na povrchu — stanice i astronauti ale kolem Země <strong>neustále volně padají po oběžné dráze</strong>, a proto se vůči sobě vznášejí.</p>
-							<p>👉 Přesně tomu se říká <strong>stav beztíže</strong>: je to <strong>volný pád</strong>, ne nepřítomnost gravitace. Netlačíš na podložku, protože padáš i s ní. Krátce ho zažiješ i při seskoku z můstku nebo v rozjetém výtahu, kterému by praskly lanko. Pozor na častý omyl — beztíže <em>není</em> rovnováha sil: kniha na stole má síly v rovnováze a beztíže tam rozhodně není.</p>
+						<p>👉 Přesně tomu se říká <strong>stav beztíže</strong>: je to <strong>volný pád</strong>, ne nepřítomnost gravitace. Netlačíš na podložku, protože padáš i s ní. Krátce ho zažiješ i při seskoku z můstku nebo v rozjetém výtahu, kterému by prasklo lanko. Pozor na častý omyl — beztíže <em>není</em> rovnováha sil: kniha na stole má síly v rovnováze a beztíže tam rozhodně není.</p>
 						<h3>Výpočet u povrchu Země</h3>
 						<p>Na každý <strong>1 kg</strong> hmotnosti tělesa působí u povrchu Země gravitační síla přibližně <strong>10 N</strong>.</p>
 						<ul>

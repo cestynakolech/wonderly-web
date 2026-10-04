@@ -3,7 +3,7 @@
 /* Olovnice se rozkývá a ustálí (8 s, smyčka). Bez animace (prefers-reduced-motion) zůstává koncový stav = atributy níže: olovnice visí svisle. */
 .kyvadlo { transform-box: view-box; transform-origin: 250px 132px; animation: kyv 8s ease-in-out infinite; }
 .svisle { animation: svisle 8s linear infinite; }
-@keyframes kyv { 0% { transform: rotate(16deg); } 9% { transform: rotate(-12deg); } 18% { transform: rotate(9deg); } 27% { transform: rotate(-6deg); } 36% { transform: rotate(4deg); } 45% { transform: rotate(-2deg); } 53%, 96% { transform: rotate(0deg); } 100% { transform: rotate(16deg); } }
+@keyframes kyv { 0% { transform: rotate(16deg); } 9% { transform: rotate(-12deg); } 18% { transform: rotate(9deg); } 27% { transform: rotate(-6deg); } 36% { transform: rotate(4deg); } 45% { transform: rotate(-2deg); } 53%, 96% { transform: rotate(0deg); opacity: 1; } 97% { transform: rotate(0deg); opacity: 0; } 99% { transform: rotate(16deg); opacity: 0; } 100% { transform: rotate(16deg); opacity: 1; } }
 @keyframes svisle { 0%, 54% { opacity: 0; } 60%, 92% { opacity: 1; } 96%, 100% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .kyvadlo, .svisle { animation: none; } }
 </style>

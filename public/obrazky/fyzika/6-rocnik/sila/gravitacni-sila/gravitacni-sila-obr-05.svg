@@ -25,8 +25,8 @@
 <path d="M520,274 H546 V300" fill="none" stroke="#ffffff" stroke-width="7"/><path d="M520,274 H546 V300" fill="none" stroke="#2b2a26" stroke-width="3"/>
 <rect x="580" y="234" width="65" height="40" rx="10" fill="#ffffff" stroke="#2b2a26" stroke-width="2"/>
 <text x="612" y="262" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">90°</text>
-<rect x="606" y="34" width="188" height="44" rx="10" fill="#ffffff" stroke="#1971c2" stroke-width="2"/>
-<text x="620" y="66" font-size="26" font-weight="bold" fill="#1971c2" text-anchor="start">Svislý směr</text>
+<rect x="540" y="140" width="188" height="44" rx="10" fill="#ffffff" stroke="#1971c2" stroke-width="2"/>
+<text x="554" y="172" font-size="26" font-weight="bold" fill="#1971c2" text-anchor="start">Svislý směr</text>
 <rect x="56" y="236" width="232" height="44" rx="10" fill="#ffffff" stroke="#2b2a26" stroke-width="2"/>
 <text x="70" y="268" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="start">Vodorovný směr</text>
 <rect x="201" y="510" width="558" height="40" rx="10" fill="#ffffff" stroke="#2b2a26" stroke-width="2"/>
