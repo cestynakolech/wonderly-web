@@ -238,7 +238,7 @@ console.log('— zvuk —');
 	au.pause = () => { pauz++; };
 	const popZ = () => Z.el('zp-popisky').innerHTML;
 	ok(hrano === 0, 'bez kliknutí se zvuk sám nepřehrává');
-	ok(/id="zp-zvuk" aria-pressed="false">▶ Poslechni si vysvětlení<\/button>/.test(zdroj), 'tlačítko „▶ Poslechni si vysvětlení", aria-pressed = false');
+	ok(/id="zp-zvuk" aria-pressed="false">🔊 Poslechni si vysvětlení<\/button>/.test(zdroj), 'tlačítko „🔊 Poslechni si vysvětlení", aria-pressed = false');
 	ok(/id="zp-zvuk"[^>]*aria-pressed/.test(zdroj) && /role="status"/.test(zdroj) && /<summary>Text namluveného vysvětlení/.test(zdroj), 'přístupnost: aria-pressed, role=status, text vysvětlení pro neslyšící');
 	ok(/preload="none"/.test(zdroj) && !/autoplay/.test(zdroj), 'audio bez preload a bez autoplay');
 	Z.nastavCas(9000); Z.krok(); // animace běží po hodinách někde uprostřed
@@ -246,19 +246,19 @@ console.log('— zvuk —');
 	Z.klik('zp-zvuk');
 	ok(hrano === 1 && au.currentTime === 0, 'klik spustí zvuk od začátku (play 1×, currentTime 0)');
 	ok(/Šipka ukazuje</.test(popZ()) && Z.el('zp-cas').value === '0', 'klik vrátí animaci na začátek (0 s)');
-	ok(Z.el('zp-zvuk').textContent === '⏹ Zastavit vysvětlení' && Z.el('zp-zvuk').atributy['aria-pressed'] === 'true', 'za hraní: „⏹ Zastavit vysvětlení", aria-pressed = true');
+	ok(!/Zastavit|⏹|▶/.test(Z.el('zp-zvuk').textContent || '') && Z.el('zp-zvuk').atributy['aria-pressed'] === 'true', 'za hraní: text se nemění, jen aria-pressed = true');
 	au.currentTime = 6.2; Z.nastavCas(9500); Z.krok();
 	ok(/proud teče k nám/.test(popZ()) && Z.el('zp-cas').value === '6', 'čas animace určuje zvuk (6,2 s → „proud teče k nám")');
 	au.currentTime = 10.4; Z.nastavCas(9600); Z.krok();
 	ok(/proud teče od nás/.test(popZ()) && Z.el('zp-cas').value === '10', 'čas animace určuje zvuk (10,4 s → „proud teče od nás")');
 	Z.klik('zp-zvuk');
-	ok(pauz === 1 && Z.el('zp-zvuk').textContent === '▶ Poslechni si vysvětlení', 'druhý klik zvuk zastaví');
+	ok(pauz === 1 && !/Zastavit|⏹|▶/.test(Z.el('zp-zvuk').textContent || ''), 'druhý klik zvuk zastaví');
 	Z.klik('zp-zvuk');
 	Z.klik('zp-k-nam');
-	ok(pauz === 2 && Z.el('zp-zvuk').textContent === '▶ Poslechni si vysvětlení', 'ruční ovládání animace zvuk zastaví');
+	ok(pauz === 2 && !/Zastavit|⏹|▶/.test(Z.el('zp-zvuk').textContent || ''), 'ruční ovládání animace zvuk zastaví');
 	Z.klik('zp-zvuk');
 	Z.el('zp-audio').posluchaci.ended.forEach((f) => f());
-	ok(Z.el('zp-zvuk').textContent === '▶ Poslechni si vysvětlení' && hrano === 3, 'po dohrání se tlačítko vrátí');
+	ok(!/Zastavit|⏹|▶/.test(Z.el('zp-zvuk').textContent || '') && Z.el('zp-zvuk').atributy['aria-pressed'] === 'false' && hrano === 3, 'po dohrání se tlačítko vrátí');
 	Z.klik('zp-zvuk');
 	au.play = () => Promise.reject(new Error('blokováno'));
 	Z.klik('zp-zvuk'); Z.klik('zp-zvuk');
@@ -279,6 +279,18 @@ const tS = prvni(dS, 'tecka'), kS = dS.match(/<line [^>]*data-dil="krizek" \/>/)
 ok(rozsah(tS, 0)[1] < 240 && cisla(kS, 'x1')[0] > 240, 'statický obraz: tečka vlevo, křížek vpravo');
 ok(B.el('zp-out-cas').textContent === 'pohyb vypnut — obě značky vedle sebe', 'statický obraz: u posuvníku je vysvětlení, proč se nic nehýbe');
 ok(/>k nám</.test(pS) && />od nás</.test(pS),'statický obraz: popisky „k nám" a „od nás"');
+
+// reduced-motion: klik na zvuk a dohrání vrátí statický obraz se značkami
+{
+	const R = spust({ omezit: true });
+	const au = R.el('zp-audio');
+	au.play = () => Promise.resolve(); au.pause = () => {};
+	R.klik('zp-zvuk');
+	R.el('zp-audio').posluchaci.ended.forEach((f) => f());
+	const d = R.el('zp-drat').innerHTML, p = R.el('zp-popisky').innerHTML;
+	ok(/celo-tecka/.test(d) && /celo-krizek/.test(d) && />k nám</.test(p) && />od nás</.test(p), 'omezený pohyb: po dohrání zvuku se vrátí statický obraz se značkami ⊙/⊗');
+	ok(R.el('zp-out-cas').textContent === 'pohyb vypnut — obě značky vedle sebe', 'omezený pohyb: po dohrání zpět text o vypnutém pohybu');
+}
 
 console.log(chyby ? `\n❌ ${chyby} chyb` : '\n✅ vše v pořádku');
 process.exit(chyby ? 1 : 0);

@@ -23,7 +23,7 @@
 		<button type="button" class="zp-tl" id="zp-od-nas">⊗ proud od nás</button>
 	</p>
 	<p>
-		<button type="button" class="zp-tl" id="zp-zvuk" aria-pressed="false">▶ Poslechni si vysvětlení</button>
+		<button type="button" class="zp-tl" id="zp-zvuk" aria-pressed="false">🔊 Poslechni si vysvětlení</button>
 		<span id="zp-stav" role="status" class="zp-stav"></span>
 	</p>
 	<audio id="zp-audio" preload="none" src="/media/fyzika/9-rocnik/magneticke-pole/magneticke-pole-vodice-a-civky/sip-proud-vysvetleni.mp3"></audio>
@@ -273,7 +273,6 @@
 	}
 	function zvukSkonci(zprava) {
 		zvukHraje = false;
-		tlZvuk.textContent = '▶ Poslechni si vysvětlení';
 		tlZvuk.setAttribute('aria-pressed', 'false');
 		stavZvuku.textContent = zprava || '';
 	}
@@ -284,7 +283,6 @@
 	}
 	function spustZvuk() {
 		zvukHraje = true;
-		tlZvuk.textContent = '⏹ Zastavit vysvětlení';
 		tlZvuk.setAttribute('aria-pressed', 'true');
 		stavZvuku.textContent = 'Vysvětlení hraje.';
 		zvuk.currentTime = 0;
@@ -303,8 +301,13 @@
 	tlZvuk.addEventListener('click', () => { if (zvukHraje) zastavZvuk(); else spustZvuk(); });
 	zvuk.addEventListener('ended', () => {
 		zvukSkonci('');
-		if (omezitPohyb) zastav(0);
-		else { zacatek = null; tPauza = 0; }
+		if (omezitPohyb) {
+			// po dohrání zpět na statický obraz s oběma značkami
+			hraje = false; zacatek = null; tPauza = 0;
+			tlHraj.textContent = '▶ Přehrát';
+			vystupCasu.textContent = 'pohyb vypnut — obě značky vedle sebe';
+			vykresliStaticky();
+		} else { zacatek = null; tPauza = 0; }
 	});
 	zvuk.addEventListener('error', () => { if (zvukHraje) zvukSkonci('Zvuk se nepodařilo načíst.'); });
 
