@@ -1581,36 +1581,36 @@ export const laborky: Record<string, Laborka> = {
 	},
 	'fyzika/8-rocnik/energie/vnitrni-energie-telesa': {
 		nazev: 'Vnitřní energie: barvivo ve vodě a tření',
-		cil: 'Zjistit, jak teplota ovlivňuje pohyb částic, a vyzkoušet dva způsoby zvýšení vnitřní energie tělesa.',
-		pomucky: ['dva stejné průhledné kelímky', 'studená voda s ledem', 'teplá voda z kohoutku asi 40 °C', 'potravinářské barvivo nebo čajový sáček', 'stopky', 'kancelářská sponka', 'tužka'],
+		cil: 'Zjistit, jak teplota ovlivňuje pohyb částic, a vyzkoušet dva způsoby, jak těleso zahřát bez ohně.',
+		pomucky: ['dva stejné průhledné kelímky', 'studená voda s ledem', 'teplá voda z kohoutku asi 40 °C', 'potravinářské barvivo nebo čajový sáček', 'stopky', 'kovová lžička', 'tužka'],
 		postup: [
-			'Do jednoho kelímku nalij studenou vodu s ledem a do druhého teplou vodu z kohoutku. Vodu nech ustát.',
-			'Do obou kelímků najednou kápni stejně velkou kapku barviva. Měř čas, za který se barvivo rozprostře po celém kelímku, a zapiš ho v celých s. Maximálně 120 s.',
+			'Do jednoho kelímku nalij studenou vodu a do druhého teplou vodu z kohoutku. Vodu nech ustát a případný led vyndej.',
+			'Do obou kelímků najednou kápni stejně velkou kapku barviva. Po 1 minutě a po 2 minutách zapiš, jak daleko se barvivo ve vodě rozprostřelo (jen u kapky, do poloviny kelímku, po celém kelímku).',
 			'Dlaně o sebe 20krát rychle otři. Hned poté se jednou dlaní dotkni tváře a zapiš pocit.',
-			'Sponku rychle ohni tam a zpět 10krát. Hned poté se jí lehce dotkni na místě ohybu a zapiš pocit.',
+			'Kovovou lžičku ponoř na 1 minutu do teplé vody z kohoutku. Vytáhni ji, osuš a lehce se jí dotkni. Zapiš pocit.',
 			'Vysvětlení: vnitřní energie tělesa je součet energií všech částic, ze kterých je těleso složeno.',
 		],
 		tabulka: {
-			sloupce: ['pokus', 'podmínky', 'výsledek (s nebo pocit)'],
+			sloupce: ['pokus', 'podmínky', 'výsledek (popis nebo pocit)'],
 			radky: 4,
 		},
 		otazky: [
 			'Ve které vodě se barvivo rozptýlilo rychleji? Čím to je?',
-			'Čím se zvýšila vnitřní energie dlaní a sponky?',
+			'Čím se zvýšila vnitřní energie dlaní a čím vnitřní energie lžičky?',
 			'Uveď tři způsoby, jak lze zvýšit vnitřní energii tělesa.',
 			'Jak využíváme zvýšení teploty třením při rozdělávání ohně?',
 		],
-		pozor: 'Používej jen teplou vodu z kohoutku, ne horkou. Sponkou opatrně ohýbej, aby ses neporanil. Barvivo nepij a po pokusu si umyj ruce. Rozlitou vodu hned utři.',
+		pozor: 'Používej jen teplou vodu z kohoutku, ne horkou. Lžičku vytahuj opatrně a dotýkej se jí jen lehce. Barvivo nepij a po pokusu si umyj ruce. Rozlitou vodu hned utři.',
 		tip: 'Pohyb částic v látce se nikdy nezastaví. Dokazuje to například Brownův pohyb pylových zrnek na vodě.',
 	},
 	'fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tani': {
 		nazev: 'Tání ledu: co se děje s teplotou',
 		cil: 'Sledovat teplotu tajícího ledu v čase a zjistit, jak ji ovlivní přidání soli.',
-		pomucky: ['plastový kelímek', 'rozdrcený led', 'studená voda', 'teploměr do −10 °C', 'kuchyňská sůl', 'lžíce', 'stopky', 'tužka'],
+		pomucky: ['plastový kelímek', 'rozdrcený led', 'studená voda', 'teploměr do −20 °C', 'kuchyňská sůl', 'lžíce', 'stopky', 'tužka'],
 		postup: [
 			'Kelímek naplň do poloviny rozdrceným ledem a přilij trochu studené vody. Teploměr vlož do směsi tak, aby se nedotýkal dna.',
 			'Odečti teplotu v celých °C v čase 0, 2, 4 a 6 minut. Zapiš ji do tabulky. Led nesmí roztát úplně.',
-			'Do směsi přidej 3 lžíce soli a promíchej lžící. Po 8 a 10 minutách odečti teplotu a zapiš ji.',
+			'Do směsi přidej 3 lžíce soli a promíchej lžící. Po 8 a 10 minutách od začátku pokusu odečti teplotu a zapiš ji.',
 			'Vysvětlení: při tání se pevná látka mění na kapalinu.',
 		],
 		tabulka: {
@@ -1620,7 +1620,7 @@ export const laborky: Record<string, Laborka> = {
 		otazky: [
 			'Jak se měnila teplota směsi, dokud led tál?',
 			'Co se stalo s teplotou po přidání soli? Kde se tato vlastnost využívá?',
-			'Kolik tepla je potřeba k roztátí 2 kg ledu, má-li led měrné skupenské teplo tání 332 kJ/kg? Použij Lt = lt · m.',
+			'Kolik tepla je potřeba k roztátí 3 kg ledu, má-li led měrné skupenské teplo tání 332 kJ/kg? Použij Lt = lt · m.',
 			'Která z látek taje při jedné určité teplotě a která v určitém rozmezí teplot: led, vosk, čokoláda, kuchyňská sůl?',
 		],
 		pozor: 'Teploměr nepoužívej jako míchátko. Led a sůl nejez. Studený kelímek drž krátce, aby ses nepoškodil omrzlinou. Rozlitou vodu hned utři.',
@@ -1629,7 +1629,7 @@ export const laborky: Record<string, Laborka> = {
 	'fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tuhnuti': {
 		nazev: 'Tuhnutí vody a plavání ledu',
 		cil: 'Sledovat teplotu zamrzající vody a zjistit, jak se při zamrznutí mění její objem.',
-		pomucky: ['zkumavka s vodou do poloviny', 'plastový kelímek s rozdrceným ledem a solí', 'teploměr do −10 °C', 'kostka ledu', 'sklenice s vodou', 'stopky', 'tužka'],
+		pomucky: ['zkumavka s vodou do poloviny', 'plastový kelímek s rozdrceným ledem a solí', 'teploměr do −20 °C', 'kostka ledu', 'sklenice s vodou', 'stopky', 'tužka'],
 		postup: [
 			'Zkumavku s vodou vlož do kelímku s ledem a solí. Teploměr dej do vody ve zkumavce.',
 			'Každé 2 minuty odečti teplotu vody v celých °C a zapiš ji. Pozoruj tvorbu krystalků ledu. Odečítej nejvýš 12 minut.',
@@ -1646,7 +1646,7 @@ export const laborky: Record<string, Laborka> = {
 			'Proč praskají vodovodní trubky při zamrznutí vody?',
 			'Vodovodní potrubí se vede asi 90 cm pod zemí. Proč?',
 		],
-		pozor: 'Studenou lázeň a zkumavku drž krátce, aby ses nepoškodil omrzlinou. Zkumavka je skleněná, zacházej s ní opatrně. Teploměr nepoužívej jako míchátko. Rozlitou vodu hned utři.',
+		pozor: 'Studenou lázeň a zkumavku drž krátce, aby ses nepoškodil omrzlinou. Zkumavka je skleněná, zacházej s ní opatrně. Teploměr z ledu nevytahuj silou, nech led povolit. Teploměr nepoužívej jako míchátko. Rozlitou vodu hned utři.',
 		tip: 'Tuhnutí vody se říká mrznutí.',
 	},
 };
