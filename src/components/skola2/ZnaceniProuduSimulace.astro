@@ -1,0 +1,295 @@
+---
+// Značení směru proudu ⊙ / ⊗ (F9, magneticke-pole-vodice-a-civky) — zadání učitele 4. 10. 2026.
+// Opora ve výkladu: odstavec „Na obrázcích se na vodič často díváme z čela…“ (tečka v kolečku = proud
+// teče k nám, křížek v kolečku = od nás, představa šípu: hrot / opeření) a legenda obr. 05.
+//
+// Skutečné 3D bez knihovny: šíp a vodič jsou tělesa z ploch (dřík = hranol, hrot = kužel ze 16
+// trojúhelníků, opeření = 2 zkřížené plochy + kolečko, vodič = válec se dvěma kruhovými čely).
+// Každý snímek se vrcholy natočí kolem svislé osy (rotateY o úhel φ), promítnou se perspektivou
+// (kamera ve vzdálenosti D = 800) a plochy se kreslí od nejvzdálenější (malířův algoritmus),
+// odvrácené plochy těles se vynechají. Tečka i křížek proto vzniknou SAMY: zepředu je hrot kužele
+// tečkou uprostřed kolečka podstavy, zezadu se zkřížené plochy opeření jeví jako křížek v kolečku.
+// Výsledek je v SVG (atributy points, cx, cy, r…), takže ho vidí náhled i test.
+// Čas běží podle performance.now() (ne podle počtu snímků) — zpomalený rAF tempo nezmění.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Jak značíme směr proudu — šíp a vodič 🕹️</span></h2>
+	<p>Nad <strong>vodičem</strong> je šipka se směrem proudu. Promění se v <strong>šíp</strong> a pak se šíp i vodič <strong>spolu otočí</strong> — nejdřív hrotem k nám, potom od nás. Sleduj, co z nich zbude, když se na ně díváš z čela.</p>
+	<p>
+		<button type="button" class="zp-tl" id="zp-hraj">⏸ Zastavit</button>
+		<button type="button" class="zp-tl" id="zp-k-nam">⊙ proud k nám</button>
+		<button type="button" class="zp-tl" id="zp-od-nas">⊗ proud od nás</button>
+	</p>
+	<svg id="zp-svg" viewBox="0 0 480 440" role="img" aria-label="Animace: nad vodorovným vodičem je šipka se směrem proudu, ta se promění v šíp s hrotem vpředu a opeřením vzadu. Šíp i vodič se spolu otočí hrotem k nám: hrot šípu je vidět jako tečka v kolečku a průřez vodiče má stejnou značku, proud teče k nám. Pak se otočí od nás: opeření je vidět jako křížek v kolečku a vodič má křížek, proud teče od nás.">
+		<rect x="0" y="0" width="480" height="440" fill="#f8f9fa" />
+		<g id="zp-sip"></g>
+		<g id="zp-drat"></g>
+		<rect x="10" y="300" width="460" height="128" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2" />
+		<g id="zp-popisky"></g>
+	</svg>
+	<label class="zp-posuvnik">
+		Čas animace: <output id="zp-out-cas"></output>
+		<input type="range" id="zp-cas" min="0" max="14" step="1" value="0" />
+	</label>
+</section>
+
+<script>
+	// ---------- časování (sekundy) — jediný domov, zapsáno i v protokolu ----------
+	const DELKA = 14;
+	// fáze: od, do, popisek (2 řádky), první řádek tučně a větší u výsledků
+	const FAZE = [
+		{ od: 0, do: 2, r1: 'Šipka ukazuje', r2: 'směr proudu ve vodiči.' },
+		{ od: 2, do: 3, r1: 'Šipka se mění v šíp:', r2: 'hrot vpředu, opeření vzadu.' },
+		{ od: 3, do: 5, r1: 'Šíp i vodič se otáčejí…', r2: 'hrot míří k nám.' },
+		{ od: 5, do: 7.5, r1: 'proud teče k nám', r2: 'hrot = tečka v kolečku', vysledek: true },
+		{ od: 7.5, do: 10, r1: 'Šíp i vodič se otáčejí…', r2: 'hrot míří od nás.' },
+		{ od: 10, do: 12.5, r1: 'proud teče od nás', r2: 'opeření = křížek v kolečku', vysledek: true },
+		{ od: 12.5, do: 14, r1: 'Návrat na začátek…', r2: 'šíp se mění zpět v šipku.' },
+	];
+
+	const D = 800;                       // vzdálenost kamery od středu tělesa
+	const SIP = [240, 95];               // střed šípu ve scéně
+	const DRAT = [240, 235];             // střed vodiče ve scéně
+	const SVETLO = [-0.3, 0.5, 0.81];    // směr světla (přibližně jednotkový)
+
+	const hladce = (u) => u * u * (3 - 2 * u);   // plynulý rozjezd i dojezd otáčení
+	const r1 = (v) => Math.round(v * 10) / 10;
+
+	// ČISTÁ FUNKCE: stav animace v čase t → úhel natočení φ (stupně), proměna šipka→šíp m (0–1), fáze.
+	// φ 0° bok (šíp míří doprava), φ 90° hrot k nám, φ −90° hrot od nás.
+	function stav(t) {
+		t = ((t % DELKA) + DELKA) % DELKA;
+		const faze = FAZE.find((f) => t >= f.od && t < f.do) || FAZE[FAZE.length - 1];
+		let phi = 0, m = 1;
+		if (t < 2) { m = 0; }
+		else if (t < 3) { m = hladce(t - 2); }
+		else if (t < 5) { phi = 90 * hladce((t - 3) / 2); }
+		else if (t < 7.5) { phi = 90; }
+		else if (t < 10) { phi = 90 - 180 * hladce((t - 7.5) / 2.5); }
+		else if (t < 12.5) { phi = -90; }
+		else if (t < 13.5) { phi = -90 + 90 * hladce(t - 12.5); }
+		else { m = 1 - hladce((t - 13.5) / 0.5); }
+		return { t, phi, m, faze };
+	}
+
+	// ČISTÁ FUNKCE: natočení bodu kolem svislé osy (osa x → osa z, tj. k divákovi při φ 90°).
+	function natoc(p, phi) {
+		const a = (phi * Math.PI) / 180, c = Math.cos(a), s = Math.sin(a);
+		return [p[0] * c - p[2] * s, p[1], p[0] * s + p[2] * c];
+	}
+	// ČISTÁ FUNKCE: perspektivní promítnutí natočeného bodu na plátno; vrací [x, y, hloubka, zvětšení].
+	function promitni(q, stred) {
+		const k = D / (D - q[2]);
+		return [r1(stred[0] + q[0] * k), r1(stred[1] - q[1] * k), q[2], k];
+	}
+
+	const odecti = (a, b) => [a[0] - b[0], a[1] - b[1], a[2] - b[2]];
+	const krat = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
+	const skal = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+	function odstin(hex, k) {
+		const n = parseInt(hex.slice(1), 16);
+		const kan = (v) => Math.max(0, Math.min(255, Math.round(v * k)));
+		return '#' + [kan(n >> 16), kan((n >> 8) & 255), kan(n & 255)].map((v) => v.toString(16).padStart(2, '0')).join('');
+	}
+
+	// Plocha tělesa: body (místní souřadnice), barva, bod uvnitř tělesa (kvůli směru normály ven).
+	// Odvrácená plocha (normála od kamery) se nekreslí, oboustranná se kreslí vždy.
+	function plocha(body, barva, phi, stred, volby) {
+		const q = body.map((p) => natoc(p, phi));
+		let n = krat(odecti(q[1], q[0]), odecti(q[2], q[0]));
+		const tez = q.reduce((s, p) => [s[0] + p[0] / q.length, s[1] + p[1] / q.length, s[2] + p[2] / q.length], [0, 0, 0]);
+		if (volby.uvnitr) {
+			const u = natoc(volby.uvnitr, phi);
+			if (skal(n, odecti(tez, u)) < 0) n = [-n[0], -n[1], -n[2]];
+		}
+		const delka = Math.hypot(n[0], n[1], n[2]) || 1;
+		n = [n[0] / delka, n[1] / delka, n[2] / delka];
+		const kKamere = skal(n, odecti([0, 0, D], tez));
+		if (!volby.oboustranna && kKamere < 1e-9) return null;
+		const jas = 0.62 + 0.38 * Math.abs(skal(n, SVETLO));
+		const body2 = q.map((p) => promitni(p, stred));
+		const fill = volby.vypln || odstin(barva, jas);
+		const tah = volby.tah || fill;
+		return {
+			z: tez[2],
+			svg: `<polygon points="${body2.map((b) => b[0] + ',' + b[1]).join(' ')}" fill="${fill}" stroke="${tah}" stroke-width="${volby.siraTahu || 0.8}" stroke-linejoin="round"${volby.dil ? ` data-dil="${volby.dil}"` : ''} />`,
+		};
+	}
+	const kruh = (x, r, n) => Array.from({ length: n }, (_, i) => {
+		const a = (2 * Math.PI * i) / n;
+		return [x, r * Math.cos(a), r * Math.sin(a)];
+	});
+	// boční plochy válce/hranolu podél osy x
+	function plast(x1, x2, r, n, barva, phi, stred, dil) {
+		const a = kruh(x1, r, n), b = kruh(x2, r, n), out = [];
+		for (let i = 0; i < n; i++) {
+			const j = (i + 1) % n;
+			const p = plocha([a[i], b[i], b[j], a[j]], barva, phi, stred, { uvnitr: [x1, 0, 0], dil }); // stačí libovolný bod na ose
+			if (p) out.push(p);
+		}
+		return out;
+	}
+	// součást = skupina ploch kreslená pohromadě; mezi sebou se součásti řadí podle hloubky
+	function soucast(plochy, navic, z) {
+		plochy.sort((a, b) => a.z - b.z);
+		return { z, svg: plochy.map((p) => p.svg).join('') + (navic || '') };
+	}
+
+	// ---------- ŠÍP (místní souřadnice: osa x od opeření −150 k hrotu +150) ----------
+	function sipSvg(phi, m, stred) {
+		// štíhlý hrot (pokyn učitele): jen o málo širší než dřík (poloměr 5) — zepředu malá tečka
+		// uprostřed kolečka, které tvoří obrys opeření za ním
+		const delkaHrotu = 26 + 14 * m, rHrotu = 10 - 1 * m;
+		const podstava = 150 - delkaHrotu, spicka = [150, 0, 0];
+		const casti = [];
+		// dřík
+		casti.push(soucast(plast(-150, podstava, 6, 8, '#e8590c', phi, stred, 'drik'), '', natoc([(podstava - 150) / 2, 0, 0], phi)[2]));
+		// hrot: kužel z 16 trojúhelníků + podstava, obrys podstavy a ostří
+		const obvod = kruh(podstava, rHrotu, 16), vnitrek = [podstava + 4, 0, 0], kuzel = [];
+		for (let i = 0; i < 16; i++) {
+			const p = plocha([spicka, obvod[i], obvod[(i + 1) % 16]], '#e8590c', phi, stred, { uvnitr: vnitrek, dil: 'hrot' });
+			if (p) kuzel.push(p);
+		}
+		const dno = plocha(obvod, '#e8590c', phi, stred, { uvnitr: vnitrek, dil: 'hrot' });
+		if (dno) kuzel.push(dno);
+		const obvodP = obvod.map((p) => promitni(natoc(p, phi), stred));
+		const ostri = promitni(natoc(spicka, phi), stred);
+		const okraj = `<polygon points="${obvodP.map((b) => b[0] + ',' + b[1]).join(' ')}" fill="none" stroke="#c2410c" stroke-width="${r1(1.5 * ostri[3])}" data-dil="obrys-hrotu" />`;
+		const tecka = `<circle cx="${ostri[0]}" cy="${ostri[1]}" r="${r1(3 * ostri[3])}" fill="#7a2b05" data-dil="ostri" />`;
+		casti.push(soucast(kuzel, okraj + tecka, natoc([podstava, 0, 0], phi)[2]));
+		// opeření: 2 zkřížené plochy (4 pera) + kolečko — roste s proměnou šipky v šíp
+		if (m > 0) {
+			const R = 6 + 28 * m;
+			for (const uhel of [45, 135, 225, 315]) {
+				const a = (uhel * Math.PI) / 180, c = Math.cos(a), s = Math.sin(a);
+				const bod = (x, rr) => [x, rr * c, rr * s];
+				const p = plocha([bod(-148, 5), bod(-140, R * 0.85), bod(-112, R * 0.85), bod(-100, 5)], '#ffa94d', phi, stred,
+					{ oboustranna: true, tah: '#e8590c', siraTahu: 5, vypln: '#ffa94d', dil: 'pero' });
+				casti.push(soucast([p], '', p.z));
+			}
+			const kolecko = plocha(kruh(-98, R, 24), '#ffffff', phi, stred,
+				{ oboustranna: true, tah: '#e8590c', siraTahu: 3.5, vypln: '#ffffff', dil: 'kolecko' });
+			casti.push(soucast([kolecko], '', kolecko.z));
+		}
+		casti.sort((a, b) => a.z - b.z);
+		return casti.map((c) => c.svg).join('');
+	}
+
+	// ---------- VODIČ (válec podél osy x, −190…190, poloměr 22) ----------
+	function dratSvg(phi, stred) {
+		const casti = [];
+		const obrysy = [22, -22].map((y) => {
+			const a = promitni(natoc([-190, y, 0], phi), stred), b = promitni(natoc([190, y, 0], phi), stred);
+			return `<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="#2b2a26" stroke-width="3" />`;
+		}).join('');
+		casti.push(soucast(plast(-190, 190, 22, 24, '#ffd43b', phi, stred, 'plast'), obrysy, 0));
+		// pravé čelo (ve směru šipky): tečka · levé čelo: křížek — kreslí se jen čelo natočené ke kameře
+		for (const [x, znacka] of [[190, 'tecka'], [-190, 'krizek']]) {
+			const celo = plocha(kruh(x, 22, 32), '#ffd43b', phi, stred,
+				{ uvnitr: [0, 0, 0], tah: '#2b2a26', siraTahu: 3, vypln: '#ffd43b', dil: 'celo-' + znacka });
+			if (!celo) continue;
+			const x2 = x + Math.sign(x) * 0.5;
+			let sym;
+			if (znacka === 'tecka') {
+				const body = kruh(x2, 6, 16).map((p) => promitni(natoc(p, phi), stred));
+				sym = `<polygon points="${body.map((b) => b[0] + ',' + b[1]).join(' ')}" fill="#2b2a26" data-dil="tecka" />`;
+			} else {
+				sym = [[[x2, 11, 11], [x2, -11, -11]], [[x2, 11, -11], [x2, -11, 11]]].map(([p1, p2]) => {
+					const a = promitni(natoc(p1, phi), stred), b = promitni(natoc(p2, phi), stred);
+					return `<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="#2b2a26" stroke-width="${r1(3.5 * a[3])}" stroke-linecap="round" data-dil="krizek" />`;
+				}).join('');
+			}
+			casti.push(soucast([celo], sym, celo.z));
+		}
+		casti.sort((a, b) => a.z - b.z);
+		return casti.map((c) => c.svg).join('');
+	}
+
+	const text = (x, y, vel, tucne, obsah) =>
+		`<text x="${x}" y="${y}" font-size="${vel}"${tucne ? ' font-weight="bold"' : ''} fill="#2b2a26" text-anchor="middle">${obsah}</text>`;
+
+	const svg = document.getElementById('zp-svg');
+	const gSip = document.getElementById('zp-sip');
+	const gDrat = document.getElementById('zp-drat');
+	const gPopisky = document.getElementById('zp-popisky');
+	const posuvnik = document.getElementById('zp-cas');
+	const vystupCasu = document.getElementById('zp-out-cas');
+	const tlHraj = document.getElementById('zp-hraj');
+
+	function vykresli(t) {
+		const s = stav(t);
+		gSip.innerHTML = sipSvg(s.phi, s.m, SIP);
+		gDrat.innerHTML = dratSvg(s.phi, DRAT);
+		gPopisky.innerHTML = s.faze.vysledek
+			? text(240, 352, 34, true, s.faze.r1) + text(240, 402, 31, false, s.faze.r2)
+			: text(240, 352, 32, true, s.faze.r1) + text(240, 402, 31, false, s.faze.r2);
+		const cele = Math.floor(s.t);
+		posuvnik.value = String(cele);
+		vystupCasu.textContent = cele + ' s';
+		return s;
+	}
+
+	// Statický obraz (prefers-reduced-motion): obě značky vedle sebe, šíp i vodič z čela.
+	function vykresliStaticky() {
+		gSip.innerHTML = sipSvg(90, 1, [120, 95]) + sipSvg(-90, 1, [360, 95]);
+		gDrat.innerHTML = dratSvg(90, [120, 235]) + dratSvg(-90, [360, 235]);
+		gPopisky.innerHTML = text(120, 352, 32, true, 'proud teče') + text(120, 402, 32, true, 'k nám')
+			+ text(360, 352, 32, true, 'proud teče') + text(360, 402, 32, true, 'od nás')
+			+ '<line x1="240" y1="20" x2="240" y2="420" stroke="#adb5bd" stroke-width="2" stroke-dasharray="8 8" />';
+	}
+
+	const omezitPohyb = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+	let hraje = !omezitPohyb;
+	let tPauza = 0;
+	let zacatek = null;
+
+	function smycka() {
+		if (!hraje) return;
+		const ted = performance.now();
+		if (zacatek === null) zacatek = ted - tPauza * 1000;
+		tPauza = (((ted - zacatek) / 1000) % DELKA);
+		vykresli(tPauza);
+		requestAnimationFrame(smycka);
+	}
+	function zastav(t) {
+		hraje = false;
+		zacatek = null;
+		tPauza = t;
+		tlHraj.textContent = '▶ Přehrát';
+		vykresli(t);
+	}
+	tlHraj.addEventListener('click', () => {
+		if (hraje) { zastav(tPauza); return; }
+		hraje = true;
+		tlHraj.textContent = '⏸ Zastavit';
+		requestAnimationFrame(smycka);
+	});
+	document.getElementById('zp-k-nam').addEventListener('click', () => zastav(6));
+	document.getElementById('zp-od-nas').addEventListener('click', () => zastav(11));
+	posuvnik.addEventListener('input', () => zastav(+posuvnik.value));
+
+	svg.__stav = stav;
+	svg.__natoc = natoc;
+	svg.__promitni = promitni;
+	svg.__vykresli = vykresli;
+	svg.__staticky = vykresliStaticky;
+
+	if (omezitPohyb) {
+		hraje = false;
+		tlHraj.textContent = '▶ Přehrát';
+		vystupCasu.textContent = 'pohyb vypnut — obě značky vedle sebe';
+		vykresliStaticky();
+	} else {
+		vykresli(0);
+		requestAnimationFrame(smycka);
+	}
+</script>
+
+<style>
+	#zp-svg { width: 100%; max-width: 560px; display: block; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.zp-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.zp-posuvnik input { width: 100%; max-width: 560px; display: block; margin-top: 0.3rem; }
+	.zp-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.zp-tl:active { transform: translateY(1px); }
+</style>

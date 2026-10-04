@@ -6,6 +6,7 @@ import QrKod from '../../../../../../components/skola2/QrKod.astro';
 import AnimaceVyklad from '../../../../../../components/skola2/AnimaceVyklad.astro';
 import HydraulikaSimulace from '../../../../../../components/skola2/HydraulikaSimulace.astro';
 import StlacitelnostSimulace from '../../../../../../components/skola2/StlacitelnostSimulace.astro';
+import ZnaceniProuduSimulace from '../../../../../../components/skola2/ZnaceniProuduSimulace.astro';
 import HydraulikaStrikackySimulace from '../../../../../../components/skola2/HydraulikaStrikackySimulace.astro';
 import SkupenstviSimulace from '../../../../../../components/skola2/SkupenstviSimulace.astro';
 import DifuzeSimulace from '../../../../../../components/skola2/DifuzeSimulace.astro';
@@ -525,6 +526,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce2 === 'prumer' && <PrumerSimulace />}
 	{podtema.interakce2 === 'stlacitelnost' && <StlacitelnostSimulace />}
 	{podtema.interakce2 === 'teziste-stabilita' && <TezisteStabilitaSimulace />}
+	{podtema.interakce2 === 'znaceni-proudu' && <ZnaceniProuduSimulace />}
 	{podtema.interakce3 === 'hydraulika-strikacky' && <HydraulikaStrikackySimulace />}
 	{laborka && (
 		<section class="ramecek laborka-pozvanka" id="laborka">

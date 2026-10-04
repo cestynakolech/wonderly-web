@@ -598,6 +598,14 @@
 			"opora": "PDF 7/3 Mechanické vlastnosti kapalin/16 Atmosférický tlak/Atmosférický tlak.pdf ř. 17–19 (plyny jsou lehce stlačitelné, částice velice daleko od sebe ⇨ stlačitelnost plynů); kapaliny téměř nestlačitelné: PDF 14 Tlak v kapalinách vyvolaný vnější silou, s. 3",
 			"overeno": "2026-10-01"
 		},
+		"simulace/znaceni-proudu.mjs": {
+			"test": "testy/podvrhy/znaceni-proudu-podvrhy.mjs",
+			"podvrh": "21 podvrhů na kopii komponenty v dočasné složce: prohozená čela vodiče, šíp se točí opačně než vodič, prohozené popisky k nám/od nás, kreslí se i odvrácená čela, široký hrot, opeření jen ze 2 per, pera do + místo ×, bez perspektivy, obrácený malířův algoritmus, bez ostří hrotu, bez kolečka opeření, otáčení skokem, kratší pohled z čela, smyčka 12 s, smyčka podle snímků místo hodin, tlačítka ⊙/⊗ ve špatném čase, ignorované prefers-reduced-motion, statický obraz s jednou značkou, aria-label bez značek. Každý test shodí.",
+			"zdravy": "Nad nezměněnou komponentou projde všech 134 kontrol (kód 0); zdravá kopie je první krok podvrhového skriptu. node testy/mutace.mjs znaceni-proudu: 24/24 mutací odhaleno, 0 přeživších (4. 10. 2026).",
+			"regrese": "Časování natvrdo (φ v 24 časech, m v 11, popisky ve 12 časech, posuvník 0–14 s); promítnutí D = 800 nezávislým výpočtem (800/650, 800/1000, 45° → x 362,3); z čela ostří (240, 95) r 3,7 navrch a kolečko opeření r 30,3; zezadu 4 pera na úhlopříčkách navrch, křížek čela středem (240, 235).",
+			"opora": "Výklad podtématu magneticke-pole-vodice-a-civky (odstavec o tečce/křížku v kolečku a představě šípu) + legenda obr. 05; zadání učitele 4. 10. 2026.",
+			"overeno": "2026-10-04"
+		},
 		"simulace/hydraulika-strikacky.mjs": {
 			"test": "testy/podvrhy/hydraulika-strikacky-podvrhy.mjs",
 			"podvrh": "26 podvrhů na kopii komponenty: velký píst stejný posun jako malý / větší posun / jede dolů, šipka F₂ stejně dlouhá jako F₁ / míří dolů, šířka válce úměrná průměru místo ploše, přiteklý objem z posunu malé, velká stříkačka 3 cm² (necelé s₂), posuvník po 1 cm, obrys odteklo vyplněný, obrys přiteklo skrytý, šipky vidět bez zatlačení, krátké táhlo velké (rukojeť ve válci), stěna velkého válce nemění šířku, popisek F₂ bez plakety, popisek s₂ mimo scénu, necelá souřadnice, chybný vzorec s₂, plaketa F₂ = F₁, výsledek bez nestlačitelnosti, číslo navíc (10 N), HTML obraz bez přiteklého objemu, tlačítka bez aria-pressed, skrytý popisek neprázdný, oranžová s kontrastem 4,3. Všech 26 test shodí (1. 10. 2026).",
