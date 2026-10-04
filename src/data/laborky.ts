@@ -1281,9 +1281,9 @@ export const laborky: Record<string, Laborka> = {
 		cil: 'Zjistit, jak dalece vystříkne voda z otvorů v různé hloubce pod hladinou, a spočítat hydrostatický tlak.',
 		pomucky: ['PET láhev se třemi malými otvory ve výškách 5, 10 a 15 cm od dna (připraví učitel)', 'lepicí páska', 'voda', 'stůl s okrajem (výška aspoň 70 cm)', 'fólie nebo noviny na podlahu', 'svinovací metr', 'tužka'],
 		postup: [
-			'Otvory zalep páskou a láhev naplň vodou do výšky 30 cm od dna. Postav ji na okraj stolu tak, aby voda stříkala dolů na podlahu. Na podlahu polož fólii nebo noviny.',
+			'Otvory zalep páskou a láhev naplň vodou do výšky 25 cm od dna. Výšku si označ tužkou. Postav ji na okraj stolu tak, aby voda stříkala dolů na podlahu. Na podlahu polož fólii nebo noviny.',
 			'Ze všech tří otvorů odlep pásku současně. Spolužák hned označí místa, kam dopadají jednotlivé proudy. Od láhve k místu dopadu každého proudu změř svinovacím metrem vzdálenost v celých cm a zapiš.',
-			'Do tabulky doplň hloubku každého otvoru pod hladinou: 30 cm minus výška otvoru od dna.',
+			'Do tabulky doplň hloubku každého otvoru pod hladinou: 25 cm minus výška otvoru od dna.',
 			'Vysvětlení: hydrostatický tlak vzniká působením gravitační síly Země.',
 		],
 		tabulka: {
@@ -1298,5 +1298,75 @@ export const laborky: Record<string, Laborka> = {
 		],
 		pozor: 'Otvory v láhvi připravuje učitel, žák láhev nepropichuje. Pracuj na podlaze s fólií a rozlitou vodu hned utři, aby nikdo neuklouzl. Nepoužívej žádné elektrické přístroje v blízkosti vody.',
 		tip: 'Voda v kohoutku domácností teče díky tlaku, který je dán výškou hladiny ve vodojemu.',
+	},
+	'fyzika/7-rocnik/svetlo-a-jeho-sireni/svetlo-jeho-zdroje': {
+		nazev: 'Jak se světlo šíří a čím prochází',
+		cil: 'Vyzkoušet, kterými materiály světlo prochází, a ověřit, jak se světlo šíří.',
+		pomucky: ['kapesní LED svítilna', 'čirá plastová fólie', 'pauzovací papír', 'karton', 'alobal', 'tři kartičky s dírkou uprostřed', 'nit nebo tužka', 'tužka'],
+		postup: [
+			'Svítilnu polož na lavici a rozsviť ji. Do světelného kužele postupně dávej čirou fólii, pauzovací papír, karton a alobal. Pozoruj, kolik světla projde, a zapiš to.',
+			'Za jednotlivé materiály podrž předmět nebo svou ruku. Zapiš, zda předmět vidíš jasně, rozmazaně, nebo vůbec.',
+			'Tři kartičky s dírkou postav do řady za sebou a rozsviť svítilnu za první z nich. Posouvej kartičky tak, aby světlo prošlo všemi třemi dírkami. Zapiš, jak byly kartičky uspořádané, když světlo prošlo.',
+			'Vysvětlení: světlo je druh záření, které vidíme zrakem.',
+		],
+		tabulka: {
+			sloupce: ['materiál nebo uspořádání', 'světlo prochází (celé / zčásti / vůbec)', 'předmět za materiálem vidím (jasně / rozmazaně / nevidím)'],
+			radky: 5,
+		},
+		otazky: [
+			'Roztřiď materiály na průhledné, průsvitné a neprůhledné.',
+			'Jak ses přesvědčil, že se světlo šíří přímočaře?',
+			'Slunce je vzdáleno 150 000 000 km a světlo se šíří rychlostí 300 000 km/s. Za kolik sekund dopadne světlo ze Slunce na Zem?',
+			'Je Měsíc zdrojem světla? Proč?',
+		],
+		pozor: 'Nesviť svítilnou nikomu do očí. Nepoužívej laser. Alobal má ostré hrany, zacházej s ním opatrně. Svítilnu po použití vypni.',
+		tip: 'Světlo ze Slunce doletí na Zem přibližně za 8 minut.',
+	},
+	'fyzika/7-rocnik/svetlo-a-jeho-sireni/lom-svetla': {
+		nazev: 'Mince ve vodě a zlomená tužka: lom světla',
+		cil: 'Dvěma jednoduchými pokusy pozorovat lom světla na rozhraní vzduchu a vody.',
+		pomucky: ['neprůhledná miska', 'mince', 'čirá plastová sklenice', 'tužka nebo brčko', 'voda', 'lepicí guma'],
+		postup: [
+			'Minci přilep lepicí gumou na dno prázdné misky. Odstup od misky tak, aby ti okraj zakrýval minci. Zůstaň na místě.',
+			'Kamarád do misky pomalu nalévá vodu, aniž by minci pohnul. Zapiš, co se s mincí děje.',
+			'Do čiré sklenice nalij vodu a polož do ní tužku šikmo. Dívej se na tužku shora i zboku. Zapiš, jak tužka vypadá na hladině.',
+			'Vysvětlení: světlo se na rozhraní dvou prostředí může odrazit, pohltit nebo projít do druhého prostředí.',
+		],
+		tabulka: {
+			sloupce: ['pokus', 'co pozoruji'],
+			radky: 2,
+		},
+		otazky: [
+			'Proč jsi viděl minci až po nalití vody?',
+			'Láme se světlo při přechodu ze vzduchu do vody ke kolmici, nebo od kolmice?',
+			'Světlo má ve vakuu rychlost 300 000 km/s a ve vodě 225 000 km/s. O kolik km/s je ve vodě pomalejší?',
+			'Uveď jednu situaci z běžného života, ve které vidíme následky lomu světla.',
+		],
+		pozor: 'Pracuj nad miskou nebo tácem a rozlitou vodu hned utři. Používej plastovou sklenici, ne skleněnou. Tužku drž špičkou od sebe.',
+		tip: 'Bazén s vodou nám vždycky připadá mělčí, než ve skutečnosti je.',
+	},
+	'fyzika/7-rocnik/svetlo-a-jeho-sireni/stin-faze-mesice': {
+		nazev: 'Stín a fáze Měsíce na modelu',
+		cil: 'Na modelu s lampou a míčkem pozorovat vznik stínu a střídání fází Měsíce.',
+		pomucky: ['stolní LED lampa nebo svítilna', 'malý kelímek vysoký 10 cm', 'bílý list papíru jako stínítko', 'malý míček na špejli nebo tužce', 'pravítko', 'tužka'],
+		postup: [
+			'Zatemni místnost. Svítilnu polož 40 cm od zdi. Zeď je stínítko, nebo na ni přilep papír. Kelímek postav 10 cm od svítilny a změř výšku stínu na stínítku. Zapiš v celých cm.',
+			'Kelímek posuň na vzdálenost 30 cm od svítilny. Znovu změř výšku stínu v celých cm a zapiš.',
+			'Lampu postav na stůl a stůj v zatemněné místnosti bokem k ní. Míček drž natažený před sebou. Pomalu se otáčej a pozoruj osvětlenou část míčku ve čtyřech polohách: míček mezi tebou a lampou, míček napravo od tebe, míček před lampou za tebou, míček nalevo od tebe.',
+			'Do tabulky zapiš pro každou polohu, jaký tvar má osvětlená část míčku z pohledu od tebe.',
+			'Vysvětlení: stín je prostor za překážkou, kam nesvítí žádné světlo.',
+		],
+		tabulka: {
+			sloupce: ['pokus', 'podmínky', 'výška stínu (cm) nebo tvar osvětlené části'],
+			radky: 6,
+		},
+		otazky: [
+			'Kdy byl stín kelímku větší, když byl blíž ke svítilně, nebo dál? Čím to je?',
+			'Jak se jmenují fáze, při kterých vidíš z míčku jen malý okraj nebo osvětlenou polovinu? Jak se jmenuje fáze, kdy Měsíc nevidíme?',
+			'Kdy nastává zatmění Měsíce? V jaké fázi je Měsíc?',
+			'Měsíc oběhne Zemi přibližně za 30 dní. Kolikrát ji oběhne za 90 dní?',
+		],
+		pozor: 'Lampa se může zahřát, nedotýkej se jí a nedívej se přímo do světla. Při otáčení v zatemněné místnosti dávej pozor na ostatní a na lavice. Svítilnu po pokusu vypni.',
+		tip: 'Světlo ze Slunce dopadá na Zemi a Měsíc jako rovnoběžný svazek paprsků, protože Slunce je velmi daleko.',
 	},
 };
