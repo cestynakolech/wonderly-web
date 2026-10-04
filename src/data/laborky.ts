@@ -1230,4 +1230,73 @@ export const laborky: Record<string, Laborka> = {
 		pozor: 'Nedívej se přímo do lampy ani do slunce. Lampa se může zahřát, nedotýkej se jí. Použij jen solární článek a voltmetr, žádný jiný zdroj.',
 		tip: 'Přečerpávací elektrárna Dlouhé stráně je zvláštní druh vodní elektrárny.',
 	},
+	'fyzika/7-rocnik/sily-kolem-nas/skladani-sil': {
+		nazev: 'Skládání sil: kdy se síly sčítají a kdy odčítají',
+		cil: 'Siloměry změřit síly stejného a opačného směru a určit jejich výslednici.',
+		pomucky: ['dva siloměry do 5 N', 'dvě závaží po 200 g', 'pravítko 30 cm', 'provázek', 'tužka'],
+		postup: [
+			'Obě závaží zavěs provázkem uprostřed pravítka. Na oba konce pravítka zavěs provázky a každý provázek připevni na jeden siloměr. Siloměry drž svisle nad sebou a pravítko nech viset vodorovně.',
+			'Odečti sílu obou siloměrů zaokrouhlenou na celé N. Zapiš je jako F1 a F2. Obě síly míří svisle nahoru. Výslednici spočítej jako F1 + F2.',
+			'Jedno závaží zavěs na háček siloměru a drž ho v klidu. Siloměr táhne závaží nahoru, Země dolů. Do tabulky zapiš sílu siloměru jako F1 a tíhu závaží 2 N jako F2. Výslednici spočítej jako F1 − F2.',
+			'Vysvětlení: výslednice je síla, která má na těleso stejný účinek jako všechny působící síly dohromady.',
+		],
+		tabulka: {
+			sloupce: ['pokus', 'síla F1 (N)', 'síla F2 (N)', 'výslednice (N)'],
+			radky: 2,
+		},
+		otazky: [
+			'Jak jsi určil výslednici sil stejného směru? Kolik newtonů vyšlo a odpovídá to tíze obou závaží?',
+			'Co ti říká výslednice 0 N u závaží visícího na siloměru? Co se s tělesem děje?',
+			'Dvě družstva se přetahují o lano. Jedno táhne silou 5 N a druhé silou 3 N. Jak velká je výslednice a kterým směrem míří?',
+			'Jak se na základní škole určuje výslednice sil, které nemají stejný ani opačný směr?',
+		],
+		pozor: 'Nepřekračuj rozsah siloměrů 5 N. Závaží nepouštěj a nehoupej jimi, ať nespadnou na nohy ani na přístroj. Pracuj nad lavicí, ne nad hlavou.',
+		tip: 'Když se dvě síly stejné velikosti vzájemně vyruší, je těleso v rovnováze: v klidu zůstane v klidu a pohybující se se pohybuje dál beze změny.',
+	},
+	'fyzika/7-rocnik/tlak-v-kapalinach/pascaluv-zakon': {
+		nazev: 'Pascalův zákon: stříkačky se vzduchem a s vodou',
+		cil: 'Porovnat stlačování vzduchu a vody ve stříkačce a na jednoduchém modelu hydrauliky ověřit, že se tlak přenáší kapalinou.',
+		pomucky: ['dvě plastové stříkačky bez jehly (5 ml a 20 ml)', 'plastová hadička asi 30 cm', 'voda', 'miska', 'pravítko', 'tužka'],
+		postup: [
+			'Píst stříkačky 20 ml vytáhni na 20 ml. Ucpi otvor prstem a stlač píst, jak to jde. Zapiš objem po stlačení v celých ml.',
+			'Stříkačku 20 ml naplň vodou a vytlač z ní vzduch. Ucpi otvor prstem a znovu stlačuj. Zapiš objem po stlačení.',
+			'Obě stříkačky spoj hadičkou a naplň vodou bez bublin. Píst malé stříkačky zatlač o 20 mm. Změř pravítkem, o kolik mm se posune píst velké stříkačky. Zapiš oba posuny.',
+			'Vysvětlení: Pascalův zákon popisuje chování tekutin v uzavřené nádobě.',
+		],
+		tabulka: {
+			sloupce: ['pokus', 'co jsem udělal', 'výsledek (ml nebo mm)'],
+			radky: 3,
+		},
+		otazky: [
+			'Čím se lišilo stlačování vzduchu a stlačování vody? Co z toho vyplývá o vodě?',
+			'Jak se změnil tlak v celé kapalině, když jsi zatlačil na píst? Kudy by voda vystříkla, kdyby měla otvory?',
+			'Který píst se posunul o větší vzdálenost a který by přenesl větší sílu?',
+			'Uveď dvě zařízení z praxe, která využívají hydrauliku.',
+		],
+		pozor: 'Používej jen stříkačky bez jehly. Nemiř vodou ani stříkačkou na spolužáky a hadičku netahej prudce. Pracuj nad miskou a rozlitou vodu hned utři.',
+		tip: 'Hydraulické brzdy v autech přenášejí sílu z brzdového pedálu na kola.',
+	},
+	'fyzika/7-rocnik/tlak-v-kapalinach/hydrostaticky-tlak': {
+		nazev: 'Hydrostatický tlak: kdo stříká nejdál',
+		cil: 'Zjistit, jak dalece vystříkne voda z otvorů v různé hloubce pod hladinou, a spočítat hydrostatický tlak.',
+		pomucky: ['PET láhev se třemi malými otvory ve výškách 5, 10 a 15 cm od dna (připraví učitel)', 'lepicí páska', 'voda', 'dřez nebo velká mísa', 'pravítko', 'tužka'],
+		postup: [
+			'Otvory zalep páskou a láhev naplň vodou až po okraj. Postav ji na okraj dřezu tak, aby voda stříkala dovnitř dřezu.',
+			'Pásku odlep a pozoruj, jak daleko voda od láhve vystříkne z každého otvoru. Dostřik změř pravítkem a zapiš v celých cm.',
+			'Pokus zopakuj a do tabulky zapiš větší z obou dostřiků.',
+			'Vysvětlení: hydrostatický tlak vzniká působením gravitační síly Země.',
+		],
+		tabulka: {
+			sloupce: ['otvor (výška od dna, cm)', 'dostřik (cm)'],
+			radky: 3,
+		},
+		otazky: [
+			'Který otvor stříkal nejdál a který nejblíž? Čím to je?',
+			'Na čem hydrostatický tlak závisí? Na čem naopak nezávisí?',
+			'Vypočítej hydrostatický tlak pod hladinou vody v hloubce 2 m. Hustota vody je 1 000 kg/m³ a g = 10 N/kg. Použij ph = h · ρ · g.',
+			'Kde využíváme spojené nádoby? Uveď dva příklady.',
+		],
+		pozor: 'Otvory v láhvi připravuje učitel, žák láhev nepropichuje. Pracuj nad dřezem a rozlitou vodu hned utři, aby nikdo neuklouzl. Nepoužívej žádné elektrické přístroje v blízkosti vody.',
+		tip: 'Voda v kohoutku domácností teče díky tlaku, který je dán výškou hladiny ve vodojemu.',
+	},
 };
