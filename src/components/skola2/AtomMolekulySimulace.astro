@@ -121,7 +121,7 @@
 		CO2: { druh: 'sloučenina', text: 'oxid uhličitý — 1 uhlík + 2 kyslíky → SLOUČENINA', atomy: [['C', 0, 0], ['O', -70, 0], ['O', 70, 0]] },
 		HCl: { druh: 'sloučenina', text: 'chlorovodík — 1 vodík + 1 chlor (RŮZNÉ atomy) → SLOUČENINA', atomy: [['H', -30, 0], ['Cl', 34, 0]] },
 	};
-	const VZHLED = { H: ['#f1f3f5', 16, '#2b2a26'], O: ['#e03131', 26, '#fff'], C: ['#343a40', 24, '#fff'], Na: ['#7048e8', 22, '#fff'], Cl: ['#69db7c', 26, '#212529'] };
+	const VZHLED = { H: ['#f1f3f5', 16, '#2b2a26'], O: ['#e03131', 26, '#fff'], C: ['#343a40', 24, '#fff'], Cl: ['#69db7c', 26, '#212529'] };
 
 	function postavMolekulu(klic) {
 		smaz(molekulaG);
@@ -144,7 +144,7 @@
 			t.textContent = zn;
 			molekulaG.appendChild(t);
 		}
-		titulek.textContent = klic.replace(/(\d)/g, '$1') + ' — ' + (m.druh === 'prvek' ? 'PRVEK' : 'SLOUČENINA');
+		titulek.textContent = klic.replace(/\d/g, (c) => '₀₁₂₃₄₅₆₇₈₉'[c]) + ' — ' + (m.druh === 'prvek' ? 'PRVEK' : 'SLOUČENINA');
 		popis.textContent = m.text;
 		stavEl.textContent = m.druh === 'prvek'
 			? 'Molekula ze STEJNÝCH atomů → látka je PRVEK. (Prvek = látka tvořená stejnými atomy.)'
