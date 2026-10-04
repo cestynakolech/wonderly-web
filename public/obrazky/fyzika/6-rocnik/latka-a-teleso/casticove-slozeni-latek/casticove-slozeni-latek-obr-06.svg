@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 430" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Čtyři kádinky s vodou za sebou, mezi nimi šipky. V první kape kapátko kapku fialového inkoustu do vody. Ve druhé inkoust klesá v proužcích. Ve třetí se rozptyluje do fialového mráčku. Ve čtvrté je celá voda stejně světle fialová. Dole: Nemícháme – částice se promíchají samy. Tomu říkáme difuze.">
+<style>
+/* Předloha: PDF Částicové složení látek, oddíl DIFUZE (obrázek čtyř kádinek s kapkou inkoustu, mezi nimi šipky). Překresleno kresbou, stejné uspořádání (4 kádinky v řadě, šipky z modré do fialové). Animovaná je jen kapka z kapátka (smyčka 3 s) – samotný děj difuze ukazuje animace obr-07. Bez animace = kapka skrytá, kádinky beze změny. */
+@keyframes kapka { 0% { transform: translate(80px, 120px); opacity: 0 } 10% { transform: translate(80px, 122px); opacity: 1 } 45% { transform: translate(80px, 156px); opacity: 1 } 50% { transform: translate(80px, 162px); opacity: 0 } 100% { transform: translate(80px, 162px); opacity: 0 } }
+@keyframes kruh { 0% { opacity: 0; transform: scale(0.2, 0.2) } 46% { opacity: 0; transform: scale(0.2, 0.2) } 55% { opacity: 1; transform: scale(0.6, 0.6) } 80% { opacity: 0; transform: scale(1, 1) } 100% { opacity: 0; transform: scale(1, 1) } }
+.kp { animation: kapka 3s ease-in infinite; }
+.kr { animation: kruh 3s linear infinite; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } .dr { stroke-dasharray: none !important; } }
+</style>
+<rect x="3" y="3" width="594" height="424" rx="14" fill="#f8f9fa"/>
+<defs><filter id="rozm1" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2"/></filter><filter id="rozm2" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter><clipPath id="vk0"><path d="M32 160H128V280Q128 288 120 288H40Q32 288 32 280Z"/></clipPath><clipPath id="vk1"><path d="M178 160H274V280Q274 288 266 288H186Q178 288 178 280Z"/></clipPath><clipPath id="vk2"><path d="M326 160H422V280Q422 288 414 288H334Q326 288 326 280Z"/></clipPath><clipPath id="vk3"><path d="M472 160H568V280Q568 288 560 288H480Q472 288 472 280Z"/></clipPath></defs>
+<text x="300" y="42" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Kapka inkoustu se rozptýlí sama</text>
+<rect x="30" y="130" width="100" height="160" rx="8" fill="#fff" opacity="0.6"/>
+<g clip-path="url(#vk0)"><rect x="30" y="160" width="100" height="130" fill="#d0ebff"/>
+<path d="M30 160H130" stroke="#74c0fc" stroke-width="2"/></g>
+<path d="M22 124L30 130V280Q30 290 40 290H120Q130 290 130 280V130" fill="none" stroke="#495057" stroke-width="3" stroke-linejoin="round"/><rect x="38" y="142" width="7" height="130" rx="3.5" fill="#fff" opacity="0.7"/><path d="M112 170H126" stroke="#868e96" stroke-width="2"/><path d="M112 200H126" stroke="#868e96" stroke-width="2"/><path d="M112 230H126" stroke="#868e96" stroke-width="2"/><path d="M112 260H126" stroke="#868e96" stroke-width="2"/>
+<rect x="176" y="130" width="100" height="160" rx="8" fill="#fff" opacity="0.6"/>
+<g clip-path="url(#vk1)"><rect x="176" y="160" width="100" height="130" fill="#d0ebff"/>
+<g filter="url(#rozm1)" fill="#5f3dc4"><ellipse cx="226" cy="176" rx="12" ry="10"/><path d="M218 180Q208 200 216 222Q222 206 224 184Z"/><path d="M232 180Q242 204 234 232Q228 210 226 184Z"/><path d="M224 184Q226 210 224 240Q230 214 229 184Z"/></g>
+<path d="M176 160H276" stroke="#74c0fc" stroke-width="2"/></g>
+<path d="M168 124L176 130V280Q176 290 186 290H266Q276 290 276 280V130" fill="none" stroke="#495057" stroke-width="3" stroke-linejoin="round"/><rect x="184" y="142" width="7" height="130" rx="3.5" fill="#fff" opacity="0.7"/><path d="M258 170H272" stroke="#868e96" stroke-width="2"/><path d="M258 200H272" stroke="#868e96" stroke-width="2"/><path d="M258 230H272" stroke="#868e96" stroke-width="2"/><path d="M258 260H272" stroke="#868e96" stroke-width="2"/>
+<rect x="324" y="130" width="100" height="160" rx="8" fill="#fff" opacity="0.6"/>
+<g clip-path="url(#vk2)"><rect x="324" y="160" width="100" height="130" fill="#d0ebff"/>
+<g filter="url(#rozm2)" fill="#7048e8"><ellipse cx="374" cy="196" rx="26" ry="20" opacity="0.7"/><ellipse cx="356" cy="232" rx="26" ry="20" opacity="0.6"/><ellipse cx="390" cy="250" rx="28" ry="18" opacity="0.55"/><ellipse cx="374" cy="272" rx="40" ry="12" opacity="0.6"/><ellipse cx="378" cy="214" rx="12" ry="12" fill="#5f3dc4"/></g>
+<path d="M324 160H424" stroke="#74c0fc" stroke-width="2"/></g>
+<path d="M316 124L324 130V280Q324 290 334 290H414Q424 290 424 280V130" fill="none" stroke="#495057" stroke-width="3" stroke-linejoin="round"/><rect x="332" y="142" width="7" height="130" rx="3.5" fill="#fff" opacity="0.7"/><path d="M406 170H420" stroke="#868e96" stroke-width="2"/><path d="M406 200H420" stroke="#868e96" stroke-width="2"/><path d="M406 230H420" stroke="#868e96" stroke-width="2"/><path d="M406 260H420" stroke="#868e96" stroke-width="2"/>
+<rect x="470" y="130" width="100" height="160" rx="8" fill="#fff" opacity="0.6"/>
+<g clip-path="url(#vk3)"><rect x="470" y="160" width="100" height="130" fill="#b197fc"/>
+<path d="M470 160H570" stroke="#74c0fc" stroke-width="2"/></g>
+<path d="M462 124L470 130V280Q470 290 480 290H560Q570 290 570 280V130" fill="none" stroke="#495057" stroke-width="3" stroke-linejoin="round"/><rect x="478" y="142" width="7" height="130" rx="3.5" fill="#fff" opacity="0.7"/><path d="M552 170H566" stroke="#868e96" stroke-width="2"/><path d="M552 200H566" stroke="#868e96" stroke-width="2"/><path d="M552 230H566" stroke="#868e96" stroke-width="2"/><path d="M552 260H566" stroke="#868e96" stroke-width="2"/>
+<path d="M74 82H86L83 116H77Z" fill="#e7f5ff" stroke="#495057" stroke-width="2"/><path d="M76 100H84L82.5 114H77.5Z" fill="#5f3dc4"/><path d="M70 84Q68 64 80 62Q92 64 90 84Z" fill="#5f3dc4" stroke="#3b2a8a" stroke-width="2"/>
+<g class="kp" transform="translate(80 118)" opacity="0"><path d="M0 -6Q5 2 5 5A5 5 0 0 1 -5 5Q-5 2 0 -6Z" fill="#5f3dc4"/></g>
+<g transform="translate(80 160)"><ellipse class="kr" cx="0" cy="0" rx="30" ry="5" fill="none" stroke="#5f3dc4" stroke-width="2" opacity="0"/></g>
+<path d="M139 204H155V196L169 210L155 224V216H139Z" fill="#74c0fc"/>
+<path d="M286 204H302V196L316 210L302 224V216H286Z" fill="#9775fa"/>
+<path d="M433 204H449V196L463 210L449 224V216H433Z" fill="#7048e8"/>
+<text x="80" y="320" font-size="18" fill="#212529" text-anchor="middle">kápneme</text><text x="80" y="342" font-size="18" fill="#212529" text-anchor="middle">inkoust</text>
+<text x="226" y="320" font-size="18" fill="#212529" text-anchor="middle">inkoust</text><text x="226" y="342" font-size="18" fill="#212529" text-anchor="middle">klesá</text>
+<text x="374" y="320" font-size="18" fill="#212529" text-anchor="middle">rozptyluje</text><text x="374" y="342" font-size="18" fill="#212529" text-anchor="middle">se</text>
+<text x="520" y="320" font-size="18" fill="#212529" text-anchor="middle">všude</text><text x="520" y="342" font-size="18" fill="#212529" text-anchor="middle">stejně</text>
+<text x="300" y="385" font-size="22" fill="#212529" text-anchor="middle">Nemícháme – částice se promíchají samy.</text>
+<text x="300" y="413" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">Tomu říkáme difuze.</text>
+</svg>

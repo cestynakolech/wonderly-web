@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 505" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Stéblo trávy šikmo přes obrázek, na něm a pod ním leží čtyři kulaté kapky vody. Lupa zvětšuje jednu kapku: modré částice vody drží těsně u sebe a červené šipky na okraji míří dovnitř. Text: Přitažlivé síly drží částice vody u sebe, proto tvoří kulaté kapky.">
+<style>
+/* Předloha: PDF Částicové složení látek, oddíl KAPALINY TVOŘÍ KAPKY (silné přitažlivé síly drží molekuly vody u sebe, proto tvoří kulaté kapky) a fotografie kapek na stéble trávy. Překresleno kresbou se stejným uspořádáním (šikmé stéblo, kapky na něm i pod ním), lupa doplněna podle textu. Statický obrázek (stav, ne děj). */
+</style>
+<rect x="3" y="3" width="594" height="499" rx="14" fill="#f8f9fa"/>
+<defs><linearGradient id="trava" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d3f9d8"/><stop offset="1" stop-color="#8ce99a"/></linearGradient><radialGradient id="kapka" cx="40%" cy="40%" r="65%"><stop offset="0" stop-color="#ebfbee"/><stop offset="0.5" stop-color="#8ce99a"/><stop offset="0.85" stop-color="#2f9e44"/><stop offset="1" stop-color="#1b5e20"/></radialGradient><radialGradient id="voda" cx="35%" cy="35%" r="70%"><stop offset="0" stop-color="#e7f5ff"/><stop offset="1" stop-color="#4dabf7"/></radialGradient><clipPath id="sc9"><rect x="30" y="65" width="540" height="270" rx="10"/></clipPath><clipPath id="lupa"><circle cx="470" cy="405" r="64"/></clipPath></defs>
+<text x="300" y="42" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Kapaliny tvoří kapky</text>
+<rect x="30" y="65" width="540" height="270" rx="10" fill="url(#trava)"/>
+<g clip-path="url(#sc9)">
+<circle cx="90" cy="120" r="40" fill="#fff" opacity="0.25"/>
+<circle cx="210" cy="300" r="55" fill="#fff" opacity="0.25"/>
+<circle cx="480" cy="270" r="45" fill="#fff" opacity="0.25"/>
+<circle cx="360" cy="100" r="30" fill="#fff" opacity="0.25"/>
+<path d="M20 345C200 270 380 210 580 130" fill="none" stroke="#2b8a3e" stroke-width="20" stroke-linecap="round"/>
+<path d="M20 345C200 270 380 210 580 130" fill="none" stroke="#51cf66" stroke-width="12" stroke-linecap="round"/>
+<path d="M20 345C200 270 380 210 580 130" fill="none" stroke="#2b8a3e" stroke-width="2"/>
+<ellipse cx="159.3" cy="283" rx="24" ry="6" fill="#1b5e20" opacity="0.25"/>
+<circle cx="155.3" cy="255" r="30" fill="url(#kapka)" stroke="#1b5e20" stroke-width="1.5"/>
+<ellipse cx="144.8" cy="243" rx="9" ry="5.4" transform="rotate(-30 144.8 243)" fill="#fff" opacity="0.9"/>
+<path d="M137.3 265.5Q155.3 277.5 173.3 265.5" fill="none" stroke="#fff" stroke-width="2" opacity="0.6"/>
+<ellipse cx="324.3" cy="221" rx="19.2" ry="4.8" fill="#1b5e20" opacity="0.25"/>
+<circle cx="320.3" cy="199" r="24" fill="url(#kapka)" stroke="#1b5e20" stroke-width="1.5"/>
+<ellipse cx="311.9" cy="189.4" rx="7.2" ry="4.3" transform="rotate(-30 311.9 189.4)" fill="#fff" opacity="0.9"/>
+<path d="M305.9 207.4Q320.3 217 334.7 207.4" fill="none" stroke="#fff" stroke-width="2" opacity="0.6"/>
+<ellipse cx="363.6" cy="278.5" rx="24" ry="6" fill="#1b5e20" opacity="0.25"/>
+<circle cx="359.6" cy="250.5" r="30" fill="url(#kapka)" stroke="#1b5e20" stroke-width="1.5"/>
+<ellipse cx="349.1" cy="238.5" rx="9" ry="5.4" transform="rotate(-30 349.1 238.5)" fill="#fff" opacity="0.9"/>
+<path d="M341.6 261Q359.6 273 377.6 261" fill="none" stroke="#fff" stroke-width="2" opacity="0.6"/>
+<ellipse cx="495.3" cy="156.8" rx="15.2" ry="3.8" fill="#1b5e20" opacity="0.25"/>
+<circle cx="491.3" cy="139.8" r="19" fill="url(#kapka)" stroke="#1b5e20" stroke-width="1.5"/>
+<ellipse cx="484.6" cy="132.2" rx="5.7" ry="3.4" transform="rotate(-30 484.6 132.2)" fill="#fff" opacity="0.9"/>
+<path d="M479.9 146.4Q491.3 154 502.7 146.4" fill="none" stroke="#fff" stroke-width="2" opacity="0.6"/>
+</g>
+<rect x="30" y="65" width="540" height="270" rx="10" fill="none" stroke="#2b8a3e" stroke-width="2"/>
+<rect x="44" y="76" width="268" height="32" rx="9" fill="#fff" stroke="#adb5bd" stroke-width="1.5"/><text x="56" y="99" font-size="20" fill="#212529" text-anchor="start">kapky vody na stéble trávy</text>
+<path d="M377.6 274.5L425 352" stroke="#495057" stroke-width="2" stroke-dasharray="6 5"/>
+<path d="M516 451L552 487" stroke="#495057" stroke-width="12" stroke-linecap="round"/>
+<circle cx="470" cy="405" r="64" fill="#e7f5ff"/>
+<g clip-path="url(#lupa)">
+<circle cx="432" cy="405" r="9" fill="url(#voda)" stroke="#1864ab" stroke-width="1.5"/>
+<circle cx="441.5" cy="421.5" r="9" fill="url(#voda)" stroke="#1864ab" stroke-width="1.5"/>
+<circle cx="451" cy="437.9" r="9" fill="url(#voda)" stroke="#1864ab" stroke-width="1.5"/>
+<circle cx="441.5" cy="388.5" r="9" fill="url(#voda)" stroke="#1864ab" stroke-width="1.5"/>
+<circle cx="451" cy="405" r="9" fill="url(#voda)" stroke="#1864ab" stroke-width="1.5"/>
+<circle cx="460.5" cy="421.5" r="9" fill="url(#voda)" stroke="#1864ab" stroke-width="1.5"/>
+<circle cx="470" cy="437.9" r="9" fill="url(#voda)" stroke="#1864ab" stroke-width="1.5"/>
+<circle cx="451" cy="372.1" r="9" fill="url(#voda)" stroke="#1864ab" stroke-width="1.5"/>
+<circle cx="460.5" cy="388.5" r="9" fill="url(#voda)" stroke="#1864ab" stroke-width="1.5"/>
+<circle cx="470" cy="405" r="9" fill="url(#voda)" stroke="#1864ab" stroke-width="1.5"/>
+<circle cx="479.5" cy="421.5" r="9" fill="url(#voda)" stroke="#1864ab" stroke-width="1.5"/>
+<circle cx="489" cy="437.9" r="9" fill="url(#voda)" stroke="#1864ab" stroke-width="1.5"/>
+<circle cx="470" cy="372.1" r="9" fill="url(#voda)" stroke="#1864ab" stroke-width="1.5"/>
+<circle cx="479.5" cy="388.5" r="9" fill="url(#voda)" stroke="#1864ab" stroke-width="1.5"/>
+<circle cx="489" cy="405" r="9" fill="url(#voda)" stroke="#1864ab" stroke-width="1.5"/>
+<circle cx="498.5" cy="421.5" r="9" fill="url(#voda)" stroke="#1864ab" stroke-width="1.5"/>
+<circle cx="489" cy="372.1" r="9" fill="url(#voda)" stroke="#1864ab" stroke-width="1.5"/>
+<circle cx="498.5" cy="388.5" r="9" fill="url(#voda)" stroke="#1864ab" stroke-width="1.5"/>
+<circle cx="508" cy="405" r="9" fill="url(#voda)" stroke="#1864ab" stroke-width="1.5"/>
+<path d="M408 405L414 405" stroke="#c92a2a" stroke-width="2.5" stroke-linecap="round"/><path d="M421 405L414 401.1L414 408.9Z" fill="#c92a2a"/>
+<path d="M416.3 436L425.9 430.5" stroke="#c92a2a" stroke-width="2.5" stroke-linecap="round"/><path d="M432 427L424 427.1L427.8 433.8Z" fill="#c92a2a"/>
+<path d="M439 458.7L442 453.5" stroke="#c92a2a" stroke-width="2.5" stroke-linecap="round"/><path d="M445.5 447.4L438.7 451.6L445.3 455.4Z" fill="#c92a2a"/>
+<path d="M416.3 374L425.9 379.5" stroke="#c92a2a" stroke-width="2.5" stroke-linecap="round"/><path d="M432 383L427.8 376.2L424 382.9Z" fill="#c92a2a"/>
+<path d="M470 467L470 455.9" stroke="#c92a2a" stroke-width="2.5" stroke-linecap="round"/><path d="M470 448.9L466.1 455.9L473.9 455.9Z" fill="#c92a2a"/>
+<path d="M439 351.3L442 356.5" stroke="#c92a2a" stroke-width="2.5" stroke-linecap="round"/><path d="M445.5 362.6L445.3 354.6L438.7 358.4Z" fill="#c92a2a"/>
+<path d="M501 458.7L498 453.5" stroke="#c92a2a" stroke-width="2.5" stroke-linecap="round"/><path d="M494.5 447.4L494.7 455.4L501.3 451.6Z" fill="#c92a2a"/>
+<path d="M470 343L470 354.1" stroke="#c92a2a" stroke-width="2.5" stroke-linecap="round"/><path d="M470 361.1L473.9 354.1L466.1 354.1Z" fill="#c92a2a"/>
+<path d="M523.7 436L514.1 430.5" stroke="#c92a2a" stroke-width="2.5" stroke-linecap="round"/><path d="M508 427L512.2 433.8L516 427.1Z" fill="#c92a2a"/>
+<path d="M501 351.3L498 356.5" stroke="#c92a2a" stroke-width="2.5" stroke-linecap="round"/><path d="M494.5 362.6L501.3 358.4L494.7 354.6Z" fill="#c92a2a"/>
+<path d="M523.7 374L514.1 379.5" stroke="#c92a2a" stroke-width="2.5" stroke-linecap="round"/><path d="M508 383L516 382.9L512.2 376.2Z" fill="#c92a2a"/>
+<path d="M532 405L526 405" stroke="#c92a2a" stroke-width="2.5" stroke-linecap="round"/><path d="M519 405L526 408.9L526 401.1Z" fill="#c92a2a"/>
+</g>
+<circle cx="470" cy="405" r="64" fill="none" stroke="#343a40" stroke-width="6"/>
+<text x="40" y="382" font-size="22" fill="#212529" text-anchor="start">Přitažlivé síly drží</text>
+<text x="40" y="412" font-size="22" fill="#212529" text-anchor="start">částice vody u sebe,</text>
+<text x="40" y="442" font-size="22" font-weight="bold" fill="#212529" text-anchor="start">proto tvoří kulaté kapky.</text>
+</svg>

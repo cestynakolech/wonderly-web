@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 505" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: na tmavém snímku ze speciálního mikroskopu je z jednotlivých atomů poskládaný panáček se zdviženou rukou. Vlevo leží jeden samotný atom. Hrot mikroskopu sjede k atomu, přesune ho na konec panáčkovy ruky a zase odjede. Dole: Hrot speciálního mikroskopu posune atom. Z atomů tak vznikl obrázek panáčka.">
+<style>
+/* Předloha: PDF Částicové složení látek, pro zajímavost (atomy umíme vidět i posunovat, film z atomů; snímek panáčka z atomů). Fotografie překreslena kresbou. Smyčka 9 s: 0–12 % hrot sjede k atomu, 12–55 % přesun atomu, 55–66 % hrot odjede nahoru, 66–85 % hrot se vrací, 90–97 % přesunutý atom zmizí a objeví se na začátku. Bez animace = atom už v ruce panáčka. */
+@keyframes atom { 0% { transform: translate(140px, 230px) } 12% { transform: translate(140px, 230px) } 55% { transform: translate(470.9px, 147.1px) } 94% { transform: translate(470.9px, 147.1px) } 95% { transform: translate(140px, 230px) } 100% { transform: translate(140px, 230px) } }
+@keyframes atomv { 0% { opacity: 1 } 90% { opacity: 1 } 93% { opacity: 0 } 97% { opacity: 0 } 100% { opacity: 1 } }
+@keyframes hrot { 0% { transform: translate(140px, 190px) } 12% { transform: translate(140px, 220px) } 55% { transform: translate(470.9px, 137.1px) } 66% { transform: translate(470.9px, 107.1px) } 85% { transform: translate(140px, 190px) } 100% { transform: translate(140px, 190px) } }
+.at { animation: atom 9s ease-in-out infinite; }
+.av { animation: atomv 9s linear infinite; }
+.hr { animation: hrot 9s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } .dr { stroke-dasharray: none !important; } }
+</style>
+<rect x="3" y="3" width="594" height="499" rx="14" fill="#f8f9fa"/>
+<defs><radialGradient id="atom" cx="35%" cy="35%" r="70%"><stop offset="0" stop-color="#fff"/><stop offset="0.6" stop-color="#ced4da"/><stop offset="1" stop-color="#868e96"/></radialGradient><linearGradient id="podklad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#343a40"/><stop offset="1" stop-color="#5c636a"/></linearGradient><linearGradient id="kov" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#868e96"/><stop offset="0.35" stop-color="#e9ecef"/><stop offset="1" stop-color="#495057"/></linearGradient><clipPath id="sc"><rect x="30" y="70" width="540" height="300" rx="8"/></clipPath></defs>
+<text x="300" y="42" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Atomy umíme i posunovat</text>
+<rect x="30" y="70" width="540" height="300" rx="8" fill="url(#podklad)"/>
+<g clip-path="url(#sc)">
+<circle cx="140" cy="230" r="18" fill="none" stroke="#fff" stroke-width="2" opacity="0.12"/>
+<circle cx="140" cy="230" r="30" fill="none" stroke="#fff" stroke-width="2" opacity="0.12"/>
+<circle cx="140" cy="230" r="44" fill="none" stroke="#fff" stroke-width="2" opacity="0.12"/>
+<circle cx="140" cy="230" r="60" fill="none" stroke="#fff" stroke-width="2" opacity="0.12"/>
+<ellipse cx="420" cy="230" rx="110" ry="150" fill="none" stroke="#fff" stroke-width="2" opacity="0.08"/>
+<ellipse cx="420" cy="230" rx="135" ry="175" fill="none" stroke="#fff" stroke-width="2" opacity="0.08"/>
+<ellipse cx="420" cy="230" rx="160" ry="200" fill="none" stroke="#fff" stroke-width="2" opacity="0.08"/>
+<circle cx="451" cy="146" r="6" fill="url(#atom)"/>
+<circle cx="448.6" cy="157.9" r="6" fill="url(#atom)"/>
+<circle cx="441.9" cy="167.9" r="6" fill="url(#atom)"/>
+<circle cx="431.9" cy="174.6" r="6" fill="url(#atom)"/>
+<circle cx="420" cy="177" r="6" fill="url(#atom)"/>
+<circle cx="408.1" cy="174.6" r="6" fill="url(#atom)"/>
+<circle cx="398.1" cy="167.9" r="6" fill="url(#atom)"/>
+<circle cx="391.4" cy="157.9" r="6" fill="url(#atom)"/>
+<circle cx="389" cy="146" r="6" fill="url(#atom)"/>
+<circle cx="391.4" cy="134.1" r="6" fill="url(#atom)"/>
+<circle cx="398.1" cy="124.1" r="6" fill="url(#atom)"/>
+<circle cx="408.1" cy="117.4" r="6" fill="url(#atom)"/>
+<circle cx="420" cy="115" r="6" fill="url(#atom)"/>
+<circle cx="431.9" cy="117.4" r="6" fill="url(#atom)"/>
+<circle cx="441.9" cy="124.1" r="6" fill="url(#atom)"/>
+<circle cx="448.6" cy="134.1" r="6" fill="url(#atom)"/>
+<circle cx="410" cy="138" r="6" fill="url(#atom)"/>
+<circle cx="430" cy="138" r="6" fill="url(#atom)"/>
+<circle cx="408" cy="156" r="6" fill="url(#atom)"/>
+<circle cx="420" cy="160" r="6" fill="url(#atom)"/>
+<circle cx="432" cy="156" r="6" fill="url(#atom)"/>
+<circle cx="420" cy="189" r="6" fill="url(#atom)"/>
+<circle cx="420" cy="201.2" r="6" fill="url(#atom)"/>
+<circle cx="420" cy="213.3" r="6" fill="url(#atom)"/>
+<circle cx="420" cy="225.5" r="6" fill="url(#atom)"/>
+<circle cx="420" cy="237.7" r="6" fill="url(#atom)"/>
+<circle cx="420" cy="249.8" r="6" fill="url(#atom)"/>
+<circle cx="420" cy="262" r="6" fill="url(#atom)"/>
+<circle cx="411.6" cy="206.4" r="6" fill="url(#atom)"/>
+<circle cx="403.2" cy="214.8" r="6" fill="url(#atom)"/>
+<circle cx="394.8" cy="223.2" r="6" fill="url(#atom)"/>
+<circle cx="386.4" cy="231.6" r="6" fill="url(#atom)"/>
+<circle cx="378" cy="240" r="6" fill="url(#atom)"/>
+<circle cx="428.5" cy="189.5" r="6" fill="url(#atom)"/>
+<circle cx="437" cy="181" r="6" fill="url(#atom)"/>
+<circle cx="445.5" cy="172.5" r="6" fill="url(#atom)"/>
+<circle cx="453.9" cy="164.1" r="6" fill="url(#atom)"/>
+<circle cx="462.4" cy="155.6" r="6" fill="url(#atom)"/>
+<circle cx="415.1" cy="273.1" r="6" fill="url(#atom)"/>
+<circle cx="410.3" cy="284.3" r="6" fill="url(#atom)"/>
+<circle cx="405.4" cy="295.4" r="6" fill="url(#atom)"/>
+<circle cx="400.6" cy="306.6" r="6" fill="url(#atom)"/>
+<circle cx="395.7" cy="317.7" r="6" fill="url(#atom)"/>
+<circle cx="390.9" cy="328.9" r="6" fill="url(#atom)"/>
+<circle cx="386" cy="340" r="6" fill="url(#atom)"/>
+<circle cx="424.9" cy="273.1" r="6" fill="url(#atom)"/>
+<circle cx="429.7" cy="284.3" r="6" fill="url(#atom)"/>
+<circle cx="434.6" cy="295.4" r="6" fill="url(#atom)"/>
+<circle cx="439.4" cy="306.6" r="6" fill="url(#atom)"/>
+<circle cx="444.3" cy="317.7" r="6" fill="url(#atom)"/>
+<circle cx="449.1" cy="328.9" r="6" fill="url(#atom)"/>
+<circle cx="454" cy="340" r="6" fill="url(#atom)"/>
+<circle cx="374" cy="340" r="6" fill="url(#atom)"/>
+<circle cx="466" cy="340" r="6" fill="url(#atom)"/>
+<g class="av"><g class="at" transform="translate(470.9 147.1)"><circle cx="0" cy="0" r="6" fill="url(#atom)"/></g></g>
+<g class="hr" transform="translate(470.9 107.1)"><path d="M0 0L-13 -46H13Z" fill="url(#kov)" stroke="#212529" stroke-width="1.5"/><rect x="-18" y="-80" width="36" height="36" rx="4" fill="url(#kov)" stroke="#212529" stroke-width="1.5"/><path d="M-18 -66H18" stroke="#212529" stroke-width="1.5"/></g>
+</g>
+<rect x="30" y="70" width="540" height="300" rx="8" fill="none" stroke="#212529" stroke-width="3"/>
+<g transform="translate(60 418) scale(0.5)"><path d="M0 0L-13 -46H13Z" fill="url(#kov)" stroke="#212529" stroke-width="1.5"/><rect x="-18" y="-80" width="36" height="36" rx="4" fill="url(#kov)" stroke="#212529" stroke-width="1.5"/><path d="M-18 -66H18" stroke="#212529" stroke-width="1.5"/></g><text x="80" y="410" font-size="20" fill="#212529" text-anchor="start">hrot mikroskopu</text>
+<circle cx="360" cy="403" r="9" fill="url(#atom)" stroke="#495057" stroke-width="1.5"/><text x="378" y="410" font-size="20" fill="#212529" text-anchor="start">atom</text>
+<text x="300" y="450" font-size="22" fill="#212529" text-anchor="middle">Hrot speciálního mikroskopu posune atom.</text>
+<text x="300" y="480" font-size="22" fill="#212529" text-anchor="middle">Z atomů tak vznikl obrázek panáčka.</text>
+</svg>
