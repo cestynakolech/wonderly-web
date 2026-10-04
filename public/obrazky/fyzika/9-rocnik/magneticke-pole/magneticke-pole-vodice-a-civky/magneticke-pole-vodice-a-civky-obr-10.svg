@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 900 600" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Animace: značení směru proudu. Nad vodorovným vodičem je šipka se směrem proudu, ta se promění v šíp s hrotem vpředu a opeřením vzadu. Šíp i vodič se spolu otočí k nám: nahoře vidíme hrot šípu jako tečku v kolečku, dole průřez vodiče se stejnou značkou, proud teče k nám. Pak se otočí od nás: nahoře vidíme opeření jako křížek v kolečku, dole vodič s křížkem, proud teče od nás.">
+<style>
+/* Zadání učitele 4. 10. 2026: vysvětlit značení směru proudu tečkou a křížkem v kolečku pomocí šípu.
+   Opora ve výkladu: odstavec o značení před obr. 05 a legenda obr. 05 („Tečka = proud teče k nám, křížek = proud teče od nás“).
+   Barvy podle obr. 03 a 05: proud oranžově (#e8590c), průřez vodiče žlutý (#ffd43b) s tmavou značkou, rámeček popisku #fff3bf.
+   Smyčka 12 s: 0–1,5 s šipka · 1,5–2,5 s šipka se mění v šíp · 2,5–4 s otáčení k nám · 4–6 s pohled z čela (tečka) ·
+   6–8,5 s otáčení přes bok od nás · 8,5–10,5 s pohled zezadu (křížek) · 10,5–11,5 s návrat na bok · 11,5–12 s šíp zpět v šipku.
+   Natočení = zkrácení scaleX (s), blízký konec vodiče ukazuje svou řeznou plochu (scaleX 1−s). Bez animace = statický obraz s oběma značkami. */
+.anim * { animation-duration: 12s; animation-timing-function: linear; animation-iteration-count: infinite; }
+.bok { animation-name: bok; }
+.drat { animation-name: drat; }
+.mhrot { animation-name: mhrot; }
+.sip { animation-name: sip; }
+.celo-k { animation-name: celoK; }
+.celo-od { animation-name: celoOd; }
+.cela-k { animation-name: celaK; }
+.cela-od { animation-name: celaOd; }
+.pa { animation-name: pa; } .pb { animation-name: pb; } .pc { animation-name: pc; } .pd { animation-name: pd; }
+.pe { animation-name: pe; } .pf { animation-name: pf; } .pg { animation-name: pg; }
+@keyframes bok {
+  0%, 20.833% { transform: scaleX(1); opacity: 1; }
+  29% { opacity: 1; }
+  33.333%, 50% { transform: scaleX(0); opacity: 0; }
+  54.167% { opacity: 1; }
+  58.333% { transform: scaleX(1); }
+  66.667% { opacity: 1; }
+  70.833%, 87.5% { transform: scaleX(0); opacity: 0; }
+  91.667% { opacity: 1; }
+  95.833%, 100% { transform: scaleX(1); opacity: 1; }
+}
+@keyframes drat {
+  0%, 20.833% { transform: scaleX(1); }
+  33.333%, 50% { transform: scaleX(0); }
+  58.333% { transform: scaleX(1); }
+  70.833%, 87.5% { transform: scaleX(0); }
+  95.833%, 100% { transform: scaleX(1); }
+}
+@keyframes mhrot { 0%, 12.5% { opacity: 1; } 20.833%, 95.833% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes sip { 0%, 12.5% { opacity: 0; } 20.833%, 95.833% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes celoK {
+  0%, 27% { transform: translate(91px, 0) scale(0.5); opacity: 0; }
+  33.333%, 50% { transform: translate(0, 0) scale(1); opacity: 1; }
+  54.167%, 100% { transform: translate(90px, 0) scale(0.5); opacity: 0; }
+}
+@keyframes celoOd {
+  0%, 64.583% { transform: translate(-95px, 0) scale(0.5); opacity: 0; }
+  70.833%, 87.5% { transform: translate(0, 0) scale(1); opacity: 1; }
+  91.667%, 100% { transform: translate(-95px, 0) scale(0.5); opacity: 0; }
+}
+@keyframes celaK {
+  0%, 20.833% { transform: translate(300px, 0) scaleX(0); }
+  33.333%, 50% { transform: translate(0, 0) scaleX(1); }
+  58.333%, 100% { transform: translate(300px, 0) scaleX(0); }
+}
+@keyframes celaOd {
+  0%, 58.333% { transform: translate(-300px, 0) scaleX(0); }
+  70.833%, 87.5% { transform: translate(0, 0) scaleX(1); }
+  95.833%, 100% { transform: translate(-300px, 0) scaleX(0); }
+}
+@keyframes pa { 0%, 12.4% { opacity: 1; } 12.5%, 95.7% { opacity: 0; } 95.833%, 100% { opacity: 1; } }
+@keyframes pb { 0%, 12.4% { opacity: 0; } 12.5%, 20.7% { opacity: 1; } 20.833%, 100% { opacity: 0; } }
+@keyframes pc { 0%, 20.7% { opacity: 0; } 20.833%, 33.2% { opacity: 1; } 33.333%, 100% { opacity: 0; } }
+@keyframes pd { 0%, 33.2% { opacity: 0; } 33.333%, 49.9% { opacity: 1; } 50%, 100% { opacity: 0; } }
+@keyframes pe { 0%, 49.9% { opacity: 0; } 50%, 70.7% { opacity: 1; } 70.833%, 100% { opacity: 0; } }
+@keyframes pf { 0%, 70.7% { opacity: 0; } 70.833%, 87.4% { opacity: 1; } 87.5%, 100% { opacity: 0; } }
+@keyframes pg { 0%, 87.4% { opacity: 0; } 87.5%, 95.7% { opacity: 1; } 95.833%, 100% { opacity: 0; } }
+.staticky { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  .anim { display: none; }
+  .staticky { display: inline; }
+}
+</style>
+<defs>
+<g id="tecka-sip"><circle r="34" fill="#ffffff" stroke="#e8590c" stroke-width="5"/><circle r="10" fill="#e8590c"/></g>
+<g id="krizek-sip"><circle r="34" fill="#ffffff" stroke="#e8590c" stroke-width="5"/><path d="M-21,-21 L21,21 M-21,21 L21,-21" stroke="#e8590c" stroke-width="8" stroke-linecap="round"/></g>
+<g id="tecka-drat"><circle r="22" fill="#ffd43b" stroke="#2b2a26" stroke-width="3"/><circle r="5.5" fill="#2b2a26"/></g>
+<g id="krizek-drat"><circle r="22" fill="#ffd43b" stroke="#2b2a26" stroke-width="3"/><path d="M-12,-12 L12,12 M-12,12 L12,-12" stroke="#2b2a26" stroke-width="3.5" stroke-linecap="round"/></g>
+</defs>
+<rect x="3" y="3" width="894" height="594" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="450" y="46" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Jak značíme směr proudu</text>
+<text x="40" y="179" font-size="24" fill="#495057">proud</text>
+<text x="40" y="349" font-size="24" fill="#495057">vodič</text>
+<rect x="30" y="440" width="840" height="130" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+
+<g class="anim">
+  <!-- Horní scéna: šipka / šíp -->
+  <g transform="translate(450,170)">
+    <g class="bok">
+      <line x1="-175" y1="0" x2="160" y2="0" stroke="#e8590c" stroke-width="7" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+      <path class="mhrot" d="M150,-16 L182,0 L150,16 Z" fill="#e8590c"/>
+      <g class="sip">
+        <path d="M150,-24 L196,0 L150,24 Z" fill="#e8590c" stroke="#c2410c" stroke-width="2" vector-effect="non-scaling-stroke"/>
+        <path d="M-178,0 L-204,-30 L-158,-30 L-132,0 Z" fill="#ffa94d" stroke="#e8590c" stroke-width="3" vector-effect="non-scaling-stroke"/>
+        <path d="M-178,0 L-204,30 L-158,30 L-132,0 Z" fill="#ffa94d" stroke="#e8590c" stroke-width="3" vector-effect="non-scaling-stroke"/>
+      </g>
+    </g>
+    <use class="celo-k" href="#tecka-sip"/>
+    <use class="celo-od" href="#krizek-sip"/>
+  </g>
+  <!-- Dolní scéna: vodič -->
+  <g transform="translate(450,340)">
+    <rect class="drat" x="-300" y="-22" width="600" height="44" fill="#ffd43b" stroke="#2b2a26" stroke-width="3" vector-effect="non-scaling-stroke"/>
+    <use class="cela-k" href="#tecka-drat"/>
+    <use class="cela-od" href="#krizek-drat"/>
+  </g>
+  <!-- Popisky podle fáze -->
+  <text class="pa" x="450" y="515" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="middle">Šipka ukazuje směr proudu ve vodiči.</text>
+  <text class="pb" x="450" y="515" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="middle">Šíp: hrot je vpředu, opeření vzadu.</text>
+  <text class="pc" x="450" y="515" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="middle">Šíp i vodič se otáčejí k nám…</text>
+  <g class="pd">
+    <text x="450" y="495" font-size="30" font-weight="bold" fill="#2b2a26" text-anchor="middle">proud teče k nám</text>
+    <text x="450" y="540" font-size="24" fill="#2b2a26" text-anchor="middle">Vidíme hrot šípu: tečka v kolečku.</text>
+  </g>
+  <text class="pe" x="450" y="515" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="middle">Šíp i vodič se otáčejí od nás…</text>
+  <g class="pf">
+    <text x="450" y="495" font-size="30" font-weight="bold" fill="#2b2a26" text-anchor="middle">proud teče od nás</text>
+    <text x="450" y="540" font-size="24" fill="#2b2a26" text-anchor="middle">Vidíme opeření šípu: křížek v kolečku.</text>
+  </g>
+  <text class="pg" x="450" y="515" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="middle">Šíp i vodič se otáčejí zpět…</text>
+</g>
+
+<g class="staticky">
+  <use href="#tecka-sip" x="300" y="170"/>
+  <use href="#krizek-sip" x="600" y="170"/>
+  <g transform="translate(300,340) scale(1.3)"><use href="#tecka-drat"/></g>
+  <g transform="translate(600,340) scale(1.3)"><use href="#krizek-drat"/></g>
+  <line x1="450" y1="110" x2="450" y2="400" stroke="#adb5bd" stroke-width="2" stroke-dasharray="8 8"/>
+  <text x="300" y="495" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="middle">proud teče k nám</text>
+  <text x="300" y="540" font-size="24" fill="#2b2a26" text-anchor="middle">vidíme hrot šípu</text>
+  <text x="600" y="495" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="middle">proud teče od nás</text>
+  <text x="600" y="540" font-size="24" fill="#2b2a26" text-anchor="middle">vidíme opeření šípu</text>
+</g>
+</svg>
