@@ -102,8 +102,8 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>odborné pojmy a značky</strong> — např. hmotnost, objem, hustota, tlak…</li>
 							<li><strong>grafy a vzorce</strong> — matematické vyjádření vztahů pomocí písmen a čísel</li>
 						</ul>
+							<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/uvod-do-fyziky/uvod-do-fyziky-obr-02.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/uvod-do-fyziky/uvod-do-fyziky-obr-02.svg" alt="Spojnicový graf nejnižší a nejvyšší denní teploty od 1. do 19. února; modrá čára nejnižších teplot je pod nulou nebo na nule, oranžová čára nejvyšších vystoupá až na 7 °C." loading="lazy" /></a><figcaption>Graf ukáže čísla z měření na první pohled: modře nejnižší, oranžově nejvyšší teplota každého dne.</figcaption></figure>
 							<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/uvod-do-fyziky/uvod-do-fyziky-obr-03.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/uvod-do-fyziky/uvod-do-fyziky-obr-03.svg" alt="Čtverečkovaný sešit s tužkou a třemi barevně psanými vzorci: v = s/t (rychlost), ρ = m/V (hustota), F = m · g (gravitační síla)." loading="lazy" /></a><figcaption>Vzorec zapisuje vztah mezi veličinami pomocí písmen a čísel.</figcaption></figure>
-							<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/uvod-do-fyziky/uvod-do-fyziky-obr-02.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/uvod-do-fyziky/uvod-do-fyziky-obr-02.svg" alt="Spojnicový graf nejnižší a nejvyšší denní teploty od 1. do 19. února; modrá čára nejnižších teplot je pod nulou, oranžová čára nejvyšších vystoupá až na 7 °C." loading="lazy" /></a><figcaption>Graf ukáže čísla z měření na první pohled: modře nejnižší, oranžově nejvyšší teplota každého dne.</figcaption></figure>
 						<h3>Proč je dobré znát fyziku?</h3>
 						<ul>
 							<li>umíme <strong>vysvětlit</strong>, proč a jak se něco děje</li>
