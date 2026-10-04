@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 660" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Vážení kapaliny. Vlevo prázdný džbán na digitální váze, displej ukazuje 300 g, to je m1. Vpravo stejný džbán na druhé váze, nalije se do něj 1 litr vody a displej se změní z 300 g na 1 300 g, to je m2. Dole bublina: hmotnost vody m = m2 − m1 = 1 300 g − 300 g = 1 000 g = 1 kg.">
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 660" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Vážení kapaliny. Vlevo prázdný džbán na digitální váze, displej ukazuje 300 g, to je m1. Vpravo stejný džbán na druhé váze. Z odměrky s popisem 1 l se do něj nalévá voda po čtvrtinách litru a displej se mění z 300 g na 550 g, 800 g, 1 050 g a nakonec 1 300 g, to je m2. Dole bublina: hmotnost vody m = m2 − m1 = 1 300 g − 300 g = 1 000 g = 1 kg.">
 <style>
 /* Nalévání vody (12 s, smyčka). Bez animace (prefers-reduced-motion) zůstává koncový stav z atributů: plný džbán, m2 = 1 300 g, výsledek 1 000 g. */
 .voda8 { transform-box: view-box; transform-origin: 710px 470px; animation: voda8 12s infinite; }
@@ -19,7 +19,7 @@
 @keyframes d800 { 0%, 22% { opacity: 0; } 23%, 29% { opacity: 1; } 30%, 100% { opacity: 0; } }
 @keyframes d1050 { 0%, 29% { opacity: 0; } 30%, 36% { opacity: 1; } 37%, 100% { opacity: 0; } }
 @keyframes d1300 { 0%, 36% { opacity: 0; } 37%, 96% { opacity: 1; } 97%, 100% { opacity: 0; } }
-@keyframes m2pred { 0%, 37% { opacity: 1; } 38%, 96% { opacity: 0; } 97%, 100% { opacity: 1; } }
+@keyframes m2pred { 0%, 14% { opacity: 0; } 15%, 37% { opacity: 1; } 38%, 100% { opacity: 0; } }
 @keyframes m2po { 0%, 37% { opacity: 0; } 38%, 96% { opacity: 1; } 97%, 100% { opacity: 0; } }
 @keyframes vysl8 { 0%, 54% { opacity: 0; } 57%, 92% { opacity: 1; } 94%, 96% { opacity: 1; } 97%, 100% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .voda8, .proud, .d300, .d550, .d800, .d1050, .d1300, .m2pred, .m2po, .vysl8 { animation: none; } }
@@ -68,10 +68,10 @@
 <path d="M692,206 L708,206 L704,214 L696,214 Z" fill="#ffffff" stroke="#1864ab" stroke-width="3"/>
 <text x="700" y="190" font-size="22" font-weight="bold" fill="#1864ab" text-anchor="middle">1 l</text>
 </g>
-<path class="proud" d="M700,214 C702,230 704,260 706,460" fill="none" stroke="#4dabf7" stroke-width="10" stroke-linecap="round" opacity="0"/>
 <path d="M770,262 C830,252 846,300 834,340 C824,374 802,398 786,412" fill="none" stroke="#a5d8ff" stroke-width="20" stroke-linecap="round"/>
 <path d="M770,262 C830,252 846,300 834,340 C824,374 802,398 786,412" fill="none" stroke="#e7f5ff" stroke-width="7" stroke-linecap="round"/>
 <path d="M640,226 L612,214 C624,232 640,240 644,252 C630,282 594,322 594,376 C594,436 616,466 638,474 L782,474 C804,466 826,436 826,376 C826,322 790,282 776,252 C780,238 784,230 786,220 Z" fill="url(#sklo08)" stroke="#4dabf7" stroke-width="3.5" stroke-linejoin="round"/>
+<path class="proud" d="M700,214 C702,230 704,260 706,460" fill="none" stroke="#4dabf7" stroke-width="10" stroke-linecap="round" opacity="0"/>
 <g clip-path="url(#vnitrek08)">
 <g class="voda8">
 <rect x="590" y="320" width="240" height="160" fill="url(#voda08)"/>
