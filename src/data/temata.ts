@@ -354,7 +354,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>💡 Pro zajímavost: molekuly látek v živých organismech (třeba bílkoviny, cukry nebo <strong>DNA</strong>) jsou velice dlouhé a složité.</p>
 						<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/atomy-a-molekuly-obr-06.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/atomy-a-molekuly-obr-06.svg" alt="Kousek molekuly DNA — dlouhá stočená šroubovice z mnoha atomů" loading="lazy" /></a><figcaption>Pro zajímavost: molekuly v živých organismech, třeba DNA, jsou velmi dlouhé a složité.</figcaption></figure>
 						<h3>Sloučenina</h3>
-						<p><strong>Látka složená z různých druhů atomů</strong> — např. voda (H₂O) nebo oxid uhličitý (CO₂), které jsou ze stejných molekul. Sůl (chlorid sodný NaCl) je také sloučenina, ale ne z molekul: v krystalku se pravidelně střídají nabité částice (ionty) sodíku Na⁺ a chloru Cl⁻.</p>
+						<p><strong>Sloučenina je látka, ve které jsou atomy různých prvků pevně spojené dohromady.</strong> Ve směsi jsou různé látky jen promíchané a dají se od sebe oddělit. Příklady sloučenin: voda (H₂O) nebo oxid uhličitý (CO₂), které jsou ze stejných molekul. Sůl (chlorid sodný NaCl) je také sloučenina, ale ne z molekul: atomy sodíku a chloru jsou pevně spojené, jako ionty v krystalu — v krystalku se pravidelně střídají nabité částice (ionty) sodíku Na⁺ a chloru Cl⁻.</p>
 						<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/atomy-a-molekuly-obr-07.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/atomy-a-molekuly-obr-07.svg" alt="Kapka vody s molekulami H₂O a krystalek soli z pravidelně střídaných iontů sodíku a chloru" loading="lazy" /></a><figcaption>Sloučeniny: voda je jen z molekul H₂O, v krystalku soli se pravidelně střídají ionty sodíku a chloru.</figcaption></figure>
 						<h3>Směs</h3>
 						<p><strong>Látka, která vznikne smícháním více látek</strong> — je složena z různých druhů molekul a atomů. Např. vzduch (molekuly dusíku N₂ + kyslíku O₂ + oxidu uhličitého CO₂ + vody H₂O + vodíku H₂ + …).</p>
@@ -365,7 +365,7 @@ export const temata: Record<string, Tema[]> = {
 							<li>Všechny látky jsou tvořeny z atomů.</li>
 							<li>Molekuly vznikají spojením dvou a více atomů — stejných, nebo různých.</li>
 							<li><strong>Prvek</strong> = látka tvořená stejnými atomy.</li>
-							<li><strong>Sloučenina</strong> = látka z různých druhů atomů (často ze stejných molekul, např. H₂O; sůl je také sloučenina, ale netvoří molekuly).</li>
+							<li><strong>Sloučenina</strong> = látka, ve které jsou atomy různých prvků pevně spojené dohromady (např. H₂O; sůl je také sloučenina, ale netvoří molekuly).</li>
 							<li><strong>Směs</strong> = smíchání různých látek.</li>
 						</ul>
 					`,

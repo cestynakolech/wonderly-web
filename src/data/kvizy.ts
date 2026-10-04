@@ -426,8 +426,8 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Co je sloučenina?',
-			odpovedi: ['látka z různých druhů atomů', 'látka, která se rozpouští ve vodě', 'jakákoli smíchaná látka'],
-			vysvetleni: 'Sloučenina = látka složená z různých druhů atomů — voda H₂O a oxid uhličitý CO₂ (z molekul). Kuchyňská sůl NaCl je také sloučenina, ale není z molekul: tvoří ji nabité částice (ionty) Na⁺ a Cl⁻ pravidelně uspořádané v krystalu.',
+			odpovedi: ['pevně spojené atomy různých prvků', 'látka, která se rozpouští ve vodě', 'jakákoli smíchaná látka'],
+			vysvetleni: 'Sloučenina je látka, ve které jsou atomy různých prvků pevně spojené dohromady (ve směsi jsou látky jen promíchané a dají se oddělit) — voda H₂O a oxid uhličitý CO₂ (z molekul). Kuchyňská sůl NaCl je také sloučenina, ale není z molekul: tvoří ji nabité částice (ionty) Na⁺ a Cl⁻ pravidelně uspořádané v krystalu.',
 		},
 		{
 			text: 'Jaká je chemická značka zlata?',
