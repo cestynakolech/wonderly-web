@@ -664,6 +664,12 @@
 			"test": "testy/hra-klid-a-pohyb.mjs",
 			"podvrh": "Kopie src/data/hra-klid-a-pohyb.ts s otočenou odpovědí první karty kola 1 (řádek 59, spravne 'A' → 'B'), podvržená přes HRA_DATA. Test skončil kódem 1, 3 kontroly červené: kolo 1 nemá A i B aspoň 2× (A 1, B 5), odpověď B nesedí s oporou, scéna vytah nemá jednou KLID a jednou POHYB (124/127). Originál zůstal beze změny.",
 			"zdravy": "Nad nezměněnými daty, scénou i stránkou projde test kódem 0, 127/127 kontrol."
+		},
+		"uniky-laborek.mjs": {
+			"test": "testy/uniky-laborek-obousmerne.mjs",
+			"podvrh": "Tři skutečné úniky z dnešních kontrol laborek (texty z gitu): tip „Energii nelze vytvořit ani zničit“ × otázka 3 (1e81f77), tip rovinného zrcadla o vlastnostech obrazu × otázky 3 a 4 (fb7a1d4), tip Dlouhých strání × otázka 4 (cfec995) se najdou i v jiném pádu a velkými písmeny; opis otázky v cíli a v kroku (≥ 6 slov) se najde. Brána spuštěná na dočasném souboru s únikem skončí kódem 1.",
+			"zdravy": "Šest tipů (vč. dvouslovné shody rozvodné síti), které prošly kontrolou dávek (kosmetická zrcadla, kulová zrcadla, rychlost světla, Newton 1671, joule), mlčí; krok jen s názvy veličin a parafráze bez shodných slov také (dokumentovaná mez). Brána na zdravém dočasném souboru skončí kódem 0; nad skutečnými daty webu (65 laborek) hlásí jen 1 ručně posouzený planý poplach evidovaný v testy/uniky-laborek-zname.json (otisk textu).",
+			"regrese": "První verze (každý ≥3slovný úsek v cíli i krocích, bez ohledu na téma) vracela 11 poplachů nad skutečnými daty, všechny plané (cíl pojmenovávající měřenou veličinu, shoda čísel u transformátoru). Proto: cíl a kroky jen od 6 slov, úsek aspoň s jedním slovem mimo název laborky, tip od 3 slov. \\b se nepoužívá, slova se dělí přes \\p{L}\\p{N}."
 		}
 	}
 }

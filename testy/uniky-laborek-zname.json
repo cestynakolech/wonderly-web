@@ -1,0 +1,6 @@
+{
+	"_": "Ručně posouzené PLANÉ POPLACHY měřidla uniky-laborek.mjs. Klíč = laborka|pole|číslo otázky|otisk textu pole (sha1, 12 znaků), takže výjimka platí jen pro přesně tento text — po úpravě tipu se kontroluje znovu. Nejde o seznam tolerovaných úniků: sem patří jen shoda, kterou člověk přečetl a shledal neškodnou. Hlásí-li měřidlo nový nález, opravuje se text laborky, ne tento soubor.",
+	"zname": {
+		"fyzika/9-rocnik/energie-a-vesmir/obnovitelne-a-neobnovitelne-zdroje|tip|4|afc1385e4142": "Tip jen pojmenovává podmět (Přečerpávací elektrárna Dlouhé stráně), který otázka 4 sama uvádí; neříká, proč se přečerpává v noci. Kontrola dávky 10 (kontrola-laborky-davka10.md) tip po opravě označila za OK."
+	}
+}
