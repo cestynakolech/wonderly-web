@@ -1649,4 +1649,73 @@ export const laborky: Record<string, Laborka> = {
 		pozor: 'Studenou lázeň a zkumavku drž krátce, aby ses nepoškodil omrzlinou. Zkumavka je skleněná, zacházej s ní opatrně. Teploměr z ledu nevytahuj silou, nech led povolit. Teploměr nepoužívej jako míchátko. Rozlitou vodu hned utři.',
 		tip: 'Tuhnutí vody se říká mrznutí.',
 	},
+	'fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/vyparovani': {
+		nazev: 'Mokrá vata na teploměru: vypařování a teplota',
+		cil: 'Zjistit, jak vypařování ovlivňuje teplotu, a porovnat vypařování bez větru a s větrem.',
+		pomucky: ['dva stejné teploměry', 'dva kousky vaty', 'voda pokojové teploty', 'papír na ovívání', 'stopky', 'tužka'],
+		postup: [
+			'Oba teploměry nech chvíli ležet na lavici. Zapiš jejich teplotu v celých °C.',
+			'Kuličku každého teploměru obal mokrou vatou. Jeden teploměr polož na lavici a druhý ovívej papírem.',
+			'Po 2 minutách odečti teplotu na obou teploměrech v celých °C a zapiš.',
+			'Vysvětlení: vypařování je změna kapalného skupenství na plynné.',
+		],
+		tabulka: {
+			sloupce: ['teploměr', 'teplota na začátku (°C)', 'teplota po 2 min (°C)'],
+			radky: 2,
+		},
+		otazky: [
+			'Co se stalo s teplotou na obou teploměrech? Čím to je?',
+			'Na kterém teploměru klesla teplota víc a proč?',
+			'Uveď tři způsoby, jak urychlit vypařování. Na jaký z nich jsi použil ovívání?',
+			'Uveď příklad těkavé látky. Proč je s ní nebezpečné pracovat v blízkosti ohně?',
+		],
+		pozor: 'Teploměry nepoužívej jako míchátka a nedávej je do úst. Vodu hned utři. Žádné těkavé látky ani oheň nepoužívej.',
+		tip: 'Vypařování probíhá při každé teplotě, kdy existuje látka v kapalném skupenství.',
+	},
+	'fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/var': {
+		nazev: 'Var vody: sledujeme teplotu (pokus učitele)',
+		cil: 'Sledovat, jak se mění teplota vody při zahřívání až k varu a během varu.',
+		pomucky: ['varič a nádoba s 200 ml vody (připravuje učitel)', 'teploměr do 110 °C', 'stopky', 'ochranné brýle', 'tužka'],
+		postup: [
+			'Pokus provádí učitel. Žáci sedí aspoň 1 m od varné nádoby a mají ochranné brýle.',
+			'Učitel zahřívá vodu a každé 2 minuty nahlásí teplotu v celých °C. Zapisuj ji do tabulky.',
+			'Zapiš i okamžik, kdy se uvnitř vody objeví bubliny páry. Měření pokračuje, dokud se teplota po dobu aspoň 6 minut nezmění.',
+			'Vysvětlení: var probíhá v celém objemu kapaliny.',
+		],
+		tabulka: {
+			sloupce: ['čas (min)', 'teplota (°C)', 'pozorování'],
+			radky: 8,
+		},
+		otazky: [
+			'Jak se měnila teplota vody před varem a jak během varu?',
+			'Čím se liší var od vypařování?',
+			'K vyvaření 2 kg vody při teplotě varu je potřeba teplo Lv = lv · m, kde měrné skupenské teplo varu vody je 2 260 kJ/kg. Kolik kJ je to?',
+			'Jak ovlivňuje tlak teplotu varu vody? Kde se toho využívá?',
+		],
+		pozor: 'S horkou vodou a varičem pracuje výhradně učitel. Žáci zůstávají na místech s ochrannými brýlemi, nepřibližují se k varné nádobě a nedotýkají se jí. Pozor na páru.',
+		tip: 'Destilací lze oddělit složky směsi kapalin s různou teplotou varu.',
+	},
+	'fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/kondenzace': {
+		nazev: 'Orosená sklenice: kondenzace vodní páry',
+		cil: 'Pozorovat vznik kapiček vody na studené sklenici a sledovat, jak se při tom mění teplota.',
+		pomucky: ['plastová sklenice', 'studená voda s kostkami ledu', 'teploměr', 'stopky', 'papírový ubrousek', 'tužka'],
+		postup: [
+			'Sklenici zvenku osuš ubrouskem. Do sklenice nalij studenou vodu s ledem a vlož teploměr. Zapiš teplotu vody v celých °C.',
+			'Sleduj vnější stěnu sklenice. Po 2, 4 a 6 minutách zapiš teplotu vody a pozorování (bez kapek, drobné kapky, velké kapky).',
+			'Na studenou sklenici dýchni a pozoruj, co se děje s vnější stěnou.',
+			'Vysvětlení: kondenzace je změna plynného skupenství na kapalné.',
+		],
+		tabulka: {
+			sloupce: ['čas (min)', 'teplota vody (°C)', 'pozorování na vnější straně sklenice'],
+			radky: 4,
+		},
+		otazky: [
+			'Odkud se vzaly kapky na vnější straně sklenice?',
+			'Co se stalo se sklenicí při dýchnutí? Proč?',
+			'Uveď dva další příklady kondenzace v běžném životě.',
+			'Rosa vzniká večer a k ránu. Proč?',
+		],
+		pozor: 'Sklenici nepouštěj, používej plastovou. Vodu z kondenzace neslízávej a rozlité utři. Teploměr nepoužívej jako míchátko.',
+		tip: 'Kondenzace začíná od pevného jádra, například od smítka prachu v atmosféře nebo od okraje pevného tělesa.',
+	},
 };
