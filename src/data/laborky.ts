@@ -2015,7 +2015,7 @@ export const laborky: Record<string, Laborka> = {
 		},
 		otazky: [
 			'Která tyčinka měla nejmenší odpor? Které tyčinky měly odpor větší než rozsah?',
-			'Co máš udělat podle zásad první pomoci při úrazu elektrickým proudem? Proč se nesmíš zraněného dotýkat, dokud hrozí zásah proudem?',
+			'Proč se zraněného ani jeho oděvu nesmíme dotknout, dokud je pod proudem? Co z toho plyne pro tvé vlastní bezpečí?',
 			'Uveď dvě pravidla bezpečné práce s elektrickými spotřebiči.',
 			'Čím se liší přímé a nepřímé negativní účinky proudu na organismus? Uveď příklad nepřímého účinku.',
 		],
