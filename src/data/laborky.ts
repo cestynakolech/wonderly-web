@@ -1922,7 +1922,7 @@ export const laborky: Record<string, Laborka> = {
 		otazky: [
 			'Porovnej součet napětí na obou rezistorech s napětím baterie. Co zjistíš?',
 			'V jakém poměru jsou odpory 100 Ω a 200 Ω a v jakém poměru jsou naměřená napětí na nich?',
-			'Jaký je celkový odpor obou rezistorů zapojených za sebou? Vynásob celkový odpor v Ω naměřeným proudem v mA, vyjde napětí v mV. Převeď je na V (1 000 mV = 1 V) a porovnej s napětím baterie.',
+			'Jaký je celkový odpor obou rezistorů zapojených za sebou? Vynásob celkový odpor v Ω naměřeným proudem v mA, vyjde napětí v mV. Porovnej ho s napětím baterie v mV (1 V = 1 000 mV).',
 			'U starého vánočního řetězu, kde jsou žárovky zapojeny za sebou, se jedna žárovka přepálí. Co se stane s ostatními? Proč?',
 		],
 		pozor: 'Používej jen plochou baterii 4,5 V. Rezistory se při pokusu mohou zahřát, nedotýkej se jich dlouho. Obvod uzavírej až po kontrole učitelem. Při zahřívání nebo zápachu obvod odpoj.',
