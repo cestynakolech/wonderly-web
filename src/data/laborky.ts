@@ -1859,4 +1859,73 @@ export const laborky: Record<string, Laborka> = {
 		pozor: 'Ampérmetr nikdy nepřipojuj přímo ke zdroji bez spotřebiče. Začni největším rozsahem a svorku + přístroje spoj se svorkou + zdroje. Spínač zapínej až po kontrole učitelem. Používej jen plochou baterii 4,5 V.',
 		tip: 'Dohodnutý směr proudu je od kladného k zápornému pólu, opačný než směr pohybu elektronů.',
 	},
+	'fyzika/8-rocnik/elektrina/elektricke-napeti-mereni': {
+		nazev: 'Měříme napětí baterií voltmetrem',
+		cil: 'Voltmetrem změřit napětí jedné a více tužkových baterií zapojených za sebou a napětí na žárovce.',
+		pomucky: ['tři tužkové baterie 1,5 V v držácích', 'žárovka 4,5 V v objímce', 'voltmetr na stejnosměrném rozsahu 10 V', 'vodiče', 'tužka'],
+		postup: [
+			'Voltmetr připoj paralelně ke svorkám jedné baterie. Svorku + přístroje spoj se svorkou + baterie. Odečti napětí a zapiš.',
+			'Baterie zapoj za sebou tak, že kladnou svorku jedné spojíš se zápornou svorkou druhé. Změř napětí dvou baterií a pak tří baterií. Zapiš.',
+			'Tři baterie zapoj k žárovce. Voltmetr připoj paralelně k žárovce, sepni obvod a odečti napětí. Zapiš.',
+			'Vysvětlení: napětí je hlavní charakteristikou zdrojů a spotřebičů.',
+		],
+		tabulka: {
+			sloupce: ['měření', 'napětí (V)'],
+			radky: 4,
+		},
+		otazky: [
+			'Jak se napětí měnilo při přidávání baterií za sebou?',
+			'Které svorky baterií se při zapojení za sebou spojují?',
+			'Jak zapojujeme voltmetr do obvodu a proč?',
+			'Co ukazuje voltmetr, když je zapojen s opačnou polaritou?',
+		],
+		pozor: 'Používej jen tužkové baterie a rozsah 10 V. Nikdy nepoužívej síťovou zásuvku. Baterie nezkratuj vodičem. Při zahřívání nebo zápachu obvod odpoj a zavolej učitele.',
+		tip: 'Plochá baterie je složená ze tří tužkových článků zapojených za sebou.',
+	},
+	'fyzika/8-rocnik/elektrina/elektricky-proud-v-kovech-odpor': {
+		nazev: 'Odpor tužkové tuhy podle délky',
+		cil: 'Změřit odpor tužkové tuhy různé délky multimetrem a porovnat výsledky.',
+		pomucky: ['tuha do tužky (měkká 2B, asi 2 mm) nebo celá tužka ostře ořezaná z obou stran', 'multimetr nastavený na měření odporu', 'dvě krokosvorky', 'pravítko', 'tužka'],
+		postup: [
+			'Multimetr nastav na nejnižší rozsah měření odporu. Nic jiného k němu nepřipojuj.',
+			'Krokosvorky připoj ke tuze ve vzdálenosti 2 cm od sebe a připoj k multimetru. Zapiš odpor v Ω.',
+			'Krokosvorky roztáhni na vzdálenost 4 cm a 6 cm. Pokaždé zapiš odpor.',
+			'Vysvětlení: každá látka klade odpor průchodu elektrického proudu.',
+		],
+		tabulka: {
+			sloupce: ['vzdálenost krokosvorek (cm)', 'odpor (Ω)'],
+			radky: 3,
+		},
+		otazky: [
+			'Jak se měnil odpor tuhy se vzdáleností krokosvorek?',
+			'Co by se stalo s odporem, kdyby byla tuha tenčí?',
+			'Proč se vodič při průchodu elektrického proudu zahřívá?',
+			'Uveď dva příklady využití zahřívání vodiče proudem a jednu nevýhodu.',
+		],
+		pozor: 'Multimetr používej jen na měření odporu, nepřipojuj ho k baterii ani k zásuvce. Tuhu ani tužku nezlom, špičky jsou ostré. Po práci si umyj ruce.',
+		tip: 'Měď a stříbro jsou nejlepší elektrické vodiče, protože mají velmi malý odpor.',
+	},
+	'fyzika/8-rocnik/elektrina/zapojeni-spotrebicu-za-sebou': {
+		nazev: 'Dva rezistory za sebou: proud a napětí',
+		cil: 'Změřit proud a napětí v obvodu se dvěma rezistory zapojenými za sebou.',
+		pomucky: ['plochá baterie 4,5 V', 'rezistor 100 Ω a rezistor 200 Ω na zatížení aspoň 0,5 W', 'ampérmetr s rozsahem aspoň 100 mA', 'voltmetr na stejnosměrném rozsahu 10 V', 'vodiče', 'tužka'],
+		postup: [
+			'Rezistory zapoj za sebou a k nim sériově baterii a ampérmetr. Obvod nech rozpojený a zapojení nech zkontrolovat učitelem.',
+			'Obvod uzavři a odečti proud v mA na ampérmetru. Zapiš ho do tabulky. Obvod potom rozpoj.',
+			'Voltmetr paralelně připoj postupně k baterii, k prvnímu rezistoru a k druhému rezistoru. Při každém měření obvod uzavři a napětí odečti. Zapiš je.',
+			'Vysvětlení: spotřebiče zapojené za sebou jsou zapojeny jeden za druhým.',
+		],
+		tabulka: {
+			sloupce: ['veličina', 'hodnota'],
+			radky: 4,
+		},
+		otazky: [
+			'Porovnej součet napětí na obou rezistorech s napětím baterie. Co zjistíš?',
+			'V jakém poměru jsou odpory 100 Ω a 200 Ω a v jakém poměru jsou naměřená napětí na nich?',
+			'Jaký je celkový odpor obou rezistorů zapojených za sebou?',
+			'Co se stane se světlem ostatních žárovek na vánočním stromečku, když se jedna přepálí? Proč?',
+		],
+		pozor: 'Používej jen plochou baterii 4,5 V. Rezistory se při pokusu mohou zahřát, nedotýkej se jich dlouho. Obvod uzavírej až po kontrole učitelem. Při zahřívání nebo zápachu obvod odpoj.',
+		tip: 'Ohmův zákon platí pro celý obvod i pro jeho jednotlivé části.',
+	},
 };
