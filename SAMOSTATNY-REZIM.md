@@ -143,6 +143,7 @@ kontroly nespuštěno pro 7/hydrostaticky-tlak a 7/naklonena-rovina.
 
 ## ❓ Otevřené dotazy na učitele (jediná sekce, oprava V8-6, 27. 9. 2026)
 
+- **VYŘEŠENO 5. 10. 2026 (rozhodl učitel) — pět rozhodnutí:** (1) Evovy nahrávky gravitace přesunout do zálohy a namluvit znovu. (2) 21 monologů (`Omega/fronty/videa/MONOLOGY-K-ROZHODNUTI.md`) přepsat na dialog Eva+Marek, po tématech napříč 7/8/9. (3) Laborky NEURČENO 6, 7, 11, 13, 20, 71: orchestrátor připraví tabulku k odkliknutí. (4) Účinnost: „0,6, tedy 60 %“ (obojí). (5) gemma4:31b na mini neupgradovat, kopie na mini smazána 5. 10. (`ollama rm`, volno 33 → 51 GB).
 - **VYŘEŠENO 4. 10. 2026 (rozhodl učitel) — šest rozhodnutí:** (1) video NotebookLM Tání (dotaz 3. 10. b): vyrobit NOVÉ, kratší (3–4 min) s opravami (Cín, led plave, J/kg, sůl, délka). (2) Licence videí NotebookLM: pokračovat jako dosud (bonus, ne náhrada). (3) Nakloněná rovina a klín bez PDF předlohy: nechat. (4) Teplota Slunce 4 500 °C podle PDF; ostatní rozpory s PDF (příčné vlnění, heliograf, gymnasta) nechat. (5) Zápis do sešitu jen pár řádků (OBSAH-PRAVIDLA § zápis); pořadí 7, 8, 9 hotovo, pak 6. ročník (zápisy chybí úplně, 31 podtémat). (6) Pracovat samostatně až do hotového webu; potom KVÍZY S OBRÁZKY (nejen text), pořadí po tématech napříč 7/8/9 (téma 1 v 7., 8., 9., pak téma 2 atd.), nakonec 6. ročník.
 
 - **3. 10. 2026 (c) — U14 ochrana Školy ve vrátném má díry:** rozhodnutí a návrh viz `Omega/predavka/2026-10-03/CEKA-NA-UCITELE.md`.
