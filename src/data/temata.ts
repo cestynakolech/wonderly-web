@@ -3360,6 +3360,12 @@ export const temata: Record<string, Tema[]> = {
 					zapis: {"body":["polovodič (křemík, germanium) vede za určitých podmínek","u kovu odpor s teplotou roste, u polovodiče klesá","odpor polovodiče klesá i osvětlením","zahřátím vznikne volný elektron a díra","termistor reaguje na teplotu, fotorezistor na světlo"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Polovodiče pohánějí náš svět', cesta: 'W7V0PBb97eY' },
+						{
+							druh: 'video',
+							nazev: 'Polovodiče, vlastní vodivost polovodičů — 1. díl',
+							cesta: '/media/fyzika/9-rocnik/elektricky-proud-v-latkach/polovodice-vlastni-vodivost/polovodice-vlastni-vodivost-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 				{
