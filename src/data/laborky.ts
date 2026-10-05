@@ -1806,7 +1806,7 @@ export const laborky: Record<string, Laborka> = {
 			'U které dvojice kovů bylo napětí největší a u které nejmenší?',
 			'Na čem tedy závisí napětí článku v tomto pokusu?',
 			'Čím se liší akumulátor od suchého článku?',
-			'Ze kterých kovů se vyrábějí elektrody suchého článku a olověného akumulátoru?',
+			'Z jakých materiálů se vyrábějí elektrody suchého článku a olověného akumulátoru?',
 		],
 		pozor: 'Používej jen slanou vodu a voltmetr. Nic nepij a po pokusu si umyj ruce. Roztok nedávej do očí. Hřebíky jsou špičaté, zacházej s nimi opatrně.',
 		tip: 'Alkalické články mají vyšší kapacitu a delší životnost než zinkové.',
@@ -1832,7 +1832,7 @@ export const laborky: Record<string, Laborka> = {
 			'Které zapojení se používá v domácnosti a proč?',
 			'Co je zkrat a proč je nebezpečný?',
 		],
-		pozor: 'Používej jen plochou baterii 4,5 V. Spínač zapínej až po kontrole učitelem a obvod nikdy nepřepojuj pod proudem. Při zahřívání nebo zápachu obvod hned odpoj.',
+		pozor: 'Používej jen plochou baterii 4,5 V. Svorky baterie nikdy nespojuj přímo vodičem. Spínač zapínej až po kontrole učitelem a obvod nikdy nepřepojuj pod proudem. Při zahřívání nebo zápachu obvod hned odpoj.',
 		tip: 'Zapojení za sebou se také nazývá sériové a zapojení vedle sebe paralelní.',
 	},
 	'fyzika/8-rocnik/elektrina/elektricky-proud-mereni': {
