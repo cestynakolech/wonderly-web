@@ -1999,4 +1999,50 @@ export const laborky: Record<string, Laborka> = {
 		pozor: 'Spotřebiče měj po celou dobu odpojené od zásuvky. Nerozebírej je a nesahej do zásuvek. Pracuj jen s tím, co ti schválil učitel.',
 		tip: 'Příkon každého spotřebiče je uvedený na jeho výrobním štítku.',
 	},
+	'fyzika/8-rocnik/elektrina/ucinky-proudu-a-bezpecnost': {
+		nazev: 'Které materiály izolují: bezpečná záchrana',
+		cil: 'Multimetrem porovnat odpor několika materiálů a vybrat vhodný nástroj pro odtržení zraněného od vodiče.',
+		pomucky: ['multimetr nastavený na měření odporu', 'suchá dřevěná tyčinka', 'stejná tyčinka namočená ve vodě', 'plastová tyčinka', 'kovová tyčinka', 'tužka'],
+		postup: [
+			'Multimetr nastav na měření odporu na největší rozsah (aspoň 20 MΩ). Nic jiného k němu nepřipojuj.',
+			'Hroty multimetru přilož ke tyčince ve vzdálenosti asi 2 cm od sebe. Zapiš, co multimetr ukazuje (hodnotu, nebo že je odpor větší než rozsah).',
+			'Totéž udělej u všech čtyř tyčinek. Namočenou tyčinku před měřením jen zlehka otři.',
+			'Vysvětlení: při první pomoci je důležité dbát především na vlastní bezpečnost.',
+		],
+		tabulka: {
+			sloupce: ['materiál', 'odpor (hodnota nebo „větší než rozsah“)'],
+			radky: 4,
+		},
+		otazky: [
+			'Která tyčinka měla nejmenší odpor a která největší?',
+			'Který materiál je vhodný k oddělení zraněného od vodiče pod proudem? Proč se používá právě suchý?',
+			'Uveď dvě pravidla bezpečné práce s elektrickými spotřebiči.',
+			'Čím se liší přímé a nepřímé negativní účinky proudu na organismus? Uveď příklad nepřímého účinku.',
+		],
+		pozor: 'Multimetr používej jen na měření odporu a nic jiného nepřipojuj. Žádné pokusy se zásuvkou ani s poškozenými spotřebiči. Při skutečném úrazu elektrickým proudem nejdřív vypni obvod a dbej na vlastní bezpečnost.',
+		tip: 'Suchá obuv z gumy velmi zvyšuje odpor člověka proti zemi.',
+	},
+	'fyzika/8-rocnik/zvuk/vnimani-zvuku-a-hlasitost': {
+		nazev: 'Měření hlasitosti zvuku v dB',
+		cil: 'Pomocí mobilní aplikace změřit hladinu intenzity zvuku různých zvuků a porovnat ji s hranicemi pro ochranu sluchu.',
+		pomucky: ['mobil s aplikací měřící hladinu zvuku (decibelmetr)', 'tužka'],
+		postup: [
+			'Aplikaci spusť a mobil polož na lavici mikrofonem nahoru. Ve třídě je ticho. Po 10 s odečti hladinu v dB a zapiš ji.',
+			'Spolužák ve vzdálenosti 1 m od mobilu normálně mluví. Odečti hladinu v dB a zapiš ji.',
+			'Spolužák jednou zatleská ve vzdálenosti 1 m od mobilu. Odečti největší naměřenou hodnotu a zapiš ji.',
+			'Vysvětlení: vnímání zvuku sluchem je subjektivní, každý má jinou citlivost.',
+		],
+		tabulka: {
+			sloupce: ['zvuk', 'hladina intenzity zvuku (dB)'],
+			radky: 3,
+		},
+		otazky: [
+			'Který ze tří zvuků byl nejhlasitější a který nejtišší?',
+			'Práh slyšitelnosti je 0 dB a práh bolesti 130 dB. Jak daleko jsou tvoje naměřené hodnoty od prahu bolesti?',
+			'Od jaké hladiny intenzity zvuku může dlouhodobé vystavení způsobit trvalé poškození sluchu?',
+			'Uveď dva způsoby ochrany před nadměrným hlukem.',
+		],
+		pozor: 'Žádné zvuky nezesiluj uměle a nekřič spolužákům do ucha. Nedělej pokusy s hlasitými zdroji zvuku. Při bolesti nebo pískání v uších pokus ihned ukonči a řekni to učiteli.',
+		tip: 'Vláskové nervové buňky v hlemýždi se po poškození už neobnoví.',
+	},
 };
