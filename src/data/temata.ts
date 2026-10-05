@@ -2026,6 +2026,7 @@ export const temata: Record<string, Tema[]> = {
 					zapis: {"jednotky":["síla F (N, kN), měří ji siloměr"],"body":["síla je vzájemné působení těles, dotykem i na dálku","účinky síly: posuvný, otáčivý, deformační","síla má velikost, směr a působiště, kreslíme ji šipkou","druhy sil: elektrická, magnetická, gravitační, tíhová, třecí, tahová, tlaková, vztlaková"]},
 					materialy: [
 						{ druh: 'video', nazev: 'Píseň: Síly kolem nás 🎵', cesta: '/materialy/fyzika/7-rocnik/sily-kolem-nas/sila/pisen-sily-kolem-nas.m4a' },
+						{ druh: 'video', nazev: 'Bonus z NotebookLM: Fyzika síly (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/7-rocnik/sily-kolem-nas/sila/notebooklm-sila.mp4' },
 					],
 				},
 				{
