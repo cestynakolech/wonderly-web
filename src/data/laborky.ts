@@ -1678,13 +1678,13 @@ export const laborky: Record<string, Laborka> = {
 		pomucky: ['varič a nádoba s 200 ml vody (připravuje učitel)', 'teploměr do 110 °C upevněný ve stojanu', 'stopky', 'ochranné brýle', 'tužka'],
 		postup: [
 			'Pokus provádí učitel. Žáci sedí aspoň 1 m od varné nádoby a mají ochranné brýle.',
-			'Teploměr je upevněný ve stojanu a nedotýká se dna. Učitel zahřívá vodu a každou minutu po dobu 12 minut nahlásí teplotu v celých °C. Zapisuj ji do tabulky.',
+			'Teploměr je upevněný ve stojanu a nedotýká se dna. Učitel zahřívá vodu a v čase 0 a pak každou minutu po dobu 12 minut nahlásí teplotu v celých °C. Zapisuj ji do tabulky. Teplota varu vody může být podle tlaku vzduchu 98 až 99 °C.',
 			'Zapiš i to, co vidíš v nádobě: drobné bublinky u stěny, nebo velké bubliny, které stoupají z celého objemu vody ke hladině.',
 			'Vysvětlení: var je změna kapalného skupenství na plynné.',
 		],
 		tabulka: {
 			sloupce: ['čas (min)', 'teplota (°C)', 'pozorování'],
-			radky: 12,
+			radky: 13,
 		},
 		otazky: [
 			'Jak se měnila teplota vody před varem a jak během varu?',
@@ -1711,11 +1711,80 @@ export const laborky: Record<string, Laborka> = {
 		},
 		otazky: [
 			'Odkud se vzaly kapky na vnější straně sklenice?',
-			'Co se stalo s povrchem lžičky, když jsi na ni dýchl? Proč?',
+			'Co se stalo s povrchem lžičky, když jsi na ni dýchl? Proč? Co se při zkapalnění vodní páry děje s teplem?',
 			'Uveď dva další příklady kondenzace v běžném životě.',
 			'Rosa vzniká večer a k ránu. Proč?',
 		],
 		pozor: 'Sklenici nepouštěj, používej plastovou. Rozlitou vodu hned utři.',
 		tip: 'Kondenzace v atmosféře začíná na kondenzačních jádrech, například na smítkách prachu.',
+	},
+	'fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/skupenske-zmeny-vody-v-prirode': {
+		nazev: 'Model oblaku a deště ve sklenici',
+		cil: 'Na jednoduchém modelu pozorovat, jak se voda vypařuje, kondenzuje a padá zpět jako kapky.',
+		pomucky: ['průhledná sklenice', 'teplá voda z kohoutku asi 40 °C', 'talíř nebo miska', 'kostky ledu', 'stopky', 'tužka'],
+		postup: [
+			'Do sklenice nalij teplou vodu z kohoutku do výšky asi 3 cm. Sklenici přikryj talířem, na který položíš kostky ledu.',
+			'Pozoruj vnitřek sklenice po 2, 4 a 6 minutách. Zapiš pozorování a spočítej velké kapky na spodní straně talíře v celých číslech.',
+			'Talíř opatrně nakloň a pozoruj, co se stane s kapkami.',
+			'Vysvětlení: v přírodě se voda neustále vypařuje a vodní pára se ve výšce ochlazuje.',
+		],
+		tabulka: {
+			sloupce: ['čas (min)', 'co vidím', 'počet velkých kapek'],
+			radky: 3,
+		},
+		otazky: [
+			'Odkud se vzala vodní pára ve sklenici a kde se zkapalnila?',
+			'Co v modelu představuje teplá voda, studený talíř a padající kapky?',
+			'Jak se jmenuje celý proces, při kterém se voda neustále vypařuje a vrací zpět?',
+			'Za první den spadlo 4 mm srážek a druhý den 6 mm. Kolik mm srážek spadlo za oba dny? Čím se srážky měří?',
+		],
+		pozor: 'Používej jen teplou vodu z kohoutku, nikdy horkou z konvice. Sklenici drž pevně a rozlitou vodu hned utři. Nepoužívej skleněný talíř, který by se mohl rozbít.',
+		tip: 'Čím víc vodních kapek mrak obsahuje, tím je tmavší.',
+	},
+	'fyzika/8-rocnik/elektrina/elektricke-pole': {
+		nazev: 'Nabité pravítko: vodní proud, plechovka a papírky',
+		cil: 'Pozorovat, jak elektrické pole zelektrovaného pravítka působí na neutrální tělesa.',
+		pomucky: ['plastové pravítko', 'vlněná látka', 'prázdná hliníková plechovka', 'malé kousky papíru', 'kohoutek s tenkým proudem vody', 'tužka'],
+		postup: [
+			'Pravítko třicetkrát otři o vlněnou látku. Přibliž ho k tenkému proudu vody z kohoutku asi na 1 cm. Zapiš, co se s proudem děje.',
+			'Pravítko znovu zelektruj. Prázdnou plechovku polož na lavici na bok a přibližuj k ní pravítko ze strany. Zapiš, co plechovka dělá.',
+			'Pravítko znovu zelektruj a přibliž ho k malým kouskům papíru na lavici. Zapiš, co se stane.',
+			'Vysvětlení: elektrické pole vzniká kolem každého nabitého tělesa.',
+		],
+		tabulka: {
+			sloupce: ['pokus', 'co pozoruji'],
+			radky: 3,
+		},
+		otazky: [
+			'Co jsi pozoroval u vodního proudu, plechovky a papírků? Byla tato tělesa nabitá?',
+			'Jak se jmenuje jev, kdy se nenabité kovové těleso v elektrickém poli přitahuje k nabitému tělesu?',
+			'Jakým směrem ukazují siločáry elektrického pole u kladného náboje?',
+			'Co znamená, když jsou siločáry u sebe blíž?',
+		],
+		pozor: 'Pokus dělej v suché místnosti. Pravítko nepřibližuj k zásuvce ani k elektronice. Vodu hned utři a na mokré lavici nezelektrovávej. Plechovka má ostré okraje, zacházej s ní opatrně.',
+		tip: 'Elektrické pole může působit i na dálku, tělesa se nemusí dotýkat.',
+	},
+	'fyzika/8-rocnik/elektrina/vznik-elektrickeho-proudu': {
+		nazev: 'Které látky vedou proud a záleží na směru?',
+		cil: 'Zjistit, které materiály vedou elektrický proud, a ověřit, zda u LED diody záleží na zapojení baterie.',
+		pomucky: ['plochá baterie 4,5 V', 'žárovka 4,5 V v objímce', 'červená LED s rezistorem 330 Ω', 'vodiče s krokosvorkami', 'mince, hřebík, kousek plastu, dřeva a gumy', 'tužka'],
+		postup: [
+			'Sestav obvod z baterie, žárovky a dvou vodičů s krokosvorkami tak, aby zůstala mezera na zkoušený předmět.',
+			'Do mezery postupně vlož minci, hřebík, plast, dřevo a gumu. U každého zapiš, zda žárovka svítí.',
+			'Žárovku nahraď LED s rezistorem. Zapoj ji do obvodu v jednom směru a zapiš, zda svítí. Pak LED otoč a zapiš výsledek.',
+			'Vysvětlení: elektrický proud je uspořádaný pohyb volných nabitých částic.',
+		],
+		tabulka: {
+			sloupce: ['zkoušený předmět nebo zapojení', 'svítí / nesvítí'],
+			radky: 7,
+		},
+		otazky: [
+			'Které materiály vedly proud a které ne?',
+			'Proč izolanty proud nevedou?',
+			'U kterého zařízení záleží na směru proudu a u kterého ne?',
+			'Co je příčinou elektrického proudu ve vodiči a jak vzniká na svorkách baterie?',
+		],
+		pozor: 'Používej jen plochou baterii 4,5 V, nikdy síťovou zásuvku. LED nikdy nepřipojuj bez rezistoru. Vodiče nezkratuj. Při zahřívání nebo zápachu obvod odpoj a zavolej učitele.',
+		tip: 'Zdroje elektrického napětí jsou například akumulátory, tužkové baterie a plochá baterie.',
 	},
 };
