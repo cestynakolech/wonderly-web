@@ -2623,6 +2623,9 @@ export const temata: Record<string, Tema[]> = {
 					odkazy: [
 						{ nazev: 'Wordwall — kvíz Energie (pohybová, polohová, zachování)', url: 'https://wordwall.net/resource/37856406/energie' },
 					],
+					materialy: [
+						{ druh: 'video', nazev: 'Bonus z NotebookLM: Mechanická energie (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/energie/pohybova-a-polohova-energie/notebooklm-pohybova-a-polohova-energie.mp4' },
+					],
 				},
 				{
 					slug: 'zakon-zachovani-mechanicke-energie',
