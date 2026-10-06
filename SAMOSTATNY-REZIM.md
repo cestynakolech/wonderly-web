@@ -6,7 +6,7 @@
 
 ## ⚡ ČÍM ZAČÍT — 27. 9. 2026
 
-- **AKTUÁLNÍ PŘEDÁVKA 5. 10. 2026: `~/Desktop/Omega/predavka/2026-10-05/PRIKAZ-NOVA-SESSION-4.md`** — KROK 0, stav (91 laborek nasazeno, 3 videa), rozpracované díly, čeká na učitele, Codex, další kroky. Číst jako první.
+- **AKTUÁLNÍ PŘEDÁVKA 6. 10. 2026: `~/Desktop/Omega/predavka/2026-10-06/PRIKAZ-NOVA-SESSION-OMEGA.md`** — KROK 0, stav (společná fronta renderů, video_pas, C fáze 1–2, Codex, 91 laborek), rozpracované díly, čeká na učitele, další kroky. Číst jako první. Souběžná předávka B (sjednocení souborů, přenos dat Intel → Book): `~/Desktop/Omega/predavka/2026-10-06/PRIKAZ-NOVA-SESSION-PRENOS-DAT.md`. Starší: `predavka/2026-10-05/PRIKAZ-NOVA-SESSION-4.md`.
 
 - **NASAZENO e43dde5e 3. 10. večer: píseň Tuhnutí (2fb05c3)** — záložně `npx wrangler deploy`, živě SHA1 == dist, m4a 200 5 622 678 B, doklad `Omega/predavka/2026-10-03/nasazeni-2fb05c3.md`.
 - **NASAZENO a75128ae 3. 10. večer: odkazy Pohyb tělesa (aa11dd5)** — záložně `npx wrangler deploy`, živě SHA1 == dist (klid-a-pohyb-telesa e91300f52022, oba odkazy ano), doklad `Omega/predavka/2026-10-03/nasazeni-aa11dd5.md`.
