@@ -1928,6 +1928,12 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '/materialy/fyzika/7-rocnik/pohyb-a-rychlost/klid-a-pohyb-telesa/infografika-zaklady-pohybu.jpg',
 						},
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Iluze klidu a pohybu (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/7-rocnik/pohyb-a-rychlost/klid-a-pohyb-telesa/notebooklm-klid-a-pohyb-telesa.mp4' },
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Klid a pohyb tělesa',
+							cesta: '/media/fyzika/7-rocnik/pohyb-a-rychlost/klid-a-pohyb-telesa/klid-a-pohyb-telesa-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 				{

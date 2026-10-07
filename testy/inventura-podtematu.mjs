@@ -30,7 +30,8 @@ assert.deepEqual(
 	{
 		// 4. 10. 2026: bonus video z NotebookLM v R2 → R2 médium = NEJISTÉ (viz test „R2 média se nesmějí ztratit“)
 		video: 'NEJISTÉ',
-		polemika: 'NE',
+		// 7. 10. 2026: polemika (dialog) v R2 → R2 médium = NEJISTÉ (stejné pravidlo jako u videa)
+		polemika: 'NEJISTÉ',
 		infografika: 'ANO',
 		kvíz: 'ANO',
 		písnička: 'NE',
