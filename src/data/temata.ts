@@ -2821,6 +2821,7 @@ export const temata: Record<string, Tema[]> = {
 						{ nazev: 'Vypařování, var a kapalnění (Fyzika007)', url: 'https://www.fyzika007.cz/struktura-avlastnosti-l%C3%A1tek/vypa%C5%99ov%C3%A1n%C3%AD-var-a-kapaln%C4%9Bn%C3%AD' },
 					],
 					materialy: [
+						{ druh: 'video', nazev: 'Bonus z NotebookLM: Tajemství vypařování (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/vyparovani/notebooklm-vyparovani.mp4' },
 						{ druh: 'video', nazev: 'Píseň: Vypařování 🎵', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/vyparovani/pisen-vyparovani.m4a' },
 					],
 				},
