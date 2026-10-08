@@ -2772,6 +2772,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 					materialy: [
 						{ druh: 'video', nazev: 'Píseň: Teplo mění skupenství 🎵', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi/pisen-teplo-meni-skupenstvi.m4a' },
+						{ druh: 'video', nazev: 'Bonus z NotebookLM: Teplo a skupenství látek (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi/notebooklm-teplo-a-premeny-skupenstvi.mp4' },
 					],
 				},
 				{
