@@ -2805,6 +2805,7 @@ export const temata: Record<string, Tema[]> = {
 						{ nazev: 'Jak vlastně funguje solení silnic v zimě? (Zeptej se vědce)', url: 'https://zeptejsevedce.cz/dotazy-a-odpovedi/jak-vlastne-funguje-soleni-silnic-v-zime/' },
 					],
 					materialy: [
+						{ druh: 'video', nazev: 'Bonus z NotebookLM: Fyzika tuhnutí (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tuhnuti/notebooklm-tuhnuti.mp4' },
 						{ druh: 'video', nazev: 'Píseň: Tuhnutí 🎵', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tuhnuti/pisen-tuhnuti.m4a' },
 					],
 				},
