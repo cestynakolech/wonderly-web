@@ -2737,6 +2737,9 @@ export const temata: Record<string, Tema[]> = {
 						{ nazev: 'Techmania — Čtyřdobý zážehový motor', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/plyny/tepelne-motory/ctyrdoby-zazehovy-motor' },
 						{ nazev: 'Wordwall — kvíz Spalovací motory', url: 'https://wordwall.net/cs/resource/108360943/spalovací-motory-kviz' },
 					],
+					materialy: [
+						{ druh: 'video', nazev: 'Bonus z NotebookLM: Tajemství spalovacích motorů (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/notebooklm-spalovaci-motory.mp4' },
+					],
 				},
 				{
 					slug: 'alternativni-motory',
