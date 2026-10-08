@@ -2663,6 +2663,9 @@ export const temata: Record<string, Tema[]> = {
 						{ nazev: 'Společnost pro výživu — Energetická hodnota potravin', url: 'https://www.vyzivaspol.cz/energeticka-hodnota-potravin/' },
 						{ nazev: '100+1 zahraniční zajímavost — Jak se zjišťuje energetická hodnota potravin', url: 'https://www.stoplusjednicka.cz/kdyz-se-pali-jidlo-jak-se-zjistuje-energeticka-hodnota-potravin' },
 					],
+					materialy: [
+						{ druh: 'video', nazev: 'Bonus z NotebookLM: Energie v potravinách (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/energie/energeticka-hodnota-potravin/notebooklm-energeticka-hodnota-potravin.mp4' },
+					],
 				},
 				{
 					slug: 'vnitrni-energie-telesa',
@@ -2675,6 +2678,9 @@ export const temata: Record<string, Tema[]> = {
 					odkazy: [
 						{ nazev: 'Fyzika007 — Vnitřní energie tělesa (výklad + příklady)', url: 'https://www.fyzika007.cz/molekulov%C3%A1-fyzika-atermika/vnit%C5%99n%C3%AD-energie-t%C4%9Blesa' },
 						{ nazev: 'Eductify — procvičení: Změny vnitřní energie (8. ročník)', url: 'https://www.eductify.com/cs/fyzika/c80/8-rocnik-zs/p-zvet/zmeny-vnitrne-energie' },
+					],
+					materialy: [
+						{ druh: 'video', nazev: 'Bonus z NotebookLM: Vnitřní energie tělesa (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/energie/vnitrni-energie-telesa/notebooklm-vnitrni-energie-telesa.mp4' },
 					],
 				},
 				{
