@@ -1,0 +1,225 @@
+<svg viewBox="0 0 1200 1250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Infografika Síla a její znázornění: síla F popisuje vzájemné působení těles, jednotka newton (N), měříme siloměrem; tři údaje síly velikost, směr a působiště; měřítko 1 cm odpovídá 100 N, síla 400 N se kreslí šipkou 4 cm; účinky pohybové a deformační a druhy sil" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<rect width="1200" height="1250" fill="#f3f1ea" />
+
+	<!-- ===== Nadpis ===== -->
+	<text x="600" y="95" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="56" font-weight="bold" fill="#2b2a26">Síla a její znázornění</text>
+	<path d="M 330 118 Q 600 104 872 116" fill="none" stroke="#e8590c" stroke-width="6" stroke-linecap="round" />
+	<text x="600" y="158" text-anchor="middle" font-size="25" fill="#6b6a60">Vzájemné působení těles kreslíme šipkou</text>
+
+	<!-- ===== Panel 1: Síla F ===== -->
+	<rect x="56" y="191" width="530" height="420" rx="10" fill="#2b2a26" />
+	<rect x="50" y="185" width="530" height="420" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="84" cy="219" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="84" y="226" text-anchor="middle" font-size="19" font-weight="bold" fill="#b8460b">1</text>
+	<!-- ikona: siloměr -->
+	<g>
+		<circle cx="270" cy="219" r="4" fill="none" stroke="#2b2a26" stroke-width="2" />
+		<rect x="262" y="223" width="16" height="30" rx="3" fill="#e7f5ff" stroke="#2b2a26" stroke-width="2" />
+		<polyline points="270,226 265,230 275,234 265,238 275,242 270,246" fill="none" stroke="#495057" stroke-width="1.5" />
+		<line x1="270" y1="253" x2="270" y2="260" stroke="#495057" stroke-width="2" />
+		<path d="M 270 260 Q 270 265 265 265" fill="none" stroke="#495057" stroke-width="2" />
+	</g>
+	<text x="345" y="250" text-anchor="middle" font-size="30" font-weight="bold" fill="#2b2a26">Síla F</text>
+
+	<circle cx="84" cy="298" r="4" fill="#2b2a26" />
+	<text x="100" y="305" font-size="21" fill="#2b2a26">popisuje <tspan font-weight="bold" fill="#b8460b">vzájemné působení těles</tspan></text>
+	<text x="100" y="333" font-size="21" fill="#2b2a26">(dotykem i na dálku)</text>
+	<circle cx="84" cy="368" r="4" fill="#2b2a26" />
+	<text x="100" y="375" font-size="21" fill="#2b2a26">jednotka <tspan font-weight="bold" fill="#b8460b">newton (N)</tspan>, měříme <tspan font-weight="bold" fill="#b8460b">siloměrem</tspan></text>
+	<text x="100" y="403" font-size="21" fill="#2b2a26">(pružina)</text>
+	<circle cx="84" cy="438" r="4" fill="#2b2a26" />
+	<text x="100" y="445" font-size="21" fill="#2b2a26">působení je vždy <tspan font-weight="bold" fill="#b8460b">vzájemné</tspan> — ty na</text>
+	<text x="100" y="473" font-size="21" fill="#2b2a26">těleso, ono na tebe</text>
+
+	<!-- obrázek: ruka tlačí bednu, dvě stejně velké opačné síly (posun o -12 svisle) -->
+	<g transform="translate(0,-12)">
+	<line x1="140" y1="585" x2="520" y2="585" stroke="#2b2a26" stroke-width="2" />
+	<!-- ruka -->
+	<rect x="200" y="525" width="62" height="40" rx="12" fill="#f1c27d" stroke="#2b2a26" stroke-width="2" />
+	<rect x="252" y="527" width="48" height="9" rx="4.5" fill="#f1c27d" stroke="#2b2a26" stroke-width="1.8" />
+	<rect x="252" y="537" width="48" height="9" rx="4.5" fill="#f1c27d" stroke="#2b2a26" stroke-width="1.8" />
+	<rect x="252" y="547" width="48" height="9" rx="4.5" fill="#f1c27d" stroke="#2b2a26" stroke-width="1.8" />
+	<rect x="252" y="557" width="44" height="8" rx="4" fill="#f1c27d" stroke="#2b2a26" stroke-width="1.8" />
+	<rect x="150" y="530" width="56" height="32" rx="6" fill="#4dabf7" stroke="#2b2a26" stroke-width="2" />
+	<!-- bedna -->
+	<rect x="300" y="505" width="80" height="80" fill="#d9a066" stroke="#2b2a26" stroke-width="2.5" />
+	<line x1="300" y1="545" x2="380" y2="545" stroke="#8d5a2b" stroke-width="2" />
+	<!-- síla bedny na ruku: působiště v místě dotyku x=300, délka 70 -->
+	<g id="sipka-na-ruku">
+		<line x1="300" y1="532" x2="244" y2="532" stroke="#e03131" stroke-width="5" />
+		<polygon points="230,532 244,525 244,539" fill="#e03131" />
+		<circle cx="300" cy="532" r="5" fill="#2b2a26" />
+	</g>
+	<!-- síla ruky na bednu: působiště v místě dotyku x=300, délka 70 -->
+	<g id="sipka-na-bednu">
+		<line x1="300" y1="558" x2="356" y2="558" stroke="#e03131" stroke-width="5" />
+		<polygon points="370,558 356,551 356,565" fill="#e03131" />
+		<circle cx="300" cy="558" r="5" fill="#2b2a26" />
+	</g>
+	<text x="140" y="514" font-size="18" font-weight="bold" fill="#b02525">bedna na ruku</text>
+	<text x="392" y="564" font-size="18" font-weight="bold" fill="#b02525">ruka na bednu</text>
+	<text x="315" y="604" text-anchor="middle" font-size="16" fill="#495057">obě šipky stejně dlouhé, opačný směr</text>
+	</g>
+
+	<!-- ===== Panel 2: Tři údaje síly ===== -->
+	<rect x="626" y="191" width="530" height="420" rx="10" fill="#2b2a26" />
+	<rect x="620" y="185" width="530" height="420" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="654" cy="219" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="654" y="226" text-anchor="middle" font-size="19" font-weight="bold" fill="#b8460b">2</text>
+	<!-- ikona: bod a šipka -->
+	<g>
+		<circle cx="756" cy="240" r="4.5" fill="#2b2a26" />
+		<line x1="756" y1="240" x2="780" y2="240" stroke="#e03131" stroke-width="4" />
+		<polygon points="792,240 780,234 780,246" fill="#e03131" />
+	</g>
+	<text x="915" y="250" text-anchor="middle" font-size="30" font-weight="bold" fill="#2b2a26">Tři údaje síly</text>
+
+	<circle cx="654" cy="298" r="4" fill="#2b2a26" />
+	<text x="670" y="305" font-size="21" fill="#2b2a26"><tspan font-weight="bold" fill="#b8460b">velikost</tspan> — délka šipky podle měřítka</text>
+	<circle cx="654" cy="343" r="4" fill="#2b2a26" />
+	<text x="670" y="350" font-size="21" fill="#2b2a26"><tspan font-weight="bold" fill="#b8460b">směr</tspan> — kam šipka míří</text>
+	<circle cx="654" cy="388" r="4" fill="#2b2a26" />
+	<text x="670" y="395" font-size="21" fill="#2b2a26"><tspan font-weight="bold" fill="#b8460b">působiště</tspan> — bod, kde síla působí</text>
+	<text x="670" y="423" font-size="21" fill="#2b2a26">(začátek šipky)</text>
+
+	<!-- obrázek: bedna tažená doprava -->
+	<line x1="650" y1="560" x2="1120" y2="560" stroke="#2b2a26" stroke-width="2" />
+	<rect x="680" y="480" width="80" height="80" fill="#d9a066" stroke="#2b2a26" stroke-width="2.5" />
+	<line x1="680" y1="506" x2="760" y2="506" stroke="#8d5a2b" stroke-width="2" />
+	<line x1="680" y1="533" x2="760" y2="533" stroke="#8d5a2b" stroke-width="2" />
+	<g id="sipka-tri-udaje">
+		<line x1="760" y1="520" x2="1006" y2="520" stroke="#e03131" stroke-width="6" />
+		<polygon points="1022,520 1006,511 1006,529" fill="#e03131" />
+		<circle cx="760" cy="520" r="7" fill="#2b2a26" />
+	</g>
+	<!-- popisky -->
+	<line x1="760" y1="528" x2="782" y2="588" stroke="#2b2a26" stroke-width="1.5" />
+	<text x="786" y="595" font-size="19" font-weight="bold" fill="#2b2a26">působiště</text>
+	<text x="1030" y="526" font-size="19" font-weight="bold" fill="#2b2a26">směr</text>
+	<path d="M 760 494 L 760 486 L 1022 486 L 1022 494" fill="none" stroke="#2b2a26" stroke-width="1.5" />
+	<text x="891" y="476" text-anchor="middle" font-size="19" font-weight="bold" fill="#2b2a26">velikost = délka šipky</text>
+
+	<!-- ===== Panel 3: Měřítko ===== -->
+	<rect x="56" y="641" width="530" height="420" rx="10" fill="#2b2a26" />
+	<rect x="50" y="635" width="530" height="420" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="84" cy="669" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="84" y="676" text-anchor="middle" font-size="19" font-weight="bold" fill="#b8460b">3</text>
+	<!-- ikona: pravítko -->
+	<g>
+		<rect x="230" y="680" width="44" height="16" fill="#ffe066" stroke="#2b2a26" stroke-width="2" />
+		<line x1="239" y1="680" x2="239" y2="688" stroke="#2b2a26" stroke-width="1.5" />
+		<line x1="248" y1="680" x2="248" y2="686" stroke="#2b2a26" stroke-width="1.5" />
+		<line x1="257" y1="680" x2="257" y2="688" stroke="#2b2a26" stroke-width="1.5" />
+		<line x1="266" y1="680" x2="266" y2="686" stroke="#2b2a26" stroke-width="1.5" />
+	</g>
+	<text x="340" y="700" text-anchor="middle" font-size="30" font-weight="bold" fill="#2b2a26">Měřítko</text>
+
+	<circle cx="84" cy="748" r="4" fill="#2b2a26" />
+	<text x="100" y="755" font-size="21" fill="#2b2a26">síla 400 N, měřítko 1 cm odpovídá 100 N</text>
+	<text x="100" y="783" font-size="21" fill="#2b2a26">→ šipka <tspan font-weight="bold" fill="#b8460b">4 cm</tspan></text>
+	<circle cx="84" cy="818" r="4" fill="#2b2a26" />
+	<text x="100" y="825" font-size="21" fill="#2b2a26">více sil v obrázku = <tspan font-weight="bold" fill="#b8460b">stejné měřítko</tspan></text>
+	<text x="100" y="853" font-size="21" fill="#2b2a26">pro všechny</text>
+
+	<!-- obrázek: 1 dílek pravítka = 48 jednotek = 1 cm = 100 N; síly 400 N a 200 N od x=150 -->
+	<rect x="102" y="872" width="48" height="40" fill="#d9a066" stroke="#2b2a26" stroke-width="2" />
+	<g id="sipka-400N">
+		<line x1="150" y1="892" x2="328" y2="892" stroke="#e03131" stroke-width="5" />
+		<polygon points="342,892 328,885 328,899" fill="#e03131" />
+		<circle cx="150" cy="892" r="5" fill="#2b2a26" />
+	</g>
+	<text x="356" y="899" font-size="21" font-weight="bold" fill="#b02525">400 N</text>
+	<rect x="102" y="928" width="48" height="40" fill="#d9a066" stroke="#2b2a26" stroke-width="2" />
+	<g id="sipka-200N">
+		<line x1="150" y1="948" x2="232" y2="948" stroke="#e03131" stroke-width="5" />
+		<polygon points="246,948 232,941 232,955" fill="#e03131" />
+		<circle cx="150" cy="948" r="5" fill="#2b2a26" />
+	</g>
+	<text x="260" y="955" font-size="21" font-weight="bold" fill="#b02525">200 N</text>
+	<!-- pravítko 0–4 dílky -->
+	<rect x="140" y="984" width="222" height="34" fill="#ffe066" stroke="#2b2a26" stroke-width="2" />
+	<line x1="150" y1="984" x2="150" y2="998" stroke="#2b2a26" stroke-width="2" />
+	<line x1="174" y1="984" x2="174" y2="992" stroke="#2b2a26" stroke-width="1.5" />
+	<line x1="198" y1="984" x2="198" y2="998" stroke="#2b2a26" stroke-width="2" />
+	<line x1="222" y1="984" x2="222" y2="992" stroke="#2b2a26" stroke-width="1.5" />
+	<line x1="246" y1="984" x2="246" y2="998" stroke="#2b2a26" stroke-width="2" />
+	<line x1="270" y1="984" x2="270" y2="992" stroke="#2b2a26" stroke-width="1.5" />
+	<line x1="294" y1="984" x2="294" y2="998" stroke="#2b2a26" stroke-width="2" />
+	<line x1="318" y1="984" x2="318" y2="992" stroke="#2b2a26" stroke-width="1.5" />
+	<line x1="342" y1="984" x2="342" y2="998" stroke="#2b2a26" stroke-width="2" />
+	<text x="150" y="1014" text-anchor="middle" font-size="14" fill="#2b2a26">0</text>
+	<text x="198" y="1014" text-anchor="middle" font-size="14" fill="#2b2a26">100</text>
+	<text x="246" y="1014" text-anchor="middle" font-size="14" fill="#2b2a26">200</text>
+	<text x="294" y="1014" text-anchor="middle" font-size="14" fill="#2b2a26">300</text>
+	<text x="342" y="1014" text-anchor="middle" font-size="14" fill="#2b2a26">400</text>
+	<text x="378" y="1007" font-size="18" fill="#2b2a26">N</text>
+	<text x="315" y="1042" text-anchor="middle" font-size="16" fill="#495057">měřítko obrázku: 1 dílek = 100 N (v sešitě 1 cm)</text>
+
+	<!-- ===== Panel 4: Účinky a druhy sil ===== -->
+	<rect x="626" y="641" width="530" height="420" rx="10" fill="#2b2a26" />
+	<rect x="620" y="635" width="530" height="420" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="654" cy="669" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="654" y="676" text-anchor="middle" font-size="19" font-weight="bold" fill="#b8460b">4</text>
+	<!-- ikona: blesk -->
+	<polygon points="752,672 736,698 748,698 742,718 762,688 750,688 758,672" fill="#fcc419" stroke="#2b2a26" stroke-width="1.5" stroke-linejoin="round" />
+	<text x="915" y="700" text-anchor="middle" font-size="30" font-weight="bold" fill="#2b2a26">Účinky a druhy sil</text>
+
+	<circle cx="654" cy="748" r="4" fill="#2b2a26" />
+	<text x="670" y="755" font-size="21" fill="#2b2a26">pohybové (posuvné či otáčivé) a</text>
+	<text x="670" y="783" font-size="21" fill="#2b2a26"><tspan font-weight="bold" fill="#b8460b">deformační</tspan> (míč × plech)</text>
+	<circle cx="654" cy="818" r="4" fill="#2b2a26" />
+	<text x="670" y="825" font-size="21" fill="#2b2a26">gravitační, magnetická, elektrická, třecí,</text>
+	<text x="670" y="853" font-size="21" fill="#2b2a26">tahová, tlaková</text>
+
+	<!-- obrázek: posuvný, otáčivý, míč, plech (šipky sil stejně dlouhé, bez číselné velikosti) -->
+	<!-- posuvný: přerušovaný obrys = původní poloha -->
+	<line x1="640" y1="985" x2="760" y2="985" stroke="#2b2a26" stroke-width="2" />
+	<rect x="648" y="945" width="40" height="40" fill="none" stroke="#868e96" stroke-width="2" stroke-dasharray="5 4" />
+	<rect x="680" y="945" width="40" height="40" fill="#d9a066" stroke="#2b2a26" stroke-width="2.5" />
+	<g id="sipka-posuvny">
+		<line x1="720" y1="965" x2="744" y2="965" stroke="#e03131" stroke-width="5" />
+		<polygon points="756,965 744,958 744,972" fill="#e03131" />
+		<circle cx="720" cy="965" r="5" fill="#2b2a26" />
+	</g>
+	<text x="700" y="1018" text-anchor="middle" font-size="18" font-weight="bold" fill="#2b2a26">posuvný</text>
+	<!-- otáčivý: kolo na ose, šedý oblouk = otáčení -->
+	<circle cx="830" cy="960" r="26" fill="#ffd8a8" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="830" cy="960" r="4" fill="#2b2a26" />
+	<g id="sipka-otacivy">
+		<line x1="830" y1="934" x2="854" y2="934" stroke="#e03131" stroke-width="5" />
+		<polygon points="866,934 854,927 854,941" fill="#e03131" />
+		<circle cx="830" cy="934" r="5" fill="#2b2a26" />
+	</g>
+	<path d="M 862 952 A 33 33 0 0 1 846 989" fill="none" stroke="#868e96" stroke-width="3" />
+	<polygon points="838,994 850,995 845,984" fill="#868e96" />
+	<text x="830" y="1018" text-anchor="middle" font-size="18" font-weight="bold" fill="#2b2a26">otáčivý</text>
+	<!-- míč: zmáčknutý, tvar se vrátí; síla působí na horní bod míče (působiště), míří dolů -->
+	<line x1="900" y1="985" x2="1010" y2="985" stroke="#2b2a26" stroke-width="2" />
+	<ellipse cx="955" cy="961" rx="42" ry="24" fill="#c0eb75" stroke="#2b2a26" stroke-width="2.5" />
+	<g id="sipka-mic">
+		<line x1="955" y1="937" x2="955" y2="961" stroke="#e03131" stroke-width="5" />
+		<polygon points="955,973 948,961 962,961" fill="#e03131" />
+		<circle cx="955" cy="937" r="5" fill="#2b2a26" />
+	</g>
+	<text x="955" y="1018" text-anchor="middle" font-size="18" font-weight="bold" fill="#2b2a26">míč</text>
+	<!-- plech na dvou podpěrách: síla působí v místě promáčknutí (působiště), míří dolů -->
+	<rect x="1024" y="942" width="14" height="43" fill="#868e96" stroke="#2b2a26" stroke-width="1.5" />
+	<rect x="1112" y="942" width="14" height="43" fill="#868e96" stroke="#2b2a26" stroke-width="1.5" />
+	<line x1="1018" y1="985" x2="1132" y2="985" stroke="#2b2a26" stroke-width="2" />
+	<path d="M 1022 934 L 1060 934 Q 1075 952 1090 934 L 1128 934 L 1128 942 L 1090 942 Q 1075 960 1060 942 L 1022 942 Z" fill="#ced4da" stroke="#2b2a26" stroke-width="2" />
+	<g id="sipka-plech">
+		<line x1="1075" y1="943" x2="1075" y2="967" stroke="#e03131" stroke-width="5" />
+		<polygon points="1075,979 1068,967 1082,967" fill="#e03131" />
+		<circle cx="1075" cy="943" r="5" fill="#2b2a26" />
+	</g>
+	<text x="1075" y="1018" text-anchor="middle" font-size="18" font-weight="bold" fill="#2b2a26">plech</text>
+	<text x="885" y="1044" text-anchor="middle" font-size="16" fill="#495057">míč tvar vrátí, plech zůstane promáčklý</text>
+
+	<!-- ===== Shrnutí ===== -->
+	<rect x="426" y="1091" width="360" height="104" rx="8" fill="#000000" opacity="0.25" />
+	<rect x="420" y="1085" width="360" height="104" rx="8" fill="#2b2a26" />
+	<text x="600" y="1137" text-anchor="middle" font-size="40" fill="#ffffff">síla F … newton (N)</text>
+	<text x="600" y="1172" text-anchor="middle" font-size="20" font-weight="bold" fill="#ffc078">velikost + směr + působiště</text>
+
+	<text x="600" y="1232" text-anchor="middle" font-size="18" fill="#6b6a60">Fyzika · 7. ročník · lab.wonderly.cz</text>
+</svg>
