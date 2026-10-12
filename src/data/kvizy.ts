@@ -3538,6 +3538,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Jaká je účinnost parní turbíny?', odpovedi: ['nejvýše asi 35 %', 'nejvýše asi 8 %', 'nejméně asi 90 %'], vysvetleni: 'Parní turbína má účinnost nejvýše asi 35 %. I to je méně než polovina dodané energie.' },
 		{ text: 'Čím se parní turbína liší od Wattova parního stroje?', odpovedi: ['pára v ní roztáčí lopatky, nepohybuje pístem', 'pára v ní vzniká spalováním benzínu ve válci', 'k práci nepotřebuje páru, stačí elektrický proud'], vysvetleni: 'V parní turbíně pára roztáčí lopatky a energie páry se mění na pohyb otáčivý. Píst v ní není.' },
 		{ text: 'K čemu slouží parní turbína v tepelné elektrárně?', odpovedi: ['pohání generátory elektrického napětí', 'ohřívá vodu v kotli na teplotu varu', 'odvádí kouř z elektrárny do komína'], vysvetleni: 'Parní turbína v tepelných elektrárnách pohání generátory elektrického napětí.' },
+		{ text: 'Kolik wattů je 1 MW (megawatt)?', odpovedi: ['1 000 000 W', '1 000 W, tedy jeden kilowatt', '100 000 W, tedy sto kilowattů'], vysvetleni: 'Předpona mega znamená milion, takže 1 MW = 1 000 000 W.' },
 	],
 	'fyzika/8-rocnik/tepelne-motory/spalovaci-motory': [
 		{ text: 'Kde hoří palivo ve spalovacím motoru?', odpovedi: ['přímo uvnitř motoru, ve válci', 'v samostatném kotli vedle motoru', 'vůbec nehoří, jen se stlačuje'], vysvetleni: 'Ve spalovacím motoru palivo hoří přímo ve válci. Mimo motor, v kotli, hoří palivo u parního stroje.' },
@@ -4929,6 +4930,8 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Kde najdeš lithiové akumulátory?', odpovedi: ['v mobilech, videokamerách a noteboocích', 'v autech jako baterii pro startování motoru', 'v ručních hračkách na jedno použití'], vysvetleni: 'Najdeš je v přenosné elektronice.' },
 		{ text: 'Který zdroj se používá v automobilu?', odpovedi: ['olověný akumulátor s napětím 12 V', 'plochá baterie ze tří suchých článků', 'jednorázový zinkový článek'], vysvetleni: 'Autobaterie je akumulátor s velkou kapacitou.' },
 		{ text: 'Z čeho je záporná elektroda olověného akumulátoru?', odpovedi: ['z olova', 'ze zinku', 'z lithia'], vysvetleni: 'Kladnou elektrodu tvoří olověná mřížka vyplněná oxidem olovičitým.' },
+		{ text: 'Jaké napětí má jeden suchý článek?', odpovedi: ['1,5 V', '4,5 V', '12 V'], vysvetleni: 'Suchý článek dává napětí 1,5 V a je na jedno použití.' },
+		{ text: 'Proč naměříš nulové napětí, když do citronu zapíchneš dva měděné plíšky?', odpovedi: ['plíšky jsou stejné, nic je neliší', 'citron neobsahuje dost šťávy, aby vedla proud', 'měď je izolant a elektrický proud nevede'], vysvetleni: 'Mezi dvěma stejnými plíšky žádné napětí nevznikne. Napětí je dané rozdílem mezi oběma kovy.' },
 	],
 	'fyzika/9-rocnik/elektricky-proud-v-latkach/vedeni-proudu-v-plynech': [
 		{ text: 'Jak vede vzduch elektrický proud za běžných podmínek?', odpovedi: ['velice špatně', 'stejně dobře jako měděný drát', 'lépe než slaná voda'], vysvetleni: 'Proud ze zásuvky vzduchem neprochází, proto se spotřebiče spojují vodiči.' },
@@ -5328,6 +5331,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Jádro tvoří 2 protony a 3 neutrony (5 částic). Kolik je to kvarků dohromady?', odpovedi: ['15 kvarků', '5 kvarků', '10 kvarků'], vysvetleni: '5 částic, každá se třemi kvarky, dá dohromady 5 × 3 = 15 kvarků.' },
 		{ text: 'Jádro tvoří 3 protony a 3 neutrony (6 částic). Kolik kvarků jádro obsahuje?', odpovedi: ['18 kvarků', '6 kvarků', '12 kvarků'], vysvetleni: '6 částic po 3 kvarcích dá dohromady 6 × 3 = 18 kvarků.' },
 		{ text: 'Jádro tvoří 4 protony a 3 neutrony (7 částic). Kolik je to dohromady kvarků?', odpovedi: ['21 kvarků', '7 kvarků', '14 kvarků'], vysvetleni: '7 částic, každá se třemi kvarky, dá dohromady 7 × 3 = 21 kvarků.' },
+		{ text: 'Která řada správně uvádí objekty od největšího po nejmenší?', odpovedi: ['atom, jádro, proton, kvark', 'kvark, proton, jádro, atom', 'jádro, atom, kvark, proton'], vysvetleni: 'Při zvětšování atomu jdeme postupně dovnitř: celý atom, jeho jádro, proton a nakonec kvark.' },
 	],
 	'fyzika/9-rocnik/energie-a-vesmir/slunecni-soustava': [
 		{ text: 'Co je v centru sluneční soustavy?', odpovedi: ['hvězda Slunce', 'Země', 'Jupiter'], vysvetleni: 'Ostatní tělesa se pohybují v jejím gravitačním poli.' },
