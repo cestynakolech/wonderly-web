@@ -63,7 +63,7 @@ export const temata: Record<string, Tema[]> = {
 			podtemata: [
 				{
 					slug: 'uvod-do-fyziky',
-					zapis: {"body":["fyzika je přírodní věda o přírodních jevech","fyzik pozoruje, dělá pokusy a měří","o pravdě rozhoduje pokus, ne domněnka","z ověřených poznatků vznikají fyzikální zákony","fyziku využíváme k vysvětlení a předvídání dějů"]},
+					zapis: {"body":["fyzika zkoumá přírodu: pohyb věcí, světlo, teplo","fyzik pozoruje, dělá pokusy a měří","o pravdě rozhoduje pokus, ne domněnka","fyzikální zákony popisují, jak se věci v přírodě chovají","fyziku využíváme k vysvětlení a předvídání dějů"]},
 					nazev: 'Úvod do fyziky — co je fyzika?',
 					obsah: `
 						<h2>Co je fyzika?</h2>
@@ -150,7 +150,7 @@ export const temata: Record<string, Tema[]> = {
 				},
 				{
 					slug: 'telesa-a-latky',
-					zapis: {"body":["látka je materiál (voda, sklo, železo)","těleso je konkrétní předmět s tvarem a hmotností","těleso může být z jedné nebo více látek","vlastnosti látek: barva, tvrdost, pružnost…","vlastnosti těles, které měříme, jsou fyzikální veličiny"]},
+					zapis: {"body":["látka je to, z čeho věc je (voda, sklo, železo)","těleso je celá věc s tvarem, třeba stůl, hřebík nebo oblak","těleso může být z jedné nebo z více látek","látky mají vlastnosti: barvu, tvrdost, pružnost…","co umíme změřit (třeba délku nebo hmotnost), je fyzikální veličina"]},
 					nazev: 'Tělesa a látky',
 					interakce: 'teleso-latka',
 					obsah: `
@@ -225,7 +225,7 @@ export const temata: Record<string, Tema[]> = {
 				},
 				{
 					slug: 'casticove-slozeni-latek',
-					zapis: {"body":["všechny látky jsou složeny z částic","částice se neustále chaoticky pohybují, jejich nárazy způsobují Brownův pohyb zrníček","částice na sebe působí přitažlivými a odpudivými silami","difuze je samovolné promíchání částic dvou látek","čím vyšší teplota, tím rychlejší pohyb částic"]},
+					zapis: {"body":["všechno kolem nás je složené z drobounkých částic","částice se pořád hýbou; zrníčka ve vodě se pohybují, protože do nich částice strkají (Brownův pohyb)","částice se k sobě přitahují a zároveň odpuzují","difuze: částice dvou látek se samy promíchají","když je tepleji, částice se hýbou rychleji"]},
 					nazev: 'Částicové složení látek, Brownův pohyb, difuze',
 					interakce: 'difuze',
 					obsah: `
@@ -324,7 +324,7 @@ export const temata: Record<string, Tema[]> = {
 				},
 				{
 					slug: 'atomy-a-molekuly',
-					zapis: {"body":["atom je základní stavební částice látek","prvek je látka tvořená stejnými atomy (značka: Fe, O, H)","molekula vznikne spojením dvou a více atomů (H₂O)","sloučenina má atomy různých prvků pevně spojené","směs je promíchání látek, které lze od sebe oddělit"]},
+					zapis: {"body":["atom je drobný stavební kamínek látek","prvek je látka z jednoho druhu atomů (třeba železo)","molekula vznikne, když se atomy spojí dohromady (třeba molekula vody)","sloučenina je látka z různých druhů atomů pevně spojených","ve směsi jsou různé látky jen promíchané"]},
 					nazev: 'Atomy a molekuly, prvek, sloučenina, směs',
 					interakce: 'atom-molekuly',
 					obsah: `
@@ -437,7 +437,7 @@ export const temata: Record<string, Tema[]> = {
 				},
 				{
 					slug: 'skupenstvi-latek',
-					zapis: {"body":["tři skupenství: pevné, kapalné, plynné","pevná látka má stálý tvar i objem","kapalina má stálý objem, tvar mění podle nádoby","plyn nemá stálý tvar ani objem a vyplní celý prostor","látka je stále stejná, liší se uspořádání a pohyb částic"]},
+					zapis: {"body":["tři skupenství: pevné, kapalné, plynné","pevná látka má stálý tvar i objem (objem = místo, které zabírá)","kapalina má stálý objem, tvar mění podle nádoby","plyn nemá stálý tvar ani objem a vyplní celý prostor","látka je stále stejná, liší se uspořádání a pohyb částic"]},
 					interakce: 'skupenstvi',
 					nazev: 'Skupenství látek a jejich vlastnosti',
 					obsah: `
@@ -535,7 +535,7 @@ export const temata: Record<string, Tema[]> = {
 			podtemata: [
 				{
 					slug: 'vzajemne-pusobeni-teles-sila',
-					zapis: {"body":["tělesa na sebe působí vždy vzájemně","účinky: pohybové (změna pohybu) a deformační (změna tvaru)","působí při dotyku nebo na dálku (silovým polem)","sílu měříme siloměrem, značka F, jednotka newton (N)","směr a velikost síly kreslíme šipkou z působiště"]},
+					zapis: {"body":["když jedna věc na druhou tlačí nebo ji táhne, působí druhá na ni také","síla může změnit pohyb tělesa nebo jeho tvar","síla působí při dotyku, ale i na dálku (třeba magnet)","sílu měříme siloměrem a značíme ji F; jednotka je newton (N)","sílu kreslíme jako šipku: míří tam, kam síla působí"]},
 					nazev: 'Vzájemné působení těles, síla',
 					interakce: 'vzajemne-pusobeni',
 					obsah: `
@@ -618,7 +618,7 @@ export const temata: Record<string, Tema[]> = {
 				},
 				{
 					slug: 'gravitacni-sila',
-					zapis: {"body":["Země přitahuje všechna tělesa gravitační silou","čím větší hmotnost, tím větší síla; čím dál, tím menší","směřuje do středu Země (svislý směr, olovnice)","na každý 1 kg působí u Země asi 10 N","gravitační pole vzniká kolem každého hmotného tělesa"]},
+					zapis: {"body":["Země přitahuje všechno k sobě; proto věci padají dolů","čím větší hmotnost tělesa, tím víc ho Země přitahuje","čím dál od Země, tím je přitahování slabší","přitahování míří dolů, do středu Země","na 1 kg věci působí Země silou asi 10 newtonů (N)"]},
 					nazev: 'Gravitační síla a gravitační pole',
 					interakce: 'planety-vaha',
 					obsah: `
@@ -740,7 +740,7 @@ export const temata: Record<string, Tema[]> = {
 			podtemata: [
 				{
 					slug: 'delka',
-					zapis: {"body":["délka: značka l, základní jednotka metr (m)","násobky a díly: km, dm, cm, mm; 1 km = 1 000 m","na menší jednotku nuly přidáváme, na větší škrtáme","měřidla: pravítko, svinovací metr, posuvné měřítko","nula stupnice na začátek tělesa, dívat se kolmo"]},
+					zapis: {"body":["délka: značka l, základní jednotka metr (m)","menší a větší jednotky: kilometr, decimetr, centimetr, milimetr; 1 km = 1 000 m","při převodu na menší jednotku číslo násobíme, na větší dělíme","měřidla: pravítko, svinovací metr, posuvné měřítko","nula stupnice na začátek tělesa, dívat se kolmo"]},
 					nazev: 'Délka',
 					interakce: 'stupnice',
 					obsah: `
@@ -839,7 +839,7 @@ export const temata: Record<string, Tema[]> = {
 				},
 				{
 					slug: 'hmotnost',
-					zapis: {"body":["hmotnost: značka m, množství látky v tělese","základní jednotka kilogram (kg); 1 kg = 1 000 g","ve fyzice neříkáme „váha tělesa“, váhy hmotnost měří","váhy: rovnoramenné, pružinové, digitální","váhu postavit vodorovně, předmět doprostřed misky"]},
+					zapis: {"body":["hmotnost: značka m, množství látky v tělese","základní jednotka kilogram (kg); 1 kg = 1 000 g","ve fyzice neříkáme „váha tělesa“, váhy hmotnost měří","váhy mají dvě misky, pružinu nebo displej","váhu postavit vodorovně, předmět doprostřed misky"]},
 					nazev: 'Hmotnost',
 					interakce: 'prevody',
 					obsah: `
@@ -920,7 +920,7 @@ export const temata: Record<string, Tema[]> = {
 				},
 				{
 					slug: 'objem',
-					zapis: {"body":["objem: značka V (velké), prostor, který těleso zaplňuje","základní jednotka metr krychlový (m³)","kapaliny měříme v litrech; 1 l = 1 dm³","odměrný válec: čteme kolmo u nejnižšího místa hladiny","objem pevného tělesa: V = V₂ − V₁ (ponoření do vody)"]},
+					zapis: {"body":["objem je, kolik místa těleso zabírá","objem vody měříme třeba v litrech (l)","kapaliny odměřujeme odměrným válcem","na válec se díváme zpříma, na spodní okraj hladiny","kámen ponoříme do vody: jeho objem je rozdíl údajů na stupnici před ponořením a po něm"]},
 					nazev: 'Objem',
 					interakce: 'valec',
 					obsah: `
@@ -998,7 +998,7 @@ export const temata: Record<string, Tema[]> = {
 				},
 				{
 					slug: 'hustota',
-					zapis: {"body":["hustota: značka ρ (ró), jednotka kg/m³","říká, kolik váží jednotka objemu látky","výpočet: ρ = m : V","hustota vody je 1 000 kg/m³","větší hustota než voda: klesá, menší: plave"]},
+					zapis: {"body":["hustota říká, kolik váží kousek látky stejné velikosti","železo je při stejné velikosti těžší než dřevo, má větší hustotu","co má větší hustotu než voda, v ní klesne ke dnu","co má menší hustotu než voda, na ní plave","voda: 1 litr váží 1 kg"]},
 					interakce: 'hustota',
 					nazev: 'Hustota',
 					obsah: `
@@ -1081,7 +1081,7 @@ export const temata: Record<string, Tema[]> = {
 				},
 				{
 					slug: 'souhrnne-opakovani-velicin',
-					zapis: {"body":["délka: l, metr (m)","hmotnost: m, kilogram (kg)","objem: V, metr krychlový (m³)","hustota: ρ, kilogram na metr krychlový (kg/m³)","čas: t, sekunda (s); teplota: t, °C; síla: F, newton (N)"]},
+					zapis: {"body":["délka je, jak je něco dlouhé; měříme v metrech","hmotnost je, kolik je v tělese látky; měříme v kilogramech","objem je, kolik místa těleso zabírá","čas měříme v sekundách, teplotu ve stupních Celsia","sílu měříme v newtonech"]},
 					nazev: 'Souhrnné opakování fyzikálních veličin',
 					interakce: 'opakovani-velicin',
 					obsah: `
@@ -1184,7 +1184,7 @@ export const temata: Record<string, Tema[]> = {
 			podtemata: [
 				{
 					slug: 'cas-a-jeho-mereni',
-					zapis: {"body":["čas: značka t, základní jednotka sekunda (s)","další jednotky: minuta, hodina, den, rok","1 h = 60 min","u času neposouváme desetinnou čárku","doba trvání: t = t₂ − t₁"]},
+					zapis: {"body":["čas: značka t, základní jednotka sekunda (s)","další jednotky: minuta, hodina, den, rok","1 h = 60 min","u času neposouváme desetinnou čárku","dobu trvání zjistíme tak, že od času konce odečteme čas začátku"]},
 					nazev: 'Čas a jeho měření',
 					interakce: 'ozobot',
 					obsah: `
@@ -1297,7 +1297,7 @@ export const temata: Record<string, Tema[]> = {
 			podtemata: [
 				{
 					slug: 'teplota-a-jeji-mereni',
-					zapis: {"body":["teplota: značka t, jednotka stupeň Celsia (°C)","měříme teploměrem, ne rukou","stupnice vychází z tání ledu (0 °C) a varu vody","kapalinový a bimetalový teploměr využívají roztažnost","druhy: kapalinový, lékařský, bimetalový, digitální"]},
+					zapis: {"body":["teplota říká, jak je těleso teplé nebo studené","rukou teplotu přesně neurčíme, proto máme teploměr","teplota se měří ve stupních Celsia (°C)","v kapalinovém teploměru se tekutina při zahřátí natahuje nahoru","druhy teploměrů: kapalinový, lékařský, digitální s displejem"]},
 					interakce: 'kadinky',
 					interakce2: 'prumer',
 					nazev: 'Teplota a její měření',
@@ -1394,7 +1394,7 @@ export const temata: Record<string, Tema[]> = {
 				},
 				{
 					slug: 'teplotni-roztaznost',
-					zapis: {"body":["zahřátí: rozměry a objem se zvětší","ochlazení: rozměry a objem se zmenší","kovové konstrukce mění rozměry podle počasí","využití: teploměr, bimetalový pásek, termostat","proti škodám: dilatační spáry, prověšené dráty"]},
+					zapis: {"body":["když se věc zahřeje, trochu se zvětší","když se ochladí, trochu se zmenší","kovové mosty a koleje v létě a v zimě trochu mění délku","na tom stojí teploměr a termostat (ten hlídá nastavenou teplotu)","mosty a koleje mají mezery, aby se nepoškodily"]},
 					interakce: 'teplomer',
 					interakce2: 'kolejnice',
 					nazev: 'Teplotní roztažnost',
@@ -1473,7 +1473,7 @@ export const temata: Record<string, Tema[]> = {
 			podtemata: [
 				{
 					slug: 'magneticke-vlastnosti-latek',
-					zapis: {"body":["magnet má dva póly: severní (N) a jižní (S)","stejné póly se odpuzují, opačné se přitahují","magnet přitahuje železo, kobalt a nikl","kolem magnetu je magnetické pole","Země se chová jako velký magnet"]},
+					zapis: {"body":["magnet má dva póly (konce, kde nejvíc přitahuje): severní a jižní","stejné póly se odpuzují, opačné se přitahují","magnet přitahuje železo, kobalt a nikl","kolem magnetu je magnetické pole: prostor, kde magnet působí silou","Země se chová jako velký magnet"]},
 					interakce: 'magnet',
 					nazev: 'Magnetické vlastnosti látek, magnetické pole',
 					obsah: `
@@ -1555,7 +1555,7 @@ export const temata: Record<string, Tema[]> = {
 				},
 				{
 					slug: 'elektricke-vlastnosti-latek',
-					zapis: {"body":["atom: jádro (protony +, neutrony) a obal (elektrony −)","třením se přenášejí elektrony, protony zůstávají v jádře","stejné náboje se odpuzují, opačné se přitahují","vodiče vedou náboj, izolanty ne","uzemněním se nabité těleso vybije"]},
+					zapis: {"body":["atom má uprostřed jádro a kolem něj drobné elektrony","při tření se elektrony (drobné částice se záporným nábojem) přesunou z věci na věc","náboj je vlastnost částic, kladný nebo záporný; stejné se odpuzují, opačné přitahují","vodiče (kovy) elektřinu vedou, izolanty (plast) ne","nabité těleso se vybije, když vodivé spojení se Zemí odvede náboj"]},
 					nazev: 'Elektrické vlastnosti látek, stavba atomu, elektrické pole',
 					interakce: 'elektrovani',
 					obsah: `
@@ -1651,7 +1651,7 @@ export const temata: Record<string, Tema[]> = {
 				},
 				{
 					slug: 'jednoduche-elektricke-obvody',
-					zapis: {"body":["proud vzniká uspořádaným pohybem nabitých částic","proud měříme ampérmetrem (A), napětí voltmetrem (V)","obvod má zdroj, vodiče a spotřebič","proud prochází jen uzavřeným obvodem","zkrat je nebezpečný, chrání před ním pojistka"]},
+					zapis: {"body":["při elektrickém proudu se drobné nabité částice společně posouvají drátem","obvod: baterie (zdroj), drátky a žárovka (spotřebič)","proud teče jen tehdy, když je obvod celý spojený","proud měříme přístrojem zvaným ampérmetr","při zkratu teče příliš velký proud; pojistka obvod přeruší"]},
 					interakce: 'obvod',
 					nazev: 'Jednoduché elektrické obvody',
 					obsah: `
@@ -1743,7 +1743,7 @@ export const temata: Record<string, Tema[]> = {
 			podtemata: [
 				{
 					slug: 'pololetni-shrnuti',
-					zapis: {"body":["látka je to, z čeho jsou tělesa složená","Brownův pohyb: zrníčka se pohybují nárazy částic","síla: značka F, jednotka newton (N)","hustota: ρ = m : V","stejné náboje i póly se odpuzují, opačné se přitahují"]},
+					zapis: {"body":["látka je to, z čeho je věc; věc samotná je těleso","zrníčka ve vodě se pohybují, protože do nich strkají částice (Brownův pohyb)","sílu značíme F a měříme v newtonech (N)","hustota říká, kolik váží kousek látky stejné velikosti","stejné konce magnetů se odpuzují, opačné se přitahují"]},
 					nazev: 'Pololetní shrnutí',
 					obsah: `
 						<h2>Co máš umět za 1. pololetí</h2>
@@ -1818,7 +1818,7 @@ export const temata: Record<string, Tema[]> = {
 				},
 				{
 					slug: 'rocni-shrnuti',
-					zapis: {"body":["veličiny: délka, hmotnost, objem, hustota, čas, teplota, síla","u času se desetinná čárka neposouvá: 1 h = 60 min","teplotu měříme teploměrem v °C","stejné náboje i póly se odpuzují, opačné se přitahují","obvod má zdroj, vodiče a spotřebič"]},
+					zapis: {"body":["měříme délku, hmotnost, objem, čas, teplotu i sílu","u času platí: 1 hodina je 60 minut","teplotu měříme teploměrem ve stupních Celsia","stejné konce magnetů se odpuzují, opačné se přitahují","obvod: baterie, drátky a žárovka"]},
 					nazev: 'Roční shrnutí',
 					obsah: `
 						<h2>Co máš umět za celý 6. ročník</h2>
@@ -1854,7 +1854,7 @@ export const temata: Record<string, Tema[]> = {
 				},
 				{
 					slug: 'pokusy',
-					zapis: {"body":["pokusy děláme bezpečně a s dohledem dospělého","dva balónky třené o vlasy se odpuzují","třený balónek přitahuje papírky","ve slané vodě vejce vyplave — roztok má větší hustotu než vejce","kov se zahřátím roztáhne"]},
+					zapis: {"body":["pokusy děláme bezpečně a s dohledem dospělého","dva balónky třené o vlasy se odpuzují","třený balónek přitahuje papírky","v hodně slané vodě vejce vyplave — roztok má větší hustotu než vejce","kov se zahřátím roztáhne"]},
 					nazev: '20 jednoduchých pokusů',
 					interakce: 'pokusy',
 					obsah: `
