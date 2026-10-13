@@ -128,6 +128,7 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
   nestihly opsat ani se naučit. Krátce a všeobecně, žádná přesná data; nejvýš 1 klíčové číslo“;
   nahrazuje dřívější limit 8 řádků / ~70 slov). **KOTVA: max ~5 bodů, každý jedna krátká věta**
   (limit auditu: >5 bodů nebo >60 slov = nad limitem). Co je navíc, patří do výkladu, ne do zápisu.
+  Zápis vysvětluje látku tématu na úrovni 1. stupně (pravidlo učitele 12. 10. 2026): srozumitelný malému dítěti, odborný termín jen s jednoduchým vysvětlením, jinak vynechat (ρ, Brownův pohyb, protony bez vysvětlení ne).
   Vzorec slovy jako 6. řádek zůstává (je krátký, do limitu bodů se nepočítá; rozhodnutí orchestrátora 5. 10. 2026).
   Vzor (vesmír): rozpíná se; počátek = velký třesk; stáří ~14 mld. let; tvoří ho galaxie;
   v galaxii je černá díra. Audit: `node Omega/skripty/audit_zapisu.mjs` → `Omega/predavka/<datum>/audit-zapisu.md`.
@@ -195,6 +196,7 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
     obsah výkladu. U obsahem chudého podtématu se blok NEDOPLŇUJE umělými obměnami téže otázky —
     zůstane menší a do stavu se zapíše, kolik otázek unese a proč. Lepší méně otázek než osmkrát
     totéž jinými slovy.
+    - **Zapsaná výjimka: kvíz `kvarky` (F9) zůstává na 14 otázkách místo 21** (rozhodnutí učitele 13. 10. 2026, už se neptat; měřidla/brány tuto výjimku berou z tohoto místa, v kódu žádný seznam výjimek není).
     - **Jak poznat chudé podtéma:** nové otázky nejde napsat bez duplicity s existujícími
       (`testy/uniky.mjs` by je odmítl) ANEBO bez úniku — odpověď na novou otázku už je
       prozrazená ve `vysvetleni` jiné otázky téhož bloku.
@@ -433,8 +435,8 @@ Pravidla kap. 3 (úvod „Jednoduše řečeno“, rozsah = PDF, zápis ≤ 8 ř�
 Učitel doslova: „Klid a pohyb tělesa je dobře udělaná stránka a mohla by být předlohou pro ostatní stránky — tím nemyslím vše začít znovu předělávat, co je předělané, nechat a pokračovat dál, ale pro další stránky dodržovat méně textu, více obrázků, stejně jako je to na předlohovém PDF, a některé děje vyjádřit i animací.“
 
 - **Předloha:** podtéma `klid-a-pohyb-telesa` (`fyzika/7-rocnik/pohyb-a-rychlost`, `src/data/temata.ts`, řádek ~1743; interakce `relativita-pohybu` = `RelativitaPohybuSimulace.astro`).
-- **Měřítko (naměřeno 3. 10. 2026):** výklad 413 slov · 7 obrázků ve výkladu (5 SVG kreseb + 2 jpg; plus 1 infografika v materiálech) · 1 interaktivní simulace · 1 video → zhruba **60 slov na obrázek**, každý oddíl s vlastním obrázkem. Měřítko, ne přesný limit: nový výklad nemá být textovější (ani se stejným rozsahem jen ozdobený) než předloha.
+- **Měřítko (naměřeno 3. 10. 2026):** výklad 413 slov · 7 obrázků ve výkladu (5 SVG kreseb + 2 jpg; plus 1 infografika v materiálech) · 1 interaktivní simulace · 1 video → zhruba **60 slov na obrázek**, každý oddíl s vlastním obrázkem. **Rozsah (učitel 13. 10. 2026): ~650 slov je přibližné MAXIMUM, ne cíl; rozmezí zhruba od vzoru (~413 slov + 7 obrázků) do ~650.** Měřítko, ne přesný limit: nový výklad nemá být textovější (ani se stejným rozsahem jen ozdobený) než předloha.
 - **Platí jen pro NOVÉ a dosud nepředělané stránky.** Hotové (předělané) stránky se kvůli tomuto pravidlu NEpředělávají.
 - **Obrázky podle předlohového PDF:** počet a téma obrázků vychází ze stran PDF; obrázek se z PDF PŘEKRESLUJE (ne kopie), viz kap. 3 a `feedback-obrazek-prekreslit-z-pdf`.
 - **Děje** (pohyb, ohřev, změny skupenství apod.) vyjádřit animací/simulací (kap. 7), je-li co ukázat; statický jev stačí obrázkem.
-- Šablona zadání workerů `Omega/predavka/2026-10-01/SABLONY-ZADANI.md` odkazuje na tuto kapitolu; při rozporu v rozsahu (~650 slov) vede tahle kapitola.
+- Šablona zadání workerů `Omega/predavka/2026-10-01/SABLONY-ZADANI.md` odkazuje na tuto kapitolu; rozsah výkladu je jednoznačně: ~650 slov = přibližné maximum, ne cíl (viz měřítko výše; šablona to přebírá, rozpor už není).

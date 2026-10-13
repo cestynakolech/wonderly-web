@@ -1,174 +1,34 @@
-> **29. 9. 2026, 06:30 — fronta opět běží:** `cz.wonderly.nocni-fronta` obnovena a spuštěna s `--vynechat animace podkasty`. Pozastavena je jen dosud nepředělaná obrazová výroba, nikoli ostatní úlohy. Běžná výjimka jedné kategorie se zaznamená a další pokračuje. Ostrý běh `vata_navrhy.py` s lokální Gemma4:26b v 06:31 uložil nový návrh; není tím schválen ani publikován. Samostatné služby kanárek a dodělávání animací zůstávají nenačtené. Starší zápis o vypnutí celé noční fronty níže je překonaný.
-
-> **28. 9. 2026 — aktuální stav po zásahu učitele:** výrobní služby `nocni-fronta`, `dodelej-animace` a `kanarek` jsou od 22:39 pozastavené, protože vznikaly díly s jediným pohyblivým klipem a zbytkem statickým. Obnovit až po předělání a ověření plných animovaných scén. Staré pravidlo „alespoň jedna animace“ bylo odstraněno; platí OBSAH-PRAVIDLA.md a Omega/dokumenty/NAVOD-ANIMACE-PODKASTU.md. Pět dnešních videí ještě čeká na předělání. ThinkingCap 3.8 je nainstalovaný a otestovaný (90 kontrol); výchozí MLX ponechán, protože jediný bod navíc není stabilní a nový model je 2–2,9× pomalejší. Podrobnosti: Omega/dokumenty/thinkingcap-38-test-2026-09-28/STAV.md. Učitel schválil samostatné pokračování. Opraven také starý obrazový postup v NAVOD-POLEMIKY-F6.md a ve skillu podkast-video. Následující zápis o obnovení všech osmi automatů je již historický.
-
-> **28. 9. 2026, 22:14 — automaty obnoveny:** učitel výslovně schválil všech osm dříve pozastavených služeb. Všechny jsou načtené; noční fronta zahájila animace. Kanárek byl kvůli pozdnímu startu přeskočen (neověřeno). Důkazy a rozsah: `Omega/dokumenty/OBNOVENI-AUTOMATU-2026-09-28.md`. Níže uvedené pozastavení z27. 9. je historické.
-
-## ⚡ ČÍM ZAČÍT — 27. 9. 2026
+## ⚡ ČÍM ZAČÍT — aktualizováno 6. 10. 2026
 
 - **AKTUÁLNÍ PŘEDÁVKA 6. 10. 2026: `~/Desktop/Omega/predavka/2026-10-06/PRIKAZ-NOVA-SESSION-OMEGA.md`** — KROK 0, stav (společná fronta renderů, video_pas, C fáze 1–2, Codex, 91 laborek), rozpracované díly, čeká na učitele, další kroky. Číst jako první. Souběžná předávka B (sjednocení souborů, přenos dat Intel → Book): `~/Desktop/Omega/predavka/2026-10-06/PRIKAZ-NOVA-SESSION-PRENOS-DAT.md`. Starší: `predavka/2026-10-05/PRIKAZ-NOVA-SESSION-4.md`.
 
-- **NASAZENO e43dde5e 3. 10. večer: píseň Tuhnutí (2fb05c3)** — záložně `npx wrangler deploy`, živě SHA1 == dist, m4a 200 5 622 678 B, doklad `Omega/predavka/2026-10-03/nasazeni-2fb05c3.md`.
-- **NASAZENO a75128ae 3. 10. večer: odkazy Pohyb tělesa (aa11dd5)** — záložně `npx wrangler deploy`, živě SHA1 == dist (klid-a-pohyb-telesa e91300f52022, oba odkazy ano), doklad `Omega/predavka/2026-10-03/nasazeni-aa11dd5.md`.
-- **NASAZENO 39d4c934 3. 10. večer: odkazy F7/F9 (87b71c7, odstraněno video se zkratem), paralel B+C2 (c9815d5)** — záložně `npx wrangler deploy`, živě SHA1 == dist, doklad `Omega/predavka/2026-10-03/nasazeni-87b71c7.md`.
-- **NASAZENO 948dc1a1 3. 10. večer (commit 6e46c77, záložně přes `npx wrangler deploy`, živě 3/3 + SVG, doklad `Omega/predavka/2026-10-03/nasazeni-6e46c77.md`):** úniky, vady D1–D6, SVG, simulace (kolo 3, kontrola-6e46c77), test uniky-v-bloku.
-- **NASAZENO cc9d8e88 3. 10. večer: šipka tření na podlaze, test sila-vektor (0fdba66, kontrola-0fdba66 OK)** — záložně `npx wrangler deploy`, živě SHA1 == dist (treci-sila cfaf02d0…, sila 58234329…), doklad `Omega/predavka/2026-10-03/nasazeni-0fdba66.md`.
-- **NASAZENO eb772b06 3. 10. večer: simulace tření/síla kola 4–5 (3b4830c, a2f8361)** — záložně `npx wrangler deploy`, živě SHA1 == dist (treci-sila s legendou „Malé síly mají krátkou šipku“, sila), doklad `Omega/predavka/2026-10-03/nasazeni-a2f8361.md`.
-- **NASAZENO bd7babae 3. 10. večer: úniky paralel/rovina (c3f4aa1), SVG N7 (fbf0165, 62db738)** — záložně `npx wrangler deploy`, živě 3/3 SHA1 == dist, doklad `Omega/predavka/2026-10-03/nasazeni-c3f4aa1.md`.
-
-- **3. 10. 2026 pozdní večer (nejnovější; commity zatím BEZ pushe a nasazení, doklady `Omega/predavka/2026-10-03/`):** HOTOVO: úniky v kvízech 51 → 18 nálezů (54a1233, cdd0e0d, e2793f9; `kontrola-54a1233.md`, `kontrola-cdd0e0d.md`, `kontrola-e2793f9.md`), vady D1–D6 (ffbee08, `kontrola-vady-d1-d6.md`), vše zkontrolováno. HOTOVO: SVG tématu 2 (5a9952f, de827ed, kontrola 6/6). HOTOVO: test uniky-v-bloku bez živých dat (45bdc6d, f261481, kontrola PROŠLO). HOTOVO: brána uniky.mjs exit 1 (f7118a3, pushnuto). HOTOVO: kvíz rychlost (7082310, pushnuto). Simulace téma 2 (2145321, 92196be) — kolo 3 kontroly běží. ODLOŽENO: 18 zbylých nálezů uniky-v-bloku (hraniční/sporné). Fronta viz „Fronta po 3. 10. pozdě večer“ níže. U14 vrátný VYŘEŠEN 3. 10. ACL zámkem (`CEKA-NA-UCITELE.md`).
-
-- **3. 10. 2026 odpoledne (pozdější stav):** HOTOVO: píseň Tání (20605ad, nasazeno 885aee74). HOTOVO: záznam `obousmerne.json` pro vata-zapis-shrnuti (a36508e). HOTOVO: VATA dávka 6, zapsáno 40/49 (6a9bbea, kontrola PROŠLO, nasazeno 08988b98). FRONTA: viz „Fronta po 3. 10. odpoledne“ níže (VATA dávka 7, seřízení uniky-v-bloku.mjs, poslech závěru Tání). Doklady v `Omega/predavka/2026-10-03/`. **Večer:** HOTOVO: VATA dávka 7, 6/9 zapsáno (4dc9e37, kontrola PROŠLO, nasazeno 68e575f7), teziste#17#1 opraveno. HOTOVO: Tání ověřeno whisper medium, zpěv je správně (`kontrola-20605ad.md`). HOTOVO: 3 zamítnuté z dávky 7 (#4, #20, #43) vyřešeny dávkou 8. **Později:** HOTOVO: VATA dávka 8 (3/3) a shrnutí (4/5, 11 zastaralých vyřazeno, kolize vyřešeny), commit a48d7ac, kontrola PROŠLO, nasazeno 0468ea6b (curl po 20 s: nový distraktor, SHA1 živé == dist, `nasazeni-a48d7ac.md`). **Ještě později:** HOTOVO: VATA dávka 9 (2/2, 3be43bf, nasazeno 2b9aaf4b, `nasazeni-3be43bf.md`); obě dřívější položky (polovodičový d2, „jen jednou svorkou“) HOTOVO. HOTOVO: kalibrace uniky-v-bloku.mjs (56c1b08, 1621 → 51 nálezů, kontrola PROŠLO s výhradami, `kontrola-56c1b08.md`). FRONTA: opravit ~34 skutečných drobných úniků z uniky-v-bloku (`kalibrace-uniky-v-bloku.md`), pak měřidlo zapojit do prebuild; doladit práh měřidla u tříslovných odpovědí a únik do distraktoru; drobnost: reostat (kvizy.ts:4618) má jako distraktor správnou odpověď potenciometru, posoudit záměr. FRONTA: homebrew whisper rozbitý (numba × NumPy 2.5); automaty používají venv a fungují; až vyjde nová numba, `brew upgrade` (`oprava-whisper.md`).
-
-- **3. 10. 2026 — VATA dávky 1–5 HOTOVO (48 oprav distraktorů, schváleno 48/99, ~48 %; poslední commit b623883, doklady `Omega/predavka/2026-10-03/vata-schvaleni-davka1–5.md`).** ZBÝVÁ: (1) 51 zamítnutých návrhů → nový návrh (hlavní vada: „obhajitelně pravdivé“ distraktory); (2) 30 bloků „shrnuti“ (pololetní/roční shrnutí) — zápisový skript `vata-zapis-navrhy.mjs` je nenajde („blok nenalezen“), je to OPRAVA NÁSTROJE; (3) 76 položek v jiné fázi než „hotovo“.
-
-- **3. 10. 2026 odpoledne — STAV:** nasazeno 803bbe9 (simulace Var) záložně přes `npx wrangler deploy` kvůli incidentu Cloudflare Workers Builds, živě ověřeno; podrobnosti a drobnosti ve frontě („HOTOVO 3. 10. 2026 Simulace Var…“).
-- **3. 10. 2026 — STAV:** ochranné pásmo HOTOVO (1aa14db, nasazeno, živě ověřeno; doklady `Omega/predavka/2026-10-03/overeni2-ochranne-pasmo.md`, `kontrola-1aa14db.md`). Čeká na učitele: Suno písnička a video Tání (viz ❓ níže). Předávka: `Omega/predavka/2026-10-03/PRIKAZ-NOVA-SESSION.md`.
-
-- **1. 10. 2026 večer — STAV:** nasazeno do f68189d (živě ověřeno): Codex B7/B11/B13 (F7 Archimédův zákon, F8 elektřina dávky 1–4 + bezpečnost se simulací, obrázek F9 bezpečnosti), kvízy F8 výkon+bezpečnost (3 kola, 21+21), nový ruční skript `testy/uniky-v-bloku.mjs`; 5 dílů videí na R2; pojistka `bezpecny_push` (Omega). Body 8 a 12 vráceny Codexu. **Čeká na učitele:** A3 distraktor s tyčí (`Omega/predavka/2026-10-01-vecer/opravy-kvizu-f8.md`), přerušený úkol 2 (7 videí S/J), konvence křížku u sila_na_vodic, zdvojený titulek vodic-civka-dialog2. **Fronta:** Codex bod 4 a 6 (+ opravné odevzdání 8/12), N4–N16, 6× gravitacni-sila. Drobnosti: 3 poznámky z `kontrola-f68189d-1ea2f32.md`, 3 vady videí z `kontrola-videi-5.md`. Podrobnosti: `Omega/predavka/2026-10-01-noc/PRIKAZ-NOVA-SESSION.md`.
-- **2. 10. 2026:** předávka 2026-10-02 je splněná (7f2145f je na serveru); Příroda 21 čeká na Codex (odpověď zatím není).
-- **1. 10. 2026 — STAV TÉMATU 4 (vlna 1–2 nasazena):** commit 1cb56ef, živě 7/7: F9 Elektrická energie, F7 Pascalův zákon, Hydrostatický tlak, Tlak (text f7-tlak-b), F8 Teplo a přeměny skupenství, Tání, Tuhnutí (výklad, 48 obrázků, 7 kvízů po 21; 2 kola kontroly Claude + Codex). CI build spadl, nasazeno `wrangler deploy` zálohou (řeší se: `Omega/predavka/2026-10-01/prace/ci-selhani.md`). **Zbývá k tématu 4:** simulace Tlaku (návrh klíč simulace v `Omega/predavka/2026-10-01/prace/tema4/f7-tlak-b.json`); F9 Účinky proudu a bezpečnost (čeká na učitele, práh 2–5 vs 1–8 mA); vlna 3 texty F8 Vypařování, Var, Kondenzace, Skupenské změny vody v přírodě (píše Codex); média (písnička Suno, bonus NotebookLM, polemika s animacemi) dle OBSAH-PRAVIDLA §6.
-- **Mobil:** dávka 1 (8 simulací) nasazena 8537ea4, měřidlo varianta A (`testy/mobil-citelnost.mjs`, ve všech stavech); zbylých ~121 simulací dělá Codex (větev `codex/mobil`), Claude kontroluje vzorkem a nasazuje.
 - **Codex:** rozdělení `Omega/koordinace/ROZDELENI.md`, kontext `CODEX-KONTEXT-WEBU.md`; Jev — souhlas učitele 30. 9. s podmínkou; mini GPU funkční. **Noční fronta:** animace + podkasty zapnuty 30. 9.
 
-- **30. 9. 2026 noc — stav tématu 3:** NASAZENO commit 243c34e (wrangler da90146a): F7 Páky, F7 Kladka, F8 Spalovací motory, F9 Polovodiče (vlastní vodivost). Předtím 25e6b93 vlna 1 + 6f4834c video Elektromagnet 1. `publikuj_odkazy.py` regex opraven s testem (Omega b340aab).
-- **ROZPRACOVÁNO (podklady v `Omega/predavka/2026-09-30/prace/2026-09-30-tema3/`):** F9 Kapaliny, F8 Alternativní motory, F9 Plyny — text zkontrolován+opraven, kvíz zkontrolován+opraven (bloky/*.ts), obrázky obrazky5/6/7 v opravách; čeká vložení (vloz-t3d), kontrola webu, nasazení. Opravené simulace KladkaSimulace a PolovodicVodivostSimulace (+ testy `testy/simulace/kladka.mjs`, `polovodic-vodivost.mjs`) čekají na commit + záznamy v `testy/obousmerne.json`. Nová simulace TezisteStabilitaSimulace.astro (přání učitele: náklaďák vs. formule s olovnicí) v opravách po kontrole; čeká napojení (interakce2) + věta do výkladu Těžiště + obousmerne.json. F9 Dioda (N/P) — text se píše.
-- **Jednotná legenda obrázků tématu elektrický proud v látkách:** elektron malý modrý „−“, díra zelený čárkovaný „+“, kation velký červený „+“, anion velký fialový „−“.
-- Drobné nálezy kontroly webu t3c (`protokoly/kontrola-web-t3c.md` nálezy 2–9) čekají na zapisovatele.
-- **30. 9. večer: /clear — pokračuj podle /Users/radek_soukromy/Desktop/Omega/predavka/2026-09-30-vecer/PRIKAZ-NOVA-SESSION.md**
-- (stav tématu 3, rozpracované nasazení vlny 1 a postup jsou v tomto příkazu)
-- **30. 9. 2026 večer nasazeno téma 3 vlna 1** (commit 25e6b93: F7 Deformace, F8 Parní stroj, F9 Přenos el. energie, Chemické zdroje + drobné opravy tématu 2 + brány úniků/čísel; build 490): push po ~4 min nenasadil → `npx wrangler deploy` (verze d46c8270); curl OK „Jednoduše řečeno“ + „Spustit kvíz“ na všech 4 stránkách. **Video EM1** (elektromagnet-dialog1.mp4) v R2 + odkaz v temata.ts (commit 6f4834c, wrangler deploy 597fe7ad); stránka /skola2/fyzika/9-rocnik/magneticke-pole/elektromagnet/ obsahuje mp4, /media/… vrací 200. POZOR: `publikuj_odkazy.py` (`nove_odkazy_na_video`, ř. 95) hledá jen `cesta: '…'`, JSON tvar `"cesta":"…"` v `materialy` nechytí → „nic nedělám“; commit/build/push šel ručně (opravit regex). Odloženo z kontrol: `/tmp/wonderly-workery/2026-09-30-tema3/kontrola-web-k3.md` drobné 3–5 odpadly/ne.
-- **30. 9. 2026 nasazeno F7 Těžiště + F8 Tepelná výměna (úvod, výklad, zápis, 11 obrázků, kvízy) + drobné opravy kvízů** (commit 5a57562, build 490 stránek; nasazení šlo automaticky přes push, NE přes wrangler; curl OK „Jednoduše řečeno“ + „Spustit kvíz“ na obou stránkách až po ~9 min). **Téma 2 (7–9) na webu kompletní — všech 15 podtémat.** Dřívější commit 17c3632 (F8 Energetická hodnota potravin) je tímto také nasazen.
-- **Cloudflare Workers Builds tiše selhává (build fe4acde1…, 17c3632) — zjistit příčinu v dashboardu; do té doby po každém pushi curl a případně `npx wrangler deploy`.**
-- **30. 9. 2026 nasazeno F9 Transformátor (úvod, výklad, zápis, 14 obrázků, kvíz) + obrázek zákona zachování + drobné opravy tématu 2** (commit 2010d2b, build 490 stránek, curl na živém webu OK: „Spustit kvíz“, „Jednoduše řečeno“, obr-01 zákona zachování, transformator-obr-01.svg 200).
-- **30. 9. 2026 nasazeno téma 2 (7–9)** — F7 Síla, Gravitační síla, Třecí síla, Skládání sil; F8 Energie a její přeměny, Pohybová a polohová, Vnitřní energie, Zákon zachování mechanické energie; F9 Motor, Indukce, Alternátor, Vlastnosti stř. proudu (commit e52fcec, 83 souborů, 80 nových SVG, build 490 stránek, curl 12× OK + obrázky 200).
-
-- **30. 9. 2026 nasazeno F8 Účinnost** (commit 2511152, build 490 stránek, curl na živém webu OK: kvíz, „pé nula“, obrázek 200, CSS „posuň obrázek do strany“). **Téma 1 (7–9) na webu kompletní: všechna podtémata v pilotní podobě** (F7 klid, rychlost, příklady; F8 práce, výkon, účinnost; F9 magnety, pole vodiče, elektromagnet, indukce — ta hotová už dřív, 40c5e17).
-- **30. 9. 2026 nasazeno téma 1b** — F7 Příklady na výpočet rychlosti (+ laborka Ozobot), F9 Pole vodiče a cívky, F9 Elektromagnet (commit d7d38ab, build 490 stránek, curl na živém webu OK).
-- **30. 9. 2026 nasazeno téma 1** — F7 Rychlost, F8 Mechanická práce, F9 Magnety + kvízy 5 bloků přepracované bez úniků (commit 582c18b). Pilot F7 Klid/F8 Výkon byl nasazen už dřív (86d6b33).
 
 📌 Pořadí (učitel 29. 9. 2026): téma po tématu napříč 7./8./9. ročníkem — 1. téma všech tří kompletně (úvod, výklad, zápis, obrázky, kvíz, písnička, video), pak 2. téma…; 6. ročník až po nich.
-
-✅ VATA-ZÁPIS (27. 9. 2026, opraveno): testy/nastroje/vata-zapis-navrhy.mjs
-přepsán — cílí přes qIndex+distraktorIndex (ne řetězcem kdekoli v bloku),
-zapisuje jen s nezávislým schválením (vata-schvaleni.json), kontroluje délkovou
-nápovědu/remízu po dosazení a po zápisu ověří text otázky i odpovedi[0] celého
-dotčeného bloku proti stavu před zápisem — při porušení soubor vrátí a skončí
-process.exit(1). Ověřeno na kopii repa (suchý běh, --zapis bez schválení,
-schválená položka v dřív přeskakovaném bloku, změněný qText, umělé porušení
-kontroly). Commit 75f1733 (obsah), viz git log pro navazující commit se stavem.
 
 🟡 VRÁTNÝ orchestrator-guard.sh: ř.65 bere basename+lowercase → projde /tmp/x/GIT;
 ř.79 rm s ORCHESTRATOR_ON propustí i další cíle (rm -rf X ~/.claude/ORCHESTRATOR_ON
 → ALLOW). orchestrator-prompt.md:48–56 rozpor s _SPOLECNE.md § Izolace jen
 popsán, ne odstraněn (jeden platný návod) + zalomená cesta.
 
-27. 9. večer: automaty pozastaveny na žádost učitele KROMĚ 3 výjimek (ollama-env,
-zaloha-skola, hlidac-baterie běží dál) — soupis a zapnutí:
-Omega/dokumenty/POZASTAVENE-AUTOMATY-2026-09-27.md (živě ověřeno `launchctl list`
-28. 9. 2026: kanárek zůstává NEZAPNUTÝ i po zápisu „znovu zapnut (18:00)" níže —
-byl 27. 9. 17:32 znovu pozastaven, viz řádek kanárek v soupisu).
 
-27. 9. večer: noční fronta VYPNUTA na žádost učitele (GPU pro jeho práci s lokálními
-modely). Znovu zapnout: `launchctl bootstrap gui/502 ~/Library/LaunchAgents/cz.wonderly.nocni-fronta.plist`.
-
-🔹 výstup podkastů do `Škola/podkasty/<ročník>/…mp3` — stav a formální schválení
-viz sekce „❓ Otevřené dotazy na učitele" níže, položka „Škola/podkasty —
-formální schválení výjimky".
-
-**STÁLE OTEVŘENO (nepokryto níže, ČTI PŘESNĚ):** `OBSAH-PRAVIDLA.md` § „Pořadí práce" (ř. 321–322) —
-1. téma (F7 `pohyb-a-rychlost`, F8 `mechanicka-prace-a-vykon`, F9 `magneticke-pole`)
-se má dodělat KOMPLET (všech 9 složek vč. podkastu) u 7./8./9. ročníku naráz, teprve
-pak 2. téma. Bez citovaného rozhodnutí učitele o výjimce nezakládat scénáře mimo
-1. téma. Osud 7 pololetních/ročních shrnutí z 70 chybějících — stále NEROZHODNUTO.
-
-**HOTOVO 27. 9.:** kanárek — 3 vady opraveny, nezávislá kontrola kol 4–10 do 0
-nálezů, znovu zapnut (18:00), poté 17:32 [pozn.: dřívější čas, viz soupis
-pozastavených automatů] znovu pozastaven na žádost učitele (ověřeno
-`launchctl list` 28. 9. 2026 — nezaložen). Lokální graf `graf_local.py --fronta`
-byl 27.–28. 9. opraven (cesta k frontě, podklady, selhání = neúspěch, kontrolor
-qwen3.8:27b-mlx dle měření; commity Omega 8c12193…ad526da), spouští se ručně.
-Noční fronta zapisuje skutečné příčiny odložení
-(volný text pod tabulku, `skripty/fence_kod.py` sdílený s `oprava_hlaseni.py`).
-Brána pokrytí (`skripty/pokryti_kvizu.py`) čte kvízy jako data přes
-`skripty/kvizy_dump.mjs`, umí spadnout (exit 1 nepokryto / 2 porucha), drží GPU
-zámek (`zamek_modelu.drz`, dědění jen od živého předka), strop čekání 40 min;
-mezipaměť výsledku VYPNUTA (ukládala neúspěch při nedostupném modelu; obsah v
-`Omega/smazano-zaloha/2026-09-27/pokryti-cache/`) — oprava otevřená. Značka
-schválení scénářů (`skripty/schval_scenar.py`, `<slug>.schvaleno.json` s otiskem
-`.md`+scénosledu) — `automat_podkastu` a `dodelej_animace` vyrábějí/nasazují jen
-schválené, ověřeno 2 koly kontroly. `vyrob_omnivoice.py` ověřuje referenci hlasu
-hashem a zastaví díl, kde by postava mluvila dvěma hlasy; 3 díly opraveny
-(magnety-opakovani-dialog1 85 %, vykon-dialog2 90 %, pololetni-shrnuti-dialog3
-86 %). Hlídač zaseknutí hlídá i GPU dráhu. `kontrola_scenare` chytá „ne?" kdekoli
-v replice (4 starší scénáře s tímto nálezem: 8/alternativni-motory,
-8/elektricke-napeti-mereni, 6/telesa-a-latky, 6/objem — neopraveno). Přepis
-whisperem po replikách vrácen (mylná diagnóza).
-
-**SCÉNÁŘE:** schváleno (značka kontrolor): 9/slunecni-soustava, 9/vesmir-a-galaxie,
-7/klid-a-pohyb-telesa, 7/priklady-na-vypocet-rychlosti, 7/gravitacni-sila,
-7/treci-sila, 7/pusobeni-teles-a-deformace. Napsáno, obě skriptové brány OK, ALE
-neschváleno (čeká na rozhodnutí učitele o definici „části"): 7/teziste, 7/klin,
-7/hydrostaticky-tlak, 7/telesa-stejnoroda-a-nestejnoroda, 7/naklonena-rovina.
-Zbývá napsat F7: stin-faze-mesice, odraz-svetla, optika-rovinneho-zrcadla,
-kulova-zrcadla-dute-zrcadlo, oko-vady-oka, rozklad-svetla-duha, vnimani-barev
-(dle `Omega/dokumenty/PODKASTY-CHYBI-2026-09-27.md`).
-
-**CHYBA ORCHESTRÁTORA 27. 9.:** do scénářů se prosazovalo pravidlo „zhruba
-polovina Markových tvrzení omyly / nikdy 3 v řadě / Máš pravdu", které v návodu
-NENÍ (závazné je jen `NAVOD-POLEMIKY-F6.md:26–31`: v každé části 1–2 typické
-chyby; spor nejednostranný = Marek má platné námitky). Důsledek: 7/naklonena-rovina
-se „opravou" zhoršila na skrytý výklad (3 chyby / 19 replik) — vrátit verzi před
-opravou z gitu Omegy (commit `7789d4a` obsahuje původní); 7/teziste replika 12 má
-chybné zdůvodnění, které Eva neopraví; kontrola (g) v `kontrola_scenare.py` je jen
-VAROVÁNÍ a g2 („3 opravy v řadě") je taky mimo návod — přepsat po rozhodnutí učitele.
-
-**ROZHODNUTÍ UČITELE (otevřené):** 1) co je „část" dílu / kolik Markových chyb na
-díl (~4 min) — visí na tom 5 neschválených scénářů a kontrola (g); 2) U14 —
-viz § ❓ Otevřené dotazy na učitele (jediná sekce) níže, bod „U14 — Vrátný:
-zpřísnit?" (přesunuto odtud, oprava rozporu N4, kontrolor kolo 2); 3) přegenerovat
-6/pololetni-shrnuti-dialog3 replika 14-EVA (výška 387 Hz vs ~250 Hz); 4) `claude
-login` pro opraváře (OAuth vypršel, `OPRAVAR_AUTOMATICKY=False`); 5) kvízová
-vysvětlení na webu: 7/telesa-stejnoroda „přibližně tisíckrát" (přesně ~833),
-7/gravitacni-sila délková nápověda u 6/21 otázek.
-
-**OTEVŘENÉ DROBNOSTI:** mezipaměť brány (7 drobných nálezů + závažný, viz
-scratchpad kontrola-cache — přepsat do `Omega/dokumenty`, pokud chceš zachovat);
-jedna zašuměná replika v díle projde měřidlem zarovnání (jen POZOR);
-pololetni-shrnuti-dialog/-dialog2: WAV nesedí na MP3 (+7,5 s / prázdná
-11-MAREK.wav) — ověřit; `test_skupina_kvizu.py` 1 FAIL „model nedostupný"
-(předexistující); Python `os.remove` vrátný nevidí; kontrolor u hydrostatického
-tlaku tvrdil exit 0 bez výpočtu po čekání na zámek — ověřit; 2. kolo nezávislé
-kontroly nespuštěno pro 7/hydrostaticky-tlak a 7/naklonena-rovina.
+**Otevřené z 27. 9. (přesunuto auditem 11. 10. 2026 do SAMOSTATNY-REZIM-ARCHIV.md, plné znění tam):** definice „části“ dílu podkastu (visí na ní 5 neschválených scénářů), drobnosti brány `pokryti_kvizu.py` a podkastů. Ostatní (HOTOVO 27. 9., SCÉNÁŘE, CHYBA ORCHESTRÁTORA) je v archivu.
 
 ## ❓ Otevřené dotazy na učitele (jediná sekce, oprava V8-6, 27. 9. 2026)
 
-- **VYŘEŠENO 5. 10. 2026 (rozhodl učitel) — pět rozhodnutí:** (1) Evovy nahrávky gravitace přesunout do zálohy a namluvit znovu. (2) 21 monologů (`Omega/fronty/videa/MONOLOGY-K-ROZHODNUTI.md`) přepsat na dialog Eva+Marek, po tématech napříč 7/8/9. (3) Laborky NEURČENO — VYŘEŠENO 5. 10. 2026 (učitel schválil dle doporučení v `Omega/predavka/2026-10-05/laborky-neurceno-navrh.md`): č. 6, 7, 11, 13, 20 zařadit jako M (č. 20 podklad PDF Čočky, spojky, rozptylky); č. 72–77 nadstavba na konec, z toho 74 a 77 vyřadit; č. 71 a 78–83 nevést jako laborky; zapsáno v `Omega/fronty/LABORKY.md`. (4) Účinnost: „0,6, tedy 60 %“ (obojí). (5) gemma4:31b na mini neupgradovat, kopie na mini smazána 5. 10. (`ollama rm`, volno 33 → 51 GB).
-- **VYŘEŠENO 4. 10. 2026 (rozhodl učitel) — šest rozhodnutí:** (1) video NotebookLM Tání (dotaz 3. 10. b): vyrobit NOVÉ, kratší (3–4 min) s opravami (Cín, led plave, J/kg, sůl, délka). (2) Licence videí NotebookLM: pokračovat jako dosud (bonus, ne náhrada). (3) Nakloněná rovina a klín bez PDF předlohy: nechat. (4) Teplota Slunce 4 500 °C podle PDF; ostatní rozpory s PDF (příčné vlnění, heliograf, gymnasta) nechat. (5) Zápis do sešitu jen pár řádků (OBSAH-PRAVIDLA § zápis); pořadí 7, 8, 9 hotovo, pak 6. ročník (zápisy chybí úplně, 31 podtémat). (6) Pracovat samostatně až do hotového webu; potom KVÍZY S OBRÁZKY (nejen text), pořadí po tématech napříč 7/8/9 (téma 1 v 7., 8., 9., pak téma 2 atd.), nakonec 6. ročník.
-
-- **3. 10. 2026 (c) — U14 ochrana Školy ve vrátném má díry:** rozhodnutí a návrh viz `Omega/predavka/2026-10-03/CEKA-NA-UCITELE.md`.
 
 - **3. 10. 2026 (a) — písnička Suno „Účinky proudu“ čeká na poslech:** `Omega/predavka/2026-10-03/suno/ucinky-proudu-v1.mp3`. Poslechnout hlavně 1:01–1:08, 2:37–2:42 („puls nehledej“) a 1:21–1:25 („děleno dvěma tisíci ohmy“); pak nasadit.
 
 - **3. 10. 2026 (b) — video NotebookLM „Tání“ (8. ročník):** kontrola `Omega/predavka/2026-10-03/kontrola-video-tani.md` = použitelné, 2 střední vady (teploměr na snímku 2 má nesmyslnou stupnici, „L_t“ na snímku 11 s podtržítkem). Volba: **A přegenerovat (doporučeno)** / B použít tak, jak je / C nepoužít; k tomu rozhodnout licenci (podmínky použití videí z NotebookLM).
 
-- **K2 — ROZHODNUTO 2. 10. 2026, varianta A (vločky = desublimace, tuhnutím jen kroupy; opraveno ve výkladu Tuhnutí) — [téma 4, F8] Rozpor PDF (2. 10. 2026):** Tuhnutí řadí sněhové vločky k tuhnutí, Příroda k desublimaci – výklad Tuhnutí má „ledové kroupy a sněhové vločky“. Doporučení: vločky = desublimace (fyzikálně správně), ve Tuhnutí jen kroupy.
-
 - **K1 — [téma 5] Po209 v PDF Radioaktivita s. 9** má poločas 0,000 000 3 s (zřejmě záměna izotopu; v žákovském textu vypuštěno) — co s tím? (podrobnosti: `Omega/predavka/2026-10-01-noc/kontrola-codex-b12.md` § K1: a) opravit na Po212, b) ponechat Po209 a uvést asi 125 let, c) polonium vynechat = současný stav)
 
-- **UZAVŘENO 2. 10. 2026 (rozhodl učitel) — tři dotazy z noci 1. 10.** (provedeno, protokol `Omega/predavka/2026-10-01-noc/vysledek-rozhodnuti-AAA.md`): (1) D11 teploty na dnešní hodnoty, celá čísla: var železa 2 860 °C, tání lihu −114 °C, tání hliníku 660 °C (F8 tání: temata.ts, kvíz, SVG tani-obr-05, pracovní soubory tema4); (2) postřikovač pascal-obr-11 jen s neutrálním popiskem „zahradní postřikovač“, vysvětlující věta se NEVKLÁDÁ; (3) radon 222 = „asi 3,8 dne“ (F9 výklad i kvíz, pracovní f9-radioaktivita).
-
-- **ROZHODNUTO 1. 10. 2026 (rozhodl učitel) — [téma 4] rozpory PDF + F9 Účinky proudu** (původně otevřený dotaz; soubory `Omega/predavka/2026-10-01/prace/tema4/*.md`, sekce rozpory):
-  - (a) Práh proudu = stupnice ~1 mA ucítí / ~10 mA nepustí / od ~30 mA zástava srdce (fibrilace); chránič 30 mA; cesta přes levou ruku do srdce. (Tím je vyřešen i bod 14 „2–5 vs 1–8 mA“ níže.)
-  - (b) Odpor kůže = vlhko 2 000 Ω / sucho 150 000 Ω (příklad 230 V ÷ 2 000 Ω ≈ 115 mA).
-  - (c) 18 chyb PDF (téma 4 + F9): hromadně web podle správné fyziky, chyby PDF se nepřebírají.
-  - (d) Plavební komora: samospád potvrzen; „měrné teplo“ u tuhnutí nepřebírat.
 - **[téma 3] a)** Nakloněná rovina a Klín: ve Škole k nim není PDF ani prezentace (prohledáno i v ZIPech). Návrh textu nakloněné roviny z dosavadního webu je v `f7-naklonena-rovina.json` (vzorec a čísla jen v Pro zvídavé); stránka na webu zůstala beze změny. Dodá učitel podklad, nebo potvrdí učení z dosavadního webu?
 - **[téma 3] b)** Odchylky od PDF opravené na fyzikálně správné znění (přehled v `odchylky-od-pdf.md`): mazání pístu v olejové vaně, šipky akce/reakce, sůl „vznikají ionty“, rychlost rakety 28 000 km/h, SO⁴⁻ — ke schválení.
 - **[téma 3] c)** Termistor „v hutích“ (PDF Polovodiče s. 9) — ponecháno, ověřit.
 - **[téma 3] d)** Simulace těžiště používá ilustrační čísla (náklaďák kola 180 cm, těžiště 150 cm → 31°; formule 200 cm, 30 cm → 74°), v PDF nejsou — ke schválení.
 - **[téma 3] e)** Kapaliny: doplněná zmínka o tavenině (výroba hliníku) nad rámec PDF — ponechat/vypustit.
-- **ROZHODNUTO 30. 9. 2026: B** (vzorec ve vysvětlení výpočtu není únik; viz `OBSAH-PRAVIDLA.md` § Zákaz úniku odpovědi). Původní dotaz — Únik přes vysvětlení výpočtu: Vzorec ve vysvětlení výpočtu (např. 18 000 : 6 = 3 000 W) prozradí otázku „jaký je vzorec výkonu?“. Počítá se to jako únik? Varianty: A) ano — v bloku buď otázky na vzorec, nebo výpočty s vysvětlením; B) ne — vysvětlení výpočtu smí vzorec ukázat.
 
 Dřív rozeseté po pěti místech (2x hlavičkovaná sekce Čeká na odkliknutí + tři
 samostatné věty) — sloučeno sem, na originálních místech zůstal jen pointer.
@@ -205,17 +65,11 @@ Nikdy kvůli tomuto nestát — jít dál na další úkol.
      nebo přestavět beze srovnání?
 - [skola2] F9 `chemicke-zdroje-napeti` — citronová baterie, palivový článek, polarita
   anody při nabíjení, „dva stejné kovy" nejsou v PDF (možná v prezentaci) — ponechat
-  ve výkladu/kvízu, nebo vyřadit? Kvíz `kvarky` má 14 otázek (výjimka z cíle 21
-  nezapsaná — zapsat výjimku, nebo doplnit otázky?).
+  ve výkladu/kvízu, nebo vyřadit? (Kvíz `kvarky` vyřízen 13. 10. 2026: výjimka 14 otázek zapsána v OBSAH-PRAVIDLA kap. 4.)
 - [skola2] Podtémata bez názornosti u shrnutí (7, ověřeno `node testy/nazornost.mjs`
   27. 9.) — dělat přehledovou infografiku, nebo je z měřidla vyjmout? Stejná otázka
   platí i pro podkasty/video u týchž shrnutí (viz „⚡ ČÍM ZAČÍT" výše).
-- [skola2] `MEMORY.md` (Škola) — po zhuštění D5 27. 9. má 131 řádků/19 577 B,
-  pod hookovým limitem 140 řádků; U16 tímto ODPADÁ (viz níže), jen hlídat růst.
-- [skola2] Odpor lidské kůže (F8 `temata.ts` ~2713, F9 ~3062–3063, `kvizy.ts`
-  ~4344–4361, ~4713–4723) — PDF podklad si sám sobě odporuje (sucho/vlhko
-  prohozené i jiný řád čísel); která verze je správná? Do té doby platí
-  ⛔ NESAHAT (viz sekce „[skola2] ⛔ NESAHAT" níže, V12-1, 27. 9. 2026) — NEMĚNIT.
+- [skola2] Odpor lidské kůže (F8/F9): ⛔ NESAHAT, plné znění v sekci „[skola2] ⛔ NESAHAT — odpor lidské kůže“ níže (přesunuto auditem 11. 10. 2026).
 - [Omega] **Omega repo nepushuje** — `git@github.com: Permission denied (publickey)`,
   151 commitů napřed proti `origin/main` (ověřeno 27. 9. 2026). Chybí SSH klíč/alias
   pro `github.com` na tomto stroji — zásah do systémové konfigurace.
@@ -223,21 +77,7 @@ Nikdy kvůli tomuto nestát — jít dál na další úkol.
   ve `Škola/.claude/settings.json` (`PreToolUse '*'`); session spuštěná přímo z Omegy
   nebo z wonderly-web běží bez vrátného a bez černé listiny (nález K2-1). Návrh zápisu
   (jednořádkový příkaz) je v `Omega/dokumenty/audit-2026-09-27.md` (sekce K2-1, V9-4).
-- [Omega] **U14 — VYŘEŠENO 3. 10. 2026:** učitel zamkl složky Škola ("2 stupen", 6–9, "Video učitel") ACL `deny delete,write,…` pro účet radek_soukromy (`chmod -R +a`, odemčení `-a`); doklad `mkdir …/Škola/7/zkouska-zamku` → Permission denied, čtení funguje. ACL zámek je druhá vrstva nad vrátným (`Omega/PRAVIDLA.md:591`). Níže historický text.
-- [Omega] (historie U14) **Vrátný: zpřísnit?** (`rm` mimo projekt, `git push --force`, session
-  mimo `Škola/`) — kód dnes tyhle případy vrací `allow[+žurnál]`, návody to popisují
-  správně (`Omega/PRAVIDLA.md:591` bod (a)/(c)); OTEVŘENÉ je jen to, zda učitel chce
-  přidat `ask`. Doklad: `scratchpad/rozpory-kolo2.md` N1–N4 (kontrolor, 27. 9. 2026,
-  kolo 2).
-  ODLOŽENO (kolo 4, K4-8): komentáře a hlášky přímo v kódu `povoleni_hook.py`
-  (ř. 12, 66, 1068–1069, 1500–1501) dál slibují dotaz/zákaz tam, kde kód reálně
-  vrací allow+záloha — kód se NEMĚNÍ (ani komentáře) bez rozhodnutí učitele,
-  srovnat texty s chováním až při rozhodnutí U14.
-  RIZIKO (kolo 5, K5-1): `mv` mimo projekt a `find -delete` (kamkoli) projdou
-  jako allow BEZ zálohy a BEZ žurnálu — `cile_mazani()` parsuje jen `rm`/`rmdir`
-  (viz `Omega/PRAVIDLA.md:591`). Doplnit do vrátného až při rozhodnutí U14;
-  do té doby platí vlastní opatrnost modelu (ruční záloha do
-  `~/Desktop/Omega/smazano-zaloha/<datum>/` + žurnál před takovým `mv`/`find -delete`).
+- [Omega] **U14 — VYŘEŠENO 3. 10. 2026:** ACL zámek složek Škola, viz `Omega/PRAVIDLA.md § CO ZŮSTÁVÁ NA DOTAZ A PROČ`; historie U14 (K4-8, K5-1) je v SAMOSTATNY-REZIM-ARCHIV.md (přesunuto auditem 11. 10. 2026).
 - [Omega] **17 záměrně vypnutých automatů (K1-4)** hlásí `revize_automatu.py` jako
   vadu — doplnit `Disabled=true` do plistů, nebo je vést v evidenci pozastavených?
   Zásah do LaunchAgentů.
@@ -257,13 +97,13 @@ Nikdy kvůli tomuto nestát — jít dál na další úkol.
   (sekce „ČEKÁ NA UČITELE — tabulka U1–U16"); aktuální stav a znění U14/U15/U16
   vede tahle sekce ❓ (jediné živé místo). V18-4 (rozpor „kdo zapisuje do sdílených souborů" mezi
   `wonderly/SKILL.md:353-355`/`_SPOLECNE.md:36-42` a `~/.claude/CLAUDE.md`
-  § Jak pracovat, bod 6 „Izolace") je **U15 — VYŘEŠENO** (`Omega/PRAVIDLA.md:591` (c): platí znění
+  § Jak pracovat, bod 6 „Izolace") je **U15 — VYŘEŠENO** (`Omega/PRAVIDLA.md § CO ZŮSTÁVÁ NA DOTAZ A PROČ` (c): platí znění
   `~/.claude/CLAUDE.md` bod 6, skilly mají znít shodně — opraveno kolo 3).
   U16: MEMORY.md (Škola) po zhuštění D5 27. 9. má 131 řádků / 19 577 B, pod
   cílem 140 řádků / 20 000 B — U16 tímto ODPADÁ, hlídat, ať zase nenaroste.
 - **V18 ODLOŽENO 27. 9. — strop 3 kol vyčerpán, 13 nálezů popisu viz
   `Omega/dokumenty/V18-NALEZY-KOLO4.md`; rozpor Škola rm/mv = dotaz × skutečnost
-  allow je od 27. 9. VYŘEŠENÝ kódem (`Omega/PRAVIDLA.md:591` (a)/(c) —
+  allow je od 27. 9. VYŘEŠENÝ kódem (`Omega/PRAVIDLA.md § CO ZŮSTÁVÁ NA DOTAZ A PROČ` (a)/(c) —
   `rm`/`mv` ve Škole dnes skutečně vrací `ask`), U14 zůstává otevřené jen pro
   DALŠÍ zpřísnění (rm mimo projekt, push --force, session mimo Škola/).**
 - [skola2] Denní rutina `pravidla-dluh-denne` založena, ale cron `30 7 * * 1-6`
@@ -308,90 +148,16 @@ Nikdy kvůli tomuto nestát — jít dál na další úkol.
   dlouhodobě hlásí 8 přeskoků (např. chybí zastávka ballon-d-alsace) — mají se
   mapy předělat?
 
-## 26. 9. 2026 v noci
-
-**HOTOVO**
-- Vata „kvantifikátor" (VZOR 4b) — 22 ze 39 otázek fyziky přestavěno a nasazeno (commit `72ed250`), měřidlo 54 → 26 nálezů vč. souhrnů.
-- Build na Cloudflare opraven (`b7082e3`): test `rozvrzeni-sceny-obousmerne` četl `git show f30767b`, Workers Builds dělá mělký klon → brána shodila build, `2ee4c6e` se nenasadil ~1 h 15 min; fixture teď v `testy/podvrhy/`.
-- Automat dodelej-animace: chybný celek ve scénosledu `archimeduv-zakon-dialog` opraven, odkaz na video je na webu (`d951bd7`).
-
-**ODLOŽENO — zaseklo se (3 vlny, 3 kola kontroly)**
-17 otázek zůstává v původním znění (s „jen" nápovědou); vady jsou v CELÉM BLOKU (sousední otázky a jejich vysvětlení prozrazují odpovědi, výčtové otázky „A a B" mají distraktory = poloviny správné) — nepředělávat po jednotlivých otázkách, ale po celém bloku (otázka + sousedi + vysvětlení naráz). Zbývá i VZOR 3 (kategorické slovo) a VZOR 5 (tázací slovo). Seznam (klíč bloku, začátek zadání):
-1. `fyzika/7-rocnik/pohyb-a-rychlost/posuvny-otacivy-pohyb` (qIndex 15) — „Jaký pohyb koná šroub při šroubování do dřeva?"
-2. `fyzika/6-rocnik/latka-a-teleso/telesa-a-latky` (qIndex 6) — „Čím se od sebe odlišují různé látky?"
-3. `fyzika/6-rocnik/sila/gravitacni-sila` (qIndex 0) — „Mezi kterými tělesy působí gravitační síla?"
-4. `fyzika/7-rocnik/tlak-v-kapalinach/hydrostaticky-tlak` (qIndex 1) — „Jakými směry působí hydrostatický tlak v kapalině?"
-5. `fyzika/9-rocnik/elektricky-proud-v-latkach/chemicke-zdroje-napeti` (qIndex 8) — „Kde se využívají alkalické články?"
-6. `fyzika/7-rocnik/vztlakova-sila-a-plovani-teles/telesa-stejnoroda-a-nestejnoroda` (qIndex 3) — „Z čeho se skládá nestejnorodé těleso?"
-7. tamtéž (qIndex 7) — „Co počítáme u nestejnorodých těles místo hustoty látky?"
-8. tamtéž (qIndex 13) — „Jakou hmotnost a jaký objem dosazujeme do ρp = m : V?"
-9. `fyzika/6-rocnik/latka-a-teleso/skupenstvi-latek` (qIndex 1) — „Co si zachovává těleso v pevném skupenství?"
-10. `fyzika/6-rocnik/teplota/teplotni-roztaznost` (qIndex 1) — „Kterých skupenství se teplotní roztažnost týká?"
-11. `fyzika/7-rocnik/pohyb-a-rychlost/klid-a-pohyb-telesa` (qIndex 6) — „Trajektorie může být…"
-12. `fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/vyparovani` (qIndex 1) — „Za jaké teploty probíhá vypařování?"
-13. `fyzika/9-rocnik/elektricka-energie-a-bezpecnost/ucinky-proudu-bezpecnost` (qIndex 14) — „Kdy se počítá s odporem lidského těla jen asi 2 000 Ω?"
-14. `fyzika/8-rocnik/energie/zakon-zachovani-mechanicke-energie` (qIndex 19) — „Letadlo letí rychle vysoko nad zemí. Jakou energii má?"
-15. `fyzika/9-rocnik/indukce-a-stridavy-proud/pusobeni-pole-na-vodic-elektromotor` (qIndex 13) — „Jakým proudem napájíme elektromotory?"
-16. `fyzika/7-rocnik/jednoduche-stroje/pusobeni-teles-a-deformace` (qIndex 1) — „Jak může působení mezi tělesy probíhat?"
-17. `fyzika/8-rocnik/energie/energeticka-hodnota-potravin` (qIndex 12) — „Z jakých dvou zdrojů člověk získává potraviny bohaté na energii?"
-
-**POUČENÍ**
-1. Oprava vaty 1. vlnou jen přesunula nápovědu — místo „jen" prozrazoval odpověď dovětek „protože…" jen u distraktorů a délka (správná vždy nejkratší); `vata-over-delku.mjs` hlídá jen „nejdelší", ne „nejkratší" → doplnit měřidlo.
-2. Kontroloři mezi vlnami kolísali (co jeden pustil, druhý zamítl) — rozhodnutí až po smyčce do 0 nálezů.
-3. Mělký klon na CI: testy nesmí sahat do historie gitu.
-
-> ⤵️ Šest denních snapshotů „STAV 23.–25. 9. 2026" a „ROZHODNUTO PODLE PRAVIDLA
-> ZDROJŮ (23. 8.)" přesunuto do [SAMOSTATNY-REZIM-ARCHIV.md](SAMOSTATNY-REZIM-ARCHIV.md)
-> — audit 27. 9. 2026 (K3-Z8+K3-Z12; číslo úspory bylo nepřesné, opraveno V8-8,
-> odstraněno). Byly vzájemně přepisující se
-> denní zápisy, vše HOTOVO/uzavřeno; aktuální stav je jen v nejhornější sekci
-> „⚡ ČÍM ZAČÍT" výše. Ochranná pásma vedení, práh proražení kůže i bezpečné napětí
-> zůstávají ROZHODNUTO (23. 8. 2026, podle pravidla zdrojů — prezentace je rovnocenný
-> zdroj s PDF): čísla se NEDOPLŇUJÍ přes rozcházející se zdroje, zavedený text se
-> nemění jen kvůli útržkovitému PDF. Jupiter 2,36× (prezentace) vs. 2,53× (fyzikální
-> přepočet) zůstává podle prezentace (žák vidí totéž co v hodině), komentář v kódu.
-
+## 26. 9. 2026 v noci — přesunuto auditem 11. 10. 2026 do SAMOSTATNY-REZIM-ARCHIV.md (HOTOVO, ODLOŽENO: 17 vata otázek v původním znění se seznamem, POUČENÍ).
 ## 📌 Živé zadání, fronta a reference
 
 - **FRONTA (rozhodnutí učitele 4. 10. 2026, plán do hotového webu):** (1) nové video NotebookLM Tání 3–4 min s opravami (Cín, led plave, J/kg, sůl, délka). (2) Teplota Slunce na 4 500 °C podle PDF. (3) Zápisy do sešitu (pár řádků dle OBSAH-PRAVIDLA § zápis): 7, 8, 9 dokončit, pak 6. ročník (31 podtémat, zápisy chybí). (4) Po hotovém webu KVÍZY S OBRÁZKY, po tématech napříč 7/8/9 (téma 1 v 7., 8., 9., pak téma 2 …), nakonec 6. ročník. Pracovat samostatně.
 - **DROBNOST (kontrola-6e46c77.md):** šipka 5 N v TreniSimulace na telefonu neviditelná, legenda ji slibuje.
 - **DROBNOST (kontrola-uniky-paralel-rovina.md):** paralel: 3 starší nepřímé vazby 19→13, 10→2, 9→1.
 - **DROBNOST (opravy-simulaci-kolo4.md):** SilaVektor: chybí legenda pro 3 malé popisky.
-- **FRONTA:** brána `testy/uniky.mjs` při nalezeném úniku vrací exit 0, musí spadnout (`Omega/predavka/2026-10-03/kontrola-kviz-rychlost.md`).
 - **FRONTA:** do zadání agentů přidat zákaz `git stash` ve sdíleném repu (`Omega/predavka/2026-10-03/zapis-kviz-rychlost.md`).
-- **HOTOVO 3. 10. 2026:** kvíz rychlost sladěn (7082310).
 - **NotebookLM bonusová videa a Suno písničky zadávat po tématech (1–4); nejdřív inventura existujících** (inventura 2. 10. 2026: `Omega/predavka/2026-10-02/inventura-notebooklm.md`).
-- **ODLOŽENO 2. 10. 2026 večer (drobnosti z kontrol, nic nenasazeno kvůli nim):** (1) kolize slugů – drobnosti z `Omega/predavka/2026-10-02/prace/kontrola-ef35e01.md`; (2) brána poradi-moznosti – 4 drobnosti (N1–N4) z `prace/kontrola-2bae789.md` — HOTOVO (3. 10. 2026): opraveno už commitem b39b22e, ověřeno obousměrně (živá data exit 0, podvrh exit 1), doklad `Omega/predavka/2026-10-03/brana-poradi-oprava.md`; (3) Příroda Q20 – viz bod „čeká na učitele“ (Příroda Q20 + Q21); (4) F9 poznámky `Omega/predavka/2026-10-02/f9-prahy.md`; (5) Teplo Q1 + směr tepla v Q1/Q2/Q6/Q18 — HOTOVO (e262c68, b6810b3); (6) Codexovy požadavky k ročníkovým cestám (viz PRIKAZ-NOVA-SESSION 2. 10.).
-- **KVÍZY F8 tema4 (2. 10. 2026, commit 4edf442):** kvíz Skupenské změny vody v přírodě 19/21 a Tání 18/21 — doplnit na cíl 21 (nebo zapsat výjimku s důvodem).
-- **HOTOVO 2. 10. 2026: Tání 21/21 (vložena otázka o 327 °C, zadání „Která z těchto látek…“; uniky.mjs 0, build OK).** — původně: **Tání 20/21 – 21. otázka 3× neprošla (úniky v bloku), jiný postup** (2. 10. 2026; Příroda doplněna na 21; `Omega/predavka/2026-10-02/prace/kontrola-doplneni-priroda-tani.md` Kolo 3).
-- **DROBNÉ (2. 10. 2026, kontrola b16):** `testy/uniky-krizove.mjs` hlásí 77 podezřelých dvojic (stav před b16, po b16 beze změny) – projít (`Omega/predavka/2026-10-01-noc/kontrola-vlozeni-b16.md`).
-- **HOTOVO 2. 10. 2026 (protokol `Omega/predavka/2026-10-02/vysledek-drobnosti-f9-b16.md`): b16 N4, N5, N6 a F9 Radioaktivita M5 opraveny (po kontrole f20570e: „kovových pilin“ vráceno, nejkratší správná Elektromagnet 5/21, Alternátor Q13 nahrazena otázkou s oporou v PDF s. 1, komutátor ponechán); nic nečeká na učitele.** — původní záznam: **DROBNÉ b16 (kontrola Codexova odevzdání, 2. 10. 2026, `Omega/predavka/2026-10-01-noc/kontrola-codex-b16.md`, neopraveno, „mimo návrhy“):** (N4) Výkon: vysvětlení Q1 (kvizy.ts ~3337) „Výkon porovnává stroje i lidi podle toho, jak rychle pracují.“ prozrazuje Q2 (~3338); nové vysvětlení Q10 jen opakuje správnou odpověď. (N5) Alternátor: Q14/Q20 zkoušejí komutátor/dynamo, které PDF s. 6 má jen jako „Pro zajímavost“; Q13 (součet napětí tří cívek = 0) a vysvětlení Q12 v PDF nenalezeno; délky bloku: nejkratší správná 10/21, Q17 náskok +8. (N6) Elektromagnet po Q1+Q9: nejkratší správná 4/21 (<5), Q15 (~4476) náskok +5 (>4), kalibrace délek čeká. Čísla řádků ověřit grepem, mohla se posunout.
-- **DROBNÉ (kontrola commitu 6bca11f, 1. 10. 2026, `Omega/predavka/2026-10-01-den/kontrola-oprava-fronty.md`, neopraveno):** (N1) `test-fronta-chyba-obsahu.py` netestuje samoúklid záznamu po opravě scénosledu (`dodelej_animace.py:215–216`) ani zápis stavu (`:260`); mutant bez `pop` projde 4/4. (N2) `dodelej_animace.py:212` `zaloguj` píše do ap.LOG i při `--nasucho` — každý suchý náhled přidá do logu automatu 4 řádky „chyba obsahu“ (šum).
-
-- **HOTOVO 2. 10. 2026: kolize slugu mezi ročníky ve výrobě videa** — krok 1 pojistka (Omega 922fc29, kontrola `Omega/predavka/2026-10-02/kontrola-922fc29.md`), pojistka ve všech skriptech (Omega d7f45fd) a krok 2 ročníkové cesty (Omega ef35e01 + d7f45fd). Cesta na webu ani klíč v R2 ročník neobsahují, nedotkne se jich nic (`Omega/predavka/2026-10-02/cesty-kanarek-web.md`). Drobný nález (1. 10.): `stav_animaci.py` skryje existující video, když zvuk chybí v obou ročnících.
-- **Fronta téma 4 (1. 10. 2026; simulace Tlaku HOTOVO 0cb9c5c, F9 Účinky proudu HOTOVO — výklad, kvíz 21, simulace UcinkyProuduABezpecnostSimulace):** vlna 3 F8 Vypařování/Var/Kondenzace/Skupenské změny vody v přírodě (Codex); média (Suno, NotebookLM, polemika s animacemi); vyřešit selhání CI buildu (`prace/ci-selhani.md`); mobil ~121 simulací (Codex, větev `codex/mobil`).
-- **Fronta téma 3 (30. 9. 2026 noc):** zbývá Klín (bez podkladu) a Nakloněná rovina (bez podkladu, viz ❓ a); pak další téma.
-- **DROBNÉ k7 (F7 Těžiště + F8 Tepelná výměna, 30. 9. 2026, `/tmp/wonderly-workery/2026-09-30-tema2/kontrola-web-k7.md`, NASADIT).** Body 1–6 jdou do dalšího kola.
-- **DROBNÉ k6 (F8 Energetická hodnota potravin, 30. 9. 2026, `/tmp/wonderly-workery/2026-09-30-tema2/kontrola-web-k6.md`, NASADIT).** Body 1–4 (kvizy.ts 3559, 3560, 3543, 4644×4662) jdou do dalšího kola. ODLOŽENO: 5, 6, 8 (SvacinaSimulace.astro: „vždy na 100 g", nečitelné popisky v 400 px, dietní hlášky) a 7 (`testy/cisla-ve-vykladu.mjs:15` nezná NBSP, falešný poplach 6300).
-- **DROBNÉ k4 (téma 2, 30. 9. 2026, kontrola k4 – NASADIT, `/tmp/wonderly-workery/2026-09-30-tema2/kontrola-web-k4.md`, body 1–8 neopraveno).**
-- **Sladit kvíz priklady-na-vypocet-rychlosti** (kvizy.ts ~2807, 2819: 25 s a 5 s) s výkladem (100 m za 20 s; 60 m za 4 s / 3 s) — pak brána pokrytí s modelem a schválení scénáře 7/priklady-na-vypocet-rychlosti-dialog.
-- **Téma 2 zbývá:** F7 Těžiště, F8 Energetická hodnota potravin, F8 Tepelná výměna (nad RVP).
-- **DIAGNÓZA scena-00 (výroba téma 1, 30. 9. 2026, exekutor):** není to chybějící krok automatu, ale záměrná brána z 28. 9. (`video_podkastu.vstupy_plnych_klipu` ř. 141, `NAVOD-ANIMACE-PODKASTU.md`, OBSAH-PRAVIDLA kap. 12): KAŽDÁ scéna musí mít plný animovaný klip `scena-NN.mp4`. `automat_podkastu.krok_animace` ale vyrábí jen scény s klíčem `animace` ve scénosledu; scénosledy elektromagnet-dialog1–3, vodic-civka-dialog1–3, vykon-dialog2–4 ho nemají u žádné scény (2–4 scény, samé `kresba`) a v `animace_podkastu.ANIMACE` není žádná kreslicí funkce pro elektromagnet/cívku/výkon (jen pilot f8_prace_*). Výroba tedy MUSÍ znovu padnout — obejít bránu nelze (zmražené pravidlo). Nespuštěno, staré repliky/videa nepřesunuty (přegenerování zvuku by bylo zbytečné). Předpoklad: napsat kreslicí funkce (děj, fyzika, časy z WAV, `animuj_po_celou_scenu`) pro ~25 scén a přidat je do scénosledů a `ANIMACE` — rozhodnutí učitele/orchestrátora (velká obsahová práce).
-- **ZVUK téma 1 běží (exekutor, 30. 9. 2026 ~15:06):** jen zvuk (`vyrob_omnivoice.py <slug> --rocnik N`, bez videa), PID 42792, skript `Omega/skripty/docasne/vyroba-zvuk-tema1.sh`, log `Omega/logy/vyroba-zvuk-tema1-2026-09-30.log`. Fronta po sobě: 9/vodic-civka-dialog1–3, 8/vykon-dialog1–3. Přeskočeno: 9/elektromagnet-dialog1–3 (mp3 hotové, novější než scénář); 8/mechanicka-prace-dialog3, 8/vykon-dialog4, 7/priklady-na-vypocet-rychlosti-dialog (značka NEPLATNÁ). Staré repliky+prepis.json (vodic-civka-dialog1, vykon-dialog1–3) přesunuty do `Omega/smazano-zaloha/2026-09-30/podkasty-stare/{8,9}/`. Video dál čeká na animace (DIAGNÓZA scena-00).
-- **PŘERUŠENO (výroba podkastů téma 1, 30. 9. 2026, zavření Macu):** hotové: žádný díl s videem (dialog1 a dialog2 ODLOŽENY 3× pro „Chybí plná animace scena-00.mp4“; jejich zvuk omnivoice.mp3 a snímky existují); rozpracované: elektromagnet-dialog3 (zvuk + snímky hotové, video 2/3 pokusů stejná chyba, zabito při 3. pokusu); zbývá: dialog3 video, vodic-civka-dialog2, vodic-civka-dialog3. Kořen chyby je chybějící animace scena-00.mp4 (běh „bez animací“) — před dalším spuštěním vyřešit. Znovu spustit `/tmp/wonderly-workery/2026-09-30-scenare/vyroba.sh` (POZOR: /tmp se po restartu smaže — kopie je `~/Desktop/Omega/skripty/docasne/vyroba-tema1.sh`; zálohy práce v `~/Desktop/Omega/predavka/2026-09-30/prace/2026-09-30-tema2/` a `.../2026-09-30-scenare/`).
-- **DROBNÉ (téma 2, 30. 9. 2026, kontrola k3 – verdikt NASADIT, `/tmp/wonderly-workery/2026-09-30-tema2/kontrola-web-k3.md`, neopraveno):** (1) kvizy.ts:4323 vysvětlení prozrazuje rok 1831 (Q4339); (2) kvizy.ts:4357 prozrazuje Q4356, 4356 napovídá Q4355; (3) kvizy.ts:4358 prozrazuje Q4364, Q4364 „dynamo“ kolize s temata.ts:3000; (4) kvizy.ts:2863 zadání vyřadí distraktor Q2860; (5) kvizy.ts:3518 „mění na teplo“ vs. výklad „vnitřní energie“; (6) temata.ts:1883 zápis skládání bez indexů F1/F2, „míří jako větší síla“ 2×; (7) temata.ts:2998 nadpis „Kde se alternátor a dynamo používají“ bez použití dynama.
-- **ODLOŽENO (téma 2, 30. 9. 2026, `/tmp/wonderly-workery/2026-09-30-tema2/odlozene.md`):** simulace Skatepark (popisek „teplo Q“ → „vnitřní energie“); sila-vektor láme „Fg = 30 | N“ na 400 px (NBSP); slabý únik gravitacni-sila Q8 → sila Q10; SVG nálezy (treci-sila-obr-01, pohybova-obr-03, vnitrni-obr-03, vnitrni-obr-01, indukce-obr-04 titul „Obr. 1.20“); TreniSimulace.astro součinitel tření dřevo neladí s výkladem (+ test); StridavyProudSimulace.astro ~ř. 204 sin(úhel) nad rámec 9. ročníku (+ test).
-- **ZBÝVÁ téma 2:** F9 Transformátor (text+kvíz+obrázky hotové v `/tmp/wonderly-workery/2026-09-30-tema2/`, čeká na vložení), obrázek zákona zachování (hotový), F7 Těžiště, F8 Energetická hodnota potravin, F8 Tepelná výměna (nad RVP).
-- **DROBNÉ (ucinnost, 30. 9. 2026, kontrola k3 č. 4 a 6, neopraveno):** (4) písmo popisků jen 9,4–10,5 px na mobilu v `ucinnost-obr-01.svg` (7 popisků) a `ucinnost-obr-02.svg` (10 popisků) — zvětšit font/viewBox; (6) popisky scény v `UcinnostSimulace.astro` se na 400 px zmenší na ~5,5 px (viewBox 660 → ~282 px) — nečitelné, trvá z HEAD.
-- **DROBNÉ (ucinnost, 30. 9. 2026, kontrola k4 – verdikt NASADIT, `/tmp/wonderly-workery/2026-09-30-ucinnost/kontrola-web-k4.md`, neopraveno):** (1) kvizy.ts:3450 Q3 distraktor „veškerá práce odebraná strojem z přívodu energie“ napovídá Q2 (3449), distraktory Q2/Q3 „ztratí/ztracená za 1 s“ téměř duplicitní; (2) Q20, Q21 (3467–3468) vyžadují P = η · P₀, výklad uvádí jen η = P : P₀ a P₀ = P : η; (3) Q5 (3452) distraktory „pé krát nula“, „pé děleno nulou“ nevěrohodné.
-- **ODLOŽENO (téma 1, 30. 9. 2026)** — důvod: strop pokusů / cena:
-  - (a) blok vykon: nálezy k6 č. 1–6 (`/tmp/wonderly-workery/2026-09-30-tema1/kontrola-k6.md`), strop pokusů. Nález k6 č. 1 zrušen pravidlem B; zbývá č. 2 (vysvětlení Q10 prozrazuje Q2) a drobné 3–6.
-  - (b) k3 nálezy 6, 10, 11, 13: duplicitní kJ/MJ mezi bloky práce/výkon, kvíz nezkouší J/značku s, „=“ na konci řádku na 400 px, rozbitý obrázek „Tahák“ (temata.ts:1801) a „/“ „×“ v simulacích.
-  - (c) `uniky.mjs` nechytá úniky přes vysvětlení výpočtů — posílit měřidlo.
-  - (e) téma 1b, drobné: kontrola-web-k2 nálezy 1–3 (`/tmp/wonderly-workery/2026-09-30-tema1b/kontrola-web-k2.md`): laborka Ozobot bez nbsp (láme se na 400 px, laborky.ts:493); správná odpověď nejdelší ve dvou otázkách (kvizy.ts:4284, 4287); vysvětlení Q1 prozrazuje Q2 a Q9 prozrazuje Q4 v bloku elektromagnet. Kontrola-obrazky-k3 nálezy 1–4 (`…/kontrola-obrazky-k3.md`): N1 západka E-02 není v textu, N2 překryv hrotů vodice-05 b, N3 START zakrývá konec objížďky F7-17, N4 vodice-04 chybí prostorová nápověda.
-  - (f) vrátný `povoleni_hook.py` propouští `echo '…rm…Škola' | sh` a `ssh mini 'rm …'` (mazání obejde kontrolu).
-  - (d) zbylá podtémata tématu 1 (na konec): F7 Příklady na výpočet rychlosti, F9 Pole vodiče a cívky, Elektromagnet, F8 Účinnost.
-
+- **Nevyřešené DROBNÉ/ODLOŽENO z 30. 9.–2. 10. 2026** (kontroly k3/k4/k6/k7, téma 1 a 2, ZVUK/PŘERUŠENO/DIAGNÓZA, „Fronta téma 3/4“, ODLOŽENO (a)–(f)): přesunuto auditem 11. 10. 2026 do SAMOSTATNY-REZIM-ARCHIV.md, plné znění s cestami k protokolům tam.
 > Uzavřená kola a historie jsou v `SAMOSTATNY-REZIM-ARCHIV.md` (přesun 6. 8. 2026,
 > nález auditu: 2 379 řádků četla každá session). Sem patří JEN živé věci;
 > hotová kola se na konci session stěhují do archivu.
@@ -481,8 +247,6 @@ Systematický průchod archivu po nálezu, že se smazáním duplicit ztratily i
 - [skola2] Podtémata bez názornosti (ověřeno `node testy/nazornost.mjs` 27. 9.: fyzika
   7 z 120 — vše pololetní/roční shrnutí; informatika 15 z 47; prac. činnosti 1 z 3) —
   otevřená otázka o osudu shrnutí je v sekci „❓ Otevřené dotazy na učitele" nahoře.
-- [skola2] `MEMORY.md` (Škola) — po zhuštění D5 27. 9. má 131 řádků/19 577 B,
-  pod hookovým limitem 140 (viz „❓ Otevřené dotazy na učitele" nahoře, U16).
 - [skola2] 22 kandidátů na zkrácení pravidel a registrace cronu `pravidla-dluh-denne` —
   přesunuto do sekce „❓ Otevřené dotazy na učitele" nahoře (V9-2, 27. 9. 2026).
 - [skola2] Kosmetika: blok `tepelna-vymena-a-teplo` má zápis „4200", sjednocení na
@@ -537,21 +301,9 @@ Systematický průchod archivu po nálezu, že se smazáním duplicit ztratily i
   27. 9. 2026 přímo v sekci „❓ Otevřené dotazy na učitele" nahoře (soubor
   `KE-SCHVALENI.md` archivován, plné znění je nyní tam a v
   `wonderly-web/docs/archiv/KE-SCHVALENI.md`).
-- [skola2] Polemika F7 „Klid a pohyb tělesa" — **překážka s právy zápisu už
-  NEPLATÍ** (`ls -la "/Users/Shared/Škola/podkasty"` 27. 9. ukazuje vlastníka
-  `radek_soukromy`, dřív `radekmicek`). Oprava V8-2 (27. 9. 2026): scénáře
-  (`klid-a-pohyb-telesa-relativnost-dialog` aj.), o kterých dřívější zápis
-  tvrdil „hotové v `Omega/podkasty-scenare/7/`", na TOMTO Macu NEEXISTUJÍ
-  (`ls`/`find` 0 výsledků, v gitu Omegy nic) — `PODKASTY-CHYBI-2026-09-27.md`
-  vede `klid-a-pohyb-telesa` jako kategorii E (nic nezačato). Nejdřív ověřit
-  Mac mini (git fronta / ssh mini) — pokud tam jsou, přenést; pokud ne,
-  napsat scénáře znovu (jen právo zápisu do `Škola/podkasty` už nebrání).
 - [skola2] Podkast F8 „Výkon" dialog3 — 6 replik zůstalo odložených po timeoutu
   (420 s) při výrobě 12. 9., 1 bez TXT — dodělat na pozadí (`Omega/ODLOZENE.md`,
   `Omega/dokumenty/DENIK-CHYB.md`, nadpis „F8 Výkon dialog3 transport420s").
-- [skola2] `pokryti_kvizu.py` — `MODEL` je už `gemma4:31b` (ověřeno 27. 9., dřív
-  neexistující `gemma4:26b`/rozbitý `~/bin/ask-local`) — spustit bránu na
-  dřívější trojici podtémat a potvrdit 21/21 pokrytí.
 
 ### 🆕 Znovu zařazeno do fronty (audit 27. 9. 2026, 4. kolo — kontrolor V8-1)
 
@@ -580,9 +332,6 @@ viz „⚡ ČÍM ZAČÍT" výše — možný překryv, ne nutně součet):
   aby se na deník ve frontě nezapomnělo.
 - [cesty] Doplnění cest z minulých let. Rozsah zadá učitel — zatím jen založeno,
   aby se na deník ve frontě nezapomnělo.
-- ~~[příprava] Vyzkoušet průzkumníka přes Hermese na lokálním modelu~~ ZRUŠENO —
-  učitel 21. 9. 2026 delegaci na Hermese/GPT-5.5 zamítl („pracuje nekvalitně"),
-  viz K3-R6 (rozpor opraven auditem 27. 9. 2026).
 - [příprava] Revidovat tabulku směrování modelů v `.claude/orchestrator-prompt.md`
   směrem k lokálním modelům tam, kde to obstojí — PŘEFORMULOVÁNO 27. 9. 2026
   (V4-8): „podle prvního měření" mířilo na zrušený úkol s Hermesem výše, dnes se
@@ -593,13 +342,8 @@ viz „⚡ ČÍM ZAČÍT" výše — možný překryv, ne nutně součet):
   ~10 map/fotek deníku (stejné obrázky, stejná otázka, `mapa_projde_kontrolou`);
   vítěz nahradí model v automatech. Zadáno 21. 9. 2026.
 
-> ~~Čtyři videa z 5. 8. (síla, hmotnost, hustota, objem)~~ ✅ HOTOVO a nasazeno 7. 8.
-
 ### 📥 Nálezy z historie, dosud nevyřešené (přesunuto a otagováno 16. 8. 2026)
 
-- ~~[skola2] Sjednotit odpor lidského těla mezi F8 a F9~~ VYŘAZENO Z FRONTY —
-  učitel 25. 9. 2026 řekl „ta čísla odporu kůže na webu nedávej, počkej na mě":
-  ⛔ NESAHAT, viz sekce „Fronta nápadů" níže (K3-R7, oprava 27. 9. 2026).
 - [cesty] Ručně opravit pořadová čísla u 2 videí na kanálu (přání učitele):
   `u4NmKbMRhiE` a `9Sv4exafb-c` (tvar `01 · DD. MM. · …`) — stroj na ně
   nesahá, titulek psal učitel ručně.
@@ -686,65 +430,21 @@ nedoplňují na 21. Důvod: hlavní výklad nedává další látku bez úniků/
 - Automat `Omega/skripty/trideni_uniku_krizove.py` zůstává jen PŘEDFILTR s ruční kontrolou (přesnost 7/10 na held-out, nezapojovat do bran): `Omega/predavka/2026-10-02/trideni-uniku-v3.md`, `prace/kalibrace-trideni.md`.
 - Drobnosti z `Omega/predavka/2026-10-02/prace/kontrola-rada-pojistka.md`: mutace v `automat_podkastu.py:627` bez testu; hláška ve `video_podkastu.py:134` (výroba snímků s ročníkovou cestou není zapojena).
 
-### [UZAVŘENO 3. 10. 2026, rozhodnutí 1A] Příroda Q20 + Q21 — dříve odloženo 2. 10. 2026 (Q20 3 pokusy, Q21 6 pokusů)
-UZAVŘENO 3. 10. 2026 (učitel, varianta 1A): blok skupenske-zmeny-vody-v-prirode má 21/21; nová Q21 „kaluž → tuhnutí“ prošla kontrolou (`Omega/predavka/2026-10-03/kontrola-kviz-voda-A.md`), commit 8d5fee5 nasazen. Q20 ponechána (drobný nález K2-3 nasazení nebrání). Původní záznam:
-Kvíz Skupenské změny vody v přírodě má 20 otázek (cíl 21). Q20: 3× neprošla (duplicity s Tuhnutí/Tání, částečně pravdivý distraktor, mírný únik). Q21: otázka „co následuje po vypaření“ nutí vysvětlení vyvracet pořadím nebo prozrazovat Q5/Q8/Q20. Rozhodnout učitel: jiná otázka, výjimka 20/21 s důvodem, nebo návrh opravy v `Omega/predavka/2026-10-02/kontrola-81bb544.md` (a `prace/kontrola-doplneni-priroda-tani.md` Kolo 3). Pozn. k ověření: výklad Tuhnutí (odst. o jádru tuhnutí) tvrdí, že ze smítka prachu vznikají „kroupy a sněhové vločky“, kdežto PDF Přírody řadí vločky k desublimaci.
-
-### [HOTOVO 3. 10. 2026] Posuvný a otáčivý pohyb — 4 animované obrázky + oprava Země (c68014d, d44cc00)
-HOTOVO 3. 10. 2026: obr. 01–04 (PDF s. 2–5) zapojeny do bloku `posuvny-otacivy-pohyb` místo chybné fotky aut (`posuvny-pohyb.jpg` odkaz odstraněn, soubor v public ponechán); Země = dva otáčivé pohyby (d44cc00). Build 490 stránek prošel, v `dist/` stránce podtématu jsou všechna 4 SVG a jpg 0×. Nepushnuto. Doklady: `Omega/predavka/2026-10-03/posuvny-obrazky.md`, `kontrola-posuvny-obrazky.md`, `kontrola2-posuvny-obrazky.md`.
-- Drobnost do fronty: obr. 04 ř. 70–72 — poloprůhledný „duch“ závitu v mezistavech animace (útržek na náběhu závitu); kosmetické.
-
-### [HOTOVO 3. 10. 2026] Blok Teplo F8 — přestavba (c706eef + 783cee9, 3 kola oprav vyčerpána)
-Hotovo 3. 10. 2026: přestavba bloku (c706eef) + 3. kolo oprav vazeb Q1, Q5, Q10–Q12 (783cee9); kontrola PŘIJMOUT (`Omega/predavka/2026-10-03/kontrola-teplo-f8-kolo3.md`). Limit 3 kol vyčerpán, zbytek jen jako drobnosti níže. Původní záznam: otázky si napovídaly směr tepla, nálezy `Omega/predavka/2026-10-02/prace/kontrola-b6810b3.md`.
-
 ### [drobnost] Teplo F8: 3 zbylé nálezy kola 3 (3. 10. 2026, `Omega/predavka/2026-10-03/kontrola-teplo-f8-kolo3.md`)
 - Z1: správná odpověď Q5 (vzorec Q = m · c · (t₂ − t₁)) napovídá nevýpočetní Q7/Q8 (víc m / větší rozdíl → víc Q); vazba je jádrem učiva, jen evidovat.
 - Z2: správná odpověď Q10 (ohřátí 1 kg o 1 °C) napovídá jednotku v Q11 (jmenovatel kg · °C); vlastní vazba učiva, jen evidovat.
 - Z3: vysvětlení Q11 jen popisuje zápis jednotky a neříká „proč“ (OBSAH-PRAVIDLA.md:265); možná oprava bez úniku přes c = Q : (m · Δt) → J : (kg · °C).
-
-### [HOTOVO 3. 10. 2026] Ochranné pásmo 400 kV ve výkladu „Účinky proudu a bezpečnost“ (1aa14db)
-HOTOVO 3. 10. 2026: pásmo opraveno z 30 m na 20–25 m (§ 46 zák. 458/2000, NV 80/1957), nasazeno a ověřeno `curl` na živé stránce (nový text, „30 metrů“ již není). Doklady: `Omega/predavka/2026-10-03/overeni2-ochranne-pasmo.md`, `Omega/predavka/2026-10-03/kontrola-1aa14db.md`.
-
-### [HOTOVO 3. 10. 2026] Souhlas vlastníka v ochranném pásmu (5979be6)
-HOTOVO 3. 10. 2026: věta o zákazu stavby sjednocena se zákonem (`temata.ts:3212`, `kvizy.ts:5130`: „zvláštní pravidla pro stavby a pro práci kolem vedení“, stavba jen se souhlasem vlastníka, § 46 zák. 458/2000). Návrh `Omega/predavka/2026-10-03/navrh-souhlas-majitele.md`, kontroly `kontrola-navrh-souhlas-majitele.md`, `kontrola2-navrh-souhlas-majitele.md`. Commit pushnut na origin/main; nasazení `curl` na živé stránce ke 3. 10. 8:55 ještě NEpotvrzeno (živá stránka měla starou větu) — ověřit znovu.
-
-### [HOTOVO 3. 10. 2026] Oprava nástroje kontrola_uniku_mini.py (Omega 16e814c, web f675cb9)
-HOTOVO 3. 10. 2026: nástroj čte i víceřádkové otázky, přesný klíč bloku, žádné slučování, test nejednoznačnosti; 3 pokusy, kontrola PŘIJMOUT (`Omega/predavka/2026-10-03/kontrola-16e814c.md`). Položka „opravit nástroj kontrola_uniku_mini.py“ uzavřena.
 
 ### [drobnost] kontrola_uniku_mini a ochranné pásmo — zbytky po opravách (3. 10. 2026)
 - (a) test `kontrola_uniku_mini` nepozná podřetězec sedící na 1 blok („odraz-svetl“ → 21).
 - (b) ostrý běh `kontrola_uniku_mini` ověřuje další blok až po práci na předchozím a výsledky se ztratí.
 - (c) ochranné pásmo: zdůvodnění odkazuje na § 46 odst. 3 a 8, účel je v odst. 1; podobné formulace se opakují v definici, větě „pravidlo pro stavby a práce“ a vysvětleních `kvizy.ts` 5126/5130.
 
-### Stav písničky Var (3. 10. 2026)
-Text prošel 2 kontrolami, generuje se v Suno. (Přepsáno níže: písnička Var HOTOVO, 153d093.)
-
-### [HOTOVO 3. 10. 2026] Simulace Var, písně, video Tání, vata dávka 1, mřížka, pravidlo předlohy
-HOTOVO 3. 10. 2026: simulace Var (803bbe9, nasazena živě, `curl` 200 + `id="var-svg"` v HTML); písně Účinky proudu (3299315) a Var (153d093); video Tání (943ca06); vata dávka 1 (1f6fdb6, 9/20 schváleno); mřížka odebrána (d4935a6); pravidlo předlohy (b94e413).
-
-### Cloudflare incident a záložní nasazení wrangler (3. 10. 2026)
-Cloudflare Workers Builds mělo incident („Issues with Workers Build failing to start“, od 3. 10. 05:54Z); 803bbe9 se po ~3 min čekání sám nenasadil. Záložní cesta: `git clone --depth 1` origin/main (803bbe9) do `/tmp/wonderly-workery/2026-10-03/ci-klon-3`, `npm ci`, `npm run build` (rc 0, 490 stránek), `npx wrangler deploy` (rc 0, verze 61868597-3531-40da-8c67-474a260460c7). Doklad: `Omega/predavka/2026-10-03/diagnoza-nasazeni.md`.
-
-### [HOTOVO 3. 10. 2026] Oprava zápisu shrnutí vaty (55fe83d + commit testu „vata-zapis: test shrnutí“)
-`vata-zapis-navrhy.mjs` překládá klíče „shrnuti“ na zdrojový literální blok; test `testy/vata-zapis-shrnuti.mjs` ověřuje správný cíl (text otázky i distraktoru) a oba podvrhy z kontroly ho shodí. Hláška kolize uvádí zdrojový klíč a přeskočený návrh se nepočítá jako zápis. Doklad: `Omega/predavka/2026-10-03/kontrola-55fe83d.md`.
-
-### [HOTOVO 3. 10. 2026] Vata: shrnutí — zastaralé a kolizní návrhy (kontrola-55fe83d, N3; vyřešeno dávkou 8, a48d7ac: 4/5 zapsáno, 11 zastaralých vyřazeno, kolize vyřešeny)
-- 6 návrhů pro shrnutí míří na už přepsaný distraktor (zastaralé, puvodniText neplatí).
-- 13 kolizních skupin (více návrhů shrnutí → tentýž zdrojový distraktor) — při dalším schvalování vybrat 1 návrh na zdrojovou otázku.
-
 ### [fronta] Fronta po 3. 10. odpoledne (doklady v `Omega/predavka/2026-10-03/`)
-- HOTOVO: píseň Tání (20605ad, nasazeno 885aee74); záznam obousmerne.json pro vata-zapis-shrnuti (a36508e); VATA dávka 6, zapsáno 40/49 (6a9bbea, kontrola PROŠLO, nasazeno 08988b98).
-- HOTOVO: VATA dávka 7, 6/9 zapsáno (4dc9e37, kontrola PROŠLO, nasazeno 68e575f7), teziste#17#1 opraveno.
-- HOTOVO: 3 zamítnuté z dávky 7 (#4, #20, #43) vyřešeny dávkou 8 (`vata-schvaleni-davka7.md`).
-- HOTOVO: VATA dávka 8 (3/3) a shrnutí (4/5, 11 zastaralých vyřazeno, kolize vyřešeny), commit a48d7ac, kontrola PROŠLO, nasazeno 0468ea6b.
-- HOTOVO: VATA dávka 9 (2/2, 3be43bf, nasazeno 2b9aaf4b, `nasazeni-3be43bf.md`): polovodičový d2 ve shrnutí a #4 distraktor „jen jednou svorkou“ (obě dřívější položky fronty).
-- HOTOVO: kalibrace `testy/uniky-v-bloku.mjs` (56c1b08, 1621 → 51 nálezů, kontrola PROŠLO s výhradami, `kontrola-56c1b08.md`); položka „seřídit měřidlo“ splněna.
 - FRONTA: opravit ~34 skutečných drobných úniků z uniky-v-bloku (seznam v `Omega/predavka/2026-10-03/kalibrace-uniky-v-bloku.md`), pak měřidlo zapojit do prebuild.
 - FRONTA: doladit práh měřidla u tříslovných odpovědí (únik 2 ze 3 slov propadne) a únik do distraktoru (`kontrola-56c1b08.md`).
 - FRONTA drobnost: reostat (`kvizy.ts:4618`) má jako distraktor doslova správnou odpověď potenciometru; posoudit, jestli je to záměr.
 - FRONTA: homebrew whisper rozbitý (numba × NumPy 2.5); automaty používají venv a fungují; až vyjde nová numba, brew upgrade (`oprava-whisper.md`).
-- HOTOVO: seřídit měřidlo `testy/uniky-v-bloku.mjs` (56c1b08; `diagnoza-uniky-v-bloku.md`: 1621 → 51 nálezů; do prebuild až po opravě ~34 úniků, viz fronta výše).
-- HOTOVO: ověřit poslechem závěr Tání — ověřeno whisper medium, zpěv je správně (`kontrola-20605ad.md`).
 - Drobnost: zápisový protokol davka6 uvádí #39 místo #38.
 
 ### [fronta] Fronta po 3. 10. pozdě večer (doklady v `Omega/predavka/2026-10-03/`)
@@ -752,8 +452,6 @@ Cloudflare Workers Builds mělo incident („Issues with Workers Build failing t
 - Úniky paralel (vysvětlení č. 13, 18, 19) a nakloněná rovina (vysvětlení č. 2, 12, 19) — `kontrola-vady-d1-d6.md`.
 - SVG N7 mřížka uhlíku `vnitrni-energie-obr-01` (věcná chyba); N6 bublina `pohybova-03` (`kontrola-5a9952f.md`, `kontrola-de827ed.md`).
 - SilaVektor: bílý text „bedna“, kontrast 3,6.
-- HOTOVO 3. 10. (0fdba66, kontrola-0fdba66 OK, nasazeno cc9d8e88): `TreniSimulace.astro:41`: šipka tření vychází z půlky zadní stěny, ne od podlahy, klame o působišti (`kontrola-a2f8361.md`).
-- HOTOVO 3. 10. (0fdba66, kontrola-0fdba66 OK, nasazeno cc9d8e88): test `sila-vektor.mjs:121` počítal šířku i s rámečkem, pustil 11,8 px.
 - Reostat `kvizy.ts:4618`: distraktor = odpověď potenciometru.
 - `uniky.mjs:906` mlčí při cestě se symlinkem nebo diakritikou.
 - Test uniky-v-bloku nechytí 3 mutace (`kontrola-f261481.md`).
@@ -761,7 +459,6 @@ Cloudflare Workers Builds mělo incident („Issues with Workers Build failing t
 - Hlídač session nepozná agenta čekajícího na dotaz (6 h stání 3. 10.).
 - Homebrew whisper rozbitý (`oprava-whisper.md`).
 - ODLOŽENO: 18 zbylých nálezů uniky-v-bloku (hraniční/sporné).
-- U14 vrátný — VYŘEŠENO 3. 10. ACL zámkem (`CEKA-NA-UCITELE.md`).
 
 ### [drobnost] Zbytky po dnešní práci (3. 10. 2026)
 - Šipka páry u tlakového hrnce: `src/components/skola2/VarSimulace.astro:224–228` (kontrola3).
@@ -897,7 +594,7 @@ Organizace:
   PRAVDĚPODOBNĚ VYŘEŠENO 26. 9. 2026 (V6-6, 27. 9.: „pravděpodobně", protože 16. 8.
   se konkrétní příčina buildu tehdy vůbec nezjistila — jde o usuzování, ne doložený
   týž kořen): mělký klon na CI (test četl git historii, Workers Builds ji nemá) —
-  opraveno commitem `b7082e3`, viz sekci „26. 9. 2026 v noci" výše. Plné znění
+  opraveno commitem `b7082e3`, viz SAMOSTATNY-REZIM-ARCHIV.md § 26. 9. 2026 v noci. Plné znění
   původního nálezu 16. 8. (edb1137, chybějící scope `wrangler` tokenu pro Builds API)
   v [SAMOSTATNY-REZIM-ARCHIV.md](SAMOSTATNY-REZIM-ARCHIV.md).
 - [skola2] `wrangler` token scope pro Cloudflare Builds API → ❓ (viz sekce
