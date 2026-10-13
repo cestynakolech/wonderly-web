@@ -901,10 +901,10 @@ const maPanely = mat.some((m) => m.druh === 'infografika' && (m.panely?.length ?
 		border-radius: 12px;
 		box-shadow: 2px 3px 0 rgba(43, 42, 38, 0.14);
 	}
-	/* SVG infografiky jsou ostré v každé velikosti → šířka celého sloupce (JPG/PNG drží 34rem) */
+	/* SVG infografiky bez panelů: strop 48rem (JPG/PNG drží 34rem) — rozhodnutí orchestrátora 13. 10. */
 	.infografika img.je-svg {
 		width: 100%;
-		max-width: 100%;
+		max-width: min(100%, 48rem);
 	}
 	/* Panelová infografika (pole `panely`): mřížka přes celou šířku sloupce,
 	   1 sloupec na telefonu, 2–3 na širokém displeji */
@@ -913,6 +913,14 @@ const maPanely = mat.some((m) => m.druh === 'infografika' && (m.panely?.length ?
 		grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
 		gap: 1rem;
 		align-items: start;
+	}
+	/* Široký displej (tabule): mřížka vystoupí ze sloupce 62rem a vycentruje se na
+	   min(96vw, 110rem) → na 1920 px 3 sloupce; záporný okraj = (sloupec − mřížka) / 2 */
+	@media (min-width: 1200px) {
+		.infografika-mrizka {
+			width: min(96vw, 110rem);
+			margin-left: calc(50% - min(48vw, 55rem));
+		}
 	}
 	.infografika-panel {
 		display: block;
