@@ -632,8 +632,18 @@ const maPanely = mat.some((m) => m.druh === 'infografika' && (m.panely?.length ?
 			const jediny = panely.length < 2;
 			lupa.querySelectorAll<HTMLElement>('.lupa-sip').forEach((b) => (b.hidden = jediny));
 		};
+		// Esc v režimu celé obrazovky spolkne prohlížeč (stránka dostane jen
+		// fullscreenchange) → opuštění celé obrazovky jinak než tlačítkem ⛶ zavře i lupu
+		let odchodTlacitkem = false;
+		document.addEventListener('fullscreenchange', () => {
+			if (!document.fullscreenElement && lupa.open && !odchodTlacitkem) lupa.close();
+			odchodTlacitkem = false;
+		});
 		const celaObrazovka = () => {
-			if (document.fullscreenElement) document.exitFullscreen?.();
+			if (document.fullscreenElement) {
+				odchodTlacitkem = true;
+				document.exitFullscreen?.();
+			}
 			// celou obrazovku dostane obal UVNITŘ dialogu: <dialog> sám fullscreen být nesmí
 			// a fullscreen <html> by se v top-layer položil NAD dialog (ověřeno v Chromiu)
 			else lupa.querySelector<HTMLElement>('.lupa-obal')!.requestFullscreen?.().catch(() => {});
@@ -674,6 +684,8 @@ const maPanely = mat.some((m) => m.druh === 'infografika' && (m.panely?.length ?
 			if (document.fullscreenElement) document.exitFullscreen?.();
 			obr.removeAttribute('src');
 			odkud?.focus();
+			// při odchodu z celé obrazovky prohlížeč fokus ještě jednou zahodí → vrátit znovu
+			setTimeout(() => odkud?.focus(), 150);
 		});
 	}
 </script>
