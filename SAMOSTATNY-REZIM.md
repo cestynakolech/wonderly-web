@@ -2,6 +2,8 @@
 
 - **AKTUÁLNÍ PŘEDÁVKA 6. 10. 2026: `~/Desktop/Omega/predavka/2026-10-06/PRIKAZ-NOVA-SESSION-OMEGA.md`** — KROK 0, stav (společná fronta renderů, video_pas, C fáze 1–2, Codex, 91 laborek), rozpracované díly, čeká na učitele, další kroky. Číst jako první. Souběžná předávka B (sjednocení souborů, přenos dat Intel → Book): `~/Desktop/Omega/predavka/2026-10-06/PRIKAZ-NOVA-SESSION-PRENOS-DAT.md`. Starší: `predavka/2026-10-05/PRIKAZ-NOVA-SESSION-4.md`.
 
+- **PRŮBĚŽNÁ PŘEDÁVKA 13. 10. 2026 (vlna 1): `~/Desktop/Omega/predavka/2026-10-13/PREDAVKA-VLNA1.md`** — režim (nic na mini, LOKAL_PAUZA, hodinová úloha pozastavena), nasazeno 90e2b6d/9888fd0/0bbbfad, rozpracováno, odloženo.
+
 - **Codex:** rozdělení `Omega/koordinace/ROZDELENI.md`, kontext `CODEX-KONTEXT-WEBU.md`; Jev — souhlas učitele 30. 9. s podmínkou; mini GPU funkční. **Noční fronta:** animace + podkasty zapnuty 30. 9.
 
 
@@ -17,6 +19,8 @@ popsán, ne odstraněn (jeden platný návod) + zalomená cesta.
 
 ## ❓ Otevřené dotazy na učitele (jediná sekce, oprava V8-6, 27. 9. 2026)
 
+
+- **13. 10. 2026 (vlna 1) — dotazy:** (1) odkaz na video ČT edu v temata.ts ~ř. 2668 (zákon zachování energie) porušuje zákaz cizích videí — odstranit? (2) 4 podtémata bez vhodného českého odkazu (ucinnost, alternator, elektromotor, vlastnosti střídavého proudu); (3) nesoulad výkladu a kvízu pololetí F9 (temata.ts ~3621 × kvizy.ts ~6154); (4) necommitovaná stará zamítnutá `SilaInfografika.astro` (v1) — odstranit? (5) scénář 8/rocni-shrnuti ODLOŽEN (3× neprošel), rozhodnout spolu s 7/rocni-shrnuti. Podrobně `Omega/predavka/2026-10-13/PREDAVKA-VLNA1.md`.
 
 - **3. 10. 2026 (a) — písnička Suno „Účinky proudu“ čeká na poslech:** `Omega/predavka/2026-10-03/suno/ucinky-proudu-v1.mp3`. Poslechnout hlavně 1:01–1:08, 2:37–2:42 („puls nehledej“) a 1:21–1:25 („děleno dvěma tisíci ohmy“); pak nasadit.
 
