@@ -1,0 +1,40 @@
+---
+// Mechanická práce — F8 infografika (tahák bez interakce; OBSAH-PRAVIDLA kap. 12 bod 7).
+// JEDINÝ DOMOV obsahu je SVG v materiálech:
+//   public/materialy/fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace/infografika-mechanicka-prace.svg
+// (úzké 460 × 1930, písmo min. 21 → na telefonu 375 px ~14 px; CSS animace děje uvnitř SVG,
+//  při prefers-reduced-motion zůstane koncový stav). Tahle komponenta ho jen vloží, nic neopisuje.
+// Platné zapojení na stránku je položka `materialy` (druh 'infografika') v temata.ts — komponenta je
+// jen pro případné vložení mimo materiály (rozhodnutí koordinátora 12. 10. 2026).
+const cesta = '/materialy/fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace/infografika-mechanicka-prace.svg';
+---
+
+<section class="ramecek infografika-mp">
+	<h2><span class="podtrh">Mechanická práce — tahák 📊</span></h2>
+	<p>
+		Práci koná síla, která těleso <strong>posune ve směru síly</strong>. Spočítáme ji jako
+		<strong>W = F · s</strong>. Když chybí síla nebo posunutí, práce je nulová.
+	</p>
+	<img
+		src={cesta}
+		width="460"
+		height="1930"
+		loading="lazy"
+		alt="Infografika mechanická práce: práce se koná, když síla posune těleso ve směru síly (vozík 20 N, 10 m, 200 J); vzorec W = F · s a jednotky; práce se nekoná, když se těleso nehne, nepůsobí síla nebo síla míří kolmo na pohyb; práce při zvedání W = m · g · s (závaží 5 kg o 1 m: 50 N, 50 J)"
+	/>
+</section>
+
+<style>
+	.infografika-mp { padding: 1.5rem; }
+	.infografika-mp h2 { margin-top: 0; }
+	.infografika-mp img {
+		display: block;
+		width: 100%;
+		max-width: min(100%, 34rem);
+		height: auto;
+		margin: 1rem auto 0;
+		border: 2.5px solid #2b2a26;
+		border-radius: 12px;
+	}
+	.podtrh { border-bottom: 3px solid #ffd43b; padding-bottom: 2px; }
+</style>

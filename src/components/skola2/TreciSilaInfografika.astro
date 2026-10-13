@@ -1,0 +1,49 @@
+---
+// Třecí síla — F7 infografika (tahák bez interakce; OBSAH-PRAVIDLA kap. 12 bod 7).
+// JEDINÝ DOMOV obsahu je SVG v materiálech:
+//   public/materialy/fyzika/7-rocnik/sily-kolem-nas/treci-sila/infografika-treci-sila.svg
+// (úzké 460 × 2384, písmo min. 21, indexy 18 → na telefonu 375 px je obrázek 314,8 px bez rámečku
+//  — změřeno headless Chrome jak v materiálech, tak v této komponentě (díky @media níže),
+//  škála 0,684 → písmo 14,4 px, indexy 12,3 px; CSS animace děje uvnitř SVG,
+//  při prefers-reduced-motion zůstane koncový stav). Tahle komponenta ho jen vloží, nic neopisuje.
+// Platné zapojení na stránku je položka `materialy` (druh 'infografika') v temata.ts — komponenta je
+// jen pro případné vložení mimo materiály (vzor MechanickaPraceInfografika.astro).
+const cesta = '/materialy/fyzika/7-rocnik/sily-kolem-nas/treci-sila/infografika-treci-sila.svg';
+---
+
+<section class="ramecek infografika-ts">
+	<h2><span class="podtrh">Třecí síla — tahák 📊</span></h2>
+	<p>
+		Tření působí vždy <strong>proti pohybu</strong>, brzdí ho a zahřívá plochy.
+		Spočítáme ho jako <strong>F<sub>t</sub> = F<sub>n</sub> · f</strong>.
+	</p>
+	<img
+		src={cesta}
+		width="460"
+		height="2384"
+		loading="lazy"
+		alt="Infografika třecí síla: tření působí vždy proti pohybu, brzdí a zahřívá plochy, příčinou jsou drobné nerovnosti povrchů; větší tlaková síla (3 hranoly na sobě oproti 1 hranolu) a drsnější povrch (puk na betonu zastaví dřív než na ledu) dávají větší tření; klidové tření je největší, smykové menší, valivé nejmenší; vzorec Ft = Fn · f; tření pomáhá i škodí, zvětšíme ho zdrsněním, nesmeky a řetězy, zmenšíme leštěním, mazáním a ložisky"
+	/>
+</section>
+
+<style>
+	.infografika-ts { padding: 1.5rem; }
+	.infografika-ts h2 { margin-top: 0; }
+	.infografika-ts img {
+		display: block;
+		width: 100%;
+		max-width: min(100%, 34rem);
+		height: auto;
+		margin: 1rem auto 0;
+		border: 2.5px solid #2b2a26;
+		border-radius: 12px;
+	}
+	.podtrh { border-bottom: 3px solid #ffd43b; padding-bottom: 2px; }
+	/* Na telefonu by padding 1.5rem zúžil obrázek pod škálu 0,667 (písmo 21 → < 14 px).
+	   Obrázek proto zabere celou vnitřní šířku rámečku, text si okraj drží sám. */
+	@media (max-width: 480px) {
+		.infografika-ts { padding: 1rem 0; }
+		.infografika-ts h2,
+		.infografika-ts p { padding: 0 1rem; }
+	}
+</style>

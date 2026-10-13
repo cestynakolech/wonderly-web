@@ -1,0 +1,308 @@
+<svg viewBox="0 0 460 2384" width="460" height="2384" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Infografika Třecí síla: tření působí vždy proti pohybu, brzdí a zahřívá plochy, příčinou jsou drobné nerovnosti povrchů; třecí síla je větší při větší tlakové síle (3 hranoly na sobě oproti 1 hranolu) a na drsnějším povrchu (puk na betonu zastaví dřív než na ledu); klidové tření je největší, smykové menší, valivé nejmenší; vzorec Ft = Fn · f; tření pomáhá (chůze, brzdy, psaní křídou) i škodí (opotřebení, zahřívání), zvětšíme ho zdrsněním, nesmeky a řetězy, zmenšíme leštěním, mazáním a ložisky" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<!-- Zdroj obsahu: výklad podtématu treci-sila (src/data/temata.ts). Jen celá čísla, desetinné
+	     součinitele z tabulky výkladu záměrně vynechány. Barvy: Ft červeně, síla, kterou táhneme
+	     nebo tlačíme (F), modře, Fn fialově. Délky šipek Ft: klidové 70 > smykové 45 > valivé 26
+	     (jen pořadí podle výkladu, ne měřítko); 1 hranol 28 : 3 hranoly 84 (3× větší tlaková síla). -->
+	<style>
+		.jede1 { animation: jede1 5s linear infinite; }
+		@keyframes jede1 { 0% { transform: translateX(-150px); } 70%, 100% { transform: translateX(0); } }
+		.led { animation: led 5s ease-out infinite; }
+		@keyframes led { 0% { transform: translateX(-255px); } 80%, 100% { transform: translateX(0); } }
+		.beton { animation: beton 5s ease-out infinite; }
+		@keyframes beton { 0% { transform: translateX(-70px); } 24%, 100% { transform: translateX(0); } }
+		.smyk { animation: smyk 5s linear infinite; }
+		@keyframes smyk { 0% { transform: translateX(-40px); } 70%, 100% { transform: translateX(0); } }
+		.val { animation: val 5s linear infinite; }
+		@keyframes val { 0% { transform: translateX(-80px); } 70%, 100% { transform: translateX(0); } }
+		.otoc { transform-box: fill-box; transform-origin: center; animation: otoc 5s linear infinite; }
+		/* valení bez prokluzu: dráha 80 px, poloměr kola 28 → 80/28 rad = 163,7° ≈ 164° */
+		@keyframes otoc { 0% { transform: rotate(-164deg); } 70%, 100% { transform: rotate(0deg); } }
+		.hran { animation: hran 5s linear infinite; }
+		@keyframes hran { 0% { transform: translateX(-20px); } 70%, 100% { transform: translateX(0); } }
+		@media (prefers-reduced-motion: reduce) {
+			.jede1, .led, .beton, .smyk, .val, .otoc, .hran { animation: none; }
+		}
+	</style>
+	<rect width="460" height="2384" fill="#f3f1ea" />
+
+	<!-- ===== Nadpis ===== -->
+	<text x="230" y="62" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="44" font-weight="bold" fill="#2b2a26">Třecí síla</text>
+	<path d="M 120 80 Q 230 70 340 80" fill="none" stroke="#e8590c" stroke-width="5" stroke-linecap="round" />
+	<text x="230" y="110" text-anchor="middle" font-size="21" fill="#5c5b52">vzniká mezi dotýkajícími se povrchy</text>
+
+	<!-- ===== Panel 1: Co je tření ===== -->
+	<rect x="26" y="136" width="420" height="424" rx="10" fill="#2b2a26" />
+	<rect x="20" y="130" width="420" height="424" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="52" cy="164" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="52" y="171" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+	<text x="80" y="173" font-size="28" font-weight="bold" fill="#2b2a26">Co je tření</text>
+
+	<circle cx="44" cy="210" r="4" fill="#2b2a26" />
+	<text x="56" y="217" font-size="21" fill="#2b2a26">působí vždy <tspan font-weight="bold" fill="#c92a2a">proti pohybu</tspan></text>
+	<circle cx="44" cy="244" r="4" fill="#2b2a26" />
+	<text x="56" y="251" font-size="21" fill="#2b2a26"><tspan font-weight="bold">brzdí</tspan> pohyb a <tspan font-weight="bold">zahřívá</tspan> plochy</text>
+
+	<!-- směr pohybu -->
+	<line x1="140" y1="292" x2="318" y2="292" stroke="#495057" stroke-width="2.5" stroke-dasharray="8 6" />
+	<polygon points="332,292 318,285 318,299" fill="#495057" />
+	<text x="56" y="299" font-size="21" fill="#495057">pohyb</text>
+	<!-- podlaha -->
+	<rect x="34" y="390" width="392" height="22" fill="#c9a77c" stroke="#2b2a26" stroke-width="2" />
+	<line x1="60" y1="401" x2="100" y2="401" stroke="#8d5a2b" stroke-width="2" />
+	<line x1="160" y1="404" x2="220" y2="404" stroke="#8d5a2b" stroke-width="2" />
+	<line x1="300" y1="400" x2="350" y2="400" stroke="#8d5a2b" stroke-width="2" />
+	<!-- bedna se silami (jede) -->
+	<g class="jede1">
+		<rect x="250" y="320" width="90" height="70" fill="#d9a066" stroke="#2b2a26" stroke-width="2.5" />
+		<line x1="250" y1="355" x2="340" y2="355" stroke="#8d5a2b" stroke-width="2" />
+		<!-- F: táhneme doprava -->
+		<line x1="340" y1="340" x2="392" y2="340" stroke="#1971c2" stroke-width="5" />
+		<polygon points="406,340 392,333 392,347" fill="#1971c2" />
+		<text x="372" y="328" font-size="22" font-weight="bold" fill="#1971c2">F</text>
+		<!-- Ft: proti pohybu, v místě styku -->
+		<line x1="250" y1="384" x2="199" y2="384" stroke="#c92a2a" stroke-width="5" />
+		<polygon points="185,384 199,377 199,391" fill="#c92a2a" />
+		<text x="196" y="370" font-size="22" font-weight="bold" fill="#c92a2a">F<tspan font-size="18" dy="5">t</tspan></text>
+	</g>
+
+	<!-- zvětšenina styku -->
+	<rect x="34" y="428" width="392" height="112" rx="8" fill="#fff" stroke="#495057" stroke-width="2" stroke-dasharray="6 5" />
+	<text x="230" y="456" text-anchor="middle" font-size="21" fill="#2b2a26">zvětšeno: drobné <tspan font-weight="bold">nerovnosti</tspan></text>
+	<path d="M 60 468 H 400 V 500 L 390 512 L 380 500 L 370 512 L 360 500 L 350 512 L 340 500 L 330 512 L 320 500 L 310 512 L 300 500 L 290 512 L 280 500 L 270 512 L 260 500 L 250 512 L 240 500 L 230 512 L 220 500 L 210 512 L 200 500 L 190 512 L 180 500 L 170 512 L 160 500 L 150 512 L 140 500 L 130 512 L 120 500 L 110 512 L 100 500 L 90 512 L 80 500 L 70 512 L 60 500 Z" fill="#d9a066" stroke="#2b2a26" stroke-width="2" />
+	<path d="M 60 530 V 503 L 70 515 L 80 503 L 90 515 L 100 503 L 110 515 L 120 503 L 130 515 L 140 503 L 150 515 L 160 503 L 170 515 L 180 503 L 190 515 L 200 503 L 210 515 L 220 503 L 230 515 L 240 503 L 250 515 L 260 503 L 270 515 L 280 503 L 290 515 L 300 503 L 310 515 L 320 503 L 330 515 L 340 503 L 350 515 L 360 503 L 370 515 L 380 503 L 390 515 L 400 503 V 530 Z" fill="#c9a77c" stroke="#2b2a26" stroke-width="2" />
+
+	<!-- ===== Panel 2: Na čem závisí ===== -->
+	<rect x="26" y="586" width="420" height="512" rx="10" fill="#2b2a26" />
+	<rect x="20" y="580" width="420" height="512" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="52" cy="614" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="52" y="621" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">2</text>
+	<text x="80" y="623" font-size="28" font-weight="bold" fill="#2b2a26">Na čem tření závisí</text>
+
+	<text x="40" y="668" font-size="21" fill="#2b2a26">větší <tspan font-weight="bold" fill="#5f3dc4">tlaková síla</tspan> → větší tření</text>
+	<!-- hranoly táhneme za háček silou F (modře), jedou stálou rychlostí, proto F = Ft:
+	     1 hranol F = Ft = 28 px, 3 hranoly F = Ft = 84 px (3× větší tlaková síla) -->
+	<text x="40" y="735" font-size="21" fill="#2b2a26">1 hranol</text>
+	<text x="40" y="835" font-size="21" fill="#2b2a26">3 hranoly</text>
+	<text x="40" y="861" font-size="21" fill="#2b2a26">na sobě</text>
+	<line x1="146" y1="740" x2="430" y2="740" stroke="#2b2a26" stroke-width="2.5" />
+	<line x1="146" y1="870" x2="430" y2="870" stroke="#2b2a26" stroke-width="2.5" />
+	<g class="hran">
+		<rect x="250" y="705" width="60" height="35" fill="#d9a066" stroke="#2b2a26" stroke-width="2.5" />
+		<g fill="none" stroke="#8d5a2b" stroke-width="1.5">
+			<path d="M 256 716 Q 280 711 304 717" /><path d="M 256 729 Q 280 724 304 730" />
+		</g>
+		<path d="M 310 717 H 317 A 4 4 0 1 1 317 725" fill="none" stroke="#495057" stroke-width="2.5" />
+		<line x1="325" y1="721" x2="339" y2="721" stroke="#1971c2" stroke-width="5" />
+		<polygon points="353,721 339,714 339,728" fill="#1971c2" />
+		<text x="332" y="706" font-size="22" font-weight="bold" fill="#1971c2">F</text>
+		<line x1="250" y1="734" x2="236" y2="734" stroke="#c92a2a" stroke-width="5" />
+		<polygon points="222,734 236,727 236,741" fill="#c92a2a" />
+		<text x="214" y="720" font-size="22" font-weight="bold" fill="#c92a2a">F<tspan font-size="18" dy="5">t</tspan></text>
+	</g>
+	<g class="hran">
+		<rect x="250" y="765" width="60" height="35" fill="#d9a066" stroke="#2b2a26" stroke-width="2.5" />
+		<rect x="250" y="800" width="60" height="35" fill="#d9a066" stroke="#2b2a26" stroke-width="2.5" />
+		<rect x="250" y="835" width="60" height="35" fill="#d9a066" stroke="#2b2a26" stroke-width="2.5" />
+		<g fill="none" stroke="#8d5a2b" stroke-width="1.5">
+			<path d="M 256 776 Q 280 771 304 777" /><path d="M 256 789 Q 280 784 304 790" />
+			<path d="M 256 811 Q 280 806 304 812" /><path d="M 256 824 Q 280 819 304 825" />
+			<path d="M 256 846 Q 280 841 304 847" /><path d="M 256 859 Q 280 854 304 860" />
+		</g>
+		<path d="M 310 847 H 317 A 4 4 0 1 1 317 855" fill="none" stroke="#495057" stroke-width="2.5" />
+		<line x1="325" y1="851" x2="395" y2="851" stroke="#1971c2" stroke-width="5" />
+		<polygon points="409,851 395,844 395,858" fill="#1971c2" />
+		<text x="374" y="836" font-size="22" font-weight="bold" fill="#1971c2">F</text>
+		<line x1="250" y1="864" x2="180" y2="864" stroke="#c92a2a" stroke-width="5" />
+		<polygon points="166,864 180,857 180,871" fill="#c92a2a" />
+		<text x="186" y="850" font-size="22" font-weight="bold" fill="#c92a2a">F<tspan font-size="18" dy="5">t</tspan></text>
+	</g>
+
+	<!-- část „drsnější povrch" posunutá o 40 dolů -->
+	<g transform="translate(0,40)">
+
+	<text x="40" y="884" font-size="21" fill="#2b2a26"><tspan font-weight="bold">drsnější</tspan> povrch → větší tření</text>
+	<!-- led -->
+	<text x="40" y="937" font-size="21" font-weight="bold" fill="#1864ab">led</text>
+	<rect x="108" y="920" width="316" height="18" rx="3" fill="#d0ebff" stroke="#1864ab" stroke-width="2" />
+	<line x1="140" y1="929" x2="170" y2="929" stroke="#fff" stroke-width="3" />
+	<line x1="260" y1="927" x2="300" y2="927" stroke="#fff" stroke-width="3" />
+	<g class="led">
+		<rect x="370" y="906" width="40" height="14" rx="6" fill="#212529" />
+		<ellipse cx="390" cy="909" rx="17" ry="3" fill="#495057" />
+	</g>
+	<!-- beton -->
+	<text x="40" y="1007" font-size="21" font-weight="bold" fill="#495057">beton</text>
+	<rect x="108" y="990" width="316" height="18" rx="3" fill="#adb5bd" stroke="#495057" stroke-width="2" />
+	<circle cx="130" cy="999" r="2" fill="#495057" /><circle cx="168" cy="996" r="2" fill="#495057" />
+	<circle cx="214" cy="1001" r="2" fill="#495057" /><circle cx="262" cy="997" r="2" fill="#495057" />
+	<circle cx="310" cy="1000" r="2" fill="#495057" /><circle cx="356" cy="996" r="2" fill="#495057" />
+	<circle cx="398" cy="1001" r="2" fill="#495057" />
+	<g class="beton">
+		<rect x="185" y="976" width="40" height="14" rx="6" fill="#212529" />
+		<ellipse cx="205" cy="979" rx="17" ry="3" fill="#495057" />
+	</g>
+	<text x="230" y="1036" text-anchor="middle" font-size="21" fill="#2b2a26">puk na betonu zastaví dřív</text>
+	</g>
+
+	<!-- panely 3–5 posunuté o 54 dolů (hranoly pod sebou + popisek puku) -->
+	<g transform="translate(0,54)">
+	<!-- ===== Panel 3: Tři druhy tření ===== -->
+	<rect x="26" y="1070" width="420" height="474" rx="10" fill="#2b2a26" />
+	<rect x="20" y="1064" width="420" height="474" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="52" cy="1098" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="52" y="1105" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">3</text>
+	<text x="80" y="1107" font-size="28" font-weight="bold" fill="#2b2a26">Tři druhy tření</text>
+
+	<!-- klidové -->
+	<text x="40" y="1160" font-size="25" font-weight="bold" fill="#2b2a26">klidové</text>
+	<text x="40" y="1190" font-size="21" fill="#2b2a26">těleso se ještě</text>
+	<text x="40" y="1216" font-size="21" fill="#2b2a26">nepohnulo</text>
+	<text x="40" y="1246" font-size="21" font-weight="bold" fill="#c92a2a">největší</text>
+	<line x1="220" y1="1252" x2="430" y2="1252" stroke="#2b2a26" stroke-width="2.5" />
+	<rect x="310" y="1162" width="50" height="90" fill="#d9a066" stroke="#2b2a26" stroke-width="2.5" />
+	<line x1="335" y1="1162" x2="335" y2="1252" stroke="#8d5a2b" stroke-width="2" />
+	<circle cx="328" cy="1205" r="3" fill="#2b2a26" /><circle cx="342" cy="1205" r="3" fill="#2b2a26" />
+	<line x1="360" y1="1200" x2="416" y2="1200" stroke="#1971c2" stroke-width="5" />
+	<polygon points="430,1200 416,1193 416,1207" fill="#1971c2" />
+	<text x="394" y="1188" font-size="22" font-weight="bold" fill="#1971c2">F</text>
+	<line x1="310" y1="1246" x2="254" y2="1246" stroke="#c92a2a" stroke-width="5" />
+	<polygon points="240,1246 254,1239 254,1253" fill="#c92a2a" />
+	<text x="250" y="1232" font-size="22" font-weight="bold" fill="#c92a2a">F<tspan font-size="18" dy="5">t</tspan></text>
+
+	<!-- smykové -->
+	<line x1="34" y1="1272" x2="426" y2="1272" stroke="#dee2e6" stroke-width="2" />
+	<text x="40" y="1312" font-size="25" font-weight="bold" fill="#2b2a26">smykové</text>
+	<text x="40" y="1342" font-size="21" fill="#2b2a26">těleso klouže</text>
+	<text x="40" y="1372" font-size="21" font-weight="bold" fill="#c92a2a">menší</text>
+	<line x1="220" y1="1392" x2="430" y2="1392" stroke="#2b2a26" stroke-width="2.5" />
+	<g class="smyk">
+		<rect x="330" y="1347" width="50" height="45" fill="#d9a066" stroke="#2b2a26" stroke-width="2.5" />
+		<line x1="380" y1="1366" x2="411" y2="1366" stroke="#1971c2" stroke-width="5" />
+		<polygon points="425,1366 411,1359 411,1373" fill="#1971c2" />
+		<text x="396" y="1352" font-size="22" font-weight="bold" fill="#1971c2">F</text>
+		<line x1="330" y1="1386" x2="299" y2="1386" stroke="#c92a2a" stroke-width="5" />
+		<polygon points="285,1386 299,1379 299,1393" fill="#c92a2a" />
+		<text x="296" y="1372" font-size="22" font-weight="bold" fill="#c92a2a">F<tspan font-size="18" dy="5">t</tspan></text>
+	</g>
+
+	<!-- valivé -->
+	<line x1="34" y1="1412" x2="426" y2="1412" stroke="#dee2e6" stroke-width="2" />
+	<text x="40" y="1452" font-size="25" font-weight="bold" fill="#2b2a26">valivé</text>
+	<text x="40" y="1482" font-size="21" fill="#2b2a26">těleso se valí</text>
+	<text x="40" y="1512" font-size="21" font-weight="bold" fill="#c92a2a">nejmenší</text>
+	<line x1="220" y1="1522" x2="430" y2="1522" stroke="#2b2a26" stroke-width="2.5" />
+	<g class="val">
+		<g class="otoc">
+			<circle cx="380" cy="1494" r="28" fill="#495057" stroke="#2b2a26" stroke-width="2.5" />
+			<circle cx="380" cy="1494" r="18" fill="#e9ecef" stroke="#2b2a26" stroke-width="2" />
+			<line x1="380" y1="1476" x2="380" y2="1512" stroke="#2b2a26" stroke-width="3" />
+			<line x1="362" y1="1494" x2="398" y2="1494" stroke="#2b2a26" stroke-width="3" />
+			<circle cx="380" cy="1494" r="4" fill="#2b2a26" />
+		</g>
+		<line x1="408" y1="1494" x2="420" y2="1494" stroke="#1971c2" stroke-width="5" />
+		<polygon points="434,1494 420,1487 420,1501" fill="#1971c2" />
+		<text x="412" y="1478" font-size="22" font-weight="bold" fill="#1971c2">F</text>
+		<!-- Ft z bodu dotyku kola s podložkou; bílý lem kvůli čitelnosti přes pneumatiku, hrot mimo kolo -->
+		<line x1="380" y1="1519" x2="366" y2="1519" stroke="#fff" stroke-width="9" />
+		<polygon points="350,1519 368,1509 368,1529" fill="#fff" />
+		<line x1="380" y1="1519" x2="368" y2="1519" stroke="#c92a2a" stroke-width="5" />
+		<polygon points="354,1519 368,1512 368,1526" fill="#c92a2a" />
+		<text x="314" y="1508" font-size="22" font-weight="bold" fill="#c92a2a">F<tspan font-size="18" dy="5">t</tspan></text>
+	</g>
+
+	<!-- ===== Panel 4: Výpočet ===== -->
+	<rect x="26" y="1570" width="420" height="270" rx="10" fill="#2b2a26" />
+	<rect x="20" y="1564" width="420" height="270" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="52" cy="1598" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="52" y="1605" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">4</text>
+	<text x="80" y="1607" font-size="28" font-weight="bold" fill="#2b2a26">Výpočet</text>
+	<rect x="90" y="1626" width="280" height="62" rx="8" fill="#fff3bf" stroke="#2b2a26" stroke-width="2" />
+	<text x="230" y="1670" text-anchor="middle" font-size="38" font-weight="bold" fill="#2b2a26"><tspan fill="#c92a2a">F<tspan font-size="24" dy="8">t</tspan></tspan><tspan dy="-8"> = </tspan><tspan fill="#5f3dc4">F<tspan font-size="24" dy="8">n</tspan></tspan><tspan dy="-8"> · f</tspan></text>
+	<text x="40" y="1724" font-size="21" fill="#2b2a26"><tspan font-weight="bold" fill="#c92a2a">F<tspan font-size="18" dy="5">t</tspan></tspan><tspan dy="-5"> … třecí síla (N)</tspan></text>
+	<text x="40" y="1756" font-size="21" fill="#2b2a26"><tspan font-weight="bold" fill="#5f3dc4">F<tspan font-size="18" dy="5">n</tspan></tspan><tspan dy="-5"> … tlaková síla (N)</tspan></text>
+	<text x="40" y="1788" font-size="21" fill="#2b2a26"><tspan font-weight="bold">f</tspan> … součinitel tření (tabulka)</text>
+	<text x="40" y="1820" font-size="21" fill="#2b2a26">vodorovná podložka: <tspan font-weight="bold" fill="#5f3dc4">F<tspan font-size="18" dy="5">n</tspan></tspan><tspan dy="-5" font-weight="bold"> = F</tspan><tspan font-size="18" dy="5" font-weight="bold">g</tspan></text>
+
+	<!-- ===== Panel 5: Pomáhá a škodí ===== -->
+	<rect x="26" y="1866" width="420" height="446" rx="10" fill="#2b2a26" />
+	<rect x="20" y="1860" width="420" height="446" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="52" cy="1894" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="52" y="1901" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">5</text>
+	<text x="80" y="1903" font-size="28" font-weight="bold" fill="#2b2a26">Pomáhá i škodí</text>
+
+	<text x="40" y="1948" font-size="24" font-weight="bold" fill="#1e7a34">pomáhá</text>
+	<text x="40" y="1980" font-size="21" fill="#2b2a26">• chůze</text>
+	<text x="40" y="2010" font-size="21" fill="#2b2a26">• brzdění</text>
+	<text x="40" y="2040" font-size="21" fill="#2b2a26">• psaní křídou</text>
+	<text x="40" y="2070" font-size="21" fill="#2b2a26">• zapálení sirky</text>
+	<line x1="230" y1="1928" x2="230" y2="2080" stroke="#dee2e6" stroke-width="2" />
+	<text x="246" y="1948" font-size="24" font-weight="bold" fill="#c92a2a">škodí</text>
+	<text x="246" y="1980" font-size="21" fill="#2b2a26">• opotřebení</text>
+	<text x="246" y="2010" font-size="21" fill="#2b2a26">• zahřívání</text>
+	<text x="246" y="2040" font-size="21" fill="#2b2a26">• skřípání pantů</text>
+	<text x="246" y="2070" font-size="21" fill="#2b2a26">• větší spotřeba</text>
+
+	<line x1="34" y1="2096" x2="426" y2="2096" stroke="#2b2a26" stroke-width="2" />
+	<text x="40" y="2132" font-size="24" font-weight="bold" fill="#2b2a26">zvětšíme</text>
+	<text x="40" y="2164" font-size="21" fill="#2b2a26">• zdrsněním</text>
+	<text x="40" y="2194" font-size="21" fill="#2b2a26">• nesmeky</text>
+	<text x="40" y="2224" font-size="21" fill="#2b2a26">• sněhovými řetězy</text>
+	<line x1="230" y1="2112" x2="230" y2="2232" stroke="#dee2e6" stroke-width="2" />
+	<text x="246" y="2132" font-size="24" font-weight="bold" fill="#2b2a26">zmenšíme</text>
+	<text x="246" y="2164" font-size="21" fill="#2b2a26">• leštěním</text>
+	<text x="246" y="2194" font-size="21" fill="#2b2a26">• mazáním</text>
+	<text x="246" y="2224" font-size="21" fill="#2b2a26">• ložisky</text>
+	<!-- kolo se sněhovým řetězem -->
+	<g>
+		<!-- pneumatika zepředu (běhoun) se sněhovým řetězem: oválné články po stranách
+		     a klikatě přes běhoun -->
+		<rect x="46" y="2234" width="48" height="66" rx="12" fill="#343a40" stroke="#2b2a26" stroke-width="2" />
+		<g stroke="#212529" stroke-width="2">
+			<line x1="60" y1="2238" x2="60" y2="2296" /><line x1="80" y1="2238" x2="80" y2="2296" />
+		</g>
+		<g fill="none" stroke="#e9ecef" stroke-width="2.2">
+			<ellipse cx="56.5" cy="2243.8" rx="4.6" ry="2.6" transform="rotate(21.3 56.5 2243.8)" />
+			<ellipse cx="65.5" cy="2247.2" rx="4.6" ry="2.6" transform="rotate(21.3 65.5 2247.2)" />
+			<ellipse cx="74.5" cy="2250.8" rx="4.6" ry="2.6" transform="rotate(21.3 74.5 2250.8)" />
+			<ellipse cx="83.5" cy="2254.2" rx="4.6" ry="2.6" transform="rotate(21.3 83.5 2254.2)" />
+			<ellipse cx="83.5" cy="2257.8" rx="4.6" ry="2.6" transform="rotate(158.7 83.5 2257.8)" />
+			<ellipse cx="74.5" cy="2261.2" rx="4.6" ry="2.6" transform="rotate(158.7 74.5 2261.2)" />
+			<ellipse cx="65.5" cy="2264.8" rx="4.6" ry="2.6" transform="rotate(158.7 65.5 2264.8)" />
+			<ellipse cx="56.5" cy="2268.2" rx="4.6" ry="2.6" transform="rotate(158.7 56.5 2268.2)" />
+			<ellipse cx="56.5" cy="2271.8" rx="4.6" ry="2.6" transform="rotate(21.3 56.5 2271.8)" />
+			<ellipse cx="65.5" cy="2275.2" rx="4.6" ry="2.6" transform="rotate(21.3 65.5 2275.2)" />
+			<ellipse cx="74.5" cy="2278.8" rx="4.6" ry="2.6" transform="rotate(21.3 74.5 2278.8)" />
+			<ellipse cx="83.5" cy="2282.2" rx="4.6" ry="2.6" transform="rotate(21.3 83.5 2282.2)" />
+			<ellipse cx="83.5" cy="2285.5" rx="4.6" ry="2.6" transform="rotate(161.6 83.5 2285.5)" />
+			<ellipse cx="74.5" cy="2288.5" rx="4.6" ry="2.6" transform="rotate(161.6 74.5 2288.5)" />
+			<ellipse cx="65.5" cy="2291.5" rx="4.6" ry="2.6" transform="rotate(161.6 65.5 2291.5)" />
+			<ellipse cx="56.5" cy="2294.5" rx="4.6" ry="2.6" transform="rotate(161.6 56.5 2294.5)" />
+			<ellipse cx="50.0" cy="2242.8" rx="4.6" ry="2.6" transform="rotate(90.0 50.0 2242.8)" />
+			<ellipse cx="50.0" cy="2252.5" rx="4.6" ry="2.6" transform="rotate(90.0 50.0 2252.5)" />
+			<ellipse cx="50.0" cy="2262.2" rx="4.6" ry="2.6" transform="rotate(90.0 50.0 2262.2)" />
+			<ellipse cx="50.0" cy="2271.8" rx="4.6" ry="2.6" transform="rotate(90.0 50.0 2271.8)" />
+			<ellipse cx="50.0" cy="2281.5" rx="4.6" ry="2.6" transform="rotate(90.0 50.0 2281.5)" />
+			<ellipse cx="50.0" cy="2291.2" rx="4.6" ry="2.6" transform="rotate(90.0 50.0 2291.2)" />
+			<ellipse cx="90.0" cy="2242.8" rx="4.6" ry="2.6" transform="rotate(90.0 90.0 2242.8)" />
+			<ellipse cx="90.0" cy="2252.5" rx="4.6" ry="2.6" transform="rotate(90.0 90.0 2252.5)" />
+			<ellipse cx="90.0" cy="2262.2" rx="4.6" ry="2.6" transform="rotate(90.0 90.0 2262.2)" />
+			<ellipse cx="90.0" cy="2271.8" rx="4.6" ry="2.6" transform="rotate(90.0 90.0 2271.8)" />
+			<ellipse cx="90.0" cy="2281.5" rx="4.6" ry="2.6" transform="rotate(90.0 90.0 2281.5)" />
+			<ellipse cx="90.0" cy="2291.2" rx="4.6" ry="2.6" transform="rotate(90.0 90.0 2291.2)" />
+		</g>
+	</g>
+	<text x="110" y="2273" font-size="21" fill="#2b2a26">sněhový řetěz</text>
+	<!-- kuličkové ložisko (posunuto o 36 doleva) -->
+	<text x="342" y="2273" font-size="21" fill="#2b2a26">ložisko</text>
+	<g transform="translate(-36,2)">
+		<circle cx="336" cy="2264" r="32" fill="#ced4da" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="336" cy="2264" r="25" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<g fill="#868e96" stroke="#2b2a26" stroke-width="1.5">
+			<circle cx="336" cy="2245" r="6" /><circle cx="355" cy="2264" r="6" /><circle cx="336" cy="2283" r="6" /><circle cx="317" cy="2264" r="6" />
+			<circle cx="349" cy="2251" r="6" /><circle cx="349" cy="2277" r="6" /><circle cx="323" cy="2277" r="6" /><circle cx="323" cy="2251" r="6" />
+		</g>
+		<circle cx="336" cy="2264" r="12" fill="#ced4da" stroke="#2b2a26" stroke-width="2" />
+		<circle cx="336" cy="2264" r="6" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	</g>
+	</g>
+</svg>

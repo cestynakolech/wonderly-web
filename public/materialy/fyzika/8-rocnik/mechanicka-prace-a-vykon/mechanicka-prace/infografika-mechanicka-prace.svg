@@ -1,0 +1,192 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 1930" width="460" height="1930" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Infografika mechanická práce: práce se koná, když síla posune těleso ve směru síly (vozík 20 N, 10 m, 200 J); vzorec W = F · s a jednotky joule, newton, metr; práce se nekoná, když se těleso nehne, když nepůsobí síla nebo když síla míří kolmo na pohyb; práce při zvedání W = m · g · s (závaží 5 kg o 1 m: 50 N, 50 J)">
+	<title>Mechanická práce</title>
+	<!-- Měřítko čitelnosti: na telefonu 375 px je obrázek ~300–315 px široký → 0,65–0,68; písmo min. 22 → 14,3–15 px.
+	     Čísla jen z výkladu podtématu mechanicka-prace (temata.ts). Animace jen CSS; při prefers-reduced-motion
+	     se vypnou a zůstane koncový stav (vozík dojel, závaží nahoře). -->
+	<style>
+		.mpa-vozik { animation: mpa-jed 6s ease-in-out infinite; }
+		.mpa-pulz { animation: mpa-pulz 1.4s ease-in-out infinite; }
+		.mpa-skate { animation: mpa-klouz 5s linear infinite; }
+		.mpa-taska { animation: mpa-nes 5s linear infinite; }
+		@keyframes mpa-jed { 0%, 15% { transform: translateX(-200px); } 65%, 100% { transform: translateX(0); } }
+		@keyframes mpa-pulz { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+		@keyframes mpa-klouz { 0%, 10% { transform: translateX(-150px); } 80%, 100% { transform: translateX(0); } }
+		@keyframes mpa-nes { 0%, 10% { transform: translateX(-110px); } 80%, 100% { transform: translateX(0); } }
+		.mpa-paze { animation: mpa-paze 6s ease-in-out infinite; transform-box: view-box; transform-origin: 410px 1700px; }
+		.mpa-visi { animation: mpa-visi 6s ease-in-out infinite; transform-box: view-box; transform-origin: 351px 1670px; }
+		@keyframes mpa-paze { 0%, 15% { transform: rotate(-75.95deg); } 65%, 100% { transform: rotate(0deg); } }
+		@keyframes mpa-visi { 0%, 15% { transform: rotate(75.95deg); } 65%, 100% { transform: rotate(0deg); } }
+		@media (prefers-reduced-motion: reduce) {
+			.mpa-vozik, .mpa-pulz, .mpa-skate, .mpa-taska, .mpa-paze, .mpa-visi { animation: none; }
+		}
+	</style>
+	<defs>
+		<marker id="mpa-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#c92a2a" /></marker>
+		<marker id="mpa-mod" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="13" refY="8" orient="auto-start-reverse"><path d="M0,0 L16,8 L0,16 z" fill="#1971c2" /></marker>
+	</defs>
+
+	<rect x="0" y="0" width="460" height="1930" fill="#f8f9fa" />
+	<text x="230" y="50" text-anchor="middle" font-size="34" font-weight="bold" fill="#2b2a26">Mechanická práce</text>
+	<path d="M 100 64 Q 230 56 360 63" fill="none" stroke="#e8590c" stroke-width="5" stroke-linecap="round" />
+
+	<!-- A: Kdy se práce koná (Michal postrčí vozík) -->
+	<g id="mpa-kona">
+		<rect x="10" y="80" width="440" height="334" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+		<text x="26" y="114" font-size="25" font-weight="bold" fill="#2b2a26">Kdy se práce koná?</text>
+		<text x="26" y="146" font-size="22" fill="#2b2a26">Síla působí <tspan font-weight="bold">a</tspan> těleso se posune</text>
+		<text x="26" y="174" font-size="22" fill="#2b2a26">ve směru síly. Platí obojí naráz.</text>
+
+		<line x1="26" y1="300" x2="434" y2="300" stroke="#495057" stroke-width="3" />
+		<!-- výchozí poloha vozíku (čárkovaně) -->
+		<rect x="80" y="246" width="70" height="40" rx="4" fill="none" stroke="#868e96" stroke-width="2" stroke-dasharray="6,4" />
+		<circle cx="96" cy="292" r="8" fill="none" stroke="#868e96" stroke-width="2" stroke-dasharray="3,3" />
+		<circle cx="134" cy="292" r="8" fill="none" stroke="#868e96" stroke-width="2" stroke-dasharray="3,3" />
+		<!-- Michal + vozík + síla: jedou spolu z výchozí polohy -->
+		<g class="mpa-vozik">
+			<circle cx="248" cy="236" r="11" fill="#ffd8a8" stroke="#495057" stroke-width="2" />
+			<line x1="252" y1="247" x2="242" y2="276" stroke="#343a40" stroke-width="9" stroke-linecap="round" />
+			<line x1="251" y1="254" x2="280" y2="260" stroke="#343a40" stroke-width="5" stroke-linecap="round" />
+			<line x1="242" y1="276" x2="230" y2="300" stroke="#343a40" stroke-width="6" stroke-linecap="round" />
+			<line x1="242" y1="276" x2="254" y2="300" stroke="#343a40" stroke-width="6" stroke-linecap="round" />
+			<rect x="280" y="246" width="70" height="40" rx="4" fill="#ffe8cc" stroke="#e8590c" stroke-width="3" />
+			<circle cx="296" cy="292" r="8" fill="#495057" />
+			<circle cx="334" cy="292" r="8" fill="#495057" />
+			<line x1="281" y1="260" x2="344" y2="260" stroke="#c92a2a" stroke-width="6" marker-end="url(#mpa-cer)" />
+			<text x="315" y="239" text-anchor="middle" font-size="22" font-weight="bold" fill="#c92a2a">F = 20 N</text>
+		</g>
+		<!-- dráha s -->
+		<line x1="115" y1="322" x2="315" y2="322" stroke="#1971c2" stroke-width="4" marker-start="url(#mpa-mod)" marker-end="url(#mpa-mod)" />
+		<text x="330" y="329" font-size="22" font-weight="bold" fill="#1971c2">s = 10 m</text>
+
+		<text x="26" y="368" font-size="22" fill="#2b2a26">W = F · s = 20 · 10 = <tspan font-weight="bold">200 J</tspan></text>
+		<text x="26" y="398" font-size="22" fill="#2b2a26">Michal postrčí vozík → <tspan font-weight="bold" fill="#1e7a34">koná práci</tspan></text>
+	</g>
+
+	<!-- B: Vzorec a jednotky -->
+	<g id="mpa-vzorec">
+		<rect x="10" y="428" width="440" height="388" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+		<text x="26" y="462" font-size="25" font-weight="bold" fill="#2b2a26">Vzorec a jednotky</text>
+		<text x="230" y="518" text-anchor="middle" font-size="46" font-weight="bold" fill="#2b2a26">W = <tspan fill="#c92a2a">F</tspan> · <tspan fill="#1971c2">s</tspan></text>
+		<text x="230" y="550" text-anchor="middle" font-size="22" fill="#495057">práce = síla · dráha</text>
+		<text x="130" y="584" text-anchor="middle" font-size="22" fill="#2b2a26"><tspan fill="#c92a2a">F</tspan> = W : <tspan fill="#1971c2">s</tspan></text>
+		<text x="330" y="584" text-anchor="middle" font-size="22" fill="#2b2a26"><tspan fill="#1971c2">s</tspan> = W : <tspan fill="#c92a2a">F</tspan></text>
+		<line x1="26" y1="600" x2="434" y2="600" stroke="#ced4da" stroke-width="1.5" />
+		<text x="40" y="632" font-size="22" font-weight="bold" fill="#2b2a26">W</text>
+		<text x="80" y="632" font-size="22" fill="#2b2a26">práce</text>
+		<text x="220" y="632" font-size="22" fill="#2b2a26">joule (J)</text>
+		<text x="40" y="664" font-size="22" font-weight="bold" fill="#c92a2a">F</text>
+		<text x="80" y="664" font-size="22" fill="#2b2a26">síla</text>
+		<text x="220" y="664" font-size="22" fill="#2b2a26">newton (N)</text>
+		<text x="40" y="696" font-size="22" font-weight="bold" fill="#1971c2">s</text>
+		<text x="80" y="696" font-size="22" fill="#2b2a26">dráha</text>
+		<text x="220" y="696" font-size="22" fill="#2b2a26">metr (m)</text>
+		<line x1="26" y1="712" x2="434" y2="712" stroke="#ced4da" stroke-width="1.5" />
+		<text x="230" y="742" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2a26">1 J = 1 N · 1 m</text>
+		<text x="230" y="772" text-anchor="middle" font-size="22" fill="#2b2a26">1 kJ = 1 000 J</text>
+		<text x="230" y="802" text-anchor="middle" font-size="22" fill="#2b2a26">1 MJ = 1 000 000 J</text>
+	</g>
+
+	<!-- C: Kdy se práce nekoná -->
+	<g id="mpa-nekona">
+		<rect x="10" y="830" width="440" height="684" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+		<text x="26" y="864" font-size="25" font-weight="bold" fill="#2b2a26">Kdy se práce nekoná?</text>
+
+		<!-- 1. těleso se nehne: Michal tlačí na tyč -->
+		<text x="26" y="908" font-size="22" font-weight="bold" fill="#2b2a26">1. Těleso se nehne</text>
+		<rect x="26" y="1008" width="408" height="8" fill="#ced4da" />
+		<line x1="26" y1="1008" x2="434" y2="1008" stroke="#495057" stroke-width="3" />
+		<rect x="250" y="918" width="16" height="90" fill="#868e96" stroke="#495057" stroke-width="2" />
+		<circle cx="196" cy="948" r="11" fill="#ffd8a8" stroke="#495057" stroke-width="2" />
+		<line x1="200" y1="959" x2="188" y2="986" stroke="#343a40" stroke-width="9" stroke-linecap="round" />
+		<line x1="199" y1="966" x2="249" y2="972" stroke="#343a40" stroke-width="5" stroke-linecap="round" />
+		<line x1="188" y1="986" x2="176" y2="1008" stroke="#343a40" stroke-width="6" stroke-linecap="round" />
+		<line x1="188" y1="986" x2="200" y2="1008" stroke="#343a40" stroke-width="6" stroke-linecap="round" />
+		<line class="mpa-pulz" x1="212" y1="972" x2="248" y2="972" stroke="#c92a2a" stroke-width="6" marker-end="url(#mpa-cer)" />
+		<text x="282" y="952" font-size="22" font-weight="bold" fill="#c92a2a">F = 20 N</text>
+		<text x="282" y="982" font-size="22" font-weight="bold" fill="#1971c2">s = 0 m</text>
+		<text x="26" y="1050" font-size="22" fill="#2b2a26">Michal tlačí na tyč, ta se nehne.</text>
+		<text x="26" y="1078" font-size="22" font-weight="bold" fill="#2b2a26">W = 0 J → práci nekoná</text>
+
+		<line x1="26" y1="1090" x2="434" y2="1090" stroke="#e9ecef" stroke-width="2" />
+		<!-- 2. nepůsobí síla: skateboard jede setrvačností -->
+		<text x="26" y="1118" font-size="22" font-weight="bold" fill="#2b2a26">2. Nepůsobí žádná síla</text>
+		<line x1="26" y1="1218" x2="434" y2="1218" stroke="#495057" stroke-width="3" />
+		<g class="mpa-skate">
+			<circle cx="230" cy="1140" r="11" fill="#ffd8a8" stroke="#495057" stroke-width="2" />
+			<line x1="230" y1="1152" x2="230" y2="1180" stroke="#343a40" stroke-width="9" stroke-linecap="round" />
+			<line x1="230" y1="1160" x2="214" y2="1172" stroke="#343a40" stroke-width="5" stroke-linecap="round" />
+			<line x1="230" y1="1160" x2="246" y2="1172" stroke="#343a40" stroke-width="5" stroke-linecap="round" />
+			<line x1="227" y1="1180" x2="221" y2="1202" stroke="#343a40" stroke-width="6" stroke-linecap="round" />
+			<line x1="233" y1="1180" x2="239" y2="1202" stroke="#343a40" stroke-width="6" stroke-linecap="round" />
+			<rect x="205" y="1203" width="50" height="6" rx="3" fill="#e8590c" />
+			<circle cx="213" cy="1213" r="5" fill="#2b2a26" />
+			<circle cx="247" cy="1213" r="5" fill="#2b2a26" />
+		</g>
+		<line x1="80" y1="1234" x2="236" y2="1234" stroke="#1971c2" stroke-width="4" marker-end="url(#mpa-mod)" />
+		<text x="290" y="1160" font-size="22" font-weight="bold" fill="#c92a2a">F = 0 N</text>
+		<text x="290" y="1190" font-size="22" font-weight="bold" fill="#1971c2">s = 250 m</text>
+		<text x="26" y="1260" font-size="22" fill="#2b2a26">Michal na skateboardu se neodráží.</text>
+		<text x="26" y="1288" font-size="22" font-weight="bold" fill="#2b2a26">W = 0 J → práci nekoná</text>
+
+		<line x1="26" y1="1300" x2="434" y2="1300" stroke="#e9ecef" stroke-width="2" />
+		<!-- 3. síla kolmo na pohyb: neseš tašku vodorovně -->
+		<text x="26" y="1328" font-size="22" font-weight="bold" fill="#2b2a26">3. Síla kolmo na pohyb</text>
+		<line x1="26" y1="1428" x2="434" y2="1428" stroke="#495057" stroke-width="3" />
+		<g class="mpa-taska">
+			<circle cx="200" cy="1352" r="11" fill="#ffd8a8" stroke="#495057" stroke-width="2" />
+			<line x1="200" y1="1363" x2="200" y2="1395" stroke="#343a40" stroke-width="9" stroke-linecap="round" />
+			<line x1="200" y1="1395" x2="188" y2="1428" stroke="#343a40" stroke-width="6" stroke-linecap="round" />
+			<line x1="200" y1="1395" x2="212" y2="1428" stroke="#343a40" stroke-width="6" stroke-linecap="round" />
+			<!-- ruka (236,1392) drží ucho tašky; taška visí před nohou (x 222–250), F vychází z ucha nahoru -->
+			<line x1="200" y1="1370" x2="236" y2="1392" stroke="#343a40" stroke-width="5" stroke-linecap="round" />
+			<path d="M228,1402 Q236,1382 244,1402" fill="none" stroke="#495057" stroke-width="3" />
+			<rect x="222" y="1400" width="28" height="24" rx="4" fill="#ffe8cc" stroke="#e8590c" stroke-width="3" />
+			<line x1="236" y1="1388" x2="236" y2="1344" stroke="#c92a2a" stroke-width="6" marker-end="url(#mpa-cer)" />
+		</g>
+		<line x1="126" y1="1444" x2="236" y2="1444" stroke="#1971c2" stroke-width="4" marker-end="url(#mpa-mod)" />
+		<text x="300" y="1370" font-size="22" font-weight="bold" fill="#c92a2a">F nahoru</text>
+		<text x="300" y="1400" font-size="22" font-weight="bold" fill="#1971c2">s vodorovně</text>
+		<text x="26" y="1470" font-size="22" fill="#2b2a26">Neseš tašku vodorovně.</text>
+		<text x="26" y="1498" font-size="22" font-weight="bold" fill="#2b2a26">W = 0 J → práci nekoná</text>
+	</g>
+
+	<!-- D: Práce při zvedání tělesa -->
+	<g id="mpa-zvedani">
+		<rect x="10" y="1528" width="440" height="390" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+		<text x="26" y="1562" font-size="25" font-weight="bold" fill="#2b2a26">Práce při zvedání</text>
+		<text x="26" y="1594" font-size="22" fill="#2b2a26">Zvedáme silou stejně velkou</text>
+		<text x="26" y="1622" font-size="22" fill="#2b2a26">jako tíhová síla, jen nahoru.</text>
+		<text x="26" y="1666" font-size="23" font-weight="bold" fill="#c92a2a">F = m · g</text>
+		<text x="26" y="1696" font-size="22" fill="#2b2a26">g = 10 N/kg</text>
+		<text x="26" y="1732" font-size="24" font-weight="bold" fill="#2b2a26">W = m · g · s</text>
+
+		<line x1="290" y1="1790" x2="440" y2="1790" stroke="#495057" stroke-width="3" />
+		<!-- výchozí poloha závaží na podlaze (čárkovaně) -->
+		<path d="M357,1758 Q367,1742 377,1758" fill="none" stroke="#868e96" stroke-width="2" stroke-dasharray="4,3" />
+		<path d="M339,1788 L346,1758 L388,1758 L395,1788 z" fill="none" stroke="#868e96" stroke-width="2" stroke-dasharray="5,4" />
+		<!-- chlapec stojí; rameno S = (410,1700) -->
+		<circle cx="410" cy="1686" r="11" fill="#ffd8a8" stroke="#495057" stroke-width="2" />
+		<line x1="410" y1="1698" x2="410" y2="1745" stroke="#343a40" stroke-width="9" stroke-linecap="round" />
+		<line x1="410" y1="1745" x2="402" y2="1790" stroke="#343a40" stroke-width="6" stroke-linecap="round" />
+		<line x1="410" y1="1745" x2="420" y2="1790" stroke="#343a40" stroke-width="6" stroke-linecap="round" />
+		<!-- JEDNA skupina: paže + závaží + F, otočení kolem ramene (−75,95° → 0°). Ruka H = (351,1670) v koncovém stavu,
+		     (366,6; 1750) na startu = závaží leží na podlaze. Vnořená skupina se zpětně otáčí kolem ruky H,
+		     takže závaží visí svisle a F míří nahoru; polohu závaží určuje ruka (vnoření) → nemohou se rozejít. -->
+		<g class="mpa-paze">
+			<line x1="410" y1="1700" x2="351" y2="1670" stroke="#343a40" stroke-width="5" stroke-linecap="round" />
+			<g class="mpa-visi">
+				<path d="M341,1678 Q351,1662 361,1678" fill="none" stroke="#495057" stroke-width="4" />
+				<path d="M323,1708 L330,1678 L372,1678 L379,1708 z" fill="#adb5bd" stroke="#495057" stroke-width="2" />
+				<text x="351" y="1702" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2a26">5 kg</text>
+				<line x1="351" y1="1665" x2="351" y2="1630" stroke="#c92a2a" stroke-width="6" marker-end="url(#mpa-cer)" />
+				<text x="338" y="1654" text-anchor="end" font-size="22" font-weight="bold" fill="#c92a2a">F</text>
+			</g>
+		</g>
+		<line x1="296" y1="1786" x2="296" y2="1710" stroke="#1971c2" stroke-width="4" marker-start="url(#mpa-mod)" marker-end="url(#mpa-mod)" />
+		<text x="286" y="1752" text-anchor="end" font-size="22" font-weight="bold" fill="#1971c2">s = 1 m</text>
+
+		<text x="26" y="1834" font-size="22" font-weight="bold" fill="#2b2a26">Chlapec zvedne závaží 5 kg o 1 m:</text>
+		<text x="26" y="1866" font-size="22" fill="#c92a2a">F = 5 · 10 = 50 N</text>
+		<text x="26" y="1898" font-size="22" fill="#2b2a26">W = 50 · 1 = <tspan font-weight="bold">50 J</tspan> → <tspan font-weight="bold" fill="#1e7a34">koná práci</tspan></text>
+	</g>
+</svg>
