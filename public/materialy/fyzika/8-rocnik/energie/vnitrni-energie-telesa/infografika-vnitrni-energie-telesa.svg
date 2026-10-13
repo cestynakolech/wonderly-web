@@ -1,0 +1,500 @@
+<svg viewBox="0 0 460 3682" width="460" height="3682" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Infografika Vnitřní energie tělesa: tělesa se skládají z částic (atomů a molekul), které se neustále a neuspořádaně pohybují a působí na sebe přitažlivými a odpudivými silami; v pevné látce částice kmitají, v kapalině kloužou po sobě, v plynu se pohybují volně; čím vyšší teplota, tím rychleji se částice pohybují, proto se čaj v horké vodě mísí rychle a ve studené pomalu; každá částice má pohybovou a polohovou energii, jejich součet u všech částic je vnitřní energie tělesa v joulech; závisí na počtu částic a na teplotě, ne na pohybu ani výšce tělesa; zvýšíme ji zahřátím, přidáním částic (dofouknutím pneumatiky), konáním práce (třením, stlačením, natažením) a přijetím tepelné energie od teplejšího tělesa; když roste, roste teplota, když klesá, teplota klesá; zahřívají se brzdy, vrták, kroucený drát i topná spirála; třením si zahřejeme ruce a rozděláme oheň, přehřátí poškozuje materiál, proto chladíme vodou, olejem nebo vzduchem, kosmickou loď chrání tepelný štít" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<!-- Zdroj obsahu: výklad podtématu vnitrni-energie-telesa (src/data/temata.ts, F8 Energie).
+	     Žádná čísla kromě pořadí panelů 1–7 (výklad žádná čísla nemá). Barvy: částice červené
+	     kuličky VŠUDE tyrkysové #0c8599 (jeden tvar/barva = jeden význam); pohybová energie fialově #5f3dc4,
+	     polohová zeleně #1e7a34; ČERVENÁ (#c92a2a, #fa5252, #ffc9c9) JEN horké/teplo/roste, studené/klesá
+	     modře #1864ab; oranžová #e8590c jen sloupec vnitřní energie (a ozdobná linka nadpisu).
+	     Valení míče bez prokluzu: dráha 150 px, poloměr 24 → 150/24 rad = 358°.
+	     Pružinky: délka 122 px, prostřední částice kmitá ±18 px → měřítko 140/122 = 1,148 a 104/122 = 0,852.
+	     Každá animace jde Z posunutého stavu DO výchozí polohy → při prefers-reduced-motion zůstane koncový stav. -->
+	<style>
+		.k1, .k2, .k3 { animation: kmit 0.9s linear infinite; }
+		.k2 { animation-delay: -0.3s; }
+		.k3 { animation-delay: -0.6s; }
+		@keyframes kmit { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(3px, -2px); } 50% { transform: translate(-2px, 3px); } 75% { transform: translate(-3px, -2px); } }
+		.r1 { animation: klouz1 2.4s ease-in-out infinite; }
+		.r2 { animation: klouz2 2.4s ease-in-out infinite; }
+		@keyframes klouz1 { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(6px); } 75% { transform: translateX(-6px); } }
+		@keyframes klouz2 { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+		/* Plyn: všechny 4 částice jedou po TÉŽE lomené dráze (8 odrazů od stěn, 6 křížení) stálou rychlostí,
+		   posunuté o 1/4 obvodu (obvod 583,8 px, 6 s). Ověřeno výpočtem (6000 vzorků): nejmenší vzdálenost
+		   středů 35,7 px > 18 px (2 × r) → kuličky se nikdy nepřekryjí; všechny polohy uvnitř nádoby. */
+		.g1 { animation: g1 6s linear infinite; }
+		.g2 { animation: g2 6s linear infinite; }
+		.g3 { animation: g3 6s linear infinite; }
+		.g4 { animation: g4 6s linear infinite; }
+		@keyframes g1 { 0%, 100% { transform: translate(0, 0); } 6.1% { transform: translate(-35px, -6px); } 22.2% { transform: translate(59px, -6px); } 34.2% { transform: translate(59px, -76px); } 43.2% { transform: translate(7px, -86px); } 58.4% { transform: translate(28px, 0px); } 73.7% { transform: translate(52px, -86px); } 90.1% { transform: translate(-35px, -46px); } }
+		@keyframes g2 { 0%, 100% { transform: translate(0, 0); } 9.2% { transform: translate(0px, -53.6px); } 18.2% { transform: translate(-52px, -63.6px); } 33.4% { transform: translate(-31px, 22.4px); } 48.7% { transform: translate(-7px, -63.6px); } 65.1% { transform: translate(-94px, -23.6px); } 75% { transform: translate(-59px, 22.4px); } 81.1% { transform: translate(-94px, 16.4px); } 97.2% { transform: translate(0px, 16.4px); } }
+		@keyframes g3 { 0%, 100% { transform: translate(0, 0); } 8.4% { transform: translate(11.6px, 47.7px); } 23.7% { transform: translate(35.6px, -38.3px); } 40.1% { transform: translate(-51.4px, 1.7px); } 50% { transform: translate(-16.4px, 47.7px); } 56.1% { transform: translate(-51.4px, 41.7px); } 72.2% { transform: translate(42.6px, 41.7px); } 84.2% { transform: translate(42.6px, -28.3px); } 93.2% { transform: translate(-9.4px, -38.3px); } }
+		@keyframes g4 { 0%, 100% { transform: translate(0, 0); } 15.1% { transform: translate(-80.1px, 36.8px); } 25% { transform: translate(-45.1px, 82.8px); } 31.1% { transform: translate(-80.1px, 76.8px); } 47.2% { transform: translate(13.9px, 76.8px); } 59.2% { transform: translate(13.9px, 6.8px); } 68.2% { transform: translate(-38.1px, -3.2px); } 83.4% { transform: translate(-17.1px, 82.8px); } 98.7% { transform: translate(6.9px, -3.2px); } }
+		.cs { animation: jemne 2.4s linear infinite; }
+		.hs { animation: silne 0.5s linear infinite; }
+		.cs2, .hs2 { animation-delay: -0.8s; }
+		.hs2 { animation-delay: -0.17s; }
+		.cs3 { animation-delay: -1.6s; }
+		.hs3 { animation-delay: -0.33s; }
+		@keyframes jemne { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(2px, -1px); } 50% { transform: translate(-1px, 2px); } 75% { transform: translate(-2px, -1px); } }
+		@keyframes silne { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(6px, -4px); } 50% { transform: translate(-4px, 6px); } 75% { transform: translate(-6px, -4px); } }
+		.dc, .dh { transform-box: fill-box; transform-origin: center; }
+		.dc { animation: dc 6s ease-out infinite; }
+		.dh { animation: dh 6s ease-out infinite; }
+		@keyframes dc { 0% { transform: scale(0.4); } 100% { transform: scale(1); } }
+		@keyframes dh { 0% { transform: scale(0.15); } 25%, 100% { transform: scale(1); } }
+		.para { animation: para 2s ease-out infinite; }
+		.para2 { animation-delay: -0.7s; }
+		.para3 { animation-delay: -1.4s; }
+		@keyframes para { 0% { transform: translateY(6px); opacity: 0; } 30% { opacity: 1; } 100% { transform: translateY(-8px); opacity: 0; } }
+		.stred { animation: stred 1.6s ease-in-out infinite; }
+		@keyframes stred { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(18px); } 75% { transform: translateX(-18px); } }
+		.pl { transform-box: fill-box; transform-origin: left center; animation: pl 1.6s ease-in-out infinite; }
+		.pp { transform-box: fill-box; transform-origin: right center; animation: pp 1.6s ease-in-out infinite; }
+		@keyframes pl { 0%, 100% { transform: scaleX(1); } 25% { transform: scaleX(1.148); } 75% { transform: scaleX(0.852); } }
+		@keyframes pp { 0%, 100% { transform: scaleX(1); } 25% { transform: scaleX(0.852); } 75% { transform: scaleX(1.148); } }
+		.kut { animation: kut 5s linear infinite; }
+		@keyframes kut { 0% { transform: translateX(-150px); } 70%, 100% { transform: translateX(0); } }
+		.toc { transform-box: fill-box; transform-origin: center; animation: toc 5s linear infinite; }
+		@keyframes toc { 0% { transform: rotate(-358deg); } 70%, 100% { transform: rotate(0deg); } }
+		.pumpa { animation: pumpa 1.6s ease-in-out infinite; }
+		@keyframes pumpa { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(12px); } }
+		.ruka { animation: ruka 0.8s ease-in-out infinite; }
+		@keyframes ruka { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(6px); } 75% { transform: translateX(-6px); } }
+		.horko { animation: horko 0.8s ease-in-out infinite; }
+		@keyframes horko { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+		.tok { animation: tok 1.5s linear infinite; }
+		@keyframes tok { 0% { transform: translateX(-12px); opacity: 0.3; } 60%, 100% { transform: translateX(0); opacity: 1; } }
+		.sloup { transform-box: fill-box; transform-origin: bottom center; animation: sloup 5s ease-in-out infinite; }
+		@keyframes sloup { 0% { transform: scaleY(0.25); } 70%, 100% { transform: scaleY(1); } }
+		.tocit { animation: voda 0.3s linear infinite; }
+		.voda { animation: voda 0.6s linear infinite; }
+		@keyframes voda { 0% { stroke-dashoffset: 12; } 100% { stroke-dashoffset: 0; } }
+		@media (prefers-reduced-motion: reduce) {
+			.k1, .k2, .k3, .r1, .r2, .g1, .g2, .g3, .g4, .cs, .hs, .dc, .dh, .para, .stred, .pl, .pp,
+			.kut, .toc, .pumpa, .ruka, .horko, .tok, .sloup, .voda, .tocit { animation: none; }
+		}
+	</style>
+	<defs>
+		<!-- voda ve sklenicích (pro barvivo čaje) -->
+		<clipPath id="vodaS"><polygon points="71.5,190 178.5,190 172,304 78,304" /></clipPath>
+		<clipPath id="vodaH"><polygon points="281.5,190 388.5,190 382,304 288,304" /></clipPath>
+		<clipPath id="okno1"><rect x="34" y="74" width="106" height="92" rx="8" /></clipPath>
+		<clipPath id="okno2"><rect x="34" y="184" width="106" height="92" rx="8" /></clipPath>
+		<clipPath id="okno3"><rect x="34" y="294" width="106" height="92" rx="8" /></clipPath>
+		<clipPath id="okno4"><rect x="34" y="404" width="106" height="92" rx="8" /></clipPath>
+		<clipPath id="okno6"><rect x="34" y="508" width="392" height="146" rx="8" /></clipPath>
+		<clipPath id="oknoZub"><rect x="34" y="196" width="192" height="144" rx="8" /></clipPath>
+		<!-- míč: stejný v obou polohách (žlutý s červeným a modrým dílem) -->
+		<g id="mic">
+			<circle r="24" fill="#fff" stroke="#2b2a26" stroke-width="2.5" />
+			<path d="M 0 0 L 0 -24 A 24 24 0 0 1 20.8 12 Z" fill="#40c057" />
+			<path d="M 0 0 L 20.8 12 A 24 24 0 0 1 -20.8 12 Z" fill="#1971c2" />
+			<path d="M 0 0 L -20.8 12 A 24 24 0 0 1 0 -24 Z" fill="#fcc419" />
+			<circle r="24" fill="none" stroke="#2b2a26" stroke-width="2.5" />
+			<circle r="4" fill="#fff" stroke="#2b2a26" stroke-width="1.5" />
+		</g>
+	</defs>
+	<rect width="460" height="3682" fill="#f3f1ea" />
+
+	<!-- ===== Nadpis ===== -->
+	<text x="230" y="58" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="34" font-weight="bold" fill="#2b2a26">Vnitřní energie tělesa</text>
+	<path d="M 90 76 Q 230 66 370 76" fill="none" stroke="#e8590c" stroke-width="5" stroke-linecap="round" />
+	<text x="230" y="108" text-anchor="middle" font-size="21" fill="#5c5b52">součet energií všech jeho částic</text>
+
+	<!-- ===== Panel 1: Z čeho jsou tělesa ===== -->
+	<g id="panel-1" transform="translate(0,140)">
+		<rect x="26" y="6" width="420" height="472" rx="10" fill="#2b2a26" />
+		<rect x="20" y="0" width="420" height="472" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="34" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="41" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+		<text x="80" y="43" font-size="28" font-weight="bold" fill="#2b2a26">Z čeho jsou tělesa</text>
+
+		<circle cx="44" cy="73" r="4" fill="#2b2a26" />
+		<text x="56" y="80" font-size="21" fill="#2b2a26">skládají se z <tspan font-weight="bold">částic</tspan></text>
+		<text x="56" y="108" font-size="21" fill="#2b2a26">(atomů a molekul)</text>
+		<circle cx="44" cy="133" r="4" fill="#2b2a26" />
+		<text x="56" y="140" font-size="21" fill="#2b2a26">částice se <tspan font-weight="bold">neustále</tspan> pohybují</text>
+		<circle cx="44" cy="165" r="4" fill="#2b2a26" />
+		<text x="56" y="172" font-size="21" fill="#2b2a26">působí mezi nimi <tspan font-weight="bold">přitažlivé</tspan></text>
+		<text x="56" y="200" font-size="21" fill="#2b2a26">a <tspan font-weight="bold">odpudivé</tspan> síly</text>
+
+		<!-- deska laboratorního stolu -->
+		<rect x="34" y="380" width="392" height="14" fill="#c9a77c" stroke="#2b2a26" stroke-width="2" />
+		<line x1="60" y1="387" x2="110" y2="387" stroke="#8d5a2b" stroke-width="2" />
+		<line x1="250" y1="388" x2="320" y2="388" stroke="#8d5a2b" stroke-width="2" />
+
+		<!-- pevná látka: kostka s krystalovou mřížkou -->
+		<rect x="48" y="278" width="102" height="102" rx="3" fill="#e9ecef" stroke="#2b2a26" stroke-width="2.5" />
+		<g stroke="#868e96" stroke-width="2">
+			<line x1="69" y1="299" x2="129" y2="299" /><line x1="69" y1="329" x2="129" y2="329" /><line x1="69" y1="359" x2="129" y2="359" />
+			<line x1="69" y1="299" x2="69" y2="359" /><line x1="99" y1="299" x2="99" y2="359" /><line x1="129" y1="299" x2="129" y2="359" />
+		</g>
+		<g fill="#0c8599" stroke="#2b2a26" stroke-width="1.5">
+			<circle class="k1" cx="69" cy="299" r="9" /><circle class="k2" cx="99" cy="299" r="9" /><circle class="k3" cx="129" cy="299" r="9" />
+			<circle class="k2" cx="69" cy="329" r="9" /><circle class="k3" cx="99" cy="329" r="9" /><circle class="k1" cx="129" cy="329" r="9" />
+			<circle class="k3" cx="69" cy="359" r="9" /><circle class="k1" cx="99" cy="359" r="9" /><circle class="k2" cx="129" cy="359" r="9" />
+		</g>
+
+		<!-- kapalina: kádinka s vodou -->
+		<path d="M 168 270 L 172 274 L 172 380 L 288 380 L 288 274 L 292 270" fill="none" stroke="#495057" stroke-width="2.5" stroke-linejoin="round" />
+		<rect x="173.5" y="312" width="113" height="66.5" fill="#a5d8ff" />
+		<line x1="173.5" y1="312" x2="286.5" y2="312" stroke="#1864ab" stroke-width="2" />
+		<g fill="#0c8599" stroke="#2b2a26" stroke-width="1.5">
+			<g class="r1"><circle cx="194" cy="326" r="9" /><circle cx="213" cy="326" r="9" /><circle cx="232" cy="326" r="9" /><circle cx="251" cy="326" r="9" /><circle cx="270" cy="326" r="9" /></g>
+			<g class="r2"><circle cx="203" cy="346" r="9" /><circle cx="222" cy="346" r="9" /><circle cx="241" cy="346" r="9" /><circle cx="260" cy="346" r="9" /></g>
+			<g class="r1"><circle cx="194" cy="366" r="9" /><circle cx="213" cy="366" r="9" /><circle cx="232" cy="366" r="9" /><circle cx="251" cy="366" r="9" /><circle cx="270" cy="366" r="9" /></g>
+		</g>
+		<path d="M 168 270 L 172 274 L 172 380 L 288 380 L 288 274 L 292 270" fill="none" stroke="#495057" stroke-width="2.5" stroke-linejoin="round" />
+
+		<!-- plyn: uzavřená nádoba s víkem -->
+		<rect x="300" y="272" width="116" height="108" rx="4" fill="#f1f3f5" stroke="#495057" stroke-width="2.5" />
+		<rect x="296" y="262" width="124" height="10" rx="3" fill="#868e96" stroke="#2b2a26" stroke-width="2" />
+		<g fill="#0c8599" stroke="#2b2a26" stroke-width="1.5">
+			<circle class="g1" cx="346" cy="369" r="9" />
+			<circle class="g2" cx="405" cy="346.6" r="9" />
+			<circle class="g3" cx="362.4" cy="321.3" r="9" />
+			<circle class="g4" cx="391.1" cy="286.2" r="9" />
+		</g>
+
+		<text x="99" y="426" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">pevná látka</text>
+		<text x="230" y="426" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">kapalina</text>
+		<text x="358" y="426" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">plyn</text>
+		<text x="99" y="454" text-anchor="middle" font-size="21" fill="#495057">kmitají</text>
+		<text x="230" y="454" text-anchor="middle" font-size="21" fill="#495057">kloužou</text>
+		<text x="358" y="454" text-anchor="middle" font-size="21" fill="#495057">létají volně</text>
+	</g>
+
+	<!-- ===== Panel 2: Teplota a částice ===== -->
+	<g id="panel-2" transform="translate(0,636)">
+		<rect x="26" y="6" width="420" height="424" rx="10" fill="#2b2a26" />
+		<rect x="20" y="0" width="420" height="424" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="34" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="41" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">2</text>
+		<text x="80" y="43" font-size="28" font-weight="bold" fill="#2b2a26">Teplota a částice</text>
+
+		<text x="230" y="80" text-anchor="middle" font-size="21" fill="#2b2a26">čím <tspan font-weight="bold">vyšší teplota</tspan>, tím <tspan font-weight="bold">rychleji</tspan></text>
+		<text x="230" y="108" text-anchor="middle" font-size="21" fill="#2b2a26">se částice pohybují</text>
+
+		<!-- pára nad horkou vodou -->
+		<g fill="none" stroke="#868e96" stroke-width="3" stroke-linecap="round">
+			<path class="para" d="M 318 158 q -6 -6 0 -12 q 6 -6 0 -12" />
+			<path class="para para2" d="M 338 160 q -6 -6 0 -12 q 6 -6 0 -12" />
+			<path class="para para3" d="M 358 158 q -6 -6 0 -12 q 6 -6 0 -12" />
+		</g>
+
+		<!-- deska stolu -->
+		<rect x="34" y="304" width="392" height="14" fill="#c9a77c" stroke="#2b2a26" stroke-width="2" />
+		<line x1="200" y1="311" x2="260" y2="311" stroke="#8d5a2b" stroke-width="2" />
+
+		<!-- studená voda -->
+		<polygon points="70,164 180,164 172,304 78,304" fill="#f1f3f5" />
+		<polygon points="71.5,190 178.5,190 172,304 78,304" fill="#d0ebff" />
+		<g clip-path="url(#vodaS)"><ellipse class="dc" cx="115" cy="250" rx="30" ry="26" fill="#8d5a2b" opacity="0.45" /></g>
+		<line x1="71.5" y1="190" x2="178.5" y2="190" stroke="#1864ab" stroke-width="2" />
+		<rect x="100" y="224" width="30" height="36" rx="3" fill="#e9d8a6" stroke="#8d5a2b" stroke-width="2" />
+		<path d="M 115 224 L 180 165 L 189 182" fill="none" stroke="#495057" stroke-width="1.5" />
+		<rect x="181" y="182" width="16" height="18" fill="#fff" stroke="#495057" stroke-width="1.5" />
+		<g fill="#0c8599" stroke="#2b2a26" stroke-width="1.5">
+			<circle class="cs" cx="92" cy="282" r="7" />
+			<circle class="cs cs2" cx="155" cy="219" r="7" />
+			<circle class="cs cs3" cx="156" cy="282" r="7" />
+		</g>
+		<polygon points="70,164 180,164 172,304 78,304" fill="none" stroke="#495057" stroke-width="2.5" stroke-linejoin="round" />
+
+		<!-- horká voda -->
+		<polygon points="280,164 390,164 382,304 288,304" fill="#f1f3f5" />
+		<polygon points="281.5,190 388.5,190 382,304 288,304" fill="#ffe3e3" />
+		<g clip-path="url(#vodaH)"><ellipse class="dh" cx="325" cy="250" rx="110" ry="90" fill="#8d5a2b" opacity="0.45" /></g>
+		<line x1="281.5" y1="190" x2="388.5" y2="190" stroke="#c92a2a" stroke-width="2" />
+		<rect x="310" y="224" width="30" height="36" rx="3" fill="#e9d8a6" stroke="#8d5a2b" stroke-width="2" />
+		<path d="M 325 224 L 390 165 L 399 182" fill="none" stroke="#495057" stroke-width="1.5" />
+		<rect x="391" y="182" width="16" height="18" fill="#fff" stroke="#495057" stroke-width="1.5" />
+		<g fill="#0c8599" stroke="#2b2a26" stroke-width="1.5">
+			<circle class="hs" cx="304" cy="282" r="7" />
+			<circle class="hs hs2" cx="365" cy="219" r="7" />
+			<circle class="hs hs3" cx="366" cy="282" r="7" />
+		</g>
+		<polygon points="280,164 390,164 382,304 288,304" fill="none" stroke="#495057" stroke-width="2.5" stroke-linejoin="round" />
+
+		<text x="125" y="348" text-anchor="middle" font-size="21" font-weight="bold" fill="#1864ab">studená voda</text>
+		<text x="335" y="348" text-anchor="middle" font-size="21" font-weight="bold" fill="#c92a2a">horká voda</text>
+		<text x="125" y="376" text-anchor="middle" font-size="21" fill="#2b2a26">částice pomalé</text>
+		<text x="335" y="376" text-anchor="middle" font-size="21" fill="#2b2a26">částice rychlé</text>
+		<text x="125" y="404" text-anchor="middle" font-size="21" fill="#495057">čaj se mísí pomalu</text>
+		<text x="335" y="404" text-anchor="middle" font-size="21" fill="#495057">mísí se rychle</text>
+	</g>
+
+	<!-- ===== Panel 3: Co je vnitřní energie ===== -->
+	<g id="panel-3" transform="translate(0,1084)">
+		<rect x="26" y="6" width="420" height="436" rx="10" fill="#2b2a26" />
+		<rect x="20" y="0" width="420" height="436" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="34" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="41" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">3</text>
+		<text x="80" y="43" font-size="28" font-weight="bold" fill="#2b2a26">Co je vnitřní energie</text>
+
+		<text x="34" y="80" font-size="21" fill="#2b2a26">každá částice tělesa má dvě energie:</text>
+
+		<!-- zvětšená část tělesa -->
+		<rect x="34" y="100" width="392" height="126" rx="8" fill="#fff" stroke="#495057" stroke-width="2" stroke-dasharray="6 5" />
+		<path class="pl" d="M 94 163 L 104 163 L 110 153 L 122 173 L 134 153 L 146 173 L 158 153 L 170 173 L 182 153 L 194 173 L 200 163 L 216 163" fill="none" stroke="#1e7a34" stroke-width="3" stroke-linejoin="round" vector-effect="non-scaling-stroke" />
+		<path class="pp" d="M 244 163 L 260 163 L 266 153 L 278 173 L 290 153 L 302 173 L 314 153 L 326 173 L 338 153 L 350 173 L 356 163 L 366 163" fill="none" stroke="#1e7a34" stroke-width="3" stroke-linejoin="round" vector-effect="non-scaling-stroke" />
+		<circle cx="80" cy="163" r="14" fill="#0c8599" stroke="#2b2a26" stroke-width="2" />
+		<circle cx="380" cy="163" r="14" fill="#0c8599" stroke="#2b2a26" stroke-width="2" />
+		<g class="stred">
+			<circle cx="230" cy="163" r="14" fill="#0c8599" stroke="#2b2a26" stroke-width="2" />
+			<line x1="214" y1="200" x2="246" y2="200" stroke="#5f3dc4" stroke-width="4" />
+			<polygon points="204,200 216,193 216,207" fill="#5f3dc4" />
+			<polygon points="256,200 244,193 244,207" fill="#5f3dc4" />
+		</g>
+
+		<!-- legenda -->
+		<line x1="48" y1="251" x2="76" y2="251" stroke="#5f3dc4" stroke-width="4" />
+		<polygon points="40,251 51,245 51,257" fill="#5f3dc4" />
+		<polygon points="84,251 73,245 73,257" fill="#5f3dc4" />
+		<text x="96" y="258" font-size="21" fill="#2b2a26"><tspan font-weight="bold" fill="#5f3dc4">pohybová</tspan> – částice se pohybuje</text>
+		<path d="M 40 290 L 46 290 L 50 282 L 58 298 L 66 282 L 74 298 L 78 290 L 84 290" fill="none" stroke="#1e7a34" stroke-width="3" stroke-linejoin="round" />
+		<text x="96" y="290" font-size="21" fill="#2b2a26"><tspan font-weight="bold" fill="#1e7a34">polohová</tspan> – podle polohy</text>
+		<text x="96" y="316" font-size="21" fill="#2b2a26">vůči sousedním částicím</text>
+
+		<!-- součet -->
+		<rect x="34" y="334" width="392" height="88" rx="8" fill="#fff3bf" stroke="#2b2a26" stroke-width="2" />
+		<text x="230" y="362" text-anchor="middle" font-size="21" fill="#2b2a26">součet energií <tspan font-weight="bold">všech</tspan> částic</text>
+		<text x="230" y="390" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2a26">= vnitřní energie tělesa</text>
+		<text x="230" y="414" text-anchor="middle" font-size="21" fill="#2b2a26">měříme ji v joulech (J)</text>
+	</g>
+
+	<!-- ===== Panel 4: Na čem závisí ===== -->
+	<g id="panel-4" transform="translate(0,1544)">
+		<rect x="26" y="6" width="420" height="436" rx="10" fill="#2b2a26" />
+		<rect x="20" y="0" width="420" height="436" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="34" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="41" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">4</text>
+		<text x="80" y="43" font-size="28" font-weight="bold" fill="#2b2a26">Na čem závisí</text>
+
+		<path d="M 37 73 L 43 80 L 54 66" fill="none" stroke="#1e7a34" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="64" y="80" font-size="21" fill="#2b2a26">na <tspan font-weight="bold">počtu částic</tspan> v tělese</text>
+		<path d="M 37 103 L 43 110 L 54 96" fill="none" stroke="#1e7a34" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="64" y="110" font-size="21" fill="#2b2a26">na <tspan font-weight="bold">teplotě</tspan> tělesa</text>
+		<path d="M 38 127 L 52 141 M 52 127 L 38 141" fill="none" stroke="#495057" stroke-width="4" stroke-linecap="round" />
+		<text x="64" y="140" font-size="21" fill="#2b2a26"><tspan font-weight="bold">ne</tspan> na pohybu tělesa</text>
+		<path d="M 38 157 L 52 171 M 52 157 L 38 171" fill="none" stroke="#495057" stroke-width="4" stroke-linecap="round" />
+		<text x="64" y="170" font-size="21" fill="#2b2a26"><tspan font-weight="bold">ne</tspan> na tom, jak vysoko je</text>
+
+		<!-- podlaha -->
+		<rect x="34" y="340" width="392" height="14" fill="#c9a77c" stroke="#2b2a26" stroke-width="2" />
+		<line x1="200" y1="347" x2="270" y2="347" stroke="#8d5a2b" stroke-width="2" />
+		<!-- stůl s míčem v klidu -->
+		<rect x="56" y="278" width="8" height="62" fill="#8d5a2b" stroke="#2b2a26" stroke-width="1.5" />
+		<rect x="158" y="278" width="8" height="62" fill="#8d5a2b" stroke="#2b2a26" stroke-width="1.5" />
+		<rect x="46" y="268" width="130" height="10" rx="2" fill="#d9a066" stroke="#2b2a26" stroke-width="2" />
+		<use href="#mic" transform="translate(111,244)" />
+		<text x="111" y="208" text-anchor="middle" font-size="21" fill="#495057">v klidu, výš</text>
+		<!-- míč se kutálí po podlaze -->
+		<text x="305" y="270" text-anchor="middle" font-size="21" fill="#495057">kutálí se</text>
+		<g transform="translate(380,316)">
+			<g class="kut"><g class="toc"><use href="#mic" /></g></g>
+		</g>
+
+		<text x="230" y="386" text-anchor="middle" font-size="21" fill="#2b2a26">stejný míč se stejnou teplotou</text>
+		<text x="230" y="416" text-anchor="middle" font-size="21" fill="#2b2a26">→ <tspan font-weight="bold">stejná vnitřní energie</tspan></text>
+	</g>
+
+	<!-- ===== Panel 5: Jak ji zvýšíme ===== -->
+	<g id="panel-5" transform="translate(0,2004)">
+		<rect x="26" y="6" width="420" height="510" rx="10" fill="#2b2a26" />
+		<rect x="20" y="0" width="420" height="510" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="34" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="41" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">5</text>
+		<text x="80" y="43" font-size="28" font-weight="bold" fill="#2b2a26">Jak ji zvýšíme</text>
+
+		<!-- řádek 1: zahřátím (hrnec na vařiči) -->
+		<rect x="34" y="74" width="106" height="92" rx="8" fill="#fff" />
+		<g clip-path="url(#okno1)">
+			<rect x="30" y="154" width="114" height="14" fill="#c9a77c" />
+			<rect x="44" y="132" width="92" height="22" rx="3" fill="#495057" stroke="#2b2a26" stroke-width="2" />
+			<circle cx="58" cy="143" r="4" fill="#ced4da" />
+			<rect x="56" y="126" width="68" height="6" rx="2" fill="#c92a2a" stroke="#2b2a26" stroke-width="1.5" />
+			<rect x="62" y="90" width="56" height="36" rx="3" fill="#adb5bd" stroke="#2b2a26" stroke-width="2" />
+			<rect x="52" y="96" width="10" height="6" rx="2" fill="#495057" />
+			<rect x="118" y="96" width="10" height="6" rx="2" fill="#495057" />
+			<rect x="59" y="85" width="62" height="5" rx="2" fill="#868e96" stroke="#2b2a26" stroke-width="1.5" />
+			<rect x="86" y="80" width="8" height="5" rx="2" fill="#2b2a26" />
+		</g>
+		<rect x="34" y="74" width="106" height="92" rx="8" fill="none" stroke="#495057" stroke-width="2" />
+		<text x="152" y="104" font-size="21" font-weight="bold" fill="#2b2a26">zahřátím</text>
+		<text x="152" y="132" font-size="21" fill="#2b2a26">částice se pohybují</text>
+		<text x="152" y="160" font-size="21" fill="#2b2a26">rychleji</text>
+
+		<!-- řádek 2: přidáním částic (pumpa a pneumatika) -->
+		<rect x="34" y="184" width="106" height="92" rx="8" fill="#fff" />
+		<g clip-path="url(#okno2)">
+			<rect x="30" y="264" width="114" height="14" fill="#c9a77c" />
+			<g class="pumpa">
+				<rect x="49" y="194" width="3" height="46" fill="#495057" />
+				<rect x="38" y="188" width="25" height="6" rx="2" fill="#2b2a26" />
+			</g>
+			<rect x="45" y="206" width="11" height="52" rx="2" fill="#1971c2" stroke="#2b2a26" stroke-width="1.5" />
+			<rect x="38" y="258" width="25" height="6" rx="2" fill="#495057" stroke="#2b2a26" stroke-width="1" />
+			<circle cx="106" cy="234" r="30" fill="#343a40" stroke="#2b2a26" stroke-width="2" />
+			<circle cx="106" cy="234" r="17" fill="#ced4da" stroke="#2b2a26" stroke-width="2" />
+			<circle cx="106" cy="234" r="4" fill="#495057" />
+			<rect x="99" y="245" width="5" height="9" fill="#868e96" stroke="#2b2a26" stroke-width="1" />
+			<path d="M 55 256 C 66 262 88 262 101 253" fill="none" stroke="#adb5bd" stroke-width="3.5" stroke-linecap="round" />
+		</g>
+		<rect x="34" y="184" width="106" height="92" rx="8" fill="none" stroke="#495057" stroke-width="2" />
+		<text x="152" y="214" font-size="21" font-weight="bold" fill="#2b2a26">přidáním částic</text>
+		<text x="152" y="242" font-size="21" fill="#2b2a26">dofouknutím</text>
+		<text x="152" y="270" font-size="21" fill="#2b2a26">pneumatiky</text>
+
+		<!-- řádek 3: konáním práce (tření dlaní) -->
+		<rect x="34" y="294" width="106" height="92" rx="8" fill="#fff" />
+		<g clip-path="url(#okno3)">
+			<rect x="20" y="334" width="38" height="20" rx="3" fill="#868e96" stroke="#2b2a26" stroke-width="1.5" />
+			<path d="M 56 336 L 112 336 Q 124 336 124 344 Q 124 352 112 352 L 56 352 Z" fill="#f1c27d" stroke="#2b2a26" stroke-width="2" />
+			<line x1="98" y1="341" x2="118" y2="341" stroke="#b5835a" stroke-width="1.5" />
+			<line x1="98" y1="347" x2="118" y2="347" stroke="#b5835a" stroke-width="1.5" />
+			<g class="ruka">
+				<rect x="116" y="318" width="40" height="18" rx="3" fill="#868e96" stroke="#2b2a26" stroke-width="1.5" />
+				<path d="M 118 320 L 62 320 Q 50 320 50 328 Q 50 336 62 336 L 118 336 Z" fill="#f1c27d" stroke="#2b2a26" stroke-width="2" />
+				<line x1="56" y1="325" x2="76" y2="325" stroke="#b5835a" stroke-width="1.5" />
+				<line x1="56" y1="331" x2="76" y2="331" stroke="#b5835a" stroke-width="1.5" />
+			</g>
+			<g class="horko" fill="none" stroke="#c92a2a" stroke-width="2.5" stroke-linecap="round">
+				<path d="M 72 314 q -4 -4 0 -8 q 4 -4 0 -8" />
+				<path d="M 87 314 q -4 -4 0 -8 q 4 -4 0 -8" />
+				<path d="M 102 314 q -4 -4 0 -8 q 4 -4 0 -8" />
+			</g>
+		</g>
+		<rect x="34" y="294" width="106" height="92" rx="8" fill="none" stroke="#495057" stroke-width="2" />
+		<text x="152" y="324" font-size="21" font-weight="bold" fill="#2b2a26">konáním práce</text>
+		<text x="152" y="352" font-size="21" fill="#2b2a26">třením, stlačením</text>
+		<text x="152" y="380" font-size="21" fill="#2b2a26">nebo natažením</text>
+
+		<!-- řádek 4: přijetím tepelné energie (teplejší a chladnější kostka) -->
+		<rect x="34" y="404" width="106" height="92" rx="8" fill="#fff" />
+		<g clip-path="url(#okno4)">
+			<rect x="30" y="484" width="114" height="14" fill="#c9a77c" />
+			<rect x="38" y="440" width="50" height="44" rx="2" fill="#ffc9c9" stroke="#c92a2a" stroke-width="2.5" />
+			<rect x="88" y="440" width="48" height="44" rx="2" fill="#d0ebff" stroke="#1864ab" stroke-width="2.5" />
+			<g class="tok">
+				<line x1="52" y1="424" x2="108" y2="424" stroke="#c92a2a" stroke-width="4" />
+				<polygon points="122,424 108,417 108,431" fill="#c92a2a" />
+			</g>
+		</g>
+		<rect x="34" y="404" width="106" height="92" rx="8" fill="none" stroke="#495057" stroke-width="2" />
+		<text x="152" y="434" font-size="21" font-weight="bold" fill="#2b2a26">přijetím tepelné</text>
+		<text x="152" y="462" font-size="21" fill="#2b2a26"><tspan font-weight="bold">energie</tspan> od tělesa</text>
+		<text x="152" y="490" font-size="21" fill="#2b2a26">s <tspan font-weight="bold" fill="#c92a2a">vyšší teplotou</tspan></text>
+	</g>
+
+	<!-- ===== Panel 6: Projeví se teplotou ===== -->
+	<g id="panel-6" transform="translate(0,2538)">
+		<rect x="26" y="6" width="420" height="670" rx="10" fill="#2b2a26" />
+		<rect x="20" y="0" width="420" height="670" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="34" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="41" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">6</text>
+		<text x="80" y="43" font-size="28" font-weight="bold" fill="#2b2a26">Projeví se teplotou</text>
+
+		<!-- dva sloupce rostou spolu -->
+		<rect x="52" y="76" width="50" height="164" rx="6" fill="#fff" stroke="#2b2a26" stroke-width="2" />
+		<rect class="sloup" x="58" y="96" width="38" height="138" rx="3" fill="#e8590c" />
+		<rect x="142" y="76" width="50" height="164" rx="6" fill="#fff" stroke="#2b2a26" stroke-width="2" />
+		<rect class="sloup" x="148" y="96" width="38" height="138" rx="3" fill="#c92a2a" />
+		<text x="77" y="268" text-anchor="middle" font-size="21" fill="#2b2a26">vnitřní</text>
+		<text x="77" y="294" text-anchor="middle" font-size="21" fill="#2b2a26">energie</text>
+		<text x="167" y="268" text-anchor="middle" font-size="21" fill="#2b2a26">teplota</text>
+
+		<text x="214" y="100" font-size="21" fill="#2b2a26">vnitřní energie</text>
+		<text x="214" y="128" font-size="21" fill="#2b2a26"><tspan font-weight="bold" fill="#c92a2a">roste</tspan> → teplota</text>
+		<text x="214" y="156" font-size="21" fill="#2b2a26">také <tspan font-weight="bold" fill="#c92a2a">roste</tspan></text>
+		<text x="214" y="200" font-size="21" fill="#2b2a26">vnitřní energie</text>
+		<text x="214" y="228" font-size="21" fill="#2b2a26"><tspan font-weight="bold" fill="#1864ab">klesá</tspan> → teplota</text>
+		<text x="214" y="256" font-size="21" fill="#2b2a26">také <tspan font-weight="bold" fill="#1864ab">klesá</tspan></text>
+
+		<line x1="34" y1="314" x2="426" y2="314" stroke="#ced4da" stroke-width="2" />
+		<text x="34" y="346" font-size="21" font-weight="bold" fill="#2b2a26">Zahřívá se například:</text>
+		<circle cx="44" cy="369" r="4" fill="#2b2a26" />
+		<text x="56" y="376" font-size="21" fill="#2b2a26">brzda při brzdění</text>
+		<circle cx="44" cy="397" r="4" fill="#2b2a26" />
+		<text x="56" y="404" font-size="21" fill="#2b2a26">vrták při vrtání</text>
+		<circle cx="44" cy="425" r="4" fill="#2b2a26" />
+		<text x="56" y="432" font-size="21" fill="#2b2a26">drát kroucený na jednom místě</text>
+		<circle cx="44" cy="453" r="4" fill="#2b2a26" />
+		<text x="56" y="460" font-size="21" fill="#2b2a26">topná spirála vařiče, když jí</text>
+		<text x="56" y="488" font-size="21" fill="#2b2a26">prochází elektrický proud</text>
+
+		<!-- scéna: vrtačka v ruce vrtá do prkna na ponku, vrták se zahřívá (výřez) -->
+		<rect x="34" y="508" width="392" height="146" rx="8" fill="#fff" />
+		<g clip-path="url(#okno6)">
+			<!-- ponk a prkno -->
+			<rect x="30" y="626" width="400" height="14" fill="#c9a77c" stroke="#2b2a26" stroke-width="2" />
+			<rect x="30" y="640" width="400" height="16" fill="#a07850" />
+			<rect x="150" y="606" width="200" height="20" rx="2" fill="#d9a066" stroke="#2b2a26" stroke-width="2" />
+			<line x1="164" y1="613" x2="214" y2="613" stroke="#8d5a2b" stroke-width="1.5" />
+			<line x1="270" y1="619" x2="336" y2="619" stroke="#8d5a2b" stroke-width="1.5" />
+			<!-- rozpálené místo kolem vrtáku -->
+			<ellipse class="horko" cx="241" cy="606" rx="16" ry="4" fill="#fa5252" opacity="0.7" />
+			<!-- vrták zasahuje do prkna -->
+			<rect x="237" y="566" width="8" height="44" fill="#adb5bd" stroke="#2b2a26" stroke-width="1.5" />
+			<line class="tocit" x1="241" y1="567" x2="241" y2="609" stroke="#495057" stroke-width="6" stroke-dasharray="3 5" />
+			<rect class="horko" x="237" y="588" width="8" height="22" fill="#c92a2a" opacity="0.85" />
+			<!-- sklíčidlo, tělo vrtačky, rukojeť -->
+			<rect x="230" y="552" width="22" height="14" rx="2" fill="#495057" stroke="#2b2a26" stroke-width="1.5" />
+			<rect x="220" y="496" width="44" height="56" rx="8" fill="#1971c2" stroke="#2b2a26" stroke-width="2" />
+			<rect x="264" y="516" width="50" height="20" rx="3" fill="#343a40" stroke="#2b2a26" stroke-width="1.5" />
+			<!-- ruka drží rukojeť -->
+			<rect x="300" y="514" width="140" height="24" fill="#868e96" stroke="#2b2a26" stroke-width="1.5" />
+			<rect x="276" y="510" width="30" height="34" rx="9" fill="#f1c27d" stroke="#2b2a26" stroke-width="2" />
+			<line x1="279" y1="521" x2="290" y2="521" stroke="#b5835a" stroke-width="1.5" />
+			<line x1="279" y1="529" x2="290" y2="529" stroke="#b5835a" stroke-width="1.5" />
+			<line x1="279" y1="537" x2="290" y2="537" stroke="#b5835a" stroke-width="1.5" />
+			<!-- vlnky tepla -->
+			<g class="horko" fill="none" stroke="#c92a2a" stroke-width="2.5" stroke-linecap="round">
+				<path d="M 214 600 q -4 -5 0 -10 q 4 -5 0 -10" />
+				<path d="M 268 600 q -4 -5 0 -10 q 4 -5 0 -10" />
+			</g>
+		</g>
+		<rect x="34" y="508" width="392" height="146" rx="8" fill="none" stroke="#495057" stroke-width="2" />
+		<text x="46" y="546" font-size="21" fill="#2b2a26">vrták se</text>
+		<text x="46" y="574" font-size="21" font-weight="bold" fill="#c92a2a">zahřívá</text>
+	</g>
+
+	<!-- ===== Panel 7: Využití a chlazení ===== -->
+	<g id="panel-7" transform="translate(0,3232)">
+		<rect x="26" y="6" width="420" height="424" rx="10" fill="#2b2a26" />
+		<rect x="20" y="0" width="420" height="424" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="34" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="41" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">7</text>
+		<text x="80" y="43" font-size="28" font-weight="bold" fill="#2b2a26">Využití a chlazení</text>
+
+		<text x="34" y="80" font-size="21" fill="#2b2a26"><tspan font-weight="bold" fill="#1e7a34">Pomáhá:</tspan> třením si zahřejeme</text>
+		<text x="34" y="108" font-size="21" fill="#2b2a26">studené ruce, rozděláme oheň</text>
+		<text x="34" y="144" font-size="21" fill="#2b2a26"><tspan font-weight="bold">Škodí:</tspan> přehřátí poškodí materiál</text>
+		<text x="34" y="172" font-size="21" fill="#2b2a26">→ <tspan font-weight="bold">chladíme</tspan> vodou, olejem, vzduchem</text>
+
+		<!-- zubař vrtá zub a chladí ho vodou (výřez) -->
+		<rect x="34" y="196" width="192" height="144" rx="8" fill="#fff" />
+		<g clip-path="url(#oknoZub)">
+			<!-- dáseň a zub -->
+			<path d="M 98 312 L 96 268 Q 96 252 109 252 Q 119 256 128 252 Q 137 256 147 252 Q 160 252 160 268 L 158 312 Z" fill="#fff" stroke="#2b2a26" stroke-width="2" />
+			<ellipse cx="127" cy="259" rx="7" ry="4" fill="#495057" />
+			<path d="M 30 340 L 30 306 Q 128 290 230 306 L 230 340 Z" fill="#f3a6b5" stroke="#2b2a26" stroke-width="2" />
+			<!-- vrtačka v ruce v rukavici -->
+			<line x1="150" y1="226" x2="250" y2="182" stroke="#adb5bd" stroke-width="14" stroke-linecap="round" />
+			<line x1="150" y1="226" x2="250" y2="182" stroke="#495057" stroke-width="2" stroke-dasharray="1 0" opacity="0.4" />
+			<rect x="132" y="216" width="22" height="16" rx="4" fill="#868e96" stroke="#2b2a26" stroke-width="2" />
+			<line x1="134" y1="232" x2="129" y2="254" stroke="#495057" stroke-width="3" />
+			<ellipse cx="206" cy="200" rx="24" ry="14" transform="rotate(-24 206 200)" fill="#74c0fc" stroke="#2b2a26" stroke-width="2" />
+			<path d="M 222 176 L 250 160 L 262 186 L 230 204 Z" fill="#74c0fc" stroke="#2b2a26" stroke-width="2" />
+			<!-- proud vody na zub -->
+			<line class="voda" x1="152" y1="232" x2="137" y2="256" stroke="#1971c2" stroke-width="3" stroke-dasharray="6 6" />
+		</g>
+		<rect x="34" y="196" width="192" height="144" rx="8" fill="none" stroke="#495057" stroke-width="2" />
+
+		<text x="240" y="220" font-size="21" fill="#2b2a26">zub při vrtání</text>
+		<text x="240" y="248" font-size="21" fill="#2b2a26">→ <tspan font-weight="bold" fill="#1864ab">vodou</tspan></text>
+		<text x="240" y="290" font-size="21" fill="#2b2a26">kov při obrábění</text>
+		<text x="240" y="318" font-size="21" fill="#2b2a26">→ <tspan font-weight="bold">olejem</tspan></text>
+
+		<text x="34" y="376" font-size="21" fill="#2b2a26">chladí se i <tspan font-weight="bold">motor v autě</tspan></text>
+		<text x="34" y="406" font-size="21" fill="#2b2a26"><tspan font-weight="bold">kosmickou loď</tspan> chrání tepelný štít</text>
+	</g>
+</svg>

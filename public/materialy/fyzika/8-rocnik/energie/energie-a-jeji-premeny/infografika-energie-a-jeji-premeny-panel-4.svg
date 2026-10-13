@@ -1,0 +1,177 @@
+<svg viewBox="0 1740 460 972" width="460" height="972" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Energie nezmizí: energii nelze vytvořit ani zničit, jen se přeměňuje v jiný druh. Cesta energie od Slunce k žárovce: jaderná energie v jádru Slunce, světelná energie ze Slunce, chemická energie uložená v rostlinách, chemická energie v uhlí z rostlin, tepelná energie zahřáté páry, pohybová energie páry, elektrická energie v drátech, světlo a teplo v žárovce. Energie mění podobu, ale nezmizí." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Energie a její přeměny 4/5: Energie nezmizí</title>
+	<!-- Panel 4/5 výřezu z infografika-energie-a-jeji-premeny.svg (souřadnice beze změny, jen viewBox). -->
+	<style>
+		.z { animation: z 8s linear infinite; }
+		.z1 { animation-delay: 1s; }
+		.z2 { animation-delay: 2s; }
+		.z3 { animation-delay: 3s; }
+		.z4 { animation-delay: 4s; }
+		.z5 { animation-delay: 5s; }
+		.z6 { animation-delay: 6s; }
+		.z7 { animation-delay: 7s; }
+		.zare { animation: zare 8s linear infinite; }
+		.otac { transform-origin: 100px 2420px; animation: otac 2s linear infinite; }
+		.para { animation: para 2s ease-out infinite; }
+		@keyframes z { 0% { opacity: 0; } 2%, 11% { opacity: 1; } 13.5%, 100% { opacity: 0; } }
+		@keyframes zare { 0%, 86% { opacity: 0.15; } 89%, 100% { opacity: 0.6; } }
+		@keyframes otac { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+		@keyframes para { 0% { transform: translate(-4px, 4px); opacity: 0.2; } 100% { transform: translate(0, 0); opacity: 1; } }
+		@media (prefers-reduced-motion: reduce) {
+			.z, .zare, .otac, .para { animation: none; }
+		}
+	</style>
+	<rect x="0" y="1740" width="460" height="972" fill="#f3f1ea" />
+	<g id="panel-4">
+	<!-- ===== Panel 4: Energie nezmizí ===== -->
+	<rect x="26" y="1756" width="420" height="946" rx="10" fill="#2b2a26" />
+	<rect x="20" y="1750" width="420" height="946" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="52" cy="1784" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="52" y="1791" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">4</text>
+	<text x="80" y="1793" font-size="28" font-weight="bold" fill="#2b2a26">Energie nezmizí</text>
+	<rect x="36" y="1812" width="388" height="80" rx="10" fill="#fff5f5" stroke="#c92a2a" stroke-width="2.5" />
+	<text x="230" y="1845" text-anchor="middle" font-size="21" fill="#2b2a26">Energii nelze <tspan font-weight="bold" fill="#c92a2a">vytvořit</tspan> ani <tspan font-weight="bold" fill="#c92a2a">zničit</tspan>,</text>
+	<text x="230" y="1875" text-anchor="middle" font-size="21" fill="#2b2a26">jen se <tspan font-weight="bold" fill="#c92a2a">přeměňuje</tspan> v jiný druh.</text>
+	<text x="40" y="1926" font-size="21" font-weight="bold" fill="#2b2a26">Cesta energie od Slunce k žárovce:</text>
+
+	<!-- rozsvěcované řádky (postupně 1 s každý) -->
+	<rect class="z" opacity="0" x="30" y="1940" width="400" height="84" rx="10" fill="#ffe066" />
+	<rect class="z z1" opacity="0" x="30" y="2028" width="400" height="84" rx="10" fill="#ffe066" />
+	<rect class="z z2" opacity="0" x="30" y="2116" width="400" height="84" rx="10" fill="#ffe066" />
+	<rect class="z z3" opacity="0" x="30" y="2204" width="400" height="84" rx="10" fill="#ffe066" />
+	<rect class="z z4" opacity="0" x="30" y="2292" width="400" height="84" rx="10" fill="#ffe066" />
+	<rect class="z z5" opacity="0" x="30" y="2380" width="400" height="84" rx="10" fill="#ffe066" />
+	<rect class="z z6" opacity="0" x="30" y="2468" width="400" height="84" rx="10" fill="#ffe066" />
+	<rect class="z z7" opacity="0" x="30" y="2556" width="400" height="84" rx="10" fill="#ffe066" />
+
+	<!-- rámečky ikon -->
+	<g fill="#ffffff" stroke="#2b2a26" stroke-width="2">
+		<rect x="44" y="1946" width="92" height="72" rx="8" />
+		<rect x="44" y="2034" width="92" height="72" rx="8" />
+		<rect x="44" y="2122" width="92" height="72" rx="8" />
+		<rect x="44" y="2210" width="92" height="72" rx="8" />
+		<rect x="44" y="2298" width="92" height="72" rx="8" />
+		<rect x="44" y="2386" width="92" height="72" rx="8" />
+		<rect x="44" y="2474" width="92" height="72" rx="8" />
+		<rect x="44" y="2562" width="92" height="72" rx="8" />
+	</g>
+	<!-- šipky mezi řádky -->
+	<g stroke="#2b2a26" stroke-width="3">
+		<line x1="90" y1="2020" x2="90" y2="2026" /><line x1="90" y1="2108" x2="90" y2="2114" />
+		<line x1="90" y1="2196" x2="90" y2="2202" /><line x1="90" y1="2284" x2="90" y2="2290" />
+		<line x1="90" y1="2372" x2="90" y2="2378" /><line x1="90" y1="2460" x2="90" y2="2466" />
+		<line x1="90" y1="2548" x2="90" y2="2554" />
+	</g>
+	<g fill="#2b2a26">
+		<polygon points="84,2026 96,2026 90,2032" /><polygon points="84,2114 96,2114 90,2120" />
+		<polygon points="84,2202 96,2202 90,2208" /><polygon points="84,2290 96,2290 90,2296" />
+		<polygon points="84,2378 96,2378 90,2384" /><polygon points="84,2466 96,2466 90,2472" />
+		<polygon points="84,2554 96,2554 90,2560" />
+	</g>
+
+	<!-- 0 Slunce: jaderná energie v jádru -->
+	<g stroke="#f59f00" stroke-width="3" stroke-linecap="round">
+		<line x1="112" y1="1982" x2="120" y2="1982" /><line x1="105.6" y1="1997.6" x2="111.2" y2="2003.2" />
+		<line x1="90" y1="2004" x2="90" y2="2012" /><line x1="74.4" y1="1997.6" x2="68.8" y2="2003.2" />
+		<line x1="68" y1="1982" x2="60" y2="1982" /><line x1="74.4" y1="1966.4" x2="68.8" y2="1960.8" />
+		<line x1="90" y1="1960" x2="90" y2="1952" /><line x1="105.6" y1="1966.4" x2="111.2" y2="1960.8" />
+	</g>
+	<circle cx="90" cy="1982" r="18" fill="#ffd43b" stroke="#e67700" stroke-width="2" />
+	<circle cx="90" cy="1982" r="7" fill="#e8590c" />
+	<text x="152" y="1977" font-size="22" font-weight="bold" fill="#2b2a26">jaderná energie</text>
+	<text x="152" y="2005" font-size="21" fill="#495057">v jádru Slunce</text>
+
+	<!-- 1 světelná: paprsky ze Slunce -->
+	<circle cx="64" cy="2052" r="10" fill="#ffd43b" stroke="#e67700" stroke-width="2" />
+	<g stroke="#fab005" stroke-width="3" stroke-linecap="round" stroke-dasharray="7 5">
+		<line x1="76" y1="2060" x2="124" y2="2096" />
+		<line x1="78" y1="2050" x2="126" y2="2074" />
+		<line x1="70" y1="2064" x2="100" y2="2100" />
+	</g>
+	<text x="152" y="2065" font-size="22" font-weight="bold" fill="#2b2a26">světelná energie</text>
+	<text x="152" y="2093" font-size="21" fill="#495057">světlo ze Slunce</text>
+
+	<!-- 2 rostliny -->
+	<rect x="48" y="2182" width="84" height="6" fill="#8d5a2b" />
+	<rect x="86" y="2154" width="8" height="28" fill="#8d5a2b" stroke="#2b2a26" stroke-width="1" />
+	<circle cx="76" cy="2154" r="11" fill="#40c057" stroke="#2b8a3e" stroke-width="2" />
+	<circle cx="104" cy="2154" r="11" fill="#40c057" stroke="#2b8a3e" stroke-width="2" />
+	<circle cx="90" cy="2144" r="15" fill="#40c057" stroke="#2b8a3e" stroke-width="2" />
+	<path d="M 60 2182 Q 56 2170 52 2166 M 62 2182 Q 64 2168 68 2164 M 118 2182 Q 122 2170 128 2166" fill="none" stroke="#2b8a3e" stroke-width="2.5" stroke-linecap="round" />
+	<text x="152" y="2153" font-size="22" font-weight="bold" fill="#2b2a26">chemická energie</text>
+	<text x="152" y="2181" font-size="21" fill="#495057">uloží ji rostliny</text>
+
+	<!-- 3 uhlí -->
+	<rect x="48" y="2272" width="84" height="3" fill="#adb5bd" />
+	<path d="M 52 2272 L 62 2254 L 74 2250 L 82 2236 L 96 2230 L 108 2238 L 118 2246 L 128 2272 Z" fill="#343a40" stroke="#000000" stroke-width="1.5" />
+	<path d="M 82 2236 L 88 2254 M 96 2230 L 100 2248 M 118 2246 L 110 2262 M 74 2250 L 70 2264" fill="none" stroke="#868e96" stroke-width="2" />
+	<text x="152" y="2241" font-size="22" font-weight="bold" fill="#2b2a26">chemická energie</text>
+	<text x="152" y="2269" font-size="21" fill="#495057">v uhlí z rostlin</text>
+
+	<!-- 4 kotel: uhlí hoří, pára se zahřeje -->
+	<rect x="48" y="2364" width="84" height="3" fill="#adb5bd" />
+	<line x1="68" y1="2344" x2="68" y2="2364" stroke="#2b2a26" stroke-width="3" />
+	<line x1="112" y1="2344" x2="112" y2="2364" stroke="#2b2a26" stroke-width="3" />
+	<path d="M 78 2364 Q 74 2356 82 2348 Q 83 2355 88 2352 Q 87 2346 92 2346 Q 98 2352 96 2358 Q 100 2356 102 2350 Q 108 2358 102 2364 Z" fill="#fd7e14" stroke="#e8590c" stroke-width="1.5" />
+	<rect x="62" y="2316" width="56" height="28" rx="6" fill="#868e96" stroke="#2b2a26" stroke-width="2" />
+	<rect x="86" y="2306" width="8" height="10" fill="#868e96" stroke="#2b2a26" stroke-width="1.5" />
+	<g class="para">
+		<circle cx="100" cy="2307" r="5" fill="#e9ecef" stroke="#adb5bd" stroke-width="1.5" />
+		<circle cx="109" cy="2304" r="4" fill="#e9ecef" stroke="#adb5bd" stroke-width="1.5" />
+	</g>
+	<text x="152" y="2329" font-size="22" font-weight="bold" fill="#2b2a26">tepelná energie</text>
+	<text x="152" y="2357" font-size="21" fill="#495057">zahřáté páry</text>
+
+	<!-- 5 turbína: pára se pohybuje a roztáčí kolo -->
+	<rect x="48" y="2450" width="84" height="3" fill="#adb5bd" />
+	<rect x="96" y="2420" width="8" height="30" fill="#868e96" stroke="#2b2a26" stroke-width="1.5" />
+	<rect x="46" y="2398" width="28" height="10" fill="#868e96" stroke="#2b2a26" stroke-width="1.5" />
+	<g stroke="#adb5bd" stroke-width="3" stroke-linecap="round" stroke-dasharray="4 3">
+		<line x1="76" y1="2401" x2="90" y2="2405" />
+		<line x1="76" y1="2406" x2="86" y2="2410" />
+	</g>
+	<g class="otac">
+		<circle cx="100" cy="2420" r="20" fill="none" stroke="#495057" stroke-width="2" />
+		<g stroke="#495057" stroke-width="5">
+			<line x1="105" y1="2420" x2="119" y2="2420" /><line x1="103.5" y1="2423.5" x2="113.4" y2="2433.4" />
+			<line x1="100" y1="2425" x2="100" y2="2439" /><line x1="96.5" y1="2423.5" x2="86.6" y2="2433.4" />
+			<line x1="95" y1="2420" x2="81" y2="2420" /><line x1="96.5" y1="2416.5" x2="86.6" y2="2406.6" />
+			<line x1="100" y1="2415" x2="100" y2="2401" /><line x1="103.5" y1="2416.5" x2="113.4" y2="2406.6" />
+		</g>
+		<circle cx="100" cy="2420" r="5" fill="#2b2a26" />
+	</g>
+	<text x="152" y="2417" font-size="22" font-weight="bold" fill="#2b2a26">pohybová energie</text>
+	<text x="152" y="2445" font-size="21" fill="#495057">pára se pohybuje</text>
+
+	<!-- 6 stožáry a dráty -->
+	<rect x="46" y="2536" width="88" height="3" fill="#adb5bd" />
+	<g fill="none" stroke="#495057" stroke-width="2.5">
+		<polyline points="52,2536 60,2490 68,2536" /><line x1="50" y1="2498" x2="70" y2="2498" /><line x1="55" y1="2520" x2="65" y2="2520" />
+		<polyline points="112,2536 120,2490 128,2536" /><line x1="110" y1="2498" x2="130" y2="2498" /><line x1="115" y1="2520" x2="125" y2="2520" />
+	</g>
+	<path d="M 70 2498 Q 90 2508 110 2498 M 46 2500 Q 48 2499 50 2498 M 130 2498 Q 132 2499 134 2500" fill="none" stroke="#2b2a26" stroke-width="1.5" />
+	<text x="152" y="2505" font-size="22" font-weight="bold" fill="#2b2a26">elektrická energie</text>
+	<text x="152" y="2533" font-size="21" fill="#495057">vedou ji dráty</text>
+
+	<!-- 7 žárovka: světlo a teplo -->
+	<circle class="zare" opacity="0.6" cx="90" cy="2584" r="21" fill="#ffd43b" />
+	<rect x="52" y="2628" width="76" height="3" fill="#adb5bd" />
+	<rect x="72" y="2620" width="36" height="8" rx="2" fill="#495057" stroke="#2b2a26" stroke-width="1.5" />
+	<rect x="83" y="2600" width="14" height="20" fill="#adb5bd" stroke="#2b2a26" stroke-width="1.5" />
+	<line x1="83" y1="2606" x2="97" y2="2606" stroke="#495057" stroke-width="1.5" />
+	<line x1="83" y1="2612" x2="97" y2="2612" stroke="#495057" stroke-width="1.5" />
+	<rect x="84" y="2594" width="12" height="7" fill="#fff3bf" stroke="#2b2a26" stroke-width="1.5" />
+	<circle cx="90" cy="2584" r="14" fill="#fff3bf" stroke="#2b2a26" stroke-width="2" />
+	<!-- vlákno: dva přívodní drátky a stočená spirála mezi nimi -->
+	<path d="M 86 2595 L 86 2585 M 94 2595 L 94 2585" fill="none" stroke="#495057" stroke-width="1.2" />
+	<path d="M 86 2585 q 1 -4 2 0 q 1 -4 2 0 q 1 -4 2 0 q 1 -4 2 0" fill="none" stroke="#e8590c" stroke-width="1.5" />
+	<path d="M 120 2596 q 4 -5 0 -10 q -4 -5 0 -10 M 128 2598 q 4 -5 0 -10 q -4 -5 0 -10" fill="none" stroke="#e8590c" stroke-width="2.5" stroke-linecap="round" />
+	<line x1="62" y1="2576" x2="55" y2="2572" stroke="#fab005" stroke-width="3" stroke-linecap="round" />
+	<line x1="60" y1="2588" x2="52" y2="2588" stroke="#fab005" stroke-width="3" stroke-linecap="round" />
+	<text x="152" y="2593" font-size="22" font-weight="bold" fill="#2b2a26">světlo a teplo</text>
+	<text x="152" y="2621" font-size="21" fill="#495057">v žárovce</text>
+
+	<text x="230" y="2672" text-anchor="middle" font-size="21" fill="#2b2a26">Energie mění podobu, ale <tspan font-weight="bold">nezmizí</tspan>.</text>
+
+	</g>
+</svg>

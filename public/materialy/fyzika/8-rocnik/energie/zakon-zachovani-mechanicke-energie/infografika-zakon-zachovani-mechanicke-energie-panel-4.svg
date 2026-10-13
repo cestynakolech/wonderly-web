@@ -1,0 +1,79 @@
+<svg viewBox="0 1422 460 451" width="460" height="451" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Přenos mezi tělesy: luk, Ep pružnosti tětivy se mění na Ek šípu; kulečník, koule předá druhé část své Ek." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Zákon zachování mechanické energie 4/5: Přenos mezi tělesy</title>
+	<!-- Panel 4/5 výřezu z infografika-zakon-zachovani-mechanicke-energie.svg (souřadnice beze změny, jen viewBox). -->
+	<style>
+		.sip { animation: sip 5s infinite; }
+		.tet1 { animation: tet1 5s infinite; }
+		.tet2 { animation: tet2 5s infinite; }
+		.bila { animation: bila 5s infinite; }
+		.zluta { animation: zluta 5s infinite; }
+		@keyframes sip { 0% { transform: translateX(-230px); opacity: 0; } 4% { opacity: 1; } 20% { transform: translateX(-230px); animation-timing-function: linear; } 32% { transform: translateX(0); } 92% { opacity: 1; } 100% { transform: translateX(0); opacity: 0; } }
+		@keyframes tet1 { 0% { opacity: 0; animation-timing-function: linear; } 4% { opacity: 1; animation-timing-function: step-end; } 20%, 100% { opacity: 0; } }
+		@keyframes tet2 { 0% { opacity: 1; animation-timing-function: linear; } 4% { opacity: 0; animation-timing-function: step-end; } 20%, 100% { opacity: 1; } }
+		@keyframes bila { 0% { transform: translateX(-134px); animation-timing-function: linear; opacity: 0; } 4% { opacity: 1; } 20% { transform: translateX(-28px); animation-timing-function: cubic-bezier(0.3, 0.45, 0.6, 1); } 60% { transform: translateX(0); } 92% { opacity: 1; } 100% { transform: translateX(0); opacity: 0; } }
+		@keyframes zluta { 0% { transform: translateX(-112px); opacity: 0; } 4% { opacity: 1; } 20% { transform: translateX(-112px); animation-timing-function: cubic-bezier(0.3, 0.45, 0.6, 1); } 60% { transform: translateX(0); } 92% { opacity: 1; } 100% { transform: translateX(0); opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) {
+			.sip, .tet1, .tet2, .bila, .zluta { animation: none; }
+		}
+	</style>
+	<rect x="0" y="1422" width="460" height="451" fill="#f3f1ea" />
+	<g id="panel-4" transform="translate(0,1432)">
+		<rect x="26" y="6" width="420" height="425" rx="10" fill="#2b2a26" />
+		<rect x="20" y="0" width="420" height="425" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="34" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="41" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">4</text>
+		<text x="80" y="43" font-size="28" font-weight="bold" fill="#2b2a26">Přenos mezi tělesy</text>
+		<text x="40" y="80" font-size="22" font-weight="bold" fill="#2b2a26">Luk</text>
+
+		<rect x="34" y="215" width="392" height="8" fill="#c9a77c" stroke="#2b2a26" stroke-width="1.5" />
+		<!-- terč na stojanu -->
+		<line x1="386" y1="215" x2="398" y2="170" stroke="#8d5a2b" stroke-width="5" stroke-linecap="round" />
+		<line x1="414" y1="215" x2="402" y2="170" stroke="#8d5a2b" stroke-width="5" stroke-linecap="round" />
+		<circle cx="400" cy="150" r="32" fill="#fff" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="400" cy="150" r="22" fill="#2b2a26" />
+		<circle cx="400" cy="150" r="11" fill="#fab005" />
+		<!-- lukostřelec -->
+		<line x1="58" y1="213" x2="60" y2="176" stroke="#495057" stroke-width="7" stroke-linecap="round" />
+		<line x1="72" y1="213" x2="68" y2="176" stroke="#495057" stroke-width="7" stroke-linecap="round" />
+		<rect x="52" y="212" width="10" height="4" rx="1" fill="#2b2a26" />
+		<rect x="68" y="212" width="11" height="4" rx="1" fill="#2b2a26" />
+		<rect x="53" y="132" width="22" height="46" rx="6" fill="#a5673f" stroke="#2b2a26" stroke-width="1.5" />
+		<polyline points="58,138 72,152 84,145" fill="none" stroke="#a5673f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+		<line x1="70" y1="138" x2="120" y2="145" stroke="#a5673f" stroke-width="6" stroke-linecap="round" />
+		<circle cx="64" cy="120" r="11" fill="#f1c27d" stroke="#2b2a26" stroke-width="1.5" />
+		<path d="M 53 118 Q 54 106 64 108 Q 75 107 75 116 Q 66 112 53 118 Z" fill="#5c3d1e" />
+		<!-- luk (nehybný v ruce) a tětiva: napnutá / po výstřelu -->
+		<path d="M 106 100 Q 140 145 106 190" fill="none" stroke="#8d5a2b" stroke-width="5" stroke-linecap="round" />
+		<path class="tet1" d="M 106 100 L 84 145 L 106 190" fill="none" stroke="#2b2a26" stroke-width="2" opacity="0" />
+		<path class="tet2" d="M 106 100 L 106 190" fill="none" stroke="#2b2a26" stroke-width="2" />
+		<circle cx="121" cy="145" r="4" fill="#f1c27d" stroke="#2b2a26" stroke-width="1" />
+		<circle cx="84" cy="145" r="4" fill="#f1c27d" stroke="#2b2a26" stroke-width="1" />
+		<!-- šíp: nativně zabodnutý v terči -->
+		<g class="sip">
+			<line x1="312" y1="145" x2="384" y2="145" stroke="#6b4423" stroke-width="3" />
+			<polygon points="394,145 382,139 382,151" fill="#495057" />
+			<polygon points="312,145 322,145 316,137 306,137" fill="#e8590c" />
+			<polygon points="312,145 322,145 316,153 306,153" fill="#e8590c" />
+		</g>
+		<text x="230" y="252" text-anchor="middle" font-size="21" fill="#2b2a26"><tspan fill="#1971c2" font-weight="bold">E<tspan font-size="18" dy="5">p</tspan></tspan><tspan dy="-5"> pružnosti tětivy → </tspan><tspan fill="#c92a2a" font-weight="bold">E<tspan font-size="18" dy="5">k</tspan></tspan><tspan dy="-5"> šípu</tspan></text>
+
+		<text x="40" y="288" font-size="22" font-weight="bold" fill="#2b2a26">Kulečník</text>
+		<text x="40" y="314" font-size="21" fill="#2b2a26">koule předá druhé část své <tspan fill="#c92a2a" font-weight="bold">E<tspan font-size="18" dy="5">k</tspan></tspan></text>
+		<!-- stůl z boku: koule leží na suknu (sukno nahoře y = 352, koule r 12 se středem 340) -->
+		<rect x="40" y="342" width="10" height="16" fill="#8d5a2b" stroke="#2b2a26" stroke-width="1.5" />
+		<rect x="410" y="342" width="10" height="16" fill="#8d5a2b" stroke="#2b2a26" stroke-width="1.5" />
+		<rect x="50" y="352" width="360" height="6" fill="#2b8a3e" />
+		<rect x="40" y="358" width="380" height="16" fill="#8d5a2b" stroke="#2b2a26" stroke-width="1.5" />
+		<rect x="62" y="374" width="14" height="36" fill="#6b4423" stroke="#2b2a26" stroke-width="1.5" />
+		<rect x="384" y="374" width="14" height="36" fill="#6b4423" stroke="#2b2a26" stroke-width="1.5" />
+		<rect x="34" y="410" width="392" height="6" fill="#c9a77c" stroke="#2b2a26" stroke-width="1.5" />
+		<g class="zluta">
+			<circle cx="322" cy="340" r="12" fill="#fab005" stroke="#2b2a26" stroke-width="2" />
+			<circle cx="318" cy="336" r="3" fill="#fff" />
+		</g>
+		<g class="bila">
+			<circle cx="214" cy="340" r="12" fill="#fff" stroke="#2b2a26" stroke-width="2" />
+			<circle cx="210" cy="336" r="3" fill="#dee2e6" />
+		</g>
+	</g>
+</svg>

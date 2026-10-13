@@ -1,0 +1,70 @@
+<svg viewBox="0 150 460 446" width="460" height="446" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Co je energie: schopnost tělesa konat práci, energie je uložená práce. Napnutá tětiva luku má energii a vykoná práci: vystřelí šíp do terče." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Energie a její přeměny 1/5: Co je energie</title>
+	<!-- Panel 1/5 výřezu z infografika-energie-a-jeji-premeny.svg (souřadnice beze změny, jen viewBox). -->
+	<style>
+		.sip { animation: sip 4s linear infinite; }
+		.tet-n { animation: tetn 4s step-end infinite; }
+		.tet-r { animation: tetr 4s step-end infinite; }
+		@keyframes sip { 0%, 40% { transform: translateX(-212px); } 50%, 100% { transform: translateX(0); } }
+		@keyframes tetn { 0% { opacity: 1; } 40%, 100% { opacity: 0; } }
+		@keyframes tetr { 0% { opacity: 0; } 40%, 100% { opacity: 1; } }
+		@media (prefers-reduced-motion: reduce) {
+			.sip, .tet-n, .tet-r { animation: none; }
+		}
+	</style>
+	<rect x="0" y="150" width="460" height="446" fill="#f3f1ea" />
+	<g id="panel-1">
+	<!-- ===== Panel 1: Co je energie (luk) ===== -->
+	<rect x="26" y="166" width="420" height="420" rx="10" fill="#2b2a26" />
+	<rect x="20" y="160" width="420" height="420" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="52" cy="194" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="52" y="201" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+	<text x="80" y="203" font-size="28" font-weight="bold" fill="#2b2a26">Co je energie</text>
+	<circle cx="44" cy="240" r="4" fill="#2b2a26" />
+	<text x="56" y="247" font-size="21" fill="#2b2a26">schopnost tělesa <tspan font-weight="bold">konat práci</tspan></text>
+	<circle cx="44" cy="274" r="4" fill="#2b2a26" />
+	<text x="56" y="281" font-size="21" fill="#2b2a26">energie je <tspan font-weight="bold">uložená práce</tspan></text>
+
+	<!-- tráva -->
+	<rect x="34" y="490" width="392" height="14" fill="#8ce99a" stroke="#2b2a26" stroke-width="2" />
+	<path d="M 50 490 l 3 -7 l 2 7 M 170 490 l 3 -7 l 2 7 M 240 490 l 3 -7 l 2 7 M 330 490 l 3 -7 l 2 7" fill="none" stroke="#2b8a3e" stroke-width="2" />
+	<!-- terč na trojnožce (stojany pod terčem) -->
+	<line x1="395" y1="430" x2="377" y2="489" stroke="#8d5a2b" stroke-width="5" stroke-linecap="round" />
+	<line x1="395" y1="430" x2="413" y2="489" stroke="#8d5a2b" stroke-width="5" stroke-linecap="round" />
+	<!-- šíp: v klidu leží na tětivě u ruky, po povolení letí a zapíchne se do terče -->
+	<g class="sip">
+		<line x1="312" y1="385" x2="388" y2="385" stroke="#8d5a2b" stroke-width="3" />
+		<polygon points="306,377 315,377 324,385 315,385" fill="#e03131" stroke="#a61e1e" stroke-width="1" />
+		<polygon points="306,393 315,393 324,385 315,385" fill="#e03131" stroke="#a61e1e" stroke-width="1" />
+		<polygon points="386,379 398,385 386,391" fill="#495057" />
+	</g>
+	<ellipse cx="395" cy="400" rx="14" ry="50" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+	<ellipse cx="395" cy="400" rx="10" ry="36" fill="#e03131" />
+	<ellipse cx="395" cy="400" rx="6" ry="22" fill="#ffffff" />
+	<ellipse cx="395" cy="400" rx="3" ry="10" fill="#fab005" />
+	<!-- lukostřelec -->
+	<line x1="76" y1="432" x2="70" y2="485" stroke="#495057" stroke-width="9" stroke-linecap="round" />
+	<line x1="84" y1="432" x2="94" y2="485" stroke="#495057" stroke-width="9" stroke-linecap="round" />
+	<ellipse cx="73" cy="487" rx="9" ry="4" fill="#2b2a26" />
+	<ellipse cx="98" cy="487" rx="9" ry="4" fill="#2b2a26" />
+	<rect x="77" y="374" width="6" height="9" fill="#f1c27d" />
+	<rect x="70" y="380" width="20" height="56" rx="7" fill="#74c0fc" stroke="#2b2a26" stroke-width="2" />
+	<line x1="84" y1="391" x2="138" y2="390" stroke="#2b2a26" stroke-width="10" stroke-linecap="round" />
+	<line x1="84" y1="391" x2="138" y2="390" stroke="#f1c27d" stroke-width="6" stroke-linecap="round" />
+	<circle cx="80" cy="364" r="13" fill="#f1c27d" stroke="#2b2a26" stroke-width="2" />
+	<path d="M 67 362 Q 68 348 81 349 Q 92 350 93 360 Q 84 355 67 362 Z" fill="#5c3d1e" />
+	<circle cx="86" cy="364" r="1.8" fill="#2b2a26" />
+	<!-- luk a tětiva -->
+	<path d="M 124 340 Q 160 390 124 440" fill="none" stroke="#8d5a2b" stroke-width="5" stroke-linecap="round" />
+	<line class="tet-r" x1="124" y1="340" x2="124" y2="440" stroke="#495057" stroke-width="2" />
+	<polyline class="tet-n" opacity="0" points="124,340 98,385 124,440" fill="none" stroke="#495057" stroke-width="2" />
+	<circle cx="141" cy="390" r="6" fill="#f1c27d" stroke="#2b2a26" stroke-width="2" />
+	<!-- ruka, která natahuje tětivu (zůstává u brady) -->
+	<polyline points="80,394 61,388 96,384" fill="none" stroke="#2b2a26" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+	<polyline points="80,394 61,388 96,384" fill="none" stroke="#f1c27d" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+	<circle cx="99" cy="384" r="6" fill="#f1c27d" stroke="#2b2a26" stroke-width="2" />
+	<text x="40" y="530" font-size="21" fill="#2b2a26"><tspan font-weight="bold">napnutá tětiva</tspan> má energii</text>
+	<text x="40" y="560" font-size="21" fill="#2b2a26">→ vykoná práci: <tspan font-weight="bold">vystřelí šíp</tspan></text>
+
+	</g>
+</svg>

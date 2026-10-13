@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="220" viewBox="0 322 420 220" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Vzorec účinnosti: η = P : P₀, účinnost = výkon : příkon. P i P₀ ve stejné jednotce, např. W. Na procenta: η · 100 (0,75 = 75 %). η je vždy menší než 100 %.">
+<title>Účinnost 2/4: Vzorec účinnosti</title>
+<!-- Panel 2/4 výřezu z infografika-ucinnost.svg (souřadnice beze změny, jen viewBox). Blok nemá animaci. -->
+
+<rect x="0" y="322" width="420" height="220" fill="#f8f9fa" />
+
+<!-- B: Vzorec -->
+<g id="uci-vzorec">
+	<rect x="10" y="332" width="400" height="200" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+	<text x="24" y="361" font-size="21" font-weight="bold" fill="#2b2a26">Vzorec účinnosti</text>
+	<text x="210" y="407" text-anchor="middle" font-size="36" font-weight="bold" fill="#2b2a26">η = <tspan fill="#1e7031">P</tspan> : <tspan fill="#b5400a">P<tspan font-size="24" dy="8">0</tspan></tspan></text>
+	<text x="210" y="438" text-anchor="middle" font-size="19" fill="#2b2a26">účinnost = výkon : příkon</text>
+	<text x="24" y="467" font-size="19" fill="#2b2a26">P i P<tspan font-size="17" dy="6">0</tspan><tspan dy="-6" dx="5">ve stejné jednotce, např. W</tspan></text>
+	<text x="24" y="494" font-size="19" fill="#2b2a26">na procenta: η · 100 (0,75 = 75 %)</text>
+	<text x="24" y="521" font-size="19" font-weight="bold" fill="#c92a2a">η je vždy menší než 100 %</text>
+</g>
+</svg>

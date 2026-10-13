@@ -1,0 +1,87 @@
+<svg viewBox="0 130 460 498" width="460" height="498" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Z čeho jsou tělesa: skládají se z částic (atomů a molekul), částice se neustále pohybují, působí mezi nimi přitažlivé a odpudivé síly. V pevné látce kmitají, v kapalině kloužou, v plynu létají volně." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Vnitřní energie tělesa 1/7: Z čeho jsou tělesa</title>
+	<!-- Panel 1/7 výřezu z infografika-vnitrni-energie-telesa.svg (souřadnice beze změny, jen viewBox). -->
+	<style>
+		.k1, .k2, .k3 { animation: kmit 0.9s linear infinite; }
+		.k2 { animation-delay: -0.3s; }
+		.k3 { animation-delay: -0.6s; }
+		.r1 { animation: klouz1 2.4s ease-in-out infinite; }
+		.r2 { animation: klouz2 2.4s ease-in-out infinite; }
+		.g1 { animation: g1 6s linear infinite; }
+		.g2 { animation: g2 6s linear infinite; }
+		.g3 { animation: g3 6s linear infinite; }
+		.g4 { animation: g4 6s linear infinite; }
+		@keyframes kmit { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(3px, -2px); } 50% { transform: translate(-2px, 3px); } 75% { transform: translate(-3px, -2px); } }
+		@keyframes klouz1 { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(6px); } 75% { transform: translateX(-6px); } }
+		@keyframes klouz2 { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+		@keyframes g1 { 0%, 100% { transform: translate(0, 0); } 6.1% { transform: translate(-35px, -6px); } 22.2% { transform: translate(59px, -6px); } 34.2% { transform: translate(59px, -76px); } 43.2% { transform: translate(7px, -86px); } 58.4% { transform: translate(28px, 0px); } 73.7% { transform: translate(52px, -86px); } 90.1% { transform: translate(-35px, -46px); } }
+		@keyframes g2 { 0%, 100% { transform: translate(0, 0); } 9.2% { transform: translate(0px, -53.6px); } 18.2% { transform: translate(-52px, -63.6px); } 33.4% { transform: translate(-31px, 22.4px); } 48.7% { transform: translate(-7px, -63.6px); } 65.1% { transform: translate(-94px, -23.6px); } 75% { transform: translate(-59px, 22.4px); } 81.1% { transform: translate(-94px, 16.4px); } 97.2% { transform: translate(0px, 16.4px); } }
+		@keyframes g3 { 0%, 100% { transform: translate(0, 0); } 8.4% { transform: translate(11.6px, 47.7px); } 23.7% { transform: translate(35.6px, -38.3px); } 40.1% { transform: translate(-51.4px, 1.7px); } 50% { transform: translate(-16.4px, 47.7px); } 56.1% { transform: translate(-51.4px, 41.7px); } 72.2% { transform: translate(42.6px, 41.7px); } 84.2% { transform: translate(42.6px, -28.3px); } 93.2% { transform: translate(-9.4px, -38.3px); } }
+		@keyframes g4 { 0%, 100% { transform: translate(0, 0); } 15.1% { transform: translate(-80.1px, 36.8px); } 25% { transform: translate(-45.1px, 82.8px); } 31.1% { transform: translate(-80.1px, 76.8px); } 47.2% { transform: translate(13.9px, 76.8px); } 59.2% { transform: translate(13.9px, 6.8px); } 68.2% { transform: translate(-38.1px, -3.2px); } 83.4% { transform: translate(-17.1px, 82.8px); } 98.7% { transform: translate(6.9px, -3.2px); } }
+		@media (prefers-reduced-motion: reduce) {
+			.k1, .k2, .k3, .r1, .r2, .g1, .g2, .g3, .g4 { animation: none; }
+		}
+	</style>
+	<rect x="0" y="130" width="460" height="498" fill="#f3f1ea" />
+	<g id="panel-1" transform="translate(0,140)">
+		<rect x="26" y="6" width="420" height="472" rx="10" fill="#2b2a26" />
+		<rect x="20" y="0" width="420" height="472" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="34" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="41" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+		<text x="80" y="43" font-size="28" font-weight="bold" fill="#2b2a26">Z čeho jsou tělesa</text>
+
+		<circle cx="44" cy="73" r="4" fill="#2b2a26" />
+		<text x="56" y="80" font-size="21" fill="#2b2a26">skládají se z <tspan font-weight="bold">částic</tspan></text>
+		<text x="56" y="108" font-size="21" fill="#2b2a26">(atomů a molekul)</text>
+		<circle cx="44" cy="133" r="4" fill="#2b2a26" />
+		<text x="56" y="140" font-size="21" fill="#2b2a26">částice se <tspan font-weight="bold">neustále</tspan> pohybují</text>
+		<circle cx="44" cy="165" r="4" fill="#2b2a26" />
+		<text x="56" y="172" font-size="21" fill="#2b2a26">působí mezi nimi <tspan font-weight="bold">přitažlivé</tspan></text>
+		<text x="56" y="200" font-size="21" fill="#2b2a26">a <tspan font-weight="bold">odpudivé</tspan> síly</text>
+
+		<!-- deska laboratorního stolu -->
+		<rect x="34" y="380" width="392" height="14" fill="#c9a77c" stroke="#2b2a26" stroke-width="2" />
+		<line x1="60" y1="387" x2="110" y2="387" stroke="#8d5a2b" stroke-width="2" />
+		<line x1="250" y1="388" x2="320" y2="388" stroke="#8d5a2b" stroke-width="2" />
+
+		<!-- pevná látka: kostka s krystalovou mřížkou -->
+		<rect x="48" y="278" width="102" height="102" rx="3" fill="#e9ecef" stroke="#2b2a26" stroke-width="2.5" />
+		<g stroke="#868e96" stroke-width="2">
+			<line x1="69" y1="299" x2="129" y2="299" /><line x1="69" y1="329" x2="129" y2="329" /><line x1="69" y1="359" x2="129" y2="359" />
+			<line x1="69" y1="299" x2="69" y2="359" /><line x1="99" y1="299" x2="99" y2="359" /><line x1="129" y1="299" x2="129" y2="359" />
+		</g>
+		<g fill="#0c8599" stroke="#2b2a26" stroke-width="1.5">
+			<circle class="k1" cx="69" cy="299" r="9" /><circle class="k2" cx="99" cy="299" r="9" /><circle class="k3" cx="129" cy="299" r="9" />
+			<circle class="k2" cx="69" cy="329" r="9" /><circle class="k3" cx="99" cy="329" r="9" /><circle class="k1" cx="129" cy="329" r="9" />
+			<circle class="k3" cx="69" cy="359" r="9" /><circle class="k1" cx="99" cy="359" r="9" /><circle class="k2" cx="129" cy="359" r="9" />
+		</g>
+
+		<!-- kapalina: kádinka s vodou -->
+		<path d="M 168 270 L 172 274 L 172 380 L 288 380 L 288 274 L 292 270" fill="none" stroke="#495057" stroke-width="2.5" stroke-linejoin="round" />
+		<rect x="173.5" y="312" width="113" height="66.5" fill="#a5d8ff" />
+		<line x1="173.5" y1="312" x2="286.5" y2="312" stroke="#1864ab" stroke-width="2" />
+		<g fill="#0c8599" stroke="#2b2a26" stroke-width="1.5">
+			<g class="r1"><circle cx="194" cy="326" r="9" /><circle cx="213" cy="326" r="9" /><circle cx="232" cy="326" r="9" /><circle cx="251" cy="326" r="9" /><circle cx="270" cy="326" r="9" /></g>
+			<g class="r2"><circle cx="203" cy="346" r="9" /><circle cx="222" cy="346" r="9" /><circle cx="241" cy="346" r="9" /><circle cx="260" cy="346" r="9" /></g>
+			<g class="r1"><circle cx="194" cy="366" r="9" /><circle cx="213" cy="366" r="9" /><circle cx="232" cy="366" r="9" /><circle cx="251" cy="366" r="9" /><circle cx="270" cy="366" r="9" /></g>
+		</g>
+		<path d="M 168 270 L 172 274 L 172 380 L 288 380 L 288 274 L 292 270" fill="none" stroke="#495057" stroke-width="2.5" stroke-linejoin="round" />
+
+		<!-- plyn: uzavřená nádoba s víkem -->
+		<rect x="300" y="272" width="116" height="108" rx="4" fill="#f1f3f5" stroke="#495057" stroke-width="2.5" />
+		<rect x="296" y="262" width="124" height="10" rx="3" fill="#868e96" stroke="#2b2a26" stroke-width="2" />
+		<g fill="#0c8599" stroke="#2b2a26" stroke-width="1.5">
+			<circle class="g1" cx="346" cy="369" r="9" />
+			<circle class="g2" cx="405" cy="346.6" r="9" />
+			<circle class="g3" cx="362.4" cy="321.3" r="9" />
+			<circle class="g4" cx="391.1" cy="286.2" r="9" />
+		</g>
+
+		<text x="99" y="426" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">pevná látka</text>
+		<text x="230" y="426" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">kapalina</text>
+		<text x="358" y="426" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">plyn</text>
+		<text x="99" y="454" text-anchor="middle" font-size="21" fill="#495057">kmitají</text>
+		<text x="230" y="454" text-anchor="middle" font-size="21" fill="#495057">kloužou</text>
+		<text x="358" y="454" text-anchor="middle" font-size="21" fill="#495057">létají volně</text>
+	</g>
+</svg>

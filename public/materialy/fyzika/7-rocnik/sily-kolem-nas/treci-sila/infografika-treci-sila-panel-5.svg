@@ -1,0 +1,89 @@
+<svg viewBox="0 1904 460 472" width="460" height="472" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pomáhá i škodí: tření pomáhá při chůzi, brzdění, psaní křídou a zapálení sirky; škodí opotřebením, zahříváním, skřípáním pantů a větší spotřebou. Zvětšíme ho zdrsněním, nesmeky a sněhovými řetězy, zmenšíme leštěním, mazáním a ložisky." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Třecí síla 5/5: Pomáhá i škodí</title>
+	<!-- Panel 5/5 výřezu z infografika-treci-sila.svg (souřadnice beze změny včetně obalu translate(0,54), jen viewBox). Blok nemá animaci. -->
+	<rect x="0" y="1904" width="460" height="472" fill="#f3f1ea" />
+
+	<g transform="translate(0,54)">
+	<!-- ===== Panel 5: Pomáhá a škodí ===== -->
+	<rect x="26" y="1866" width="420" height="446" rx="10" fill="#2b2a26" />
+	<rect x="20" y="1860" width="420" height="446" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="52" cy="1894" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="52" y="1901" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">5</text>
+	<text x="80" y="1903" font-size="28" font-weight="bold" fill="#2b2a26">Pomáhá i škodí</text>
+
+	<text x="40" y="1948" font-size="24" font-weight="bold" fill="#1e7a34">pomáhá</text>
+	<text x="40" y="1980" font-size="21" fill="#2b2a26">• chůze</text>
+	<text x="40" y="2010" font-size="21" fill="#2b2a26">• brzdění</text>
+	<text x="40" y="2040" font-size="21" fill="#2b2a26">• psaní křídou</text>
+	<text x="40" y="2070" font-size="21" fill="#2b2a26">• zapálení sirky</text>
+	<line x1="230" y1="1928" x2="230" y2="2080" stroke="#dee2e6" stroke-width="2" />
+	<text x="246" y="1948" font-size="24" font-weight="bold" fill="#c92a2a">škodí</text>
+	<text x="246" y="1980" font-size="21" fill="#2b2a26">• opotřebení</text>
+	<text x="246" y="2010" font-size="21" fill="#2b2a26">• zahřívání</text>
+	<text x="246" y="2040" font-size="21" fill="#2b2a26">• skřípání pantů</text>
+	<text x="246" y="2070" font-size="21" fill="#2b2a26">• větší spotřeba</text>
+
+	<line x1="34" y1="2096" x2="426" y2="2096" stroke="#2b2a26" stroke-width="2" />
+	<text x="40" y="2132" font-size="24" font-weight="bold" fill="#2b2a26">zvětšíme</text>
+	<text x="40" y="2164" font-size="21" fill="#2b2a26">• zdrsněním</text>
+	<text x="40" y="2194" font-size="21" fill="#2b2a26">• nesmeky</text>
+	<text x="40" y="2224" font-size="21" fill="#2b2a26">• sněhovými řetězy</text>
+	<line x1="230" y1="2112" x2="230" y2="2232" stroke="#dee2e6" stroke-width="2" />
+	<text x="246" y="2132" font-size="24" font-weight="bold" fill="#2b2a26">zmenšíme</text>
+	<text x="246" y="2164" font-size="21" fill="#2b2a26">• leštěním</text>
+	<text x="246" y="2194" font-size="21" fill="#2b2a26">• mazáním</text>
+	<text x="246" y="2224" font-size="21" fill="#2b2a26">• ložisky</text>
+	<!-- kolo se sněhovým řetězem -->
+	<g>
+		<!-- pneumatika zepředu (běhoun) se sněhovým řetězem: oválné články po stranách
+		     a klikatě přes běhoun -->
+		<rect x="46" y="2234" width="48" height="66" rx="12" fill="#343a40" stroke="#2b2a26" stroke-width="2" />
+		<g stroke="#212529" stroke-width="2">
+			<line x1="60" y1="2238" x2="60" y2="2296" /><line x1="80" y1="2238" x2="80" y2="2296" />
+		</g>
+		<g fill="none" stroke="#e9ecef" stroke-width="2.2">
+			<ellipse cx="56.5" cy="2243.8" rx="4.6" ry="2.6" transform="rotate(21.3 56.5 2243.8)" />
+			<ellipse cx="65.5" cy="2247.2" rx="4.6" ry="2.6" transform="rotate(21.3 65.5 2247.2)" />
+			<ellipse cx="74.5" cy="2250.8" rx="4.6" ry="2.6" transform="rotate(21.3 74.5 2250.8)" />
+			<ellipse cx="83.5" cy="2254.2" rx="4.6" ry="2.6" transform="rotate(21.3 83.5 2254.2)" />
+			<ellipse cx="83.5" cy="2257.8" rx="4.6" ry="2.6" transform="rotate(158.7 83.5 2257.8)" />
+			<ellipse cx="74.5" cy="2261.2" rx="4.6" ry="2.6" transform="rotate(158.7 74.5 2261.2)" />
+			<ellipse cx="65.5" cy="2264.8" rx="4.6" ry="2.6" transform="rotate(158.7 65.5 2264.8)" />
+			<ellipse cx="56.5" cy="2268.2" rx="4.6" ry="2.6" transform="rotate(158.7 56.5 2268.2)" />
+			<ellipse cx="56.5" cy="2271.8" rx="4.6" ry="2.6" transform="rotate(21.3 56.5 2271.8)" />
+			<ellipse cx="65.5" cy="2275.2" rx="4.6" ry="2.6" transform="rotate(21.3 65.5 2275.2)" />
+			<ellipse cx="74.5" cy="2278.8" rx="4.6" ry="2.6" transform="rotate(21.3 74.5 2278.8)" />
+			<ellipse cx="83.5" cy="2282.2" rx="4.6" ry="2.6" transform="rotate(21.3 83.5 2282.2)" />
+			<ellipse cx="83.5" cy="2285.5" rx="4.6" ry="2.6" transform="rotate(161.6 83.5 2285.5)" />
+			<ellipse cx="74.5" cy="2288.5" rx="4.6" ry="2.6" transform="rotate(161.6 74.5 2288.5)" />
+			<ellipse cx="65.5" cy="2291.5" rx="4.6" ry="2.6" transform="rotate(161.6 65.5 2291.5)" />
+			<ellipse cx="56.5" cy="2294.5" rx="4.6" ry="2.6" transform="rotate(161.6 56.5 2294.5)" />
+			<ellipse cx="50.0" cy="2242.8" rx="4.6" ry="2.6" transform="rotate(90.0 50.0 2242.8)" />
+			<ellipse cx="50.0" cy="2252.5" rx="4.6" ry="2.6" transform="rotate(90.0 50.0 2252.5)" />
+			<ellipse cx="50.0" cy="2262.2" rx="4.6" ry="2.6" transform="rotate(90.0 50.0 2262.2)" />
+			<ellipse cx="50.0" cy="2271.8" rx="4.6" ry="2.6" transform="rotate(90.0 50.0 2271.8)" />
+			<ellipse cx="50.0" cy="2281.5" rx="4.6" ry="2.6" transform="rotate(90.0 50.0 2281.5)" />
+			<ellipse cx="50.0" cy="2291.2" rx="4.6" ry="2.6" transform="rotate(90.0 50.0 2291.2)" />
+			<ellipse cx="90.0" cy="2242.8" rx="4.6" ry="2.6" transform="rotate(90.0 90.0 2242.8)" />
+			<ellipse cx="90.0" cy="2252.5" rx="4.6" ry="2.6" transform="rotate(90.0 90.0 2252.5)" />
+			<ellipse cx="90.0" cy="2262.2" rx="4.6" ry="2.6" transform="rotate(90.0 90.0 2262.2)" />
+			<ellipse cx="90.0" cy="2271.8" rx="4.6" ry="2.6" transform="rotate(90.0 90.0 2271.8)" />
+			<ellipse cx="90.0" cy="2281.5" rx="4.6" ry="2.6" transform="rotate(90.0 90.0 2281.5)" />
+			<ellipse cx="90.0" cy="2291.2" rx="4.6" ry="2.6" transform="rotate(90.0 90.0 2291.2)" />
+		</g>
+	</g>
+	<text x="110" y="2273" font-size="21" fill="#2b2a26">sněhový řetěz</text>
+	<!-- kuličkové ložisko (posunuto o 36 doleva) -->
+	<text x="342" y="2273" font-size="21" fill="#2b2a26">ložisko</text>
+	<g transform="translate(-36,2)">
+		<circle cx="336" cy="2264" r="32" fill="#ced4da" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="336" cy="2264" r="25" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<g fill="#868e96" stroke="#2b2a26" stroke-width="1.5">
+			<circle cx="336" cy="2245" r="6" /><circle cx="355" cy="2264" r="6" /><circle cx="336" cy="2283" r="6" /><circle cx="317" cy="2264" r="6" />
+			<circle cx="349" cy="2251" r="6" /><circle cx="349" cy="2277" r="6" /><circle cx="323" cy="2277" r="6" /><circle cx="323" cy="2251" r="6" />
+		</g>
+		<circle cx="336" cy="2264" r="12" fill="#ced4da" stroke="#2b2a26" stroke-width="2" />
+		<circle cx="336" cy="2264" r="6" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	</g>
+	</g>
+</svg>

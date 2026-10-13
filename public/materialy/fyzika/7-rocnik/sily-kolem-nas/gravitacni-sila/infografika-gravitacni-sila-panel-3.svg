@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="378" viewBox="0 822 360 378" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Řešené příklady: batoh 2 kg: Fg = 2 · 10 = 20 N; auto 1 200 kg: Fg = 12 000 N = 12 kN; obráceně: Fg = 8 kN = 8 000 N, m = 8 000 : 10 = 800 kg; hmotnost vždy v kilogramech, 1 t = 1 000 kg, 1 kN = 1 000 N. Vzorec Fg = m · g, g = 10 N/kg, m = Fg : g.">
+	<title>Gravitační síla 3/3: Řešené příklady</title>
+	<!-- Panel 3/3 výřezu z infografika-gravitacni-sila.svg (souřadnice beze změny, jen viewBox).
+	     Tmavý rámeček se vzorcem stojí v originálu pod tímto blokem a příklady z něj počítají, proto je ve výřezu. Blok nemá animaci. -->
+
+	<rect x="0" y="822" width="360" height="378" fill="#f8f9fa" />
+
+	<!-- 3: Řešené příklady -->
+	<g id="gs-priklady">
+		<rect x="8" y="832" width="344" height="232" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+		<circle cx="30" cy="854" r="13" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+		<text x="30" y="860" text-anchor="middle" font-size="18" font-weight="bold" fill="#c92a2a">3</text>
+		<text x="52" y="861" font-size="20" font-weight="bold" fill="#2b2a26">Řešené příklady</text>
+		<g font-size="18" fill="#2b2a26">
+			<text x="20" y="894">• batoh 2 kg: F<tspan font-size="15" dy="5">g</tspan><tspan dy="-5" dx="5">= 2 · 10 =</tspan><tspan font-weight="bold" dx="5">20 N</tspan></text>
+			<text x="20" y="920">• auto 1 200 kg:</text>
+			<text x="34" y="946">F<tspan font-size="15" dy="5">g</tspan><tspan dy="-5" dx="5">=</tspan><tspan font-weight="bold" dx="5">12 000 N = 12 kN</tspan></text>
+			<text x="20" y="972">• obráceně: F<tspan font-size="15" dy="5">g</tspan><tspan dy="-5" dx="5">= 8 kN = 8 000 N</tspan></text>
+			<text x="34" y="998">m = 8 000 : 10 = <tspan font-weight="bold">800 kg</tspan></text>
+			<text x="20" y="1024" font-weight="bold" fill="#c92a2a">• hmotnost vždy v kilogramech!</text>
+			<text x="34" y="1050">1 t = 1 000 kg · 1 kN = 1 000 N</text>
+		</g>
+	</g>
+
+	<!-- vzorec -->
+	<rect x="30" y="1078" width="300" height="112" rx="12" fill="#2b2a26" />
+	<text x="180" y="1132" text-anchor="middle" font-size="40" font-weight="bold" fill="#ffffff">F<tspan font-size="26" dy="9">g</tspan><tspan dy="-9" dx="10">= m · g</tspan></text>
+	<text x="180" y="1170" text-anchor="middle" font-size="18" fill="#ffd8a8">g = 10 N/kg · m = F<tspan font-size="15" dy="5">g</tspan><tspan dy="-5" dx="5">: g</tspan></text>
+</svg>

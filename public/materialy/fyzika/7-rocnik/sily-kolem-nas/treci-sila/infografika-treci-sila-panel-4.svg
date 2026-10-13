@@ -1,0 +1,20 @@
+<svg viewBox="0 1608 460 296" width="460" height="296" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Výpočet: Ft = Fn · f. Ft … třecí síla (N), Fn … tlaková síla (N), f … součinitel tření (tabulka). Na vodorovné podložce Fn = Fg." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Třecí síla 4/5: Výpočet</title>
+	<!-- Panel 4/5 výřezu z infografika-treci-sila.svg (souřadnice beze změny včetně obalu translate(0,54), jen viewBox). Blok nemá animaci. -->
+	<rect x="0" y="1608" width="460" height="296" fill="#f3f1ea" />
+
+	<g transform="translate(0,54)">
+	<!-- ===== Panel 4: Výpočet ===== -->
+	<rect x="26" y="1570" width="420" height="270" rx="10" fill="#2b2a26" />
+	<rect x="20" y="1564" width="420" height="270" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="52" cy="1598" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="52" y="1605" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">4</text>
+	<text x="80" y="1607" font-size="28" font-weight="bold" fill="#2b2a26">Výpočet</text>
+	<rect x="90" y="1626" width="280" height="62" rx="8" fill="#fff3bf" stroke="#2b2a26" stroke-width="2" />
+	<text x="230" y="1670" text-anchor="middle" font-size="38" font-weight="bold" fill="#2b2a26"><tspan fill="#c92a2a">F<tspan font-size="24" dy="8">t</tspan></tspan><tspan dy="-8"> = </tspan><tspan fill="#5f3dc4">F<tspan font-size="24" dy="8">n</tspan></tspan><tspan dy="-8"> · f</tspan></text>
+	<text x="40" y="1724" font-size="21" fill="#2b2a26"><tspan font-weight="bold" fill="#c92a2a">F<tspan font-size="18" dy="5">t</tspan></tspan><tspan dy="-5"> … třecí síla (N)</tspan></text>
+	<text x="40" y="1756" font-size="21" fill="#2b2a26"><tspan font-weight="bold" fill="#5f3dc4">F<tspan font-size="18" dy="5">n</tspan></tspan><tspan dy="-5"> … tlaková síla (N)</tspan></text>
+	<text x="40" y="1788" font-size="21" fill="#2b2a26"><tspan font-weight="bold">f</tspan> … součinitel tření (tabulka)</text>
+	<text x="40" y="1820" font-size="21" fill="#2b2a26">vodorovná podložka: <tspan font-weight="bold" fill="#5f3dc4">F<tspan font-size="18" dy="5">n</tspan></tspan><tspan dy="-5" font-weight="bold"> = F</tspan><tspan font-size="18" dy="5" font-weight="bold">g</tspan></text>
+	</g>
+</svg>

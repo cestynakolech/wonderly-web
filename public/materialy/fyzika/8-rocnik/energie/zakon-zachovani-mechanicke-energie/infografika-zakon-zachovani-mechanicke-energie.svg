@@ -1,0 +1,405 @@
+<svg viewBox="0 0 460 2290" width="460" height="2290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Infografika Zákon zachování mechanické energie: celková mechanická energie je součet polohové a pohybové energie, E = Ep + Ek, vše v joulech; energii nelze vyrobit ani zničit, pouze se přeměňuje; kulička na dráze bez tření má v polohách 1 až 6 polohovou energii 10, 6, 2, 0, 5 a 10 J a pohybovou 0, 4, 8, 10, 5 a 0 J, součet je vždy 10 J; při pádu parašutisty z vrtulníku se polohová energie mění na pohybovou, při hodu míče vzhůru pohybová na polohovou (odpor vzduchu zanedbáme); energie se přenáší mezi tělesy: z tětivy luku na šíp a z jedné kulečníkové koule na druhou; tření mění část mechanické energie na vnitřní energii, proto skateboardista na U rampě nevystoupá do výšky startu a musí vykonat práci" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<!-- Zdroj obsahu: výklad podtématu zakon-zachovani-mechanicke-energie (src/data/temata.ts, F8 Energie).
+	     Čísla jen z výkladu (kulička Eₚ/Eₖ: 10/0, 6/4, 2/8, 0/10, 5/5, 10/0 J), všechna celá.
+	     Barvy (jeden tvar = jeden význam, shodně s obr-01 výkladu): Eₖ červeně, Eₚ modře, celková E zeleně.
+	     Oblečení postav, míče a koule záměrně v jiných barvách (ne červená/modrá/zelená).
+	     Animace: CSS uvnitř SVG (běží i v <img>); nativní poloha = klidový/koncový stav, ten zůstane
+	     při prefers-reduced-motion. Pohyblivé části jsou vždy v jedné skupině (nic se neoddělí). -->
+	<style>
+		/* Panel 2: kulička na kruhové dráze (r = 140) bez tření. Úhly spočítány integrací pohybové
+		   rovnice kyvadla (φ'' = −(g/R)·sin φ, výchylka 60°), vzorky po 2,5 % periody.
+		   Sloupec Eₚ = 2·(1 − cos φ) z celku 10 J (výška nad dnem úměrná 1 − cos φ). */
+		.kul { animation: kul 6s linear infinite; }
+		@keyframes kul {
+			0% { transform: rotate(60deg); } 2.5% { transform: rotate(59.3deg); } 5% { transform: rotate(57.2deg); } 7.5% { transform: rotate(53.7deg); }
+			10% { transform: rotate(48.9deg); } 12.5% { transform: rotate(42.9deg); } 15% { transform: rotate(35.8deg); } 17.5% { transform: rotate(27.8deg); }
+			20% { transform: rotate(19deg); } 22.5% { transform: rotate(9.6deg); } 25% { transform: rotate(0deg); } 27.5% { transform: rotate(-9.6deg); }
+			30% { transform: rotate(-19deg); } 32.5% { transform: rotate(-27.8deg); } 35% { transform: rotate(-35.8deg); } 37.5% { transform: rotate(-42.9deg); }
+			40% { transform: rotate(-48.9deg); } 42.5% { transform: rotate(-53.7deg); } 45% { transform: rotate(-57.2deg); } 47.5% { transform: rotate(-59.3deg); }
+			50% { transform: rotate(-60deg); } 52.5% { transform: rotate(-59.3deg); } 55% { transform: rotate(-57.2deg); } 57.5% { transform: rotate(-53.7deg); }
+			60% { transform: rotate(-48.9deg); } 62.5% { transform: rotate(-42.9deg); } 65% { transform: rotate(-35.8deg); } 67.5% { transform: rotate(-27.8deg); }
+			70% { transform: rotate(-19deg); } 72.5% { transform: rotate(-9.6deg); } 75% { transform: rotate(0deg); } 77.5% { transform: rotate(9.6deg); }
+			80% { transform: rotate(19deg); } 82.5% { transform: rotate(27.8deg); } 85% { transform: rotate(35.8deg); } 87.5% { transform: rotate(42.9deg); }
+			90% { transform: rotate(48.9deg); } 92.5% { transform: rotate(53.7deg); } 95% { transform: rotate(57.2deg); } 97.5% { transform: rotate(59.3deg); }
+			100% { transform: rotate(60deg); }
+		}
+		.ep { transform-box: fill-box; transform-origin: 50% 100%; animation: ep 6s linear infinite; }
+		@keyframes ep {
+			0% { transform: scaleY(1); } 2.5% { transform: scaleY(0.979); } 5% { transform: scaleY(0.916); } 7.5% { transform: scaleY(0.817); }
+			10% { transform: scaleY(0.686); } 12.5% { transform: scaleY(0.536); } 15% { transform: scaleY(0.378); } 17.5% { transform: scaleY(0.23); }
+			20% { transform: scaleY(0.108); } 22.5% { transform: scaleY(0.028); } 25% { transform: scaleY(0); } 27.5% { transform: scaleY(0.028); }
+			30% { transform: scaleY(0.108); } 32.5% { transform: scaleY(0.23); } 35% { transform: scaleY(0.379); } 37.5% { transform: scaleY(0.536); }
+			40% { transform: scaleY(0.686); } 42.5% { transform: scaleY(0.817); } 45% { transform: scaleY(0.916); } 47.5% { transform: scaleY(0.979); }
+			50% { transform: scaleY(1); } 52.5% { transform: scaleY(0.979); } 55% { transform: scaleY(0.916); } 57.5% { transform: scaleY(0.817); }
+			60% { transform: scaleY(0.686); } 62.5% { transform: scaleY(0.536); } 65% { transform: scaleY(0.378); } 67.5% { transform: scaleY(0.23); }
+			70% { transform: scaleY(0.108); } 72.5% { transform: scaleY(0.028); } 75% { transform: scaleY(0); } 77.5% { transform: scaleY(0.028); }
+			80% { transform: scaleY(0.108); } 82.5% { transform: scaleY(0.23); } 85% { transform: scaleY(0.379); } 87.5% { transform: scaleY(0.536); }
+			90% { transform: scaleY(0.686); } 92.5% { transform: scaleY(0.817); } 95% { transform: scaleY(0.916); } 97.5% { transform: scaleY(0.979); }
+			100% { transform: scaleY(1); }
+		}
+		/* Panel 3: volný pád (dráha ∝ t², cubic-bezier(1/3, 0, 2/3, 1/3) je přesně parabola t²) z lyžiny vrtulníku na zem (250 px). */
+		.pad { animation: pad 4s infinite; }
+		@keyframes pad {
+			0% { transform: translateY(-250px); animation-timing-function: cubic-bezier(0.333, 0, 0.667, 0.333); opacity: 0; }
+			4% { opacity: 1; }
+			55% { transform: translateY(0); }
+			92% { opacity: 1; }
+			100% { transform: translateY(0); opacity: 0; }
+		}
+		/* Restart smyček bez trhnutí: na konci krátké zmizení (92–100 %), na začátku objevení (0–4 %). */
+		/* hod vzhůru: nahoru zpomaluje (obrácená parabola), dolů zrychluje, zpět do ruky */
+		.mic { animation: mic 4s infinite; }
+		@keyframes mic {
+			0% { transform: translateY(0); animation-timing-function: cubic-bezier(0.333, 0.667, 0.667, 1); }
+			30% { transform: translateY(-170px); animation-timing-function: cubic-bezier(0.333, 0, 0.667, 0.333); }
+			60%, 100% { transform: translateY(0); }
+		}
+		/* Panel 4: luk — tětiva napnutá do 20 %, pak šíp letí do terče (230 px) */
+		.sip { animation: sip 5s infinite; }
+		@keyframes sip {
+			0% { transform: translateX(-230px); opacity: 0; }
+			4% { opacity: 1; }
+			20% { transform: translateX(-230px); animation-timing-function: linear; }
+			32% { transform: translateX(0); }
+			92% { opacity: 1; }
+			100% { transform: translateX(0); opacity: 0; }
+		}
+		/* tětiva: na začátku se prolne do napnuté (0–4 %), ve 20 % povolí */
+		.tet1 { animation: tet1 5s infinite; }
+		@keyframes tet1 { 0% { opacity: 0; animation-timing-function: linear; } 4% { opacity: 1; animation-timing-function: step-end; } 20%, 100% { opacity: 0; } }
+		.tet2 { animation: tet2 5s infinite; }
+		@keyframes tet2 { 0% { opacity: 1; animation-timing-function: linear; } 4% { opacity: 0; animation-timing-function: step-end; } 20%, 100% { opacity: 1; } }
+		/* kulečník: bílá koule přijede (už v pohybu, objeví se), narazí do žluté, předá jí část Eₖ a sama pokračuje pomalu.
+		   Bílá před srážkou 106 px za 1 s = 106 px/s. Po srážce (2 s, cubic-bezier(0.3, 0.45, 0.6, 1), počáteční sklon 1,5×):
+		   žlutá 112 px (210 → 322) → nejvýš 84 px/s, bílá 28 px (186 → 214) → nejvýš 21 px/s.
+		   Hybnost (stejné koule): 84 + 21 = 105, nejvýš 106 px/s. Energie: 84² + 21² = 7 497, méně než 106² = 11 236. */
+		.bila { animation: bila 5s infinite; }
+		@keyframes bila {
+			0% { transform: translateX(-134px); animation-timing-function: linear; opacity: 0; }
+			4% { opacity: 1; }
+			20% { transform: translateX(-28px); animation-timing-function: cubic-bezier(0.3, 0.45, 0.6, 1); }
+			60% { transform: translateX(0); }
+			92% { opacity: 1; }
+			100% { transform: translateX(0); opacity: 0; }
+		}
+		.zluta { animation: zluta 5s infinite; }
+		@keyframes zluta {
+			0% { transform: translateX(-112px); opacity: 0; }
+			4% { opacity: 1; }
+			20% { transform: translateX(-112px); animation-timing-function: cubic-bezier(0.3, 0.45, 0.6, 1); }
+			60% { transform: translateX(0); }
+			92% { opacity: 1; }
+			100% { transform: translateX(0); opacity: 0; }
+		}
+		/* Panel 5: skateboardista na U rampě (r = 150). Nejdřív tření ubírá (výchylky 60° → 48° → 38° → 30°),
+		   pak se odráží = koná práci a vyjede zpět na 60° (konec cyklu = začátek, žádný skok ani mizení). */
+		.skejt { animation: skejt 9s infinite; }
+		@keyframes skejt {
+			0% { transform: rotate(60deg); animation-timing-function: ease-in-out; }
+			15% { transform: rotate(-48deg); animation-timing-function: ease-in-out; }
+			30% { transform: rotate(38deg); animation-timing-function: ease-in-out; }
+			45% { transform: rotate(-30deg); animation-timing-function: ease-in-out; }
+			62% { transform: rotate(42deg); animation-timing-function: ease-in-out; }
+			80% { transform: rotate(-52deg); animation-timing-function: ease-in-out; }
+			100% { transform: rotate(60deg); }
+		}
+		.trenistitek { animation: trenistitek 9s step-end infinite; }
+		@keyframes trenistitek { 0% { opacity: 1; } 45%, 100% { opacity: 0; } }
+		.pracestitek { animation: pracestitek 9s step-end infinite; }
+		@keyframes pracestitek { 0% { opacity: 0; } 45%, 100% { opacity: 1; } }
+		@media (prefers-reduced-motion: reduce) {
+			.kul, .ep, .pad, .mic, .sip, .tet1, .tet2, .bila, .zluta, .skejt, .trenistitek, .pracestitek { animation: none; }
+		}
+	</style>
+	<rect width="460" height="2290" fill="#f3f1ea" />
+
+	<!-- ===== Nadpis ===== -->
+	<text x="230" y="54" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="42" font-weight="bold" fill="#2b2a26">Zákon zachování</text>
+	<text x="230" y="94" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="34" font-weight="bold" fill="#2b2a26">mechanické energie</text>
+	<path d="M 110 110 Q 230 100 350 110" fill="none" stroke="#e8590c" stroke-width="5" stroke-linecap="round" />
+	<text x="230" y="136" text-anchor="middle" font-size="21" fill="#5c5b52">energie se jen přeměňuje</text>
+
+	<!-- ===== Panel 1: Celková energie ===== -->
+	<!-- Panely: každý je samostatná skupina <g id="panel-N"> se stejnou šířkou (x 20–446 vč. stínu),
+	     vlastním nadpisem a lokálními souřadnicemi 0–(výška+6); nic nepřesahuje do jiného panelu,
+	     takže jde vyříznout do samostatného SVG (viewBox "14 -6 438 výška+18" po odečtení posunu). -->
+	<g id="panel-1" transform="translate(0,152)">
+		<rect x="26" y="6" width="420" height="345" rx="10" fill="#2b2a26" />
+		<rect x="20" y="0" width="420" height="345" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="34" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="41" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+		<text x="80" y="43" font-size="28" font-weight="bold" fill="#2b2a26">Celková energie</text>
+
+		<text x="40" y="82" font-size="21" fill="#2b2a26">Mechanická energie má dvě části:</text>
+		<circle cx="46" cy="111" r="4" fill="#2b2a26" />
+		<text x="58" y="118" font-size="21" fill="#2b2a26"><tspan font-weight="bold" fill="#1971c2">E<tspan font-size="18" dy="5">p</tspan></tspan><tspan dy="-5"> polohová (potenciální)</tspan></text>
+		<circle cx="46" cy="145" r="4" fill="#2b2a26" />
+		<text x="58" y="152" font-size="21" fill="#2b2a26"><tspan font-weight="bold" fill="#c92a2a">E<tspan font-size="18" dy="5">k</tspan></tspan><tspan dy="-5"> pohybová (kinetická)</tspan></text>
+
+		<rect x="40" y="172" width="380" height="94" rx="8" fill="#fff3bf" stroke="#2b2a26" stroke-width="2" />
+		<text x="230" y="222" text-anchor="middle" font-size="40" font-weight="bold" fill="#2b2a26"><tspan fill="#1e7a34">E</tspan> = <tspan fill="#1971c2">E<tspan font-size="26" dy="8">p</tspan></tspan><tspan dy="-8"> + </tspan><tspan fill="#c92a2a">E<tspan font-size="26" dy="8">k</tspan></tspan></text>
+		<text x="230" y="254" text-anchor="middle" font-size="21" fill="#2b2a26">všechny v joulech (J)</text>
+
+		<text x="230" y="302" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">Energii nelze vyrobit ani zničit,</text>
+		<text x="230" y="330" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">pouze se přeměňuje.</text>
+	</g>
+
+	<!-- ===== Panel 2: Kulička bez tření ===== -->
+	<g id="panel-2" transform="translate(0,517)">
+		<rect x="26" y="6" width="420" height="405" rx="10" fill="#2b2a26" />
+		<rect x="20" y="0" width="420" height="405" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="34" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="41" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">2</text>
+		<text x="80" y="43" font-size="28" font-weight="bold" fill="#2b2a26">Kulička bez tření</text>
+		<text x="40" y="78" font-size="21" fill="#2b2a26"><tspan fill="#1971c2" font-weight="bold">E<tspan font-size="18" dy="5">p</tspan></tspan><tspan dy="-5"> se mění na </tspan><tspan fill="#c92a2a" font-weight="bold">E<tspan font-size="18" dy="5">k</tspan></tspan><tspan dy="-5"> a zpět,</tspan></text>
+		<text x="40" y="106" font-size="21" fill="#2b2a26">součet zůstává <tspan font-weight="bold" fill="#1e7a34">E = 10 J</tspan>.</text>
+
+		<!-- země a podpěry dráhy -->
+		<rect x="34" y="240" width="300" height="10" fill="#c9a77c" stroke="#2b2a26" stroke-width="1.5" />
+		<rect x="41" y="160" width="8" height="80" fill="#8d5a2b" stroke="#2b2a26" stroke-width="1.5" />
+		<rect x="281" y="160" width="8" height="80" fill="#8d5a2b" stroke="#2b2a26" stroke-width="1.5" />
+		<rect x="145" y="232" width="40" height="8" fill="#8d5a2b" stroke="#2b2a26" stroke-width="1.5" />
+		<!-- dráha: oblouk r = 140 kolem (165, 90), konce ±65° -->
+		<path d="M 38.1 149.2 A 140 140 0 0 0 291.9 149.2" fill="none" stroke="#2b2a26" stroke-width="11" stroke-linecap="round" />
+		<path d="M 38.1 149.2 A 140 140 0 0 0 291.9 149.2" fill="none" stroke="#d9a066" stroke-width="6" stroke-linecap="round" />
+		<!-- značky poloh 1–6 (úhly z Eₚ: cos φ = 1 − Eₚ/20) -->
+		<g stroke="#2b2a26" stroke-width="2.5">
+			<line x1="52.4" y1="155" x2="38.6" y2="163" />
+			<line x1="72.2" y1="181" x2="60.7" y2="192.2" />
+			<line x1="108.3" y1="207" x2="101.4" y2="221.4" />
+			<line x1="165" y1="220" x2="165" y2="236" />
+			<line x1="251" y1="187.5" x2="261.6" y2="199.5" />
+			<line x1="277.6" y1="155" x2="291.4" y2="163" />
+		</g>
+		<!-- čísla poloh: kroužky na r 92 (mimo dráhu kuličky r 110–136), vodicí čárka k rysce na dráze;
+		     1 a 6 posunuty na ±66° (kulička tam nikdy nedojede), aby se 1 a 2 nedotýkaly (odstup středů 32,6) -->
+		<g stroke="#868e96" stroke-width="1.5" stroke-dasharray="3 3">
+			<line x1="69.1" y1="132.7" x2="52.4" y2="155" />
+			<line x1="90" y1="163.5" x2="72.2" y2="181" />
+			<line x1="119.2" y1="184.5" x2="108.3" y2="207" />
+			<line x1="165" y1="195" x2="165" y2="220" />
+			<line x1="234.5" y1="168.7" x2="251" y2="187.5" />
+			<line x1="260.9" y1="132.7" x2="277.6" y2="155" />
+		</g>
+		<g font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="middle">
+			<circle cx="81" cy="127.4" r="13" fill="#fff" stroke="#2b2a26" stroke-width="1.5" /><text x="81" y="134.9">1</text>
+			<circle cx="99.3" cy="154.4" r="13" fill="#fff" stroke="#2b2a26" stroke-width="1.5" /><text x="99.3" y="161.9">2</text>
+			<circle cx="124.9" cy="172.8" r="13" fill="#fff" stroke="#2b2a26" stroke-width="1.5" /><text x="124.9" y="180.3">3</text>
+			<circle cx="165" cy="182" r="13" fill="#fff" stroke="#2b2a26" stroke-width="1.5" /><text x="165" y="189.5">4</text>
+			<circle cx="225.9" cy="159" r="13" fill="#fff" stroke="#2b2a26" stroke-width="1.5" /><text x="225.9" y="166.5">5</text>
+			<circle cx="249" cy="127.4" r="13" fill="#fff" stroke="#2b2a26" stroke-width="1.5" /><text x="249" y="134.9">6</text>
+		</g>
+		<!-- kulička: celá v jedné otáčené skupině, střed vždy 123 od středu oblouku = leží na dráze -->
+		<g transform="translate(165,90)">
+			<g class="kul" transform="rotate(60)">
+				<circle cx="0" cy="123" r="13" fill="#868e96" stroke="#2b2a26" stroke-width="2" />
+				<circle cx="-4" cy="118" r="4" fill="#f1f3f5" />
+			</g>
+		</g>
+
+		<!-- sloupec energie: celek 10 J = 100 px; modrá Eₚ zdola, zbytek nahoře červený = Eₖ -->
+		<text x="358" y="122" text-anchor="middle" font-size="21" font-weight="bold" fill="#1e7a34">E = 10 J</text>
+		<rect x="340" y="132" width="36" height="100" fill="#e03131" />
+		<rect class="ep" x="340" y="132" width="36" height="100" fill="#1971c2" />
+		<rect x="340" y="132" width="36" height="100" fill="none" stroke="#2b2a26" stroke-width="2.5" />
+		<text x="384" y="154" font-size="21" font-weight="bold" fill="#c92a2a">E<tspan font-size="18" dy="5">k</tspan></text>
+		<text x="384" y="228" font-size="21" font-weight="bold" fill="#1971c2">E<tspan font-size="18" dy="5">p</tspan></text>
+		<rect x="332" y="232" width="52" height="8" fill="#868e96" stroke="#2b2a26" stroke-width="1.5" />
+
+		<!-- tabulka z výkladu -->
+		<g font-size="21" fill="#2b2a26" text-anchor="middle">
+			<line x1="34" y1="262" x2="426" y2="262" stroke="#2b2a26" stroke-width="1.5" />
+			<text x="34" y="288" text-anchor="start">poloha</text>
+			<g font-weight="bold"><text x="165" y="288">1</text><text x="213" y="288">2</text><text x="261" y="288">3</text><text x="309" y="288">4</text><text x="357" y="288">5</text><text x="405" y="288">6</text></g>
+			<line x1="34" y1="298" x2="426" y2="298" stroke="#adb5bd" stroke-width="1.5" />
+			<text x="34" y="320" text-anchor="start" fill="#1971c2" font-weight="bold">E<tspan font-size="18" dy="5">p</tspan><tspan dy="-5" fill="#2b2a26" font-weight="normal"> (J)</tspan></text>
+			<g fill="#1971c2"><text x="165" y="320">10</text><text x="213" y="320">6</text><text x="261" y="320">2</text><text x="309" y="320">0</text><text x="357" y="320">5</text><text x="405" y="320">10</text></g>
+			<line x1="34" y1="330" x2="426" y2="330" stroke="#adb5bd" stroke-width="1.5" />
+			<text x="34" y="352" text-anchor="start" fill="#c92a2a" font-weight="bold">E<tspan font-size="18" dy="5">k</tspan><tspan dy="-5" fill="#2b2a26" font-weight="normal"> (J)</tspan></text>
+			<g fill="#c92a2a"><text x="165" y="352">0</text><text x="213" y="352">4</text><text x="261" y="352">8</text><text x="309" y="352">10</text><text x="357" y="352">5</text><text x="405" y="352">0</text></g>
+			<line x1="34" y1="362" x2="426" y2="362" stroke="#adb5bd" stroke-width="1.5" />
+			<text x="34" y="384" text-anchor="start" fill="#1e7a34" font-weight="bold">E<tspan fill="#2b2a26" font-weight="normal"> (J)</tspan></text>
+			<g fill="#1e7a34" font-weight="bold"><text x="165" y="384">10</text><text x="213" y="384">10</text><text x="261" y="384">10</text><text x="309" y="384">10</text><text x="357" y="384">10</text><text x="405" y="384">10</text></g>
+		</g>
+	</g>
+
+	<!-- ===== Panel 3: Pád a hod vzhůru ===== -->
+	<g id="panel-3" transform="translate(0,942)">
+		<rect x="26" y="6" width="420" height="470" rx="10" fill="#2b2a26" />
+		<rect x="20" y="0" width="420" height="470" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="34" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="41" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">3</text>
+		<text x="80" y="43" font-size="28" font-weight="bold" fill="#2b2a26">Pád a hod vzhůru</text>
+		<text x="126" y="76" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2a26">Pád</text>
+		<text x="335" y="76" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2a26">Hod vzhůru</text>
+		<line x1="232" y1="58" x2="232" y2="396" stroke="#adb5bd" stroke-width="2" stroke-dasharray="6 6" />
+
+		<!-- země s trávou -->
+		<rect x="34" y="400" width="392" height="14" fill="#a9824f" stroke="#2b2a26" stroke-width="1.5" />
+		<rect x="34" y="397" width="392" height="5" fill="#69a84f" />
+
+		<!-- vrtulník (nos vpravo), stojí ve vzduchu díky rotoru -->
+		<!-- list rotoru x 110–186 (kulatý konec do 188); parašutista na lyžině stojí vpravo od x 189, mimo rotor -->
+		<line x1="110" y1="88" x2="186" y2="88" stroke="#2b2a26" stroke-width="4" stroke-linecap="round" />
+		<rect x="146" y="88" width="8" height="15" fill="#495057" />
+		<path d="M 115 116 L 60 112 L 56 104 L 62 104 L 70 110 L 115 108 Z" fill="#868e96" stroke="#2b2a26" stroke-width="2" stroke-linejoin="round" />
+		<circle cx="58" cy="108" r="9" fill="none" stroke="#2b2a26" stroke-width="2" />
+		<ellipse cx="150" cy="122" rx="38" ry="21" fill="#868e96" stroke="#2b2a26" stroke-width="2.5" />
+		<path d="M 162 106 Q 184 108 187 122 L 162 122 Z" fill="#a5d8ff" stroke="#2b2a26" stroke-width="2" />
+		<line x1="136" y1="142" x2="132" y2="152" stroke="#2b2a26" stroke-width="3" />
+		<line x1="166" y1="142" x2="170" y2="152" stroke="#2b2a26" stroke-width="3" />
+		<path d="M 112 152 L 214 152 Q 222 152 224 145" fill="none" stroke="#2b2a26" stroke-width="4" stroke-linecap="round" />
+		<!-- parašutista: nativně stojí na zemi, animace startuje z lyžiny (o 250 výš) -->
+		<g class="pad">
+			<rect x="188" y="358" width="8" height="20" rx="2" fill="#495057" stroke="#2b2a26" stroke-width="1.5" />
+			<line x1="200" y1="398" x2="201" y2="378" stroke="#e8590c" stroke-width="6" stroke-linecap="round" />
+			<line x1="208" y1="398" x2="207" y2="378" stroke="#e8590c" stroke-width="6" stroke-linecap="round" />
+			<rect x="196" y="398" width="8" height="3" fill="#2b2a26" />
+			<rect x="205" y="398" width="8" height="3" fill="#2b2a26" />
+			<rect x="195" y="356" width="18" height="25" rx="5" fill="#e8590c" stroke="#2b2a26" stroke-width="1.5" />
+			<line x1="197" y1="360" x2="192" y2="377" stroke="#e8590c" stroke-width="5" stroke-linecap="round" />
+			<line x1="211" y1="360" x2="216" y2="377" stroke="#e8590c" stroke-width="5" stroke-linecap="round" />
+			<circle cx="204" cy="347" r="8" fill="#f1c27d" stroke="#2b2a26" stroke-width="1.5" />
+			<path d="M 196 346 A 8 8 0 0 1 212 346 Z" fill="#495057" stroke="#2b2a26" stroke-width="1.5" />
+		</g>
+		<g font-size="21" fill="#2b2a26">
+			<text x="40" y="200" font-weight="bold">nahoře:</text>
+			<text x="40" y="226">jen <tspan fill="#1971c2" font-weight="bold">E<tspan font-size="18" dy="5">p</tspan></tspan></text>
+			<line x1="62" y1="246" x2="62" y2="300" stroke="#2b2a26" stroke-width="3" />
+			<polygon points="62,312 55,298 69,298" fill="#2b2a26" />
+			<text x="80" y="284"><tspan fill="#1971c2" font-weight="bold">E<tspan font-size="18" dy="5">p</tspan></tspan><tspan dy="-5"> → </tspan><tspan fill="#c92a2a" font-weight="bold">E<tspan font-size="18" dy="5">k</tspan></tspan></text>
+			<text x="40" y="344" font-weight="bold">dole:</text>
+			<text x="40" y="370">jen <tspan fill="#c92a2a" font-weight="bold">E<tspan font-size="18" dy="5">k</tspan></tspan></text>
+		</g>
+
+		<!-- chlapec hází míč -->
+		<line x1="280" y1="398" x2="282" y2="368" stroke="#495057" stroke-width="7" stroke-linecap="round" />
+		<line x1="292" y1="398" x2="290" y2="368" stroke="#495057" stroke-width="7" stroke-linecap="round" />
+		<rect x="274" y="397" width="10" height="4" rx="1" fill="#2b2a26" />
+		<rect x="289" y="397" width="10" height="4" rx="1" fill="#2b2a26" />
+		<line x1="278" y1="336" x2="270" y2="362" stroke="#a5673f" stroke-width="6" stroke-linecap="round" />
+		<rect x="275" y="330" width="22" height="40" rx="6" fill="#a5673f" stroke="#2b2a26" stroke-width="1.5" />
+		<line x1="294" y1="335" x2="303" y2="302" stroke="#a5673f" stroke-width="6" stroke-linecap="round" />
+		<circle cx="303" cy="300" r="4" fill="#f1c27d" stroke="#2b2a26" stroke-width="1" />
+		<circle cx="286" cy="317" r="11" fill="#f1c27d" stroke="#2b2a26" stroke-width="1.5" />
+		<path d="M 275 315 Q 276 304 286 305 Q 297 304 297 314 Q 290 309 275 315 Z" fill="#5c3d1e" />
+		<g class="mic">
+			<circle cx="304" cy="286" r="10" fill="#fab005" stroke="#2b2a26" stroke-width="2" />
+			<path d="M 295 282 Q 304 288 313 282" fill="none" stroke="#2b2a26" stroke-width="1.5" />
+		</g>
+		<g font-size="21" fill="#2b2a26">
+			<text x="330" y="126" font-weight="bold">nahoře:</text>
+			<text x="330" y="152"><tspan fill="#c92a2a" font-weight="bold">E<tspan font-size="18" dy="5">k</tspan></tspan><tspan dy="-5"> = 0</tspan></text>
+			<line x1="346" y1="300" x2="346" y2="194" stroke="#2b2a26" stroke-width="3" />
+			<polygon points="346,182 339,196 353,196" fill="#2b2a26" />
+			<text x="356" y="250"><tspan fill="#c92a2a" font-weight="bold">E<tspan font-size="18" dy="5">k</tspan></tspan><tspan dy="-5"> → </tspan><tspan fill="#1971c2" font-weight="bold">E<tspan font-size="18" dy="5">p</tspan></tspan></text>
+			<text x="330" y="344" font-weight="bold">z ruky:</text>
+			<text x="330" y="370">získá <tspan fill="#c92a2a" font-weight="bold">E<tspan font-size="18" dy="5">k</tspan></tspan></text>
+		</g>
+		<text x="230" y="448" text-anchor="middle" font-size="21" fill="#495057">odpor vzduchu zanedbáme</text>
+	</g>
+
+	<!-- ===== Panel 4: Přenos energie ===== -->
+	<g id="panel-4" transform="translate(0,1432)">
+		<rect x="26" y="6" width="420" height="425" rx="10" fill="#2b2a26" />
+		<rect x="20" y="0" width="420" height="425" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="34" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="41" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">4</text>
+		<text x="80" y="43" font-size="28" font-weight="bold" fill="#2b2a26">Přenos mezi tělesy</text>
+		<text x="40" y="80" font-size="22" font-weight="bold" fill="#2b2a26">Luk</text>
+
+		<rect x="34" y="215" width="392" height="8" fill="#c9a77c" stroke="#2b2a26" stroke-width="1.5" />
+		<!-- terč na stojanu -->
+		<line x1="386" y1="215" x2="398" y2="170" stroke="#8d5a2b" stroke-width="5" stroke-linecap="round" />
+		<line x1="414" y1="215" x2="402" y2="170" stroke="#8d5a2b" stroke-width="5" stroke-linecap="round" />
+		<circle cx="400" cy="150" r="32" fill="#fff" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="400" cy="150" r="22" fill="#2b2a26" />
+		<circle cx="400" cy="150" r="11" fill="#fab005" />
+		<!-- lukostřelec -->
+		<line x1="58" y1="213" x2="60" y2="176" stroke="#495057" stroke-width="7" stroke-linecap="round" />
+		<line x1="72" y1="213" x2="68" y2="176" stroke="#495057" stroke-width="7" stroke-linecap="round" />
+		<rect x="52" y="212" width="10" height="4" rx="1" fill="#2b2a26" />
+		<rect x="68" y="212" width="11" height="4" rx="1" fill="#2b2a26" />
+		<rect x="53" y="132" width="22" height="46" rx="6" fill="#a5673f" stroke="#2b2a26" stroke-width="1.5" />
+		<polyline points="58,138 72,152 84,145" fill="none" stroke="#a5673f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+		<line x1="70" y1="138" x2="120" y2="145" stroke="#a5673f" stroke-width="6" stroke-linecap="round" />
+		<circle cx="64" cy="120" r="11" fill="#f1c27d" stroke="#2b2a26" stroke-width="1.5" />
+		<path d="M 53 118 Q 54 106 64 108 Q 75 107 75 116 Q 66 112 53 118 Z" fill="#5c3d1e" />
+		<!-- luk (nehybný v ruce) a tětiva: napnutá / po výstřelu -->
+		<path d="M 106 100 Q 140 145 106 190" fill="none" stroke="#8d5a2b" stroke-width="5" stroke-linecap="round" />
+		<path class="tet1" d="M 106 100 L 84 145 L 106 190" fill="none" stroke="#2b2a26" stroke-width="2" opacity="0" />
+		<path class="tet2" d="M 106 100 L 106 190" fill="none" stroke="#2b2a26" stroke-width="2" />
+		<circle cx="121" cy="145" r="4" fill="#f1c27d" stroke="#2b2a26" stroke-width="1" />
+		<circle cx="84" cy="145" r="4" fill="#f1c27d" stroke="#2b2a26" stroke-width="1" />
+		<!-- šíp: nativně zabodnutý v terči -->
+		<g class="sip">
+			<line x1="312" y1="145" x2="384" y2="145" stroke="#6b4423" stroke-width="3" />
+			<polygon points="394,145 382,139 382,151" fill="#495057" />
+			<polygon points="312,145 322,145 316,137 306,137" fill="#e8590c" />
+			<polygon points="312,145 322,145 316,153 306,153" fill="#e8590c" />
+		</g>
+		<text x="230" y="252" text-anchor="middle" font-size="21" fill="#2b2a26"><tspan fill="#1971c2" font-weight="bold">E<tspan font-size="18" dy="5">p</tspan></tspan><tspan dy="-5"> pružnosti tětivy → </tspan><tspan fill="#c92a2a" font-weight="bold">E<tspan font-size="18" dy="5">k</tspan></tspan><tspan dy="-5"> šípu</tspan></text>
+
+		<text x="40" y="288" font-size="22" font-weight="bold" fill="#2b2a26">Kulečník</text>
+		<text x="40" y="314" font-size="21" fill="#2b2a26">koule předá druhé část své <tspan fill="#c92a2a" font-weight="bold">E<tspan font-size="18" dy="5">k</tspan></tspan></text>
+		<!-- stůl z boku: koule leží na suknu (sukno nahoře y = 352, koule r 12 se středem 340) -->
+		<rect x="40" y="342" width="10" height="16" fill="#8d5a2b" stroke="#2b2a26" stroke-width="1.5" />
+		<rect x="410" y="342" width="10" height="16" fill="#8d5a2b" stroke="#2b2a26" stroke-width="1.5" />
+		<rect x="50" y="352" width="360" height="6" fill="#2b8a3e" />
+		<rect x="40" y="358" width="380" height="16" fill="#8d5a2b" stroke="#2b2a26" stroke-width="1.5" />
+		<rect x="62" y="374" width="14" height="36" fill="#6b4423" stroke="#2b2a26" stroke-width="1.5" />
+		<rect x="384" y="374" width="14" height="36" fill="#6b4423" stroke="#2b2a26" stroke-width="1.5" />
+		<rect x="34" y="410" width="392" height="6" fill="#c9a77c" stroke="#2b2a26" stroke-width="1.5" />
+		<g class="zluta">
+			<circle cx="322" cy="340" r="12" fill="#fab005" stroke="#2b2a26" stroke-width="2" />
+			<circle cx="318" cy="336" r="3" fill="#fff" />
+		</g>
+		<g class="bila">
+			<circle cx="214" cy="340" r="12" fill="#fff" stroke="#2b2a26" stroke-width="2" />
+			<circle cx="210" cy="336" r="3" fill="#dee2e6" />
+		</g>
+	</g>
+
+	<!-- ===== Panel 5: Tření ubírá energii ===== -->
+	<g id="panel-5" transform="translate(0,1877)">
+		<rect x="26" y="6" width="420" height="385" rx="10" fill="#2b2a26" />
+		<rect x="20" y="0" width="420" height="385" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="34" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="41" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">5</text>
+		<text x="80" y="43" font-size="28" font-weight="bold" fill="#2b2a26">Tření ubírá energii</text>
+		<text x="40" y="80" font-size="21" fill="#2b2a26">Část mechanické energie se mění</text>
+		<text x="40" y="106" font-size="21" fill="#2b2a26">na <tspan font-weight="bold">vnitřní energii</tspan> (zahřátí).</text>
+
+		<!-- U rampa: oblouk r = 150 kolem (230, 110), konce ±70°, plošiny, plné těleso až na zem -->
+		<path d="M 50 161.3 L 89 161.3 A 150 150 0 0 0 371 161.3 L 410 161.3 L 410 272 L 50 272 Z" fill="#d9a066" stroke="#2b2a26" stroke-width="2.5" stroke-linejoin="round" />
+		<path d="M 89 161.3 A 150 150 0 0 0 371 161.3" fill="none" stroke="#6b4423" stroke-width="3" />
+		<line x1="70" y1="190" x2="70" y2="272" stroke="#a9824f" stroke-width="2" />
+		<line x1="390" y1="190" x2="390" y2="272" stroke="#a9824f" stroke-width="2" />
+		<circle cx="89" cy="161.3" r="4" fill="#adb5bd" stroke="#2b2a26" stroke-width="1.5" />
+		<circle cx="371" cy="161.3" r="4" fill="#adb5bd" stroke="#2b2a26" stroke-width="1.5" />
+		<rect x="34" y="272" width="392" height="10" fill="#c9a77c" stroke="#2b2a26" stroke-width="1.5" />
+		<!-- výška startu (60°): kola ve výšce 110 + 145·cos 60° = 182,5 -->
+		<line x1="96" y1="182.5" x2="364" y2="182.5" stroke="#1e7a34" stroke-width="2.5" stroke-dasharray="8 6" />
+		<!-- štítek fáze: nejdřív tření ubírá, pak se odráží (koná práci) -->
+		<text class="trenistitek" x="230" y="140" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">tření ubírá</text>
+		<text class="pracestitek" x="230" y="140" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b" opacity="0">koná práci</text>
+		<!-- skateboardista: prkno i postava v jedné otáčené skupině, kola vždy na povrchu -->
+		<g transform="translate(230,110)">
+			<g class="skejt" transform="rotate(-48)">
+				<circle cx="-10" cy="145" r="4" fill="#495057" stroke="#2b2a26" stroke-width="1" />
+				<circle cx="10" cy="145" r="4" fill="#495057" stroke="#2b2a26" stroke-width="1" />
+				<rect x="-17" y="137" width="34" height="5" rx="2.5" fill="#2b2a26" />
+				<line x1="-5" y1="137" x2="-3" y2="116" stroke="#495057" stroke-width="6" stroke-linecap="round" />
+				<line x1="6" y1="137" x2="4" y2="116" stroke="#495057" stroke-width="6" stroke-linecap="round" />
+				<rect x="-8" y="94" width="16" height="24" rx="5" fill="#a5673f" stroke="#2b2a26" stroke-width="1.5" />
+				<line x1="-7" y1="99" x2="-20" y2="110" stroke="#a5673f" stroke-width="5" stroke-linecap="round" />
+				<line x1="7" y1="99" x2="20" y2="110" stroke="#a5673f" stroke-width="5" stroke-linecap="round" />
+				<circle cx="0" cy="85" r="8" fill="#f1c27d" stroke="#2b2a26" stroke-width="1.5" />
+				<path d="M -9 85 A 9 9 0 0 1 9 85 Z" fill="#fab005" stroke="#2b2a26" stroke-width="1.5" />
+			</g>
+		</g>
+		<text x="40" y="316" font-size="21" fill="#2b2a26">Skateboardista nevystoupá do</text>
+		<text x="40" y="342" font-size="21" fill="#2b2a26">výšky startu (<tspan fill="#1e7a34" font-weight="bold">čárkovaně</tspan>). Aby tam</text>
+		<text x="40" y="368" font-size="21" fill="#2b2a26">vyjel, musí <tspan font-weight="bold">vykonat práci</tspan>.</text>
+	</g>
+</svg>

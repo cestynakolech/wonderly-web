@@ -1,0 +1,53 @@
+<svg viewBox="0 1074 460 462" width="460" height="462" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Co je vnitřní energie: každá částice tělesa má dvě energie, pohybovou (částice se pohybuje) a polohovou (podle polohy vůči sousedním částicím). Součet energií všech částic je vnitřní energie tělesa, měříme ji v joulech (J)." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Vnitřní energie tělesa 3/7: Co je vnitřní energie</title>
+	<!-- Panel 3/7 výřezu z infografika-vnitrni-energie-telesa.svg (souřadnice beze změny, jen viewBox). -->
+	<style>
+		.stred { animation: stred 1.6s ease-in-out infinite; }
+		.pl { transform-box: fill-box; transform-origin: left center; animation: pl 1.6s ease-in-out infinite; }
+		.pp { transform-box: fill-box; transform-origin: right center; animation: pp 1.6s ease-in-out infinite; }
+		@keyframes stred { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(18px); } 75% { transform: translateX(-18px); } }
+		@keyframes pl { 0%, 100% { transform: scaleX(1); } 25% { transform: scaleX(1.148); } 75% { transform: scaleX(0.852); } }
+		@keyframes pp { 0%, 100% { transform: scaleX(1); } 25% { transform: scaleX(0.852); } 75% { transform: scaleX(1.148); } }
+		@media (prefers-reduced-motion: reduce) {
+			.stred, .pl, .pp { animation: none; }
+		}
+	</style>
+	<rect x="0" y="1074" width="460" height="462" fill="#f3f1ea" />
+	<g id="panel-3" transform="translate(0,1084)">
+		<rect x="26" y="6" width="420" height="436" rx="10" fill="#2b2a26" />
+		<rect x="20" y="0" width="420" height="436" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="34" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="41" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">3</text>
+		<text x="80" y="43" font-size="28" font-weight="bold" fill="#2b2a26">Co je vnitřní energie</text>
+
+		<text x="34" y="80" font-size="21" fill="#2b2a26">každá částice tělesa má dvě energie:</text>
+
+		<!-- zvětšená část tělesa -->
+		<rect x="34" y="100" width="392" height="126" rx="8" fill="#fff" stroke="#495057" stroke-width="2" stroke-dasharray="6 5" />
+		<path class="pl" d="M 94 163 L 104 163 L 110 153 L 122 173 L 134 153 L 146 173 L 158 153 L 170 173 L 182 153 L 194 173 L 200 163 L 216 163" fill="none" stroke="#1e7a34" stroke-width="3" stroke-linejoin="round" vector-effect="non-scaling-stroke" />
+		<path class="pp" d="M 244 163 L 260 163 L 266 153 L 278 173 L 290 153 L 302 173 L 314 153 L 326 173 L 338 153 L 350 173 L 356 163 L 366 163" fill="none" stroke="#1e7a34" stroke-width="3" stroke-linejoin="round" vector-effect="non-scaling-stroke" />
+		<circle cx="80" cy="163" r="14" fill="#0c8599" stroke="#2b2a26" stroke-width="2" />
+		<circle cx="380" cy="163" r="14" fill="#0c8599" stroke="#2b2a26" stroke-width="2" />
+		<g class="stred">
+			<circle cx="230" cy="163" r="14" fill="#0c8599" stroke="#2b2a26" stroke-width="2" />
+			<line x1="214" y1="200" x2="246" y2="200" stroke="#5f3dc4" stroke-width="4" />
+			<polygon points="204,200 216,193 216,207" fill="#5f3dc4" />
+			<polygon points="256,200 244,193 244,207" fill="#5f3dc4" />
+		</g>
+
+		<!-- legenda -->
+		<line x1="48" y1="251" x2="76" y2="251" stroke="#5f3dc4" stroke-width="4" />
+		<polygon points="40,251 51,245 51,257" fill="#5f3dc4" />
+		<polygon points="84,251 73,245 73,257" fill="#5f3dc4" />
+		<text x="96" y="258" font-size="21" fill="#2b2a26"><tspan font-weight="bold" fill="#5f3dc4">pohybová</tspan> – částice se pohybuje</text>
+		<path d="M 40 290 L 46 290 L 50 282 L 58 298 L 66 282 L 74 298 L 78 290 L 84 290" fill="none" stroke="#1e7a34" stroke-width="3" stroke-linejoin="round" />
+		<text x="96" y="290" font-size="21" fill="#2b2a26"><tspan font-weight="bold" fill="#1e7a34">polohová</tspan> – podle polohy</text>
+		<text x="96" y="316" font-size="21" fill="#2b2a26">vůči sousedním částicím</text>
+
+		<!-- součet -->
+		<rect x="34" y="334" width="392" height="88" rx="8" fill="#fff3bf" stroke="#2b2a26" stroke-width="2" />
+		<text x="230" y="362" text-anchor="middle" font-size="21" fill="#2b2a26">součet energií <tspan font-weight="bold">všech</tspan> částic</text>
+		<text x="230" y="390" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2a26">= vnitřní energie tělesa</text>
+		<text x="230" y="414" text-anchor="middle" font-size="21" fill="#2b2a26">měříme ji v joulech (J)</text>
+	</g>
+</svg>

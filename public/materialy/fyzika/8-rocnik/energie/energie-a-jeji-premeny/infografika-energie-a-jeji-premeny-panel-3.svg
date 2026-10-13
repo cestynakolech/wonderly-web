@@ -1,0 +1,102 @@
+<svg viewBox="0 1075 460 671" width="460" height="671" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Druhy energie: mechanická (pohybová a polohová), chemická (paliva, trávení), elektrická (vedou ji dráty), magnetická (magnet), světelná (světlo Slunce), jaderná (v jádru Slunce) a tepelná (zahřátá pára)." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Energie a její přeměny 3/5: Druhy energie</title>
+	<!-- Panel 3/5 výřezu z infografika-energie-a-jeji-premeny.svg (souřadnice beze změny, jen viewBox). -->
+	<rect x="0" y="1075" width="460" height="671" fill="#f3f1ea" />
+	<g id="panel-3">
+	<!-- ===== Panel 3: Druhy energie ===== -->
+	<rect x="26" y="1091" width="420" height="645" rx="10" fill="#2b2a26" />
+	<rect x="20" y="1085" width="420" height="645" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="52" cy="1119" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="52" y="1126" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">3</text>
+	<text x="80" y="1128" font-size="28" font-weight="bold" fill="#2b2a26">Druhy energie</text>
+
+	<!-- mechanická: pohybová + polohová -->
+	<rect x="34" y="1150" width="392" height="140" rx="10" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+	<text x="230" y="1180" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2a26">mechanická</text>
+	<rect x="60" y="1254" width="140" height="5" fill="#adb5bd" />
+	<line x1="98" y1="1230" x2="126" y2="1230" stroke="#495057" stroke-width="3" stroke-linecap="round" />
+	<line x1="92" y1="1238" x2="126" y2="1238" stroke="#495057" stroke-width="3" stroke-linecap="round" />
+	<line x1="98" y1="1246" x2="126" y2="1246" stroke="#495057" stroke-width="3" stroke-linecap="round" />
+	<circle cx="150" cy="1238" r="16" fill="#e03131" stroke="#2b2a26" stroke-width="2" />
+	<circle cx="145" cy="1232" r="4" fill="#ffc9c9" />
+	<text x="130" y="1280" text-anchor="middle" font-size="21" fill="#2b2a26">pohybová</text>
+	<rect x="404" y="1196" width="10" height="64" fill="#ced4da" stroke="#2b2a26" stroke-width="1.5" />
+	<rect x="290" y="1254" width="114" height="5" fill="#adb5bd" />
+	<rect x="340" y="1218" width="64" height="6" fill="#8d5a2b" stroke="#2b2a26" stroke-width="1" />
+	<polygon points="394,1224 404,1224 404,1240" fill="#8d5a2b" stroke="#2b2a26" stroke-width="1" />
+	<circle cx="368" cy="1202" r="16" fill="#e03131" stroke="#2b2a26" stroke-width="2" />
+	<circle cx="363" cy="1196" r="4" fill="#ffc9c9" />
+	<line x1="318" y1="1250" x2="318" y2="1226" stroke="#495057" stroke-width="2" stroke-dasharray="4 3" />
+	<polygon points="313,1228 323,1228 318,1220" fill="#495057" />
+	<text x="330" y="1280" text-anchor="middle" font-size="21" fill="#2b2a26">polohová</text>
+
+	<!-- chemická -->
+	<rect x="34" y="1302" width="192" height="130" rx="10" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+	<rect x="80" y="1366" width="100" height="3" fill="#adb5bd" />
+	<path d="M 86 1366 L 96 1348 L 108 1344 L 116 1330 L 130 1324 L 142 1332 L 152 1340 L 164 1350 L 174 1366 Z" fill="#343a40" stroke="#000000" stroke-width="1.5" />
+	<path d="M 116 1330 L 122 1348 M 130 1324 L 134 1342 M 152 1340 L 144 1356 M 108 1344 L 104 1358" fill="none" stroke="#868e96" stroke-width="2" />
+	<text x="130" y="1394" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2a26">chemická</text>
+	<text x="130" y="1420" text-anchor="middle" font-size="21" fill="#495057">paliva, trávení</text>
+
+	<!-- elektrická -->
+	<rect x="234" y="1302" width="192" height="130" rx="10" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+	<rect x="306" y="1324" width="48" height="48" rx="9" fill="#f8f9fa" stroke="#2b2a26" stroke-width="2" />
+	<circle cx="330" cy="1348" r="16" fill="#e9ecef" stroke="#495057" stroke-width="2" />
+	<circle cx="323" cy="1351" r="3" fill="#2b2a26" />
+	<circle cx="337" cy="1351" r="3" fill="#2b2a26" />
+	<rect x="328.5" y="1334" width="3" height="8" fill="#868e96" />
+	<text x="330" y="1394" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2a26">elektrická</text>
+	<text x="330" y="1420" text-anchor="middle" font-size="21" fill="#495057">vedou ji dráty</text>
+
+	<!-- magnetická -->
+	<rect x="34" y="1442" width="192" height="130" rx="10" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+	<rect x="100" y="1511" width="60" height="3" fill="#adb5bd" />
+	<path d="M 112 1462 L 112 1486 A 18 18 0 0 0 148 1486 L 148 1462" fill="none" stroke="#e03131" stroke-width="14" />
+	<rect x="105" y="1452" width="14" height="10" fill="#adb5bd" stroke="#2b2a26" stroke-width="1.5" />
+	<rect x="141" y="1452" width="14" height="10" fill="#adb5bd" stroke="#2b2a26" stroke-width="1.5" />
+	<text x="130" y="1534" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2a26">magnetická</text>
+	<text x="130" y="1560" text-anchor="middle" font-size="21" fill="#495057">magnet</text>
+
+	<!-- světelná -->
+	<rect x="234" y="1442" width="192" height="130" rx="10" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+	<g stroke="#f59f00" stroke-width="3" stroke-linecap="round">
+		<line x1="348" y1="1488" x2="355" y2="1488" /><line x1="342.7" y1="1500.7" x2="347.7" y2="1505.7" />
+		<line x1="330" y1="1506" x2="330" y2="1513" /><line x1="317.3" y1="1500.7" x2="312.3" y2="1505.7" />
+		<line x1="312" y1="1488" x2="305" y2="1488" /><line x1="317.3" y1="1475.3" x2="312.3" y2="1470.3" />
+		<line x1="330" y1="1470" x2="330" y2="1463" /><line x1="342.7" y1="1475.3" x2="347.7" y2="1470.3" />
+	</g>
+	<circle cx="330" cy="1488" r="14" fill="#ffd43b" stroke="#e67700" stroke-width="2" />
+	<text x="330" y="1534" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2a26">světelná</text>
+	<text x="330" y="1560" text-anchor="middle" font-size="21" fill="#495057">světlo Slunce</text>
+
+	<!-- jaderná -->
+	<rect x="34" y="1582" width="192" height="130" rx="10" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+	<g fill="none" stroke="#5f3dc4" stroke-width="2.5">
+		<ellipse cx="130" cy="1628" rx="28" ry="10" />
+		<ellipse cx="130" cy="1628" rx="28" ry="10" transform="rotate(60 130 1628)" />
+		<ellipse cx="130" cy="1628" rx="28" ry="10" transform="rotate(120 130 1628)" />
+	</g>
+	<circle cx="126" cy="1625" r="5" fill="#e03131" stroke="#2b2a26" stroke-width="1" />
+	<circle cx="134" cy="1625" r="5" fill="#868e96" stroke="#2b2a26" stroke-width="1" />
+	<circle cx="130" cy="1632" r="5" fill="#e03131" stroke="#2b2a26" stroke-width="1" />
+	<circle cx="158" cy="1628" r="3.5" fill="#1971c2" />
+	<circle cx="144" cy="1652.2" r="3.5" fill="#1971c2" />
+	<circle cx="116" cy="1652.2" r="3.5" fill="#1971c2" />
+	<text x="130" y="1674" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2a26">jaderná</text>
+	<text x="130" y="1700" text-anchor="middle" font-size="21" fill="#495057">v jádru Slunce</text>
+
+	<!-- tepelná -->
+	<rect x="234" y="1582" width="192" height="130" rx="10" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+	<rect x="290" y="1644" width="80" height="3" fill="#adb5bd" />
+	<rect x="302" y="1628" width="56" height="16" fill="#dee2e6" stroke="#2b2a26" stroke-width="2" />
+	<rect x="306" y="1624" width="48" height="4" fill="#e03131" />
+	<rect x="310" y="1604" width="40" height="20" rx="3" fill="#868e96" stroke="#2b2a26" stroke-width="2" />
+	<rect x="308" y="1600" width="44" height="4" fill="#adb5bd" stroke="#2b2a26" stroke-width="1" />
+	<line x1="303" y1="1610" x2="310" y2="1610" stroke="#2b2a26" stroke-width="3" />
+	<line x1="350" y1="1610" x2="357" y2="1610" stroke="#2b2a26" stroke-width="3" />
+	<path d="M 322 1597 q -4 -5 0 -10 M 338 1597 q -4 -5 0 -10" fill="none" stroke="#adb5bd" stroke-width="3" stroke-linecap="round" />
+	<text x="330" y="1674" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2a26">tepelná</text>
+	<text x="330" y="1700" text-anchor="middle" font-size="21" fill="#495057">zahřátá pára</text>
+
+	</g>
+</svg>

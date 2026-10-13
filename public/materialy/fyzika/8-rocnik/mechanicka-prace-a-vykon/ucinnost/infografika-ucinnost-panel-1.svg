@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="288" viewBox="0 42 420 288" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Kam jde práce stroje? Příkon P₀ vstupuje do stroje, výkon P je užitečná část, zbytek jsou ztráty (např. tření). P₀ = práce, kterou stroj dostane za 1 s; P = užitečná práce za 1 s.">
+<title>Účinnost 1/4: Kam jde práce stroje?</title>
+<!-- Panel 1/4 výřezu z infografika-ucinnost.svg (souřadnice beze změny, jen viewBox). -->
+<style>
+	.uci-tok { animation: uci-tece 1.2s linear infinite; }
+	@keyframes uci-tece { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -24; } }
+	@media (prefers-reduced-motion: reduce) {
+		.uci-tok { animation: none; }
+	}
+</style>
+
+<rect x="0" y="42" width="420" height="288" fill="#f8f9fa" />
+
+<!-- A: Kam jde práce stroje (šířky pásů: příkon 28 = výkon 20 + ztráty 8) -->
+<g id="uci-tok">
+	<rect x="10" y="52" width="400" height="268" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+	<text x="24" y="81" font-size="21" font-weight="bold" fill="#2b2a26">Kam jde práce stroje?</text>
+
+	<text x="84" y="124" text-anchor="middle" font-size="19" font-weight="bold" fill="#b5400a">příkon P<tspan font-size="17" dy="6">0</tspan></text>
+	<line x1="22" y1="152" x2="148" y2="152" stroke="#e8590c" stroke-width="28" />
+	<line class="uci-tok" x1="22" y1="152" x2="148" y2="152" stroke="#ffd8a8" stroke-width="6" stroke-dasharray="10 14" />
+
+	<rect x="148" y="114" width="100" height="76" rx="14" fill="#a5d8ff" stroke="#2b2a26" stroke-width="3" />
+	<text x="198" y="159" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">stroj</text>
+
+	<text x="320" y="124" text-anchor="middle" font-size="19" font-weight="bold" fill="#1e7031">výkon P</text>
+	<line x1="248" y1="152" x2="388" y2="152" stroke="#2f9e44" stroke-width="20" />
+	<polygon points="388,137 408,152 388,167" fill="#2f9e44" />
+	<line class="uci-tok" x1="248" y1="152" x2="386" y2="152" stroke="#b2f2bb" stroke-width="5" stroke-dasharray="10 14" />
+
+	<path d="M222,190 V216 Q222,228 234,228 H388" fill="none" stroke="#e03131" stroke-width="8" />
+	<polygon points="388,219 404,228 388,237" fill="#e03131" />
+	<path class="uci-tok" d="M222,190 V216 Q222,228 234,228 H386" fill="none" stroke="#ffc9c9" stroke-width="2.5" stroke-dasharray="10 14" />
+	<text x="306" y="259" text-anchor="middle" font-size="19" font-weight="bold" fill="#c92a2a">ztráty (např. tření)</text>
+
+	<text x="24" y="286" font-size="19" fill="#2b2a26"><tspan font-weight="bold" fill="#b5400a">P<tspan font-size="17" dy="6">0</tspan></tspan><tspan dy="-6" dx="5">= práce, kterou stroj dostane za 1 s</tspan></text>
+	<text x="24" y="311" font-size="19" fill="#2b2a26"><tspan font-weight="bold" fill="#1e7031">P</tspan> = užitečná práce za 1 s</text>
+</g>
+</svg>

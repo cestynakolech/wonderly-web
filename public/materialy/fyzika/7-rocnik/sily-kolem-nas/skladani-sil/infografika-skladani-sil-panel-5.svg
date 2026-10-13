@@ -1,0 +1,64 @@
+<svg viewBox="0 2040 460 536" width="460" height="536" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Různoběžné síly: nemíří stejně ani proti sobě, výslednici najdeme kreslením. Saně shora: jeden pes táhne rovně F1 = 40 N, druhý uhne stranou F2 = 30 N; z konců sil vedeme rovnoběžky, úhlopříčka je výslednice F = asi 65 N, velikost záleží na úhlu." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Skládání sil 5/5: Různoběžné síly</title>
+	<!-- Panel 5/5 výřezu z infografika-skladani-sil.svg (souřadnice beze změny, jen viewBox). -->
+	<style>
+		.krok1 { animation: krok1 6s linear infinite; }
+		.krok2 { animation: krok2 6s linear infinite; }
+		@keyframes krok1 { 0%, 20% { opacity: 0; } 35%, 100% { opacity: 1; } }
+		@keyframes krok2 { 0%, 50% { opacity: 0; } 65%, 100% { opacity: 1; } }
+		@media (prefers-reduced-motion: reduce) {
+			.krok1, .krok2 { animation: none; }
+		}
+	</style>
+	<defs>
+		<g id="dilek">
+			<rect x="0" y="-12" width="30" height="12" fill="#ffe8a3" stroke="#2b2a26" stroke-width="2" />
+			<text x="40" y="0" font-size="21" fill="#495057">= 10 N (měřítko)</text>
+		</g>
+		<marker id="hModra" viewBox="0 0 14 14" refX="0" refY="7" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto"><path d="M 0 0 L 14 7 L 0 14 Z" fill="#1971c2" /></marker>
+		<marker id="hFial" viewBox="0 0 14 14" refX="0" refY="7" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto"><path d="M 0 0 L 14 7 L 0 14 Z" fill="#6741d9" /></marker>
+		<marker id="hCerv" viewBox="0 0 16 16" refX="0" refY="8" markerWidth="16" markerHeight="16" markerUnits="userSpaceOnUse" orient="auto"><path d="M 0 0 L 16 8 L 0 16 Z" fill="#c92a2a" /></marker>
+	</defs>
+	<rect x="0" y="2040" width="460" height="536" fill="#f3f1ea" />
+	<g id="panel-5" transform="translate(0 2050)">
+		<rect x="26" y="6" width="420" height="510" rx="10" fill="#2b2a26" />
+		<rect x="20" y="0" width="420" height="510" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="34" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="41" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">5</text>
+		<text x="80" y="43" font-size="28" font-weight="bold" fill="#2b2a26">Různoběžné síly</text>
+		<text x="40" y="85" font-size="21" fill="#2b2a26">nemíří stejně ani proti sobě →</text>
+		<text x="40" y="113" font-size="21" fill="#2b2a26">výslednici najdeme <tspan font-weight="bold">kreslením</tspan></text>
+
+		<!-- saně shora pod působištěm -->
+		<path d="M 50 252 H 120 Q 130 252 130 258 M 50 278 H 120 Q 130 278 130 272" fill="none" stroke="#495057" stroke-width="3" stroke-linecap="round" />
+		<rect x="56" y="255" width="62" height="20" rx="3" fill="#d9a066" stroke="#5c3a1a" stroke-width="1.5" />
+		<path d="M 70 255 V 275 M 86 255 V 275 M 102 255 V 275" stroke="#8d5a2b" stroke-width="1.2" />
+		<!-- krok 1: pomocné rovnoběžky -->
+		<g class="krok1">
+			<line x1="210" y1="265" x2="274.74" y2="202.48" stroke="#495057" stroke-width="2.5" stroke-dasharray="8 6" />
+			<line x1="154.74" y1="202.48" x2="274.74" y2="202.48" stroke="#495057" stroke-width="2.5" stroke-dasharray="8 6" />
+		</g>
+		<!-- síly F1 = 40 N (120 px) a F2 = 30 N (90 px, úhel 44°) -->
+		<!-- čára končí 14 px (u F 16 px) před hrotem, hrot (marker refX 0) končí přesně v koncovém bodě síly -->
+		<line x1="90" y1="265" x2="196" y2="265" stroke="#1971c2" stroke-width="5" marker-end="url(#hModra)" />
+		<line x1="90" y1="265" x2="144.67" y2="212.21" stroke="#6741d9" stroke-width="5" marker-end="url(#hFial)" />
+		<!-- krok 2: úhlopříčka = výslednice (195 px = 65 N) -->
+		<g class="krok2">
+			<line x1="90" y1="265" x2="259.58" y2="207.61" stroke="#c92a2a" stroke-width="6" marker-end="url(#hCerv)" />
+			<text x="196" y="185" font-size="22" font-weight="bold" fill="#c92a2a">F = asi 65 N</text>
+		</g>
+		<path d="M 83 258 L 97 272 M 97 258 L 83 272" stroke="#495057" stroke-width="3" stroke-linecap="round" />
+		<text x="40" y="185" font-size="21" font-weight="bold" fill="#6741d9">F<tspan font-size="18" dy="5">2</tspan><tspan dy="-5"> = 30 N</tspan></text>
+		<text x="150" y="303" text-anchor="middle" font-size="21" font-weight="bold" fill="#1971c2">F<tspan font-size="18" dy="5">1</tspan><tspan dy="-5"> = 40 N</tspan></text>
+		<text x="40" y="340" font-size="21" fill="#495057">saně shora: jeden pes táhne rovně,</text>
+		<text x="40" y="368" font-size="21" fill="#495057">druhý uhne stranou</text>
+
+		<circle cx="44" cy="398" r="4" fill="#2b2a26" />
+		<text x="56" y="405" font-size="21" fill="#2b2a26">z konců sil vedeme <tspan font-weight="bold">rovnoběžky</tspan></text>
+		<circle cx="44" cy="428" r="4" fill="#2b2a26" />
+		<text x="56" y="435" font-size="21" fill="#2b2a26">úhlopříčka = <tspan font-weight="bold" fill="#c92a2a">výslednice F</tspan></text>
+		<circle cx="44" cy="458" r="4" fill="#2b2a26" />
+		<text x="56" y="465" font-size="21" fill="#2b2a26">velikost záleží na <tspan font-weight="bold">úhlu</tspan></text>
+		<use xlink:href="#dilek" href="#dilek" x="72" y="497" />
+	</g>
+</svg>

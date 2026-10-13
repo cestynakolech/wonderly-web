@@ -1,0 +1,97 @@
+<svg viewBox="0 1500 460 546" width="460" height="546" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Rovnováha sil: družstva táhnou lano proti sobě silami F1 = 4 500 N a F2 = 4 500 N, F = 0 N, lano se nepohne (šipky tady nejsou v měřítku). Žádný pohybový účinek, jen deformační: ruce natáhnou pružinu, nebo přetrhne lano, rozbije hrnek." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Skládání sil 4/5: Rovnováha sil</title>
+	<!-- Panel 4/5 výřezu z infografika-skladani-sil.svg (souřadnice beze změny, jen viewBox). -->
+	<style>
+		.pruzina { transform-box: fill-box; transform-origin: center; animation: pruzina 4s ease-in-out infinite; }
+		.levy { animation: levy 4s ease-in-out infinite; }
+		.pravy { animation: pravy 4s ease-in-out infinite; }
+		@keyframes pruzina { 0% { transform: scaleX(0.7); } 60%, 100% { transform: scaleX(1); } }
+		@keyframes levy { 0% { transform: translateX(24px); } 60%, 100% { transform: translateX(0); } }
+		@keyframes pravy { 0% { transform: translateX(-24px); } 60%, 100% { transform: translateX(0); } }
+		@media (prefers-reduced-motion: reduce) {
+			.pruzina, .levy, .pravy { animation: none; }
+		}
+	</style>
+	<defs>
+		<g id="clovek">
+			<path d="M 0 -44 L -14 -1" stroke="#343a40" stroke-width="9" stroke-linecap="round" fill="none" />
+			<path d="M 0 -44 L 9 -22 L 15 -1" stroke="#495057" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+			<ellipse cx="-12" cy="0" rx="9" ry="4" fill="#212529" />
+			<ellipse cx="19" cy="0" rx="9" ry="4" fill="#212529" />
+			<path d="M 0 -44 L -14 -82" stroke="currentColor" stroke-width="17" stroke-linecap="round" fill="none" />
+			<path d="M -12 -78 L 4 -66" stroke="currentColor" stroke-width="8" stroke-linecap="round" fill="none" />
+			<path d="M 4 -66 L 21 -61" stroke="#e0ac69" stroke-width="6" stroke-linecap="round" fill="none" />
+			<circle cx="23" cy="-60" r="4.5" fill="#e0ac69" stroke="#8a5a2b" stroke-width="1" />
+			<circle cx="-19" cy="-99" r="10.5" fill="#f1c27d" stroke="#8a5a2b" stroke-width="1.5" />
+			<path d="M -30 -100 Q -30 -113 -18 -112 Q -8 -111 -9 -103 Q -16 -106 -22 -104 Q -26 -100 -30 -100 Z" fill="#4a3222" />
+			<circle cx="-13" cy="-99" r="1.4" fill="#1b1b1b" />
+		</g>
+		<g id="ruka">
+			<path d="M -92 0 L -60 0" stroke="currentColor" stroke-width="18" stroke-linecap="round" />
+			<path d="M -64 0 L -8 0" stroke="#e0ac69" stroke-width="12" stroke-linecap="round" />
+			<circle cx="0" cy="0" r="10" fill="#e0ac69" stroke="#8a5a2b" stroke-width="1.5" />
+			<path d="M -3 -6 Q 3 -6 4 0 M -3 6 Q 3 6 4 0" fill="none" stroke="#8a5a2b" stroke-width="1.2" />
+		</g>
+	</defs>
+	<rect x="0" y="1500" width="460" height="546" fill="#f3f1ea" />
+	<g id="panel-4" transform="translate(0 1510)">
+		<rect x="26" y="6" width="420" height="520" rx="10" fill="#2b2a26" />
+		<rect x="20" y="0" width="420" height="520" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="34" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="41" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">4</text>
+		<text x="80" y="43" font-size="28" font-weight="bold" fill="#2b2a26">Rovnováha sil</text>
+		<text x="40" y="85" font-size="21" fill="#2b2a26">stejné síly proti sobě: <tspan font-weight="bold" fill="#c92a2a">F = 0 N</tspan></text>
+		<text x="40" y="113" font-size="21" fill="#2b2a26">lano se <tspan font-weight="bold">nepohne</tspan></text>
+
+		<text x="200" y="142" text-anchor="end" font-size="21" font-weight="bold" fill="#1971c2">F<tspan font-size="18" dy="5">1</tspan><tspan dy="-5"> = 4 500 N</tspan></text>
+		<text x="212" y="142" font-size="21" font-weight="bold" fill="#6741d9">F<tspan font-size="18" dy="5">2</tspan><tspan dy="-5"> = 4 500 N</tspan></text>
+		<!-- tráva a středová značka -->
+		<rect x="22" y="270" width="416" height="12" fill="#b2d8a0" />
+		<line x1="22" y1="270" x2="438" y2="270" stroke="#2f6b2f" stroke-width="2" />
+		<line x1="205" y1="222" x2="205" y2="282" stroke="#495057" stroke-width="2" stroke-dasharray="5 4" />
+		<!-- lano -->
+		<line x1="44" y1="210" x2="416" y2="210" stroke="#a0763a" stroke-width="5" stroke-linecap="round" />
+		<line x1="44" y1="210" x2="416" y2="210" stroke="#6b4f25" stroke-width="5" stroke-dasharray="3 5" />
+		<!-- družstva -->
+		<use xlink:href="#clovek" href="#clovek" x="50" y="270" color="#e8590c" />
+		<use xlink:href="#clovek" href="#clovek" x="100" y="270" color="#e8590c" />
+		<use xlink:href="#clovek" href="#clovek" transform="translate(410 270) scale(-1 1)" color="#2f9e44" />
+		<use xlink:href="#clovek" href="#clovek" transform="translate(360 270) scale(-1 1)" color="#2f9e44" />
+		<!-- šátek uprostřed lana = působiště -->
+		<path d="M 205 210 L 197 232 L 213 232 Z" fill="#fab005" stroke="#8a6d00" stroke-width="1.5" />
+		<line x1="205" y1="210" x2="141" y2="210" stroke="#1971c2" stroke-width="5" />
+		<polygon points="127,210 141,203 141,217" fill="#1971c2" />
+		<line x1="205" y1="210" x2="269" y2="210" stroke="#6741d9" stroke-width="5" />
+		<polygon points="283,210 269,203 269,217" fill="#6741d9" />
+		<path d="M 198 203 L 212 217 M 212 203 L 198 217" stroke="#495057" stroke-width="3" stroke-linecap="round" />
+		<text x="230" y="308" text-anchor="middle" font-size="21" fill="#495057">šipky tady nejsou v měřítku</text>
+
+		<text x="40" y="345" font-size="21" fill="#2b2a26">žádný <tspan font-weight="bold">pohybový</tspan> účinek,</text>
+		<text x="40" y="373" font-size="21" fill="#2b2a26">jen <tspan font-weight="bold">deformační</tspan>: ruce natáhnou pružinu</text>
+		<!-- stůl -->
+		<rect x="34" y="450" width="392" height="10" fill="#c9a77c" stroke="#2b2a26" stroke-width="2" />
+		<rect x="34" y="460" width="392" height="7" fill="#8d5a2b" />
+		<!-- pružina leží na stole, ruce ji drží za destičky a natahují -->
+		<path class="pruzina" d="M 150 436 L 160 436 L 167 424 L 181 448 L 195 424 L 209 448 L 223 424 L 237 448 L 251 424 L 265 448 L 279 424 L 293 448 L 300 436 L 310 436" fill="none" stroke="#495057" stroke-width="3.5" stroke-linejoin="round" />
+		<g class="levy">
+			<!-- úchyt (oko) přišroubovaný k destičce, pěst ho svírá a táhne ven -->
+			<rect x="114" y="426" width="30" height="20" rx="8" fill="none" stroke="#495057" stroke-width="3.5" />
+			<use xlink:href="#ruka" href="#ruka" x="124" y="436" color="#e8590c" />
+			<path d="M 118 429 Q 124 436 118 443" fill="none" stroke="#495057" stroke-width="3.5" />
+			<rect x="142" y="402" width="8" height="48" rx="2" fill="#868e96" stroke="#2b2a26" stroke-width="1.5" />
+			<line x1="142" y1="410" x2="96" y2="410" stroke="#1971c2" stroke-width="5" />
+			<polygon points="82,410 96,403 96,417" fill="#1971c2" />
+			<text x="100" y="397" text-anchor="middle" font-size="21" font-weight="bold" fill="#1971c2">F<tspan font-size="18" dy="5">1</tspan></text>
+		</g>
+		<g class="pravy">
+			<rect x="316" y="426" width="30" height="20" rx="8" fill="none" stroke="#495057" stroke-width="3.5" />
+			<use xlink:href="#ruka" href="#ruka" transform="translate(336 436) scale(-1 1)" color="#2f9e44" />
+			<path d="M 342 429 Q 336 436 342 443" fill="none" stroke="#495057" stroke-width="3.5" />
+			<rect x="310" y="402" width="8" height="48" rx="2" fill="#868e96" stroke="#2b2a26" stroke-width="1.5" />
+			<line x1="318" y1="410" x2="364" y2="410" stroke="#6741d9" stroke-width="5" />
+			<polygon points="378,410 364,403 364,417" fill="#6741d9" />
+			<text x="360" y="397" text-anchor="middle" font-size="21" font-weight="bold" fill="#6741d9">F<tspan font-size="18" dy="5">2</tspan></text>
+		</g>
+		<text x="40" y="500" font-size="21" fill="#2b2a26">nebo přetrhne lano, rozbije hrnek</text>
+	</g>
+</svg>

@@ -1,0 +1,56 @@
+<svg viewBox="0 120 460 521" width="460" height="521" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Výslednice sil: víc sil nahradí jediná síla se stejným účinkem, výslednice F. Šipka síly 30 N u krabice začíná v působišti, míří ve směru síly a délka odpovídá velikosti síly; měřítko 1 dílek = 10 N (v sešitě 1 cm), v obrázcích 2, 3 a 5 stejné měřítko." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Skládání sil 1/5: Výslednice sil</title>
+	<!-- Panel 1/5 výřezu z infografika-skladani-sil.svg (souřadnice beze změny, jen viewBox). -->
+	<defs>
+		<linearGradient id="krabice" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0" stop-color="#e2b07a" />
+			<stop offset="1" stop-color="#c48a4f" />
+		</linearGradient>
+	</defs>
+	<rect x="0" y="120" width="460" height="521" fill="#f3f1ea" />
+	<g id="panel-1" transform="translate(0 130)">
+		<rect x="26" y="6" width="420" height="495" rx="10" fill="#2b2a26" />
+		<rect x="20" y="0" width="420" height="495" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="34" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="41" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+		<text x="80" y="43" font-size="28" font-weight="bold" fill="#2b2a26">Výslednice sil</text>
+		<text x="40" y="85" font-size="21" fill="#2b2a26">Víc sil nahradí <tspan font-weight="bold">jediná síla</tspan></text>
+		<text x="40" y="113" font-size="21" fill="#2b2a26">se stejným účinkem: <tspan font-weight="bold" fill="#c92a2a">výslednice F</tspan></text>
+
+		<!-- podlaha -->
+		<rect x="34" y="235" width="392" height="14" fill="#c9a77c" stroke="#2b2a26" stroke-width="2" />
+		<line x1="70" y1="242" x2="120" y2="242" stroke="#8d5a2b" stroke-width="2" />
+		<line x1="300" y1="241" x2="360" y2="241" stroke="#8d5a2b" stroke-width="2" />
+		<!-- krabice s páskou -->
+		<rect x="60" y="155" width="100" height="80" fill="url(#krabice)" stroke="#2b2a26" stroke-width="2.5" />
+		<path d="M 60 155 L 74 145 L 146 145 L 160 155 Z" fill="#ecc596" stroke="#2b2a26" stroke-width="2" />
+		<rect x="102" y="145" width="16" height="90" fill="#f4e1a6" stroke="#8d5a2b" stroke-width="1" />
+		<line x1="64" y1="220" x2="88" y2="220" stroke="#8d5a2b" stroke-width="1.5" />
+		<line x1="64" y1="226" x2="80" y2="226" stroke="#8d5a2b" stroke-width="1.5" />
+		<!-- působiště a šipka 30 N = 3 dílky = 90 px -->
+		<!-- popisek působiště vedle křížku s odkazovou čárou -->
+		<path d="M 199 214 L 119 201" fill="none" stroke="#495057" stroke-width="1.5" stroke-dasharray="4 3" />
+		<text x="202" y="228" font-size="21" fill="#495057">působiště</text>
+		<line x1="110" y1="195" x2="186" y2="195" stroke="#2b2a26" stroke-width="5" />
+		<polygon points="200,195 186,188 186,202" fill="#2b2a26" />
+		<path d="M 102 187 L 118 203 M 118 187 L 102 203" stroke="#495057" stroke-width="3.5" stroke-linecap="round" />
+		<text x="212" y="202" font-size="22" font-weight="bold" fill="#2b2a26">30 N</text>
+
+		<!-- pravítko: 3 dílky po 10 N -->
+		<rect x="110" y="292" width="90" height="16" fill="#ffe8a3" stroke="#2b2a26" stroke-width="2" />
+		<path d="M 140 292 V 308 M 170 292 V 308" stroke="#2b2a26" stroke-width="2" />
+		<text x="110" y="336" text-anchor="middle" font-size="21" fill="#2b2a26">0</text>
+		<text x="200" y="336" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">30 N</text>
+		<text x="240" y="306" font-size="21" fill="#2b2a26"><tspan font-weight="bold">1 dílek</tspan> = 10 N</text>
+		<text x="240" y="336" font-size="21" fill="#495057">(v sešitě 1 cm)</text>
+
+		<circle cx="44" cy="373" r="4" fill="#2b2a26" />
+		<text x="56" y="380" font-size="21" fill="#2b2a26">šipka začíná v <tspan font-weight="bold">působišti</tspan></text>
+		<circle cx="44" cy="403" r="4" fill="#2b2a26" />
+		<text x="56" y="410" font-size="21" fill="#2b2a26">míří ve <tspan font-weight="bold">směru</tspan> síly</text>
+		<circle cx="44" cy="433" r="4" fill="#2b2a26" />
+		<text x="56" y="440" font-size="21" fill="#2b2a26"><tspan font-weight="bold">délka</tspan> = velikost síly</text>
+		<circle cx="44" cy="463" r="4" fill="#2b2a26" />
+		<text x="56" y="470" font-size="21" fill="#2b2a26">v obrázcích 2, 3, 5 stejné měřítko</text>
+	</g>
+</svg>

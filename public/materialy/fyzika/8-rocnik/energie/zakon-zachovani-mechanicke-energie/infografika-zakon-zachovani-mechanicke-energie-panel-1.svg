@@ -1,0 +1,25 @@
+<svg viewBox="0 142 460 371" width="460" height="371" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Celková energie: mechanická energie má dvě části, Ep polohovou (potenciální) a Ek pohybovou (kinetickou); E = Ep + Ek, všechny v joulech (J). Energii nelze vyrobit ani zničit, pouze se přeměňuje." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Zákon zachování mechanické energie 1/5: Celková energie</title>
+	<!-- Panel 1/5 výřezu z infografika-zakon-zachovani-mechanicke-energie.svg (souřadnice beze změny, jen viewBox). -->
+	<rect x="0" y="142" width="460" height="371" fill="#f3f1ea" />
+	<g id="panel-1" transform="translate(0,152)">
+		<rect x="26" y="6" width="420" height="345" rx="10" fill="#2b2a26" />
+		<rect x="20" y="0" width="420" height="345" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="34" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="41" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+		<text x="80" y="43" font-size="28" font-weight="bold" fill="#2b2a26">Celková energie</text>
+
+		<text x="40" y="82" font-size="21" fill="#2b2a26">Mechanická energie má dvě části:</text>
+		<circle cx="46" cy="111" r="4" fill="#2b2a26" />
+		<text x="58" y="118" font-size="21" fill="#2b2a26"><tspan font-weight="bold" fill="#1971c2">E<tspan font-size="18" dy="5">p</tspan></tspan><tspan dy="-5"> polohová (potenciální)</tspan></text>
+		<circle cx="46" cy="145" r="4" fill="#2b2a26" />
+		<text x="58" y="152" font-size="21" fill="#2b2a26"><tspan font-weight="bold" fill="#c92a2a">E<tspan font-size="18" dy="5">k</tspan></tspan><tspan dy="-5"> pohybová (kinetická)</tspan></text>
+
+		<rect x="40" y="172" width="380" height="94" rx="8" fill="#fff3bf" stroke="#2b2a26" stroke-width="2" />
+		<text x="230" y="222" text-anchor="middle" font-size="40" font-weight="bold" fill="#2b2a26"><tspan fill="#1e7a34">E</tspan> = <tspan fill="#1971c2">E<tspan font-size="26" dy="8">p</tspan></tspan><tspan dy="-8"> + </tspan><tspan fill="#c92a2a">E<tspan font-size="26" dy="8">k</tspan></tspan></text>
+		<text x="230" y="254" text-anchor="middle" font-size="21" fill="#2b2a26">všechny v joulech (J)</text>
+
+		<text x="230" y="302" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">Energii nelze vyrobit ani zničit,</text>
+		<text x="230" y="330" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">pouze se přeměňuje.</text>
+	</g>
+</svg>

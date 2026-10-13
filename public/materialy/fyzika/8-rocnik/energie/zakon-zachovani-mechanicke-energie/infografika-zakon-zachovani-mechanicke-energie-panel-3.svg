@@ -1,0 +1,88 @@
+<svg viewBox="0 932 460 496" width="460" height="496" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pád a hod vzhůru: parašutista padá z vrtulníku, nahoře má jen Ep, ta se mění na Ek, dole má jen Ek. Míč z ruky získá Ek, ta se mění na Ep, nahoře je Ek = 0. Odpor vzduchu zanedbáme." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Zákon zachování mechanické energie 3/5: Pád a hod vzhůru</title>
+	<!-- Panel 3/5 výřezu z infografika-zakon-zachovani-mechanicke-energie.svg (souřadnice beze změny, jen viewBox). -->
+	<style>
+		.pad { animation: pad 4s infinite; }
+		.mic { animation: mic 4s infinite; }
+		@keyframes pad { 0% { transform: translateY(-250px); animation-timing-function: cubic-bezier(0.333, 0, 0.667, 0.333); opacity: 0; } 4% { opacity: 1; } 55% { transform: translateY(0); } 92% { opacity: 1; } 100% { transform: translateY(0); opacity: 0; } }
+		@keyframes mic { 0% { transform: translateY(0); animation-timing-function: cubic-bezier(0.333, 0.667, 0.667, 1); } 30% { transform: translateY(-170px); animation-timing-function: cubic-bezier(0.333, 0, 0.667, 0.333); } 60%, 100% { transform: translateY(0); } }
+		@media (prefers-reduced-motion: reduce) {
+			.pad, .mic { animation: none; }
+		}
+	</style>
+	<rect x="0" y="932" width="460" height="496" fill="#f3f1ea" />
+	<g id="panel-3" transform="translate(0,942)">
+		<rect x="26" y="6" width="420" height="470" rx="10" fill="#2b2a26" />
+		<rect x="20" y="0" width="420" height="470" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="34" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="41" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">3</text>
+		<text x="80" y="43" font-size="28" font-weight="bold" fill="#2b2a26">Pád a hod vzhůru</text>
+		<text x="126" y="76" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2a26">Pád</text>
+		<text x="335" y="76" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2a26">Hod vzhůru</text>
+		<line x1="232" y1="58" x2="232" y2="396" stroke="#adb5bd" stroke-width="2" stroke-dasharray="6 6" />
+
+		<!-- země s trávou -->
+		<rect x="34" y="400" width="392" height="14" fill="#a9824f" stroke="#2b2a26" stroke-width="1.5" />
+		<rect x="34" y="397" width="392" height="5" fill="#69a84f" />
+
+		<!-- vrtulník (nos vpravo), stojí ve vzduchu díky rotoru -->
+		<!-- list rotoru x 110–186 (kulatý konec do 188); parašutista na lyžině stojí vpravo od x 189, mimo rotor -->
+		<line x1="110" y1="88" x2="186" y2="88" stroke="#2b2a26" stroke-width="4" stroke-linecap="round" />
+		<rect x="146" y="88" width="8" height="15" fill="#495057" />
+		<path d="M 115 116 L 60 112 L 56 104 L 62 104 L 70 110 L 115 108 Z" fill="#868e96" stroke="#2b2a26" stroke-width="2" stroke-linejoin="round" />
+		<circle cx="58" cy="108" r="9" fill="none" stroke="#2b2a26" stroke-width="2" />
+		<ellipse cx="150" cy="122" rx="38" ry="21" fill="#868e96" stroke="#2b2a26" stroke-width="2.5" />
+		<path d="M 162 106 Q 184 108 187 122 L 162 122 Z" fill="#a5d8ff" stroke="#2b2a26" stroke-width="2" />
+		<line x1="136" y1="142" x2="132" y2="152" stroke="#2b2a26" stroke-width="3" />
+		<line x1="166" y1="142" x2="170" y2="152" stroke="#2b2a26" stroke-width="3" />
+		<path d="M 112 152 L 214 152 Q 222 152 224 145" fill="none" stroke="#2b2a26" stroke-width="4" stroke-linecap="round" />
+		<!-- parašutista: nativně stojí na zemi, animace startuje z lyžiny (o 250 výš) -->
+		<g class="pad">
+			<rect x="188" y="358" width="8" height="20" rx="2" fill="#495057" stroke="#2b2a26" stroke-width="1.5" />
+			<line x1="200" y1="398" x2="201" y2="378" stroke="#e8590c" stroke-width="6" stroke-linecap="round" />
+			<line x1="208" y1="398" x2="207" y2="378" stroke="#e8590c" stroke-width="6" stroke-linecap="round" />
+			<rect x="196" y="398" width="8" height="3" fill="#2b2a26" />
+			<rect x="205" y="398" width="8" height="3" fill="#2b2a26" />
+			<rect x="195" y="356" width="18" height="25" rx="5" fill="#e8590c" stroke="#2b2a26" stroke-width="1.5" />
+			<line x1="197" y1="360" x2="192" y2="377" stroke="#e8590c" stroke-width="5" stroke-linecap="round" />
+			<line x1="211" y1="360" x2="216" y2="377" stroke="#e8590c" stroke-width="5" stroke-linecap="round" />
+			<circle cx="204" cy="347" r="8" fill="#f1c27d" stroke="#2b2a26" stroke-width="1.5" />
+			<path d="M 196 346 A 8 8 0 0 1 212 346 Z" fill="#495057" stroke="#2b2a26" stroke-width="1.5" />
+		</g>
+		<g font-size="21" fill="#2b2a26">
+			<text x="40" y="200" font-weight="bold">nahoře:</text>
+			<text x="40" y="226">jen <tspan fill="#1971c2" font-weight="bold">E<tspan font-size="18" dy="5">p</tspan></tspan></text>
+			<line x1="62" y1="246" x2="62" y2="300" stroke="#2b2a26" stroke-width="3" />
+			<polygon points="62,312 55,298 69,298" fill="#2b2a26" />
+			<text x="80" y="284"><tspan fill="#1971c2" font-weight="bold">E<tspan font-size="18" dy="5">p</tspan></tspan><tspan dy="-5"> → </tspan><tspan fill="#c92a2a" font-weight="bold">E<tspan font-size="18" dy="5">k</tspan></tspan></text>
+			<text x="40" y="344" font-weight="bold">dole:</text>
+			<text x="40" y="370">jen <tspan fill="#c92a2a" font-weight="bold">E<tspan font-size="18" dy="5">k</tspan></tspan></text>
+		</g>
+
+		<!-- chlapec hází míč -->
+		<line x1="280" y1="398" x2="282" y2="368" stroke="#495057" stroke-width="7" stroke-linecap="round" />
+		<line x1="292" y1="398" x2="290" y2="368" stroke="#495057" stroke-width="7" stroke-linecap="round" />
+		<rect x="274" y="397" width="10" height="4" rx="1" fill="#2b2a26" />
+		<rect x="289" y="397" width="10" height="4" rx="1" fill="#2b2a26" />
+		<line x1="278" y1="336" x2="270" y2="362" stroke="#a5673f" stroke-width="6" stroke-linecap="round" />
+		<rect x="275" y="330" width="22" height="40" rx="6" fill="#a5673f" stroke="#2b2a26" stroke-width="1.5" />
+		<line x1="294" y1="335" x2="303" y2="302" stroke="#a5673f" stroke-width="6" stroke-linecap="round" />
+		<circle cx="303" cy="300" r="4" fill="#f1c27d" stroke="#2b2a26" stroke-width="1" />
+		<circle cx="286" cy="317" r="11" fill="#f1c27d" stroke="#2b2a26" stroke-width="1.5" />
+		<path d="M 275 315 Q 276 304 286 305 Q 297 304 297 314 Q 290 309 275 315 Z" fill="#5c3d1e" />
+		<g class="mic">
+			<circle cx="304" cy="286" r="10" fill="#fab005" stroke="#2b2a26" stroke-width="2" />
+			<path d="M 295 282 Q 304 288 313 282" fill="none" stroke="#2b2a26" stroke-width="1.5" />
+		</g>
+		<g font-size="21" fill="#2b2a26">
+			<text x="330" y="126" font-weight="bold">nahoře:</text>
+			<text x="330" y="152"><tspan fill="#c92a2a" font-weight="bold">E<tspan font-size="18" dy="5">k</tspan></tspan><tspan dy="-5"> = 0</tspan></text>
+			<line x1="346" y1="300" x2="346" y2="194" stroke="#2b2a26" stroke-width="3" />
+			<polygon points="346,182 339,196 353,196" fill="#2b2a26" />
+			<text x="356" y="250"><tspan fill="#c92a2a" font-weight="bold">E<tspan font-size="18" dy="5">k</tspan></tspan><tspan dy="-5"> → </tspan><tspan fill="#1971c2" font-weight="bold">E<tspan font-size="18" dy="5">p</tspan></tspan></text>
+			<text x="330" y="344" font-weight="bold">z ruky:</text>
+			<text x="330" y="370">získá <tspan fill="#c92a2a" font-weight="bold">E<tspan font-size="18" dy="5">k</tspan></tspan></text>
+		</g>
+		<text x="230" y="448" text-anchor="middle" font-size="21" fill="#495057">odpor vzduchu zanedbáme</text>
+	</g>
+</svg>

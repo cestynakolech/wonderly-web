@@ -1,0 +1,110 @@
+<svg viewBox="0 1994 460 536" width="460" height="536" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Jak ji zvýšíme: zahřátím (částice se pohybují rychleji), přidáním částic (dofouknutím pneumatiky), konáním práce (třením, stlačením nebo natažením) a přijetím tepelné energie od tělesa s vyšší teplotou." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Vnitřní energie tělesa 5/7: Jak ji zvýšíme</title>
+	<!-- Panel 5/7 výřezu z infografika-vnitrni-energie-telesa.svg (souřadnice beze změny, jen viewBox). -->
+	<style>
+		.pumpa { animation: pumpa 1.6s ease-in-out infinite; }
+		.ruka { animation: ruka 0.8s ease-in-out infinite; }
+		.horko { animation: horko 0.8s ease-in-out infinite; }
+		.tok { animation: tok 1.5s linear infinite; }
+		@keyframes pumpa { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(12px); } }
+		@keyframes ruka { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(6px); } 75% { transform: translateX(-6px); } }
+		@keyframes horko { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+		@keyframes tok { 0% { transform: translateX(-12px); opacity: 0.3; } 60%, 100% { transform: translateX(0); opacity: 1; } }
+		@media (prefers-reduced-motion: reduce) {
+			.pumpa, .ruka, .horko, .tok { animation: none; }
+		}
+	</style>
+	<defs>
+		<clipPath id="okno1"><rect x="34" y="74" width="106" height="92" rx="8" /></clipPath>
+		<clipPath id="okno2"><rect x="34" y="184" width="106" height="92" rx="8" /></clipPath>
+		<clipPath id="okno3"><rect x="34" y="294" width="106" height="92" rx="8" /></clipPath>
+		<clipPath id="okno4"><rect x="34" y="404" width="106" height="92" rx="8" /></clipPath>
+	</defs>
+	<rect x="0" y="1994" width="460" height="536" fill="#f3f1ea" />
+	<g id="panel-5" transform="translate(0,2004)">
+		<rect x="26" y="6" width="420" height="510" rx="10" fill="#2b2a26" />
+		<rect x="20" y="0" width="420" height="510" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="34" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="41" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">5</text>
+		<text x="80" y="43" font-size="28" font-weight="bold" fill="#2b2a26">Jak ji zvýšíme</text>
+
+		<!-- řádek 1: zahřátím (hrnec na vařiči) -->
+		<rect x="34" y="74" width="106" height="92" rx="8" fill="#fff" />
+		<g clip-path="url(#okno1)">
+			<rect x="30" y="154" width="114" height="14" fill="#c9a77c" />
+			<rect x="44" y="132" width="92" height="22" rx="3" fill="#495057" stroke="#2b2a26" stroke-width="2" />
+			<circle cx="58" cy="143" r="4" fill="#ced4da" />
+			<rect x="56" y="126" width="68" height="6" rx="2" fill="#c92a2a" stroke="#2b2a26" stroke-width="1.5" />
+			<rect x="62" y="90" width="56" height="36" rx="3" fill="#adb5bd" stroke="#2b2a26" stroke-width="2" />
+			<rect x="52" y="96" width="10" height="6" rx="2" fill="#495057" />
+			<rect x="118" y="96" width="10" height="6" rx="2" fill="#495057" />
+			<rect x="59" y="85" width="62" height="5" rx="2" fill="#868e96" stroke="#2b2a26" stroke-width="1.5" />
+			<rect x="86" y="80" width="8" height="5" rx="2" fill="#2b2a26" />
+		</g>
+		<rect x="34" y="74" width="106" height="92" rx="8" fill="none" stroke="#495057" stroke-width="2" />
+		<text x="152" y="104" font-size="21" font-weight="bold" fill="#2b2a26">zahřátím</text>
+		<text x="152" y="132" font-size="21" fill="#2b2a26">částice se pohybují</text>
+		<text x="152" y="160" font-size="21" fill="#2b2a26">rychleji</text>
+
+		<!-- řádek 2: přidáním částic (pumpa a pneumatika) -->
+		<rect x="34" y="184" width="106" height="92" rx="8" fill="#fff" />
+		<g clip-path="url(#okno2)">
+			<rect x="30" y="264" width="114" height="14" fill="#c9a77c" />
+			<g class="pumpa">
+				<rect x="49" y="194" width="3" height="46" fill="#495057" />
+				<rect x="38" y="188" width="25" height="6" rx="2" fill="#2b2a26" />
+			</g>
+			<rect x="45" y="206" width="11" height="52" rx="2" fill="#1971c2" stroke="#2b2a26" stroke-width="1.5" />
+			<rect x="38" y="258" width="25" height="6" rx="2" fill="#495057" stroke="#2b2a26" stroke-width="1" />
+			<circle cx="106" cy="234" r="30" fill="#343a40" stroke="#2b2a26" stroke-width="2" />
+			<circle cx="106" cy="234" r="17" fill="#ced4da" stroke="#2b2a26" stroke-width="2" />
+			<circle cx="106" cy="234" r="4" fill="#495057" />
+			<rect x="99" y="245" width="5" height="9" fill="#868e96" stroke="#2b2a26" stroke-width="1" />
+			<path d="M 55 256 C 66 262 88 262 101 253" fill="none" stroke="#adb5bd" stroke-width="3.5" stroke-linecap="round" />
+		</g>
+		<rect x="34" y="184" width="106" height="92" rx="8" fill="none" stroke="#495057" stroke-width="2" />
+		<text x="152" y="214" font-size="21" font-weight="bold" fill="#2b2a26">přidáním částic</text>
+		<text x="152" y="242" font-size="21" fill="#2b2a26">dofouknutím</text>
+		<text x="152" y="270" font-size="21" fill="#2b2a26">pneumatiky</text>
+
+		<!-- řádek 3: konáním práce (tření dlaní) -->
+		<rect x="34" y="294" width="106" height="92" rx="8" fill="#fff" />
+		<g clip-path="url(#okno3)">
+			<rect x="20" y="334" width="38" height="20" rx="3" fill="#868e96" stroke="#2b2a26" stroke-width="1.5" />
+			<path d="M 56 336 L 112 336 Q 124 336 124 344 Q 124 352 112 352 L 56 352 Z" fill="#f1c27d" stroke="#2b2a26" stroke-width="2" />
+			<line x1="98" y1="341" x2="118" y2="341" stroke="#b5835a" stroke-width="1.5" />
+			<line x1="98" y1="347" x2="118" y2="347" stroke="#b5835a" stroke-width="1.5" />
+			<g class="ruka">
+				<rect x="116" y="318" width="40" height="18" rx="3" fill="#868e96" stroke="#2b2a26" stroke-width="1.5" />
+				<path d="M 118 320 L 62 320 Q 50 320 50 328 Q 50 336 62 336 L 118 336 Z" fill="#f1c27d" stroke="#2b2a26" stroke-width="2" />
+				<line x1="56" y1="325" x2="76" y2="325" stroke="#b5835a" stroke-width="1.5" />
+				<line x1="56" y1="331" x2="76" y2="331" stroke="#b5835a" stroke-width="1.5" />
+			</g>
+			<g class="horko" fill="none" stroke="#c92a2a" stroke-width="2.5" stroke-linecap="round">
+				<path d="M 72 314 q -4 -4 0 -8 q 4 -4 0 -8" />
+				<path d="M 87 314 q -4 -4 0 -8 q 4 -4 0 -8" />
+				<path d="M 102 314 q -4 -4 0 -8 q 4 -4 0 -8" />
+			</g>
+		</g>
+		<rect x="34" y="294" width="106" height="92" rx="8" fill="none" stroke="#495057" stroke-width="2" />
+		<text x="152" y="324" font-size="21" font-weight="bold" fill="#2b2a26">konáním práce</text>
+		<text x="152" y="352" font-size="21" fill="#2b2a26">třením, stlačením</text>
+		<text x="152" y="380" font-size="21" fill="#2b2a26">nebo natažením</text>
+
+		<!-- řádek 4: přijetím tepelné energie (teplejší a chladnější kostka) -->
+		<rect x="34" y="404" width="106" height="92" rx="8" fill="#fff" />
+		<g clip-path="url(#okno4)">
+			<rect x="30" y="484" width="114" height="14" fill="#c9a77c" />
+			<rect x="38" y="440" width="50" height="44" rx="2" fill="#ffc9c9" stroke="#c92a2a" stroke-width="2.5" />
+			<rect x="88" y="440" width="48" height="44" rx="2" fill="#d0ebff" stroke="#1864ab" stroke-width="2.5" />
+			<g class="tok">
+				<line x1="52" y1="424" x2="108" y2="424" stroke="#c92a2a" stroke-width="4" />
+				<polygon points="122,424 108,417 108,431" fill="#c92a2a" />
+			</g>
+		</g>
+		<rect x="34" y="404" width="106" height="92" rx="8" fill="none" stroke="#495057" stroke-width="2" />
+		<text x="152" y="434" font-size="21" font-weight="bold" fill="#2b2a26">přijetím tepelné</text>
+		<text x="152" y="462" font-size="21" fill="#2b2a26"><tspan font-weight="bold">energie</tspan> od tělesa</text>
+		<text x="152" y="490" font-size="21" fill="#2b2a26">s <tspan font-weight="bold" fill="#c92a2a">vyšší teplotou</tspan></text>
+	</g>
+</svg>

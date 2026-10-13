@@ -1,0 +1,53 @@
+<svg viewBox="0 120 460 450" width="460" height="450" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Co je tření: působí vždy proti pohybu, brzdí pohyb a zahřívá plochy. Bednu táhneme silou F doprava, třecí síla Ft působí v místě styku proti pohybu. Zvětšeno: drobné nerovnosti povrchů." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Třecí síla 1/5: Co je tření</title>
+	<!-- Panel 1/5 výřezu z infografika-treci-sila.svg (souřadnice beze změny, jen viewBox). -->
+	<style>
+		.jede1 { animation: jede1 5s linear infinite; }
+		@keyframes jede1 { 0% { transform: translateX(-150px); } 70%, 100% { transform: translateX(0); } }
+		@media (prefers-reduced-motion: reduce) {
+			.jede1 { animation: none; }
+		}
+	</style>
+	<rect x="0" y="120" width="460" height="450" fill="#f3f1ea" />
+
+	<!-- ===== Panel 1: Co je tření ===== -->
+	<rect x="26" y="136" width="420" height="424" rx="10" fill="#2b2a26" />
+	<rect x="20" y="130" width="420" height="424" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="52" cy="164" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="52" y="171" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+	<text x="80" y="173" font-size="28" font-weight="bold" fill="#2b2a26">Co je tření</text>
+
+	<circle cx="44" cy="210" r="4" fill="#2b2a26" />
+	<text x="56" y="217" font-size="21" fill="#2b2a26">působí vždy <tspan font-weight="bold" fill="#c92a2a">proti pohybu</tspan></text>
+	<circle cx="44" cy="244" r="4" fill="#2b2a26" />
+	<text x="56" y="251" font-size="21" fill="#2b2a26"><tspan font-weight="bold">brzdí</tspan> pohyb a <tspan font-weight="bold">zahřívá</tspan> plochy</text>
+
+	<!-- směr pohybu -->
+	<line x1="140" y1="292" x2="318" y2="292" stroke="#495057" stroke-width="2.5" stroke-dasharray="8 6" />
+	<polygon points="332,292 318,285 318,299" fill="#495057" />
+	<text x="56" y="299" font-size="21" fill="#495057">pohyb</text>
+	<!-- podlaha -->
+	<rect x="34" y="390" width="392" height="22" fill="#c9a77c" stroke="#2b2a26" stroke-width="2" />
+	<line x1="60" y1="401" x2="100" y2="401" stroke="#8d5a2b" stroke-width="2" />
+	<line x1="160" y1="404" x2="220" y2="404" stroke="#8d5a2b" stroke-width="2" />
+	<line x1="300" y1="400" x2="350" y2="400" stroke="#8d5a2b" stroke-width="2" />
+	<!-- bedna se silami (jede) -->
+	<g class="jede1">
+		<rect x="250" y="320" width="90" height="70" fill="#d9a066" stroke="#2b2a26" stroke-width="2.5" />
+		<line x1="250" y1="355" x2="340" y2="355" stroke="#8d5a2b" stroke-width="2" />
+		<!-- F: táhneme doprava -->
+		<line x1="340" y1="340" x2="392" y2="340" stroke="#1971c2" stroke-width="5" />
+		<polygon points="406,340 392,333 392,347" fill="#1971c2" />
+		<text x="372" y="328" font-size="22" font-weight="bold" fill="#1971c2">F</text>
+		<!-- Ft: proti pohybu, v místě styku -->
+		<line x1="250" y1="384" x2="199" y2="384" stroke="#c92a2a" stroke-width="5" />
+		<polygon points="185,384 199,377 199,391" fill="#c92a2a" />
+		<text x="196" y="370" font-size="22" font-weight="bold" fill="#c92a2a">F<tspan font-size="18" dy="5">t</tspan></text>
+	</g>
+
+	<!-- zvětšenina styku -->
+	<rect x="34" y="428" width="392" height="112" rx="8" fill="#fff" stroke="#495057" stroke-width="2" stroke-dasharray="6 5" />
+	<text x="230" y="456" text-anchor="middle" font-size="21" fill="#2b2a26">zvětšeno: drobné <tspan font-weight="bold">nerovnosti</tspan></text>
+	<path d="M 60 468 H 400 V 500 L 390 512 L 380 500 L 370 512 L 360 500 L 350 512 L 340 500 L 330 512 L 320 500 L 310 512 L 300 500 L 290 512 L 280 500 L 270 512 L 260 500 L 250 512 L 240 500 L 230 512 L 220 500 L 210 512 L 200 500 L 190 512 L 180 500 L 170 512 L 160 500 L 150 512 L 140 500 L 130 512 L 120 500 L 110 512 L 100 500 L 90 512 L 80 500 L 70 512 L 60 500 Z" fill="#d9a066" stroke="#2b2a26" stroke-width="2" />
+	<path d="M 60 530 V 503 L 70 515 L 80 503 L 90 515 L 100 503 L 110 515 L 120 503 L 130 515 L 140 503 L 150 515 L 160 503 L 170 515 L 180 503 L 190 515 L 200 503 L 210 515 L 220 503 L 230 515 L 240 503 L 250 515 L 260 503 L 270 515 L 280 503 L 290 515 L 300 503 L 310 515 L 320 503 L 330 515 L 340 503 L 350 515 L 360 503 L 370 515 L 380 503 L 390 515 L 400 503 V 530 Z" fill="#c9a77c" stroke="#2b2a26" stroke-width="2" />
+</svg>

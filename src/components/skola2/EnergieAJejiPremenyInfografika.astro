@@ -1,0 +1,48 @@
+---
+// Energie a její přeměny — F8 infografika (tahák bez interakce; OBSAH-PRAVIDLA kap. 12 bod 7).
+// JEDINÝ DOMOV obsahu je SVG v materiálech:
+//   public/materialy/fyzika/8-rocnik/energie/energie-a-jeji-premeny/infografika-energie-a-jeji-premeny.svg
+// (úzké 460 × 3056, písmo min. 21, žádné indexy → na telefonu 375 px je obrázek 314,8 px bez rámečku,
+//  škála 0,684 → písmo 14,4 px; díky @media níže platí totéž i v této komponentě. CSS animace děje
+//  uvnitř SVG, při prefers-reduced-motion zůstane koncový stav). Tahle komponenta ho jen vloží, nic neopisuje.
+// Platné zapojení na stránku je položka `materialy` (druh 'infografika') v temata.ts — komponenta je
+// jen pro případné vložení mimo materiály (vzor TreciSilaInfografika.astro).
+const cesta = '/materialy/fyzika/8-rocnik/energie/energie-a-jeji-premeny/infografika-energie-a-jeji-premeny.svg';
+---
+
+<section class="ramecek infografika-en">
+	<h2><span class="podtrh">Energie a její přeměny — tahák 📊</span></h2>
+	<p>
+		Energie je <strong>schopnost konat práci</strong>. Nelze ji vytvořit ani zničit,
+		jen se <strong>přeměňuje</strong> z jednoho druhu v jiný.
+	</p>
+	<img
+		src={cesta}
+		width="460"
+		height="3056"
+		loading="lazy"
+		alt="Infografika energie a její přeměny: energie je schopnost tělesa konat práci, uložená práce; napnutá tětiva luku má energii a po povolení vystřelí šíp; čím výš kladivo zvedneš, tím víc energie získá a tím hlouběji zatluče hřebík; druhy energie: mechanická (pohybová a polohová), chemická, elektrická, magnetická, světelná, jaderná a tepelná; energii nelze vytvořit ani zničit, jen se přeměňuje: jaderná energie v jádru Slunce, světelná, chemická energie rostlin a uhlí, tepelná a pohybová energie páry, elektrická energie v drátech, světlo a teplo žárovky; značka E, jednotka joule (J) jako u práce, u elektřiny i Wh a kWh"
+	/>
+</section>
+
+<style>
+	.infografika-en { padding: 1.5rem; }
+	.infografika-en h2 { margin-top: 0; }
+	.infografika-en img {
+		display: block;
+		width: 100%;
+		max-width: min(100%, 34rem);
+		height: auto;
+		margin: 1rem auto 0;
+		border: 2.5px solid #2b2a26;
+		border-radius: 12px;
+	}
+	.podtrh { border-bottom: 3px solid #ffd43b; padding-bottom: 2px; }
+	/* Na telefonu by padding 1.5rem zúžil obrázek pod škálu 0,667 (písmo 21 → < 14 px).
+	   Obrázek proto zabere celou vnitřní šířku rámečku, text si okraj drží sám. */
+	@media (max-width: 480px) {
+		.infografika-en { padding: 1rem 0; }
+		.infografika-en h2,
+		.infografika-en p { padding: 0 1rem; }
+	}
+</style>

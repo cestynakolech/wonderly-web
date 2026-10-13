@@ -1,0 +1,48 @@
+---
+// Zákon zachování mechanické energie — F8 infografika (tahák bez interakce; OBSAH-PRAVIDLA kap. 12 bod 7).
+// JEDINÝ DOMOV obsahu je SVG v materiálech:
+//   public/materialy/fyzika/8-rocnik/energie/zakon-zachovani-mechanicke-energie/infografika-zakon-zachovani-mechanicke-energie.svg
+// (úzké 460 × 2290, písmo min. 21, indexy 18 → na telefonu 375 px škála 0,684 → písmo 14,4 px,
+//  indexy 12,3 px; 5 panelů <g id="panel-1…5"> jde vyříznout samostatně; CSS animace děje uvnitř SVG,
+//  při prefers-reduced-motion zůstane klidový stav). Tahle komponenta ho jen vloží, nic neopisuje.
+// Platné zapojení na stránku je položka `materialy` (druh 'infografika') v temata.ts — komponenta je
+// jen pro případné vložení mimo materiály (vzor TreciSilaInfografika.astro).
+const cesta = '/materialy/fyzika/8-rocnik/energie/zakon-zachovani-mechanicke-energie/infografika-zakon-zachovani-mechanicke-energie.svg';
+---
+
+<section class="ramecek infografika-zz">
+	<h2><span class="podtrh">Zákon zachování energie — tahák 📊</span></h2>
+	<p>
+		Celková mechanická energie je součet polohové a pohybové:
+		<strong>E = E<sub>p</sub> + E<sub>k</sub></strong>.
+	</p>
+	<img
+		src={cesta}
+		width="460"
+		height="2290"
+		loading="lazy"
+		alt="Infografika zákon zachování mechanické energie: E = Ep + Ek v joulech, energii nelze vyrobit ani zničit, jen se přeměňuje; kulička bez tření má ve všech polohách součet 10 J; při pádu se polohová energie mění na pohybovou, při hodu vzhůru naopak; energie se přenáší z tětivy na šíp a mezi kulečníkovými koulemi; tření mění část energie na vnitřní, proto skateboardista nevystoupá do výšky startu"
+	/>
+</section>
+
+<style>
+	.infografika-zz { padding: 1.5rem; }
+	.infografika-zz h2 { margin-top: 0; }
+	.infografika-zz img {
+		display: block;
+		width: 100%;
+		max-width: min(100%, 34rem);
+		height: auto;
+		margin: 1rem auto 0;
+		border: 2.5px solid #2b2a26;
+		border-radius: 12px;
+	}
+	.podtrh { border-bottom: 3px solid #ffd43b; padding-bottom: 2px; }
+	/* Na telefonu by padding 1.5rem zúžil obrázek pod škálu 0,667 (písmo 21 → < 14 px).
+	   Obrázek proto zabere celou vnitřní šířku rámečku, text si okraj drží sám. */
+	@media (max-width: 480px) {
+		.infografika-zz { padding: 1rem 0; }
+		.infografika-zz h2,
+		.infografika-zz p { padding: 0 1rem; }
+	}
+</style>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="208" viewBox="0 536 420 208" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Příklad: výkon 3, příkon 4. Příkon P₀ = 4 díly, výkon P = 3 díly, zbytek ztráty. η = 3 : 4 = 0,75 = 75 %, ztráty: 100 % − 75 % = 25 %.">
+<title>Účinnost 3/4: Příklad: výkon 3, příkon 4</title>
+<!-- Panel 3/4 výřezu z infografika-ucinnost.svg (souřadnice beze změny, jen viewBox). Blok nemá animaci. -->
+
+<rect x="0" y="536" width="420" height="208" fill="#f8f9fa" />
+
+<!-- C: Příklad 3 : 4 -->
+<g id="uci-priklad">
+	<rect x="10" y="546" width="400" height="188" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+	<text x="24" y="575" font-size="21" font-weight="bold" fill="#2b2a26">Příklad: výkon 3, příkon 4</text>
+	<text x="210" y="599" text-anchor="middle" font-size="19" font-weight="bold" fill="#b5400a">příkon P<tspan font-size="17" dy="6">0</tspan><tspan dy="-6" dx="5">= 4 díly</tspan></text>
+	<path d="M30,624 V616 H390 V624" fill="none" stroke="#e8590c" stroke-width="3" />
+	<rect x="30" y="626" width="270" height="40" fill="#8ce99a" stroke="#2b2a26" stroke-width="2" />
+	<rect x="300" y="626" width="90" height="40" fill="#ffc9c9" stroke="#2b2a26" stroke-width="2" />
+	<path d="M120,626 V634 M120,658 V666 M210,626 V634 M210,658 V666" stroke="#2b2a26" stroke-width="1.5" />
+	<text x="165" y="653" text-anchor="middle" font-size="19" font-weight="bold" fill="#2b2a26">výkon P = 3 díly</text>
+	<text x="345" y="653" text-anchor="middle" font-size="19" font-weight="bold" fill="#2b2a26">ztráty</text>
+	<text x="24" y="696" font-size="19" fill="#2b2a26">η = 3 : 4 = 0,75 = <tspan font-weight="bold">75 %</tspan></text>
+	<text x="24" y="722" font-size="19" fill="#c92a2a">ztráty: 100 % − 75 % = <tspan font-weight="bold">25 %</tspan></text>
+</g>
+</svg>

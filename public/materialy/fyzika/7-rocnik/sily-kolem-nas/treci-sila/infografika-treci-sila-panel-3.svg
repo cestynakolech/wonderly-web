@@ -1,0 +1,83 @@
+<svg viewBox="0 1108 460 500" width="460" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tři druhy tření: klidové (těleso se ještě nepohnulo) je největší, smykové (těleso klouže) menší, valivé (těleso se valí) nejmenší." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Třecí síla 3/5: Tři druhy tření</title>
+	<!-- Panel 3/5 výřezu z infografika-treci-sila.svg (souřadnice beze změny včetně obalu translate(0,54), jen viewBox). -->
+	<style>
+		.smyk { animation: smyk 5s linear infinite; }
+		@keyframes smyk { 0% { transform: translateX(-40px); } 70%, 100% { transform: translateX(0); } }
+		.val { animation: val 5s linear infinite; }
+		@keyframes val { 0% { transform: translateX(-80px); } 70%, 100% { transform: translateX(0); } }
+		.otoc { transform-box: fill-box; transform-origin: center; animation: otoc 5s linear infinite; }
+		/* valení bez prokluzu: dráha 80 px, poloměr kola 28 → 80/28 rad = 163,7° ≈ 164° */
+		@keyframes otoc { 0% { transform: rotate(-164deg); } 70%, 100% { transform: rotate(0deg); } }
+		@media (prefers-reduced-motion: reduce) {
+			.smyk, .val, .otoc { animation: none; }
+		}
+	</style>
+	<rect x="0" y="1108" width="460" height="500" fill="#f3f1ea" />
+
+	<g transform="translate(0,54)">
+	<!-- ===== Panel 3: Tři druhy tření ===== -->
+	<rect x="26" y="1070" width="420" height="474" rx="10" fill="#2b2a26" />
+	<rect x="20" y="1064" width="420" height="474" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="52" cy="1098" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="52" y="1105" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">3</text>
+	<text x="80" y="1107" font-size="28" font-weight="bold" fill="#2b2a26">Tři druhy tření</text>
+
+	<!-- klidové -->
+	<text x="40" y="1160" font-size="25" font-weight="bold" fill="#2b2a26">klidové</text>
+	<text x="40" y="1190" font-size="21" fill="#2b2a26">těleso se ještě</text>
+	<text x="40" y="1216" font-size="21" fill="#2b2a26">nepohnulo</text>
+	<text x="40" y="1246" font-size="21" font-weight="bold" fill="#c92a2a">největší</text>
+	<line x1="220" y1="1252" x2="430" y2="1252" stroke="#2b2a26" stroke-width="2.5" />
+	<rect x="310" y="1162" width="50" height="90" fill="#d9a066" stroke="#2b2a26" stroke-width="2.5" />
+	<line x1="335" y1="1162" x2="335" y2="1252" stroke="#8d5a2b" stroke-width="2" />
+	<circle cx="328" cy="1205" r="3" fill="#2b2a26" /><circle cx="342" cy="1205" r="3" fill="#2b2a26" />
+	<line x1="360" y1="1200" x2="416" y2="1200" stroke="#1971c2" stroke-width="5" />
+	<polygon points="430,1200 416,1193 416,1207" fill="#1971c2" />
+	<text x="394" y="1188" font-size="22" font-weight="bold" fill="#1971c2">F</text>
+	<line x1="310" y1="1246" x2="254" y2="1246" stroke="#c92a2a" stroke-width="5" />
+	<polygon points="240,1246 254,1239 254,1253" fill="#c92a2a" />
+	<text x="250" y="1232" font-size="22" font-weight="bold" fill="#c92a2a">F<tspan font-size="18" dy="5">t</tspan></text>
+
+	<!-- smykové -->
+	<line x1="34" y1="1272" x2="426" y2="1272" stroke="#dee2e6" stroke-width="2" />
+	<text x="40" y="1312" font-size="25" font-weight="bold" fill="#2b2a26">smykové</text>
+	<text x="40" y="1342" font-size="21" fill="#2b2a26">těleso klouže</text>
+	<text x="40" y="1372" font-size="21" font-weight="bold" fill="#c92a2a">menší</text>
+	<line x1="220" y1="1392" x2="430" y2="1392" stroke="#2b2a26" stroke-width="2.5" />
+	<g class="smyk">
+		<rect x="330" y="1347" width="50" height="45" fill="#d9a066" stroke="#2b2a26" stroke-width="2.5" />
+		<line x1="380" y1="1366" x2="411" y2="1366" stroke="#1971c2" stroke-width="5" />
+		<polygon points="425,1366 411,1359 411,1373" fill="#1971c2" />
+		<text x="396" y="1352" font-size="22" font-weight="bold" fill="#1971c2">F</text>
+		<line x1="330" y1="1386" x2="299" y2="1386" stroke="#c92a2a" stroke-width="5" />
+		<polygon points="285,1386 299,1379 299,1393" fill="#c92a2a" />
+		<text x="296" y="1372" font-size="22" font-weight="bold" fill="#c92a2a">F<tspan font-size="18" dy="5">t</tspan></text>
+	</g>
+
+	<!-- valivé -->
+	<line x1="34" y1="1412" x2="426" y2="1412" stroke="#dee2e6" stroke-width="2" />
+	<text x="40" y="1452" font-size="25" font-weight="bold" fill="#2b2a26">valivé</text>
+	<text x="40" y="1482" font-size="21" fill="#2b2a26">těleso se valí</text>
+	<text x="40" y="1512" font-size="21" font-weight="bold" fill="#c92a2a">nejmenší</text>
+	<line x1="220" y1="1522" x2="430" y2="1522" stroke="#2b2a26" stroke-width="2.5" />
+	<g class="val">
+		<g class="otoc">
+			<circle cx="380" cy="1494" r="28" fill="#495057" stroke="#2b2a26" stroke-width="2.5" />
+			<circle cx="380" cy="1494" r="18" fill="#e9ecef" stroke="#2b2a26" stroke-width="2" />
+			<line x1="380" y1="1476" x2="380" y2="1512" stroke="#2b2a26" stroke-width="3" />
+			<line x1="362" y1="1494" x2="398" y2="1494" stroke="#2b2a26" stroke-width="3" />
+			<circle cx="380" cy="1494" r="4" fill="#2b2a26" />
+		</g>
+		<line x1="408" y1="1494" x2="420" y2="1494" stroke="#1971c2" stroke-width="5" />
+		<polygon points="434,1494 420,1487 420,1501" fill="#1971c2" />
+		<text x="412" y="1478" font-size="22" font-weight="bold" fill="#1971c2">F</text>
+		<!-- Ft z bodu dotyku kola s podložkou; bílý lem kvůli čitelnosti přes pneumatiku, hrot mimo kolo -->
+		<line x1="380" y1="1519" x2="366" y2="1519" stroke="#fff" stroke-width="9" />
+		<polygon points="350,1519 368,1509 368,1529" fill="#fff" />
+		<line x1="380" y1="1519" x2="368" y2="1519" stroke="#c92a2a" stroke-width="5" />
+		<polygon points="354,1519 368,1512 368,1526" fill="#c92a2a" />
+		<text x="314" y="1508" font-size="22" font-weight="bold" fill="#c92a2a">F<tspan font-size="18" dy="5">t</tspan></text>
+	</g>
+	</g>
+</svg>

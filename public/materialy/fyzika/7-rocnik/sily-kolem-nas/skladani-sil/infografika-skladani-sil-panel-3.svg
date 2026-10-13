@@ -1,0 +1,88 @@
+<svg viewBox="0 1060 460 446" width="460" height="446" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Síly opačného směru: psi se tahají o kost silami F1 = 30 N a F2 = 50 N, výslednice je rozdíl (větší − menší) a míří jako větší síla, F = 50 N − 30 N = 20 N, vyhraje silnější pes." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Skládání sil 3/5: Síly opačného směru</title>
+	<!-- Panel 3/5 výřezu z infografika-skladani-sil.svg (souřadnice beze změny, jen viewBox). -->
+	<style>
+		.vyhrava { animation: vyhrava 5s ease-in-out infinite; }
+		@keyframes vyhrava { 0% { transform: translateX(-14px); } 70%, 100% { transform: translateX(0); } }
+		@media (prefers-reduced-motion: reduce) {
+			.vyhrava { animation: none; }
+		}
+	</style>
+	<defs>
+		<linearGradient id="srst" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0" stop-color="#d9a466" />
+			<stop offset="1" stop-color="#a86a32" />
+		</linearGradient>
+		<g id="pes">
+			<path d="M 16 22 C 4 18 0 6 8 1 C 12 -1 14 4 11 7" fill="none" stroke="#5c3a1a" stroke-width="9" stroke-linecap="round" />
+			<path d="M 16 22 C 4 18 0 6 8 1 C 12 -1 14 4 11 7" fill="none" stroke="#c48a4f" stroke-width="5" stroke-linecap="round" />
+			<rect x="22" y="36" width="7" height="25" rx="3" fill="#7a4a22" />
+			<rect x="66" y="36" width="7" height="25" rx="3" fill="#7a4a22" />
+			<ellipse cx="26" cy="62" rx="6" ry="3" fill="#3b2412" />
+			<ellipse cx="70" cy="62" rx="6" ry="3" fill="#3b2412" />
+			<path d="M 12 27 Q 12 12 30 13 L 68 12 Q 84 12 84 28 Q 84 44 68 44 L 28 44 Q 12 44 12 27 Z" fill="url(#srst)" stroke="#5c3a1a" stroke-width="2" />
+			<path d="M 26 41 Q 48 47 70 41" fill="none" stroke="#f1d3a8" stroke-width="4" stroke-linecap="round" />
+			<path d="M 24 20 Q 30 17 36 20 M 46 18 Q 52 15 58 18" fill="none" stroke="#8a5528" stroke-width="1.5" />
+			<rect x="31" y="38" width="8" height="25" rx="3" fill="#b8793e" stroke="#5c3a1a" stroke-width="1.5" />
+			<rect x="74" y="38" width="8" height="25" rx="3" fill="#b8793e" stroke="#5c3a1a" stroke-width="1.5" />
+			<ellipse cx="36" cy="63" rx="7" ry="3.2" fill="#3b2412" />
+			<ellipse cx="79" cy="63" rx="7" ry="3.2" fill="#3b2412" />
+			<path d="M 40 12.5 L 68 12.5 M 68 12 L 64 44" fill="none" stroke="#0b7285" stroke-width="5" stroke-linecap="round" />
+			<circle cx="44" cy="11" r="3.5" fill="none" stroke="#343a40" stroke-width="2" />
+			<path d="M 76 20 Q 74 2 92 2 Q 102 2 105 10 L 112 13 Q 117 17 112 22 L 101 25 Q 90 31 80 27 Z" fill="#c48a4f" stroke="#5c3a1a" stroke-width="2" />
+			<ellipse cx="106" cy="18" rx="7" ry="5" fill="#e8c08e" />
+			<path d="M 84 6 L 86 -10 L 96 3 Z" fill="#7a4a22" stroke="#5c3a1a" stroke-width="1.5" />
+			<circle cx="96" cy="9" r="2.6" fill="#1b1b1b" />
+			<circle cx="96.9" cy="8.1" r="0.9" fill="#fff" />
+			<ellipse cx="113" cy="16" rx="3.4" ry="2.7" fill="#1b1b1b" />
+			<path d="M 103 22 Q 107 24 111 21" fill="none" stroke="#5c3a1a" stroke-width="1.5" />
+		</g>
+		<g id="dilek">
+			<rect x="0" y="-12" width="30" height="12" fill="#ffe8a3" stroke="#2b2a26" stroke-width="2" />
+			<text x="40" y="0" font-size="21" fill="#495057">= 10 N (měřítko)</text>
+		</g>
+	</defs>
+	<rect x="0" y="1060" width="460" height="446" fill="#f3f1ea" />
+	<g id="panel-3" transform="translate(0 1070)">
+		<rect x="26" y="6" width="420" height="420" rx="10" fill="#2b2a26" />
+		<rect x="20" y="0" width="420" height="420" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="34" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="41" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">3</text>
+		<text x="80" y="43" font-size="28" font-weight="bold" fill="#2b2a26">Síly opačného směru</text>
+		<text x="40" y="85" font-size="21" fill="#2b2a26">výslednice = <tspan font-weight="bold" fill="#c92a2a">rozdíl</tspan> (větší − menší)</text>
+		<text x="40" y="113" font-size="21" fill="#2b2a26">míří jako <tspan font-weight="bold">větší</tspan> síla</text>
+
+		<!-- tráva -->
+		<rect x="22" y="226" width="416" height="10" fill="#b2d8a0" />
+		<line x1="22" y1="226" x2="438" y2="226" stroke="#2f6b2f" stroke-width="2" />
+		<!-- bez ořezu: psi 0,7, celá scéna x 26–434 i na začátku animace (posun −14) -->
+		<g class="vyhrava">
+			<!-- kost mezi tlamami (117 a 357) -->
+			<rect x="121" y="189" width="232" height="12" rx="4" fill="#f8efdf" stroke="#8a6d3b" stroke-width="2" />
+			<circle cx="117" cy="188" r="8" fill="#f8efdf" stroke="#8a6d3b" stroke-width="2" />
+			<circle cx="117" cy="202" r="8" fill="#f8efdf" stroke="#8a6d3b" stroke-width="2" />
+			<circle cx="357" cy="188" r="8" fill="#f8efdf" stroke="#8a6d3b" stroke-width="2" />
+			<circle cx="357" cy="202" r="8" fill="#f8efdf" stroke="#8a6d3b" stroke-width="2" />
+			<use xlink:href="#pes" href="#pes" transform="translate(40 181.2) scale(0.7)" />
+			<use xlink:href="#pes" href="#pes" transform="translate(434 181.2) scale(-0.7 0.7)" />
+			<!-- síly z působiště na kosti: F1 30 N = 90 px, F2 50 N = 150 px -->
+			<line x1="207" y1="195" x2="131" y2="195" stroke="#1971c2" stroke-width="5" />
+			<polygon points="117,195 131,188 131,202" fill="#1971c2" />
+			<line x1="207" y1="195" x2="343" y2="195" stroke="#6741d9" stroke-width="5" />
+			<polygon points="357,195 343,188 343,202" fill="#6741d9" />
+			<path d="M 200 188 L 214 202 M 214 188 L 200 202" stroke="#495057" stroke-width="3" stroke-linecap="round" />
+			<text x="201" y="160" text-anchor="end" font-size="21" font-weight="bold" fill="#1971c2">F<tspan font-size="18" dy="5">1</tspan><tspan dy="-5"> = 30 N</tspan></text>
+			<text x="213" y="160" font-size="21" font-weight="bold" fill="#6741d9">F<tspan font-size="18" dy="5">2</tspan><tspan dy="-5"> = 50 N</tspan></text>
+		</g>
+
+		<!-- výslednice: 20 N = 60 px -->
+		<line x1="207" y1="280" x2="251" y2="280" stroke="#c92a2a" stroke-width="6" />
+		<polygon points="267,280 251,271 251,289" fill="#c92a2a" />
+		<path d="M 200 273 L 214 287 M 214 273 L 200 287" stroke="#495057" stroke-width="3" stroke-linecap="round" />
+		<text x="279" y="288" font-size="22" font-weight="bold" fill="#c92a2a">F = 20 N</text>
+		<text x="189" y="288" text-anchor="end" font-size="21" fill="#495057">působiště</text>
+		<use xlink:href="#dilek" href="#dilek" x="72" y="325" />
+		<text x="230" y="365" text-anchor="middle" font-size="24" font-weight="bold" fill="#2b2a26">F = 50 N − 30 N = <tspan fill="#c92a2a">20 N</tspan></text>
+		<text x="230" y="400" text-anchor="middle" font-size="21" fill="#2b2a26">vyhraje silnější pes</text>
+	</g>
+</svg>

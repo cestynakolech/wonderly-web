@@ -1,0 +1,49 @@
+---
+// Skládání sil — F7 infografika (tahák bez interakce; OBSAH-PRAVIDLA kap. 12 bod 7).
+// JEDINÝ DOMOV obsahu je SVG v materiálech:
+//   public/materialy/fyzika/7-rocnik/sily-kolem-nas/skladani-sil/infografika-skladani-sil.svg
+// (úzké 460 × 2590, písmo min. 21, indexy 18; jednotné měřítko šipek 1 dílek = 10 N = 30 px;
+//  CSS animace děje uvnitř SVG, při prefers-reduced-motion zůstane koncový stav).
+// Čitelnost v TÉTO komponentě na telefonu 375 px: .ramecek 319,8 px vč. rámečku 2 × 2,5 px,
+// na úzké obrazovce (≤ 480 px) bez vodorovného paddingu → img 314,8 px vč. vlastního rámečku
+// 2 × 2,5 px → SVG 309,8 px, škála 309,8 / 460 = 0,673 → písmo 21 → 14,1 px, indexy 18 → 12,1 px.
+// Na širších obrazovkách je obrázek širší (max 34rem), písmo jen roste.
+// Tahle komponenta SVG jen vloží, nic neopisuje. Platné zapojení na stránku je položka
+// `materialy` (druh 'infografika') v temata.ts (vzor TreciSilaInfografika.astro).
+const cesta = '/materialy/fyzika/7-rocnik/sily-kolem-nas/skladani-sil/infografika-skladani-sil.svg';
+---
+
+<section class="ramecek infografika-ss">
+	<h2><span class="podtrh">Skládání sil — tahák 📊</span></h2>
+	<p>
+		Víc sil v jednom působišti nahradí jediná síla — <strong>výslednice F</strong>.
+	</p>
+	<img
+		src={cesta}
+		width="460"
+		height="2590"
+		loading="lazy"
+		alt="Infografika skládání sil: víc sil nahradí jediná síla se stejným účinkem, výslednice F; síla je šipka z působiště, délka odpovídá velikosti, ve všech obrázcích stejné měřítko 1 dílek = 10 N (v sešitě 1 cm = 10 N); síly stejného směru se sčítají, psi táhnou saně 30 N + 50 N = 80 N; u sil opačného směru se od větší odečte menší a výslednice míří jako větší síla, psi se tahají o kost 50 N − 30 N = 20 N; stejně velké opačné síly jsou v rovnováze, F = 0 N, lano se nepohne, síly mohou těleso jen deformovat, ruce natáhnou pružinu; různoběžné síly skládáme kreslením rovnoběžníku, saně shora táhnou dva psi 40 N a 30 N, výslednice asi 65 N podle úhlu"
+	/>
+</section>
+
+<style>
+	.infografika-ss { padding: 1.5rem; }
+	.infografika-ss h2 { margin-top: 0; }
+	.infografika-ss img {
+		display: block;
+		width: 100%;
+		max-width: min(100%, 34rem);
+		height: auto;
+		margin: 1rem auto 0;
+		border: 2.5px solid #2b2a26;
+		border-radius: 12px;
+		box-sizing: border-box;
+	}
+	.podtrh { border-bottom: 3px solid #ffd43b; padding-bottom: 2px; }
+	@media (max-width: 480px) {
+		.infografika-ss { padding: 1rem 0 0; }
+		.infografika-ss h2,
+		.infografika-ss p { padding: 0 1rem; }
+	}
+</style>

@@ -1,0 +1,89 @@
+<svg viewBox="0 2528 460 696" width="460" height="696" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Projeví se teplotou: když vnitřní energie roste, teplota také roste; když klesá, teplota také klesá. Zahřívá se například brzda při brzdění, vrták při vrtání, drát kroucený na jednom místě a topná spirála vařiče, když jí prochází elektrický proud." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Vnitřní energie tělesa 6/7: Projeví se teplotou</title>
+	<!-- Panel 6/7 výřezu z infografika-vnitrni-energie-telesa.svg (souřadnice beze změny, jen viewBox). -->
+	<style>
+		.horko { animation: horko 0.8s ease-in-out infinite; }
+		.sloup { transform-box: fill-box; transform-origin: bottom center; animation: sloup 5s ease-in-out infinite; }
+		.tocit { animation: voda 0.3s linear infinite; }
+		@keyframes horko { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+		@keyframes sloup { 0% { transform: scaleY(0.25); } 70%, 100% { transform: scaleY(1); } }
+		@keyframes voda { 0% { stroke-dashoffset: 12; } 100% { stroke-dashoffset: 0; } }
+		@media (prefers-reduced-motion: reduce) {
+			.horko, .sloup, .tocit { animation: none; }
+		}
+	</style>
+	<defs>
+		<clipPath id="okno6"><rect x="34" y="508" width="392" height="146" rx="8" /></clipPath>
+	</defs>
+	<rect x="0" y="2528" width="460" height="696" fill="#f3f1ea" />
+	<g id="panel-6" transform="translate(0,2538)">
+		<rect x="26" y="6" width="420" height="670" rx="10" fill="#2b2a26" />
+		<rect x="20" y="0" width="420" height="670" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="34" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="41" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">6</text>
+		<text x="80" y="43" font-size="28" font-weight="bold" fill="#2b2a26">Projeví se teplotou</text>
+
+		<!-- dva sloupce rostou spolu -->
+		<rect x="52" y="76" width="50" height="164" rx="6" fill="#fff" stroke="#2b2a26" stroke-width="2" />
+		<rect class="sloup" x="58" y="96" width="38" height="138" rx="3" fill="#e8590c" />
+		<rect x="142" y="76" width="50" height="164" rx="6" fill="#fff" stroke="#2b2a26" stroke-width="2" />
+		<rect class="sloup" x="148" y="96" width="38" height="138" rx="3" fill="#c92a2a" />
+		<text x="77" y="268" text-anchor="middle" font-size="21" fill="#2b2a26">vnitřní</text>
+		<text x="77" y="294" text-anchor="middle" font-size="21" fill="#2b2a26">energie</text>
+		<text x="167" y="268" text-anchor="middle" font-size="21" fill="#2b2a26">teplota</text>
+
+		<text x="214" y="100" font-size="21" fill="#2b2a26">vnitřní energie</text>
+		<text x="214" y="128" font-size="21" fill="#2b2a26"><tspan font-weight="bold" fill="#c92a2a">roste</tspan> → teplota</text>
+		<text x="214" y="156" font-size="21" fill="#2b2a26">také <tspan font-weight="bold" fill="#c92a2a">roste</tspan></text>
+		<text x="214" y="200" font-size="21" fill="#2b2a26">vnitřní energie</text>
+		<text x="214" y="228" font-size="21" fill="#2b2a26"><tspan font-weight="bold" fill="#1864ab">klesá</tspan> → teplota</text>
+		<text x="214" y="256" font-size="21" fill="#2b2a26">také <tspan font-weight="bold" fill="#1864ab">klesá</tspan></text>
+
+		<line x1="34" y1="314" x2="426" y2="314" stroke="#ced4da" stroke-width="2" />
+		<text x="34" y="346" font-size="21" font-weight="bold" fill="#2b2a26">Zahřívá se například:</text>
+		<circle cx="44" cy="369" r="4" fill="#2b2a26" />
+		<text x="56" y="376" font-size="21" fill="#2b2a26">brzda při brzdění</text>
+		<circle cx="44" cy="397" r="4" fill="#2b2a26" />
+		<text x="56" y="404" font-size="21" fill="#2b2a26">vrták při vrtání</text>
+		<circle cx="44" cy="425" r="4" fill="#2b2a26" />
+		<text x="56" y="432" font-size="21" fill="#2b2a26">drát kroucený na jednom místě</text>
+		<circle cx="44" cy="453" r="4" fill="#2b2a26" />
+		<text x="56" y="460" font-size="21" fill="#2b2a26">topná spirála vařiče, když jí</text>
+		<text x="56" y="488" font-size="21" fill="#2b2a26">prochází elektrický proud</text>
+
+		<!-- scéna: vrtačka v ruce vrtá do prkna na ponku, vrták se zahřívá (výřez) -->
+		<rect x="34" y="508" width="392" height="146" rx="8" fill="#fff" />
+		<g clip-path="url(#okno6)">
+			<!-- ponk a prkno -->
+			<rect x="30" y="626" width="400" height="14" fill="#c9a77c" stroke="#2b2a26" stroke-width="2" />
+			<rect x="30" y="640" width="400" height="16" fill="#a07850" />
+			<rect x="150" y="606" width="200" height="20" rx="2" fill="#d9a066" stroke="#2b2a26" stroke-width="2" />
+			<line x1="164" y1="613" x2="214" y2="613" stroke="#8d5a2b" stroke-width="1.5" />
+			<line x1="270" y1="619" x2="336" y2="619" stroke="#8d5a2b" stroke-width="1.5" />
+			<!-- rozpálené místo kolem vrtáku -->
+			<ellipse class="horko" cx="241" cy="606" rx="16" ry="4" fill="#fa5252" opacity="0.7" />
+			<!-- vrták zasahuje do prkna -->
+			<rect x="237" y="566" width="8" height="44" fill="#adb5bd" stroke="#2b2a26" stroke-width="1.5" />
+			<line class="tocit" x1="241" y1="567" x2="241" y2="609" stroke="#495057" stroke-width="6" stroke-dasharray="3 5" />
+			<rect class="horko" x="237" y="588" width="8" height="22" fill="#c92a2a" opacity="0.85" />
+			<!-- sklíčidlo, tělo vrtačky, rukojeť -->
+			<rect x="230" y="552" width="22" height="14" rx="2" fill="#495057" stroke="#2b2a26" stroke-width="1.5" />
+			<rect x="220" y="496" width="44" height="56" rx="8" fill="#1971c2" stroke="#2b2a26" stroke-width="2" />
+			<rect x="264" y="516" width="50" height="20" rx="3" fill="#343a40" stroke="#2b2a26" stroke-width="1.5" />
+			<!-- ruka drží rukojeť -->
+			<rect x="300" y="514" width="140" height="24" fill="#868e96" stroke="#2b2a26" stroke-width="1.5" />
+			<rect x="276" y="510" width="30" height="34" rx="9" fill="#f1c27d" stroke="#2b2a26" stroke-width="2" />
+			<line x1="279" y1="521" x2="290" y2="521" stroke="#b5835a" stroke-width="1.5" />
+			<line x1="279" y1="529" x2="290" y2="529" stroke="#b5835a" stroke-width="1.5" />
+			<line x1="279" y1="537" x2="290" y2="537" stroke="#b5835a" stroke-width="1.5" />
+			<!-- vlnky tepla -->
+			<g class="horko" fill="none" stroke="#c92a2a" stroke-width="2.5" stroke-linecap="round">
+				<path d="M 214 600 q -4 -5 0 -10 q 4 -5 0 -10" />
+				<path d="M 268 600 q -4 -5 0 -10 q 4 -5 0 -10" />
+			</g>
+		</g>
+		<rect x="34" y="508" width="392" height="146" rx="8" fill="none" stroke="#495057" stroke-width="2" />
+		<text x="46" y="546" font-size="21" fill="#2b2a26">vrták se</text>
+		<text x="46" y="574" font-size="21" font-weight="bold" fill="#c92a2a">zahřívá</text>
+	</g>
+</svg>

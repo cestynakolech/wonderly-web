@@ -1,0 +1,52 @@
+---
+// Vnitřní energie tělesa — F8 infografika (tahák bez interakce; OBSAH-PRAVIDLA kap. 12 bod 7).
+// JEDINÝ DOMOV obsahu je SVG v materiálech:
+//   public/materialy/fyzika/8-rocnik/energie/vnitrni-energie-telesa/infografika-vnitrni-energie-telesa.svg
+// (úzké 460 × 3682, 7 panelů <g id="panel-1…7"> se stejnou šířkou a vlastním nadpisem — jdou vyříznout
+//  samostatně; písmo min. 21, bez indexů → na telefonu 375 px je obrázek v materiálech stránky
+//  (figure.infografika) 319,8 px bez rámečku (změřeno 13. 10. 2026 headless Chrome s CSS živého webu,
+//  rám 375 px), škála 0,695 → písmo 14,6 px; komponentu samotnou nikdo zvlášť neměřil;
+//  CSS animace dějů uvnitř SVG, při prefers-reduced-motion zůstane koncový stav).
+//  Tahle komponenta ho jen vloží, nic neopisuje.
+// Platné zapojení na stránku je položka `materialy` (druh 'infografika') v temata.ts — komponenta je
+// jen pro případné vložení mimo materiály (vzor TreciSilaInfografika.astro).
+const cesta = '/materialy/fyzika/8-rocnik/energie/vnitrni-energie-telesa/infografika-vnitrni-energie-telesa.svg';
+---
+
+<section class="ramecek infografika-ve">
+	<h2><span class="podtrh">Vnitřní energie tělesa — tahák 📊</span></h2>
+	<p>
+		Vnitřní energie je <strong>součet energií všech částic</strong> tělesa.
+		Když roste, roste i <strong>teplota</strong> tělesa.
+	</p>
+	<img
+		src={cesta}
+		width="460"
+		height="3682"
+		loading="lazy"
+		alt="Infografika vnitřní energie tělesa: tělesa se skládají z částic, které se neustále pohybují a působí na sebe přitažlivými a odpudivými silami (v pevné látce kmitají, v kapalině kloužou, v plynu létají volně); čím vyšší teplota, tím rychleji se částice pohybují a čaj se v horké vodě mísí rychleji; každá částice má pohybovou a polohovou energii, jejich součet je vnitřní energie v joulech; závisí na počtu částic a teplotě, ne na pohybu ani výšce tělesa; zvýšíme ji zahřátím, přidáním částic, konáním práce a přijetím tepelné energie od teplejšího tělesa; když roste, roste teplota; zahřívají se brzdy, vrták, kroucený drát, topná spirála; přehřátí škodí, proto chladíme vodou, olejem nebo vzduchem"
+	/>
+</section>
+
+<style>
+	.infografika-ve { padding: 1.5rem; }
+	.infografika-ve h2 { margin-top: 0; }
+	.infografika-ve img {
+		display: block;
+		width: 100%;
+		max-width: min(100%, 34rem);
+		height: auto;
+		margin: 1rem auto 0;
+		border: 2.5px solid #2b2a26;
+		border-radius: 12px;
+	}
+	.podtrh { border-bottom: 3px solid #ffd43b; padding-bottom: 2px; }
+	/* Na telefonu by padding 1.5rem zúžil obrázek pod škálu 0,667 (písmo 21 → < 14 px).
+	   Při materiálech na stránce je naměřeno 319,8 px (škála 0,695).
+	   Obrázek proto zabere celou vnitřní šířku rámečku, text si okraj drží sám. */
+	@media (max-width: 480px) {
+		.infografika-ve { padding: 1rem 0; }
+		.infografika-ve h2,
+		.infografika-ve p { padding: 0 1rem; }
+	}
+</style>
