@@ -1,0 +1,51 @@
+---
+// Elektromagnetická indukce — F9 infografika (tahák bez interakce; OBSAH-PRAVIDLA kap. 12 bod 7).
+// JEDINÝ DOMOV obsahu je SVG v materiálech:
+//   public/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/elektromagneticka-indukce/infografika-elektromagneticka-indukce.svg
+// (úzké 460 × 3380, 6 panelů <g id="panel-1…6"> se stejnou šířkou a vlastním nadpisem, vyříznuté
+//  i samostatně jako …-panel-N.svg; písmo min. 21, indexy 18 → na telefonu 375 px je obrázek
+//  v materiálech stránky 319,8 px bez rámečku (změřeno 14. 10. 2026 headless Chrome s CSS živého webu),
+//  škála 0,695 → písmo 14,6 px, indexy 12,5 px; CSS animace dějů uvnitř SVG, při
+//  prefers-reduced-motion zůstane koncový stav). Tahle komponenta ho jen vloží, nic neopisuje.
+// Platné zapojení na stránku je položka `materialy` (druh 'infografika' s polem `panely`) v temata.ts —
+// komponenta je jen pro případné vložení mimo materiály (vzor VnitrniEnergieInfografika.astro).
+const cesta = '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/elektromagneticka-indukce/infografika-elektromagneticka-indukce.svg';
+---
+
+<section class="ramecek infografika-ei">
+	<h2><span class="podtrh">Elektromagnetická indukce — tahák 📊</span></h2>
+	<p>
+		Když se u cívky <strong>mění magnetické pole</strong>, vzniká v ní
+		<strong>indukované napětí</strong>. Když se pole nemění, nevzniká nic.
+	</p>
+	<img
+		src={cesta}
+		width="460"
+		height="3380"
+		loading="lazy"
+		alt="Infografika elektromagnetické indukce: Faradayův pokus z roku 1831 — magnet zasouvaný do cívky s voltmetrem vychýlí ručičku, když magnet stojí, ručička je na nule; při změně magnetického pole u cívky vzniká indukované napětí (volt) a v uzavřeném obvodu indukovaný proud (ampér); pole měníme pohybem magnetu nebo cívky nebo proudem v elektromagnetu — při zapnutí a vypnutí se ručička u druhé cívky krátce vychýlí, při stálém proudu je na nule; větší napětí dává rychlejší pohyb, silnější magnet a víc závitů, cívka se 4 závity dá větší výchylku než se 2 závity; když se pole zesiluje, teče proud jedním směrem, když se zeslabuje, opačně, prohozené póly směr také obrátí; dynamo na kole rozsvítí světlo, jen když se kolo točí, energie se jen přeměňuje z pohybové na elektrickou; indukci využívá alternátor, transformátor, indukční varná deska, bezdrátová nabíječka a elektrická kytara"
+	/>
+</section>
+
+<style>
+	.infografika-ei { padding: 1.5rem; }
+	.infografika-ei h2 { margin-top: 0; }
+	.infografika-ei img {
+		display: block;
+		width: 100%;
+		max-width: min(100%, 34rem);
+		height: auto;
+		margin: 1rem auto 0;
+		border: 2.5px solid #2b2a26;
+		border-radius: 12px;
+	}
+	.podtrh { border-bottom: 3px solid #ffd43b; padding-bottom: 2px; }
+	/* Na telefonu by padding 1.5rem zúžil obrázek pod škálu 0,667 (písmo 21 → < 14 px).
+	   Při materiálech na stránce je naměřeno 319,8 px (škála 0,695).
+	   Obrázek proto zabere celou vnitřní šířku rámečku, text si okraj drží sám. */
+	@media (max-width: 480px) {
+		.infografika-ei { padding: 1rem 0; }
+		.infografika-ei h2,
+		.infografika-ei p { padding: 0 1rem; }
+	}
+</style>

@@ -1,0 +1,44 @@
+<svg viewBox="0 140 460 420" width="460" height="420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Energie z potravy: všechny živé organismy potřebují k životu energii, člověk ji získává hlavně z potravy; potravu tvoří rostliny (jablko, chléb) a živočichové (vejce, sýr, mléko)." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Energetická hodnota potravin 1/5: Energie z potravy</title>
+	<!-- Panel 1/5 výřezu z infografika-energeticka-hodnota-potravin.svg (souřadnice beze změny, jen viewBox). -->
+	<rect x="0" y="140" width="460" height="420" fill="#f3f1ea" />
+	<g id="panel-1">
+	<!-- ===== Panel 1: Energie z potravy ===== -->
+	<rect x="26" y="156" width="420" height="400" rx="10" fill="#2b2a26" />
+	<rect x="20" y="150" width="420" height="400" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="52" cy="184" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="52" y="191" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">1</text>
+	<text x="80" y="193" font-size="28" font-weight="bold" fill="#2b2a26">Energie z potravy</text>
+	<text x="40" y="232" font-size="21" fill="#2b2a26">Všechny živé organismy potřebují</text>
+	<text x="40" y="260" font-size="21" fill="#2b2a26">k životu <tspan font-weight="bold">energii</tspan>. Člověk ji získává</text>
+	<text x="40" y="288" font-size="21" fill="#2b2a26">hlavně z <tspan font-weight="bold">potravy</tspan>.</text>
+	<text x="40" y="316" font-size="21" fill="#2b2a26">Potravu tvoří <tspan font-weight="bold" fill="#237032">rostliny</tspan></text>
+	<text x="40" y="344" font-size="21" fill="#2b2a26">a <tspan font-weight="bold" fill="#a61e4d">živočichové</tspan>.</text>
+	<!-- stůl: deska na dvou nohách, nohy stojí na podlaze -->
+	<line x1="34" y1="476" x2="426" y2="476" stroke="#868e96" stroke-width="2" />
+	<rect x="58" y="420" width="12" height="56" fill="#8a5a35" />
+	<rect x="390" y="420" width="12" height="56" fill="#8a5a35" />
+	<rect x="40" y="408" width="380" height="12" rx="2" fill="#b07b4f" stroke="#7a4f2e" stroke-width="1.5" />
+	<!-- talíř z rostlin: zelené jablko a chléb -->
+	<ellipse cx="130" cy="402" rx="78" ry="8" fill="#ffffff" stroke="#adb5bd" stroke-width="2" />
+	<path d="M112 400 Q114 364 150 362 Q186 364 188 400 Z" fill="#f2c46d" stroke="#b5832e" stroke-width="2" />
+	<path d="M134 372 Q140 384 136 396 M152 368 Q158 382 154 396 M170 372 Q176 384 172 396" fill="none" stroke="#b5832e" stroke-width="2" />
+	<circle cx="86" cy="384" r="18" fill="#82c91e" stroke="#5c940d" stroke-width="2" />
+	<path d="M86 366 L88 358" stroke="#5c3d1e" stroke-width="2.5" />
+	<path d="M89 360 Q100 352 104 360 Q96 366 89 360 Z" fill="#40c057" stroke="#2b8a3e" stroke-width="1.5" />
+	<!-- talíř ze živočichů: vejce a sýr; vedle sklenice mléka -->
+	<ellipse cx="300" cy="402" rx="78" ry="8" fill="#ffffff" stroke="#adb5bd" stroke-width="2" />
+	<ellipse cx="258" cy="384" rx="14" ry="18" fill="#fff4e6" stroke="#adb5bd" stroke-width="2" />
+	<path d="M282 400 L346 400 L346 380 L282 390 Z" fill="#ffd43b" stroke="#e6a700" stroke-width="2" />
+	<circle cx="300" cy="394" r="3" fill="#e6a700" />
+	<circle cx="322" cy="390" r="4" fill="#e6a700" />
+	<circle cx="336" cy="395" r="2.5" fill="#e6a700" />
+	<path d="M384 354 L412 354 L410 408 L386 408 Z" fill="#ffffff" stroke="#868e96" stroke-width="2" />
+	<path d="M385 366 L411 366 L410 408 L386 408 Z" fill="#f1f3f5" />
+	<!-- popisky pod talíři -->
+	<rect x="60" y="494" width="140" height="36" rx="18" fill="#ebfbee" stroke="#2b8a3e" stroke-width="2" />
+	<text x="130" y="519" text-anchor="middle" font-size="21" font-weight="bold" fill="#237032">z rostlin</text>
+	<rect x="236" y="494" width="168" height="36" rx="18" fill="#fff0f6" stroke="#a61e4d" stroke-width="2" />
+	<text x="320" y="519" text-anchor="middle" font-size="21" font-weight="bold" fill="#a61e4d">ze živočichů</text>
+	</g>
+</svg>

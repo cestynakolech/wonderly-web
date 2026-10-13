@@ -11,8 +11,8 @@
 // CSS animace děje uvnitř SVG, při prefers-reduced-motion zůstane klidový stav. Šest panelů = skupiny
 // <g id="panel-N" data-vyrez="x y š v"> pro mřížku na tabuli. Tahle komponenta SVG jen vloží, nic neopisuje;
 // text alt je doslova shodný s aria-label v SVG (při změně upravit obojí).
-// Zapojení na stránku: zatím NEZAPOJENO — položku `materialy` (druh 'infografika') v temata.ts zapíše
-// exekutor; komponenta je jen pro případné vložení mimo materiály.
+// Zapojení na stránku: ZAPOJENO v temata.ts (položka `materialy`, druh 'infografika', commit c260312);
+// stránku vykresluje šablona z `materialy`, komponenta je jen pro případné vložení mimo materiály.
 const cesta = '/materialy/fyzika/8-rocnik/energie/pohybova-a-polohova-energie/infografika-pohybova-a-polohova-energie.svg';
 ---
 

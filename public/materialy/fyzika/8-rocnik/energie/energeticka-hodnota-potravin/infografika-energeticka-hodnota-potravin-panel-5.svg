@@ -1,0 +1,68 @@
+<svg viewBox="0 1824 460 560" width="460" height="560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Na 100 g a výpočet: energetická hodnota se udává nejčastěji na 100 g potraviny; dvakrát víc jídla má dvakrát víc energie; E = (m : 100) · E100, m je hmotnost porce v gramech, E100 energie ve 100 g." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Energetická hodnota potravin 5/5: Na 100 g a výpočet</title>
+	<!-- Panel 5/5 výřezu z infografika-energeticka-hodnota-potravin.svg (souřadnice beze změny, jen viewBox). -->
+	<style>
+		.ruka { animation: ruka 6s ease-in-out infinite; }
+		.sloupec2 { transform-origin: 355px 2128px; animation: sloupec2 6s linear infinite; }
+		@keyframes ruka { 0% { transform: translateY(-70px); } 20%, 60% { transform: translateY(0); } 80%, 100% { transform: translateY(-70px); } }
+		@keyframes sloupec2 { 0%, 20% { transform: scaleY(0); } 27%, 60% { transform: scaleY(1); } 64%, 100% { transform: scaleY(0); } }
+		@media (prefers-reduced-motion: reduce) {
+			.ruka, .sloupec2 { animation: none; }
+		}
+	</style>
+	<defs>
+		<clipPath id="okno5">
+			<rect x="40" y="2014" width="232" height="200" rx="8" />
+		</clipPath>
+	</defs>
+	<rect x="0" y="1824" width="460" height="560" fill="#f3f1ea" />
+	<g id="panel-5">
+	<!-- ===== Panel 5: Na 100 g a výpočet ===== -->
+	<rect x="26" y="1840" width="420" height="540" rx="10" fill="#2b2a26" />
+	<rect x="20" y="1834" width="420" height="540" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="52" cy="1868" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="52" y="1875" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">5</text>
+	<text x="80" y="1877" font-size="28" font-weight="bold" fill="#2b2a26">Na 100 g a výpočet</text>
+	<text x="40" y="1914" font-size="21" fill="#2b2a26">Energetická hodnota se udává</text>
+	<text x="40" y="1942" font-size="21" fill="#2b2a26">nejčastěji <tspan font-weight="bold">na 100 g</tspan> potraviny.</text>
+	<text x="40" y="1970" font-size="21" fill="#2b2a26"><tspan font-weight="bold">Dvakrát</tspan> víc jídla má <tspan font-weight="bold">dvakrát</tspan></text>
+	<text x="40" y="1998" font-size="21" fill="#2b2a26">víc energie.</text>
+	<!-- výřez kuchyně: stůl, prkénko, dva kusy sýru po 100 g; druhý kus pokládá ruka -->
+	<rect x="40" y="2014" width="232" height="200" rx="8" fill="#fff9db" />
+	<g clip-path="url(#okno5)">
+		<rect x="36" y="2188" width="240" height="30" fill="#b07b4f" stroke="#7a4f2e" stroke-width="1.5" />
+		<rect x="58" y="2176" width="196" height="12" rx="4" fill="#e0b57a" stroke="#8a5a2b" stroke-width="1.5" />
+		<rect x="78" y="2126" width="72" height="50" rx="3" fill="#ffd43b" stroke="#e6a700" stroke-width="2" />
+		<circle cx="90" cy="2136" r="4" fill="#e6a700" />
+		<circle cx="140" cy="2168" r="3" fill="#e6a700" />
+		<text x="114" y="2160" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">100 g</text>
+		<g class="ruka">
+			<rect x="164" y="2126" width="72" height="50" rx="3" fill="#ffd43b" stroke="#e6a700" stroke-width="2" />
+			<circle cx="176" cy="2136" r="4" fill="#e6a700" />
+			<circle cx="226" cy="2168" r="3" fill="#e6a700" />
+			<text x="200" y="2160" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">100 g</text>
+			<rect x="186" y="1940" width="28" height="110" rx="6" fill="#adb5bd" stroke="#495057" stroke-width="1.5" />
+			<rect x="190" y="2044" width="20" height="70" rx="6" fill="#ffd8b1" stroke="#a87c56" stroke-width="1.5" />
+			<rect x="185" y="2040" width="30" height="10" rx="3" fill="#868e96" />
+			<rect x="174" y="2106" width="52" height="24" rx="10" fill="#ffd8b1" stroke="#a87c56" stroke-width="1.5" />
+			<rect x="168" y="2114" width="10" height="26" rx="5" fill="#ffd8b1" stroke="#a87c56" stroke-width="1.5" />
+			<rect x="222" y="2114" width="10" height="26" rx="5" fill="#ffd8b1" stroke="#a87c56" stroke-width="1.5" />
+		</g>
+	</g>
+	<rect x="40" y="2014" width="232" height="200" rx="8" fill="none" stroke="#adb5bd" stroke-width="2" />
+	<!-- diagram: energie jako sloupce, jeden blok = E100 -->
+	<text x="355" y="2040" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">energie</text>
+	<line x1="300" y1="2191" x2="410" y2="2191" stroke="#495057" stroke-width="2.5" />
+	<rect x="325" y="2130" width="60" height="60" fill="#ffc078" stroke="#e8590c" stroke-width="2" />
+	<text x="355" y="2166" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">E<tspan font-size="18" dy="5">100</tspan></text>
+	<g class="sloupec2">
+		<rect x="325" y="2068" width="60" height="60" fill="#ffc078" stroke="#e8590c" stroke-width="2" />
+		<text x="355" y="2104" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">E<tspan font-size="18" dy="5">100</tspan></text>
+	</g>
+	<!-- vzorec -->
+	<rect x="40" y="2234" width="380" height="120" rx="10" fill="#f1f3f5" stroke="#495057" stroke-width="2" />
+	<text x="230" y="2276" text-anchor="middle" font-size="28" font-weight="bold" fill="#2b2a26">E = (m : 100) · E<tspan font-size="20" dy="6">100</tspan></text>
+	<text x="60" y="2312" font-size="21" fill="#2b2a26"><tspan font-weight="bold">m</tspan> … hmotnost porce (g)</text>
+	<text x="60" y="2340" font-size="21" fill="#2b2a26"><tspan font-weight="bold">E<tspan font-size="18" dy="5">100</tspan></tspan><tspan dy="-5"> … energie ve 100 g</tspan></text>
+	</g>
+</svg>

@@ -1,0 +1,98 @@
+<svg viewBox="0 564 460 470" width="460" height="470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Co tělo s jídlem dělá: tělo spaluje cukry a tuky spolu s kyslíkem, uvolní chemickou energii a využije ji pro svaly (pohybová energie) a pro mozek (elektrická energie); chlapec zvedne činku." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Energetická hodnota potravin 2/5: Co tělo s jídlem dělá</title>
+	<!-- Panel 2/5 výřezu z infografika-energeticka-hodnota-potravin.svg (souřadnice beze změny, jen viewBox). -->
+	<style>
+		.kys1 { animation: kys 5s linear infinite; }
+		.kys2 { animation: kys 5s linear infinite; animation-delay: -0.5s; }
+		.enM { animation: enM 5s linear infinite; }
+		.enS { animation: enS 5s linear infinite; }
+		.zar { animation: zar 5s linear infinite; }
+		.predlokti { transform-origin: 209px 888px; animation: predlokti 5s ease-in-out infinite; }
+		@keyframes kys { 0% { transform: translateX(0); opacity: 0; } 3% { opacity: 1; } 20% { transform: translateX(42px); opacity: 1; } 24%, 100% { transform: translateX(46px); opacity: 0; } }
+		@keyframes enM { 0%, 22% { transform: translate(0, 0); opacity: 0; } 25% { transform: translate(0, 0); opacity: 1; } 45% { transform: translate(-6px, -100px); opacity: 1; } 49%, 100% { transform: translate(-6px, -100px); opacity: 0; } }
+		@keyframes enS { 0%, 22% { transform: translate(0, 0); opacity: 0; } 25% { transform: translate(0, 0); opacity: 1; } 45% { transform: translate(35px, -16px); opacity: 1; } 49%, 100% { transform: translate(35px, -16px); opacity: 0; } }
+		@keyframes zar { 0%, 45% { opacity: 0; } 52%, 80% { opacity: 0.6; } 92%, 100% { opacity: 0; } }
+		@keyframes predlokti { 0%, 47% { transform: rotate(0deg); } 60%, 78% { transform: rotate(-160deg); } 92%, 100% { transform: rotate(0deg); } }
+		@media (prefers-reduced-motion: reduce) {
+			.kys1, .kys2, .enM, .enS, .zar { animation: none; }
+			.predlokti { animation: none; transform: rotate(-160deg); }
+		}
+	</style>
+	<defs>
+		<marker id="sip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+			<path d="M0 0 L10 5 L0 10 Z" fill="#495057" />
+		</marker>
+		<marker id="sipK" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+			<path d="M0 0 L10 5 L0 10 Z" fill="#0b7285" />
+		</marker>
+	</defs>
+	<rect x="0" y="564" width="460" height="470" fill="#f3f1ea" />
+	<g id="panel-2">
+	<!-- ===== Panel 2: Co tělo s jídlem dělá ===== -->
+	<rect x="26" y="580" width="420" height="450" rx="10" fill="#2b2a26" />
+	<rect x="20" y="574" width="420" height="450" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="52" cy="608" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="52" y="615" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">2</text>
+	<text x="80" y="617" font-size="28" font-weight="bold" fill="#2b2a26">Co tělo s jídlem dělá</text>
+	<text x="40" y="654" font-size="21" fill="#2b2a26">Tělo „spaluje“ <tspan font-weight="bold">cukry a tuky</tspan></text>
+	<text x="40" y="682" font-size="21" fill="#2b2a26">spolu s <tspan font-weight="bold" fill="#0b7285">kyslíkem</tspan>. Uvolní tak</text>
+	<text x="40" y="710" font-size="21" fill="#2b2a26"><tspan font-weight="bold" fill="#b8460b">chemickou energii</tspan> a využije ji:</text>
+	<!-- zem pod chlapcem -->
+	<line x1="40" y1="1007" x2="300" y2="1007" stroke="#868e96" stroke-width="2" />
+	<!-- nohy a boty (stojí na zemi) -->
+	<rect x="124" y="918" width="34" height="80" fill="#495057" />
+	<rect x="162" y="918" width="34" height="80" fill="#495057" />
+	<ellipse cx="141" cy="1000" rx="20" ry="7" fill="#212529" />
+	<ellipse cx="179" cy="1000" rx="20" ry="7" fill="#212529" />
+	<!-- levá paže visí podél těla -->
+	<rect x="106" y="840" width="14" height="70" rx="7" fill="#ffd8b1" stroke="#a87c56" stroke-width="1.5" />
+	<circle cx="113" cy="912" r="8" fill="#ffd8b1" stroke="#a87c56" stroke-width="1.5" />
+	<!-- trup (tričko) -->
+	<path d="M120 846 Q120 830 136 830 L184 830 Q200 830 200 846 L200 922 L120 922 Z" fill="#e9ecef" stroke="#495057" stroke-width="2" />
+	<rect x="104" y="834" width="20" height="24" rx="6" fill="#e9ecef" stroke="#495057" stroke-width="2" />
+	<!-- žaludek: jídlo s chemickou energií -->
+	<ellipse cx="160" cy="884" rx="22" ry="15" fill="#ffc078" stroke="#e8590c" stroke-width="2" />
+	<!-- krk a hlava s mozkem -->
+	<rect x="153" y="818" width="14" height="14" fill="#ffd8b1" />
+	<circle cx="160" cy="790" r="32" fill="#ffd8b1" stroke="#a87c56" stroke-width="2" />
+	<ellipse cx="160" cy="773" rx="23" ry="13" fill="#e5dbff" stroke="#5f3dc4" stroke-width="2" />
+	<path d="M150 764 Q146 773 152 780 M162 762 Q158 772 166 782 M172 766 Q168 774 174 780" fill="none" stroke="#5f3dc4" stroke-width="1.5" />
+	<ellipse class="zar" cx="160" cy="773" rx="29" ry="18" fill="#845ef7" opacity="0.6" />
+	<circle cx="149" cy="794" r="3" fill="#2b2a26" />
+	<circle cx="171" cy="794" r="3" fill="#2b2a26" />
+	<path d="M160 798 L157 805 L161 805" fill="none" stroke="#a87c56" stroke-width="1.5" />
+	<path d="M151 811 Q160 817 169 811" fill="none" stroke="#2b2a26" stroke-width="2" />
+	<!-- pravá paže: v klidu volně svěšená podél těla, činka u boku; sval (biceps) na nadloktí -->
+	<rect x="202" y="836" width="14" height="56" rx="7" fill="#ffd8b1" stroke="#a87c56" stroke-width="1.5" />
+	<ellipse class="zar" cx="209" cy="864" rx="11" ry="19" fill="#339af0" opacity="0.6" />
+	<rect x="198" y="834" width="20" height="24" rx="6" fill="#e9ecef" stroke="#495057" stroke-width="2" />
+	<!-- předloktí s rukou a činkou: ohne se v lokti (209, 888) až k rameni -->
+	<g class="predlokti">
+		<rect x="202" y="884" width="14" height="50" rx="7" fill="#ffd8b1" stroke="#a87c56" stroke-width="1.5" />
+		<rect x="191" y="936" width="36" height="5" fill="#495057" />
+		<rect x="185" y="929" width="8" height="19" rx="2" fill="#343a40" />
+		<rect x="225" y="929" width="8" height="19" rx="2" fill="#343a40" />
+		<circle cx="209" cy="938" r="8" fill="#ffd8b1" stroke="#a87c56" stroke-width="1.5" />
+	</g>
+	<!-- kyslík vchází nosem -->
+	<line x1="102" y1="800" x2="150" y2="802" stroke="#0b7285" stroke-width="2.5" marker-end="url(#sipK)" />
+	<text x="40" y="788" font-size="21" font-weight="bold" fill="#0b7285">kyslík</text>
+	<circle class="kys1" cx="104" cy="801" r="4" fill="#15aabf" opacity="0" />
+	<circle class="kys2" cx="104" cy="801" r="4" fill="#15aabf" opacity="0" />
+	<!-- kuličky chemické energie: ze žaludku do mozku a do svalu -->
+	<circle class="enM" cx="166" cy="878" r="5" fill="#e8590c" opacity="0" />
+	<circle class="enS" cx="174" cy="880" r="5" fill="#e8590c" opacity="0" />
+	<!-- popisky vpravo -->
+	<line x1="308" y1="766" x2="186" y2="772" stroke="#495057" stroke-width="2" marker-end="url(#sip)" />
+	<text x="312" y="772" font-size="21" font-weight="bold" fill="#5f3dc4">mozek</text>
+	<text x="312" y="798" font-size="21" fill="#5f3dc4">elektrická</text>
+	<text x="312" y="824" font-size="21" fill="#5f3dc4">energie</text>
+	<line x1="308" y1="884" x2="224" y2="868" stroke="#495057" stroke-width="2" marker-end="url(#sip)" />
+	<text x="312" y="890" font-size="21" font-weight="bold" fill="#1864ab">svaly</text>
+	<text x="312" y="916" font-size="21" fill="#1864ab">pohybová</text>
+	<text x="312" y="942" font-size="21" fill="#1864ab">energie</text>
+	<line x1="308" y1="970" x2="184" y2="890" stroke="#495057" stroke-width="2" marker-end="url(#sip)" />
+	<text x="312" y="976" font-size="21" font-weight="bold" fill="#b8460b">chemická</text>
+	<text x="312" y="1002" font-size="21" font-weight="bold" fill="#b8460b">energie</text>
+	</g>
+</svg>

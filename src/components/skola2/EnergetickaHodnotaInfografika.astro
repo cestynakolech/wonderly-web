@@ -1,0 +1,49 @@
+---
+// Energetická hodnota potravin — F8 infografika (tahák bez interakce; OBSAH-PRAVIDLA kap. 12 bod 7).
+// JEDINÝ DOMOV obsahu je SVG v materiálech:
+//   public/materialy/fyzika/8-rocnik/energie/energeticka-hodnota-potravin/infografika-energeticka-hodnota-potravin.svg
+// (460 × 2400, 5 panelů <g id="panel-1…5"> s vlastním nadpisem; vyříznuté panely pro tabuli jsou
+//  …-panel-1.svg až …-panel-5.svg vedle něj. Písmo min. 21, indexy 18 → v panelové mřížce na telefonu
+//  375 px je panel 319,8 px bez rámečku (změřeno 14. 10. 2026 headless Chrome s CSS živého webu),
+//  škála 0,695 → písmo 14,6 px, indexy 12,5 px. CSS animace dějů uvnitř SVG, při
+//  prefers-reduced-motion zůstane koncový stav.) Tahle komponenta ho jen vloží, nic neopisuje.
+// Platné zapojení na stránku je položka `materialy` (druh 'infografika', pole `panely`) v temata.ts —
+// komponenta je jen pro případné vložení mimo materiály (vzor VnitrniEnergieInfografika.astro).
+const cesta = '/materialy/fyzika/8-rocnik/energie/energeticka-hodnota-potravin/infografika-energeticka-hodnota-potravin.svg';
+---
+
+<section class="ramecek infografika-eh">
+	<h2><span class="podtrh">Energetická hodnota potravin — tahák 📊</span></h2>
+	<p>
+		Energetickou hodnotu udává <strong>teplo</strong>, které se uvolní při spálení potraviny.
+		Udává se nejčastěji <strong>na 100 g</strong>.
+	</p>
+	<img
+		src={cesta}
+		width="460"
+		height="2400"
+		loading="lazy"
+		alt="Infografika energetické hodnoty potravin: živé organismy potřebují k životu energii, člověk ji získává hlavně z potravy z rostlin a živočichů; tělo spaluje cukry a tuky spolu s kyslíkem a chemickou energii využije pro svaly (pohybová energie) a mozek (elektrická energie); energetickou hodnotu zjistíme spálením potraviny v laboratoři, udává ji uvolněné teplo; jednotky joule a kilojoule, starší kalorie a kilokalorie jen u potravin; udává se na 100 g, dvakrát víc jídla má dvakrát víc energie, E = (m : 100) · E100"
+	/>
+</section>
+
+<style>
+	.infografika-eh { padding: 1.5rem; }
+	.infografika-eh h2 { margin-top: 0; }
+	.infografika-eh img {
+		display: block;
+		width: 100%;
+		max-width: min(100%, 34rem);
+		height: auto;
+		margin: 1rem auto 0;
+		border: 2.5px solid #2b2a26;
+		border-radius: 12px;
+	}
+	.podtrh { border-bottom: 3px solid #ffd43b; padding-bottom: 2px; }
+	/* Na telefonu by padding 1.5rem zúžil obrázek pod škálu 0,667 (písmo 21 → < 14 px). */
+	@media (max-width: 480px) {
+		.infografika-eh { padding: 1rem 0; }
+		.infografika-eh h2,
+		.infografika-eh p { padding: 0 1rem; }
+	}
+</style>

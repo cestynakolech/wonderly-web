@@ -1,0 +1,25 @@
+<svg viewBox="0 1534 460 286" width="460" height="286" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Jednotky energie: joule (J) základní, kilojoule (kJ) větší; kalorie (cal) a kilokalorie (kcal) jsou starší jednotky, dnes jen u potravin." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Energetická hodnota potravin 4/5: Jednotky energie</title>
+	<!-- Panel 4/5 výřezu z infografika-energeticka-hodnota-potravin.svg (souřadnice beze změny, jen viewBox). -->
+	<rect x="0" y="1534" width="460" height="286" fill="#f3f1ea" />
+	<g id="panel-4">
+	<!-- ===== Panel 4: Jednotky energie ===== -->
+	<rect x="26" y="1550" width="420" height="266" rx="10" fill="#2b2a26" />
+	<rect x="20" y="1544" width="420" height="266" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="52" cy="1578" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="52" y="1585" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">4</text>
+	<text x="80" y="1587" font-size="28" font-weight="bold" fill="#2b2a26">Jednotky energie</text>
+	<rect x="40" y="1610" width="185" height="180" rx="10" fill="#ffffff" stroke="#2b2a26" stroke-width="2.5" />
+	<text x="132" y="1652" text-anchor="middle" font-size="34" font-weight="bold" fill="#2b2a26">J, kJ</text>
+	<text x="132" y="1690" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">joule</text>
+	<text x="132" y="1716" text-anchor="middle" font-size="21" fill="#2b2a26">základní</text>
+	<text x="132" y="1748" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">kilojoule</text>
+	<text x="132" y="1774" text-anchor="middle" font-size="21" fill="#2b2a26">větší</text>
+	<rect x="235" y="1610" width="185" height="180" rx="10" fill="#f1f3f5" stroke="#868e96" stroke-width="2.5" stroke-dasharray="8 6" />
+	<text x="327" y="1652" text-anchor="middle" font-size="34" font-weight="bold" fill="#495057">cal, kcal</text>
+	<text x="327" y="1690" text-anchor="middle" font-size="21" font-weight="bold" fill="#495057">kalorie</text>
+	<text x="327" y="1716" text-anchor="middle" font-size="21" font-weight="bold" fill="#495057">kilokalorie</text>
+	<text x="327" y="1748" text-anchor="middle" font-size="21" fill="#495057">starší, dnes</text>
+	<text x="327" y="1774" text-anchor="middle" font-size="21" fill="#495057">jen u potravin</text>
+	</g>
+</svg>

@@ -1,0 +1,71 @@
+<svg viewBox="0 1038 460 492" width="460" height="492" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Jak ji zjistíme: potravinu v laboratoři spálíme a zjistíme, kolik tepla se uvolní; toto teplo udává energetickou hodnotu potraviny. Hořící potravina na jehle ohřívá kádinku s vodou." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Energetická hodnota potravin 3/5: Jak ji zjistíme</title>
+	<!-- Panel 3/5 výřezu z infografika-energeticka-hodnota-potravin.svg (souřadnice beze změny, jen viewBox). -->
+	<style>
+		.plamen { transform-origin: 190px 1394px; animation: plamen 0.8s ease-in-out infinite alternate; }
+		.vl1 { animation: vlna 2s linear infinite; }
+		.vl2 { animation: vlna 2s linear infinite; animation-delay: -0.7s; }
+		.vl3 { animation: vlna 2s linear infinite; animation-delay: -1.4s; }
+		@keyframes plamen { from { transform: scale(1, 1); } to { transform: scale(0.92, 1.1); } }
+		@keyframes vlna { 0% { transform: translateY(0); opacity: 0; } 20% { opacity: 1; } 75% { opacity: 1; } 100% { transform: translateY(-30px); opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) {
+			.plamen, .vl1, .vl2, .vl3 { animation: none; }
+			.vl1, .vl2, .vl3 { opacity: 1; }
+		}
+	</style>
+	<defs>
+		<marker id="sip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+			<path d="M0 0 L10 5 L0 10 Z" fill="#495057" />
+		</marker>
+	</defs>
+	<rect x="0" y="1038" width="460" height="492" fill="#f3f1ea" />
+	<g id="panel-3">
+	<!-- ===== Panel 3: Jak ji zjistíme ===== -->
+	<rect x="26" y="1054" width="420" height="472" rx="10" fill="#2b2a26" />
+	<rect x="20" y="1048" width="420" height="472" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="52" cy="1082" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="52" y="1089" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">3</text>
+	<text x="80" y="1091" font-size="28" font-weight="bold" fill="#2b2a26">Jak ji zjistíme</text>
+	<text x="40" y="1128" font-size="21" fill="#2b2a26">Potravinu v laboratoři <tspan font-weight="bold">spálíme</tspan></text>
+	<text x="40" y="1156" font-size="21" fill="#2b2a26">a zjistíme, kolik <tspan font-weight="bold" fill="#c92a2a">tepla</tspan> se uvolní.</text>
+	<text x="40" y="1184" font-size="21" fill="#2b2a26">Toto teplo udává <tspan font-weight="bold">energetickou</tspan></text>
+	<text x="40" y="1212" font-size="21" fill="#2b2a26"><tspan font-weight="bold">hodnotu</tspan> potraviny.</text>
+	<!-- laboratorní stůl -->
+	<rect x="34" y="1480" width="392" height="18" fill="#ced4da" stroke="#868e96" stroke-width="1.5" />
+	<!-- stojan: podstavec na stole, tyč, rameno s držákem kádinky -->
+	<rect x="300" y="1468" width="100" height="12" rx="2" fill="#495057" />
+	<rect x="344" y="1250" width="6" height="218" fill="#868e96" />
+	<rect x="222" y="1270" width="122" height="6" fill="#868e96" />
+	<rect x="338" y="1264" width="18" height="18" rx="2" fill="#495057" />
+	<!-- kádinka s vodou a teploměrem, drží ji čelist držáku -->
+	<path d="M160 1312 L220 1312 L220 1254 Q220 1250 224 1250 M160 1312 L160 1254 Q160 1250 156 1250" fill="none" stroke="#868e96" stroke-width="2.5" />
+	<rect x="161" y="1266" width="58" height="45" fill="#e7f5ff" />
+	<line x1="161" y1="1266" x2="219" y2="1266" stroke="#a5d8ff" stroke-width="2" />
+	<!-- teploměr u levé stěny, přichycený klipem k okraji kádinky -->
+	<rect x="164" y="1236" width="10" height="70" rx="5" fill="#ffffff" stroke="#868e96" stroke-width="1.5" />
+	<rect x="167" y="1272" width="4" height="30" fill="#c92a2a" />
+	<circle cx="169" cy="1302" r="5" fill="#c92a2a" />
+	<path d="M152 1244 L176 1244 L176 1258 L170 1258 L170 1250 L158 1250 L158 1262 L152 1262 Z" fill="#495057" />
+	<rect x="216" y="1262" width="10" height="24" rx="2" fill="#495057" />
+	<!-- jehla na podstavci, na ní hořící kousek potraviny -->
+	<rect x="172" y="1456" width="36" height="24" rx="3" fill="#c98f52" stroke="#8a5a2b" stroke-width="1.5" />
+	<line x1="190" y1="1456" x2="190" y2="1404" stroke="#868e96" stroke-width="2.5" />
+	<g class="plamen">
+		<path d="M190 1352 Q208 1370 204 1384 Q201 1396 190 1396 Q179 1396 176 1384 Q172 1370 190 1352 Z" fill="#fa5252" />
+		<path d="M190 1366 Q200 1378 198 1386 Q196 1394 190 1394 Q184 1394 182 1386 Q180 1378 190 1366 Z" fill="#ffd43b" />
+	</g>
+	<ellipse cx="190" cy="1402" rx="16" ry="10" fill="#5c3d1e" stroke="#3b2612" stroke-width="1.5" />
+	<!-- vlnky tepla stoupají od plamene ke dnu kádinky -->
+	<path class="vl1" d="M178 1348 q-5 -5 0 -10 q5 -5 0 -10" fill="none" stroke="#c92a2a" stroke-width="2.5" stroke-linecap="round" opacity="0" />
+	<path class="vl2" d="M190 1346 q-5 -5 0 -10 q5 -5 0 -10" fill="none" stroke="#c92a2a" stroke-width="2.5" stroke-linecap="round" opacity="0" />
+	<path class="vl3" d="M202 1348 q-5 -5 0 -10 q5 -5 0 -10" fill="none" stroke="#c92a2a" stroke-width="2.5" stroke-linecap="round" opacity="0" />
+	<!-- popisky -->
+	<text x="240" y="1352" font-size="21" font-weight="bold" fill="#c92a2a">teplo</text>
+	<line x1="236" y1="1344" x2="214" y2="1336" stroke="#495057" stroke-width="2" marker-end="url(#sip)" />
+	<text x="40" y="1400" font-size="21" fill="#2b2a26">hořící</text>
+	<text x="40" y="1426" font-size="21" fill="#2b2a26">potravina</text>
+	<line x1="138" y1="1408" x2="170" y2="1404" stroke="#495057" stroke-width="2" marker-end="url(#sip)" />
+	<text x="40" y="1278" font-size="21" fill="#2b2a26">voda</text>
+	<line x1="90" y1="1272" x2="156" y2="1286" stroke="#495057" stroke-width="2" marker-end="url(#sip)" />
+	</g>
+</svg>
