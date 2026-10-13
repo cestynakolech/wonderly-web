@@ -1,0 +1,41 @@
+---
+// Těžiště — F7 infografika (tahák bez interakce; OBSAH-PRAVIDLA kap. 12 bod 7).
+// JEDINÝ DOMOV obsahu je SVG v materiálech:
+//   public/materialy/fyzika/7-rocnik/sily-kolem-nas/teziste/infografika-teziste.svg
+// (úzké 460 × 2830, písmo min. 21, indexy 18 → na telefonu 375 px je obrázek 314,8 px,
+//  škála 0,684 → písmo 14,4 px, indexy 12,3 px; CSS animace děje uvnitř SVG,
+//  při prefers-reduced-motion zůstane klidový stav). Tahle komponenta ho jen vloží, nic neopisuje.
+// Platné zapojení na stránku je položka `materialy` (druh 'infografika') v temata.ts — komponenta je
+// jen pro případné vložení mimo materiály (vzor TreciSilaInfografika.astro).
+const cesta = '/materialy/fyzika/7-rocnik/sily-kolem-nas/teziste/infografika-teziste.svg';
+---
+
+<section class="ramecek infografika-tz">
+	<h2><span class="podtrh">Těžiště — tahák 📊</span></h2>
+	<p>
+		Těžiště <strong>T</strong> je bod, ve kterém na těleso působí <strong>tíhová síla</strong>.
+		Těleso stojí, když svislice z těžiště prochází jeho podstavou.
+	</p>
+	<img
+		src={cesta}
+		width="460"
+		height="2830"
+		loading="lazy"
+		alt="Infografika těžiště: těžiště T je působiště tíhové síly, každé těleso má jedno těžiště; pravítko zavěšené uprostřed visí rovně, s gumou na konci se nakloní; stejnorodá koule a krychle mají těžiště ve středu, trojúhelník v průsečíku těžnic, váza v dutině a podkova mimo kov na ose souměrnosti; těžiště nepravidelného tělesa najdeme zavěšením za dva body v průsečíku těžnic, u smetáku leží blíž ke kartáči a smeták na prstu podepřeme pod ním; nízká široká bedna se po naklonění vrátí, vysoká úzká skříňka se převrátí; stabilitu zvýší nižší těžiště, větší plocha podstavy a širší základna; rovnovážné polohy stálá, volná a vratká"
+	/>
+</section>
+
+<style>
+	.infografika-tz { padding: 1.5rem; }
+	.infografika-tz h2 { margin-top: 0; }
+	.infografika-tz img {
+		display: block;
+		width: 100%;
+		max-width: min(100%, 34rem);
+		height: auto;
+		margin: 1rem auto 0;
+		border: 2.5px solid #2b2a26;
+		border-radius: 12px;
+	}
+	.podtrh { border-bottom: 3px solid #ffd43b; padding-bottom: 2px; }
+</style>

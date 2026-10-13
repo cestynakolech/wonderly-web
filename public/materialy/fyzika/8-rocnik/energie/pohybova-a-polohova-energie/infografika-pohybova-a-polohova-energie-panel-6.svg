@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 2900 460 508" width="460" height="508" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Polohová energie pružnosti: má ji natažené, stlačené, ohnuté nebo zkroucené pružné těleso. Stlačená pružina může vykonat práci, po uvolnění rozjede kuličku. Příklady: pružina, stlačený vzduch, ohnutý prut, natažená guma. Využití: luk, natahovací hračky, pružinové houpačky, pinball.">
+	<title>Pohybová a polohová energie 6/6: Polohová energie pružnosti</title>
+	<!-- Panel 6/6 výřezu z infografika-pohybova-a-polohova-energie.svg (souřadnice beze změny, jen viewBox; postup PANELY-NAVOD.md). -->
+	<style>
+		.ruka6 { animation: ruka6 6s linear infinite; }
+		@keyframes ruka6 {
+			0% { transform: translate(0, 0); }
+			30%, 40% { transform: translate(-60px, 0); }
+			44%, 88% { transform: translate(-20px, -64px); }
+			95% { transform: translate(8px, -30px); }
+			100% { transform: translate(0, 0); }
+		}
+		.pruzina { transform-box: view-box; transform-origin: 60px 3182px; animation: pruzina 6s linear infinite; }
+		@keyframes pruzina {
+			0% { transform: scaleX(1); }
+			30% { transform: scaleX(0.5082); }
+			40% { transform: scaleX(0.5082); animation-timing-function: cubic-bezier(0.333, 0, 0.667, 0.333); }
+			56%, 100% { transform: scaleX(1); }
+		}
+		.kulicka { animation: kulicka 6s linear infinite; }
+		@keyframes kulicka {
+			0% { transform: translateX(0); opacity: 1; }
+			30% { transform: translateX(-60px); }
+			40% { transform: translateX(-60px); animation-timing-function: cubic-bezier(0.333, 0, 0.667, 0.333); }
+			56% { transform: translateX(0); }
+			78% { opacity: 1; }
+			86%, 87% { transform: translateX(225px); opacity: 0; }
+			88% { transform: translateX(0); opacity: 0; }
+			92% { transform: translateX(0); opacity: 0; }
+			100% { transform: translateX(0); opacity: 1; }
+		}
+		.kulickaOt { transform-box: view-box; transform-origin: 200px 3182px; animation: kulickaOt 6s linear infinite; }
+		@keyframes kulickaOt {
+			0% { transform: rotate(0deg); }
+			30% { transform: rotate(-191deg); }
+			40% { transform: rotate(-191deg); animation-timing-function: cubic-bezier(0.333, 0, 0.667, 0.333); }
+			56% { transform: rotate(0deg); }
+			86%, 87% { transform: rotate(716deg); }
+			88%, 100% { transform: rotate(0deg); }
+		}
+		@media (prefers-reduced-motion: reduce) {
+			.ruka6, .kulicka { animation: none; transform: translateX(-60px); }
+			.kulickaOt { animation: none; transform: rotate(-191deg); }
+			.pruzina { animation: none; transform: scaleX(0.5082); }
+		}
+	</style>
+	<defs>
+		<radialGradient id="micek" cx="0.35" cy="0.3" r="0.8">
+			<stop offset="0" stop-color="#ffc9c9" />
+			<stop offset="0.55" stop-color="#e03131" />
+			<stop offset="1" stop-color="#9c1c1c" />
+		</radialGradient>
+		<clipPath id="orez6"><rect x="21" y="2911" width="418" height="480" /></clipPath>
+	</defs>
+	<rect x="0" y="2900" width="460" height="508" fill="#f3f1ea" />
+	<g id="panel-6" data-vyrez="14 2904 438 500">
+	<!-- ===== Panel 6:Pružnost (y 2910–3392) ===== -->
+	<rect x="26" y="2916" width="420" height="482" rx="10" fill="#2b2a26" />
+	<rect x="20" y="2910" width="420" height="482" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="52" cy="2944" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="52" y="2951" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">6</text>
+	<text x="80" y="2953" font-size="28" font-weight="bold" fill="#2b2a26">Polohová energie</text>
+	<text x="80" y="2987" font-size="28" font-weight="bold" fill="#1e7a34">pružnosti</text>
+
+	<circle cx="44" cy="3019" r="4" fill="#2b2a26" />
+	<text x="56" y="3026" font-size="21" fill="#2b2a26">má ji <tspan font-weight="bold">natažené, stlačené, ohnuté</tspan></text>
+	<text x="56" y="3054" font-size="21" fill="#2b2a26">nebo zkroucené <tspan font-weight="bold" fill="#1e7a34">pružné těleso</tspan></text>
+
+	<!-- podlaha a zeď -->
+	<rect x="34" y="3200" width="392" height="14" fill="#c9a77c" stroke="#2b2a26" stroke-width="2" />
+	<rect x="34" y="3100" width="26" height="100" fill="#d9480f" stroke="#2b2a26" stroke-width="2" />
+	<path d="M 34 3125 H 60 M 34 3150 H 60 M 34 3175 H 60 M 47 3100 V 3125 M 47 3150 V 3175" stroke="#f3f1ea" stroke-width="2" />
+	<!-- pružina (volná délka 60 → 182), stlačuje se k zdi -->
+	<g class="pruzina">
+		<path d="M 60 3182 L 68 3182 L 75 3168 L 85 3196 L 95 3168 L 105 3196 L 115 3168 L 125 3196 L 135 3168 L 145 3196 L 155 3168 L 165 3196 L 172 3182 L 176 3182" fill="none" stroke="#495057" stroke-width="3.5" stroke-linejoin="round" />
+		<rect x="176" y="3166" width="6" height="32" rx="1" fill="#868e96" stroke="#2b2a26" stroke-width="1.5" />
+	</g>
+	<g clip-path="url(#orez6)">
+		<!-- kulička (střed 200, 3182, r 18) leží na podlaze -->
+		<g class="kulicka">
+			<g class="kulickaOt">
+				<circle cx="200" cy="3182" r="18" fill="url(#micek)" stroke="#2b2a26" stroke-width="2" />
+				<path d="M 182 3182 Q 200 3172 218 3182" fill="none" stroke="#fff" stroke-width="3" />
+			</g>
+		</g>
+		<!-- ruka tlačí kuličku zprava -->
+		<g class="ruka6">
+			<path d="M 248 3168 L 352 3142 L 358 3164 L 252 3192 Z" fill="#f1c27d" stroke="#2b2a26" stroke-width="2" />
+			<!-- rukáv sahá až za ořez panelu (x 520 > 439 + posun 60) — konec rukávu není nikdy vidět -->
+			<path d="M 344 3138 L 520 3095 L 520 3127 L 352 3168 Z" fill="#82c91e" stroke="#2b2a26" stroke-width="2" />
+			<line x1="350" y1="3140" x2="356" y2="3166" stroke="#5c940d" stroke-width="2" />
+			<path d="M 218 3164 Q 218 3158 224 3158 L 246 3160 Q 254 3162 254 3172 L 254 3192 Q 254 3200 246 3199 L 224 3198 Q 218 3198 218 3192 Z" fill="#f1c27d" stroke="#2b2a26" stroke-width="2" />
+			<path d="M 222 3170 L 236 3170 M 222 3179 L 236 3179 M 222 3188 L 236 3188" stroke="#c48a4a" stroke-width="1.5" />
+			<path d="M 238 3160 Q 230 3150 222 3156" fill="none" stroke="#2b2a26" stroke-width="2" />
+		</g>
+	</g>
+	<text x="230" y="3240" text-anchor="middle" font-size="21" fill="#495057">stlačená pružina může vykonat práci</text>
+
+	<circle cx="44" cy="3271" r="4" fill="#2b2a26" />
+	<text x="56" y="3278" font-size="21" fill="#2b2a26"><tspan font-weight="bold">pružina</tspan>, stlačený vzduch,</text>
+	<text x="56" y="3306" font-size="21" fill="#2b2a26">ohnutý prut, natažená guma</text>
+	<circle cx="44" cy="3337" r="4" fill="#2b2a26" />
+	<text x="56" y="3344" font-size="21" fill="#2b2a26"><tspan font-weight="bold" fill="#1e7a34">využití:</tspan> luk, natahovací hračky,</text>
+	<text x="56" y="3372" font-size="21" fill="#2b2a26">pružinové houpačky, pinball</text>
+	</g>
+</svg>

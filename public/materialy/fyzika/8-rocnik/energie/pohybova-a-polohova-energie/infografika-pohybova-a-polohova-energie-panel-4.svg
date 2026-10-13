@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 1746 460 516" width="460" height="516" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Polohová energie Ep: má ji těleso ve výšce nad Zemí, závisí na hmotnosti a výšce. Výšku měříme k tomu, co je pro děj důležité, například výška h kladiva nad hřebíkem; kladivo dopadne a zarazí hřebík.">
+	<title>Pohybová a polohová energie 4/6: Polohová energie Ep</title>
+	<!-- Panel 4/6 výřezu z infografika-pohybova-a-polohova-energie.svg (souřadnice beze změny, jen viewBox; postup PANELY-NAVOD.md). -->
+	<style>
+		.kladivo { transform-box: view-box; transform-origin: 418px 2100px; animation: kladivo 4s linear infinite; }
+		@keyframes kladivo {
+			0%, 30% { transform: rotate(20deg); animation-timing-function: ease-in; }
+			42% { transform: rotate(0deg); }
+			44%, 55% { transform: rotate(-1.44deg); animation-timing-function: ease-in-out; }
+			85%, 100% { transform: rotate(20deg); }
+		}
+		.hrebik { animation: hrebik 4s linear infinite; }
+		@keyframes hrebik {
+			0%, 42% { transform: translateY(0); opacity: 1; }
+			44%, 84% { transform: translateY(6px); opacity: 1; }
+			88% { transform: translateY(6px); opacity: 0; }
+			89% { transform: translateY(0); opacity: 0; }
+			95%, 100% { transform: translateY(0); opacity: 1; }
+		}
+		.vyska { animation: vyska 4s linear infinite; }
+		@keyframes vyska { 0%, 28% { opacity: 1; } 32%, 92% { opacity: 0; } 96%, 100% { opacity: 1; } }
+		.uder { opacity: 0; animation: uder 4s linear infinite; }
+		@keyframes uder { 0%, 42% { opacity: 0; } 43%, 50% { opacity: 1; } 53%, 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) {
+			.vyska, .uder, .hrebik { animation: none; }
+			.kladivo { animation: none; transform: rotate(20deg); }
+		}
+	</style>
+	<defs>
+		<linearGradient id="drevo" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0" stop-color="#e3b778" />
+			<stop offset="1" stop-color="#c08a4a" />
+		</linearGradient>
+		<linearGradient id="ocel" x1="0" y1="0" x2="1" y2="0">
+			<stop offset="0" stop-color="#868e96" />
+			<stop offset="0.45" stop-color="#dee2e6" />
+			<stop offset="1" stop-color="#495057" />
+		</linearGradient>
+		<clipPath id="orez4"><rect x="21" y="1757" width="418" height="488" /></clipPath>
+	</defs>
+	<rect x="0" y="1746" width="460" height="516" fill="#f3f1ea" />
+	<g id="panel-4" data-vyrez="14 1750 438 508">
+	<!-- ===== Panel 4:Polohová energie (y 1756–2246) ===== -->
+	<rect x="26" y="1762" width="420" height="490" rx="10" fill="#2b2a26" />
+	<rect x="20" y="1756" width="420" height="490" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="52" cy="1790" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="52" y="1797" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">4</text>
+	<text x="80" y="1799" font-size="28" font-weight="bold" fill="#2b2a26">Polohová energie <tspan fill="#1864ab">E<tspan font-size="21" dy="6">p</tspan></tspan></text>
+
+	<circle cx="44" cy="1829" r="4" fill="#2b2a26" />
+	<text x="56" y="1836" font-size="21" fill="#2b2a26">má ji těleso <tspan font-weight="bold" fill="#1864ab">ve výšce</tspan> nad Zemí</text>
+	<circle cx="44" cy="1861" r="4" fill="#2b2a26" />
+	<text x="56" y="1868" font-size="21" fill="#2b2a26">závisí na <tspan font-weight="bold">hmotnosti</tspan> a <tspan font-weight="bold">výšce</tspan></text>
+	<circle cx="44" cy="1893" r="4" fill="#2b2a26" />
+	<text x="56" y="1900" font-size="21" fill="#2b2a26">výšku měříme k tomu, co je</text>
+	<text x="56" y="1928" font-size="21" fill="#2b2a26">pro děj důležité</text>
+
+	<!-- podlaha a prkno s hřebíkem -->
+	<rect x="34" y="2180" width="392" height="14" fill="#c9a77c" stroke="#2b2a26" stroke-width="2" />
+	<!-- hřebík (pod prknem: při zaražení se dolní část schová do dřeva) -->
+	<g class="hrebik">
+		<rect x="178" y="2122" width="4" height="34" fill="url(#ocel)" stroke="#495057" stroke-width="1" />
+		<rect x="172" y="2118" width="16" height="4" rx="1" fill="#adb5bd" stroke="#495057" stroke-width="1" />
+	</g>
+	<rect x="60" y="2150" width="240" height="30" rx="2" fill="url(#drevo)" stroke="#2b2a26" stroke-width="2" />
+	<path d="M 70 2160 Q 120 2156 170 2161 M 200 2170 Q 240 2166 290 2170 M 80 2172 Q 110 2170 140 2173" fill="none" stroke="#8d5a2b" stroke-width="1.5" />
+	<!-- záblesk úderu -->
+	<g class="uder" stroke="#f08c00" stroke-width="3" stroke-linecap="round">
+		<line x1="160" y1="2112" x2="150" y2="2104" /><line x1="200" y1="2112" x2="210" y2="2104" /><line x1="158" y1="2124" x2="146" y2="2126" /><line x1="202" y1="2124" x2="214" y2="2126" />
+	</g>
+	<!-- výška h kladiva nad hřebíkem (kladivo nahoře: nejnižší bod hlavy y 2040) -->
+	<g class="vyska">
+		<line x1="132" y1="2118" x2="172" y2="2118" stroke="#1864ab" stroke-width="2" stroke-dasharray="5 4" />
+		<line x1="132" y1="2040" x2="198" y2="2040" stroke="#1864ab" stroke-width="2" stroke-dasharray="5 4" />
+		<line x1="140" y1="2052" x2="140" y2="2106" stroke="#1864ab" stroke-width="3" />
+		<polygon points="140,2042 134,2054 146,2054" fill="#1864ab" />
+		<polygon points="140,2116 134,2104 146,2104" fill="#1864ab" />
+		<text x="112" y="2087" font-size="25" font-weight="bold" fill="#1864ab">h</text>
+	</g>
+	<!-- ruka s kladivem: otáčí se v lokti (418, 2100); kresleno v okamžiku úderu -->
+	<g clip-path="url(#orez4)">
+		<g class="kladivo">
+			<rect x="186" y="2089" width="160" height="12" rx="5" fill="#c08a4a" stroke="#2b2a26" stroke-width="2" />
+			<path d="M 168 2118 L 168 2084 Q 168 2076 172 2072 L 176 2066 L 176 2056 Q 180 2050 186 2052 L 192 2056 L 192 2118 Z" fill="url(#ocel)" stroke="#2b2a26" stroke-width="2" />
+			<rect x="166" y="2108" width="28" height="10" rx="2" fill="#868e96" stroke="#2b2a26" stroke-width="2" />
+			<!-- předloktí a rukáv -->
+			<path d="M 322 2088 L 418 2088 L 418 2114 L 322 2112 Z" fill="#f1c27d" stroke="#2b2a26" stroke-width="2" />
+			<path d="M 372 2084 L 490 2084 L 490 2119 L 372 2116 Z" fill="#82c91e" stroke="#2b2a26" stroke-width="2" />
+			<line x1="380" y1="2086" x2="380" y2="2115" stroke="#5c940d" stroke-width="2" />
+			<!-- pěst kolem násady -->
+			<path d="M 300 2084 Q 300 2078 308 2078 L 326 2078 Q 334 2078 334 2088 L 334 2108 Q 334 2116 326 2116 L 306 2116 Q 298 2116 298 2108 Z" fill="#f1c27d" stroke="#2b2a26" stroke-width="2" />
+			<path d="M 306 2086 L 306 2110 M 314 2085 L 314 2111 M 322 2085 L 322 2111" stroke="#c48a4a" stroke-width="1.5" />
+			<path d="M 300 2090 Q 292 2094 298 2100" fill="none" stroke="#2b2a26" stroke-width="1.5" />
+		</g>
+	</g>
+	<text x="230" y="2226" text-anchor="middle" font-size="21" fill="#495057">výška kladiva nad hřebíkem</text>
+
+	</g>
+</svg>

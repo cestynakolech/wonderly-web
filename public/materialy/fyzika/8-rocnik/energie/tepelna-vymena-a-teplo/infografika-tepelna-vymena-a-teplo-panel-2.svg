@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 736 460 720" width="460" height="720" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Teplo Q je energie, kterou teplejší těleso předá chladnějšímu, jednotka joule (J). Teplejší těleso teplo odevzdává, chladnější přijímá. V izolované nádobě teplo nikam neuniká, odevzdané Q se rovná přijatému Q. Teplo se neskladuje, těleso má vnitřní energii a teplo je její předávaná část.">
+	<title>Tepelná výměna a teplo 2/6: Teplo Q</title>
+	<!-- Panel 2/6 výřezu z infografika-tepelna-vymena-a-teplo.svg (souřadnice beze změny, jen viewBox). -->
+	<style>
+		.zmiz { animation: zmiz 6s linear infinite; }
+		.objev { opacity: 0; animation: objev 6s linear infinite; }
+		.p2-q { transform: translate(130px, 48px); animation: p2-q 6s ease-in-out infinite; }
+		@keyframes zmiz { 0%, 92% { opacity: 1; } 100% { opacity: 0; } }
+		@keyframes objev { 0%, 92% { opacity: 0; } 100% { opacity: 1; } }
+		@keyframes p2-q { 0%, 10% { transform: translate(0px, 0px); } 35% { transform: translate(130px, 0px); } 50%, 100% { transform: translate(130px, 48px); } }
+		@media (prefers-reduced-motion: reduce) { .zmiz, .objev, .p2-q { animation: none; } }
+	</style>
+	<rect x="0" y="736" width="460" height="720" fill="#f8f9fa" />
+	<g id="panel-2" transform="translate(0,746)">
+		<rect x="10" y="0" width="440" height="700" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+<text x="26" y="34" font-size="25" font-weight="bold" fill="#2b2a26">Teplo Q</text>
+		<text x="26" y="66" font-size="22" fill="#2b2a26">Teplo je energie, kterou teplejší</text>
+		<text x="26" y="94" font-size="22" fill="#2b2a26">těleso předá chladnějšímu.</text>
+		<text x="26" y="122" font-size="22" fill="#2b2a26">Značka <tspan font-weight="bold" fill="#c2410c">Q</tspan>, jednotka joule (J).</text>
+		<rect x="40" y="140" width="380" height="134" rx="8" fill="#dee2e6" stroke="#868e96" stroke-width="2" />
+		<rect x="64" y="164" width="332" height="86" fill="#ffffff" stroke="#868e96" stroke-width="2" />
+		<text x="230" y="159" font-size="21" fill="#2b2a26" text-anchor="middle">izolace</text>
+		<rect x="100" y="200" width="130" height="50" fill="#ffc9c9" stroke="#c92a2a" stroke-width="3" />
+		<rect x="230" y="200" width="130" height="50" fill="#d0ebff" stroke="#1864ab" stroke-width="3" />
+		<text x="165" y="232" font-size="21" font-weight="bold" fill="#a61e1e" text-anchor="middle">teplejší</text>
+		<text x="295" y="232" font-size="21" font-weight="bold" fill="#1864ab" text-anchor="middle">chladnější</text>
+		<defs><marker id="p2-q" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="13" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#c2410c" /></marker></defs>
+		<path d="M 170 194 Q 230 168 288 192" fill="none" stroke="#c2410c" stroke-width="4" marker-end="url(#p2-q)" />
+		<text x="312" y="192" font-size="22" font-weight="bold" fill="#c2410c">Q</text>
+		<text x="230" y="304" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="middle">vnitřní energie</text>
+		<line x1="110" y1="440" x2="350" y2="440" stroke="#495057" stroke-width="3" />
+		<rect x="140" y="416" width="50" height="24" fill="#8ce99a" stroke="#2b8a3e" stroke-width="2" />
+		<rect x="140" y="392" width="50" height="24" fill="#8ce99a" stroke="#2b8a3e" stroke-width="2" />
+		<rect x="140" y="368" width="50" height="24" fill="#8ce99a" stroke="#2b8a3e" stroke-width="2" />
+		<rect x="270" y="416" width="50" height="24" fill="#8ce99a" stroke="#2b8a3e" stroke-width="2" />
+		<g class="zmiz"><g class="p2-q"><rect x="140" y="344" width="50" height="24" fill="#8ce99a" stroke="#2b8a3e" stroke-width="2" /><rect x="140" y="320" width="50" height="24" fill="#8ce99a" stroke="#2b8a3e" stroke-width="2" /><text x="132" y="351" font-size="22" font-weight="bold" fill="#c2410c" text-anchor="end">Q</text></g></g><g class="objev"><rect x="140" y="344" width="50" height="24" fill="#8ce99a" stroke="#2b8a3e" stroke-width="2" /><rect x="140" y="320" width="50" height="24" fill="#8ce99a" stroke="#2b8a3e" stroke-width="2" /><text x="132" y="351" font-size="22" font-weight="bold" fill="#c2410c" text-anchor="end">Q</text></g>
+		<text x="165" y="466" font-size="21" fill="#c92a2a" text-anchor="middle">teplejší</text>
+		<text x="295" y="466" font-size="21" fill="#1864ab" text-anchor="middle">chladnější</text>
+		<text x="26" y="506" font-size="22" fill="#2b2a26"><tspan font-weight="bold" fill="#c92a2a">teplejší</tspan> teplo odevzdává,</text>
+		<text x="26" y="534" font-size="22" fill="#2b2a26"><tspan font-weight="bold" fill="#1864ab">chladnější</tspan> teplo přijímá.</text>
+		<text x="26" y="570" font-size="22" fill="#2b2a26">Izolace: teplo nikam neuniká,</text>
+		<text x="26" y="598" font-size="22" fill="#2b2a26">odevzdané <tspan font-weight="bold" fill="#c2410c">Q</tspan> = přijaté <tspan font-weight="bold" fill="#c2410c">Q</tspan>.</text>
+		<text x="26" y="636" font-size="22" fill="#2b2a26">Teplo se neskladuje. Těleso má vnitřní</text>
+		<text x="26" y="664" font-size="22" fill="#2b2a26">energii, teplo je její předávaná část.</text>
+	</g>
+</svg>

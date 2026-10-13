@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 1452 460 506" width="460" height="506" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Teplo není teplota. Teplota t je okamžitý stav tělesa, měříme ji teploměrem, jednotka °C, vědci používají kelvin. Teplo Q je předávaná energie, přímo ho neměříme, dopočítáme ho, jednotka J. Změna vnitřní energie se projeví změnou teploty.">
+	<title>Tepelná výměna a teplo 3/6: Teplo není teplota</title>
+	<!-- Panel 3/6 výřezu z infografika-tepelna-vymena-a-teplo.svg (souřadnice beze změny, jen viewBox). -->
+	<style>
+		
+	</style>
+	<rect x="0" y="1452" width="460" height="506" fill="#f8f9fa" />
+	<g id="panel-3" transform="translate(0,1462)">
+		<rect x="10" y="0" width="440" height="486" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+<text x="26" y="34" font-size="25" font-weight="bold" fill="#2b2a26">Teplo není teplota</text>
+		<rect x="26" y="54" width="198" height="350" rx="10" fill="#f3f0ff" stroke="#b197fc" stroke-width="2" />
+		<rect x="236" y="54" width="198" height="350" rx="10" fill="#fff4e6" stroke="#ffa94d" stroke-width="2" />
+		<text x="125" y="88" font-size="24" font-weight="bold" fill="#5f3dc4" text-anchor="middle">Teplota <tspan font-style="italic">t</tspan></text>
+		<text x="335" y="88" font-size="24" font-weight="bold" fill="#c2410c" text-anchor="middle">Teplo <tspan font-style="italic">Q</tspan></text>
+		<rect x="118.0" y="104" width="14" height="92" rx="7.0" fill="#ffffff" stroke="#495057" stroke-width="2" /><circle cx="125" cy="196" r="12" fill="#5f3dc4" stroke="#495057" stroke-width="2" />
+		<g transform="translate(125,196)"><rect x="-3.0" y="-70" width="6" height="70" fill="#5f3dc4" /></g>
+		<line x1="134" y1="122" x2="142" y2="122" stroke="#495057" stroke-width="2" />
+		<line x1="134" y1="140" x2="142" y2="140" stroke="#495057" stroke-width="2" />
+		<line x1="134" y1="158" x2="142" y2="158" stroke="#495057" stroke-width="2" />
+		<line x1="134" y1="176" x2="142" y2="176" stroke="#495057" stroke-width="2" />
+		<rect x="276" y="150" width="60" height="44" fill="#ffc9c9" stroke="#c92a2a" stroke-width="3" />
+		<rect x="336" y="150" width="60" height="44" fill="#d0ebff" stroke="#1864ab" stroke-width="3" />
+		<defs><marker id="p3-q" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="13" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#c2410c" /></marker></defs>
+		<path d="M 300 144 Q 336 108 370 140" fill="none" stroke="#c2410c" stroke-width="4" marker-end="url(#p3-q)" />
+		<text x="125" y="238" font-size="21" fill="#2b2a26" text-anchor="middle">okamžitý stav</text>
+		<text x="335" y="238" font-size="21" fill="#2b2a26" text-anchor="middle">předávaná</text>
+		<text x="125" y="266" font-size="21" fill="#2b2a26" text-anchor="middle">tělesa</text>
+		<text x="335" y="266" font-size="21" fill="#2b2a26" text-anchor="middle">energie</text>
+		<text x="125" y="294" font-size="21" fill="#2b2a26" text-anchor="middle">měříme ji</text>
+		<text x="335" y="294" font-size="21" fill="#2b2a26" text-anchor="middle">přímo ho</text>
+		<text x="125" y="322" font-size="21" fill="#2b2a26" text-anchor="middle">teploměrem</text>
+		<text x="335" y="322" font-size="21" fill="#2b2a26" text-anchor="middle">neměříme,</text>
+		<text x="125" y="350" font-size="21" fill="#2b2a26" text-anchor="middle">jednotka °C</text>
+		<text x="335" y="350" font-size="21" fill="#2b2a26" text-anchor="middle">dopočítáme ho</text>
+		<text x="125" y="378" font-size="21" fill="#2b2a26" text-anchor="middle">(vědci K)</text>
+		<text x="335" y="378" font-size="21" fill="#2b2a26" text-anchor="middle">jednotka J</text>
+		<text x="26" y="438" font-size="22" fill="#2b2a26">Změna vnitřní energie se projeví</text>
+		<text x="26" y="466" font-size="22" fill="#2b2a26">změnou teploty.</text>
+	</g>
+</svg>

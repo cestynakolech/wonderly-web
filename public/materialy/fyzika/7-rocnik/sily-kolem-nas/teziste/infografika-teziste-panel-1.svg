@@ -1,0 +1,139 @@
+<svg viewBox="0 120 460 436" width="460" height="436" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Těžiště 1/6, Co je těžiště: těžiště T je působiště tíhové síly a každé těleso má jedno těžiště; pravítko zavěšené uprostřed visí rovně, s gumou na konci se po odtažení prstu nakloní" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Těžiště 1/6: Co je těžiště</title>
+	<!-- Vyříznuto z infografika-teziste.svg (panel 1), souřadnice beze změny. -->
+	<style>
+		.zmiz { animation: zmiz 6s linear infinite; }
+		@keyframes zmiz { 0%, 92% { opacity: 1; } 100% { opacity: 0; } }
+		.objev { opacity: 0; animation: objev 6s linear infinite; }
+		@keyframes objev { 0%, 92% { opacity: 0; } 100% { opacity: 1; } }
+		.p1-ruka { transform: translateY(32px); animation: p1ruka 6s ease-in-out infinite; }
+		@keyframes p1ruka { 0%, 10% { transform: translateY(0); } 35% { transform: translateY(14px); } 45%, 100% { transform: translateY(32px); } }
+		.p1-naklon { transform: rotate(22deg); animation: p1naklon 6s ease-in-out infinite; }
+		@keyframes p1naklon { 0%, 10% { transform: rotate(0deg); } 35%, 100% { transform: rotate(22deg); } }
+		.p1-proti { transform: rotate(-22deg); animation: p1proti 6s ease-in-out infinite; }
+		@keyframes p1proti { 0%, 10% { transform: rotate(0deg); } 35%, 100% { transform: rotate(-22deg); } }
+		@media (prefers-reduced-motion: reduce) {
+			.objev, .p1-naklon, .p1-proti, .p1-ruka, .zmiz { animation: none; }
+		}
+	</style>
+	<defs>
+		<!-- pravítko: počátek = úchyt provázku uprostřed horní hrany -->
+		<g id="d-pravitko">
+			<rect x="-80" y="0" width="160" height="14" fill="#ffe066" stroke="#2b2a26" stroke-width="2" />
+			<path d="M -70 0 v 4 M -60 0 v 4 M -50 0 v 4 M -40 0 v 4 M -30 0 v 6 M -20 0 v 4 M -10 0 v 4 M 10 0 v 4 M 20 0 v 6 M 30 0 v 4 M 40 0 v 4 M 50 0 v 4 M 60 0 v 4 M 70 0 v 6" stroke="#2b2a26" stroke-width="1.5" />
+			<path d="M -6 1 h 12" stroke="#495057" stroke-width="3" />
+		</g>
+		<!-- guma na provázku: počátek = uzel na spodní hraně pravítka, visí svisle -->
+		<g id="d-guma">
+			<line x1="0" y1="0" x2="0" y2="12" stroke="#495057" stroke-width="2" />
+			<rect x="-12" y="12" width="24" height="22" rx="4" fill="#f783ac" stroke="#2b2a26" stroke-width="2" />
+			<line x1="-8" y1="18" x2="8" y2="18" stroke="#c2255c" stroke-width="1.5" />
+		</g>
+		<!-- ruka s ukazováčkem: počátek = špička prstu -->
+		<g id="d-ruka">
+			<rect x="-16" y="28" width="30" height="28" rx="10" fill="#f1c9a5" stroke="#2b2a26" stroke-width="2" />
+			<rect x="-7" y="0" width="14" height="34" rx="7" fill="#f1c9a5" stroke="#2b2a26" stroke-width="2" />
+			<path d="M -12 40 h 22 M -12 48 h 22" stroke="#c8956c" stroke-width="1.5" />
+		</g>
+		<!-- těžiště s tíhovou silou (panel 1): počátek = T -->
+		<g id="d-tfg1">
+			<line x1="0" y1="0" x2="0" y2="44" stroke="#c92a2a" stroke-width="5" />
+			<polygon points="0,58 -7,44 7,44" fill="#c92a2a" />
+			<path d="M -5 -5 L 5 5 M 5 -5 L -5 5" stroke="#2b2a26" stroke-width="2.5" />
+			<text x="-26" y="30" font-size="22" font-weight="bold" fill="#2b2a26">T</text>
+			<text x="-36" y="56" font-size="22" font-weight="bold" fill="#c92a2a">F<tspan font-size="18" dy="5">g</tspan></text>
+		</g>
+		<!-- deska nepravidelného tvaru (panel 3) v místních souřadnicích, otvory v obou bodech závěsu -->
+		<g id="d-deska">
+			<path d="M 0 0 L 40 -12 L 95 -8 L 130 20 L 120 60 L 80 95 L 35 100 L 10 70 L -15 40 Z" fill="#ffd43b" stroke="#2b2a26" stroke-width="2.5" stroke-linejoin="round" />
+			<line x1="42" y1="-2" x2="76" y2="90" stroke="#5f3dc4" stroke-width="3.5" stroke-dasharray="8 5" />
+			<circle cx="42" cy="-2" r="4" fill="#fbfaf6" stroke="#2b2a26" stroke-width="1.5" />
+			<circle cx="120" cy="22" r="4" fill="#fbfaf6" stroke="#2b2a26" stroke-width="1.5" />
+		</g>
+		<!-- těžiště se svislicí a tíhovou silou (panel 4): počátek = T; svislice se ořízne podlahou -->
+		<g id="d-tsv">
+			<line x1="0" y1="-36" x2="0" y2="200" stroke="#5f3dc4" stroke-width="3" stroke-dasharray="6 4" />
+			<line x1="0" y1="0" x2="0" y2="9" stroke="#c92a2a" stroke-width="5" />
+			<polygon points="0,20 -6,9 6,9" fill="#c92a2a" />
+			<path d="M -5 -5 L 5 5 M 5 -5 L -5 5" stroke="#2b2a26" stroke-width="2.5" />
+		</g>
+		<!-- bedna 110 × 56: počátek = pravá dolní hrana (osa překlápění) -->
+		<g id="d-bedna">
+			<rect x="-110" y="-56" width="110" height="56" fill="#d9a066" stroke="#2b2a26" stroke-width="2.5" />
+			<line x1="-110" y1="-28" x2="0" y2="-28" stroke="#8d5a2b" stroke-width="2" />
+			<line x1="-110" y1="0" x2="0" y2="0" stroke="#2b2a26" stroke-width="5" />
+		</g>
+		<!-- skříňka 40 × 130: počátek = pravá dolní hrana -->
+		<g id="d-skrin">
+			<rect x="-40" y="-130" width="40" height="130" fill="#e8c39e" stroke="#2b2a26" stroke-width="2.5" />
+			<rect x="-40" y="-134" width="40" height="8" rx="2" fill="#c9a77c" stroke="#2b2a26" stroke-width="2" />
+			<line x1="-40" y1="-45" x2="0" y2="-45" stroke="#8d5a2b" stroke-width="1.5" />
+			<circle cx="-10" cy="-100" r="2.5" fill="#2b2a26" /><circle cx="-10" cy="-30" r="2.5" fill="#2b2a26" />
+			<line x1="-40" y1="0" x2="0" y2="0" stroke="#2b2a26" stroke-width="5" />
+		</g>
+		<!-- ořez svislic podlahou (v souřadnicích skupiny posunuté na osu překlápění) -->
+		<clipPath id="p4-klip" clipPathUnits="userSpaceOnUse">
+			<rect x="-300" y="-300" width="600" height="301.5" />
+		</clipPath>
+		<!-- tíhová síla (panel 6): počátek = T -->
+		<g id="d-fg6">
+			<line x1="0" y1="0" x2="0" y2="22" stroke="#c92a2a" stroke-width="5" />
+			<polygon points="0,36 -7,22 7,22" fill="#c92a2a" />
+		</g>
+	</defs>
+	<rect x="0" y="120" width="460" height="436" fill="#f8f9fa" />
+	<!-- ===== Panel 1: Co je těžiště ===== -->
+	<g id="panel-1">
+		<rect x="26" y="136" width="420" height="410" rx="10" fill="#2b2a26" />
+		<rect x="20" y="130" width="420" height="410" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="164" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="171" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+		<text x="80" y="173" font-size="28" font-weight="bold" fill="#2b2a26">Co je těžiště</text>
+
+		<circle cx="44" cy="210" r="4" fill="#2b2a26" />
+		<text x="56" y="217" font-size="21" fill="#2b2a26"><tspan font-weight="bold">T</tspan> = působiště <tspan font-weight="bold" fill="#c92a2a">tíhové síly F<tspan font-size="18" dy="5">g</tspan></tspan></text>
+		<circle cx="44" cy="248" r="4" fill="#2b2a26" />
+		<text x="56" y="255" font-size="21" fill="#2b2a26">každé těleso má <tspan font-weight="bold">jedno</tspan> těžiště</text>
+
+		<!-- stojan na stole -->
+		<rect x="40" y="280" width="380" height="12" rx="3" fill="#b07a4a" stroke="#2b2a26" stroke-width="2" />
+		<rect x="225" y="292" width="10" height="158" fill="#adb5bd" stroke="#2b2a26" stroke-width="2" />
+		<rect x="185" y="450" width="90" height="12" rx="3" fill="#868e96" stroke="#2b2a26" stroke-width="2" />
+		<rect x="34" y="462" width="392" height="10" fill="#c9a77c" stroke="#2b2a26" stroke-width="2" />
+
+		<!-- vlevo: pravítko bez gumy visí rovně -->
+		<line x1="125" y1="292" x2="125" y2="360" stroke="#495057" stroke-width="2" />
+		<use href="#d-pravitko" xlink:href="#d-pravitko" transform="translate(125,360)" />
+		<line x1="125" y1="367" x2="125" y2="412" stroke="#c92a2a" stroke-width="5" />
+		<polygon points="125,426 118,412 132,412" fill="#c92a2a" />
+		<path d="M 120 362 L 130 372 M 130 362 L 120 372" stroke="#2b2a26" stroke-width="2.5" />
+		<text x="100" y="402" font-size="22" font-weight="bold" fill="#2b2a26">T</text>
+		<text x="135" y="420" font-size="22" font-weight="bold" fill="#c92a2a">F<tspan font-size="18" dy="5">g</tspan></text>
+
+		<!-- vpravo: guma na konci; prst pravítko drží, pak se odtáhne a pravítko se nakloní -->
+		<line x1="335" y1="292" x2="335" y2="360" stroke="#495057" stroke-width="2" />
+		<g class="zmiz">
+			<g transform="translate(335,360)">
+				<g class="p1-naklon">
+					<use href="#d-pravitko" xlink:href="#d-pravitko" />
+					<g transform="translate(70,14)"><g class="p1-proti"><use href="#d-guma" xlink:href="#d-guma" /></g></g>
+					<g transform="translate(2.8,7.5)"><g class="p1-proti"><use href="#d-tfg1" xlink:href="#d-tfg1" /></g></g>
+				</g>
+			</g>
+			<g class="p1-ruka"><use href="#d-ruka" xlink:href="#d-ruka" transform="translate(364,374)" /></g>
+		</g>
+		<g class="objev">
+			<g transform="translate(335,360)">
+				<use href="#d-pravitko" xlink:href="#d-pravitko" />
+				<use href="#d-guma" xlink:href="#d-guma" transform="translate(70,14)" />
+				<use href="#d-tfg1" xlink:href="#d-tfg1" transform="translate(2.8,7.5)" />
+			</g>
+			<use href="#d-ruka" xlink:href="#d-ruka" transform="translate(364,374)" />
+		</g>
+
+		<text x="110" y="498" text-anchor="middle" font-size="21" fill="#2b2a26">bez gumy</text>
+		<text x="110" y="524" text-anchor="middle" font-size="21" fill="#2b2a26">visí <tspan font-weight="bold">rovně</tspan></text>
+		<text x="330" y="498" text-anchor="middle" font-size="21" fill="#2b2a26">s gumou na konci</text>
+		<text x="330" y="524" text-anchor="middle" font-size="21" fill="#2b2a26">se <tspan font-weight="bold">nakloní</tspan></text>
+	</g>
+</svg>

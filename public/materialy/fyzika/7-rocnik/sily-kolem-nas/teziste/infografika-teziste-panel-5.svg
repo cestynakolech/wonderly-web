@@ -1,0 +1,122 @@
+<svg viewBox="0 2012 460 446" width="460" height="446" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Těžiště 5/6, Jak zvýšit stabilitu: nižší těžiště (hrneček s těžkým dnem), větší plocha podstavy (lana stožáru kotvená daleko od něj), širší základna (komín dole široký, brankář se rozkročí)" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Těžiště 5/6: Jak zvýšit stabilitu</title>
+	<!-- Vyříznuto z infografika-teziste.svg (panel 5), souřadnice beze změny. -->
+	<defs>
+		<!-- pravítko: počátek = úchyt provázku uprostřed horní hrany -->
+		<g id="d-pravitko">
+			<rect x="-80" y="0" width="160" height="14" fill="#ffe066" stroke="#2b2a26" stroke-width="2" />
+			<path d="M -70 0 v 4 M -60 0 v 4 M -50 0 v 4 M -40 0 v 4 M -30 0 v 6 M -20 0 v 4 M -10 0 v 4 M 10 0 v 4 M 20 0 v 6 M 30 0 v 4 M 40 0 v 4 M 50 0 v 4 M 60 0 v 4 M 70 0 v 6" stroke="#2b2a26" stroke-width="1.5" />
+			<path d="M -6 1 h 12" stroke="#495057" stroke-width="3" />
+		</g>
+		<!-- guma na provázku: počátek = uzel na spodní hraně pravítka, visí svisle -->
+		<g id="d-guma">
+			<line x1="0" y1="0" x2="0" y2="12" stroke="#495057" stroke-width="2" />
+			<rect x="-12" y="12" width="24" height="22" rx="4" fill="#f783ac" stroke="#2b2a26" stroke-width="2" />
+			<line x1="-8" y1="18" x2="8" y2="18" stroke="#c2255c" stroke-width="1.5" />
+		</g>
+		<!-- ruka s ukazováčkem: počátek = špička prstu -->
+		<g id="d-ruka">
+			<rect x="-16" y="28" width="30" height="28" rx="10" fill="#f1c9a5" stroke="#2b2a26" stroke-width="2" />
+			<rect x="-7" y="0" width="14" height="34" rx="7" fill="#f1c9a5" stroke="#2b2a26" stroke-width="2" />
+			<path d="M -12 40 h 22 M -12 48 h 22" stroke="#c8956c" stroke-width="1.5" />
+		</g>
+		<!-- těžiště s tíhovou silou (panel 1): počátek = T -->
+		<g id="d-tfg1">
+			<line x1="0" y1="0" x2="0" y2="44" stroke="#c92a2a" stroke-width="5" />
+			<polygon points="0,58 -7,44 7,44" fill="#c92a2a" />
+			<path d="M -5 -5 L 5 5 M 5 -5 L -5 5" stroke="#2b2a26" stroke-width="2.5" />
+			<text x="-26" y="30" font-size="22" font-weight="bold" fill="#2b2a26">T</text>
+			<text x="-36" y="56" font-size="22" font-weight="bold" fill="#c92a2a">F<tspan font-size="18" dy="5">g</tspan></text>
+		</g>
+		<!-- deska nepravidelného tvaru (panel 3) v místních souřadnicích, otvory v obou bodech závěsu -->
+		<g id="d-deska">
+			<path d="M 0 0 L 40 -12 L 95 -8 L 130 20 L 120 60 L 80 95 L 35 100 L 10 70 L -15 40 Z" fill="#ffd43b" stroke="#2b2a26" stroke-width="2.5" stroke-linejoin="round" />
+			<line x1="42" y1="-2" x2="76" y2="90" stroke="#5f3dc4" stroke-width="3.5" stroke-dasharray="8 5" />
+			<circle cx="42" cy="-2" r="4" fill="#fbfaf6" stroke="#2b2a26" stroke-width="1.5" />
+			<circle cx="120" cy="22" r="4" fill="#fbfaf6" stroke="#2b2a26" stroke-width="1.5" />
+		</g>
+		<!-- těžiště se svislicí a tíhovou silou (panel 4): počátek = T; svislice se ořízne podlahou -->
+		<g id="d-tsv">
+			<line x1="0" y1="-36" x2="0" y2="200" stroke="#5f3dc4" stroke-width="3" stroke-dasharray="6 4" />
+			<line x1="0" y1="0" x2="0" y2="9" stroke="#c92a2a" stroke-width="5" />
+			<polygon points="0,20 -6,9 6,9" fill="#c92a2a" />
+			<path d="M -5 -5 L 5 5 M 5 -5 L -5 5" stroke="#2b2a26" stroke-width="2.5" />
+		</g>
+		<!-- bedna 110 × 56: počátek = pravá dolní hrana (osa překlápění) -->
+		<g id="d-bedna">
+			<rect x="-110" y="-56" width="110" height="56" fill="#d9a066" stroke="#2b2a26" stroke-width="2.5" />
+			<line x1="-110" y1="-28" x2="0" y2="-28" stroke="#8d5a2b" stroke-width="2" />
+			<line x1="-110" y1="0" x2="0" y2="0" stroke="#2b2a26" stroke-width="5" />
+		</g>
+		<!-- skříňka 40 × 130: počátek = pravá dolní hrana -->
+		<g id="d-skrin">
+			<rect x="-40" y="-130" width="40" height="130" fill="#e8c39e" stroke="#2b2a26" stroke-width="2.5" />
+			<rect x="-40" y="-134" width="40" height="8" rx="2" fill="#c9a77c" stroke="#2b2a26" stroke-width="2" />
+			<line x1="-40" y1="-45" x2="0" y2="-45" stroke="#8d5a2b" stroke-width="1.5" />
+			<circle cx="-10" cy="-100" r="2.5" fill="#2b2a26" /><circle cx="-10" cy="-30" r="2.5" fill="#2b2a26" />
+			<line x1="-40" y1="0" x2="0" y2="0" stroke="#2b2a26" stroke-width="5" />
+		</g>
+		<!-- ořez svislic podlahou (v souřadnicích skupiny posunuté na osu překlápění) -->
+		<clipPath id="p4-klip" clipPathUnits="userSpaceOnUse">
+			<rect x="-300" y="-300" width="600" height="301.5" />
+		</clipPath>
+		<!-- tíhová síla (panel 6): počátek = T -->
+		<g id="d-fg6">
+			<line x1="0" y1="0" x2="0" y2="22" stroke="#c92a2a" stroke-width="5" />
+			<polygon points="0,36 -7,22 7,22" fill="#c92a2a" />
+		</g>
+	</defs>
+	<rect x="0" y="2012" width="460" height="446" fill="#f8f9fa" />
+	<!-- ===== Panel 5: Jak zvýšit stabilitu ===== -->
+	<g id="panel-5">
+		<rect x="26" y="2028" width="420" height="420" rx="10" fill="#2b2a26" />
+		<rect x="20" y="2022" width="420" height="420" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="2056" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="2063" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">5</text>
+		<text x="80" y="2065" font-size="28" font-weight="bold" fill="#2b2a26">Jak zvýšit stabilitu</text>
+
+		<!-- hrneček s těžkým dnem na stole -->
+		<path d="M 120 2122 C 146 2122 146 2160 120 2160" fill="none" stroke="#2b2a26" stroke-width="7" />
+		<path d="M 120 2122 C 146 2122 146 2160 120 2160" fill="none" stroke="#ffc9c9" stroke-width="3" />
+		<rect x="60" y="2108" width="62" height="70" rx="6" fill="#ffc9c9" stroke="#2b2a26" stroke-width="2.5" />
+		<rect x="62" y="2158" width="58" height="18" rx="4" fill="#868e96" />
+		<line x1="60" y1="2158" x2="122" y2="2158" stroke="#2b2a26" stroke-width="1.5" />
+		<path d="M 85 2151 L 97 2163 M 97 2151 L 85 2163" stroke="#2b2a26" stroke-width="2.5" />
+		<rect x="40" y="2178" width="110" height="9" fill="#c9a77c" stroke="#2b2a26" stroke-width="2" />
+		<rect x="48" y="2187" width="7" height="12" fill="#b07a4a" stroke="#2b2a26" stroke-width="1.5" />
+		<rect x="135" y="2187" width="7" height="12" fill="#b07a4a" stroke="#2b2a26" stroke-width="1.5" />
+		<line x1="40" y1="2199" x2="150" y2="2199" stroke="#2b2a26" stroke-width="3" />
+		<text x="68" y="2148" font-size="22" font-weight="bold" fill="#2b2a26">T</text>
+		<text x="162" y="2132" font-size="21" font-weight="bold" fill="#2b2a26">nižší těžiště</text>
+		<text x="162" y="2160" font-size="21" fill="#2b2a26">hrneček s těžkým dnem</text>
+
+		<!-- stožár s lany -->
+		<line x1="40" y1="2300" x2="150" y2="2300" stroke="#2b2a26" stroke-width="3" />
+		<rect x="92" y="2218" width="7" height="82" fill="#868e96" stroke="#2b2a26" stroke-width="1.5" />
+		<line x1="95" y1="2224" x2="44" y2="2300" stroke="#495057" stroke-width="2" />
+		<line x1="96" y1="2224" x2="147" y2="2300" stroke="#495057" stroke-width="2" />
+		<circle cx="44" cy="2300" r="3.5" fill="#2b2a26" /><circle cx="147" cy="2300" r="3.5" fill="#2b2a26" />
+		<text x="162" y="2236" font-size="21" font-weight="bold" fill="#2b2a26">větší plocha podstavy</text>
+		<text x="162" y="2264" font-size="21" fill="#2b2a26">lana stožáru kotvíme</text>
+		<text x="162" y="2290" font-size="21" fill="#2b2a26">daleko od něj</text>
+
+		<!-- kouř -->
+		<g fill="#dee2e6" stroke="#868e96" stroke-width="1.5">
+			<circle cx="104" cy="2318" r="4" /><circle cx="113" cy="2316" r="5" /><circle cx="123" cy="2317" r="5" />
+		</g>
+		<!-- cihlový komín, dole široký -->
+		<polygon points="64,2414 126,2414 106,2330 84,2330" fill="#b5523b" stroke="#2b2a26" stroke-width="2.5" stroke-linejoin="round" />
+		<rect x="80" y="2322" width="30" height="9" rx="1" fill="#8a3a12" stroke="#2b2a26" stroke-width="2" />
+		<rect x="88" y="2322" width="14" height="4" fill="#2b2a26" />
+		<g stroke="#f3d9cf" stroke-width="1.5">
+			<line x1="82" y1="2342" x2="108" y2="2342" /><line x1="80" y1="2354" x2="111" y2="2354" />
+			<line x1="77" y1="2366" x2="113" y2="2366" /><line x1="74" y1="2378" x2="116" y2="2378" />
+			<line x1="72" y1="2390" x2="118" y2="2390" /><line x1="69" y1="2402" x2="121" y2="2402" />
+			<path d="M 95 2330 v 12 M 88 2342 v 12 M 102 2342 v 12 M 95 2354 v 12 M 84 2354 v 12 M 106 2354 v 12 M 90 2366 v 12 M 100 2366 v 12 M 80 2366 v 12 M 110 2366 v 12 M 95 2378 v 12 M 84 2378 v 12 M 106 2378 v 12 M 90 2390 v 12 M 100 2390 v 12 M 78 2390 v 12 M 112 2390 v 12 M 95 2402 v 12 M 83 2402 v 12 M 107 2402 v 12" />
+		</g>
+		<line x1="40" y1="2414" x2="150" y2="2414" stroke="#2b2a26" stroke-width="3" />
+		<text x="162" y="2350" font-size="21" font-weight="bold" fill="#2b2a26">širší základna</text>
+		<text x="162" y="2378" font-size="21" fill="#2b2a26">komín je dole široký,</text>
+		<text x="162" y="2404" font-size="21" fill="#2b2a26">brankář se rozkročí</text>
+	</g>
+</svg>

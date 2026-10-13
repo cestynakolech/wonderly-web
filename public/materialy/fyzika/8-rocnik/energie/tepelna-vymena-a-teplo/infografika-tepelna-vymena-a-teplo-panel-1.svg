@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 70 460 670" width="460" height="670" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Tepelná výměna: dotknou se dvě tělesa s různou teplotou, rychlejší částice teplejšího tělesa narážejí do pomalejších a předají jim část energie, rychlé zpomalí a pomalé zrychlí. Teplejšímu tělesu vnitřní energie klesá, chladnějšímu roste; výměna skončí, až se teploty vyrovnají.">
+	<title>Tepelná výměna a teplo 1/6: Tepelná výměna</title>
+	<!-- Panel 1/6 výřezu z infografika-tepelna-vymena-a-teplo.svg (souřadnice beze změny, jen viewBox). -->
+	<style>
+		.zmiz { animation: zmiz 6s linear infinite; }
+		.objev { opacity: 0; animation: objev 6s linear infinite; }
+		.p1-th-h { animation: p1-th-h 6s ease-in-out infinite; }
+		.p1-th-c { animation: p1-th-c 6s ease-in-out infinite; }
+		.p1-dl { animation: p1-dl 6s ease-in-out infinite; }
+		.p1-hl { animation: p1-hl 6s ease-in-out infinite; }
+		.p1-dr { animation: p1-dr 6s ease-in-out infinite; }
+		.p1-hr { animation: p1-hr 6s ease-in-out infinite; }
+		@keyframes zmiz { 0%, 92% { opacity: 1; } 100% { opacity: 0; } }
+		@keyframes objev { 0%, 92% { opacity: 0; } 100% { opacity: 1; } }
+		@keyframes p1-th-h { 0%, 10% { transform: scaleY(1.6000); } 50%, 100% { transform: scaleY(1); } }
+		@keyframes p1-th-c { 0%, 10% { transform: scaleY(0.5333); } 50%, 100% { transform: scaleY(1); } }
+		@keyframes p1-dl { 0%, 10% { transform: scaleX(1.7368); } 50%, 100% { transform: scaleX(1); } }
+		@keyframes p1-hl { 0%, 10% { transform: translateX(14px); } 50%, 100% { transform: translateX(0); } }
+		@keyframes p1-dr { 0%, 10% { transform: scaleX(0.6842); } 50%, 100% { transform: scaleX(1); } }
+		@keyframes p1-hr { 0%, 10% { transform: translateX(-6px); } 50%, 100% { transform: translateX(0); } }
+		@media (prefers-reduced-motion: reduce) { .zmiz, .objev, .p1-th-h, .p1-th-c, .p1-dl, .p1-hl, .p1-dr, .p1-hr { animation: none; } }
+	</style>
+	<rect x="0" y="70" width="460" height="670" fill="#f8f9fa" />
+	<g id="panel-1" transform="translate(0,80)">
+		<rect x="10" y="0" width="440" height="650" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+<text x="26" y="34" font-size="25" font-weight="bold" fill="#2b2a26">Tepelná výměna</text>
+		<text x="26" y="66" font-size="22" fill="#2b2a26">Dotknou se dvě tělesa s různou</text>
+		<text x="26" y="94" font-size="22" fill="#2b2a26">teplotou → nastane tepelná výměna.</text>
+		<rect x="104.0" y="118" width="12" height="160" rx="6.0" fill="#ffffff" stroke="#495057" stroke-width="2" /><circle cx="110" cy="278" r="10" fill="#5f3dc4" stroke="#495057" stroke-width="2" />
+		<rect x="344.0" y="118" width="12" height="160" rx="6.0" fill="#ffffff" stroke="#495057" stroke-width="2" /><circle cx="350" cy="278" r="10" fill="#5f3dc4" stroke="#495057" stroke-width="2" />
+		<g class="zmiz"><g transform="translate(110,278)"><rect class="p1-th-h" x="-3.0" y="-75" width="6" height="75" fill="#5f3dc4" /></g><g transform="translate(350,278)"><rect class="p1-th-c" x="-3.0" y="-75" width="6" height="75" fill="#5f3dc4" /></g></g>
+		<g class="objev"><g transform="translate(110,278)"><rect x="-3.0" y="-120" width="6" height="120" fill="#5f3dc4" /></g><g transform="translate(350,278)"><rect x="-3.0" y="-40" width="6" height="40" fill="#5f3dc4" /></g></g>
+		<rect x="40" y="250" width="190" height="70" fill="#ffc9c9" stroke="#c92a2a" stroke-width="3" />
+		<rect x="230" y="250" width="190" height="70" fill="#d0ebff" stroke="#1864ab" stroke-width="3" />
+		<ellipse cx="110" cy="250" rx="9" ry="3" fill="#495057" />
+		<ellipse cx="350" cy="250" rx="9" ry="3" fill="#495057" />
+		<text x="150" y="300" font-size="22" font-weight="bold" fill="#a61e1e" text-anchor="middle">teplejší</text>
+		<text x="310" y="300" font-size="22" font-weight="bold" fill="#1864ab" text-anchor="middle">chladnější</text>
+		<rect x="26" y="320" width="408" height="12" fill="#d9a066" stroke="#8a5a2b" stroke-width="2" />
+		<rect x="40" y="332" width="12" height="44" fill="#b07a45" stroke="#8a5a2b" stroke-width="2" />
+		<rect x="408" y="332" width="12" height="44" fill="#b07a45" stroke="#8a5a2b" stroke-width="2" />
+		<line x1="20" y1="377" x2="440" y2="377" stroke="#868e96" stroke-width="3" />
+		<circle cx="230" cy="285" r="13" fill="none" stroke="#495057" stroke-width="2.5" stroke-dasharray="5,3" />
+		<line x1="230" y1="233" x2="230" y2="272" stroke="#495057" stroke-width="2.5" stroke-dasharray="5,3" />
+		<defs><clipPath id="p1-lupa"><circle cx="230" cy="175" r="56" /></clipPath></defs>
+		<g clip-path="url(#p1-lupa)"><rect x="170" y="115" width="60" height="120" fill="#ffe3e3" /><rect x="230" y="115" width="60" height="120" fill="#e7f5ff" /><line x1="230" y1="115" x2="230" y2="235" stroke="#495057" stroke-width="2" /><g class="zmiz"><g transform="translate(200,147) rotate(-20)"><line class="p1-dl" x1="0" y1="0" x2="19" y2="0" stroke="#343a40" stroke-width="3" /><g class="p1-hl"><path d="M17,-5 L26,0 L17,5 z" fill="#343a40" /></g></g><g transform="translate(212,182) rotate(25)"><line class="p1-dl" x1="0" y1="0" x2="19" y2="0" stroke="#343a40" stroke-width="3" /><g class="p1-hl"><path d="M17,-5 L26,0 L17,5 z" fill="#343a40" /></g></g><g transform="translate(192,203) rotate(-5)"><line class="p1-dl" x1="0" y1="0" x2="19" y2="0" stroke="#343a40" stroke-width="3" /><g class="p1-hl"><path d="M17,-5 L26,0 L17,5 z" fill="#343a40" /></g></g><g transform="translate(258,138) rotate(160)"><line class="p1-dr" x1="0" y1="0" x2="19" y2="0" stroke="#343a40" stroke-width="3" /><g class="p1-hr"><path d="M17,-5 L26,0 L17,5 z" fill="#343a40" /></g></g><g transform="translate(264,178) rotate(-70)"><line class="p1-dr" x1="0" y1="0" x2="19" y2="0" stroke="#343a40" stroke-width="3" /><g class="p1-hr"><path d="M17,-5 L26,0 L17,5 z" fill="#343a40" /></g></g><g transform="translate(258,212) rotate(200)"><line class="p1-dr" x1="0" y1="0" x2="19" y2="0" stroke="#343a40" stroke-width="3" /><g class="p1-hr"><path d="M17,-5 L26,0 L17,5 z" fill="#343a40" /></g></g></g><g class="objev"><g transform="translate(200,147) rotate(-20)"><line x1="0" y1="0" x2="33" y2="0" stroke="#343a40" stroke-width="3" /><g><path d="M31,-5 L40,0 L31,5 z" fill="#343a40" /></g></g><g transform="translate(212,182) rotate(25)"><line x1="0" y1="0" x2="33" y2="0" stroke="#343a40" stroke-width="3" /><g><path d="M31,-5 L40,0 L31,5 z" fill="#343a40" /></g></g><g transform="translate(192,203) rotate(-5)"><line x1="0" y1="0" x2="33" y2="0" stroke="#343a40" stroke-width="3" /><g><path d="M31,-5 L40,0 L31,5 z" fill="#343a40" /></g></g><g transform="translate(258,138) rotate(160)"><line x1="0" y1="0" x2="13" y2="0" stroke="#343a40" stroke-width="3" /><g><path d="M11,-5 L20,0 L11,5 z" fill="#343a40" /></g></g><g transform="translate(264,178) rotate(-70)"><line x1="0" y1="0" x2="13" y2="0" stroke="#343a40" stroke-width="3" /><g><path d="M11,-5 L20,0 L11,5 z" fill="#343a40" /></g></g><g transform="translate(258,212) rotate(200)"><line x1="0" y1="0" x2="13" y2="0" stroke="#343a40" stroke-width="3" /><g><path d="M11,-5 L20,0 L11,5 z" fill="#343a40" /></g></g></g><circle cx="200" cy="147" r="8" fill="#0c8599" stroke="#0b7285" stroke-width="1.5" /><circle cx="212" cy="182" r="8" fill="#0c8599" stroke="#0b7285" stroke-width="1.5" /><circle cx="192" cy="203" r="8" fill="#0c8599" stroke="#0b7285" stroke-width="1.5" /><circle cx="258" cy="138" r="8" fill="#0c8599" stroke="#0b7285" stroke-width="1.5" /><circle cx="264" cy="178" r="8" fill="#0c8599" stroke="#0b7285" stroke-width="1.5" /><circle cx="258" cy="212" r="8" fill="#0c8599" stroke="#0b7285" stroke-width="1.5" /></g>
+		<circle cx="230" cy="175" r="57" fill="none" stroke="#495057" stroke-width="3" />
+		<text x="26" y="418" font-size="22" fill="#2b2a26">Rychlejší částice teplejšího tělesa</text>
+		<text x="26" y="446" font-size="22" fill="#2b2a26">narážejí do pomalejších a předají jim</text>
+		<text x="26" y="474" font-size="22" fill="#2b2a26">část energie. Rychlé zpomalí,</text>
+		<text x="26" y="502" font-size="22" fill="#2b2a26">pomalé zrychlí.</text>
+		<text x="26" y="540" font-size="22" fill="#2b2a26"><tspan font-weight="bold" fill="#c92a2a">teplejší</tspan>: vnitřní energie klesá</text>
+		<text x="26" y="568" font-size="22" fill="#2b2a26"><tspan font-weight="bold" fill="#1864ab">chladnější</tspan>: vnitřní energie roste</text>
+		<text x="26" y="606" font-size="22" fill="#2b2a26">Výměna skončí, až se teploty</text>
+		<text x="26" y="634" font-size="22" fill="#2b2a26">obou těles <tspan font-weight="bold">vyrovnají</tspan>.</text>
+	</g>
+</svg>

@@ -1,0 +1,125 @@
+<svg viewBox="0 550 460 516" width="460" height="516" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Těžiště 2/6, Kde těžiště leží: stejnorodá pravidelná tělesa (koule, krychle) mají těžiště ve středu, trojúhelník v průsečíku těžnic, souměrná tělesa na ose souměrnosti (váza v dutině, podkova mimo kov)" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Těžiště 2/6: Kde těžiště leží</title>
+	<!-- Vyříznuto z infografika-teziste.svg (panel 2), souřadnice beze změny. -->
+	<defs>
+		<!-- pravítko: počátek = úchyt provázku uprostřed horní hrany -->
+		<g id="d-pravitko">
+			<rect x="-80" y="0" width="160" height="14" fill="#ffe066" stroke="#2b2a26" stroke-width="2" />
+			<path d="M -70 0 v 4 M -60 0 v 4 M -50 0 v 4 M -40 0 v 4 M -30 0 v 6 M -20 0 v 4 M -10 0 v 4 M 10 0 v 4 M 20 0 v 6 M 30 0 v 4 M 40 0 v 4 M 50 0 v 4 M 60 0 v 4 M 70 0 v 6" stroke="#2b2a26" stroke-width="1.5" />
+			<path d="M -6 1 h 12" stroke="#495057" stroke-width="3" />
+		</g>
+		<!-- guma na provázku: počátek = uzel na spodní hraně pravítka, visí svisle -->
+		<g id="d-guma">
+			<line x1="0" y1="0" x2="0" y2="12" stroke="#495057" stroke-width="2" />
+			<rect x="-12" y="12" width="24" height="22" rx="4" fill="#f783ac" stroke="#2b2a26" stroke-width="2" />
+			<line x1="-8" y1="18" x2="8" y2="18" stroke="#c2255c" stroke-width="1.5" />
+		</g>
+		<!-- ruka s ukazováčkem: počátek = špička prstu -->
+		<g id="d-ruka">
+			<rect x="-16" y="28" width="30" height="28" rx="10" fill="#f1c9a5" stroke="#2b2a26" stroke-width="2" />
+			<rect x="-7" y="0" width="14" height="34" rx="7" fill="#f1c9a5" stroke="#2b2a26" stroke-width="2" />
+			<path d="M -12 40 h 22 M -12 48 h 22" stroke="#c8956c" stroke-width="1.5" />
+		</g>
+		<!-- těžiště s tíhovou silou (panel 1): počátek = T -->
+		<g id="d-tfg1">
+			<line x1="0" y1="0" x2="0" y2="44" stroke="#c92a2a" stroke-width="5" />
+			<polygon points="0,58 -7,44 7,44" fill="#c92a2a" />
+			<path d="M -5 -5 L 5 5 M 5 -5 L -5 5" stroke="#2b2a26" stroke-width="2.5" />
+			<text x="-26" y="30" font-size="22" font-weight="bold" fill="#2b2a26">T</text>
+			<text x="-36" y="56" font-size="22" font-weight="bold" fill="#c92a2a">F<tspan font-size="18" dy="5">g</tspan></text>
+		</g>
+		<!-- deska nepravidelného tvaru (panel 3) v místních souřadnicích, otvory v obou bodech závěsu -->
+		<g id="d-deska">
+			<path d="M 0 0 L 40 -12 L 95 -8 L 130 20 L 120 60 L 80 95 L 35 100 L 10 70 L -15 40 Z" fill="#ffd43b" stroke="#2b2a26" stroke-width="2.5" stroke-linejoin="round" />
+			<line x1="42" y1="-2" x2="76" y2="90" stroke="#5f3dc4" stroke-width="3.5" stroke-dasharray="8 5" />
+			<circle cx="42" cy="-2" r="4" fill="#fbfaf6" stroke="#2b2a26" stroke-width="1.5" />
+			<circle cx="120" cy="22" r="4" fill="#fbfaf6" stroke="#2b2a26" stroke-width="1.5" />
+		</g>
+		<!-- těžiště se svislicí a tíhovou silou (panel 4): počátek = T; svislice se ořízne podlahou -->
+		<g id="d-tsv">
+			<line x1="0" y1="-36" x2="0" y2="200" stroke="#5f3dc4" stroke-width="3" stroke-dasharray="6 4" />
+			<line x1="0" y1="0" x2="0" y2="9" stroke="#c92a2a" stroke-width="5" />
+			<polygon points="0,20 -6,9 6,9" fill="#c92a2a" />
+			<path d="M -5 -5 L 5 5 M 5 -5 L -5 5" stroke="#2b2a26" stroke-width="2.5" />
+		</g>
+		<!-- bedna 110 × 56: počátek = pravá dolní hrana (osa překlápění) -->
+		<g id="d-bedna">
+			<rect x="-110" y="-56" width="110" height="56" fill="#d9a066" stroke="#2b2a26" stroke-width="2.5" />
+			<line x1="-110" y1="-28" x2="0" y2="-28" stroke="#8d5a2b" stroke-width="2" />
+			<line x1="-110" y1="0" x2="0" y2="0" stroke="#2b2a26" stroke-width="5" />
+		</g>
+		<!-- skříňka 40 × 130: počátek = pravá dolní hrana -->
+		<g id="d-skrin">
+			<rect x="-40" y="-130" width="40" height="130" fill="#e8c39e" stroke="#2b2a26" stroke-width="2.5" />
+			<rect x="-40" y="-134" width="40" height="8" rx="2" fill="#c9a77c" stroke="#2b2a26" stroke-width="2" />
+			<line x1="-40" y1="-45" x2="0" y2="-45" stroke="#8d5a2b" stroke-width="1.5" />
+			<circle cx="-10" cy="-100" r="2.5" fill="#2b2a26" /><circle cx="-10" cy="-30" r="2.5" fill="#2b2a26" />
+			<line x1="-40" y1="0" x2="0" y2="0" stroke="#2b2a26" stroke-width="5" />
+		</g>
+		<!-- ořez svislic podlahou (v souřadnicích skupiny posunuté na osu překlápění) -->
+		<clipPath id="p4-klip" clipPathUnits="userSpaceOnUse">
+			<rect x="-300" y="-300" width="600" height="301.5" />
+		</clipPath>
+		<!-- tíhová síla (panel 6): počátek = T -->
+		<g id="d-fg6">
+			<line x1="0" y1="0" x2="0" y2="22" stroke="#c92a2a" stroke-width="5" />
+			<polygon points="0,36 -7,22 7,22" fill="#c92a2a" />
+		</g>
+	</defs>
+	<rect x="0" y="550" width="460" height="516" fill="#f8f9fa" />
+	<!-- ===== Panel 2: Kde těžiště leží ===== -->
+	<g id="panel-2">
+		<rect x="26" y="566" width="420" height="490" rx="10" fill="#2b2a26" />
+		<rect x="20" y="560" width="420" height="490" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="594" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="601" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">2</text>
+		<text x="80" y="603" font-size="28" font-weight="bold" fill="#2b2a26">Kde těžiště leží</text>
+
+		<text x="40" y="648" font-size="21" fill="#2b2a26"><tspan font-weight="bold">stejnorodé</tspan> pravidelné těleso</text>
+		<!-- koule -->
+		<circle cx="90" cy="730" r="44" fill="#74c0fc" stroke="#2b2a26" stroke-width="2.5" />
+		<ellipse cx="72" cy="710" rx="13" ry="8" fill="#fff" opacity="0.6" />
+		<path d="M 84 724 L 96 736 M 96 724 L 84 736" stroke="#2b2a26" stroke-width="2.5" />
+		<text x="100" y="722" font-size="22" font-weight="bold" fill="#2b2a26">T</text>
+		<!-- krychle -->
+		<polygon points="180,700 196,686 262,686 246,700" fill="#ffe8cc" stroke="#2b2a26" stroke-width="2.5" stroke-linejoin="round" />
+		<polygon points="246,700 262,686 262,752 246,766" fill="#f4b183" stroke="#2b2a26" stroke-width="2.5" stroke-linejoin="round" />
+		<rect x="180" y="700" width="66" height="66" fill="#ffd8a8" stroke="#2b2a26" stroke-width="2.5" />
+		<path d="M 215 720 L 227 732 M 227 720 L 215 732" stroke="#2b2a26" stroke-width="2.5" />
+		<text x="200" y="756" font-size="22" font-weight="bold" fill="#2b2a26">T</text>
+		<!-- trojúhelník s těžnicemi; popisek T vně s odkazovou čarou -->
+		<polygon points="300,780 414,780 338,676" fill="#b2f2bb" stroke="#2b2a26" stroke-width="2.5" stroke-linejoin="round" />
+		<g stroke="#5f3dc4" stroke-width="2.5" stroke-dasharray="7 4">
+			<line x1="300" y1="780" x2="376" y2="728" />
+			<line x1="414" y1="780" x2="319" y2="728" />
+			<line x1="338" y1="676" x2="357" y2="780" />
+		</g>
+		<path d="M 345 740 L 356 751 M 356 740 L 345 751" stroke="#2b2a26" stroke-width="2.5" />
+		<line x1="358" y1="745" x2="398" y2="745" stroke="#2b2a26" stroke-width="1.5" />
+		<text x="402" y="753" font-size="22" font-weight="bold" fill="#2b2a26">T</text>
+		<text x="90" y="812" text-anchor="middle" font-size="21" fill="#2b2a26">koule</text>
+		<text x="221" y="812" text-anchor="middle" font-size="21" fill="#2b2a26">krychle</text>
+		<text x="357" y="812" text-anchor="middle" font-size="21" fill="#2b2a26">trojúhelník</text>
+		<text x="155" y="838" text-anchor="middle" font-size="21" fill="#2b2a26">T ve <tspan font-weight="bold">středu</tspan></text>
+		<text x="357" y="838" text-anchor="middle" font-size="21" fill="#5f3dc4">průsečík těžnic</text>
+
+		<text x="40" y="884" font-size="21" fill="#2b2a26"><tspan font-weight="bold">souměrné</tspan> těleso → na <tspan font-weight="bold">ose</tspan></text>
+		<!-- váza v řezu: dutina uvnitř -->
+		<path d="M 100 1004 Q 92 994 96 982 C 68 954 76 919 108 909 L 106 900 L 144 900 L 142 909 C 174 919 182 954 154 982 Q 158 994 150 1004 Z" fill="#a5d8ff" stroke="#2b2a26" stroke-width="2.5" stroke-linejoin="round" />
+		<path d="M 108 994 C 84 956 90 924 115 915 L 115 900 L 135 900 L 135 915 C 160 924 166 956 142 994 Z" fill="#f8f9fa" stroke="#2b2a26" stroke-width="1.5" />
+		<line x1="125" y1="894" x2="125" y2="1012" stroke="#495057" stroke-width="2" stroke-dasharray="10 4 2 4" />
+		<path d="M 119 959 L 131 971 M 131 959 L 119 971" stroke="#2b2a26" stroke-width="2.5" />
+		<text x="133" y="985" font-size="22" font-weight="bold" fill="#2b2a26">T</text>
+		<!-- podkova: těžiště v prázdném místě mezi rameny -->
+		<line x1="335" y1="886" x2="335" y2="1004" stroke="#495057" stroke-width="2" stroke-dasharray="10 4 2 4" />
+		<path d="M 285 950 A 50 50 0 0 1 385 950 L 385 986 L 365 986 L 365 950 A 30 30 0 0 0 305 950 L 305 986 L 285 986 Z" fill="#adb5bd" stroke="#2b2a26" stroke-width="2.5" stroke-linejoin="round" />
+		<g fill="#495057">
+			<circle cx="300" cy="930" r="3" /><circle cx="315" cy="915" r="3" /><circle cx="355" cy="915" r="3" /><circle cx="370" cy="930" r="3" />
+			<circle cx="295" cy="970" r="3" /><circle cx="375" cy="970" r="3" />
+		</g>
+		<path d="M 329 934 L 341 946 M 341 934 L 329 946" stroke="#2b2a26" stroke-width="2.5" />
+		<text x="341" y="970" font-size="22" font-weight="bold" fill="#2b2a26">T</text>
+		<text x="125" y="1032" text-anchor="middle" font-size="21" fill="#2b2a26">váza: T v <tspan font-weight="bold">dutině</tspan></text>
+		<text x="335" y="1032" text-anchor="middle" font-size="21" fill="#2b2a26">podkova: T <tspan font-weight="bold">mimo</tspan> kov</text>
+	</g>
+</svg>

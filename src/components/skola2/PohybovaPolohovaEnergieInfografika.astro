@@ -1,0 +1,54 @@
+---
+// Pohybová a polohová energie — F8 infografika (tahák bez interakce; OBSAH-PRAVIDLA kap. 12 bod 7).
+// JEDINÝ DOMOV obsahu je SVG v materiálech:
+//   public/materialy/fyzika/8-rocnik/energie/pohybova-a-polohova-energie/infografika-pohybova-a-polohova-energie.svg
+// (úzké 460 × 3420, písmo min. 21, indexy 18). Telefon 375 px:
+//  – jako položka materiálů (figure.infografika na stránce podtématu) změřeno headless Chrome: obsah obrázku
+//    320 px → škála 0,696 → písmo 14,6 px, indexy 12,5 px;
+//  – v této komponentě (kořen 18,4 px, padding main 2 × 27,6, rámeček sekce 2 × 2,5, rámeček img 2 × 2,5)
+//    přepočteno kontrolorem: obsah 309,8 px → škála 0,6735 → písmo 14,1 px, indexy 12,1 px (limit ≥ 14 / ≥ 12
+//    splněn těsně).
+// CSS animace děje uvnitř SVG, při prefers-reduced-motion zůstane klidový stav. Šest panelů = skupiny
+// <g id="panel-N" data-vyrez="x y š v"> pro mřížku na tabuli. Tahle komponenta SVG jen vloží, nic neopisuje;
+// text alt je doslova shodný s aria-label v SVG (při změně upravit obojí).
+// Zapojení na stránku: zatím NEZAPOJENO — položku `materialy` (druh 'infografika') v temata.ts zapíše
+// exekutor; komponenta je jen pro případné vložení mimo materiály.
+const cesta = '/materialy/fyzika/8-rocnik/energie/pohybova-a-polohova-energie/infografika-pohybova-a-polohova-energie.svg';
+---
+
+<section class="ramecek infografika-ppe">
+	<h2><span class="podtrh">Pohybová a polohová energie — tahák 📊</span></h2>
+	<p>
+		Mechanická energie je <strong>pohybová E<sub>k</sub></strong> a <strong>polohová</strong>.
+		Polohovou energii ve výšce spočítáme jako <strong>E<sub>p</sub> = m · g · h</strong>.
+	</p>
+	<img
+		src={cesta}
+		width="460"
+		height="3420"
+		loading="lazy"
+		alt="Infografika pohybová a polohová energie: mechanická energie má dva druhy, pohybovou (kinetickou) Ek a polohovou (potenciální), ta je v gravitačním poli Země Ep a pružnosti; těleso ji získá, když s ním konáme mechanickou práci, všechny se měří v joulech; pohybovou energii má každé pohybující se těleso, koule v pohybu shodí kuželku; závisí na hmotnosti a rychlosti, při 2× větší rychlosti je 4× větší, při 3× větší 9× větší, větší hmotnost dává větší Ek; kamion i auto jedou stejně rychle, těžký kamion brzdí mnohem hůř a rychlejší auto má mnohem delší brzdnou dráhu; polohovou energii má těleso ve výšce nad Zemí, závisí na hmotnosti a výšce, výšku měříme k tomu, co je pro děj důležité, například výška kladiva nad hřebíkem; práce vykonaná při zvednutí se v tělese uloží jako Ep = m · g · h, g = 10 N/kg, ze vzorce m = Ep : (g · h) a h = Ep : (m · g); polohovou energii pružnosti má natažené, stlačené, ohnuté nebo zkroucené pružné těleso, stlačená pružina může vykonat práci; příklady pružina, stlačený vzduch, ohnutý prut, natažená guma; využití luk, natahovací hračky, pružinové houpačky, pinball"
+	/>
+</section>
+
+<style>
+	.infografika-ppe { padding: 1.5rem; }
+	.infografika-ppe h2 { margin-top: 0; }
+	.infografika-ppe img {
+		display: block;
+		width: 100%;
+		max-width: min(100%, 34rem);
+		height: auto;
+		margin: 1rem auto 0;
+		border: 2.5px solid #2b2a26;
+		border-radius: 12px;
+	}
+	.podtrh { border-bottom: 3px solid #ffd43b; padding-bottom: 2px; }
+	/* Na telefonu by padding 1.5rem zúžil obrázek pod škálu 0,667 (písmo 21 → < 14 px).
+	   Obrázek proto zabere celou vnitřní šířku rámečku, text si okraj drží sám. */
+	@media (max-width: 480px) {
+		.infografika-ppe { padding: 1rem 0; }
+		.infografika-ppe h2,
+		.infografika-ppe p { padding: 0 1rem; }
+	}
+</style>

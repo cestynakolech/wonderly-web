@@ -1,0 +1,271 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 4142" width="460" height="4142" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Infografika Tepelná výměna a teplo. Tepelná výměna: dotknou se dvě tělesa s různou teplotou, rychlejší částice teplejšího tělesa narážejí do pomalejších a předají jim část energie, rychlé zpomalí a pomalé zrychlí. Teplejšímu tělesu vnitřní energie klesá, chladnějšímu roste; výměna skončí, až se teploty vyrovnají. Teplo Q je energie, kterou teplejší těleso předá chladnějšímu, jednotka joule (J). Teplejší těleso teplo odevzdává, chladnější přijímá. V izolované nádobě teplo nikam neuniká, odevzdané Q se rovná přijatému Q. Teplo se neskladuje, těleso má vnitřní energii a teplo je její předávaná část. Teplo není teplota. Teplota t je okamžitý stav tělesa, měříme ji teploměrem, jednotka °C, vědci používají kelvin. Teplo Q je předávaná energie, přímo ho neměříme, dopočítáme ho, jednotka J. Změna vnitřní energie se projeví změnou teploty. Kolik tepla těleso přijme, závisí na rozdílu teplot (voda na nádobí méně tepla než voda na čaj), na hmotnosti tělesa (čaj pro 2 osoby méně tepla než pro 20 osob) a na látce (stejné množství oleje se ohřeje rychle, vody pomalu). Výpočet tepla: Q = m · c · (t2 − t1); Q teplo v joulech, m hmotnost v kilogramech, c měrná tepelná kapacita látky, t1 počáteční a t2 konečná teplota ve stupních Celsia. Příklad: 2 kg vody v konvici z 20 °C na 30 °C, c vody 4 200 J/(kg · °C), rozdíl teplot 10 °C, Q = 2 · 4 200 · 10 = 84 000 J = 84 kJ. Měrná tepelná kapacita c: kolik tepla musíme dodat 1 kg látky, aby se ohřála o 1 °C, jednotka J/(kg · °C); voda 4 200 J na 1 kg a 1 °C. Vysoká c, voda: ohřívá se i chladne pomalu, udrží hodně energie, nese teplo z teplárny do topení a je náplní chladičů. Nízká c, kovy: snadno se ohřejí i ochladí, kovová topná tělesa; kovová žebra chladiče odvádějí teplo z horké vody.">
+	<title>Tepelná výměna a teplo</title>
+	<!-- Zdroj obsahu: výklad podtématu tepelna-vymena-a-teplo (temata.ts, F8 Energie) včetně úvodu.
+	     Čísla jen z výkladu: 1 kg, 1 °C, 4 200 J/(kg · °C), příklad 2 kg z 20 °C na 30 °C → 84 000 J = 84 kJ; 2 a 20 osob.
+	     Jedna barva = jeden význam: červená = teplejší/horké, modrá = chladnější, fialová = teplota (teploměr),
+	     tmavě oranžová = teplo Q, zelené dílky = vnitřní energie, tyrkysová = částice, světle tyrkysová = voda.
+	     ANIMACE (CSS, bez JS): děj jednou dopředu 10–50 % cyklu 6 s, koncový stav drží do 92 %, pak prolnutí
+	     (.zmiz / .objev) do statické kopie výchozího stavu. Výchozí CSS transform = koncový stav →
+	     prefers-reduced-motion ukáže koncový stav. Tok vody v topení je plynulý pohyb jedním směrem. -->
+	<style>
+		.zmiz { animation: zmiz 6s linear infinite; }
+		.objev { opacity: 0; animation: objev 6s linear infinite; }
+		.p1-th-h { animation: p1-th-h 6s ease-in-out infinite; }
+		.p1-th-c { animation: p1-th-c 6s ease-in-out infinite; }
+		.p1-dl { animation: p1-dl 6s ease-in-out infinite; }
+		.p1-hl { animation: p1-hl 6s ease-in-out infinite; }
+		.p1-dr { animation: p1-dr 6s ease-in-out infinite; }
+		.p1-hr { animation: p1-hr 6s ease-in-out infinite; }
+		.p2-q { transform: translate(130px, 48px); animation: p2-q 6s ease-in-out infinite; }
+		.p4-n { animation: p4-n 6s ease-in-out infinite; }
+		.p4-c { animation: p4-c 6s ease-in-out infinite; }
+		.p4-o { animation: p4-o 6s ease-in-out infinite; }
+		.p4-v { animation: p4-v 6s ease-in-out infinite; }
+		.p5-t { animation: p5-t 6s ease-in-out infinite; }
+		.p6-tok { animation: p6-tok 2s linear infinite; }
+		.p6-zpet { animation: p6-zpet 2s linear infinite; }
+		.p6-zhav { animation: p6-zhav 6s linear infinite; }
+		.p6-chl { animation: p6-chl 2s linear infinite; }
+		@keyframes zmiz { 0%, 92% { opacity: 1; } 100% { opacity: 0; } }
+		@keyframes objev { 0%, 92% { opacity: 0; } 100% { opacity: 1; } }
+		@keyframes p1-th-h { 0%, 10% { transform: scaleY(1.6000); } 50%, 100% { transform: scaleY(1); } }
+		@keyframes p1-th-c { 0%, 10% { transform: scaleY(0.5333); } 50%, 100% { transform: scaleY(1); } }
+		@keyframes p1-dl { 0%, 10% { transform: scaleX(1.7368); } 50%, 100% { transform: scaleX(1); } }
+		@keyframes p1-hl { 0%, 10% { transform: translateX(14px); } 50%, 100% { transform: translateX(0); } }
+		@keyframes p1-dr { 0%, 10% { transform: scaleX(0.6842); } 50%, 100% { transform: scaleX(1); } }
+		@keyframes p1-hr { 0%, 10% { transform: translateX(-6px); } 50%, 100% { transform: translateX(0); } }
+		@keyframes p2-q { 0%, 10% { transform: translate(0px, 0px); } 35% { transform: translate(130px, 0px); } 50%, 100% { transform: translate(130px, 48px); } }
+		@keyframes p4-n { 0%, 10% { transform: scaleY(0.5882); } 50%, 100% { transform: scaleY(1); } }
+		@keyframes p4-c { 0%, 10% { transform: scaleY(0.3030); } 50%, 100% { transform: scaleY(1); } }
+		@keyframes p4-o { 0%, 10% { transform: scaleY(0.3000); } 50%, 100% { transform: scaleY(1); } }
+		@keyframes p4-v { 0%, 10% { transform: scaleY(0.6000); } 50%, 100% { transform: scaleY(1); } }
+		@keyframes p5-t { 0%, 10% { transform: scaleY(0.8125); } 50%, 100% { transform: scaleY(1); } }
+		@keyframes p6-tok { 0% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -40; } }
+		@keyframes p6-zpet { 0% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 40; } }
+		@keyframes p6-zhav { 0%, 10% { opacity: 0; } 30%, 92% { opacity: 1; } 100% { opacity: 0; } }
+		@keyframes p6-chl { 0% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -40; } }
+		@media (prefers-reduced-motion: reduce) { .zmiz, .objev, .p1-th-h, .p1-th-c, .p1-dl, .p1-hl, .p1-dr, .p1-hr, .p2-q, .p4-n, .p4-c, .p4-o, .p4-v, .p5-t, .p6-tok, .p6-zpet, .p6-zhav, .p6-chl { animation: none; } }
+	</style>
+	<rect x="0" y="0" width="460" height="4142" fill="#f8f9fa" />
+	<text x="230" y="50" font-size="34" font-weight="bold" fill="#2b2a26" text-anchor="middle">Tepelná výměna a teplo</text>
+	<g id="panel-1" transform="translate(0,80)">
+		<rect x="10" y="0" width="440" height="650" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+<text x="26" y="34" font-size="25" font-weight="bold" fill="#2b2a26">Tepelná výměna</text>
+		<text x="26" y="66" font-size="22" fill="#2b2a26">Dotknou se dvě tělesa s různou</text>
+		<text x="26" y="94" font-size="22" fill="#2b2a26">teplotou → nastane tepelná výměna.</text>
+		<rect x="104.0" y="118" width="12" height="160" rx="6.0" fill="#ffffff" stroke="#495057" stroke-width="2" /><circle cx="110" cy="278" r="10" fill="#5f3dc4" stroke="#495057" stroke-width="2" />
+		<rect x="344.0" y="118" width="12" height="160" rx="6.0" fill="#ffffff" stroke="#495057" stroke-width="2" /><circle cx="350" cy="278" r="10" fill="#5f3dc4" stroke="#495057" stroke-width="2" />
+		<g class="zmiz"><g transform="translate(110,278)"><rect class="p1-th-h" x="-3.0" y="-75" width="6" height="75" fill="#5f3dc4" /></g><g transform="translate(350,278)"><rect class="p1-th-c" x="-3.0" y="-75" width="6" height="75" fill="#5f3dc4" /></g></g>
+		<g class="objev"><g transform="translate(110,278)"><rect x="-3.0" y="-120" width="6" height="120" fill="#5f3dc4" /></g><g transform="translate(350,278)"><rect x="-3.0" y="-40" width="6" height="40" fill="#5f3dc4" /></g></g>
+		<rect x="40" y="250" width="190" height="70" fill="#ffc9c9" stroke="#c92a2a" stroke-width="3" />
+		<rect x="230" y="250" width="190" height="70" fill="#d0ebff" stroke="#1864ab" stroke-width="3" />
+		<ellipse cx="110" cy="250" rx="9" ry="3" fill="#495057" />
+		<ellipse cx="350" cy="250" rx="9" ry="3" fill="#495057" />
+		<text x="150" y="300" font-size="22" font-weight="bold" fill="#a61e1e" text-anchor="middle">teplejší</text>
+		<text x="310" y="300" font-size="22" font-weight="bold" fill="#1864ab" text-anchor="middle">chladnější</text>
+		<rect x="26" y="320" width="408" height="12" fill="#d9a066" stroke="#8a5a2b" stroke-width="2" />
+		<rect x="40" y="332" width="12" height="44" fill="#b07a45" stroke="#8a5a2b" stroke-width="2" />
+		<rect x="408" y="332" width="12" height="44" fill="#b07a45" stroke="#8a5a2b" stroke-width="2" />
+		<line x1="20" y1="377" x2="440" y2="377" stroke="#868e96" stroke-width="3" />
+		<circle cx="230" cy="285" r="13" fill="none" stroke="#495057" stroke-width="2.5" stroke-dasharray="5,3" />
+		<line x1="230" y1="233" x2="230" y2="272" stroke="#495057" stroke-width="2.5" stroke-dasharray="5,3" />
+		<defs><clipPath id="p1-lupa"><circle cx="230" cy="175" r="56" /></clipPath></defs>
+		<g clip-path="url(#p1-lupa)"><rect x="170" y="115" width="60" height="120" fill="#ffe3e3" /><rect x="230" y="115" width="60" height="120" fill="#e7f5ff" /><line x1="230" y1="115" x2="230" y2="235" stroke="#495057" stroke-width="2" /><g class="zmiz"><g transform="translate(200,147) rotate(-20)"><line class="p1-dl" x1="0" y1="0" x2="19" y2="0" stroke="#343a40" stroke-width="3" /><g class="p1-hl"><path d="M17,-5 L26,0 L17,5 z" fill="#343a40" /></g></g><g transform="translate(212,182) rotate(25)"><line class="p1-dl" x1="0" y1="0" x2="19" y2="0" stroke="#343a40" stroke-width="3" /><g class="p1-hl"><path d="M17,-5 L26,0 L17,5 z" fill="#343a40" /></g></g><g transform="translate(192,203) rotate(-5)"><line class="p1-dl" x1="0" y1="0" x2="19" y2="0" stroke="#343a40" stroke-width="3" /><g class="p1-hl"><path d="M17,-5 L26,0 L17,5 z" fill="#343a40" /></g></g><g transform="translate(258,138) rotate(160)"><line class="p1-dr" x1="0" y1="0" x2="19" y2="0" stroke="#343a40" stroke-width="3" /><g class="p1-hr"><path d="M17,-5 L26,0 L17,5 z" fill="#343a40" /></g></g><g transform="translate(264,178) rotate(-70)"><line class="p1-dr" x1="0" y1="0" x2="19" y2="0" stroke="#343a40" stroke-width="3" /><g class="p1-hr"><path d="M17,-5 L26,0 L17,5 z" fill="#343a40" /></g></g><g transform="translate(258,212) rotate(200)"><line class="p1-dr" x1="0" y1="0" x2="19" y2="0" stroke="#343a40" stroke-width="3" /><g class="p1-hr"><path d="M17,-5 L26,0 L17,5 z" fill="#343a40" /></g></g></g><g class="objev"><g transform="translate(200,147) rotate(-20)"><line x1="0" y1="0" x2="33" y2="0" stroke="#343a40" stroke-width="3" /><g><path d="M31,-5 L40,0 L31,5 z" fill="#343a40" /></g></g><g transform="translate(212,182) rotate(25)"><line x1="0" y1="0" x2="33" y2="0" stroke="#343a40" stroke-width="3" /><g><path d="M31,-5 L40,0 L31,5 z" fill="#343a40" /></g></g><g transform="translate(192,203) rotate(-5)"><line x1="0" y1="0" x2="33" y2="0" stroke="#343a40" stroke-width="3" /><g><path d="M31,-5 L40,0 L31,5 z" fill="#343a40" /></g></g><g transform="translate(258,138) rotate(160)"><line x1="0" y1="0" x2="13" y2="0" stroke="#343a40" stroke-width="3" /><g><path d="M11,-5 L20,0 L11,5 z" fill="#343a40" /></g></g><g transform="translate(264,178) rotate(-70)"><line x1="0" y1="0" x2="13" y2="0" stroke="#343a40" stroke-width="3" /><g><path d="M11,-5 L20,0 L11,5 z" fill="#343a40" /></g></g><g transform="translate(258,212) rotate(200)"><line x1="0" y1="0" x2="13" y2="0" stroke="#343a40" stroke-width="3" /><g><path d="M11,-5 L20,0 L11,5 z" fill="#343a40" /></g></g></g><circle cx="200" cy="147" r="8" fill="#0c8599" stroke="#0b7285" stroke-width="1.5" /><circle cx="212" cy="182" r="8" fill="#0c8599" stroke="#0b7285" stroke-width="1.5" /><circle cx="192" cy="203" r="8" fill="#0c8599" stroke="#0b7285" stroke-width="1.5" /><circle cx="258" cy="138" r="8" fill="#0c8599" stroke="#0b7285" stroke-width="1.5" /><circle cx="264" cy="178" r="8" fill="#0c8599" stroke="#0b7285" stroke-width="1.5" /><circle cx="258" cy="212" r="8" fill="#0c8599" stroke="#0b7285" stroke-width="1.5" /></g>
+		<circle cx="230" cy="175" r="57" fill="none" stroke="#495057" stroke-width="3" />
+		<text x="26" y="418" font-size="22" fill="#2b2a26">Rychlejší částice teplejšího tělesa</text>
+		<text x="26" y="446" font-size="22" fill="#2b2a26">narážejí do pomalejších a předají jim</text>
+		<text x="26" y="474" font-size="22" fill="#2b2a26">část energie. Rychlé zpomalí,</text>
+		<text x="26" y="502" font-size="22" fill="#2b2a26">pomalé zrychlí.</text>
+		<text x="26" y="540" font-size="22" fill="#2b2a26"><tspan font-weight="bold" fill="#c92a2a">teplejší</tspan>: vnitřní energie klesá</text>
+		<text x="26" y="568" font-size="22" fill="#2b2a26"><tspan font-weight="bold" fill="#1864ab">chladnější</tspan>: vnitřní energie roste</text>
+		<text x="26" y="606" font-size="22" fill="#2b2a26">Výměna skončí, až se teploty</text>
+		<text x="26" y="634" font-size="22" fill="#2b2a26">obou těles <tspan font-weight="bold">vyrovnají</tspan>.</text>
+	</g>
+	<g id="panel-2" transform="translate(0,746)">
+		<rect x="10" y="0" width="440" height="700" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+<text x="26" y="34" font-size="25" font-weight="bold" fill="#2b2a26">Teplo Q</text>
+		<text x="26" y="66" font-size="22" fill="#2b2a26">Teplo je energie, kterou teplejší</text>
+		<text x="26" y="94" font-size="22" fill="#2b2a26">těleso předá chladnějšímu.</text>
+		<text x="26" y="122" font-size="22" fill="#2b2a26">Značka <tspan font-weight="bold" fill="#c2410c">Q</tspan>, jednotka joule (J).</text>
+		<rect x="40" y="140" width="380" height="134" rx="8" fill="#dee2e6" stroke="#868e96" stroke-width="2" />
+		<rect x="64" y="164" width="332" height="86" fill="#ffffff" stroke="#868e96" stroke-width="2" />
+		<text x="230" y="159" font-size="21" fill="#2b2a26" text-anchor="middle">izolace</text>
+		<rect x="100" y="200" width="130" height="50" fill="#ffc9c9" stroke="#c92a2a" stroke-width="3" />
+		<rect x="230" y="200" width="130" height="50" fill="#d0ebff" stroke="#1864ab" stroke-width="3" />
+		<text x="165" y="232" font-size="21" font-weight="bold" fill="#a61e1e" text-anchor="middle">teplejší</text>
+		<text x="295" y="232" font-size="21" font-weight="bold" fill="#1864ab" text-anchor="middle">chladnější</text>
+		<defs><marker id="p2-q" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="13" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#c2410c" /></marker></defs>
+		<path d="M 170 194 Q 230 168 288 192" fill="none" stroke="#c2410c" stroke-width="4" marker-end="url(#p2-q)" />
+		<text x="312" y="192" font-size="22" font-weight="bold" fill="#c2410c">Q</text>
+		<text x="230" y="304" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="middle">vnitřní energie</text>
+		<line x1="110" y1="440" x2="350" y2="440" stroke="#495057" stroke-width="3" />
+		<rect x="140" y="416" width="50" height="24" fill="#8ce99a" stroke="#2b8a3e" stroke-width="2" />
+		<rect x="140" y="392" width="50" height="24" fill="#8ce99a" stroke="#2b8a3e" stroke-width="2" />
+		<rect x="140" y="368" width="50" height="24" fill="#8ce99a" stroke="#2b8a3e" stroke-width="2" />
+		<rect x="270" y="416" width="50" height="24" fill="#8ce99a" stroke="#2b8a3e" stroke-width="2" />
+		<g class="zmiz"><g class="p2-q"><rect x="140" y="344" width="50" height="24" fill="#8ce99a" stroke="#2b8a3e" stroke-width="2" /><rect x="140" y="320" width="50" height="24" fill="#8ce99a" stroke="#2b8a3e" stroke-width="2" /><text x="132" y="351" font-size="22" font-weight="bold" fill="#c2410c" text-anchor="end">Q</text></g></g><g class="objev"><rect x="140" y="344" width="50" height="24" fill="#8ce99a" stroke="#2b8a3e" stroke-width="2" /><rect x="140" y="320" width="50" height="24" fill="#8ce99a" stroke="#2b8a3e" stroke-width="2" /><text x="132" y="351" font-size="22" font-weight="bold" fill="#c2410c" text-anchor="end">Q</text></g>
+		<text x="165" y="466" font-size="21" fill="#c92a2a" text-anchor="middle">teplejší</text>
+		<text x="295" y="466" font-size="21" fill="#1864ab" text-anchor="middle">chladnější</text>
+		<text x="26" y="506" font-size="22" fill="#2b2a26"><tspan font-weight="bold" fill="#c92a2a">teplejší</tspan> teplo odevzdává,</text>
+		<text x="26" y="534" font-size="22" fill="#2b2a26"><tspan font-weight="bold" fill="#1864ab">chladnější</tspan> teplo přijímá.</text>
+		<text x="26" y="570" font-size="22" fill="#2b2a26">Izolace: teplo nikam neuniká,</text>
+		<text x="26" y="598" font-size="22" fill="#2b2a26">odevzdané <tspan font-weight="bold" fill="#c2410c">Q</tspan> = přijaté <tspan font-weight="bold" fill="#c2410c">Q</tspan>.</text>
+		<text x="26" y="636" font-size="22" fill="#2b2a26">Teplo se neskladuje. Těleso má vnitřní</text>
+		<text x="26" y="664" font-size="22" fill="#2b2a26">energii, teplo je její předávaná část.</text>
+	</g>
+	<g id="panel-3" transform="translate(0,1462)">
+		<rect x="10" y="0" width="440" height="486" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+<text x="26" y="34" font-size="25" font-weight="bold" fill="#2b2a26">Teplo není teplota</text>
+		<rect x="26" y="54" width="198" height="350" rx="10" fill="#f3f0ff" stroke="#b197fc" stroke-width="2" />
+		<rect x="236" y="54" width="198" height="350" rx="10" fill="#fff4e6" stroke="#ffa94d" stroke-width="2" />
+		<text x="125" y="88" font-size="24" font-weight="bold" fill="#5f3dc4" text-anchor="middle">Teplota <tspan font-style="italic">t</tspan></text>
+		<text x="335" y="88" font-size="24" font-weight="bold" fill="#c2410c" text-anchor="middle">Teplo <tspan font-style="italic">Q</tspan></text>
+		<rect x="118.0" y="104" width="14" height="92" rx="7.0" fill="#ffffff" stroke="#495057" stroke-width="2" /><circle cx="125" cy="196" r="12" fill="#5f3dc4" stroke="#495057" stroke-width="2" />
+		<g transform="translate(125,196)"><rect x="-3.0" y="-70" width="6" height="70" fill="#5f3dc4" /></g>
+		<line x1="134" y1="122" x2="142" y2="122" stroke="#495057" stroke-width="2" />
+		<line x1="134" y1="140" x2="142" y2="140" stroke="#495057" stroke-width="2" />
+		<line x1="134" y1="158" x2="142" y2="158" stroke="#495057" stroke-width="2" />
+		<line x1="134" y1="176" x2="142" y2="176" stroke="#495057" stroke-width="2" />
+		<rect x="276" y="150" width="60" height="44" fill="#ffc9c9" stroke="#c92a2a" stroke-width="3" />
+		<rect x="336" y="150" width="60" height="44" fill="#d0ebff" stroke="#1864ab" stroke-width="3" />
+		<defs><marker id="p3-q" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="13" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#c2410c" /></marker></defs>
+		<path d="M 300 144 Q 336 108 370 140" fill="none" stroke="#c2410c" stroke-width="4" marker-end="url(#p3-q)" />
+		<text x="125" y="238" font-size="21" fill="#2b2a26" text-anchor="middle">okamžitý stav</text>
+		<text x="335" y="238" font-size="21" fill="#2b2a26" text-anchor="middle">předávaná</text>
+		<text x="125" y="266" font-size="21" fill="#2b2a26" text-anchor="middle">tělesa</text>
+		<text x="335" y="266" font-size="21" fill="#2b2a26" text-anchor="middle">energie</text>
+		<text x="125" y="294" font-size="21" fill="#2b2a26" text-anchor="middle">měříme ji</text>
+		<text x="335" y="294" font-size="21" fill="#2b2a26" text-anchor="middle">přímo ho</text>
+		<text x="125" y="322" font-size="21" fill="#2b2a26" text-anchor="middle">teploměrem</text>
+		<text x="335" y="322" font-size="21" fill="#2b2a26" text-anchor="middle">neměříme,</text>
+		<text x="125" y="350" font-size="21" fill="#2b2a26" text-anchor="middle">jednotka °C</text>
+		<text x="335" y="350" font-size="21" fill="#2b2a26" text-anchor="middle">dopočítáme ho</text>
+		<text x="125" y="378" font-size="21" fill="#2b2a26" text-anchor="middle">(vědci K)</text>
+		<text x="335" y="378" font-size="21" fill="#2b2a26" text-anchor="middle">jednotka J</text>
+		<text x="26" y="438" font-size="22" fill="#2b2a26">Změna vnitřní energie se projeví</text>
+		<text x="26" y="466" font-size="22" fill="#2b2a26">změnou teploty.</text>
+	</g>
+	<g id="panel-4" transform="translate(0,1964)">
+		<rect x="10" y="0" width="440" height="712" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+<text x="26" y="34" font-size="25" font-weight="bold" fill="#2b2a26">Na čem teplo závisí</text>
+		<text x="26" y="66" font-size="22" fill="#2b2a26">Kolik tepla těleso přijme, závisí na:</text>
+		<text x="26" y="104" font-size="22" fill="#2b2a26">1. <tspan font-weight="bold">rozdílu teplot</tspan></text>
+		<rect x="57.0" y="212" width="126" height="9" rx="2" fill="#343a40" /><rect x="63.0" y="211" width="114" height="3" fill="#c92a2a" /><rect x="65.0" y="150" width="110" height="60" fill="#ffffff" /><rect x="66.5" y="168.0" width="107" height="40.5" fill="#c5f6fa" /><line x1="66.5" y1="168.0" x2="173.5" y2="168.0" stroke="#3bc9db" stroke-width="2" /><rect x="155.0" y="126" width="8" height="74" rx="4.0" fill="#ffffff" stroke="#495057" stroke-width="2" /><circle cx="159.0" cy="200" r="6" fill="#5f3dc4" stroke="#495057" stroke-width="2" /><g class="zmiz"><g transform="translate(159.0,200)"><rect class="p4-n" x="-2.0" y="-34" width="4" height="34" fill="#5f3dc4" /></g></g><g class="objev"><g transform="translate(159.0,200)"><rect x="-2.0" y="-20" width="4" height="20" fill="#5f3dc4" /></g></g><path d="M 65.0 150 L 65.0 204 Q 65.0 210 71.0 210 L 169.0 210 Q 175.0 210 175.0 204 L 175.0 150" fill="none" stroke="#495057" stroke-width="3" /><rect x="53.0" y="156" width="12" height="7" rx="3" fill="#343a40" /><rect x="175.0" y="156" width="12" height="7" rx="3" fill="#343a40" />
+		<rect x="277.0" y="212" width="126" height="9" rx="2" fill="#343a40" /><rect x="283.0" y="211" width="114" height="3" fill="#c92a2a" /><rect x="285.0" y="150" width="110" height="60" fill="#ffffff" /><rect x="286.5" y="168.0" width="107" height="40.5" fill="#c5f6fa" /><line x1="286.5" y1="168.0" x2="393.5" y2="168.0" stroke="#3bc9db" stroke-width="2" /><rect x="375.0" y="126" width="8" height="74" rx="4.0" fill="#ffffff" stroke="#495057" stroke-width="2" /><circle cx="379.0" cy="200" r="6" fill="#5f3dc4" stroke="#495057" stroke-width="2" /><g class="zmiz"><g transform="translate(379.0,200)"><rect class="p4-c" x="-2.0" y="-66" width="4" height="66" fill="#5f3dc4" /></g></g><g class="objev"><g transform="translate(379.0,200)"><rect x="-2.0" y="-20" width="4" height="20" fill="#5f3dc4" /></g></g><path d="M 285.0 150 L 285.0 204 Q 285.0 210 291.0 210 L 389.0 210 Q 395.0 210 395.0 204 L 395.0 150" fill="none" stroke="#495057" stroke-width="3" /><rect x="273.0" y="156" width="12" height="7" rx="3" fill="#343a40" /><rect x="395.0" y="156" width="12" height="7" rx="3" fill="#343a40" />
+		<line x1="26" y1="222" x2="434" y2="222" stroke="#868e96" stroke-width="4" />
+		<text x="230" y="186" font-size="34" font-weight="bold" fill="#495057" text-anchor="middle">&lt;</text>
+		<text x="120" y="250" font-size="21" fill="#2b2a26" text-anchor="middle">voda na nádobí</text>
+		<text x="340" y="250" font-size="21" fill="#2b2a26" text-anchor="middle">voda na čaj</text>
+		<text x="120" y="276" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="middle">méně tepla</text>
+		<text x="340" y="276" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="middle">více tepla</text>
+		<text x="26" y="320" font-size="22" fill="#2b2a26">2. <tspan font-weight="bold">hmotnosti tělesa</tspan></text>
+		<rect x="80.0" y="428" width="80" height="9" rx="2" fill="#343a40" /><rect x="86.0" y="427" width="68" height="3" fill="#c92a2a" /><rect x="88.0" y="386" width="64" height="40" fill="#ffffff" /><rect x="89.5" y="398.0" width="61" height="26.5" fill="#c5f6fa" /><line x1="89.5" y1="398.0" x2="150.5" y2="398.0" stroke="#3bc9db" stroke-width="2" /><path d="M 88.0 386 L 88.0 420 Q 88.0 426 94.0 426 L 146.0 426 Q 152.0 426 152.0 420 L 152.0 386" fill="none" stroke="#495057" stroke-width="3" /><rect x="76.0" y="392" width="12" height="7" rx="3" fill="#343a40" /><rect x="152.0" y="392" width="12" height="7" rx="3" fill="#343a40" />
+		<rect x="267.0" y="428" width="146" height="9" rx="2" fill="#343a40" /><rect x="273.0" y="427" width="134" height="3" fill="#c92a2a" /><rect x="275.0" y="350" width="130" height="76" fill="#ffffff" /><rect x="276.5" y="372.8" width="127" height="51.69999999999999" fill="#c5f6fa" /><line x1="276.5" y1="372.8" x2="403.5" y2="372.8" stroke="#3bc9db" stroke-width="2" /><path d="M 275.0 350 L 275.0 420 Q 275.0 426 281.0 426 L 399.0 426 Q 405.0 426 405.0 420 L 405.0 350" fill="none" stroke="#495057" stroke-width="3" /><rect x="263.0" y="356" width="12" height="7" rx="3" fill="#343a40" /><rect x="405.0" y="356" width="12" height="7" rx="3" fill="#343a40" />
+		<line x1="26" y1="438" x2="434" y2="438" stroke="#868e96" stroke-width="4" />
+		<text x="230" y="408" font-size="34" font-weight="bold" fill="#495057" text-anchor="middle">&lt;</text>
+		<text x="120" y="466" font-size="21" fill="#2b2a26" text-anchor="middle">čaj pro 2 osoby</text>
+		<text x="340" y="466" font-size="21" fill="#2b2a26" text-anchor="middle">čaj pro 20 osob</text>
+		<text x="120" y="492" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="middle">méně tepla</text>
+		<text x="340" y="492" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="middle">více tepla</text>
+		<text x="26" y="536" font-size="22" fill="#2b2a26">3. <tspan font-weight="bold">látce</tspan> (stejné množství)</text>
+		<rect x="72.0" y="626" width="116" height="9" rx="2" fill="#343a40" /><rect x="78.0" y="625" width="104" height="3" fill="#c92a2a" /><rect x="80.0" y="590" width="100" height="34" fill="#ffffff" /><rect x="81.5" y="603.6" width="97" height="18.899999999999977" fill="#ffe066" /><line x1="81.5" y1="603.6" x2="178.5" y2="603.6" stroke="#f59f00" stroke-width="2" /><rect x="160.0" y="566" width="8" height="48" rx="4.0" fill="#ffffff" stroke="#495057" stroke-width="2" /><circle cx="164.0" cy="614" r="6" fill="#5f3dc4" stroke="#495057" stroke-width="2" /><g class="zmiz"><g transform="translate(164.0,614)"><rect class="p4-o" x="-2.0" y="-40" width="4" height="40" fill="#5f3dc4" /></g></g><g class="objev"><g transform="translate(164.0,614)"><rect x="-2.0" y="-12" width="4" height="12" fill="#5f3dc4" /></g></g><path d="M 80.0 590 L 80.0 618 Q 80.0 624 86.0 624 L 174.0 624 Q 180.0 624 180.0 618 L 180.0 590" fill="none" stroke="#495057" stroke-width="3" /><rect x="46.0" y="592" width="34" height="8" rx="4" fill="#343a40" />
+		<rect x="282.0" y="626" width="116" height="9" rx="2" fill="#343a40" /><rect x="288.0" y="625" width="104" height="3" fill="#c92a2a" /><rect x="290.0" y="590" width="100" height="34" fill="#ffffff" /><rect x="291.5" y="603.6" width="97" height="18.899999999999977" fill="#c5f6fa" /><line x1="291.5" y1="603.6" x2="388.5" y2="603.6" stroke="#3bc9db" stroke-width="2" /><rect x="370.0" y="566" width="8" height="48" rx="4.0" fill="#ffffff" stroke="#495057" stroke-width="2" /><circle cx="374.0" cy="614" r="6" fill="#5f3dc4" stroke="#495057" stroke-width="2" /><g class="zmiz"><g transform="translate(374.0,614)"><rect class="p4-v" x="-2.0" y="-20" width="4" height="20" fill="#5f3dc4" /></g></g><g class="objev"><g transform="translate(374.0,614)"><rect x="-2.0" y="-12" width="4" height="12" fill="#5f3dc4" /></g></g><path d="M 290.0 590 L 290.0 618 Q 290.0 624 296.0 624 L 384.0 624 Q 390.0 624 390.0 618 L 390.0 590" fill="none" stroke="#495057" stroke-width="3" /><rect x="256.0" y="592" width="34" height="8" rx="4" fill="#343a40" />
+		<line x1="26" y1="636" x2="434" y2="636" stroke="#868e96" stroke-width="4" />
+		<text x="130" y="664" font-size="21" fill="#2b2a26" text-anchor="middle">olej</text>
+		<text x="340" y="664" font-size="21" fill="#2b2a26" text-anchor="middle">voda</text>
+		<text x="130" y="690" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="middle">ohřeje se rychle</text>
+		<text x="340" y="690" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="middle">ohřeje se pomalu</text>
+	</g>
+	<g id="panel-5" transform="translate(0,2692)">
+		<rect x="10" y="0" width="440" height="676" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+<text x="26" y="34" font-size="25" font-weight="bold" fill="#2b2a26">Výpočet tepla</text>
+		<text x="230" y="84" font-size="30" font-weight="bold" fill="#2b2a26" text-anchor="middle">Q = m · c · (t<tspan font-size="20" dy="6">2</tspan><tspan dy="-6"> </tspan>− t<tspan font-size="20" dy="6">1</tspan><tspan dy="-6"> </tspan>)</text>
+		<text x="26" y="124" font-size="22" fill="#2b2a26"><tspan font-weight="bold" fill="#c2410c">Q</tspan> teplo (J)</text>
+		<text x="26" y="152" font-size="22" fill="#2b2a26"><tspan font-weight="bold">m</tspan> hmotnost tělesa (kg)</text>
+		<text x="26" y="180" font-size="22" fill="#2b2a26"><tspan font-weight="bold">c</tspan> měrná tepelná kapacita látky</text>
+		<text x="26" y="208" font-size="22" fill="#2b2a26"><tspan font-weight="bold">t</tspan><tspan font-size="18" dy="6">1</tspan><tspan dy="-6"> </tspan>počáteční teplota (°C)</text>
+		<text x="26" y="236" font-size="22" fill="#2b2a26"><tspan font-weight="bold">t</tspan><tspan font-size="18" dy="6">2</tspan><tspan dy="-6"> </tspan>konečná teplota (°C)</text>
+		<rect x="20" y="256" width="420" height="404" rx="10" fill="#fff3bf" stroke="#fab005" stroke-width="2" />
+		<text x="34" y="288" font-size="22" font-weight="bold" fill="#2b2a26">Příklad: voda v konvici</text>
+		<g transform="translate(0,36)">
+		<rect x="52" y="458" width="136" height="14" rx="4" fill="#495057" />
+		<path d="M 60 458 L 72 340 L 168 340 L 180 458 Z" fill="#ffffff" />
+		<path d="M 67.9 382 L 172.1 382 L 179.4 456.5 L 60.6 456.5 Z" fill="#c5f6fa" />
+		<line x1="67.9" y1="382" x2="172.1" y2="382" stroke="#3bc9db" stroke-width="2" />
+		<rect x="98.0" y="270" width="12" height="176" rx="6.0" fill="#ffffff" stroke="#495057" stroke-width="2" /><circle cx="104" cy="446" r="9" fill="#5f3dc4" stroke="#495057" stroke-width="2" />
+		<g class="zmiz"><g transform="translate(104,446)"><rect class="p5-t" x="-3.0" y="-160" width="6" height="160" fill="#5f3dc4" /></g></g><g class="objev"><g transform="translate(104,446)"><rect x="-3.0" y="-130" width="6" height="130" fill="#5f3dc4" /></g></g>
+		<line x1="87" y1="286" x2="97" y2="286" stroke="#495057" stroke-width="2" />
+		<line x1="87" y1="316" x2="97" y2="316" stroke="#495057" stroke-width="2" />
+		<text x="83" y="293" font-size="21" font-weight="bold" fill="#5f3dc4" text-anchor="end">30 °C</text>
+		<text x="83" y="323" font-size="21" font-weight="bold" fill="#5f3dc4" text-anchor="end">20 °C</text>
+		<path d="M 60 458 L 72 340 L 168 340 L 180 458 Z" fill="none" stroke="#495057" stroke-width="4" stroke-linejoin="round" />
+		<path d="M 70 360 L 42 344 L 46 336 L 72 350" fill="#ffffff" stroke="#495057" stroke-width="3" stroke-linejoin="round" />
+		<path d="M 170 356 C 214 356 214 440 178 446" fill="none" stroke="#495057" stroke-width="9" stroke-linecap="round" />
+		<path d="M 168 340 L 136 318 L 140 312 L 172 334 Z" fill="#e9ecef" stroke="#495057" stroke-width="3" stroke-linejoin="round" />
+		<text x="250" y="360" font-size="22" fill="#2b2a26"><tspan font-weight="bold">m</tspan> = 2 kg</text>
+		<text x="250" y="394" font-size="22" fill="#2b2a26"><tspan font-weight="bold">t</tspan><tspan font-size="18" dy="6">1</tspan><tspan dy="-6"> </tspan>= 20 °C</text>
+		<text x="250" y="428" font-size="22" fill="#2b2a26"><tspan font-weight="bold">t</tspan><tspan font-size="18" dy="6">2</tspan><tspan dy="-6"> </tspan>= 30 °C</text>
+		<text x="34" y="506" font-size="22" fill="#2b2a26"><tspan font-weight="bold">c</tspan> vody = 4 200 J/(kg · °C)</text>
+		<text x="34" y="540" font-size="22" fill="#2b2a26"><tspan font-weight="bold">t</tspan><tspan font-size="18" dy="6">2</tspan><tspan dy="-6"> </tspan>− <tspan font-weight="bold">t</tspan><tspan font-size="18" dy="6">1</tspan><tspan dy="-6"> </tspan>= 30 − 20 = 10 °C</text>
+		<text x="34" y="574" font-size="22" fill="#2b2a26"><tspan font-weight="bold" fill="#c2410c">Q</tspan> = 2 · 4 200 · 10 = 84 000 J</text>
+		<text x="34" y="606" font-size="22" fill="#2b2a26">= <tspan font-weight="bold" fill="#c2410c">84 kJ</tspan></text>
+		</g>
+	</g>
+	<g id="panel-6" transform="translate(0,3384)">
+		<rect x="10" y="0" width="440" height="744" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+<text x="26" y="34" font-size="25" font-weight="bold" fill="#2b2a26">Měrná tepelná kapacita c</text>
+		<text x="26" y="66" font-size="22" fill="#2b2a26">Kolik tepla musíme dodat 1 kg látky,</text>
+		<text x="26" y="94" font-size="22" fill="#2b2a26">aby se ohřála o 1 °C.</text>
+		<text x="26" y="122" font-size="22" fill="#2b2a26">Jednotka J/(kg · °C).</text>
+		<text x="26" y="150" font-size="22" fill="#2b2a26">Voda: 1 kg o 1 °C → <tspan font-weight="bold" fill="#c2410c">4 200 J</tspan> tepla.</text>
+		<text x="26" y="192" font-size="23" fill="#2b2a26"><tspan font-weight="bold">Vysoká c — voda</tspan></text>
+		<line x1="20" y1="378" x2="440" y2="378" stroke="#868e96" stroke-width="3" />
+		<text x="30" y="232" font-size="21" fill="#2b2a26">z teplárny</text>
+		<line x1="22" y1="250" x2="214" y2="250" stroke="#adb5bd" stroke-width="16" stroke-linecap="butt" />
+		<line x1="22" y1="344" x2="214" y2="344" stroke="#adb5bd" stroke-width="16" stroke-linecap="butt" />
+		<line class="p6-tok" x1="22" y1="250" x2="214" y2="250" stroke="#c92a2a" stroke-width="8" stroke-dasharray="24,16" />
+		<line class="p6-zpet" x1="22" y1="344" x2="214" y2="344" stroke="#1864ab" stroke-width="8" stroke-dasharray="24,16" />
+		<rect x="214" y="236" width="20" height="122" rx="8" fill="#f1f3f5" stroke="#495057" stroke-width="2" />
+		<rect x="236" y="236" width="20" height="122" rx="8" fill="#f1f3f5" stroke="#495057" stroke-width="2" />
+		<rect x="258" y="236" width="20" height="122" rx="8" fill="#f1f3f5" stroke="#495057" stroke-width="2" />
+		<rect x="280" y="236" width="20" height="122" rx="8" fill="#f1f3f5" stroke="#495057" stroke-width="2" />
+		<rect x="302" y="236" width="20" height="122" rx="8" fill="#f1f3f5" stroke="#495057" stroke-width="2" />
+		<rect x="324" y="236" width="20" height="122" rx="8" fill="#f1f3f5" stroke="#495057" stroke-width="2" />
+		<rect x="346" y="236" width="20" height="122" rx="8" fill="#f1f3f5" stroke="#495057" stroke-width="2" />
+		<rect x="368" y="236" width="20" height="122" rx="8" fill="#f1f3f5" stroke="#495057" stroke-width="2" />
+		<rect x="390" y="236" width="20" height="122" rx="8" fill="#f1f3f5" stroke="#495057" stroke-width="2" />
+		<rect x="212" y="246" width="202" height="10" fill="#e9ecef" stroke="#495057" stroke-width="2" />
+		<rect x="212" y="338" width="202" height="10" fill="#e9ecef" stroke="#495057" stroke-width="2" />
+		<rect x="226" y="358" width="10" height="20" fill="#495057" />
+		<rect x="392" y="358" width="10" height="20" fill="#495057" />
+		<path d="M 262 228 q -8 -8 0 -16 q 8 -8 0 -16" fill="none" stroke="#c2410c" stroke-width="3" stroke-linecap="round" />
+		<path d="M 314 228 q -8 -8 0 -16 q 8 -8 0 -16" fill="none" stroke="#c2410c" stroke-width="3" stroke-linecap="round" />
+		<path d="M 366 228 q -8 -8 0 -16 q 8 -8 0 -16" fill="none" stroke="#c2410c" stroke-width="3" stroke-linecap="round" />
+		<text x="26" y="414" font-size="22" fill="#2b2a26">Ohřívá se i chladne pomalu, udrží</text>
+		<text x="26" y="442" font-size="22" fill="#2b2a26">hodně energie: nese teplo z teplárny</text>
+		<text x="26" y="470" font-size="22" fill="#2b2a26">do topení, je náplní chladičů.</text>
+		<text x="26" y="512" font-size="23" fill="#2b2a26"><tspan font-weight="bold">Nízká c — kovy</tspan></text>
+		<rect x="34" y="538" width="44" height="14" rx="3" fill="#343a40" />
+		<path d="M 46 548 L 46 618 Q 46 632 60 632 L 150 632 Q 164 632 164 618 L 164 572 Q 164 562 154 562 L 76 562 Q 66 562 66 572 L 66 618" fill="none" stroke="#868e96" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" />
+		<path class="p6-zhav" d="M 46 548 L 46 618 Q 46 632 60 632 L 150 632 Q 164 632 164 618 L 164 572 Q 164 562 154 562 L 76 562 Q 66 562 66 572 L 66 618" fill="none" stroke="#c92a2a" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="105" y="664" font-size="21" fill="#2b2a26" text-anchor="middle">topné těleso</text>
+		<rect x="254" y="560" width="10" height="56" fill="#ced4da" stroke="#495057" stroke-width="2" />
+		<rect x="274" y="560" width="10" height="56" fill="#ced4da" stroke="#495057" stroke-width="2" />
+		<rect x="294" y="560" width="10" height="56" fill="#ced4da" stroke="#495057" stroke-width="2" />
+		<rect x="314" y="560" width="10" height="56" fill="#ced4da" stroke="#495057" stroke-width="2" />
+		<rect x="334" y="560" width="10" height="56" fill="#ced4da" stroke="#495057" stroke-width="2" />
+		<rect x="354" y="560" width="10" height="56" fill="#ced4da" stroke="#495057" stroke-width="2" />
+		<rect x="374" y="560" width="10" height="56" fill="#ced4da" stroke="#495057" stroke-width="2" />
+		<rect x="394" y="560" width="10" height="56" fill="#ced4da" stroke="#495057" stroke-width="2" />
+		<line x1="236" y1="626" x2="426" y2="626" stroke="#adb5bd" stroke-width="20" />
+		<line x1="236" y1="616" x2="426" y2="616" stroke="#495057" stroke-width="2" />
+		<line x1="236" y1="636" x2="426" y2="636" stroke="#495057" stroke-width="2" />
+		<line class="p6-chl" x1="236" y1="626" x2="426" y2="626" stroke="#c92a2a" stroke-width="8" stroke-dasharray="24,16" />
+		<path d="M 276 554 q -7 -7 0 -14 q 7 -7 0 -14" fill="none" stroke="#c2410c" stroke-width="3" stroke-linecap="round" />
+		<path d="M 330 554 q -7 -7 0 -14 q 7 -7 0 -14" fill="none" stroke="#c2410c" stroke-width="3" stroke-linecap="round" />
+		<path d="M 384 554 q -7 -7 0 -14 q 7 -7 0 -14" fill="none" stroke="#c2410c" stroke-width="3" stroke-linecap="round" />
+		<text x="330" y="664" font-size="21" fill="#2b2a26" text-anchor="middle">chladič s horkou vodou</text>
+		<text x="26" y="700" font-size="22" fill="#2b2a26">Snadno se ohřejí i ochladí. Kovová žebra</text>
+		<text x="26" y="728" font-size="22" fill="#2b2a26">chladiče odvádějí teplo z horké vody.</text>
+	</g>
+</svg>

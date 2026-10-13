@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 652 460 584" width="460" height="584" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Pohybová energie Ek: má ji každé pohybující se těleso, koule v pohybu shodí kuželku. Závisí na hmotnosti a rychlosti: rychlost 1× dává energii 1×, rychlost 2× energii 4× (2 · 2), rychlost 3× energii 9× (3 · 3). Větší hmotnost dává větší Ek.">
+	<title>Pohybová a polohová energie 2/6: Pohybová energie Ek</title>
+	<!-- Panel 2/6 výřezu z infografika-pohybova-a-polohova-energie.svg (souřadnice beze změny, jen viewBox; postup PANELY-NAVOD.md). -->
+	<style>
+		.koule { animation: koule 6s linear infinite; }
+		@keyframes koule {
+			0% { transform: translateX(-216px); opacity: 0; }
+			4% { opacity: 1; }
+			45% { transform: translateX(-20px); }
+			84% { opacity: 1; }
+			92%, 100% { transform: translateX(44px); opacity: 0; }
+		}
+		.kouleOt { transform-box: view-box; transform-origin: 286px 858px; animation: kouleOt 6s linear infinite; }
+		@keyframes kouleOt { 0% { transform: rotate(-563deg); } 45% { transform: rotate(-52deg); } 92%, 100% { transform: rotate(115deg); } }
+		.kuzT { animation: kuzT 6s linear infinite; }
+		@keyframes kuzT {
+			0%, 45% { transform: translateX(0); opacity: 1; }
+			56% { transform: translateX(20px); }
+			70% { transform: translateX(45px); }
+			84% { opacity: 1; }
+			92% { transform: translateX(60px); opacity: 0; }
+			93% { transform: translateX(0); opacity: 0; }
+			97% { opacity: 0; }
+			100% { transform: translateX(0); opacity: 1; }
+		}
+		.kuz { transform-box: view-box; transform-origin: 306px 880px; animation: kuz 6s linear infinite; }
+		@keyframes kuz {
+			0%, 45% { transform: rotate(0deg); animation-timing-function: ease-in; }
+			56%, 92% { transform: rotate(65.1deg); }
+			93%, 100% { transform: rotate(0deg); }
+		}
+		.kuz2 { transform-box: view-box; transform-origin: 291.44px 863.87px; animation: kuz2 6s linear infinite; }
+		@keyframes kuz2 {
+			0%, 56% { transform: rotate(0deg); }
+			62%, 92% { transform: rotate(31.6deg); }
+			93%, 100% { transform: rotate(0deg); }
+		}
+		@media (prefers-reduced-motion: reduce) {
+			.kouleOt { animation: none; }
+			.koule { animation: none; transform: translateX(44px); }
+			.kouleOt { transform: rotate(115deg); }
+			.kuzT { animation: none; transform: translateX(60px); }
+			.kuz { animation: none; transform: rotate(65.1deg); }
+			.kuz2 { animation: none; transform: rotate(31.6deg); }
+		}
+	</style>
+	<defs>
+		<radialGradient id="kouleB" cx="0.35" cy="0.3" r="0.8">
+			<stop offset="0" stop-color="#4c6ef5" />
+			<stop offset="0.6" stop-color="#1c3d8f" />
+			<stop offset="1" stop-color="#0b1a46" />
+		</radialGradient>
+		<linearGradient id="drevo" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0" stop-color="#e3b778" />
+			<stop offset="1" stop-color="#c08a4a" />
+		</linearGradient>
+		<g id="kuzelka">
+			<path d="M -6 0 C -10 -8 -12 -14 -11 -22 C -10 -32 -5 -38 -4.5 -44 C -4.5 -48 -8 -50 -7 -56 C -6 -62 -3 -64 0 -64 C 3 -64 6 -62 7 -56 C 8 -50 4.5 -48 4.5 -44 C 5 -38 10 -32 11 -22 C 12 -14 10 -8 6 0 Z" fill="#fff" stroke="#2b2a26" stroke-width="2" />
+			<path d="M -7 -22 C -6 -30 -3 -36 -2.5 -42" fill="none" stroke="#ced4da" stroke-width="2.5" stroke-linecap="round" />
+			<rect x="-4.5" y="-46" width="9" height="3" fill="#c92a2a" />
+			<rect x="-4.5" y="-41" width="9" height="3" fill="#c92a2a" />
+		</g>
+	</defs>
+	<rect x="0" y="652" width="460" height="584" fill="#f3f1ea" />
+	<g id="panel-2" data-vyrez="14 656 438 576">
+	<!-- ===== Panel 2:Pohybová energie (y 662–1220) ===== -->
+	<rect x="26" y="668" width="420" height="558" rx="10" fill="#2b2a26" />
+	<rect x="20" y="662" width="420" height="558" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="52" cy="696" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="52" y="703" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">2</text>
+	<text x="80" y="705" font-size="28" font-weight="bold" fill="#2b2a26">Pohybová energie <tspan fill="#a84300">E<tspan font-size="21" dy="6">k</tspan></tspan></text>
+
+	<circle cx="44" cy="742" r="4" fill="#2b2a26" />
+	<text x="56" y="749" font-size="21" fill="#2b2a26">má ji každé <tspan font-weight="bold" fill="#a84300">pohybující se</tspan> těleso</text>
+
+	<!-- bowlingová dráha -->
+	<rect x="34" y="880" width="392" height="18" fill="url(#drevo)" stroke="#2b2a26" stroke-width="2" />
+	<line x1="60" y1="889" x2="120" y2="889" stroke="#8d5a2b" stroke-width="1.5" />
+	<line x1="170" y1="891" x2="250" y2="891" stroke="#8d5a2b" stroke-width="1.5" />
+	<line x1="290" y1="888" x2="360" y2="888" stroke="#8d5a2b" stroke-width="1.5" />
+	<polygon points="140,894 146,886 152,894" fill="#8d5a2b" />
+	<polygon points="200,894 206,886 212,894" fill="#8d5a2b" />
+	<!-- sražená kuželka: klouže (.kuzT), překlápí se kolem hrany podstavy (306, 880) a pak kolem (314,5; 860) -->
+	<g class="kuzT"><g class="kuz"><g class="kuz2"><use href="#kuzelka" x="300" y="880" /></g></g></g>
+	<!-- koule (střed 286, 858, r 22) -->
+	<g class="koule">
+		<g class="kouleOt">
+			<circle cx="286" cy="858" r="22" fill="url(#kouleB)" stroke="#2b2a26" stroke-width="2" />
+			<circle cx="292" cy="845" r="3.2" fill="#0b1a46" />
+			<circle cx="300" cy="851" r="3.2" fill="#0b1a46" />
+			<circle cx="289" cy="855" r="3.6" fill="#0b1a46" />
+			<path d="M 272 864 Q 278 874 290 876" fill="none" stroke="#91a7ff" stroke-width="2.5" stroke-linecap="round" />
+		</g>
+	</g>
+	<text x="230" y="926" text-anchor="middle" font-size="21" fill="#495057">koule v pohybu shodí kuželku</text>
+
+	<circle cx="44" cy="957" r="4" fill="#2b2a26" />
+	<text x="56" y="964" font-size="21" fill="#2b2a26">závisí na <tspan font-weight="bold">hmotnosti</tspan> a <tspan font-weight="bold">rychlosti</tspan></text>
+
+	<!-- rychlost 1× 2× 3× → energie 1× 4× 9× -->
+	<text x="44" y="1012" font-size="21" font-weight="bold" fill="#495057">rychlost</text>
+	<text x="200" y="1002" text-anchor="middle" font-size="21" font-weight="bold" fill="#495057">1×</text>
+	<text x="290" y="1002" text-anchor="middle" font-size="21" font-weight="bold" fill="#495057">2×</text>
+	<text x="380" y="1002" text-anchor="middle" font-size="21" font-weight="bold" fill="#495057">3×</text>
+	<line x1="188" y1="1020" x2="203" y2="1020" stroke="#495057" stroke-width="4" />
+	<polygon points="213,1020 203,1014 203,1026" fill="#495057" />
+	<line x1="265" y1="1020" x2="305" y2="1020" stroke="#495057" stroke-width="4" />
+	<polygon points="315,1020 305,1014 305,1026" fill="#495057" />
+	<line x1="342" y1="1020" x2="407" y2="1020" stroke="#495057" stroke-width="4" />
+	<polygon points="417,1020 407,1014 407,1026" fill="#495057" />
+
+	<text x="44" y="1078" font-size="21" font-weight="bold" fill="#a84300">energie</text>
+	<g fill="#ffa94d" stroke="#a84300" stroke-width="2">
+		<rect x="191" y="1082" width="18" height="18" />
+		<rect x="270" y="1061" width="18" height="18" /><rect x="291" y="1061" width="18" height="18" />
+		<rect x="270" y="1082" width="18" height="18" /><rect x="291" y="1082" width="18" height="18" />
+		<rect x="350" y="1040" width="18" height="18" /><rect x="371" y="1040" width="18" height="18" /><rect x="392" y="1040" width="18" height="18" />
+		<rect x="350" y="1061" width="18" height="18" /><rect x="371" y="1061" width="18" height="18" /><rect x="392" y="1061" width="18" height="18" />
+		<rect x="350" y="1082" width="18" height="18" /><rect x="371" y="1082" width="18" height="18" /><rect x="392" y="1082" width="18" height="18" />
+	</g>
+	<text x="200" y="1128" text-anchor="middle" font-size="21" font-weight="bold" fill="#a84300">1×</text>
+	<text x="290" y="1128" text-anchor="middle" font-size="21" font-weight="bold" fill="#a84300">4×</text>
+	<text x="380" y="1128" text-anchor="middle" font-size="21" font-weight="bold" fill="#a84300">9×</text>
+	<text x="290" y="1156" text-anchor="middle" font-size="21" fill="#495057">2 · 2</text>
+	<text x="380" y="1156" text-anchor="middle" font-size="21" fill="#495057">3 · 3</text>
+
+	<circle cx="44" cy="1189" r="4" fill="#2b2a26" />
+	<text x="56" y="1196" font-size="21" fill="#2b2a26">větší hmotnost → <tspan font-weight="bold" fill="#a84300">větší E<tspan font-size="18" dy="5">k</tspan></tspan></text>
+
+	</g>
+</svg>

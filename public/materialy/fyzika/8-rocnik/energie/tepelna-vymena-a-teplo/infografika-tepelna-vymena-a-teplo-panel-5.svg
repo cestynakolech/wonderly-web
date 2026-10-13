@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 2682 460 696" width="460" height="696" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Výpočet tepla: Q = m · c · (t2 − t1); Q teplo v joulech, m hmotnost v kilogramech, c měrná tepelná kapacita látky, t1 počáteční a t2 konečná teplota ve stupních Celsia. Příklad: 2 kg vody v konvici z 20 °C na 30 °C, c vody 4 200 J/(kg · °C), rozdíl teplot 10 °C, Q = 2 · 4 200 · 10 = 84 000 J = 84 kJ.">
+	<title>Tepelná výměna a teplo 5/6: Výpočet tepla</title>
+	<!-- Panel 5/6 výřezu z infografika-tepelna-vymena-a-teplo.svg (souřadnice beze změny, jen viewBox). -->
+	<style>
+		.zmiz { animation: zmiz 6s linear infinite; }
+		.objev { opacity: 0; animation: objev 6s linear infinite; }
+		.p5-t { animation: p5-t 6s ease-in-out infinite; }
+		@keyframes zmiz { 0%, 92% { opacity: 1; } 100% { opacity: 0; } }
+		@keyframes objev { 0%, 92% { opacity: 0; } 100% { opacity: 1; } }
+		@keyframes p5-t { 0%, 10% { transform: scaleY(0.8125); } 50%, 100% { transform: scaleY(1); } }
+		@media (prefers-reduced-motion: reduce) { .zmiz, .objev, .p5-t { animation: none; } }
+	</style>
+	<rect x="0" y="2682" width="460" height="696" fill="#f8f9fa" />
+	<g id="panel-5" transform="translate(0,2692)">
+		<rect x="10" y="0" width="440" height="676" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+<text x="26" y="34" font-size="25" font-weight="bold" fill="#2b2a26">Výpočet tepla</text>
+		<text x="230" y="84" font-size="30" font-weight="bold" fill="#2b2a26" text-anchor="middle">Q = m · c · (t<tspan font-size="20" dy="6">2</tspan><tspan dy="-6"> </tspan>− t<tspan font-size="20" dy="6">1</tspan><tspan dy="-6"> </tspan>)</text>
+		<text x="26" y="124" font-size="22" fill="#2b2a26"><tspan font-weight="bold" fill="#c2410c">Q</tspan> teplo (J)</text>
+		<text x="26" y="152" font-size="22" fill="#2b2a26"><tspan font-weight="bold">m</tspan> hmotnost tělesa (kg)</text>
+		<text x="26" y="180" font-size="22" fill="#2b2a26"><tspan font-weight="bold">c</tspan> měrná tepelná kapacita látky</text>
+		<text x="26" y="208" font-size="22" fill="#2b2a26"><tspan font-weight="bold">t</tspan><tspan font-size="18" dy="6">1</tspan><tspan dy="-6"> </tspan>počáteční teplota (°C)</text>
+		<text x="26" y="236" font-size="22" fill="#2b2a26"><tspan font-weight="bold">t</tspan><tspan font-size="18" dy="6">2</tspan><tspan dy="-6"> </tspan>konečná teplota (°C)</text>
+		<rect x="20" y="256" width="420" height="404" rx="10" fill="#fff3bf" stroke="#fab005" stroke-width="2" />
+		<text x="34" y="288" font-size="22" font-weight="bold" fill="#2b2a26">Příklad: voda v konvici</text>
+		<g transform="translate(0,36)">
+		<rect x="52" y="458" width="136" height="14" rx="4" fill="#495057" />
+		<path d="M 60 458 L 72 340 L 168 340 L 180 458 Z" fill="#ffffff" />
+		<path d="M 67.9 382 L 172.1 382 L 179.4 456.5 L 60.6 456.5 Z" fill="#c5f6fa" />
+		<line x1="67.9" y1="382" x2="172.1" y2="382" stroke="#3bc9db" stroke-width="2" />
+		<rect x="98.0" y="270" width="12" height="176" rx="6.0" fill="#ffffff" stroke="#495057" stroke-width="2" /><circle cx="104" cy="446" r="9" fill="#5f3dc4" stroke="#495057" stroke-width="2" />
+		<g class="zmiz"><g transform="translate(104,446)"><rect class="p5-t" x="-3.0" y="-160" width="6" height="160" fill="#5f3dc4" /></g></g><g class="objev"><g transform="translate(104,446)"><rect x="-3.0" y="-130" width="6" height="130" fill="#5f3dc4" /></g></g>
+		<line x1="87" y1="286" x2="97" y2="286" stroke="#495057" stroke-width="2" />
+		<line x1="87" y1="316" x2="97" y2="316" stroke="#495057" stroke-width="2" />
+		<text x="83" y="293" font-size="21" font-weight="bold" fill="#5f3dc4" text-anchor="end">30 °C</text>
+		<text x="83" y="323" font-size="21" font-weight="bold" fill="#5f3dc4" text-anchor="end">20 °C</text>
+		<path d="M 60 458 L 72 340 L 168 340 L 180 458 Z" fill="none" stroke="#495057" stroke-width="4" stroke-linejoin="round" />
+		<path d="M 70 360 L 42 344 L 46 336 L 72 350" fill="#ffffff" stroke="#495057" stroke-width="3" stroke-linejoin="round" />
+		<path d="M 170 356 C 214 356 214 440 178 446" fill="none" stroke="#495057" stroke-width="9" stroke-linecap="round" />
+		<path d="M 168 340 L 136 318 L 140 312 L 172 334 Z" fill="#e9ecef" stroke="#495057" stroke-width="3" stroke-linejoin="round" />
+		<text x="250" y="360" font-size="22" fill="#2b2a26"><tspan font-weight="bold">m</tspan> = 2 kg</text>
+		<text x="250" y="394" font-size="22" fill="#2b2a26"><tspan font-weight="bold">t</tspan><tspan font-size="18" dy="6">1</tspan><tspan dy="-6"> </tspan>= 20 °C</text>
+		<text x="250" y="428" font-size="22" fill="#2b2a26"><tspan font-weight="bold">t</tspan><tspan font-size="18" dy="6">2</tspan><tspan dy="-6"> </tspan>= 30 °C</text>
+		<text x="34" y="506" font-size="22" fill="#2b2a26"><tspan font-weight="bold">c</tspan> vody = 4 200 J/(kg · °C)</text>
+		<text x="34" y="540" font-size="22" fill="#2b2a26"><tspan font-weight="bold">t</tspan><tspan font-size="18" dy="6">2</tspan><tspan dy="-6"> </tspan>− <tspan font-weight="bold">t</tspan><tspan font-size="18" dy="6">1</tspan><tspan dy="-6"> </tspan>= 30 − 20 = 10 °C</text>
+		<text x="34" y="574" font-size="22" fill="#2b2a26"><tspan font-weight="bold" fill="#c2410c">Q</tspan> = 2 · 4 200 · 10 = 84 000 J</text>
+		<text x="34" y="606" font-size="22" fill="#2b2a26">= <tspan font-weight="bold" fill="#c2410c">84 kJ</tspan></text>
+		</g>
+	</g>
+</svg>

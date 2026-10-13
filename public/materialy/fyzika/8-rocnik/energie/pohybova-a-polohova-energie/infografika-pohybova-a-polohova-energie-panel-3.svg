@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 1236 460 510" width="460" height="510" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Pozor při brzdění: kamion i auto jedou stejně rychle, těžký kamion brzdí mnohem hůř a jeho brzdná dráha je delší. Rychlejší auto má delší brzdnou dráhu než auto, které jede pomalu.">
+	<title>Pohybová a polohová energie 3/6: Pozor při brzdění</title>
+	<!-- Panel 3/6 výřezu z infografika-pohybova-a-polohova-energie.svg (souřadnice beze změny, jen viewBox; postup PANELY-NAVOD.md). -->
+	<style>
+		.osobak { animation: osobak 6s linear infinite; }
+		@keyframes osobak {
+			0% { transform: translateX(-110px); animation-timing-function: cubic-bezier(0.333, 0.667, 0.667, 1); }
+			40%, 100% { transform: translateX(0); }
+		}
+		.kamion { animation: kamion 6s linear infinite; }
+		@keyframes kamion {
+			0% { transform: translateX(-230px); animation-timing-function: cubic-bezier(0.333, 0.667, 0.667, 1); }
+			84%, 100% { transform: translateX(0); }
+		}
+		@media (prefers-reduced-motion: reduce) {
+			.osobak, .kamion { animation: none; }
+		}
+	</style>
+	<rect x="0" y="1236" width="460" height="510" fill="#f3f1ea" />
+	<g id="panel-3" data-vyrez="14 1240 438 502">
+	<!-- ===== Panel 3:Pozor při brzdění (y 1246–1730) ===== -->
+	<rect x="26" y="1252" width="420" height="484" rx="10" fill="#2b2a26" />
+	<rect x="20" y="1246" width="420" height="484" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="52" cy="1280" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="52" y="1287" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">3</text>
+	<text x="80" y="1289" font-size="28" font-weight="bold" fill="#2b2a26">Pozor při brzdění</text>
+
+	<circle cx="44" cy="1319" r="4" fill="#2b2a26" />
+	<text x="56" y="1326" font-size="21" fill="#2b2a26">kamion i auto jedou stejně rychle</text>
+	<circle cx="44" cy="1351" r="4" fill="#2b2a26" />
+	<text x="56" y="1358" font-size="21" fill="#2b2a26">těžký kamion brzdí <tspan font-weight="bold" fill="#c92a2a">mnohem hůř</tspan></text>
+
+	<!-- čára začátku brzdění -->
+	<line x1="180" y1="1396" x2="180" y2="1566" stroke="#c92a2a" stroke-width="2.5" stroke-dasharray="7 5" />
+	<text x="186" y="1384" font-size="21" font-weight="bold" fill="#c92a2a">brzdí</text>
+
+	<!-- silnice: auto -->
+	<rect x="34" y="1450" width="392" height="12" fill="#495057" />
+	<line x1="44" y1="1456" x2="74" y2="1456" stroke="#fff" stroke-width="2.5" /><line x1="104" y1="1456" x2="134" y2="1456" stroke="#fff" stroke-width="2.5" /><line x1="224" y1="1456" x2="254" y2="1456" stroke="#fff" stroke-width="2.5" /><line x1="344" y1="1456" x2="374" y2="1456" stroke="#fff" stroke-width="2.5" />
+	<!-- silnice: kamion -->
+	<rect x="34" y="1560" width="392" height="12" fill="#495057" />
+	<line x1="44" y1="1566" x2="74" y2="1566" stroke="#fff" stroke-width="2.5" /><line x1="104" y1="1566" x2="134" y2="1566" stroke="#fff" stroke-width="2.5" /><line x1="224" y1="1566" x2="254" y2="1566" stroke="#fff" stroke-width="2.5" /><line x1="344" y1="1566" x2="374" y2="1566" stroke="#fff" stroke-width="2.5" />
+
+	<!-- brzdné dráhy -->
+	<g stroke="#2b2a26" stroke-width="2">
+		<line x1="180" y1="1476" x2="290" y2="1476" /><line x1="180" y1="1468" x2="180" y2="1484" /><line x1="290" y1="1468" x2="290" y2="1484" />
+		<line x1="180" y1="1586" x2="410" y2="1586" /><line x1="180" y1="1578" x2="180" y2="1594" /><line x1="410" y1="1578" x2="410" y2="1594" />
+	</g>
+	<text x="298" y="1482" font-size="21" font-weight="bold" fill="#2b2a26">auto</text>
+	<text x="295" y="1614" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">kamion</text>
+
+	<!-- auto (konečná poloha: příď x 290, silnice y 1450) -->
+	<g class="osobak">
+		<path d="M 202 1438 L 202 1420 Q 204 1412 214 1410 L 224 1408 L 236 1394 Q 240 1390 248 1390 L 266 1390 Q 272 1390 276 1396 L 284 1408 Q 290 1410 290 1418 L 290 1438 Z" fill="#0c8599" stroke="#2b2a26" stroke-width="2" />
+		<path d="M 228 1408 L 238 1396 Q 241 1393 246 1393 L 254 1393 L 254 1408 Z" fill="#d0ebff" stroke="#2b2a26" stroke-width="1.5" />
+		<path d="M 258 1393 L 266 1393 Q 270 1393 273 1398 L 279 1408 L 258 1408 Z" fill="#d0ebff" stroke="#2b2a26" stroke-width="1.5" />
+		<line x1="256" y1="1410" x2="256" y2="1436" stroke="#095c69" stroke-width="1.5" />
+		<rect x="284" y="1414" width="6" height="6" rx="1" fill="#ffe066" stroke="#2b2a26" stroke-width="1" />
+		<rect x="202" y="1416" width="4" height="7" fill="#e03131" />
+		<circle cx="220" cy="1438" r="12" fill="#212529" /><circle cx="220" cy="1438" r="5" fill="#adb5bd" />
+		<circle cx="272" cy="1438" r="12" fill="#212529" /><circle cx="272" cy="1438" r="5" fill="#adb5bd" />
+	</g>
+
+	<!-- kamion (konečná poloha: příď x 410, silnice y 1560) -->
+	<g class="kamion">
+		<rect x="270" y="1494" width="96" height="44" rx="2" fill="#e9ecef" stroke="#2b2a26" stroke-width="2" />
+		<line x1="294" y1="1496" x2="294" y2="1536" stroke="#adb5bd" stroke-width="1.5" /><line x1="318" y1="1496" x2="318" y2="1536" stroke="#adb5bd" stroke-width="1.5" /><line x1="342" y1="1496" x2="342" y2="1536" stroke="#adb5bd" stroke-width="1.5" />
+		<rect x="270" y="1538" width="140" height="7" fill="#343a40" />
+		<path d="M 369 1538 L 369 1496 Q 369 1490 375 1490 L 394 1490 Q 401 1490 404 1498 L 410 1514 L 410 1538 Z" fill="#c92a2a" stroke="#2b2a26" stroke-width="2" />
+		<path d="M 386 1496 L 396 1496 Q 399 1496 401 1501 L 405 1513 L 386 1513 Z" fill="#d0ebff" stroke="#2b2a26" stroke-width="1.5" />
+		<rect x="404" y="1522" width="6" height="6" rx="1" fill="#ffe066" stroke="#2b2a26" stroke-width="1" />
+		<circle cx="290" cy="1547" r="13" fill="#212529" /><circle cx="290" cy="1547" r="5" fill="#adb5bd" />
+		<circle cx="318" cy="1547" r="13" fill="#212529" /><circle cx="318" cy="1547" r="5" fill="#adb5bd" />
+		<circle cx="388" cy="1547" r="13" fill="#212529" /><circle cx="388" cy="1547" r="5" fill="#adb5bd" />
+	</g>
+
+	<!-- legenda brzdné dráhy -->
+	<g stroke="#2b2a26" stroke-width="2"><line x1="56" y1="1642" x2="96" y2="1642" /><line x1="56" y1="1634" x2="56" y2="1650" /><line x1="96" y1="1634" x2="96" y2="1650" /></g>
+	<text x="106" y="1649" font-size="21" fill="#2b2a26">= <tspan font-weight="bold">brzdná dráha</tspan></text>
+	<!-- druhé srovnání (jiné než scéna nahoře): totéž auto pomalu × rychle → rychlejší má DELŠÍ brzdnou dráhu.
+	     Délky 40 a 120 px jen ukazují „mnohem delší“, nejsou měřítkem. -->
+	<line x1="34" y1="1664" x2="426" y2="1664" stroke="#adb5bd" stroke-width="1.5" stroke-dasharray="6 5" />
+	<circle cx="44" cy="1685" r="4" fill="#2b2a26" />
+	<text x="56" y="1692" font-size="21" fill="#2b2a26">rychlejší auto: <tspan font-weight="bold">delší</tspan> brzdná dráha</text>
+	<text x="44" y="1721" font-size="21" fill="#2b2a26">pomalu</text>
+	<g stroke="#2b2a26" stroke-width="2"><line x1="122" y1="1714" x2="162" y2="1714" /><line x1="122" y1="1706" x2="122" y2="1722" /><line x1="162" y1="1706" x2="162" y2="1722" /></g>
+	<text x="196" y="1721" font-size="21" font-weight="bold" fill="#c92a2a">rychle</text>
+	<g stroke="#c92a2a" stroke-width="2.5"><line x1="270" y1="1714" x2="390" y2="1714" /><line x1="270" y1="1706" x2="270" y2="1722" /><line x1="390" y1="1706" x2="390" y2="1722" /></g>
+
+	</g>
+</svg>
