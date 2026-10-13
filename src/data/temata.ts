@@ -2162,7 +2162,7 @@ export const temata: Record<string, Tema[]> = {
 					zvidave: "<p>Kromě páky patří mezi jednoduché stroje také kladka, nakloněná rovina nebo kolo na hřídeli. Kladku a nakloněnou rovinu poznáš v dalších podtématech.</p>\n<p>Druh páky poznáš podle toho, kde je osa. Nůžky a kleště jsou dvojzvratné páky, protože osa leží mezi rukojetí a čepelemi, respektive čelistmi. Louskáček na ořechy a lis na česnek jsou jednozvratné páky. Osa je na jejich kraji a ořech nebo česnek je mezi osou a rukou.</p>\n<p>Co ušetříš na síle, to prohraješ na dráze. Když působíš silou na rameni třikrát delším, urazí tvoje ruka třikrát delší dráhu než náklad. U kolečka s rameny 40 cm a 120 cm ruka zvedne držadla třikrát výš, než se zvedne náklad.</p>\n<p>Na páce jsou zavěšena dvě závaží: m<sub>1</sub> = 2 kg na rameni a<sub>1</sub> = 9 cm a m<sub>2</sub> = 1 kg na rameni a<sub>2</sub> = 18 cm. Je páka v rovnováze?</p>\n<p>F<sub>g1</sub> = m<sub>1</sub> &middot; g = 2 &middot; 10 = 20 N</p>\n<p>F<sub>g2</sub> = m<sub>2</sub> &middot; g = 1 &middot; 10 = 10 N</p>\n<p>F<sub>g1</sub> &middot; a<sub>1</sub> = 20 &middot; 9 = 180 N &middot; cm</p>\n<p>F<sub>g2</sub> &middot; a<sub>2</sub> = 10 &middot; 18 = 180 N &middot; cm</p>\n<p>Obě strany se rovnají (180 = 180), páka je v rovnováze. Dvojnásobná síla si vystačí s polovičním ramenem.</p>\n<p>Ze vzorce F₁ · a₁ = F₂ · a₂ můžeš vyjádřit kteroukoli veličinu: F₁ = F₂ · a₂ : a₁, F₂ = F₁ · a₁ : a₂, a₁ = F₂ · a₂ : F₁ a a₂ = F₁ · a₁ : F₂.</p>\n<p>Převody: 1 kN = 1 000 N a 1 m = 100 cm. Do vzorce dosazuj síly v newtonech a obě ramena ve stejné jednotce délky, nejlépe v metrech.</p>",
 					zapis: {"vzorec":"M = F · a\nF₁ · a₁ = F₂ · a₂","jednotky":["M (N · m), F (N), a (m)"],"body":["páka je tuhá tyč otáčivá kolem osy, rameno a je kolmá vzdálenost osy od přímky síly","v rovnováze působí menší síla dál od osy, větší blíž k ose","dvojzvratná páka: síly na opačných stranách osy, jednozvratná: na stejné"]},
 					odkazy: [
-						{ nazev: 'Umíme to — Páky (lehké), cvičení', url: 'https://www.umimefakta.cz/fyzika/rozhodovacka-paky-1' },
+						{ nazev: 'Umíme fakta — Páky (lehké), cvičení', url: 'https://www.umimefakta.cz/fyzika/rozhodovacka-paky-1' },
 					],
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Páky — nadlidská síla', cesta: 'aXsCK4BXLe4' },
@@ -2181,7 +2181,7 @@ export const temata: Record<string, Tema[]> = {
 					zapis: {"vzorec":"pevná kladka: F = FG\nvolná kladka: F = FG : 2","jednotky":["F, FG (N), FG = m · g, g = 10 N/kg"],"body":["kladka je kolo s drážkou pro lano","pevná kladka sílu nešetří","volná kladka: poloviční síla, ale dvojnásobná dráha lana"]},
 					odkazy: [
 						{ nazev: 'Eductify — Kladka', url: 'https://www.eductify.com/cs/fyzika/c80/8-rocnik-zs/p-kl/kladka' },
-						{ nazev: 'Umíme to — Kladky (lehké), cvičení', url: 'https://www.umimefakta.cz/fyzika/rozhodovacka-kladky-1' },
+						{ nazev: 'Umíme fakta — Kladky (lehké), cvičení', url: 'https://www.umimefakta.cz/fyzika/rozhodovacka-kladky-1' },
 					],
 					materialy: [
 						{
@@ -2276,6 +2276,9 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '/materialy/fyzika/7-rocnik/tlak-v-kapalinach/tlak/pisen-dneska-jedeme-tlak.mp4',
 						},
 					],
+					odkazy: [
+						{ nazev: 'Umíme fakta — Tlak a tlaková síla (7. třída), cvičení', url: 'https://www.umimefakta.cz/fyzika/cviceni-tlak-a-tlakova-sila-7-trida' },
+					],
 				},
 				{
 					slug: 'pascaluv-zakon',
@@ -2305,6 +2308,9 @@ export const temata: Record<string, Tema[]> = {
 							nazev: 'Píseň: Pascalův zákon 🎵',
 							cesta: '/materialy/fyzika/7-rocnik/tlak-v-kapalinach/pascaluv-zakon/pisen-pascaluv-zakon.mp4',
 						},
+					],
+					odkazy: [
+						{ nazev: 'TechMania — Pascalův zákon', url: 'http://edu.techmania.cz/cs/encyklopedie/fyzika/tekutiny/pascaluv-zakon' },
 					],
 				},
 				{
@@ -2828,6 +2834,9 @@ export const temata: Record<string, Tema[]> = {
 					zapis: {"body":["Wankelův motor má místo pístu otáčivý trojúhelníkový rotor","proudový motor: kompresor, spalovací komora, turbína, tryska","raketový motor veze okysličovadlo a funguje i ve vakuu","alternativní paliva: LPG, CNG, bioplyn","hybrid spojuje spalovací motor s elektromotorem"]},
 					materialy: [
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Alternativní motory a pohony (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/tepelne-motory/alternativni-motory/notebooklm-alternativni-motory.mp4' },
+					],
+					odkazy: [
+						{ nazev: 'TechMania — Reaktivní motory (proudový a raketový)', url: 'http://edu.techmania.cz/cs/encyklopedie/fyzika/plyny/tepelne-motory/reaktivni-motory' },
 					],
 				},
 			],
@@ -3389,6 +3398,7 @@ export const temata: Record<string, Tema[]> = {
 					zvidave: "<p>💡 Když na kole jedeš rychleji, dynamo svítí silněji. Otáčí se totiž rychleji, magnetické pole u cívky se mění rychleji, a proto se v ní indukuje větší napětí. Stejné pravidlo platí u každého alternátoru.</p>\n<p>💡 Dynamo na jízdním kole je ve skutečnosti malý alternátor: otáčí se v něm magnet a vyrábí střídavý proud. Dynamo se mu říká jen ze zvyku.</p>\n<p>💡 Zkus si to doma: vezmi motorek ze staré hračky, připoj k němu malou LED diodu a rychle ho roztoč šňůrkou (zkus oba směry). Dioda krátce zabliká. Motorek se změnil v dynamo, protože stroje na výrobu proudu a elektromotory jsou si konstrukčně podobné.</p>",
 					zapis: {"body":["otáčející se magnet u cívky vyvolá střídavý proud","střídavý proud mění směr, takový je v zásuvce","alternátor mění pohybovou energii na elektrickou","rotor se otáčí, stator stojí","využití: auto, elektrocentrála, elektrárny"]},
 					materialy: [
+						{ druh: 'infografika', nazev: 'Infografika: Vznik střídavého proudu a alternátor v kostce', cesta: '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/vznik-stridaveho-proudu-alternator/infografika-vznik-stridaveho-proudu-alternator.svg', panely: ['/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/vznik-stridaveho-proudu-alternator/infografika-vznik-stridaveho-proudu-alternator-panel-1.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/vznik-stridaveho-proudu-alternator/infografika-vznik-stridaveho-proudu-alternator-panel-2.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/vznik-stridaveho-proudu-alternator/infografika-vznik-stridaveho-proudu-alternator-panel-3.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/vznik-stridaveho-proudu-alternator/infografika-vznik-stridaveho-proudu-alternator-panel-4.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/vznik-stridaveho-proudu-alternator/infografika-vznik-stridaveho-proudu-alternator-panel-5.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/vznik-stridaveho-proudu-alternator/infografika-vznik-stridaveho-proudu-alternator-panel-6.svg'] },
 						{ druh: 'youtube', nazev: 'Video: Příběh střídavého proudu (generátor)', cesta: '3Y_USuTTVbw' },
 					],
 				},
@@ -3401,6 +3411,7 @@ export const temata: Record<string, Tema[]> = {
 					zvidave: "<p>💡 Při 50 Hz se proud v zásuvce vynuluje stokrát za sekundu, protože v každé periodě projde nulou dvakrát. Žárovka přesto nebliká: vlákno je tak rozžhavené, že za tak krátkou chvíli nestihne vychladnout, a oko by tak rychlou změnu stejně nepostřehlo.</p>\n<p>💡 Maximální napětí spočítáme z efektivního vynásobením číslem <strong>1,4</strong> (to je zhruba 100 : 70): 230 · 1,4 = <strong>322 V</strong>. Přesnější číslo je odmocnina ze dvou (asi 1,41) a s ní vyjde skutečná špička napětí v zásuvce asi <strong>325 V</strong>. Proto se u součástek hlídá, jaké napětí vydrží — a zásuvka je nebezpečnější, než se podle čísla 230 V zdá. Stejně dopočítáš i opačným směrem: na cívce je maximální napětí 140 V, voltmetr ukáže 140 : 1,4 = <strong>100 V</strong>.</p>\n<p>💡 Proč se v síti používá střídavý proud, když by stejnosměrný byl jednodušší? Střídavé napětí umí <strong>transformátor</strong> snadno zvýšit i snížit, stejnosměrné ne. Vedení ztrácí energii zahříváním drátů a ztráty rostou s proudem. Elektrárna proto napětí zvýší až na stovky kilovoltů, proud tím klesne a vedení skoro netopí. Před domem se napětí zase sníží na 230 V. Střídavý proud se snadno transformuje, a proto se pro rozvod elektřiny používá nejčastěji (existují i vedení na stejnosměrné vysoké napětí, ale ta jsou dražší a řídčí).</p>",
 					zapis: {"vzorec":"f = 1 : T\nP = U · I","jednotky":["T (s), f (Hz), U (V), I (A), P (W)"],"vzorecSlovy":"frekvence = jedna lomeno perioda; výkon = napětí krát proud","body":["střídavý proud mění směr, graf je sinusoida","T je doba jedné otočky, f počet otoček za sekundu","frekvence sítě je 50 Hz"]},
 					materialy: [
+						{ druh: 'infografika', nazev: 'Infografika: Vlastnosti střídavého proudu v kostce', cesta: '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/vlastnosti-stridaveho-proudu/infografika-vlastnosti-stridaveho-proudu.svg', panely: ['/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/vlastnosti-stridaveho-proudu/infografika-vlastnosti-stridaveho-proudu-panel-1.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/vlastnosti-stridaveho-proudu/infografika-vlastnosti-stridaveho-proudu-panel-2.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/vlastnosti-stridaveho-proudu/infografika-vlastnosti-stridaveho-proudu-panel-3.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/vlastnosti-stridaveho-proudu/infografika-vlastnosti-stridaveho-proudu-panel-4.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/vlastnosti-stridaveho-proudu/infografika-vlastnosti-stridaveho-proudu-panel-5.svg'] },
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Střídavý proud (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/9-rocnik/indukce-a-stridavy-proud/vlastnosti-stridaveho-proudu/notebooklm-vlastnosti-stridaveho-proudu.mp4' },
 					],
 				},
@@ -3413,6 +3424,7 @@ export const temata: Record<string, Tema[]> = {
 					zvidave: "<p>💡 Proč jsou ztráty na vedení při vysokém napětí tak malé? Výkon přenesený vedením je P = U · I, takže při stejném výkonu je proud tolikrát menší, kolikrát je napětí větší. Například výkon 4 000 000 W přenese proud 1 000 A při napětí 4 000 V, ale jen 100 A při napětí 40 000 V (I = P : U). Ztráty ohřevem vedení přitom rostou rychleji než proud: desetkrát menší proud znamená stokrát menší ztráty. Proto se dálkové vedení vede na stovkách kilovoltů.</p>\n<p>💡 Co se stane, když transformátor připojíš k baterce? Stejnosměrný proud je stálý, takže vytváří stálé magnetické pole a to v sekundární cívce nic neindukuje. Napětí se v ní objeví jen na okamžik při zapnutí a při vypnutí, protože právě tehdy se pole změní. Primární cívka má navíc malý odpor a stejnosměrným proudem by se mohla přehřát, proto to doma nezkoušej.</p>\n<p>💡 Nabíječka telefonu není jen transformátor. Telefon se nabíjí stejnosměrným proudem, kdežto transformátor dává střídavý. Uvnitř nabíječky proto bývají ještě součástky, které střídavý proud přemění na stejnosměrný.</p>",
 					zapis: {"vzorec":"U₂ : U₁ = N₂ : N₁   (k = N₂ : N₁)","jednotky":["U (V), N počet závitů, k bez jednotky"],"vzorecSlovy":"napětí jako závity","body":["mění velikost jen střídavého napětí","má primární a sekundární cívku na společném jádře","když napětí zvýšíme, proud klesne"]},
 					materialy: [
+						{ druh: 'infografika', nazev: 'Infografika: Transformátor v kostce', cesta: '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/transformator/infografika-transformator.svg', panely: ['/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/transformator/infografika-transformator-panel-1.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/transformator/infografika-transformator-panel-2.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/transformator/infografika-transformator-panel-3.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/transformator/infografika-transformator-panel-4.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/transformator/infografika-transformator-panel-5.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/transformator/infografika-transformator-panel-6.svg'] },
 						{ druh: 'youtube', nazev: 'Video: Transformátor — skrytý motor našeho světa', cesta: 'Zme6eL0Mzr8' },
 					],
 				},
@@ -3446,6 +3458,9 @@ export const temata: Record<string, Tema[]> = {
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Vedení proudu v kapalinách', cesta: 'D_aMAsD-EKM' },
 					],
+					odkazy: [
+						{ nazev: 'TechMania — Elektrolýza', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/elektricky-proud/elektricky-proud-v-kapalinach/elektrolyza' },
+					],
 				},
 				{
 					slug: 'chemicke-zdroje-napeti',
@@ -3477,6 +3492,9 @@ export const temata: Record<string, Tema[]> = {
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Jak funguje blesk', cesta: 'rTo2z2xTOGk' },
 					],
+					odkazy: [
+						{ nazev: 'TechMania — Elektrický proud v plynech', url: 'http://edu.techmania.cz/cs/encyklopedie/fyzika/elektricky-proud/elektricky-proud-v-plynech' },
+					],
 				},
 				{
 					slug: 'polovodice-vlastni-vodivost',
@@ -3495,6 +3513,9 @@ export const temata: Record<string, Tema[]> = {
 							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
 						},
 					],
+					odkazy: [
+						{ nazev: 'TechMania — Polovodiče', url: 'http://edu.techmania.cz/cs/encyklopedie/fyzika/elektricky-proud/polovodice' },
+					],
 				},
 				{
 					slug: 'polovodice-typu-n-a-p-dioda',
@@ -3507,6 +3528,9 @@ export const temata: Record<string, Tema[]> = {
 					zapis: {"body":["typ N vede elektrony, typ P vede díry","styk typu N a P je přechod PN","v propustném směru dioda proud vede, v závěrném ne","dioda je usměrňovač, LED svítí","tranzistor je spínač nebo zesilovač"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Polovodiče — srdce elektroniky', cesta: 'uoLW-OHBDls' },
+					],
+					odkazy: [
+						{ nazev: 'TechMania — Polovodičové součástky (dioda)', url: 'http://edu.techmania.cz/cs/encyklopedie/fyzika/elektricky-proud/polovodice/polovodicove-soucastky' },
 					],
 				},
 			],

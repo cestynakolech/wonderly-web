@@ -1,0 +1,51 @@
+---
+// Transformátor — F9 infografika (tahák bez interakce; OBSAH-PRAVIDLA kap. 12 bod 7).
+// JEDINÝ DOMOV obsahu je SVG v materiálech:
+//   public/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/transformator/infografika-transformator.svg
+// (úzké 460 × 3616, 6 panelů <g id="panel-1…6"> se stejnou šířkou a vlastním nadpisem, vyříznuté
+//  i samostatně jako …-panel-N.svg; písmo min. 21, indexy 18 → na telefonu 375 px je obrázek
+//  v materiálech stránky 319,8 px bez rámečku (změřeno 14. 10. 2026 headless Chrome s CSS živého webu),
+//  škála 0,695 → písmo 14,6 px, indexy 12,5 px; CSS animace dějů uvnitř SVG, při
+//  prefers-reduced-motion zůstane koncový stav). Tahle komponenta ho jen vloží, nic neopisuje.
+// Platné zapojení na stránku je položka `materialy` (druh 'infografika' s polem `panely`) v temata.ts —
+// komponenta je jen pro případné vložení mimo materiály (vzor ElektromagnetickaIndukceInfografika.astro).
+const cesta = '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/transformator/infografika-transformator.svg';
+---
+
+<section class="ramecek infografika-tr">
+	<h2><span class="podtrh">Transformátor — tahák 📊</span></h2>
+	<p>
+		Transformátor má <strong>dvě cívky na společném jádře</strong> a mění velikost
+		<strong>střídavého napětí</strong>. Napětí se mění ve stejném poměru jako počty závitů.
+	</p>
+	<img
+		src={cesta}
+		width="460"
+		height="3616"
+		loading="lazy"
+		alt="Infografika transformátoru: dvě cívky na společném ocelovém jádře, primární je vstup se zdrojem střídavého napětí, sekundární výstup s voltmetrem; střídavý proud mění magnetické pole, jádro ho přenese do sekundární cívky a tam se indukuje napětí, se střídavým napětím žárovka svítí, se stejnosměrným nesvítí, účinnost až 98 %; rovnice U2 : U1 = N2 : N1, k = N2 : N1, příklad 100 a 500 závitů, 200 V na 1 000 V; nahoru k větší než 1 (400 kV, zapalovací svíčka 45 000 V), dolů k menší než 1 (nabíječka 230 V na 20 V); rozvodná síť 6 300 V, 220 kV, 22 kV, 230 V; výkon P = U · I zůstává stejný, 200 V · 2 A = 400 W = 40 V · 10 A, velký proud rozžhaví kovovou tyč v cívce; indukční pec, svařování 10–50 V až 6 000 °C, páječka s 1 závitem"
+	/>
+</section>
+
+<style>
+	.infografika-tr { padding: 1.5rem; }
+	.infografika-tr h2 { margin-top: 0; }
+	.infografika-tr img {
+		display: block;
+		width: 100%;
+		max-width: min(100%, 34rem);
+		height: auto;
+		margin: 1rem auto 0;
+		border: 2.5px solid #2b2a26;
+		border-radius: 12px;
+	}
+	.podtrh { border-bottom: 3px solid #ffd43b; padding-bottom: 2px; }
+	/* Na telefonu by padding 1.5rem zúžil obrázek pod škálu 0,667 (písmo 21 → < 14 px).
+	   Při materiálech na stránce je naměřeno 319,8 px (škála 0,695).
+	   Obrázek proto zabere celou vnitřní šířku rámečku, text si okraj drží sám. */
+	@media (max-width: 480px) {
+		.infografika-tr { padding: 1rem 0; }
+		.infografika-tr h2,
+		.infografika-tr p { padding: 0 1rem; }
+	}
+</style>

@@ -1,0 +1,46 @@
+---
+// Vlastnosti střídavého proudu — F9 infografika (tahák bez interakce; OBSAH-PRAVIDLA kap. 12 bod 7).
+// JEDINÝ DOMOV obsahu je SVG v materiálech:
+//   public/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/vlastnosti-stridaveho-proudu/infografika-vlastnosti-stridaveho-proudu.svg
+// (úzké 460 × 3274, 5 panelů <g id="panel-1…5"> s vlastním nadpisem, vyříznuté i samostatně jako …-panel-N.svg;
+//  písmo min. 21, indexy 18 → na telefonu 375 px škála 0,695 (měření W21, stejná šablona) → 14,6 px / 12,5 px;
+//  CSS animace dějů uvnitř SVG, při prefers-reduced-motion zůstane koncový stav). Komponenta ho jen vloží.
+// Platné zapojení na stránku je položka `materialy` (druh 'infografika' s polem `panely`) v temata.ts —
+// komponenta je jen pro případné vložení mimo materiály (vzor ElektromagnetickaIndukceInfografika.astro).
+const cesta = '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/vlastnosti-stridaveho-proudu/infografika-vlastnosti-stridaveho-proudu.svg';
+---
+
+<section class="ramecek infografika-vsp">
+	<h2><span class="podtrh">Vlastnosti střídavého proudu — tahák 📊</span></h2>
+	<p>
+		Střídavý proud <strong>mění velikost i směr</strong>. Perioda, frekvence a efektivní hodnota
+		ho popisují.
+	</p>
+	<img
+		src={cesta}
+		width="460"
+		height="3274"
+		loading="lazy"
+		alt="Infografika vlastností střídavého proudu: z baterie teče stejnosměrný proud jedním směrem, ze zásuvky střídavý, elektrony ve vodiči se pohybují střídavě oběma směry; ruka točí klikou, cívka se otáčí mezi magnety a vzniká střídavé napětí, graf je sinusoida a perioda T je doba jedné otočky; frekvence f je počet period za sekundu v hertzích, f = 1 : T, v síti 50 Hz a perioda 20 ms; maximální hodnota Um = 200 V, efektivní hodnota 70 % = 140 V ukazují přístroje; v síti 230 V a 50 Hz, výkon P = U · I, vařič 230 V · 2 A = 460 W"
+	/>
+</section>
+
+<style>
+	.infografika-vsp { padding: 1.5rem; }
+	.infografika-vsp h2 { margin-top: 0; }
+	.infografika-vsp img {
+		display: block;
+		width: 100%;
+		max-width: min(100%, 34rem);
+		height: auto;
+		margin: 1rem auto 0;
+		border: 2.5px solid #2b2a26;
+		border-radius: 12px;
+	}
+	.podtrh { border-bottom: 3px solid #ffd43b; padding-bottom: 2px; }
+	@media (max-width: 480px) {
+		.infografika-vsp { padding: 1rem 0; }
+		.infografika-vsp h2,
+		.infografika-vsp p { padding: 0 1rem; }
+	}
+</style>
