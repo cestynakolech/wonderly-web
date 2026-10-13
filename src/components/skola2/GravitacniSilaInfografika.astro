@@ -1,0 +1,29 @@
+---
+// Gravitační síla — F7 statická infografika (tahák, bez interakce a bez JS; OBSAH-PRAVIDLA kap. 12 bod 7)
+// Obsah je JEN v jednom souboru: public/materialy/fyzika/7-rocnik/sily-kolem-nas/gravitacni-sila/infografika-gravitacni-sila.svg
+// (vzor Síla v3: SVG v materialy). Komponenta je záložní varianta zapojení a SVG jen zobrazí přes <img>.
+// Čitelnost na 375 px (rem 18,4 px): obsah main 319,8 px − okraj rámečku 5 px − padding 2 · 0,25rem (9,2 px) = 305,6 px;
+// img má box-sizing: border-box (nepřetéká), bez rámečku 3 px → obraz 299,6 px → měřítko 299,6 / 360 = 0,832:
+// text 18 → 15,0 px, dolní index 15 → 12,5 px (výpočet v Omega/predavka/2026-10-13/vlna1/W8-infografika-gravitacni-sila.md § 7).
+---
+
+<section class="ramecek infografika-gs">
+	<h2><span class="podtrh">Gravitační síla — tahák 🍎</span></h2>
+	<img
+		src="/materialy/fyzika/7-rocnik/sily-kolem-nas/gravitacni-sila/infografika-gravitacni-sila.svg"
+		alt="Infografika Gravitační síla: tělesa s hmotností se navzájem přitahují, Země přitahuje tělesa do svého středu, u povrchu svisle dolů; Fg = m · g, g = 10 N/kg; řešené příklady"
+		width="360"
+		height="1204"
+		loading="lazy"
+	/>
+</section>
+
+<style>
+	.infografika-gs { padding: 1.5rem; }
+	.infografika-gs h2 { margin-top: 0; }
+	.infografika-gs img { box-sizing: border-box; width: 100%; max-width: 34rem; height: auto; border: 3px solid #2b2a26; border-radius: 12px; display: block; margin: 1rem auto; }
+	.podtrh { border-bottom: 3px solid #ffd43b; padding-bottom: 2px; }
+	@media (max-width: 480px) {
+		.infografika-gs { padding: 0.25rem; }
+	}
+</style>

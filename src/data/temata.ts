@@ -2074,6 +2074,7 @@ export const temata: Record<string, Tema[]> = {
 					zvidave: "<p>Kdyby bylo těleso na Zemi přitahováno silou 60 N, na Měsíci by ho gravitace táhla dolů jen silou 10 N, protože 60 : 6 = 10. Hmotnost tělesa by přitom zůstala stejná.</p>",
 					zapis: {"vzorec":"Fg = m · g","jednotky":["Fg (N), m (kg), g = 10 N/kg"],"body":["gravitační síla je vždy přitažlivá, roste s hmotností a se vzdáleností slábne","míří svisle dolů, tíhovou sílu počítáme stejně","hmotnost je všude stejná, síla se mění místo od místa"]},
 					materialy: [
+						{ druh: 'infografika', nazev: 'Infografika: Gravitační síla v kostce', cesta: '/materialy/fyzika/7-rocnik/sily-kolem-nas/gravitacni-sila/infografika-gravitacni-sila.svg' },
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Tajemství gravitace (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/7-rocnik/sily-kolem-nas/gravitacni-sila/notebooklm-gravitacni-sila.mp4' },
 					],
 				},
@@ -2646,6 +2647,7 @@ export const temata: Record<string, Tema[]> = {
 					zapis: {"vzorec":"η = P : P₀","jednotky":["η (%), P a P₀ (W)"],"vzorecSlovy":"účinnost = výkon děleno příkon","body":["příkon je práce, kterou stroj dostane za sekundu","výkon je užitečná práce za sekundu","účinnost je vždy menší než 100 %"]},
 					materialy: [
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Tajemství účinnosti (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/mechanicka-prace-a-vykon/ucinnost/notebooklm-ucinnost.mp4' },
+						{ druh: 'infografika', nazev: 'Infografika: Účinnost — tahák', cesta: '/materialy/fyzika/8-rocnik/mechanicka-prace-a-vykon/ucinnost/infografika-ucinnost.svg' },
 					],
 				},
 			],

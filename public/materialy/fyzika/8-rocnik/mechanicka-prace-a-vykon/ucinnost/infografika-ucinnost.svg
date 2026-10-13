@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="1168" viewBox="0 0 420 1168" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Infografika účinnost: příkon vstupuje do stroje, výkon je užitečná část a zbytek jsou ztráty; vzorec η = P : P₀; příklad výkon 3 a příkon 4 dává 75 %; motor výtahu s výkonem 960 W a účinností 96 % potřebuje příkon 1 000 W, parní stroj s účinností 20 % potřebuje příkon 4 800 W, to je pětkrát větší než výkon">
+<!-- Účinnost — F8 infografika (OBSAH-PRAVIDLA kap. 12 bod 7). Jediný domov obsahu; komponenta UcinnostInfografika.astro jen vkládá <img>.
+     Čísla z výkladu ucinnost (temata.ts): η = P : P₀; 3 : 4 = 75 %; výtah P = 960 W, η 96 % → P₀ 1 000 W, pára η 20 % → P₀ 4 800 W, 4 800 : 960 = 5.
+     Čitelnost: <img> v main na 375 px má šířku ≈ 315 px → měřítko 0,750; písmo 19 → 14,2 px, indexy 17 → 12,7 px. -->
+<style>
+	.uci-tok { animation: uci-tece 1.2s linear infinite; }
+	.uci-kabina { animation: uci-jede 4s ease-in-out infinite alternate; }
+	@keyframes uci-tece { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -24; } }
+	@keyframes uci-jede { from { transform: translateY(0); } to { transform: translateY(-104px); } }
+	@media (prefers-reduced-motion: reduce) {
+		.uci-tok, .uci-kabina { animation: none; }
+	}
+</style>
+<defs>
+	<clipPath id="uci-sachta"><rect x="30" y="861" width="56" height="187" /></clipPath>
+</defs>
+
+<rect x="0" y="0" width="420" height="1168" fill="#f8f9fa" />
+<text x="210" y="36" text-anchor="middle" font-size="26" font-weight="bold" fill="#2b2a26">Účinnost</text>
+
+<!-- A: Kam jde práce stroje (šířky pásů: příkon 28 = výkon 20 + ztráty 8) -->
+<g id="uci-tok">
+	<rect x="10" y="52" width="400" height="268" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+	<text x="24" y="81" font-size="21" font-weight="bold" fill="#2b2a26">Kam jde práce stroje?</text>
+
+	<text x="84" y="124" text-anchor="middle" font-size="19" font-weight="bold" fill="#b5400a">příkon P<tspan font-size="17" dy="6">0</tspan></text>
+	<line x1="22" y1="152" x2="148" y2="152" stroke="#e8590c" stroke-width="28" />
+	<line class="uci-tok" x1="22" y1="152" x2="148" y2="152" stroke="#ffd8a8" stroke-width="6" stroke-dasharray="10 14" />
+
+	<rect x="148" y="114" width="100" height="76" rx="14" fill="#a5d8ff" stroke="#2b2a26" stroke-width="3" />
+	<text x="198" y="159" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">stroj</text>
+
+	<text x="320" y="124" text-anchor="middle" font-size="19" font-weight="bold" fill="#1e7031">výkon P</text>
+	<line x1="248" y1="152" x2="388" y2="152" stroke="#2f9e44" stroke-width="20" />
+	<polygon points="388,137 408,152 388,167" fill="#2f9e44" />
+	<line class="uci-tok" x1="248" y1="152" x2="386" y2="152" stroke="#b2f2bb" stroke-width="5" stroke-dasharray="10 14" />
+
+	<path d="M222,190 V216 Q222,228 234,228 H388" fill="none" stroke="#e03131" stroke-width="8" />
+	<polygon points="388,219 404,228 388,237" fill="#e03131" />
+	<path class="uci-tok" d="M222,190 V216 Q222,228 234,228 H386" fill="none" stroke="#ffc9c9" stroke-width="2.5" stroke-dasharray="10 14" />
+	<text x="306" y="259" text-anchor="middle" font-size="19" font-weight="bold" fill="#c92a2a">ztráty (např. tření)</text>
+
+	<text x="24" y="286" font-size="19" fill="#2b2a26"><tspan font-weight="bold" fill="#b5400a">P<tspan font-size="17" dy="6">0</tspan></tspan><tspan dy="-6" dx="5">= práce, kterou stroj dostane za 1 s</tspan></text>
+	<text x="24" y="311" font-size="19" fill="#2b2a26"><tspan font-weight="bold" fill="#1e7031">P</tspan> = užitečná práce za 1 s</text>
+</g>
+
+<!-- B: Vzorec -->
+<g id="uci-vzorec">
+	<rect x="10" y="332" width="400" height="200" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+	<text x="24" y="361" font-size="21" font-weight="bold" fill="#2b2a26">Vzorec účinnosti</text>
+	<text x="210" y="407" text-anchor="middle" font-size="36" font-weight="bold" fill="#2b2a26">η = <tspan fill="#1e7031">P</tspan> : <tspan fill="#b5400a">P<tspan font-size="24" dy="8">0</tspan></tspan></text>
+	<text x="210" y="438" text-anchor="middle" font-size="19" fill="#2b2a26">účinnost = výkon : příkon</text>
+	<text x="24" y="467" font-size="19" fill="#2b2a26">P i P<tspan font-size="17" dy="6">0</tspan><tspan dy="-6" dx="5">ve stejné jednotce, např. W</tspan></text>
+	<text x="24" y="494" font-size="19" fill="#2b2a26">na procenta: η · 100 (0,75 = 75 %)</text>
+	<text x="24" y="521" font-size="19" font-weight="bold" fill="#c92a2a">η je vždy menší než 100 %</text>
+</g>
+
+<!-- C: Příklad 3 : 4 -->
+<g id="uci-priklad">
+	<rect x="10" y="546" width="400" height="188" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+	<text x="24" y="575" font-size="21" font-weight="bold" fill="#2b2a26">Příklad: výkon 3, příkon 4</text>
+	<text x="210" y="599" text-anchor="middle" font-size="19" font-weight="bold" fill="#b5400a">příkon P<tspan font-size="17" dy="6">0</tspan><tspan dy="-6" dx="5">= 4 díly</tspan></text>
+	<path d="M30,624 V616 H390 V624" fill="none" stroke="#e8590c" stroke-width="3" />
+	<rect x="30" y="626" width="270" height="40" fill="#8ce99a" stroke="#2b2a26" stroke-width="2" />
+	<rect x="300" y="626" width="90" height="40" fill="#ffc9c9" stroke="#2b2a26" stroke-width="2" />
+	<path d="M120,626 V634 M120,658 V666 M210,626 V634 M210,658 V666" stroke="#2b2a26" stroke-width="1.5" />
+	<text x="165" y="653" text-anchor="middle" font-size="19" font-weight="bold" fill="#2b2a26">výkon P = 3 díly</text>
+	<text x="345" y="653" text-anchor="middle" font-size="19" font-weight="bold" fill="#2b2a26">ztráty</text>
+	<text x="24" y="696" font-size="19" fill="#2b2a26">η = 3 : 4 = 0,75 = <tspan font-weight="bold">75 %</tspan></text>
+	<text x="24" y="722" font-size="19" fill="#c92a2a">ztráty: 100 % − 75 % = <tspan font-weight="bold">25 %</tspan></text>
+</g>
+
+<!-- D: Motor výtahu (pruhy v měřítku ve wattech: 4 800 W = 260 px; stejný výkon = stejně dlouhá zelená) -->
+<g id="uci-vytah">
+	<rect x="10" y="748" width="400" height="366" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+	<text x="24" y="777" font-size="21" font-weight="bold" fill="#2b2a26">Výtah: výkon P = 960 W</text>
+	<text x="24" y="805" font-size="19" fill="#2b2a26">Příkon spočítáme: <tspan font-weight="bold" fill="#b5400a">P<tspan font-size="17" dy="6">0</tspan></tspan><tspan dy="-6" dx="5" font-weight="bold">= P : η</tspan></text>
+
+	<!-- motor nad šachtou, buben motoru, lano sbíhá z obvodu bubnu ke kabině -->
+	<rect x="20" y="816" width="76" height="32" rx="6" fill="#a5d8ff" stroke="#2b2a26" stroke-width="2.5" />
+	<text x="58" y="838" text-anchor="middle" font-size="19" font-weight="bold" fill="#2b2a26">motor</text>
+	<rect x="30" y="852" width="56" height="196" fill="#e9ecef" stroke="#2b2a26" stroke-width="2.5" />
+	<line x1="51" y1="848" x2="51" y2="853" stroke="#2b2a26" stroke-width="2" />
+	<circle cx="51" cy="861" r="7" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+	<g clip-path="url(#uci-sachta)">
+		<g class="uci-kabina">
+			<line x1="58" y1="760" x2="58" y2="1008" stroke="#495057" stroke-width="2" />
+			<rect x="36" y="1008" width="44" height="36" rx="3" fill="#ffe8cc" stroke="#e8590c" stroke-width="2.5" />
+		</g>
+	</g>
+	<path d="M44,861 A7,7 0 0 1 58,861" fill="none" stroke="#495057" stroke-width="2" />
+
+	<!-- motor výtahu: měřítko ve wattech 4 800 W = 260 px → výkon 960 W = 52 px, příkon 1 000 W ≈ 54 px (ztráty 4 % ≈ 2 px, kresleno 3 px, aby byly vidět) -->
+	<text x="104" y="838" font-size="19" fill="#2b2a26">motor výtahu, η = 96 %</text>
+	<rect x="104" y="848" width="52" height="32" fill="#8ce99a" stroke="#2b2a26" stroke-width="2" />
+	<rect x="157" y="848" width="3" height="32" fill="#e03131" />
+	<text x="172" y="871" font-size="19" font-weight="bold" fill="#1e7031">výkon 960 W</text>
+	<path d="M158.5,882 V892 H168" fill="none" stroke="#c92a2a" stroke-width="2" />
+	<text x="172" y="898" font-size="19" font-weight="bold" fill="#c92a2a">ztráty 4 %</text>
+	<text x="104" y="924" font-size="19" font-weight="bold" fill="#b5400a">P<tspan font-size="17" dy="6">0</tspan><tspan dy="-6" dx="5">= 960 : 0,96 = 1 000 W</tspan></text>
+
+	<!-- parní stroj: stejné měřítko → výkon 960 W = 52 px, příkon 4 800 W = 260 px, ztráty 80 % = 208 px -->
+	<text x="104" y="960" font-size="19" fill="#2b2a26">parní stroj, η = 20 %</text>
+	<rect x="104" y="970" width="52" height="32" fill="#8ce99a" />
+	<rect x="156" y="970" width="208" height="32" fill="#ffc9c9" />
+	<rect x="104" y="970" width="260" height="32" fill="none" stroke="#2b2a26" stroke-width="2" />
+	<line x1="156" y1="970" x2="156" y2="1002" stroke="#2b2a26" stroke-width="1.5" />
+	<text x="260" y="993" text-anchor="middle" font-size="19" font-weight="bold" fill="#2b2a26">ztráty 80 %</text>
+	<path d="M130,1004 V1016 H146" fill="none" stroke="#1e7031" stroke-width="2" />
+	<text x="150" y="1022" font-size="19" font-weight="bold" fill="#1e7031">výkon 960 W</text>
+	<text x="104" y="1050" font-size="19" font-weight="bold" fill="#b5400a">P<tspan font-size="17" dy="6">0</tspan><tspan dy="-6" dx="5">= 960 : 0,2 = 4 800 W</tspan></text>
+
+	<text x="24" y="1080" font-size="19" fill="#2b2a26">Příkon je <tspan font-weight="bold">5× větší</tspan> než výkon:</text>
+	<text x="24" y="1104" font-size="19" fill="#2b2a26">4 800 : 960 = <tspan font-weight="bold">5</tspan></text>
+</g>
+
+<!-- shrnutí -->
+<text x="210" y="1138" text-anchor="middle" font-size="19" font-weight="bold" fill="#2b2a26">Čím nižší účinnost, tím větší příkon</text>
+<text x="210" y="1161" text-anchor="middle" font-size="19" fill="#2b2a26">stroj potřebuje na stejný výkon.</text>
+</svg>

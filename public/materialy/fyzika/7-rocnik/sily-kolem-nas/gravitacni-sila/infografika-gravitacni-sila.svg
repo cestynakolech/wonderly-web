@@ -1,0 +1,190 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="1204" viewBox="0 0 360 1204" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Infografika gravitační síla: Slunce a Země se navzájem přitahují; gravitační síla působí mezi všemi tělesy s hmotností, je vždy přitažlivá a vzájemná, roste s hmotností a se vzdáleností slábne, zákony popsal Isaac Newton; Země přitahuje jablko, astronauta, družici i míček do svého středu, u povrchu padá jablko svisle dolů, na 1 kg působí asi 10 N, g = 10 N/kg, na Měsíci je g 6× menší; příklady batoh 2 kg 20 N, auto 1 200 kg 12 kN, síla 8 kN odpovídá hmotnosti 800 kg; vzorec Fg = m · g, m = Fg : g">
+<!-- Gravitační síla — F7 statická infografika (tahák). Překresleno podle předlohy učitele
+     Škola/7/2 Síla/07 Gravitační síla, tíhová síla/infografika-gravitacni-sila.png (3 panely + rámeček se vzorcem),
+     kresby podle PDF téže složky (str. 2 Slunce–Země, str. 4 Země s tělesy, str. 5 šipka Fg od tělesa svisle dolů).
+     Čísla jen z výkladu podtématu gravitacni-sila (temata.ts), jen celá čísla (žehlička 0,6 kg a 9,81 vynechány).
+     Čitelnost: viewBox šířka 360; na mobilu 375 px má <img> 314,8 px → měřítko 0,874:
+     text 18 → 15,7 px, nadpis panelu 20 → 17,5 px, dolní index 15 → 13,1 px.
+     Červená šipka = gravitační síla, červený křížek = střed Země. Děj = CSS animace, vypnutá při prefers-reduced-motion. -->
+	<style>
+		.gs-tah { animation: gs-tahne 1.2s linear infinite; }
+		.gs-jablko { animation: gs-pada 4s ease-in infinite; }
+		@keyframes gs-tahne { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -24; } }
+		@keyframes gs-pada {
+			0%, 30% { transform: translateY(0); }
+			60%, 100% { transform: translateY(83px); }
+		}
+		@media (prefers-reduced-motion: reduce) {
+			.gs-tah, .gs-jablko { animation: none; }
+		}
+	</style>
+	<defs>
+		<!-- šipka síly: začíná v 0,0 a míří ve směru +x, délka 32 -->
+		<g id="gs-sipka">
+			<line x1="0" y1="0" x2="20" y2="0" stroke="#e03131" stroke-width="4" />
+			<polygon points="32,0 19,-7 19,7" fill="#e03131" />
+		</g>
+	</defs>
+
+	<rect x="0" y="0" width="360" height="1204" fill="#f8f9fa" />
+	<text x="180" y="38" text-anchor="middle" font-size="26" font-weight="bold" fill="#2b2a26">Gravitační síla</text>
+	<line x1="90" y1="48" x2="270" y2="48" stroke="#e8590c" stroke-width="4" stroke-linecap="round" />
+	<text x="180" y="72" text-anchor="middle" font-size="18" fill="#495057">Proč všechno padá k zemi</text>
+
+	<!-- 1: Co o ní víme -->
+	<g id="gs-vime">
+		<rect x="8" y="84" width="344" height="328" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+		<circle cx="30" cy="106" r="13" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+		<text x="30" y="112" text-anchor="middle" font-size="18" font-weight="bold" fill="#c92a2a">1</text>
+		<text x="52" y="113" font-size="20" font-weight="bold" fill="#2b2a26">Co o ní víme</text>
+
+		<text x="114" y="140" font-size="18" font-weight="bold" fill="#c92a2a">přitahují se navzájem</text>
+
+		<!-- Slunce -->
+		<g stroke="#f08c00" stroke-width="4" stroke-linecap="round">
+			<line x1="64" y1="126" x2="64" y2="134" /><line x1="64" y1="210" x2="64" y2="218" />
+			<line x1="18" y1="172" x2="26" y2="172" /><line x1="102" y1="172" x2="110" y2="172" />
+			<line x1="31" y1="139" x2="37" y2="145" /><line x1="91" y1="199" x2="97" y2="205" />
+			<line x1="31" y1="205" x2="37" y2="199" /><line x1="91" y1="145" x2="97" y2="139" />
+		</g>
+		<circle cx="64" cy="172" r="34" fill="#ffd43b" stroke="#f08c00" stroke-width="3" />
+		<text x="64" y="240" text-anchor="middle" font-size="18" fill="#2b2a26">Slunce</text>
+
+		<!-- Země -->
+		<circle cx="304" cy="172" r="22" fill="#4dabf7" stroke="#1864ab" stroke-width="2.5" />
+		<path d="M293,159 Q300,153 307,160 Q304,168 296,168 Z M304,178 Q315,174 319,183 Q312,191 304,187 Z" fill="#69db7c" stroke="#2b8a3e" stroke-width="1.5" />
+		<text x="304" y="220" text-anchor="middle" font-size="18" fill="#2b2a26">Země</text>
+
+		<!-- dvě stejně dlouhé šipky (68 px), každá od svého tělesa k druhému -->
+		<line x1="114" y1="172" x2="166" y2="172" stroke="#e03131" stroke-width="6" />
+		<polygon points="182,172 166,163 166,181" fill="#e03131" />
+		<line class="gs-tah" x1="114" y1="172" x2="164" y2="172" stroke="#ffc9c9" stroke-width="2" stroke-dasharray="10 14" />
+		<line x1="270" y1="172" x2="218" y2="172" stroke="#e03131" stroke-width="6" />
+		<polygon points="202,172 218,163 218,181" fill="#e03131" />
+		<line class="gs-tah" x1="270" y1="172" x2="220" y2="172" stroke="#ffc9c9" stroke-width="2" stroke-dasharray="10 14" />
+
+		<g font-size="18" fill="#2b2a26">
+			<text x="20" y="272">• působí mezi <tspan font-weight="bold">všemi tělesy</tspan></text>
+			<text x="34" y="298" font-weight="bold">s hmotností</text>
+			<text x="20" y="324">• je vždy <tspan font-weight="bold">přitažlivá</tspan> a <tspan font-weight="bold">vzájemná</tspan></text>
+			<text x="20" y="350">• větší <tspan font-weight="bold">hmotnost</tspan> → větší síla</text>
+			<text x="20" y="376">• větší <tspan font-weight="bold">vzdálenost</tspan> → menší síla</text>
+			<text x="20" y="402">• zákony popsal <tspan font-weight="bold">Isaac Newton</tspan></text>
+		</g>
+	</g>
+
+	<!-- 2: Gravitační pole Země -->
+	<g id="gs-pole">
+		<rect x="8" y="426" width="344" height="392" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+		<circle cx="30" cy="448" r="13" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+		<text x="30" y="454" text-anchor="middle" font-size="18" font-weight="bold" fill="#c92a2a">2</text>
+		<text x="52" y="455" font-size="20" font-weight="bold" fill="#2b2a26">Gravitační pole Země</text>
+
+		<!-- Země, střed (104,592), poloměr 50 -->
+		<circle cx="104" cy="592" r="50" fill="#4dabf7" stroke="#1864ab" stroke-width="3" />
+		<path d="M76,566 Q90,552 106,562 Q102,580 86,584 Z M106,600 Q130,592 138,610 Q124,626 108,618 Z M68,606 Q76,600 82,610 Q76,618 70,614 Z" fill="#69db7c" stroke="#2b8a3e" stroke-width="1.5" />
+		<path d="M96,584 L112,600 M112,584 L96,600" stroke="#c92a2a" stroke-width="4" stroke-linecap="round" />
+
+		<!-- šipky do středu Země: od tělesa, hrot na povrchu -->
+		<use href="#gs-sipka" transform="translate(104,510) rotate(90)" />
+		<use href="#gs-sipka" transform="translate(186,592) rotate(180)" />
+		<use href="#gs-sipka" transform="translate(104,674) rotate(-90)" />
+		<use href="#gs-sipka" transform="translate(46,534) rotate(45)" />
+
+		<!-- jablko nahoře -->
+		<g>
+			<path d="M104,490 C96,483 88,488 89,497 C90,506 97,510 104,508 C111,510 118,506 119,497 C120,488 112,483 104,490 Z" fill="#e03131" stroke="#2b2a26" stroke-width="1.5" />
+			<line x1="104" y1="490" x2="106" y2="482" stroke="#5c3d1e" stroke-width="2" />
+			<path d="M106,485 Q113,479 118,483 Q112,489 106,485 Z" fill="#40c057" stroke="#2b8a3e" stroke-width="1" />
+		</g>
+
+		<!-- družice vpravo: tělo, dva solární panely, anténa -->
+		<g>
+			<rect x="191" y="584" width="14" height="18" rx="2" fill="#ffd43b" stroke="#2b2a26" stroke-width="1.5" />
+			<line x1="198" y1="584" x2="198" y2="570" stroke="#2b2a26" stroke-width="1.5" />
+			<rect x="186" y="562" width="24" height="8" fill="#1971c2" stroke="#2b2a26" stroke-width="1" />
+			<line x1="194" y1="562" x2="194" y2="570" stroke="#a5d8ff" stroke-width="1" />
+			<line x1="202" y1="562" x2="202" y2="570" stroke="#a5d8ff" stroke-width="1" />
+			<line x1="198" y1="602" x2="198" y2="614" stroke="#2b2a26" stroke-width="1.5" />
+			<rect x="186" y="614" width="24" height="8" fill="#1971c2" stroke="#2b2a26" stroke-width="1" />
+			<line x1="194" y1="614" x2="194" y2="622" stroke="#a5d8ff" stroke-width="1" />
+			<line x1="202" y1="614" x2="202" y2="622" stroke="#a5d8ff" stroke-width="1" />
+			<path d="M205,588 L212,582 M209,578 Q216,580 214,587" fill="none" stroke="#2b2a26" stroke-width="1.5" />
+		</g>
+
+		<!-- míček dole -->
+		<g>
+			<circle cx="104" cy="686" r="11" fill="#fab005" stroke="#2b2a26" stroke-width="1.5" />
+			<path d="M95,679 Q104,686 95,693 M113,679 Q104,686 113,693" fill="none" stroke="#ffffff" stroke-width="2" />
+		</g>
+
+		<!-- astronaut vlevo nahoře: helma s hledím, batoh, ruce, nohy -->
+		<g>
+			<rect x="15" y="514" width="8" height="16" rx="2" fill="#adb5bd" stroke="#2b2a26" stroke-width="1.2" />
+			<rect x="21" y="514" width="16" height="17" rx="4" fill="#ffffff" stroke="#2b2a26" stroke-width="1.5" />
+			<circle cx="29" cy="506" r="9" fill="#ffffff" stroke="#2b2a26" stroke-width="1.5" />
+			<rect x="24" y="502" width="11" height="7" rx="3" fill="#1971c2" />
+			<path d="M37,517 L44,523 M21,518 L15,532" stroke="#2b2a26" stroke-width="3" stroke-linecap="round" />
+			<path d="M26,531 L24,540 M33,531 L37,539" stroke="#2b2a26" stroke-width="3.5" stroke-linecap="round" />
+			<line x1="23" y1="522" x2="35" y2="522" stroke="#e03131" stroke-width="2" />
+		</g>
+		<text x="104" y="726" text-anchor="middle" font-size="18" fill="#2b2a26">do středu Země</text>
+
+		<!-- u povrchu: jablko padá svisle dolů, šipka Fg vychází z jablka -->
+		<text x="292" y="484" text-anchor="middle" font-size="18" fill="#2b2a26">u povrchu</text>
+		<text x="292" y="506" text-anchor="middle" font-size="18" font-weight="bold" fill="#2b2a26">svisle dolů</text>
+		<!-- oddělení: vlevo Země z vesmíru, vpravo pohled zblízka u povrchu -->
+		<line x1="228" y1="474" x2="228" y2="732" stroke="#adb5bd" stroke-width="2" stroke-dasharray="6 6" />
+		<rect x="236" y="680" width="112" height="50" fill="#f8f0e6" stroke="#d9b48f" stroke-width="1.5" />
+		<line x1="236" y1="680" x2="348" y2="680" stroke="#2b8a3e" stroke-width="4" />
+		<rect x="274" y="586" width="12" height="94" fill="#8d5a2b" stroke="#5c3d1e" stroke-width="1.5" />
+		<!-- koruna z listí: obrys (tmavé kruhy), výplň (světlé kruhy), náznak lístků -->
+		<g fill="#2b8a3e">
+			<circle cx="280" cy="556" r="28" /><circle cx="258" cy="550" r="20" /><circle cx="302" cy="550" r="20" />
+			<circle cx="268" cy="532" r="19" /><circle cx="292" cy="532" r="19" /><circle cx="280" cy="574" r="20" />
+		</g>
+		<g fill="#8ce99a">
+			<circle cx="280" cy="556" r="25.5" /><circle cx="258" cy="550" r="17.5" /><circle cx="302" cy="550" r="17.5" />
+			<circle cx="268" cy="532" r="16.5" /><circle cx="292" cy="532" r="16.5" /><circle cx="280" cy="574" r="17.5" />
+		</g>
+		<g fill="none" stroke="#40c057" stroke-width="2" stroke-linecap="round">
+			<path d="M262,540 q5,-6 10,0" /><path d="M286,528 q5,-6 10,0" /><path d="M270,560 q5,-6 10,0" />
+			<path d="M292,556 q5,-6 10,0" /><path d="M252,556 q5,-6 10,0" /><path d="M278,578 q5,-6 10,0" />
+		</g>
+		<line x1="304" y1="576" x2="304" y2="583" stroke="#5c3d1e" stroke-width="2" />
+		<g class="gs-jablko">
+			<path d="M304,585 C300,581 296,584 296,589 C296,594 300,597 304,596 C308,597 312,594 312,589 C312,584 308,581 304,585 Z" fill="#e03131" stroke="#2b2a26" stroke-width="1.2" />
+			<line x1="304" y1="590" x2="304" y2="626" stroke="#c92a2a" stroke-width="4" />
+			<polygon points="304,640 297,625 311,625" fill="#c92a2a" />
+			<text x="314" y="624" font-size="20" font-weight="bold" fill="#c92a2a">F<tspan font-size="15" dy="5">g</tspan></text>
+		</g>
+
+		<g font-size="18" fill="#2b2a26">
+			<text x="20" y="756">• na každý <tspan font-weight="bold">1 kg</tspan> působí asi <tspan font-weight="bold">10 N</tspan></text>
+			<text x="20" y="782">• g = <tspan font-weight="bold">10 N/kg</tspan></text>
+			<text x="20" y="808">• na Měsíci je g <tspan font-weight="bold">6× menší</tspan></text>
+		</g>
+	</g>
+
+	<!-- 3: Řešené příklady -->
+	<g id="gs-priklady">
+		<rect x="8" y="832" width="344" height="232" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+		<circle cx="30" cy="854" r="13" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+		<text x="30" y="860" text-anchor="middle" font-size="18" font-weight="bold" fill="#c92a2a">3</text>
+		<text x="52" y="861" font-size="20" font-weight="bold" fill="#2b2a26">Řešené příklady</text>
+		<g font-size="18" fill="#2b2a26">
+			<text x="20" y="894">• batoh 2 kg: F<tspan font-size="15" dy="5">g</tspan><tspan dy="-5" dx="5">= 2 · 10 =</tspan><tspan font-weight="bold" dx="5">20 N</tspan></text>
+			<text x="20" y="920">• auto 1 200 kg:</text>
+			<text x="34" y="946">F<tspan font-size="15" dy="5">g</tspan><tspan dy="-5" dx="5">=</tspan><tspan font-weight="bold" dx="5">12 000 N = 12 kN</tspan></text>
+			<text x="20" y="972">• obráceně: F<tspan font-size="15" dy="5">g</tspan><tspan dy="-5" dx="5">= 8 kN = 8 000 N</tspan></text>
+			<text x="34" y="998">m = 8 000 : 10 = <tspan font-weight="bold">800 kg</tspan></text>
+			<text x="20" y="1024" font-weight="bold" fill="#c92a2a">• hmotnost vždy v kilogramech!</text>
+			<text x="34" y="1050">1 t = 1 000 kg · 1 kN = 1 000 N</text>
+		</g>
+	</g>
+
+	<!-- vzorec -->
+	<rect x="30" y="1078" width="300" height="112" rx="12" fill="#2b2a26" />
+	<text x="180" y="1132" text-anchor="middle" font-size="40" font-weight="bold" fill="#ffffff">F<tspan font-size="26" dy="9">g</tspan><tspan dy="-9" dx="10">= m · g</tspan></text>
+	<text x="180" y="1170" text-anchor="middle" font-size="18" fill="#ffd8a8">g = 10 N/kg · m = F<tspan font-size="15" dy="5">g</tspan><tspan dy="-5" dx="5">: g</tspan></text>
+</svg>

@@ -1,0 +1,19 @@
+---
+// Účinnost — F8 statická infografika (tahák, bez interakce a bez JS; OBSAH-PRAVIDLA kap. 12 bod 7).
+// JEDINÝ DOMOV obsahu je SVG v public/materialy/…/ucinnost/infografika-ucinnost.svg (zapojení položkou
+// `materialy` druh 'infografika'); tahle komponenta ho jen vkládá jako <img> — obsah se tu neopakuje.
+// Bez rámečku s paddingem, ať je šířka obrázku stejná jako u materiálů: na 375 px ≈ 315 px → měřítko 0,750,
+// písmo 19 → 14,2 px, indexy 17 → 12,7 px. Animace (CSS uvnitř SVG) běží i v <img>.
+const cesta = '/materialy/fyzika/8-rocnik/mechanicka-prace-a-vykon/ucinnost/infografika-ucinnost.svg';
+---
+
+<figure class="infografika">
+	<img src={cesta} alt="Infografika účinnost: příkon vstupuje do stroje, výkon je užitečná část a zbytek jsou ztráty; η = P : P₀; výkon 3 a příkon 4 dává 75 %; motor výtahu 960 W s účinností 96 % potřebuje příkon 1 000 W, parní stroj s účinností 20 % příkon 4 800 W" loading="lazy" width="420" height="1168" />
+	<figcaption>Infografika: Účinnost — tahák</figcaption>
+</figure>
+
+<style>
+	.infografika { margin: 1.5rem 0; text-align: center; }
+	.infografika img { max-width: min(100%, 34rem); height: auto; border: 2.5px solid #2b2a26; border-radius: 12px; }
+	.infografika figcaption { margin-top: 0.4rem; }
+</style>
