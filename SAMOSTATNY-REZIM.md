@@ -2,6 +2,8 @@
 
 - **AKTUÁLNÍ PŘEDÁVKA 6. 10. 2026: `~/Desktop/Omega/predavka/2026-10-06/PRIKAZ-NOVA-SESSION-OMEGA.md`** — KROK 0, stav (společná fronta renderů, video_pas, C fáze 1–2, Codex, 91 laborek), rozpracované díly, čeká na učitele, další kroky. Číst jako první. Souběžná předávka B (sjednocení souborů, přenos dat Intel → Book): `~/Desktop/Omega/predavka/2026-10-06/PRIKAZ-NOVA-SESSION-PRENOS-DAT.md`. Starší: `predavka/2026-10-05/PRIKAZ-NOVA-SESSION-4.md`.
 
+- **PRŮBĚŽNÁ PŘEDÁVKA 14. 10. 2026: `~/Desktop/Omega/predavka/2026-10-14/PREDAVKA-14-10.md`** — nasazeno do d8eeb62 (ověřeno curl), dávka 8 čeká na zápis, animace bez renderu, limit 5h okna (max 4 workeři). Číst jako první.
+
 - **PRŮBĚŽNÁ PŘEDÁVKA 13. 10. 2026 (vlna 1): `~/Desktop/Omega/predavka/2026-10-13/PREDAVKA-VLNA1.md`** — režim (nic na mini, LOKAL_PAUZA, hodinová úloha pozastavena), nasazeno 90e2b6d/9888fd0/0bbbfad, rozpracováno, odloženo.
 
 - **Codex:** rozdělení `Omega/koordinace/ROZDELENI.md`, kontext `CODEX-KONTEXT-WEBU.md`; Jev — souhlas učitele 30. 9. s podmínkou; mini GPU funkční. **Noční fronta:** animace + podkasty zapnuty 30. 9.
@@ -19,6 +21,8 @@ popsán, ne odstraněn (jeden platný návod) + zalomená cesta.
 
 ## ❓ Otevřené dotazy na učitele (jediná sekce, oprava V8-6, 27. 9. 2026)
 
+
+- **14. 10. 2026 — nové dotazy (podrobně `Omega/predavka/2026-10-14/PREDAVKA-14-10.md`):** (1) Cloudflare Always Use HTTPS (viz níže); (2) 20 dalších odkazů ČT edu vede na video + 3 nefunkční (`2026-10-14/KONTROLA-5b9d5e2.md`) — odstranit? (3) laborka pro kvarky nedává smysl (zrušeno) — vyjmout z měřidla? (4) doplňky ke shrnutím (laborka pololetni-shrnuti F8 napsaná, POZASTAVENA) — dělat? (5) obr-11 u alternátoru má čísla mimo výklad; (6) úvod těžiště „prst podpírá těžiště“ — těžiště je nad prstem.
 
 - **13. 10. 2026 (vlna 1) — dotazy:** (1) odkaz na video ČT edu v temata.ts ~ř. 2668 (zákon zachování energie) porušuje zákaz cizích videí — odstranit? (2) 4 podtémata bez vhodného českého odkazu (ucinnost, alternator, elektromotor, vlastnosti střídavého proudu); (3) nesoulad výkladu a kvízu pololetí F9 (temata.ts ~3621 × kvizy.ts ~6154); (4) necommitovaná stará zamítnutá `SilaInfografika.astro` (v1) — odstranit? (5) scénář 8/rocni-shrnuti ODLOŽEN (3× neprošel), rozhodnout spolu s 7/rocni-shrnuti. Podrobně `Omega/predavka/2026-10-13/PREDAVKA-VLNA1.md`.
 
