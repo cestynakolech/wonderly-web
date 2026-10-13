@@ -1,4 +1,6 @@
 ---
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import SkolaLayout from '../../../../../../layouts/SkolaLayout.astro';
 import Zamek from '../../../../../../components/skola2/Zamek.astro';
 import Kviz from '../../../../../../components/skola2/Kviz.astro';
@@ -219,6 +221,19 @@ const rozcestnik = [
 ].filter(Boolean);
 
 const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
+
+// Panelové infografiky (pole `panely`): popisek panelu = <title> z jeho SVG
+// (každý panel má vlastní nadpis), jinak „název — část i/n".
+const jeSvg = (cesta: string) => /\.svg$/i.test(cesta ?? '');
+const titulekPanelu = (cesta: string, i: number, n: number, nazev: string) => {
+	try {
+		const svg = readFileSync(join(process.cwd(), 'public', cesta), 'utf8');
+		const t = svg.match(/<title>([^<]+)<\/title>/);
+		if (t) return t[1].trim();
+	} catch {}
+	return `${nazev} — část ${i + 1} z ${n}`;
+};
+const maPanely = mat.some((m) => m.druh === 'infografika' && (m.panely?.length ?? 0) > 0);
 ---
 
 <SkolaLayout
@@ -321,12 +336,48 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 				<h2><span class="podtrh">Materiály k tématu 📚</span></h2>
 				{podtema.materialy
 					.filter((m) => m.druh === 'infografika')
-					.map((m, i) => (
-						<figure class="infografika" id={i === 0 ? 'infografiky' : undefined}>
-							<img src={m.cesta} alt={m.nazev} loading="lazy" />
-							<figcaption>{m.nazev}</figcaption>
-						</figure>
-					))}
+					.map((m, i) =>
+						m.panely && m.panely.length > 0 ? (
+							<figure class="infografika infografika-panelova" id={i === 0 ? 'infografiky' : undefined}>
+								<div class="infografika-mrizka">
+									{m.panely.map((p, j) => {
+										const titulek = titulekPanelu(p, j, m.panely!.length, m.nazev);
+										return (
+											<button type="button" class="infografika-panel" data-index={j} aria-label={`Zvětšit: ${titulek}`}>
+												<img src={p} alt={titulek} loading="lazy" />
+											</button>
+										);
+									})}
+								</div>
+								<figcaption>
+									{m.nazev}
+									<button type="button" class="infografika-zvetsit" data-index="0">⛶ Zvětšit</button>
+								</figcaption>
+							</figure>
+						) : (
+							<figure class="infografika" id={i === 0 ? 'infografiky' : undefined}>
+								<img src={m.cesta} alt={m.nazev} loading="lazy" class={jeSvg(m.cesta) ? 'je-svg' : undefined} />
+								<figcaption>{m.nazev}</figcaption>
+							</figure>
+						),
+					)}
+				{maPanely && (
+					<dialog class="infografika-lupa" aria-label="Zvětšená infografika">
+						<div class="lupa-obal">
+						<div class="lupa-lista">
+							<span class="lupa-pocet" aria-live="polite"></span>
+							<span class="lupa-nazev"></span>
+							<button type="button" class="lupa-cela" aria-label="Celá obrazovka">⛶</button>
+							<button type="button" class="lupa-zavrit" aria-label="Zavřít (Esc)">✕</button>
+						</div>
+						<div class="lupa-plocha">
+							<button type="button" class="lupa-sip lupa-vlevo" aria-label="Předchozí panel (šipka vlevo)">‹</button>
+							<img alt="" />
+							<button type="button" class="lupa-sip lupa-vpravo" aria-label="Další panel (šipka vpravo)">›</button>
+						</div>
+						</div>
+					</dialog>
+				)}
 				{podtema.materialy
 					.filter((m) => m.druh === 'video' && !jeZvuk(m))
 					.map((m, i) => (
@@ -559,6 +610,74 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	</Zamek>
 </SkolaLayout>
 
+<script>
+	// Lupa panelových infografik: klik na panel / „Zvětšit" → <dialog> přes celou
+	// obrazovku (na tabuli se zkusí i režim celé obrazovky), šipky ←/→ listují, Esc
+	// zavře (nativně u <dialog>). Bez knihoven.
+	const lupa = document.querySelector<HTMLDialogElement>('dialog.infografika-lupa');
+	if (lupa) {
+		const obr = lupa.querySelector('img')!;
+		const pocet = lupa.querySelector('.lupa-pocet')!;
+		const nazev = lupa.querySelector('.lupa-nazev')!;
+		let panely: HTMLImageElement[] = [];
+		let ted = 0;
+		let odkud: HTMLElement | null = null;
+		const ukaz = (i: number) => {
+			if (!panely.length) return;
+			ted = (i + panely.length) % panely.length;
+			obr.src = panely[ted].currentSrc || panely[ted].src;
+			obr.alt = panely[ted].alt;
+			nazev.textContent = panely[ted].alt;
+			pocet.textContent = `${ted + 1} / ${panely.length}`;
+			const jediny = panely.length < 2;
+			lupa.querySelectorAll<HTMLElement>('.lupa-sip').forEach((b) => (b.hidden = jediny));
+		};
+		const celaObrazovka = () => {
+			if (document.fullscreenElement) document.exitFullscreen?.();
+			// celou obrazovku dostane obal UVNITŘ dialogu: <dialog> sám fullscreen být nesmí
+			// a fullscreen <html> by se v top-layer položil NAD dialog (ověřeno v Chromiu)
+			else lupa.querySelector<HTMLElement>('.lupa-obal')!.requestFullscreen?.().catch(() => {});
+		};
+		document.addEventListener('click', (e) => {
+			const t = e.target as HTMLElement;
+			const spoustec = t.closest<HTMLElement>('.infografika-panel, .infografika-zvetsit');
+			if (spoustec) {
+				const figura = spoustec.closest('.infografika-panelova')!;
+				panely = [...figura.querySelectorAll<HTMLImageElement>('.infografika-panel img')];
+				odkud = spoustec;
+				lupa.showModal();
+				ukaz(Number(spoustec.dataset.index ?? 0));
+				// velká obrazovka (tabule) → rovnou celá obrazovka; telefon ne
+				if (window.matchMedia('(min-width: 900px)').matches && !document.fullscreenElement) celaObrazovka();
+				return;
+			}
+			if (!lupa.open) return;
+			if (t.closest('.lupa-vlevo')) ukaz(ted - 1);
+			else if (t.closest('.lupa-vpravo')) ukaz(ted + 1);
+			else if (t.closest('.lupa-cela')) celaObrazovka();
+			else if (t.closest('.lupa-zavrit') || t === lupa || t.classList.contains('lupa-plocha')) lupa.close();
+		});
+		lupa.addEventListener('keydown', (e) => {
+			if (e.key === 'ArrowLeft') { e.preventDefault(); ukaz(ted - 1); }
+			if (e.key === 'ArrowRight') { e.preventDefault(); ukaz(ted + 1); }
+		});
+		// tažení prstem na telefonu / tabuli
+		let startX: number | null = null;
+		obr.addEventListener('pointerdown', (e) => (startX = e.clientX));
+		obr.addEventListener('pointerup', (e) => {
+			if (startX === null) return;
+			const dx = e.clientX - startX;
+			startX = null;
+			if (Math.abs(dx) > 50) ukaz(dx < 0 ? ted + 1 : ted - 1);
+		});
+		lupa.addEventListener('close', () => {
+			if (document.fullscreenElement) document.exitFullscreen?.();
+			obr.removeAttribute('src');
+			odkud?.focus();
+		});
+	}
+</script>
+
 <style is:global>
 	.sousedni-podtemata {
 		display: flex;
@@ -781,6 +900,152 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 		border: 2.5px solid var(--inkoust);
 		border-radius: 12px;
 		box-shadow: 2px 3px 0 rgba(43, 42, 38, 0.14);
+	}
+	/* SVG infografiky jsou ostré v každé velikosti → šířka celého sloupce (JPG/PNG drží 34rem) */
+	.infografika img.je-svg {
+		width: 100%;
+		max-width: 100%;
+	}
+	/* Panelová infografika (pole `panely`): mřížka přes celou šířku sloupce,
+	   1 sloupec na telefonu, 2–3 na širokém displeji */
+	.infografika-mrizka {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+		gap: 1rem;
+		align-items: start;
+	}
+	.infografika-panel {
+		display: block;
+		width: 100%;
+		padding: 0;
+		border: 0;
+		background: none;
+		cursor: zoom-in;
+		border-radius: 12px;
+	}
+	.infografika-panel:focus-visible,
+	.infografika-zvetsit:focus-visible,
+	.infografika-lupa button:focus-visible {
+		outline: 4px solid var(--oranzova);
+		outline-offset: 3px;
+	}
+	.infografika .infografika-panel img {
+		display: block;
+		width: 100%;
+		max-width: 100%;
+	}
+	.infografika-zvetsit {
+		margin-left: 0.6rem;
+		padding: 0.35rem 0.9rem;
+		font: inherit;
+		font-weight: 600;
+		color: var(--inkoust);
+		background: #fff;
+		border: 2.5px solid var(--inkoust);
+		border-radius: 999px;
+		box-shadow: 2px 3px 0 rgba(43, 42, 38, 0.14);
+		cursor: pointer;
+	}
+	.infografika-zvetsit:hover {
+		background: #fff4e6;
+	}
+	/* Lupa: celá plocha okna; obrázek co největší (object-fit: contain) */
+	.infografika-lupa {
+		width: 100vw;
+		height: 100vh;
+		height: 100dvh;
+		max-width: none;
+		max-height: none;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		background: #f8f9fa;
+		color: var(--inkoust);
+	}
+	.lupa-obal {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		height: 100%;
+		background: #f8f9fa;
+	}
+	.infografika-lupa::backdrop {
+		background: rgba(0, 0, 0, 0.6);
+	}
+	.lupa-lista {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		padding: 0.4rem 0.8rem;
+		border-bottom: 2px solid #dee2e6;
+		font-size: 1.1rem;
+	}
+	.lupa-pocet {
+		font-weight: 700;
+		white-space: nowrap;
+	}
+	.lupa-nazev {
+		flex: 1;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	.lupa-plocha {
+		flex: 1;
+		min-height: 0;
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.5rem 4rem;
+	}
+	.lupa-plocha img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		touch-action: pan-y;
+	}
+	.infografika-lupa button {
+		flex: none;
+		width: 3rem;
+		height: 3rem;
+		font-size: 1.6rem;
+		line-height: 1;
+		color: var(--inkoust);
+		background: #fff;
+		border: 2.5px solid var(--inkoust);
+		border-radius: 50%;
+		cursor: pointer;
+	}
+	.lupa-sip {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 3.4rem !important;
+		height: 3.4rem !important;
+		font-size: 2.2rem !important;
+	}
+	.lupa-vlevo {
+		left: 0.4rem;
+	}
+	.lupa-vpravo {
+		right: 0.4rem;
+	}
+	@media (max-width: 600px) {
+		.lupa-plocha {
+			padding: 0.3rem 0.3rem 4.5rem;
+		}
+		.lupa-sip {
+			top: auto;
+			bottom: 0.5rem;
+			transform: none;
+		}
+		.lupa-vlevo {
+			left: calc(50% - 4rem);
+		}
+		.lupa-vpravo {
+			right: calc(50% - 4rem);
+		}
 	}
 	.video video {
 		max-width: min(100%, 34rem);

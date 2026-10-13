@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 1518 460 410" width="460" height="410" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Práce při zvedání: zvedáme silou stejně velkou jako tíhová síla, jen nahoru. F = m · g, g = 10 N/kg, W = m · g · s. Chlapec zvedne závaží 5 kg o 1 m: F = 5 · 10 = 50 N, W = 50 · 1 = 50 J, koná práci.">
+	<title>Mechanická práce 4/4: Práce při zvedání</title>
+	<!-- Panel 4/4 výřezu z infografika-mechanicka-prace.svg (souřadnice beze změny, jen viewBox).
+	     Otáčení paže: transform-box fill-box není stabilní (rámeček skupiny se při otáčení mění), proto
+	     view-box + transform-origin v uživatelských souřadnicích; ověřeno v Chromiu na prvním snímku animace. -->
+	<style>
+		.mpa-paze { animation: mpa-paze 6s ease-in-out infinite; transform-box: view-box; transform-origin: 410px 1700px; }
+		.mpa-visi { animation: mpa-visi 6s ease-in-out infinite; transform-box: view-box; transform-origin: 351px 1670px; }
+		@keyframes mpa-paze { 0%, 15% { transform: rotate(-75.95deg); } 65%, 100% { transform: rotate(0deg); } }
+		@keyframes mpa-visi { 0%, 15% { transform: rotate(75.95deg); } 65%, 100% { transform: rotate(0deg); } }
+		@media (prefers-reduced-motion: reduce) {
+			.mpa-paze, .mpa-visi { animation: none; }
+		}
+	</style>
+	<defs>
+		<marker id="mpa-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#c92a2a" /></marker>
+		<marker id="mpa-mod" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="13" refY="8" orient="auto-start-reverse"><path d="M0,0 L16,8 L0,16 z" fill="#1971c2" /></marker>
+	</defs>
+
+	<rect x="0" y="1518" width="460" height="410" fill="#f8f9fa" />
+	<g id="mpa-zvedani">
+		<rect x="10" y="1528" width="440" height="390" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+		<text x="26" y="1562" font-size="25" font-weight="bold" fill="#2b2a26">Práce při zvedání</text>
+		<text x="26" y="1594" font-size="22" fill="#2b2a26">Zvedáme silou stejně velkou</text>
+		<text x="26" y="1622" font-size="22" fill="#2b2a26">jako tíhová síla, jen nahoru.</text>
+		<text x="26" y="1666" font-size="23" font-weight="bold" fill="#c92a2a">F = m · g</text>
+		<text x="26" y="1696" font-size="22" fill="#2b2a26">g = 10 N/kg</text>
+		<text x="26" y="1732" font-size="24" font-weight="bold" fill="#2b2a26">W = m · g · s</text>
+
+		<line x1="290" y1="1790" x2="440" y2="1790" stroke="#495057" stroke-width="3" />
+		<path d="M357,1758 Q367,1742 377,1758" fill="none" stroke="#868e96" stroke-width="2" stroke-dasharray="4,3" />
+		<path d="M339,1788 L346,1758 L388,1758 L395,1788 z" fill="none" stroke="#868e96" stroke-width="2" stroke-dasharray="5,4" />
+		<circle cx="410" cy="1686" r="11" fill="#ffd8a8" stroke="#495057" stroke-width="2" />
+		<line x1="410" y1="1698" x2="410" y2="1745" stroke="#343a40" stroke-width="9" stroke-linecap="round" />
+		<line x1="410" y1="1745" x2="402" y2="1790" stroke="#343a40" stroke-width="6" stroke-linecap="round" />
+		<line x1="410" y1="1745" x2="420" y2="1790" stroke="#343a40" stroke-width="6" stroke-linecap="round" />
+		<g class="mpa-paze">
+			<line x1="410" y1="1700" x2="351" y2="1670" stroke="#343a40" stroke-width="5" stroke-linecap="round" />
+			<g class="mpa-visi">
+				<path d="M341,1678 Q351,1662 361,1678" fill="none" stroke="#495057" stroke-width="4" />
+				<path d="M323,1708 L330,1678 L372,1678 L379,1708 z" fill="#adb5bd" stroke="#495057" stroke-width="2" />
+				<text x="351" y="1702" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2a26">5 kg</text>
+				<line x1="351" y1="1665" x2="351" y2="1630" stroke="#c92a2a" stroke-width="6" marker-end="url(#mpa-cer)" />
+				<text x="338" y="1654" text-anchor="end" font-size="22" font-weight="bold" fill="#c92a2a">F</text>
+			</g>
+		</g>
+		<line x1="296" y1="1786" x2="296" y2="1710" stroke="#1971c2" stroke-width="4" marker-start="url(#mpa-mod)" marker-end="url(#mpa-mod)" />
+		<text x="286" y="1752" text-anchor="end" font-size="22" font-weight="bold" fill="#1971c2">s = 1 m</text>
+
+		<text x="26" y="1834" font-size="22" font-weight="bold" fill="#2b2a26">Chlapec zvedne závaží 5 kg o 1 m:</text>
+		<text x="26" y="1866" font-size="22" fill="#c92a2a">F = 5 · 10 = 50 N</text>
+		<text x="26" y="1898" font-size="22" fill="#2b2a26">W = 50 · 1 = <tspan font-weight="bold">50 J</tspan> → <tspan font-weight="bold" fill="#1e7a34">koná práci</tspan></text>
+	</g>
+</svg>

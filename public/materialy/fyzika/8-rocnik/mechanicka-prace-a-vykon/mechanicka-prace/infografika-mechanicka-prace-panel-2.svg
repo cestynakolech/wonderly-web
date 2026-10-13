@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 418 460 408" width="460" height="408" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Vzorec a jednotky mechanické práce: W = F · s, práce = síla · dráha, F = W : s, s = W : F. Práce W v joulech (J), síla F v newtonech (N), dráha s v metrech (m). 1 J = 1 N · 1 m, 1 kJ = 1 000 J, 1 MJ = 1 000 000 J.">
+	<title>Mechanická práce 2/4: Vzorec a jednotky</title>
+	<!-- Panel 2/4 výřezu z infografika-mechanicka-prace.svg (souřadnice beze změny, jen viewBox). Bez animace. -->
+	<rect x="0" y="418" width="460" height="408" fill="#f8f9fa" />
+	<g id="mpa-vzorec">
+		<rect x="10" y="428" width="440" height="388" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+		<text x="26" y="462" font-size="25" font-weight="bold" fill="#2b2a26">Vzorec a jednotky</text>
+		<text x="230" y="518" text-anchor="middle" font-size="46" font-weight="bold" fill="#2b2a26">W = <tspan fill="#c92a2a">F</tspan> · <tspan fill="#1971c2">s</tspan></text>
+		<text x="230" y="550" text-anchor="middle" font-size="22" fill="#495057">práce = síla · dráha</text>
+		<text x="130" y="584" text-anchor="middle" font-size="22" fill="#2b2a26"><tspan fill="#c92a2a">F</tspan> = W : <tspan fill="#1971c2">s</tspan></text>
+		<text x="330" y="584" text-anchor="middle" font-size="22" fill="#2b2a26"><tspan fill="#1971c2">s</tspan> = W : <tspan fill="#c92a2a">F</tspan></text>
+		<line x1="26" y1="600" x2="434" y2="600" stroke="#ced4da" stroke-width="1.5" />
+		<text x="40" y="632" font-size="22" font-weight="bold" fill="#2b2a26">W</text>
+		<text x="80" y="632" font-size="22" fill="#2b2a26">práce</text>
+		<text x="220" y="632" font-size="22" fill="#2b2a26">joule (J)</text>
+		<text x="40" y="664" font-size="22" font-weight="bold" fill="#c92a2a">F</text>
+		<text x="80" y="664" font-size="22" fill="#2b2a26">síla</text>
+		<text x="220" y="664" font-size="22" fill="#2b2a26">newton (N)</text>
+		<text x="40" y="696" font-size="22" font-weight="bold" fill="#1971c2">s</text>
+		<text x="80" y="696" font-size="22" fill="#2b2a26">dráha</text>
+		<text x="220" y="696" font-size="22" fill="#2b2a26">metr (m)</text>
+		<line x1="26" y1="712" x2="434" y2="712" stroke="#ced4da" stroke-width="1.5" />
+		<text x="230" y="742" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2a26">1 J = 1 N · 1 m</text>
+		<text x="230" y="772" text-anchor="middle" font-size="22" fill="#2b2a26">1 kJ = 1 000 J</text>
+		<text x="230" y="802" text-anchor="middle" font-size="22" fill="#2b2a26">1 MJ = 1 000 000 J</text>
+	</g>
+</svg>

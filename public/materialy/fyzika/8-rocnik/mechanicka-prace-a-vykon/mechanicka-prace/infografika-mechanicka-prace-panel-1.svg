@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 70 460 354" width="460" height="354" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Kdy se práce koná: síla působí a těleso se posune ve směru síly. Michal postrčí vozík silou 20 N o 10 m, W = F · s = 20 · 10 = 200 J, koná práci.">
+	<title>Mechanická práce 1/4: Kdy se práce koná?</title>
+	<!-- Panel 1/4 výřezu z infografika-mechanicka-prace.svg (souřadnice beze změny, jen viewBox). -->
+	<style>
+		.mpa-vozik { animation: mpa-jed 6s ease-in-out infinite; }
+		@keyframes mpa-jed { 0%, 15% { transform: translateX(-200px); } 65%, 100% { transform: translateX(0); } }
+		@media (prefers-reduced-motion: reduce) {
+			.mpa-vozik { animation: none; }
+		}
+	</style>
+	<defs>
+		<marker id="mpa-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#c92a2a" /></marker>
+		<marker id="mpa-mod" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="13" refY="8" orient="auto-start-reverse"><path d="M0,0 L16,8 L0,16 z" fill="#1971c2" /></marker>
+	</defs>
+
+	<rect x="0" y="70" width="460" height="354" fill="#f8f9fa" />
+	<g id="mpa-kona">
+		<rect x="10" y="80" width="440" height="334" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+		<text x="26" y="114" font-size="25" font-weight="bold" fill="#2b2a26">Kdy se práce koná?</text>
+		<text x="26" y="146" font-size="22" fill="#2b2a26">Síla působí <tspan font-weight="bold">a</tspan> těleso se posune</text>
+		<text x="26" y="174" font-size="22" fill="#2b2a26">ve směru síly. Platí obojí naráz.</text>
+
+		<line x1="26" y1="300" x2="434" y2="300" stroke="#495057" stroke-width="3" />
+		<rect x="80" y="246" width="70" height="40" rx="4" fill="none" stroke="#868e96" stroke-width="2" stroke-dasharray="6,4" />
+		<circle cx="96" cy="292" r="8" fill="none" stroke="#868e96" stroke-width="2" stroke-dasharray="3,3" />
+		<circle cx="134" cy="292" r="8" fill="none" stroke="#868e96" stroke-width="2" stroke-dasharray="3,3" />
+		<g class="mpa-vozik">
+			<circle cx="248" cy="236" r="11" fill="#ffd8a8" stroke="#495057" stroke-width="2" />
+			<line x1="252" y1="247" x2="242" y2="276" stroke="#343a40" stroke-width="9" stroke-linecap="round" />
+			<line x1="251" y1="254" x2="280" y2="260" stroke="#343a40" stroke-width="5" stroke-linecap="round" />
+			<line x1="242" y1="276" x2="230" y2="300" stroke="#343a40" stroke-width="6" stroke-linecap="round" />
+			<line x1="242" y1="276" x2="254" y2="300" stroke="#343a40" stroke-width="6" stroke-linecap="round" />
+			<rect x="280" y="246" width="70" height="40" rx="4" fill="#ffe8cc" stroke="#e8590c" stroke-width="3" />
+			<circle cx="296" cy="292" r="8" fill="#495057" />
+			<circle cx="334" cy="292" r="8" fill="#495057" />
+			<line x1="281" y1="260" x2="344" y2="260" stroke="#c92a2a" stroke-width="6" marker-end="url(#mpa-cer)" />
+			<text x="315" y="239" text-anchor="middle" font-size="22" font-weight="bold" fill="#c92a2a">F = 20 N</text>
+		</g>
+		<line x1="115" y1="322" x2="315" y2="322" stroke="#1971c2" stroke-width="4" marker-start="url(#mpa-mod)" marker-end="url(#mpa-mod)" />
+		<text x="330" y="329" font-size="22" font-weight="bold" fill="#1971c2">s = 10 m</text>
+
+		<text x="26" y="368" font-size="22" fill="#2b2a26">W = F · s = 20 · 10 = <tspan font-weight="bold">200 J</tspan></text>
+		<text x="26" y="398" font-size="22" fill="#2b2a26">Michal postrčí vozík → <tspan font-weight="bold" fill="#1e7a34">koná práci</tspan></text>
+	</g>
+</svg>
