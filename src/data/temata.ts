@@ -2546,6 +2546,7 @@ export const temata: Record<string, Tema[]> = {
 							<li><a href="https://wordwall.net/cs/resource/80876088" target="_blank" rel="noopener">Skládání sil — kvíz</a></li>
 						</ul>
 					`,
+					uvod: "Představ si, že balíš batoh na výlet a kontroluješ, jestli v něm máš všechno potřebné. Tady uděláš totéž s fyzikou: projdeš, co jsme se naučili o pohybu, silách, jednoduchých strojích a tlaku v kapalinách. Co ti ještě nejde, si zopakuj a pak se zkus ověřit kvízem.",
 					zapis: {
 						body: [
 							'Čím delší dráhu těleso urazí za stejný čas, tím je rychlejší.',
@@ -2594,6 +2595,7 @@ export const temata: Record<string, Tema[]> = {
 							<li>zákon odrazu α′ = α; ohnisko kulového zrcadla f = r : 2</li>
 						</ul>
 					`,
+					uvod: "Na konci výletu se rádi podíváme zpátky, kudy jsme šli. Tady se podíváš na celý rok fyziky: od pohybu a sil přes tlak a plování lodí až po světlo, zrcadla a duhu. Je to mapa všeho, co už znáš, a kvíz ti ukáže, kde ještě potřebuješ zabrat.",
 					zapis: {
 						body: [
 							'Čím delší dráhu těleso urazí za stejný čas, tím je rychlejší.',
@@ -3206,6 +3208,7 @@ export const temata: Record<string, Tema[]> = {
 							<li>skupenské teplo tání Lₜ = lₜ · m (J)</li>
 						</ul>
 					`,
+					uvod: "Když vyběhneš do schodů, něco děláš a potřebuješ k tomu energii. Tady si zopakuješ, jak fyzika mluví o práci, energii a teplu a také o tání a varu. Kvíz na konci ti pomůže zjistit, co už umíš.",
 					zvidave: '<p>Šíření tepla vedením, prouděním a sáláním vysvětluje, jak se teplo předává mezi tělesy.</p>',
 					zapis: {
 						body: [
@@ -3250,6 +3253,7 @@ export const temata: Record<string, Tema[]> = {
 							<li>rychlost zvuku ve vzduchu ≈ 340 m/s</li>
 						</ul>
 					`,
+					uvod: "Celý rok jsme zkoumali věci, které kolem sebe skoro nevidíme, ale pořád je používáme: energii, teplo, elektřinu a zvuk. Třeba kytara zní, protože se její struny chvějí. Tady si to celé poskládáš dohromady a kvíz ti ukáže, co ti už sedí.",
 					zapis: {
 						body: [
 							'Práci koná síla, která posune těleso ve směru síly; výkon je práce za určitý čas.',
@@ -3330,6 +3334,9 @@ export const temata: Record<string, Tema[]> = {
 					uvod: "Malý generátor na kole (lidově dynamo) je přístroj, který rozsvítí světlo, jen když se točí kolo. Uvnitř něj se točí magnet kousek od drátu a v drátu se z toho objeví elektřina. Když magnet stojí, nic se neděje. Tomu říkáme elektromagnetická indukce.",
 					zvidave: "<p>💡 Pusť malý silný magnet do svislé trubky z mědi. Měď sama magnet nepřitahuje, a přesto magnet trubkou padá pomalu. Při jeho pádu se v trubce indukují vířivé proudy, které působí proti pohybu magnetu a brzdí ho. Na stejném principu fungují indukční brzdy.</p>\n<p>💡 Když zasouváš magnet do cívky, která je zapojená do uzavřeného obvodu, cítíš slabý odpor. Ten je cenou za elektřinu: práce tvé ruky se mění na elektrickou energii, a proto se energie neztrácí ani nevzniká z ničeho.</p>",
 					zapis: {"body":["indukce vzniká změnou magnetického pole u cívky","v uzavřeném obvodu vznikne indukovaný proud","magnet v klidu nic neindukuje","větší napětí: rychlejší pohyb, silnější magnet, víc závitů","využití: dynamo, alternátor, transformátor"]},
+					odkazy: [
+						{ nazev: 'Umíme fakta — Elektromagnetická indukce: základy', url: 'https://www.umimefakta.cz/fyzika/cviceni-elektromagneticka-indukce-zaklady' },
+					],
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Elektromagnetická indukce 1', cesta: 'HTQTf58aXBQ' },
 						{ druh: 'youtube', nazev: 'Video: Elektromagnetická indukce 2', cesta: 'gn-CN3StDUs' },
@@ -3638,6 +3645,7 @@ export const temata: Record<string, Tema[]> = {
 							<li>střídavý proud v síti: 50 Hz, 230 V; frekvence f = 1 : T</li>
 						</ul>
 					`,
+					uvod: "V nepatrných částečkách, ze kterých je všechno, se ukrývá obrovská energie a lidé ji umí využívat v jaderných elektrárnách. Zopakuješ si i další zdroje energie a to, jak spolu pracují magnet a elektrický proud, třeba v elektromotoru, který roztáčí ventilátor. Kvíz ti pomůže ověřit, co už umíš.",
 					zapis: {
 						body: [
 							'Jádro atomu tvoří protony a neutrony; některá jádra jsou radioaktivní a vyzařují záření.',
@@ -3658,6 +3666,7 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'rocni-shrnuti',
 					nazev: 'Roční shrnutí',
 					obsah: "\n\t\t\t\t\t\t<h2>Co máš umět za celý 9. ročník</h2>\n\t\t\t\t\t\t<p>Přehled učiva celého ročníku. Dole na stránce najdeš <strong>souhrnný kvíz</strong> z otázek všech témat roku.</p>\n\t\t\t\t\t\t<h3>1. <a href=\"../../magneticke-pole/\">Magnetické pole</a></h3>\n\t\t\t\t\t\t<ul><li>magnety, pole vodiče a cívky, elektromagnet</li></ul>\n\t\t\t\t\t\t<h3>2. <a href=\"../../indukce-a-stridavy-proud/\">Elektromagnetická indukce a střídavý proud</a></h3>\n\t\t\t\t\t\t<ul><li>indukce, alternátor, vlastnosti střídavého proudu, elektromotor, transformátor</li></ul>\n\t\t\t\t\t\t<h3>3. <a href=\"../../elektricky-proud-v-latkach/\">Elektrický proud v látkách</a></h3>\n\t\t\t\t\t\t<ul><li>kapaliny, plyny, polovodiče a dioda, chemické zdroje, přenos elektrické energie</li></ul>\n\t\t\t\t\t\t<h3>4. <a href=\"../../elektricka-energie-a-bezpecnost/\">Elektrická energie a bezpečnost</a></h3>\n\t\t\t\t\t\t<ul><li>přeměny elektrické energie; účinky proudu na organismus a bezpečnost</li></ul>\n\t\t\t\t\t\t<h3>5. <a href=\"../../jaderna-fyzika/\">Jaderná fyzika</a></h3>\n\t\t\t\t\t\t<ul><li>jádro atomu (protony, neutrony, izotopy); radioaktivita (α, β, γ, poločas rozpadu); jaderná energie a reakce; reaktor a jaderná elektrárna</li></ul>\n\t\t\t\t\t\t<h3>6. <a href=\"../../energie-a-vesmir/\">Zdroje energie a vesmír</a></h3>\n\t\t\t\t\t\t<ul><li>obnovitelné a neobnovitelné zdroje energie; sluneční soustava (8 planet, AU, světelný rok, Keplerovy zákony); vesmír a jeho vznik, galaxie a Hubbleův zákon</li></ul>\n\t\t\t\t\t\t<h3>📋 Klíčové vztahy a hodnoty</h3>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>transformátor: U₂ : U₁ = N₂ : N₁</li>\n\t\t\t\t\t\t\t<li>odvozené tvary: U₂ = U₁ · N₂ : N₁, U₁ = U₂ · N₁ : N₂, N₂ = N₁ · U₂ : U₁, N₁ = N₂ · U₁ : U₂; napětí dosazujeme ve stejných jednotkách, počty závitů jsou celá čísla</li>\n\t\t\t\t\t\t\t<li>počet neutronů N = A − Z; vazebná energie E = m · c²</li>\n\t\t\t\t\t\t\t<li>frekvence f = 1 : T; síť 50 Hz a 230 V; výkon P = U · I</li>\n\t\t\t\t\t\t\t<li>záření α (helium), β (elektrony), γ (elektromagnetické) — ochrana vzdáleností, stíněním a časem</li>\n\t\t\t\t\t\t\t<li>1 AU = 150 milionů km; světelný rok = vzdálenost, kterou světlo urazí za rok</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t",
+					uvod: "Elektřina, která rozsvěcí lampu v tvém pokoji, putuje z elektrárny dlouhou cestou. Za celý rok jsme zjistili, jak vzniká, jak ji lidé využívají a jak se před ní chránit. Víme také, co se skrývá uvnitř atomů a jak obrovský je vesmír za oblohou. Tady si všechno srovnáš a kvíz ti ukáže, co ještě procvičit.",
 					zapis: {"body":["magnetické pole, indukce a střídavý proud, proud v látkách a bezpečnost","jaderná fyzika: jádro, radioaktivita, jaderná energie","zdroje energie, sluneční soustava a vesmír"],"vzorec":"U₂ : U₁ = N₂ : N₁","jednotky":["U (V), N bez jednotky"],"vzorecSlovy":"U₁ a U₂ je vstupní a výstupní napětí, N₁ a N₂ je počet závitů vstupní a výstupní cívky"},
 							},
 			],
