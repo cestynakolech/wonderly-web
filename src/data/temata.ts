@@ -2547,6 +2547,7 @@ export const temata: Record<string, Tema[]> = {
 					zapis: {"zakon":"Úhel odrazu se rovná úhlu dopadu.","body":["obraz v rovinném zrcadle je zdánlivý, stejně velký a stejně vzdálený jako předmět","obraz je stranově převrácený, ale vzpřímený","obraz sestrojíme osovou souměrností podle zrcadla","využití: periskop, zrcadlový nápis na sanitce"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Iluze reality — rovinná zrcadla', cesta: 'JsleRYDXXwM' },
+						{ druh: 'infografika', nazev: 'Rovinné zrcadlo v pohybu', cesta: '/materialy/fyzika/7-rocnik/zrcadla-a-cocky/optika-rovinneho-zrcadla/infografika-optika-rovinneho-zrcadla-pohyb-panel-1.svg', panely: ['/materialy/fyzika/7-rocnik/zrcadla-a-cocky/optika-rovinneho-zrcadla/infografika-optika-rovinneho-zrcadla-pohyb-panel-1.svg', '/materialy/fyzika/7-rocnik/zrcadla-a-cocky/optika-rovinneho-zrcadla/infografika-optika-rovinneho-zrcadla-pohyb-panel-2.svg', '/materialy/fyzika/7-rocnik/zrcadla-a-cocky/optika-rovinneho-zrcadla/infografika-optika-rovinneho-zrcadla-pohyb-panel-3.svg'] },
 					],
 				},
 				{

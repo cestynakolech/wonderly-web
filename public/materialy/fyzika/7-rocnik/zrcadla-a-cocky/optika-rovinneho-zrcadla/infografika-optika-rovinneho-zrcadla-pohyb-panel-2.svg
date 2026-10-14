@@ -1,0 +1,102 @@
+<svg viewBox="0 0 460 650" width="460" height="650" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rovinné zrcadlo v pohybu 2/3, Pravá ruka v zrcadle: Ema stojí bokem u zrcadla, dívá se na nás a na tričku má písmeno E. Zvedne pravou ruku a obraz za zrcadlem zvedne ve stejnou chvíli ruku na stejné straně, která u obrazu vypadá jako levá. Písmeno E je v obrazu obrácené. Obraz je stranově převrácený, ale vzpřímený, hlava je nahoře a nohy dole." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Rovinné zrcadlo v pohybu 2/3: Pravá ruka v zrcadle</title>
+	<!-- W91 (15. 10. 2026). Předloha: PDF 22 Rovinné zrcadlo, s. 6 (4. stranově převrácený – pravá strana se v zrcadle jeví
+	     jako levá a naopak; 5. vzpřímený – není převrácený vzhůru nohama), s. 7 (K a K′ souměrně podle zrcadla, zrcadlo
+	     bokem jako svislá čára) a infografika učitele unnamed.png u PDF 22 (postava s cedulkou „PRAVÁ“, v zrcadle obrácený
+	     nápis). Výklad § Vlastnosti obrazu (stranově převrácený, vzpřímený). Odlišení od obr-03 (nápis AMBULANCE na sanitce):
+	     tady se HÝBE člověk a obraz dělá pohyb s ním.
+	     Geometrie: zrcadlo x = 230 kolmo k obrázku (vidíme ho bokem), obraz = osová souměrnost x′ = 460 − x
+	     (obal matrix(-1 0 0 1 460 0) – kopie Emy se stejnou animací, proto i písmeno E je v obrazu stranově obrácené).
+	     Ema x = 130, obraz x = 330, podlaha y = 440. Pravá ruka Emy je na naší levé straně (Ema se dívá na nás).
+	     Časování 6 s: ruka se zvedá 0,4–1,2 s (o 150° kolem ramene), drží do 4,4 s, klesá do 5,2 s. Popisky rukou jsou
+	     vidět, když je ruka nahoře. Bez pohybu: ruka nahoře s popisky. -->
+	<style>
+		.ru { transform-box: view-box; transform-origin: -27.5px -142px; animation: ru 6s ease-in-out infinite; }
+		@keyframes ru { 0%, 6.667% { transform: rotate(0deg); } 20%, 73.333% { transform: rotate(150deg); } 86.667%, 100% { transform: rotate(0deg); } }
+		.po { animation: po 6s linear infinite; }
+		@keyframes po { 0%, 20% { opacity: 0; } 23.333%, 70% { opacity: 1; } 73.333%, 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) {
+			.ru, .po { animation: none; }
+			.ru { transform: rotate(150deg); }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="650" fill="#f8f9fa" />
+	<g id="panel-2">
+		<rect x="26" y="22" width="420" height="618" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="618" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">2</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Pravá ruka v zrcadle</text>
+		<text x="40" y="96" font-size="20" fill="#2b2a26">Ema stojí bokem u zrcadla, dívá se</text>
+		<text x="40" y="120" font-size="20" fill="#2b2a26">na nás a zvedne pravou ruku.</text>
+		<text x="230" y="178" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2a26">zrcadlo</text>
+
+		<!-- popisky rukou -->
+		<g class="po">
+			<text x="80" y="226" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">pravá ruka</text>
+			<text x="372" y="202" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">vypadá jako</text>
+			<text x="372" y="226" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">levá ruka</text>
+		</g>
+
+		<!-- podlaha -->
+		<path d="M30 440H230" stroke="#2b2a26" stroke-width="3" />
+		<path d="M230 440H430" stroke="#868e96" stroke-width="3" stroke-dasharray="8 6" />
+
+		<!-- zrcadlo bokem: černá odrazná plocha (k Emě), šedý rub -->
+		<path d="M234.5 190V432" stroke="#adb5bd" stroke-width="9" />
+		<path d="M230 190V432" stroke="#2b2a26" stroke-width="3.5" />
+		<path d="M212 440H252M232 432V440" stroke="#495057" stroke-width="5" stroke-linecap="round" />
+
+		<!-- Ema zepředu -->
+		<g transform="translate(130,440)">
+			<rect x="-15" y="-76" width="12" height="70" rx="5" fill="#343a40" stroke="#2b2a26" stroke-width="1.5" />
+			<rect x="3" y="-76" width="12" height="70" rx="5" fill="#343a40" stroke="#2b2a26" stroke-width="1.5" />
+			<rect x="-19" y="-9" width="17" height="9" rx="4" fill="#2b2a26" />
+			<rect x="2" y="-9" width="17" height="9" rx="4" fill="#2b2a26" />
+			<rect x="22" y="-146" width="11" height="62" rx="5.5" fill="#f1c27d" stroke="#2b2a26" stroke-width="1.5" />
+			<g class="ru" transform="rotate(150 -27.5 -142)">
+				<rect x="-33" y="-146" width="11" height="62" rx="5.5" fill="#f1c27d" stroke="#2b2a26" stroke-width="1.5" />
+				<circle cx="-27.5" cy="-82" r="7.5" fill="#f1c27d" stroke="#2b2a26" stroke-width="1.5" />
+			</g>
+			<rect x="-24" y="-152" width="48" height="82" rx="12" fill="#7048e8" stroke="#2b2a26" stroke-width="2" />
+			<text x="0" y="-100" text-anchor="middle" font-size="34" font-weight="bold" fill="#ffffff">E</text>
+			<path d="M-14 -180Q-34 -170 -30 -146" fill="none" stroke="#5c3a1e" stroke-width="8" stroke-linecap="round" />
+			<circle cx="0" cy="-174" r="20" fill="#f1c27d" stroke="#2b2a26" stroke-width="2" />
+			<path d="M-20 -176A20 20 0 0 1 20 -176Q10 -190 -4 -184Q-14 -180 -20 -176Z" fill="#5c3a1e" />
+			<circle cx="-7" cy="-172" r="2.5" fill="#2b2a26" />
+			<circle cx="7" cy="-172" r="2.5" fill="#2b2a26" />
+			<path d="M-7 -163Q0 -158 7 -163" fill="none" stroke="#2b2a26" stroke-width="2" stroke-linecap="round" />
+		</g>
+
+		<!-- obraz: zrcadlová kopie podle x = 230, světlý a čárkovaný = zdánlivý -->
+		<g transform="matrix(-1 0 0 1 460 0)">
+			<g transform="translate(130,440)" stroke-dasharray="5 3">
+				<rect x="-15" y="-76" width="12" height="70" rx="5" fill="#ced4da" stroke="#495057" stroke-width="1.8" />
+				<rect x="3" y="-76" width="12" height="70" rx="5" fill="#ced4da" stroke="#495057" stroke-width="1.8" />
+				<rect x="-19" y="-9" width="17" height="9" rx="4" fill="#ced4da" stroke="#495057" stroke-width="1.5" />
+				<rect x="2" y="-9" width="17" height="9" rx="4" fill="#ced4da" stroke="#495057" stroke-width="1.5" />
+				<rect x="22" y="-146" width="11" height="62" rx="5.5" fill="#fbe9d0" stroke="#495057" stroke-width="1.8" />
+				<g class="ru" transform="rotate(150 -27.5 -142)">
+					<rect x="-33" y="-146" width="11" height="62" rx="5.5" fill="#fbe9d0" stroke="#495057" stroke-width="1.8" />
+					<circle cx="-27.5" cy="-82" r="7.5" fill="#fbe9d0" stroke="#495057" stroke-width="1.8" />
+				</g>
+				<rect x="-24" y="-152" width="48" height="82" rx="12" fill="#e5dbff" stroke="#495057" stroke-width="2" />
+				<text x="0" y="-100" text-anchor="middle" font-size="34" font-weight="bold" fill="#5f3dc4" stroke="none">E</text>
+				<path d="M-14 -180Q-34 -170 -30 -146" fill="none" stroke="#c9a98a" stroke-width="8" stroke-linecap="round" stroke-dasharray="none" />
+				<circle cx="0" cy="-174" r="20" fill="#fbe9d0" stroke="#495057" stroke-width="2" />
+				<path d="M-20 -176A20 20 0 0 1 20 -176Q10 -190 -4 -184Q-14 -180 -20 -176Z" fill="#c9a98a" stroke="none" />
+				<circle cx="-7" cy="-172" r="2.5" fill="#495057" stroke="none" />
+				<circle cx="7" cy="-172" r="2.5" fill="#495057" stroke="none" />
+				<path d="M-7 -163Q0 -158 7 -163" fill="none" stroke="#495057" stroke-width="2" stroke-linecap="round" stroke-dasharray="none" />
+			</g>
+		</g>
+		<text x="130" y="470" text-anchor="middle" font-size="20" fill="#2b2a26">Ema</text>
+		<text x="330" y="470" text-anchor="middle" font-size="20" fill="#2b2a26">obraz</text>
+
+		<text x="40" y="514" font-size="22" font-weight="bold" fill="#2b2a26">Obraz je stranově převrácený:</text>
+		<text x="40" y="542" font-size="20" fill="#2b2a26">pravá ruka vypadá jako levá</text>
+		<text x="40" y="566" font-size="20" fill="#2b2a26">a písmeno E je obrácené.</text>
+		<text x="40" y="604" font-size="22" font-weight="bold" fill="#2b2a26">Obraz je vzpřímený:</text>
+		<text x="254" y="604" font-size="20" fill="#2b2a26">hlava nahoře.</text>
+	</g>
+</svg>
