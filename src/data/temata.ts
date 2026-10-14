@@ -3130,6 +3130,9 @@ export const temata: Record<string, Tema[]> = {
 						uvod: "Baterie pomáhá rozsvítit svítilnu. Různé baterie se ale do stejné svítilny nehodí. Jedním z důležitých údajů na baterii je napětí, které říká, jak silně baterie „tlačí“ proud do obvodu, a které můžeme změřit.",
 						zvidave: "<p><strong>Multimetr</strong> spojuje více měřicích funkcí. Může měřit napětí, proud a další elektrické veličiny. Při běžném použití zvolíme jednu funkci. Pro měření napětí ho nastavíme a zapojíme jinak než pro měření proudu; kontrolujeme také zdířky pro měřicí vodiče.</p>\n",
 						zapis: {"jednotky":["U (V, mV, kV)"],"body":["napětí měříme voltmetrem","voltmetr zapojujeme paralelně ke spotřebiči nebo zdroji","články za sebou napětí sčítají","monočlánek má napětí 1,5 V"]},
+						materialy: [
+							{ druh: 'infografika', nazev: 'Napětí v pohybu', cesta: '/materialy/fyzika/8-rocnik/elektrina/elektricke-napeti-mereni/infografika-elektricke-napeti-mereni-pohyb-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/elektrina/elektricke-napeti-mereni/infografika-elektricke-napeti-mereni-pohyb-panel-1.svg'] },
+						],
 						odkazy: [
 							{ nazev: 'Elektrický proud a napětí (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/1921-elektricky-proud-a-napeti' },
 							{ nazev: 'Elektrický proud, napětí, odpor, Ohmův zákon — test (testi.cz)', url: 'https://testi.cz/testy/fyzika/elektricky-proud-napeti-odpor-ohmuv-zakon/' },
