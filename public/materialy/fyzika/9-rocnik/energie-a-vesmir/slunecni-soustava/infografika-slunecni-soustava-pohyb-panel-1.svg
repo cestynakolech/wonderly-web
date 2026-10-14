@@ -1,0 +1,81 @@
+<svg viewBox="0 0 460 640" width="460" height="640" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sluneční soustava v pohybu 1/3, Den a noc: Slunce svítí zleva na Zemi. Pohled shora na osu Země. Strana natočená ke Slunci má den, odvrácená strana má noc. Země se otáčí kolem své osy, domek na jejím povrchu se tak střídavě dostává do dne a do noci. Střídání dne a noci je důsledkem otáčení Země kolem vlastní osy. Velikosti ani vzdálenosti nejsou v měřítku." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Sluneční soustava v pohybu 1/3: Den a noc</title>
+	<!-- W84 (14. 10. 2026). Předloha: PDF 22 Sluneční soustava, s. 8 („Důsledkem rotace Země kolem vlastní osy je střídání dne a noci“).
+	     Výklad (Kamenné planety, Země): „díky otáčení kolem vlastní osy se střídá den a noc“. Na stránce dosud není (obr-01..10 ani simulace).
+	     Pohled shora na osu Země (střed 292, 236), Slunce vlevo, osvětlená polovina vlevo. Otáčení proti směru hodinových ručiček (pohled od severu).
+	     Nic navíc: žádné hodiny, žádný sklon osy, žádná roční období (sklon osy není v PDF ani výkladu).
+	     Cyklus 8 s = 1 otočka: domek začíná na straně ke Slunci (den), ve 2 s přejde do noci, v 6 s zpět do dne.
+	     Pohyb do 2 s: 90° otočení (domek urazí ~150 px). Bez pohybu = domek na denní straně, šipka udává směr otáčení.
+	     OPRAVA 1: domek r 95–117 px (stěna 95–107, střecha do 116) uvnitř šipky r 126 a tmavého pole (vpravo max x 409 &lt; 420); popisek nad šipkou. -->
+	<style>
+		.rot { transform-box: view-box; transform-origin: 292px 236px; animation: rot 8s linear infinite; }
+		@keyframes rot { 0% { transform: rotate(0deg); } 100% { transform: rotate(-360deg); } }
+		.sd { animation: sd 8s linear infinite; }
+		@keyframes sd { 0%, 24.9% { opacity: 1; } 25%, 74.9% { opacity: 0; } 75%, 100% { opacity: 1; } }
+		.sn { opacity: 0; animation: sn 8s linear infinite; }
+		@keyframes sn { 0%, 24.9% { opacity: 0; } 25%, 74.9% { opacity: 1; } 75%, 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) {
+			.rot, .sd, .sn { animation: none; }
+		}
+	</style>
+	<defs>
+		<radialGradient id="gs" cx="0" cy=".5" r="1"><stop offset="0" stop-color="#fff3bf" /><stop offset=".5" stop-color="#ffd43b" /><stop offset="1" stop-color="#fab005" /></radialGradient>
+		<marker id="sz" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#ffd43b" /></marker>
+		<marker id="sb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#dee2e6" /></marker>
+	</defs>
+	<rect x="0" y="0" width="460" height="640" fill="#f8f9fa" />
+	<g id="panel-1">
+		<rect x="26" y="22" width="420" height="608" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="608" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Den a noc</text>
+
+		<!-- vesmír -->
+		<rect x="40" y="82" width="380" height="316" rx="10" fill="#0f1b3d" />
+		<circle cx="160" cy="112" r="1.5" fill="#dee2e6" /><circle cx="404" cy="104" r="1.5" fill="#dee2e6" /><circle cx="70" cy="380" r="1.5" fill="#dee2e6" />
+		<circle cx="190" cy="372" r="1.5" fill="#dee2e6" /><circle cx="410" cy="384" r="1.5" fill="#dee2e6" /><circle cx="140" cy="330" r="1.5" fill="#dee2e6" />
+
+		<!-- Slunce vlevo (jen okraj) a paprsky světla -->
+		<path d="M40 166 A70 70 0 0 1 40 306 Z" fill="url(#gs)" stroke="#f59f00" stroke-width="2" />
+		<text x="50" y="146" font-size="20" font-weight="bold" fill="#ffd43b">Slunce</text>
+		<path d="M122 196 H172" stroke="#ffd43b" stroke-width="3" marker-end="url(#sz)" />
+		<path d="M118 236 H150" stroke="#ffd43b" stroke-width="3" marker-end="url(#sz)" />
+		<path d="M122 276 H172" stroke="#ffd43b" stroke-width="3" marker-end="url(#sz)" />
+
+		<!-- Země: polovina ke Slunci osvětlená (den), odvrácená tmavá (noc) -->
+		<path d="M292 141 A95 95 0 0 0 292 331 Z" fill="#74c0fc" />
+		<path d="M292 141 A95 95 0 0 1 292 331 Z" fill="#1e3a8a" />
+		<circle cx="292" cy="236" r="95" fill="none" stroke="#d0ebff" stroke-width="2.5" />
+		<text x="244" y="214" text-anchor="middle" font-size="22" font-weight="bold" fill="#0b2e6b">den</text>
+		<text x="340" y="214" text-anchor="middle" font-size="22" font-weight="bold" fill="#f8f9fa">noc</text>
+		<!-- osa = tečka uprostřed -->
+		<circle cx="292" cy="236" r="5" fill="#f8f9fa" stroke="#0f1b3d" stroke-width="2" />
+		<text x="292" y="270" text-anchor="middle" font-size="20" font-weight="bold" fill="#f8f9fa" stroke="#0f1b3d" stroke-width="5" paint-order="stroke">osa</text>
+
+		<!-- směr otáčení: plná čára se šipkou (čárkovaná čára v celé trojici = jen prodloužené stopy meteorů v P2) -->
+		<path d="M395 164 A126 126 0 0 0 189 164" fill="none" stroke="#dee2e6" stroke-width="2.5" marker-end="url(#sb)" />
+		<text x="292" y="102" text-anchor="middle" font-size="20" fill="#f8f9fa">Země se otáčí</text>
+
+		<!-- domek na povrchu Země, otáčí se se Zemí (začíná na straně ke Slunci) -->
+		<g class="rot">
+			<rect x="185" y="227" width="12" height="18" fill="#ff922b" stroke="#2b2a26" stroke-width="1.5" />
+			<path d="M185 223 L176 236 L185 249 Z" fill="#e03131" stroke="#2b2a26" stroke-width="1.5" stroke-linejoin="round" />
+		</g>
+
+		<!-- stav u domku -->
+		<text x="40" y="436" font-size="21" font-weight="bold" fill="#2b2a26">U domku je teď:</text>
+		<g class="sd"><text x="216" y="436" font-size="21" font-weight="bold" fill="#1864ab">den</text></g>
+		<g class="sn"><text x="216" y="436" font-size="21" font-weight="bold" fill="#1e3a8a">noc</text></g>
+		<rect x="262" y="420" width="20" height="18" fill="#ff922b" stroke="#2b2a26" stroke-width="1.5" />
+		<path d="M258 421 L272 408 L286 421 Z" fill="#e03131" stroke="#2b2a26" stroke-width="1.5" stroke-linejoin="round" />
+		<text x="294" y="436" font-size="20" fill="#2b2a26">= domek</text>
+
+		<text x="40" y="476" font-size="20" fill="#2b2a26">Země se otáčí kolem své osy.</text>
+		<text x="40" y="504" font-size="20" fill="#2b2a26">Strana ke Slunci má den,</text>
+		<text x="40" y="532" font-size="20" fill="#2b2a26">odvrácená strana má noc.</text>
+		<text x="40" y="568" font-size="21" font-weight="bold" fill="#2b2a26">Otáčením Země se střídá</text>
+		<text x="40" y="594" font-size="21" font-weight="bold" fill="#2b2a26">den a noc.</text>
+		<text x="160" y="594" font-size="20" fill="#495057">Není v měřítku.</text>
+	</g>
+</svg>

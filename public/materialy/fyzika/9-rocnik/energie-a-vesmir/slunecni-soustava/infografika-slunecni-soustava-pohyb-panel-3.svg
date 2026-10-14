@@ -1,0 +1,93 @@
+<svg viewBox="0 0 460 674" width="460" height="674" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sluneční soustava v pohybu 3/3, Světlo z Polárky, hvězdy daleko za Sluneční soustavou: Polárka je hvězda daleko za Sluneční soustavou, do Sluneční soustavy nepatří. Světlo vyletí z hvězdy Polárky a letí k Zemi. Pod cestou je stupnice let 0, 100, 200, 300 a 400. Světlo dorazí k Zemi po 433 letech. 1 světelný rok je vzdálenost, kterou světlo urazí za 1 rok. Polárka je od nás vzdálená 433 světelných let, světlo, které z ní dnes vidíme, k nám letělo 433 let. Animace je mnohokrát zrychlená, velikosti nejsou v měřítku." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Sluneční soustava v pohybu 3/3: Světlo z Polárky, hvězdy daleko za Sluneční soustavou</title>
+	<!-- OPRAVA 1 (14. 10. 2026): Polárka výslovně jako hvězda ZA Sluneční soustavou (titulek, popisek ve vesmíru, první věta textu);
+	     nepřejitá cesta světla je plná šedá čára (čárkovaná čára v celé trojici = jen prodloužené stopy meteorů v P2). -->
+	<!-- W84 (14. 10. 2026). Předloha: PDF 22 Sluneční soustava, s. 22 (Světelný rok: „Vzdálenost, kterou urazí světlo ve vakuu za 1 rok“,
+	     „hvězda Polárka je od nás vzdálená 433 světelných let (to znamená, že světlo, které na obloze nyní vidíme jako hvězdu Polárku,
+	     k nám letělo 433 let)“). Výklad (Vzdálenosti a pohyb): „Světelný rok (ly) = vzdálenost, kterou urazí světlo za rok“,
+	     „hvězda Polárka je od nás vzdálená 433 světelných let“. Na stránce dosud není (obr-01..10 ani simulace).
+	     Stupnice v měřítku let: x = 92 + 286 · roky / 433 (100 → 158, 200 → 224, 300 → 290, 400 → 356, 433 → 378).
+	     Žlutá = světlo (stejně jako paprsky Slunce v panelu 1). Cyklus 10 s: světlo letí 0–8 s rovnoměrně, popisek stupnice zežloutne,
+	     když ho světlo mine (18,48 % · 36,95 % · 55,43 % · 73,90 % cyklu = 0,8 · roky/433), v 8 s dorazí („433 let“), v 9,6 s zmizí.
+	     Pohyb do 2 s: světlo urazí 72 px a mine značku 100. Bez pohybu = světlo u Země, celá cesta žlutá, popisky žluté. -->
+	<style>
+		.pu { animation: pu 10s linear infinite; }
+		@keyframes pu { 0% { transform: translate(0px, 0px); opacity: 0; } 2% { opacity: 1; } 80% { transform: translate(286px, 0px); } 90% { opacity: 1; } 96% { opacity: 0; transform: translate(286px, 0px); } 100% { opacity: 0; transform: translate(0px, 0px); } }
+		.ce { transform-box: view-box; transform-origin: 92px 180px; animation: ce 10s linear infinite; }
+		@keyframes ce { 0% { transform: scale(0, 1); opacity: 1; } 80% { transform: scale(1, 1); } 90% { opacity: 1; } 96% { opacity: 0; transform: scale(1, 1); } 100% { opacity: 0; transform: scale(0, 1); } }
+		.h1, .h2, .h3, .h4, .h5 { opacity: 0; }
+		.h1 { animation: h1 10s linear infinite; }
+		@keyframes h1 { 0%, 18.4% { opacity: 0; } 18.5%, 96% { opacity: 1; } 96.1%, 100% { opacity: 0; } }
+		.h2 { animation: h2 10s linear infinite; }
+		@keyframes h2 { 0%, 36.9% { opacity: 0; } 37%, 96% { opacity: 1; } 96.1%, 100% { opacity: 0; } }
+		.h3 { animation: h3 10s linear infinite; }
+		@keyframes h3 { 0%, 55.4% { opacity: 0; } 55.5%, 96% { opacity: 1; } 96.1%, 100% { opacity: 0; } }
+		.h4 { animation: h4 10s linear infinite; }
+		@keyframes h4 { 0%, 73.8% { opacity: 0; } 73.9%, 96% { opacity: 1; } 96.1%, 100% { opacity: 0; } }
+		.h5 { animation: h5 10s linear infinite; }
+		@keyframes h5 { 0%, 79.9% { opacity: 0; } 80%, 96% { opacity: 1; } 96.1%, 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) {
+			.pu { animation: none; transform: translate(286px, 0px); }
+			.ce { animation: none; }
+			.h1, .h2, .h3, .h4, .h5 { animation: none; opacity: 1; }
+		}
+	</style>
+	<defs>
+		<path id="hvz" d="M0 -22 L5 -7 L16 -16 L8 -4 L22 0 L8 4 L16 16 L5 7 L0 22 L-5 7 L-16 16 L-8 4 L-22 0 L-8 -4 L-16 -16 L-5 -7Z" fill="#fff3bf" stroke="#fab005" stroke-width="2" stroke-linejoin="round" />
+	</defs>
+	<rect x="0" y="0" width="460" height="674" fill="#f8f9fa" />
+	<g id="panel-3">
+		<rect x="26" y="22" width="420" height="642" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="642" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">3</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Světlo z Polárky</text>
+
+		<!-- vesmír -->
+		<rect x="40" y="82" width="380" height="240" rx="10" fill="#0f1b3d" />
+		<circle cx="372" cy="100" r="1.5" fill="#dee2e6" /><circle cx="300" cy="126" r="1.5" fill="#dee2e6" /><circle cx="150" cy="140" r="1.5" fill="#dee2e6" />
+		<circle cx="250" cy="300" r="1.5" fill="#dee2e6" /><circle cx="400" cy="308" r="1.5" fill="#dee2e6" /><circle cx="60" cy="300" r="1.5" fill="#dee2e6" />
+
+		<!-- hvězda Polárka a Země -->
+		<use href="#hvz" x="68" y="180" />
+		<text x="44" y="112" font-size="20" fill="#f8f9fa">hvězda mimo Sluneční soustavu</text>
+		<text x="44" y="140" font-size="20" font-weight="bold" fill="#f8f9fa">Polárka</text>
+		<circle cx="396" cy="180" r="16" fill="#4dabf7" stroke="#d0ebff" stroke-width="2.5" />
+		<text x="414" y="140" text-anchor="end" font-size="20" font-weight="bold" fill="#f8f9fa">Země</text>
+
+		<!-- cesta světla a stupnice let -->
+		<path d="M92 180 H378" stroke="#868e96" stroke-width="2" />
+		<g class="ce"><rect x="92" y="178" width="286" height="4" fill="#ffd43b" /></g>
+		<g stroke="#adb5bd" stroke-width="2.5">
+			<path d="M92 192V204" /><path d="M158 192V204" /><path d="M224 192V204" /><path d="M290 192V204" /><path d="M356 192V204" />
+		</g>
+		<g font-size="20" fill="#ced4da" text-anchor="middle">
+			<text x="92" y="228">0</text><text x="158" y="228">100</text><text x="224" y="228">200</text><text x="290" y="228">300</text><text x="356" y="228">400</text>
+		</g>
+		<g font-size="20" font-weight="bold" fill="#ffd43b" text-anchor="middle">
+			<g class="h1"><text x="158" y="228">100</text></g>
+			<g class="h2"><text x="224" y="228">200</text></g>
+			<g class="h3"><text x="290" y="228">300</text></g>
+			<g class="h4"><text x="356" y="228">400</text></g>
+		</g>
+		<text x="230" y="260" text-anchor="middle" font-size="20" fill="#f8f9fa">čísla = roky cesty světla</text>
+		<g class="h5"><text x="230" y="298" text-anchor="middle" font-size="21" font-weight="bold" fill="#ffd43b">Světlo dorazilo po 433 letech.</text></g>
+
+		<!-- světlo -->
+		<g class="pu">
+			<circle cx="92" cy="180" r="14" fill="#ffe066" opacity="0.35" />
+			<circle cx="92" cy="180" r="8" fill="#ffe066" stroke="#fab005" stroke-width="1.5" />
+		</g>
+
+		<text x="40" y="362" font-size="21" font-weight="bold" fill="#2b2a26">Polárka je hvězda daleko ZA</text>
+		<text x="40" y="388" font-size="21" font-weight="bold" fill="#2b2a26">Sluneční soustavou, nepatří do ní.</text>
+		<text x="40" y="424" font-size="20" fill="#2b2a26">1 světelný rok je vzdálenost,</text>
+		<text x="40" y="450" font-size="20" fill="#2b2a26">kterou světlo urazí za 1 rok.</text>
+		<text x="40" y="486" font-size="20" fill="#2b2a26">Polárka je od nás vzdálená</text>
+		<text x="40" y="512" font-size="20" fill="#2b2a26">433 světelných let.</text>
+		<text x="40" y="550" font-size="21" font-weight="bold" fill="#2b2a26">Světlo, které z ní dnes vidíme,</text>
+		<text x="40" y="576" font-size="21" font-weight="bold" fill="#2b2a26">k nám letělo 433 let.</text>
+		<text x="40" y="614" font-size="20" fill="#495057">Animace je mnohokrát zrychlená,</text>
+		<text x="40" y="638" font-size="20" fill="#495057">velikosti nejsou v měřítku.</text>
+	</g>
+</svg>
