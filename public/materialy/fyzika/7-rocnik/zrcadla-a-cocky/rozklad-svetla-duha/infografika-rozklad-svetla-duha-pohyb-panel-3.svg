@@ -1,0 +1,96 @@
+<svg viewBox="0 0 460 640" width="460" height="640" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rozklad světla a duha v pohybu 3/3, Duhu nedohoníš: chodec má Slunce za zády a před sebou déšť s duhou. Jde k duze, ale duha se posouvá s ním a je od něj pořád stejně daleko. Strom a déšť zůstávají na místě. Každý vidí duhu z jiných kapek podle toho, kde stojí, proto se k ní nedá přiblížit. Duha je optický jev, ne předmět." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Rozklad světla a duha v pohybu 3/3: Duhu nedohoníš</title>
+	<!-- W90 (15. 10. 2026). Předloha: PDF 28 Rozklad bílého světla, s. 4 (Slunce za zády, déšť před sebou, červená
+	     nahoře, fialová dole, nejčastěji půlkruh), s. 6 fotografie duhy na tmavém dešťovém nebi. Výklad temata.ts:
+	     „duha je optický jev, ne hmotný předmět“, „každý pozorovatel ji vidí z jiných kapek podle své polohy vůči Slunci;
+	     proto se k ní nikdy nedá přiblížit“.
+	     Pozorovatel stejný tvar jako v panelu 2. Déšť tmavý #161d18 (barvy spektra ≥ 3), čárky deště #adb5bd.
+	     Duha: půlkruhy se středem na zemi (C, 384), poloměry 70 (červená) … 52 (fialová) po 3 px; C = 290 → 350
+	     (OPRAVA 1: pravá pata nejvýš x = 421,6 < 428, celá duha uvnitř scény v každém stavu).
+	     Chodec: nohy x = 70 → 130 (posun 60 px, tři kroky); duha i šipka „stejně daleko“ se posunou o stejných 60 px,
+	     šipka 150 → 280 = levá pata červené, vzdálenost stále 150 px. Strom a déšť stojí (vztažné body).
+	     Cyklus 6 s: 0–2 s chůze (3 kroky nohou), do 6 s stojí; déšť padá stále (0,5 s, posun 60 px = dvě řady).
+	     Bez pohybu: koncová poloha (chodec u stromu, duha posunutá), déšť stojí. -->
+	<defs>
+		<clipPath id="c3-scena"><rect x="32" y="140" width="396" height="280" rx="8" /></clipPath>
+		<clipPath id="c3-dest"><path d="M196 384V196Q200 164 232 166Q246 138 284 148Q312 128 348 146Q384 132 410 152Q426 150 428 160V384Z" /></clipPath>
+	</defs>
+	<style>
+		.jd { animation: jd 6s linear infinite; }
+		@keyframes jd { 0% { transform: translateX(-60px); } 33.33% { transform: translateX(0px); } 100% { transform: translateX(0px); } }
+		.n1 { transform-origin: 130px 340px; transform-box: view-box; animation: n1 6s linear infinite; }
+		@keyframes n1 { 0% { transform: rotate(0deg); } 5.56% { transform: rotate(14deg); } 16.67% { transform: rotate(-14deg); } 27.78% { transform: rotate(14deg); } 33.33% { transform: rotate(0deg); } 100% { transform: rotate(0deg); } }
+		.n2 { transform-origin: 130px 340px; transform-box: view-box; animation: n2 6s linear infinite; }
+		@keyframes n2 { 0% { transform: rotate(0deg); } 5.56% { transform: rotate(-14deg); } 16.67% { transform: rotate(14deg); } 27.78% { transform: rotate(-14deg); } 33.33% { transform: rotate(0deg); } 100% { transform: rotate(0deg); } }
+		.dz { animation: dz 0.5s linear infinite; }
+		@keyframes dz { 0% { transform: translateY(0px); } 100% { transform: translateY(60px); } }
+		@media (prefers-reduced-motion: reduce) {
+			.jd, .n1, .n2, .dz { animation: none; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="640" fill="#f8f9fa" />
+	<g id="panel-3">
+		<rect x="26" y="22" width="420" height="608" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="608" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">3</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Duhu nedohoníš</text>
+		<text x="40" y="96" font-size="20" fill="#2b2a26">Jdeš k duze, ale duha se</text>
+		<text x="40" y="120" font-size="20" fill="#2b2a26">posouvá s tebou.</text>
+
+		<g clip-path="url(#c3-scena)">
+			<!-- nebe -->
+			<rect x="32" y="140" width="396" height="280" fill="#e7f5ff" />
+			<!-- Slunce (za zády chodce) -->
+			<g stroke="#e8590c" stroke-width="3" stroke-linecap="round">
+				<path d="M66 146V138M66 210V218M34 178H26M98 178H106M43.4 155.4L37.7 149.7M88.6 200.6L94.3 206.3M43.4 200.6L37.7 206.3M88.6 155.4L94.3 149.7" />
+			</g>
+			<circle cx="66" cy="178" r="22" fill="#ffd43b" stroke="#e8590c" stroke-width="3" />
+			<text x="40" y="246" font-size="20" font-weight="bold" fill="#2b2a26">Slunce</text>
+
+			<!-- déšť (tmavé dešťové nebe) -->
+			<path d="M196 384V196Q200 164 232 166Q246 138 284 148Q312 128 348 146Q384 132 410 152Q426 150 428 160V384Z" fill="#161d18" />
+			<g clip-path="url(#c3-dest)">
+				<path class="dz" d="M206 90v12M230 90v12M254 90v12M278 90v12M302 90v12M326 90v12M350 90v12M374 90v12M398 90v12M422 90v12M218 120v12M242 120v12M266 120v12M290 120v12M314 120v12M338 120v12M362 120v12M386 120v12M410 120v12M206 150v12M230 150v12M254 150v12M278 150v12M302 150v12M326 150v12M350 150v12M374 150v12M398 150v12M422 150v12M218 180v12M242 180v12M266 180v12M290 180v12M314 180v12M338 180v12M362 180v12M386 180v12M410 180v12M206 210v12M230 210v12M254 210v12M278 210v12M302 210v12M326 210v12M350 210v12M374 210v12M398 210v12M422 210v12M218 240v12M242 240v12M266 240v12M290 240v12M314 240v12M338 240v12M362 240v12M386 240v12M410 240v12M206 270v12M230 270v12M254 270v12M278 270v12M302 270v12M326 270v12M350 270v12M374 270v12M398 270v12M422 270v12M218 300v12M242 300v12M266 300v12M290 300v12M314 300v12M338 300v12M362 300v12M386 300v12M410 300v12M206 330v12M230 330v12M254 330v12M278 330v12M302 330v12M326 330v12M350 330v12M374 330v12M398 330v12M422 330v12M218 360v12M242 360v12M266 360v12M290 360v12M314 360v12M338 360v12M362 360v12M386 360v12M410 360v12" stroke="#adb5bd" stroke-width="2" stroke-linecap="round" />
+				<!-- duha: posouvá se s chodcem -->
+				<g class="jd" fill="none" stroke-width="3.2">
+					<path d="M280 384A70 70 0 0 1 420 384" stroke="#f03e3e" />
+					<path d="M283 384A67 67 0 0 1 417 384" stroke="#fd7e14" />
+					<path d="M286 384A64 64 0 0 1 414 384" stroke="#fcc419" />
+					<path d="M289 384A61 61 0 0 1 411 384" stroke="#40c057" />
+					<path d="M292 384A58 58 0 0 1 408 384" stroke="#339af0" />
+					<path d="M295 384A55 55 0 0 1 405 384" stroke="#5c5ce6" />
+					<path d="M298 384A52 52 0 0 1 402 384" stroke="#cc5de8" />
+					<text x="350" y="298" text-anchor="middle" font-size="20" font-weight="bold" fill="#f8f9fa" stroke="none">duha</text>
+				</g>
+			</g>
+			<text x="420" y="190" text-anchor="end" font-size="20" font-weight="bold" fill="#f8f9fa">déšť</text>
+
+			<!-- strom (stojí) -->
+			<rect x="167" y="330" width="10" height="54" fill="#5c4a2a" />
+			<circle cx="172" cy="312" r="24" fill="#3d4a2a" />
+
+			<!-- tráva -->
+			<rect x="32" y="384" width="396" height="36" fill="#b7c48f" />
+			<path d="M32 384H428" stroke="#5c6b3a" stroke-width="2" />
+
+			<!-- chodec (dívá se doprava, Slunce má za zády) a šipka vzdálenosti -->
+			<g class="jd">
+				<path class="n1" d="M130 340L122 384" stroke="#343a40" stroke-width="7" stroke-linecap="round" />
+				<path class="n2" d="M130 340L138 384" stroke="#343a40" stroke-width="7" stroke-linecap="round" />
+				<rect x="117" y="290" width="26" height="54" rx="8" fill="#495057" />
+				<circle cx="130" cy="274" r="14" fill="#ffd8a8" stroke="#2b2a26" stroke-width="2" />
+				<path d="M138 300L146 332" stroke="#495057" stroke-width="6" stroke-linecap="round" />
+				<path d="M160 402H270" stroke="#2b2a26" stroke-width="2.5" />
+				<path d="M150 402l12 -6v12zM280 402l-12 -6v12z" fill="#2b2a26" />
+			</g>
+		</g>
+
+		<text x="40" y="456" font-size="20" fill="#2b2a26">Duha je pořád stejně daleko.</text>
+		<text x="40" y="492" font-size="20" fill="#2b2a26">Každý vidí duhu z jiných kapek</text>
+		<text x="40" y="516" font-size="20" fill="#2b2a26">podle toho, kde stojí. Proto se</text>
+		<text x="40" y="540" font-size="20" fill="#2b2a26">k ní nedá přiblížit.</text>
+		<text x="40" y="580" font-size="22" font-weight="bold" fill="#2b2a26">Duha je optický jev,</text>
+		<text x="40" y="606" font-size="22" font-weight="bold" fill="#2b2a26">ne předmět.</text>
+	</g>
+</svg>

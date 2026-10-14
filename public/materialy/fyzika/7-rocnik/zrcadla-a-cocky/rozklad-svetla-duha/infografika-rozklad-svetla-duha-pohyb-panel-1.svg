@@ -1,0 +1,120 @@
+<svg viewBox="0 0 460 640" width="460" height="640" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rozklad světla a duha v pohybu 1/3, Rozložit a zase složit: v zatemněné místnosti letí úzký svazek bílého světla do skleněného hranolu. Hranol světlo rozloží na barvy, červená se láme nejméně, fialová nejvíce. Barevné paprsky dopadnou na spojku a ta je spojí do jednoho bodu na stínítku, kde je zase bílé světlo. Tak to v roce 1671 ukázal Isaac Newton: bílé světlo je složené z barev." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Rozklad světla a duha v pohybu 1/3: Rozložit a zase složit</title>
+	<!-- W90 (15. 10. 2026). Předloha: PDF 28 Rozklad bílého světla optickým hranolem, s. 1 (bílé světlo se hranolem
+	     rozloží na barevné paprsky), s. 2 (Newton 1671: pruh barev = spektrum, barevné paprsky spojkou opět spojil
+	     do bílého světla), s. 4 (pořadí barev, červená se láme nejméně, fialová nejvíce). Výklad temata.ts totéž.
+	     Na stránce už je animace hranol → spektrum na stínítku (obr-01); tento panel přidává děj, který tam není:
+	     složení barev spojkou zpět do bílého světla.
+	     Barvy spektra stejné jako obr-01/03/04 (#f03e3e … #cc5de8) a jen pro barvy světla; bílé světlo #ffffff.
+	     Sklo (hranol i spojka) barvou skla z W87/W88 #c3fae8; obrys skla na tmavém pozadí #c3fae8 (#0b7285 by měl
+	     na tmě kontrast jen 2,8). Tvar spojky jako W88 (uprostřed nejširší).
+	     Geometrie: hranol rovnostranný A(150,178), L(100,264.6), R(200,264.6); vstup P(125,221.3) = střed levé stěny;
+	     bílý svazek z (34,250), sklon −17,5°, délka 95,4. Výstup barev na pravé stěně t = 0,48…0,54; odklon za hranolem
+	     červená 14° … fialová 26° po 2° (schéma, úhly se neuvádějí). OPRAVA 1 (15. 10.): spojka natočená osou podél
+	     středového (zeleného) paprsku 20°, střed C(322,275.5); zelený jde středem ROVNĚ (20° → 20°), ostatní se lámou
+	     úměrně vzdálenosti od středu h (−18,6…+18,1) do společného bodu F(404,305.4) na ose (v = 87,3, f ≈ 57 ± 1).
+	     Cyklus 6 s: 0–0,6 s bílý svazek, 0,6–0,8 s v hranolu, 0,8–1,4 s barvy ke spojce, 1,4–1,9 s ke stínítku,
+	     1,9 s bílý bod a popisek; do 6 s stojí. Bez pohybu: hotový obraz. -->
+	<style>
+		.b { animation: b 6s linear infinite; }
+		@keyframes b { 0% { transform: scaleX(0); } 10% { transform: scaleX(1); } 100% { transform: scaleX(1); } }
+		.u { animation: u 6s linear infinite; }
+		@keyframes u { 0% { transform: scaleX(0); } 10% { transform: scaleX(0); } 13.33% { transform: scaleX(1); } 100% { transform: scaleX(1); } }
+		.v { animation: v 6s linear infinite; }
+		@keyframes v { 0% { transform: scaleX(0); } 13.33% { transform: scaleX(0); } 23.33% { transform: scaleX(1); } 100% { transform: scaleX(1); } }
+		.z { animation: z 6s linear infinite; }
+		@keyframes z { 0% { transform: scaleX(0); } 23.33% { transform: scaleX(0); } 31.67% { transform: scaleX(1); } 100% { transform: scaleX(1); } }
+		.bt { animation: bt 6s step-end infinite; }
+		@keyframes bt { 0% { opacity: 0; } 31.67% { opacity: 1; } 100% { opacity: 1; } }
+		.cp { animation: cp 6s step-end infinite; }
+		@keyframes cp { 0% { opacity: 0; } 23.33% { opacity: 1; } 100% { opacity: 1; } }
+		@media (prefers-reduced-motion: reduce) {
+			.b, .u, .v, .z, .bt, .cp { animation: none; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="640" fill="#f8f9fa" />
+	<g id="panel-1">
+		<rect x="26" y="22" width="420" height="608" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="608" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Rozložit a zase složit</text>
+		<text x="40" y="96" font-size="20" fill="#2b2a26">Hranol rozloží bílé světlo na barvy,</text>
+		<text x="40" y="120" font-size="20" fill="#2b2a26">spojka je složí zpět.</text>
+
+		<!-- zatemněná místnost -->
+		<rect x="32" y="140" width="396" height="260" rx="8" fill="#1b1e22" />
+
+		<!-- hranol (sklo) -->
+		<path d="M150 178L100 264.6H200Z" fill="#c3fae8" fill-opacity="0.16" stroke="#c3fae8" stroke-width="2.5" stroke-linejoin="round" />
+		<text x="150" y="292" text-anchor="middle" font-size="20" font-weight="bold" fill="#f8f9fa">hranol</text>
+
+		<!-- spojka (sklo, uprostřed nejširší) -->
+		<g transform="translate(322,275.5) rotate(20)">
+			<path d="M0 -40Q18 0 0 40Q-18 0 0 -40Z" fill="#c3fae8" fill-opacity="0.16" stroke="#c3fae8" stroke-width="2.5" />
+		</g>
+		<text x="314" y="344" text-anchor="middle" font-size="20" font-weight="bold" fill="#f8f9fa">spojka</text>
+
+		<!-- stínítko -->
+		<rect x="404" y="255" width="10" height="100" fill="#dee2e6" />
+		<text x="424" y="244" text-anchor="end" font-size="20" font-weight="bold" fill="#f8f9fa">stínítko</text>
+
+		<!-- bílé světlo do hranolu -->
+		<text x="40" y="292" font-size="20" font-weight="bold" fill="#f8f9fa">bílé</text>
+		<text x="40" y="316" font-size="20" font-weight="bold" fill="#f8f9fa">světlo</text>
+		<g transform="translate(34,250) rotate(-17.5)">
+			<g class="b"><path d="M0 0H95.4" stroke="#ffffff" stroke-width="5" /></g>
+		</g>
+
+		<!-- uvnitř hranolu: každá barva se láme jinak -->
+		<g stroke-width="2">
+			<g transform="translate(125,221.3) rotate(-2.02)"><g class="u"><path d="M0 0H49" stroke="#f03e3e" /></g></g>
+			<g transform="translate(125,221.3) rotate(-1)"><g class="u"><path d="M0 0H49.5" stroke="#fd7e14" /></g></g>
+			<g transform="translate(125,221.3) rotate(0)"><g class="u"><path d="M0 0H50" stroke="#fcc419" /></g></g>
+			<g transform="translate(125,221.3) rotate(0.98)"><g class="u"><path d="M0 0H50.5" stroke="#40c057" /></g></g>
+			<g transform="translate(125,221.3) rotate(1.95)"><g class="u"><path d="M0 0H51" stroke="#339af0" /></g></g>
+			<g transform="translate(125,221.3) rotate(2.89)"><g class="u"><path d="M0 0H51.6" stroke="#5c5ce6" /></g></g>
+			<g transform="translate(125,221.3) rotate(3.81)"><g class="u"><path d="M0 0H52.1" stroke="#cc5de8" /></g></g>
+		</g>
+
+		<!-- za hranolem: červená se láme nejméně, fialová nejvíce -->
+		<g stroke-width="4">
+			<g transform="translate(174,219.6) rotate(14)"><g class="v"><path d="M0 0H159.1" stroke="#f03e3e" /></g></g>
+			<g transform="translate(174.5,220.4) rotate(16)"><g class="v"><path d="M0 0H157.8" stroke="#fd7e14" /></g></g>
+			<g transform="translate(175,221.3) rotate(18)"><g class="v"><path d="M0 0H156.8" stroke="#fcc419" /></g></g>
+			<g transform="translate(175.5,222.2) rotate(20)"><g class="v"><path d="M0 0H155.9" stroke="#40c057" /></g></g>
+			<g transform="translate(176,223) rotate(22)"><g class="v"><path d="M0 0H155.3" stroke="#339af0" /></g></g>
+			<g transform="translate(176.5,223.9) rotate(24)"><g class="v"><path d="M0 0H154.8" stroke="#5c5ce6" /></g></g>
+			<g transform="translate(177,224.8) rotate(26)"><g class="v"><path d="M0 0H154.4" stroke="#cc5de8" /></g></g>
+		</g>
+		<g class="cp">
+			<text x="232" y="224" font-size="20" font-weight="bold" fill="#f8f9fa">červená</text>
+			<text x="214" y="310" font-size="20" font-weight="bold" fill="#f8f9fa">fialová</text>
+		</g>
+
+		<!-- za spojkou: barvy se sejdou v jednom bodě -->
+		<g stroke-width="3.5">
+			<g transform="translate(328.3,258.1) rotate(32.01)"><g class="z"><path d="M0 0H89.2" stroke="#f03e3e" /></g></g>
+			<g transform="translate(326.2,263.9) rotate(28.06)"><g class="z"><path d="M0 0H88.1" stroke="#fd7e14" /></g></g>
+			<g transform="translate(324.1,269.7) rotate(24.03)"><g class="z"><path d="M0 0H87.5" stroke="#fcc419" /></g></g>
+			<g transform="translate(322,275.5) rotate(20)"><g class="z"><path d="M0 0H87.3" stroke="#40c057" /></g></g>
+			<g transform="translate(319.9,281.2) rotate(16.07)"><g class="z"><path d="M0 0H87.5" stroke="#339af0" /></g></g>
+			<g transform="translate(317.9,286.8) rotate(12.14)"><g class="z"><path d="M0 0H88.1" stroke="#5c5ce6" /></g></g>
+			<g transform="translate(315.8,292.5) rotate(8.3)"><g class="z"><path d="M0 0H89.1" stroke="#cc5de8" /></g></g>
+		</g>
+
+		<!-- bílý bod na stínítku -->
+		<g class="bt">
+			<circle cx="404" cy="305.4" r="13" fill="#ffffff" fill-opacity="0.35" />
+			<circle cx="404" cy="305.4" r="7" fill="#ffffff" />
+			<text x="424" y="386" text-anchor="end" font-size="20" font-weight="bold" fill="#f8f9fa">zase bílé světlo</text>
+		</g>
+
+		<text x="40" y="436" font-size="20" fill="#2b2a26">Červená se láme nejméně,</text>
+		<text x="40" y="460" font-size="20" fill="#2b2a26">fialová nejvíce.</text>
+		<text x="40" y="500" font-size="20" fill="#2b2a26">Isaac Newton (1671) spojkou složil</text>
+		<text x="40" y="524" font-size="20" fill="#2b2a26">barvy zpět do bílého světla.</text>
+		<text x="40" y="580" font-size="22" font-weight="bold" fill="#2b2a26">Bílé světlo je složené</text>
+		<text x="40" y="606" font-size="22" font-weight="bold" fill="#2b2a26">z barev.</text>
+	</g>
+</svg>

@@ -1,0 +1,107 @@
+<svg viewBox="0 0 460 640" width="460" height="640" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rozklad světla a duha v pohybu 2/3, Duha z hadice: chlapec zalévá zahradu hadicí, Slunce má za zády a kapky vody letí před ním. Dokud je Slunce za mrakem, duha není. Když mrak odpluje a Slunce zasvítí, kapky vody rozloží sluneční světlo na barvy a v kapkách se objeví duha, červená nahoře, fialová dole. Když Slunce zase zajde za mrak, duha zmizí. Duhu uvidíš i u vodopádů." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Rozklad světla a duha v pohybu 2/3: Duha z hadice</title>
+	<!-- W90 (15. 10. 2026). Předloha: PDF 28 Rozklad bílého světla, s. 4 („Duha je viditelná, pokud máme Slunce za zády
+	     a déšť před sebou“, „Červená barva je nahoře, fialová dole“, „Rozklad světla můžeme pozorovat i při zalévání
+	     zahrady hadicí nebo u vodopádů“). Výklad temata.ts: „vzniká rozkladem slunečního světla na dešťových kapkách“,
+	     „vidíme ji, když máme Slunce za zády“, „i při zalévání hadicí nebo u vodopádů“, „červená je nahoře“.
+	     Pozorovatel stejný tvar jako v panelu 3 (osoba = pozorovatel). Slunce jako W88. Kapky vody: světlá výplň #a5d8ff
+	     + obrys #1864ab (barva vody z W87), na nebi i na tmavém živém plotu má vždy jedna část kontrast ≥ 3.
+	     Duha jen v oblasti kapek (ořez tvarem proudu) a na tmavém živém plotu #161d18 (všechny barvy spektra ≥ 3).
+	     Oblouky duhy: střed (300,440), poloměry 156 (červená) … 138 (fialová) po 3 px.
+	     Dráhy kapek: kvadratické křivky z trysky (174,303), vzorkováno t = 0; 0,2 … 1 (čísla v keyframes k1–k3), let 1,2 s.
+	     Cyklus 6 s: 0–1,5 s mrak odpluje ze Slunce, 1,5–2 s duha se objeví, do 5 s svítí, 5–5,7 s mrak se vrací,
+	     5,1–5,4 s duha zmizí. Kapky letí stále. Bez pohybu: Slunce svítí, duha je vidět, kapky stojí. -->
+	<defs>
+		<clipPath id="c2-scena"><rect x="32" y="140" width="396" height="280" rx="8" /></clipPath>
+		<clipPath id="c2-plot"><path d="M236 384V244Q248 222 268 230Q284 210 306 226Q326 208 348 224Q370 206 392 224Q410 210 428 222V384Z" /></clipPath>
+		<clipPath id="c2-kapky"><path d="M174 303Q268 150 426 346L360 384Q250 250 174 303Z" /></clipPath>
+	</defs>
+	<style>
+		.mr { animation: mr 6s linear infinite; }
+		@keyframes mr { 0% { transform: translateX(-160px); } 25% { transform: translateX(0px); } 83.33% { transform: translateX(0px); } 95% { transform: translateX(-160px); } 100% { transform: translateX(-160px); } }
+		.du { animation: du 6s linear infinite; }
+		@keyframes du { 0% { opacity: 0; } 25% { opacity: 0; } 33.33% { opacity: 1; } 85% { opacity: 1; } 90% { opacity: 0; } 100% { opacity: 0; } }
+		.k1 { animation: k1 1.2s linear infinite; }
+		.k2 { animation: k2 1.2s linear infinite; }
+		.k3 { animation: k3 1.2s linear infinite; }
+		@keyframes k1 { 0% { transform: translate(174px, 303px); } 20% { transform: translate(213.5px, 264.5px); } 40% { transform: translate(256.9px, 251.5px); } 60% { transform: translate(304.1px, 263.9px); } 80% { transform: translate(355.1px, 301.7px); } 100% { transform: translate(410px, 365px); } }
+		@keyframes k2 { 0% { transform: translate(174px, 303px); } 20% { transform: translate(211px, 273.3px); } 40% { transform: translate(251.6px, 266.5px); } 60% { transform: translate(295.8px, 282.7px); } 80% { transform: translate(343.6px, 321.9px); } 100% { transform: translate(395px, 384px); } }
+		@keyframes k3 { 0% { transform: translate(174px, 303px); } 20% { transform: translate(208px, 281.3px); } 40% { transform: translate(245px, 278.5px); } 60% { transform: translate(285.2px, 294.7px); } 80% { transform: translate(328.6px, 329.9px); } 100% { transform: translate(375px, 384px); } }
+		@media (prefers-reduced-motion: reduce) {
+			.mr, .du { animation: none; }
+			.k1, .k2, .k3 { animation: none; opacity: 0; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="640" fill="#f8f9fa" />
+	<g id="panel-2">
+		<rect x="26" y="22" width="420" height="608" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="608" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">2</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Duha z hadice</text>
+		<text x="40" y="96" font-size="20" fill="#2b2a26">Slunce vyjde zpoza mraku</text>
+		<text x="40" y="120" font-size="20" fill="#2b2a26">a v kapkách se objeví duha.</text>
+
+		<g clip-path="url(#c2-scena)">
+			<!-- nebe -->
+			<rect x="32" y="140" width="396" height="280" fill="#e7f5ff" />
+			<!-- Slunce (za zády chlapce) -->
+			<g stroke="#e8590c" stroke-width="3" stroke-linecap="round">
+				<path d="M72 148V140M72 212V220M40 180H32M104 180H112M49.4 157.4L43.7 151.7M94.6 202.6L100.3 208.3M49.4 202.6L43.7 208.3M94.6 157.4L100.3 151.7" />
+			</g>
+			<circle cx="72" cy="180" r="22" fill="#ffd43b" stroke="#e8590c" stroke-width="3" />
+			<text x="40" y="248" font-size="20" font-weight="bold" fill="#2b2a26">Slunce</text>
+			<!-- mrak (bez pohybu stojí stranou, Slunce svítí) -->
+			<path class="mr" d="M172 230Q148 202 176 186Q172 148 210 150Q226 120 260 136Q298 128 302 166Q328 184 310 230Z" fill="#ced4da" stroke="#495057" stroke-width="2.5" />
+			<!-- tmavý živý plot ve stínu -->
+			<path d="M236 384V244Q248 222 268 230Q284 210 306 226Q326 208 348 224Q370 206 392 224Q410 210 428 222V384Z" fill="#161d18" />
+			<!-- tráva -->
+			<rect x="32" y="384" width="396" height="36" fill="#b7c48f" />
+			<path d="M32 384H428" stroke="#5c6b3a" stroke-width="2" />
+
+			<!-- duha jen tam, kde jsou kapky -->
+			<g class="du">
+				<g clip-path="url(#c2-plot)">
+					<g clip-path="url(#c2-kapky)" fill="none" stroke-width="3.2">
+						<circle cx="300" cy="440" r="156" stroke="#f03e3e" />
+						<circle cx="300" cy="440" r="153" stroke="#fd7e14" />
+						<circle cx="300" cy="440" r="150" stroke="#fcc419" />
+						<circle cx="300" cy="440" r="147" stroke="#40c057" />
+						<circle cx="300" cy="440" r="144" stroke="#339af0" />
+						<circle cx="300" cy="440" r="141" stroke="#5c5ce6" />
+						<circle cx="300" cy="440" r="138" stroke="#cc5de8" />
+					</g>
+				</g>
+				<text x="384" y="262" text-anchor="middle" font-size="20" font-weight="bold" fill="#f8f9fa">duha</text>
+			</g>
+
+			<!-- kapky vody: stojící (mlha) a letící -->
+			<g fill="#a5d8ff" stroke="#1864ab" stroke-width="1.5">
+				<circle cx="234.7" cy="254.8" r="3.5" /><circle cx="291.9" cy="258.4" r="3.5" /><circle cx="355.1" cy="301.7" r="3.5" />
+				<circle cx="230.8" cy="267" r="3.5" /><circle cx="284.4" cy="276.5" r="3.5" /><circle cx="343.6" cy="321.9" r="3.5" />
+				<circle cx="226.1" cy="277.5" r="3.5" /><circle cx="274.9" cy="288.9" r="3.5" /><circle cx="328.6" cy="329.9" r="3.5" />
+				<circle class="k1" r="4" /><circle class="k1" r="4" style="animation-delay: -0.3s" /><circle class="k1" r="4" style="animation-delay: -0.6s" /><circle class="k1" r="4" style="animation-delay: -0.9s" />
+				<circle class="k2" r="4" style="animation-delay: -0.15s" /><circle class="k2" r="4" style="animation-delay: -0.45s" /><circle class="k2" r="4" style="animation-delay: -0.75s" /><circle class="k2" r="4" style="animation-delay: -1.05s" />
+				<circle class="k3" r="4" style="animation-delay: -0.1s" /><circle class="k3" r="4" style="animation-delay: -0.4s" /><circle class="k3" r="4" style="animation-delay: -0.7s" /><circle class="k3" r="4" style="animation-delay: -1s" />
+			</g>
+			<!-- OPRAVA 1: popisek na trávě pod dopadem kapek (dráhy končí nejníž y 388), kapky přes text nelétají -->
+			<text x="424" y="410" text-anchor="end" font-size="20" font-weight="bold" fill="#2b2a26">kapky vody</text>
+
+			<!-- hadice -->
+			<path d="M152 318C136 340 150 380 120 388H32" fill="none" stroke="#343a40" stroke-width="5" stroke-linecap="round" />
+			<!-- chlapec (dívá se doprava, Slunce má za zády) -->
+			<path d="M114 340L110 384M126 340L130 384" stroke="#343a40" stroke-width="7" stroke-linecap="round" />
+			<rect x="108" y="290" width="26" height="54" rx="8" fill="#495057" />
+			<circle cx="121" cy="274" r="14" fill="#ffd8a8" stroke="#2b2a26" stroke-width="2" />
+			<path d="M128 300L156 314" stroke="#495057" stroke-width="6" stroke-linecap="round" />
+			<path d="M154 316L174 303" stroke="#343a40" stroke-width="7" stroke-linecap="round" />
+		</g>
+
+		<text x="40" y="456" font-size="20" fill="#2b2a26">Kapky vody rozloží sluneční</text>
+		<text x="40" y="480" font-size="20" fill="#2b2a26">světlo na barvy.</text>
+		<text x="40" y="516" font-size="20" fill="#2b2a26">Slunce zajde za mrak: duha zmizí.</text>
+		<text x="40" y="540" font-size="20" fill="#2b2a26">Duhu uvidíš i u vodopádů.</text>
+		<text x="40" y="580" font-size="22" font-weight="bold" fill="#2b2a26">Slunce za zády,</text>
+		<text x="40" y="606" font-size="22" font-weight="bold" fill="#2b2a26">kapky vody před tebou.</text>
+	</g>
+</svg>
