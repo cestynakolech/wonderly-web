@@ -1,0 +1,114 @@
+<svg viewBox="0 0 460 720" width="460" height="720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Proč je plavci zima: chlapec právě vystoupil z bazénu a stojí na dlaždicích, na kůži má kapky vody, které se postupně zmenšují, až zmizí, a chlapec se třese zimou. Lupa ukazuje kapku na kůži: červené šipky tepla vedou z kůže do vody a z povrchu kapky odcházejí částice vody (oranžové kuličky) do vzduchu. Vypařující se voda bere kůži teplo, kůže se ochlazuje." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Vypařování 2/2: Proč je plavci zima?</title>
+	<defs>
+		<clipPath id="vyp2-lupa"><circle cx="350" cy="250" r="66"/></clipPath>
+	</defs>
+	<style>
+		.p2-kap { transform-box: fill-box; transform-origin: center; animation: p2kap 12s linear infinite; }
+		@keyframes p2kap { 0%, 6% { transform: scale(1); opacity: 1; } 80% { transform: scale(0.2); opacity: 1; } 86%, 100% { transform: scale(0.2); opacity: 0; } }
+		.p2-cast { animation: p2cast 2.4s linear infinite; }
+		@keyframes p2cast { 0% { transform: translate(0px, 0px); opacity: 0; } 12% { opacity: 1; } 75% { opacity: 1; } 100% { transform: translate(0px, -70px); opacity: 0; } }
+		.p2-tep { animation: p2tep 1.2s ease-in-out infinite alternate; }
+		@keyframes p2tep { from { opacity: 0.45; } to { opacity: 1; } }
+		.p2-tres { animation: p2tres 0.16s linear infinite alternate; }
+		@keyframes p2tres { from { transform: translateX(-1px); } to { transform: translateX(1px); } }
+		.p2-brr { animation: p2brr 12s linear infinite; }
+		@keyframes p2brr { 0%, 30% { opacity: 0; } 36%, 90% { opacity: 1; } 94%, 100% { opacity: 0; } }
+		.p2-zav { animation: p2zav 12s linear infinite; }
+		@keyframes p2zav { 0%, 92% { opacity: 0; } 96% { opacity: 1; } 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) { .p2-kap, .p2-cast, .p2-tep, .p2-tres, .p2-brr, .p2-zav { animation: none; } }
+	</style>
+	<rect x="0" y="0" width="460" height="720" fill="#f8f9fa"/>
+	<g id="panel-2">
+		<rect x="26" y="16" width="420" height="696" rx="12" fill="#dee2e6"/>
+		<rect x="20" y="10" width="420" height="696" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/>
+		<circle cx="52" cy="44" r="17" fill="#2b2a26"/>
+		<text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">2</text>
+		<text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Proč je plavci zima?</text>
+		<text x="34" y="92" font-size="21" fill="#2b2a26">Právě vylezl z bazénu.</text>
+		<rect x="30" y="110" width="400" height="420" rx="8" fill="#ffffff"/>
+
+		<!-- bazén a dlažba -->
+		<rect x="32" y="400" width="140" height="128" fill="#e9ecef"/>
+		<rect x="32" y="420" width="138" height="106" fill="#74c0fc"/>
+		<path d="M32,420 Q49,414 66,420 T100,420 T134,420 T168,420" fill="none" stroke="#1c7ed6" stroke-width="2.5"/>
+		<g stroke="#1c7ed6" stroke-opacity="0.35" stroke-width="1"><line x1="32" y1="460" x2="170" y2="460"/><line x1="32" y1="496" x2="170" y2="496"/><line x1="78" y1="420" x2="78" y2="526"/><line x1="124" y1="420" x2="124" y2="526"/></g>
+		<rect x="170" y="400" width="258" height="128" fill="#e9ecef"/>
+		<line x1="170" y1="400" x2="428" y2="400" stroke="#868e96" stroke-width="2.5"/>
+		<line x1="170" y1="400" x2="170" y2="528" stroke="#868e96" stroke-width="2.5"/>
+		<g stroke="#ced4da" stroke-width="1.5"><line x1="230" y1="400" x2="230" y2="528"/><line x1="290" y1="400" x2="290" y2="528"/><line x1="350" y1="400" x2="350" y2="528"/><line x1="170" y1="464" x2="428" y2="464"/></g>
+		<path d="M146,480 L146,392 Q146,378 160,378 L174,378 Q184,378 184,390 L184,400" fill="none" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+		<path d="M132,480 L132,396" fill="none" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+		<line x1="132" y1="432" x2="146" y2="432" stroke="#868e96" stroke-width="3"/><line x1="132" y1="458" x2="146" y2="458" stroke="#868e96" stroke-width="3"/>
+
+		<!-- plavec, třese se zimou -->
+		<g class="p2-tres">
+			<g fill="#f4c7a1" stroke="#b07a50" stroke-width="1.5">
+				<rect x="216" y="340" width="13" height="58" rx="5"/>
+				<rect x="232" y="340" width="13" height="58" rx="5"/>
+				<ellipse cx="221" cy="398" rx="10" ry="4"/>
+				<ellipse cx="240" cy="398" rx="10" ry="4"/>
+				<rect x="224" y="234" width="13" height="22" rx="4"/>
+				<rect x="198" y="258" width="13" height="66" rx="6"/>
+				<rect x="250" y="258" width="13" height="66" rx="6"/>
+				<rect x="209" y="250" width="43" height="82" rx="14"/>
+				<circle cx="230" cy="216" r="22"/>
+			</g>
+			<rect x="211" y="320" width="39" height="26" rx="5" fill="#2f9e44" stroke="#2b8a3e" stroke-width="1.5"/>
+			<path d="M208,214 Q208,192 230,192 Q252,192 252,214 Q244,203 230,203 Q216,203 208,214 Z" fill="#5c3d1e"/>
+			<circle cx="222" cy="217" r="2.5" fill="#2b2a26"/><circle cx="238" cy="217" r="2.5" fill="#2b2a26"/>
+			<path d="M220,229 l4,-2.5 l4,2.5 l4,-2.5 l4,2.5 l4,-2.5" fill="none" stroke="#2b2a26" stroke-width="1.5" stroke-linejoin="round"/>
+			<!-- kapky vody na kůži -->
+			<g fill="#1971c2" stroke="#1864ab" stroke-width="1">
+				<path class="p2-kap" d="M220,266 C216,272 216,276 220,277 C224,276 224,272 220,266 Z"/>
+				<path class="p2-kap" d="M242,284 C238,290 238,294 242,295 C246,294 246,290 242,284 Z"/>
+				<path class="p2-kap" d="M228,306 C224,312 224,316 228,317 C232,316 232,312 228,306 Z"/>
+				<path class="p2-kap" d="M204,284 C200,290 200,294 204,295 C208,294 208,290 204,284 Z"/>
+				<path class="p2-kap" d="M257,276 C253,282 253,286 257,287 C261,286 261,282 257,276 Z"/>
+				<path class="p2-kap" d="M222,356 C218,362 218,366 222,367 C226,366 226,362 222,356 Z"/>
+				<path class="p2-kap" d="M239,374 C235,380 235,384 239,385 C243,384 243,380 239,374 Z"/>
+			</g>
+		</g>
+		<g class="p2-brr">
+			<rect x="56" y="150" width="128" height="40" rx="12" fill="#ffffff" stroke="#495057" stroke-width="2"/>
+			<path d="M170,188 L200,206 L158,189 Z" fill="#ffffff" stroke="#495057" stroke-width="2" stroke-linejoin="round"/>
+			<line x1="160" y1="188" x2="170" y2="188" stroke="#ffffff" stroke-width="3"/>
+			<text x="120" y="177" font-size="19" font-weight="bold" text-anchor="middle" fill="#2b2a26">Brr, zima!</text>
+		</g>
+
+		<!-- lupa -->
+		<circle cx="257" cy="282" r="10" fill="none" stroke="#495057" stroke-width="2"/>
+		<line x1="266" y1="277" x2="287" y2="266" stroke="#495057" stroke-width="2"/>
+		<circle cx="350" cy="250" r="66" fill="#ffffff"/>
+		<g clip-path="url(#vyp2-lupa)">
+			<rect x="282" y="270" width="140" height="50" fill="#f4c7a1"/>
+			<line x1="282" y1="270" x2="422" y2="270" stroke="#b07a50" stroke-width="2"/>
+			<path d="M314,270 A36,26 0 0 1 386,270 Z" fill="#a5d8ff" stroke="#1c7ed6" stroke-width="2"/>
+			<g class="p2-tep" fill="#e03131" stroke="#e03131" stroke-width="4" stroke-linecap="round">
+				<line x1="336" y1="306" x2="336" y2="284"/><path d="M329,286 L343,286 L336,274 Z" stroke="none"/>
+				<line x1="364" y1="306" x2="364" y2="284"/><path d="M357,286 L371,286 L364,274 Z" stroke="none"/>
+			</g>
+			<g fill="#ff922b" stroke="#d9480f" stroke-width="1.5">
+				<circle class="p2-cast" cx="332" cy="244" r="5"/>
+				<circle class="p2-cast" cx="350" cy="240" r="5" style="animation-delay:-0.8s"/>
+				<circle class="p2-cast" cx="368" cy="244" r="5" style="animation-delay:-1.6s"/>
+			</g>
+		</g>
+		<circle cx="350" cy="250" r="66" fill="none" stroke="#495057" stroke-width="4"/>
+		<text x="350" y="340" font-size="15" text-anchor="middle" fill="#495057">kapka na kůži</text>
+		<text x="350" y="358" font-size="15" text-anchor="middle" fill="#495057">pod lupou</text>
+
+		<rect class="p2-zav" x="30" y="110" width="400" height="420" rx="8" fill="#ffffff" opacity="0"/>
+
+		<!-- legenda a závěr -->
+		<g fill="#e03131" stroke="#e03131" stroke-width="4" stroke-linecap="round">
+			<line x1="40" y1="562" x2="56" y2="562"/><path d="M54,555 L54,569 L66,562 Z" stroke="none"/>
+		</g>
+		<text x="76" y="568" font-size="17" fill="#2b2a26">teplo z kůže do vody</text>
+		<circle cx="52" cy="592" r="5" fill="#ff922b" stroke="#d9480f" stroke-width="1.5"/>
+		<text x="76" y="598" font-size="17" fill="#2b2a26">částice vody odcházejí do vzduchu</text>
+		<text x="34" y="636" font-size="18" fill="#2b2a26">Voda se vypařuje a bere kůži teplo.</text>
+		<text x="34" y="662" font-size="18" fill="#2b2a26">Kůže se ochlazuje, plavci je zima.</text>
+		<text x="34" y="688" font-size="18" fill="#2b2a26">Stejně chladí pot nebo mokrý zábal.</text>
+	</g>
+</svg>

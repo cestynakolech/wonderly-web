@@ -2920,6 +2920,7 @@ export const temata: Record<string, Tema[]> = {
 					materialy: [
 						{ druh: 'video', nazev: 'Píseň: Teplo mění skupenství 🎵', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi/pisen-teplo-meni-skupenstvi.m4a' },
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Teplo a skupenství látek (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi/notebooklm-teplo-a-premeny-skupenstvi.mp4' },
+						{ druh: 'infografika', nazev: 'Infografika: Sublimace jódu — panel', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi/infografika-teplo-a-premeny-skupenstvi-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi/infografika-teplo-a-premeny-skupenstvi-panel-1.svg'] },
 					],
 				},
 				{
@@ -2972,6 +2973,7 @@ export const temata: Record<string, Tema[]> = {
 					materialy: [
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Tajemství vypařování (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/vyparovani/notebooklm-vyparovani.mp4' },
 						{ druh: 'video', nazev: 'Píseň: Vypařování 🎵', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/vyparovani/pisen-vyparovani.m4a' },
+						{ druh: 'infografika', nazev: 'Infografika: Vypařování a ochlazování (panely pro tabuli)', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/vyparovani/infografika-vyparovani-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/vyparovani/infografika-vyparovani-panel-1.svg', '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/vyparovani/infografika-vyparovani-panel-2.svg'] },
 					],
 				},
 				{
@@ -2988,6 +2990,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 					materialy: [
 						{ druh: 'video', nazev: 'Píseň: Var 🎵', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/var/pisen-var.m4a' },
+						{ druh: 'infografika', nazev: 'Infografika: Var a destilace (panely pro tabuli)', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/var/infografika-var-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/var/infografika-var-panel-1.svg', '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/var/infografika-var-panel-2.svg'] },
 					],
 				},
 				{

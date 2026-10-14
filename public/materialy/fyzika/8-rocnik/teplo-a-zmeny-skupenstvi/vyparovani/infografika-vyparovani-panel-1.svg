@@ -1,0 +1,88 @@
+<svg viewBox="0 0 460 730" width="460" height="730" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Které částice uniknou: pohled zblízka na vodu, částice se neustále pohybují. Všechny částice vody jsou oranžové kuličky (model), rychlejší mají čárky pohybu. Tři rychlejší částice u hladiny jedna po druhé opustí vodu a odletí do vzduchu jako pára. Rychlejší částice hluboko uvnitř vody uniknout nemůže. Po každém úniku klesne sloupec teploměru ve vodě: zůstávají pomalejší částice a voda se ochlazuje. Bez animace je vidět konečný stav: tři částice už jsou ve vzduchu, čárkované stopy ukazují, odkud unikly, a sloupec teploměru je nižší než na začátku." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Vypařování 1/2: Které částice uniknou?</title>
+	<style>
+		.p1-k { animation: p1k 0.9s ease-in-out infinite alternate; }
+		@keyframes p1k { from { transform: translate(-1.5px, 1px); } to { transform: translate(1.5px, -1px); } }
+		.p1-kr { animation: p1kr 0.35s ease-in-out infinite alternate; }
+		@keyframes p1kr { from { transform: translate(-4px, 2px); } to { transform: translate(4px, -3px); } }
+		.p1-u1 { animation: p1u1 12s ease-out infinite; }
+		.p1-u2 { animation: p1u2 12s ease-out infinite; }
+		.p1-u3 { animation: p1u3 12s ease-out infinite; }
+		@keyframes p1u1 { 0%, 8% { transform: translate(0px, 0px); } 22%, 100% { transform: translate(-34px, -150px); } }
+		@keyframes p1u2 { 0%, 36% { transform: translate(0px, 0px); } 50%, 100% { transform: translate(22px, -168px); } }
+		@keyframes p1u3 { 0%, 64% { transform: translate(0px, 0px); } 78%, 100% { transform: translate(4px, -150px); } }
+		.p1-t { transform-box: fill-box; transform-origin: 50% 100%; animation: p1t 12s ease-in-out infinite; }
+		@keyframes p1t { 0%, 18% { transform: scaleY(1); } 26%, 46% { transform: scaleY(0.92); } 54%, 74% { transform: scaleY(0.84); } 82%, 100% { transform: scaleY(0.76); } }
+		.p1-zav { animation: p1zav 12s linear infinite; }
+		@keyframes p1zav { 0%, 92% { opacity: 0; } 96% { opacity: 1; } 100% { opacity: 0; } }
+		.p1-stopa { display: none; }
+		@media (prefers-reduced-motion: reduce) {
+			.p1-k, .p1-kr, .p1-u1, .p1-u2, .p1-u3, .p1-t, .p1-zav { animation: none; }
+			.p1-u1 { transform: translate(-34px, -150px); }
+			.p1-u2 { transform: translate(22px, -168px); }
+			.p1-u3 { transform: translate(4px, -150px); }
+			.p1-t { transform: scaleY(0.76); }
+			.p1-stopa { display: inline; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="730" fill="#f8f9fa"/>
+	<g id="panel-1">
+		<rect x="26" y="16" width="420" height="706" rx="12" fill="#dee2e6"/>
+		<rect x="20" y="10" width="420" height="706" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/>
+		<circle cx="52" cy="44" r="17" fill="#2b2a26"/>
+		<text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">1</text>
+		<text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Které částice uniknou?</text>
+		<text x="34" y="92" font-size="21" fill="#2b2a26">Hladina vody zblízka (model).</text>
+		<rect x="30" y="110" width="400" height="430" rx="8" fill="#ffffff"/>
+		<text x="46" y="140" font-size="17" fill="#868e96">vzduch</text>
+		<rect x="40" y="300" width="380" height="230" fill="#a5d8ff"/>
+		<line x1="40" y1="300" x2="420" y2="300" stroke="#1c7ed6" stroke-width="2.5"/>
+		<text x="146" y="292" font-size="15" fill="#1864ab">hladina</text>
+
+		<!-- teploměr ve vodě -->
+		<text x="380" y="186" font-size="15" text-anchor="middle" fill="#495057">teploměr</text>
+		<rect x="371" y="196" width="18" height="306" rx="9" fill="#ffffff" stroke="#495057" stroke-width="2"/>
+		<circle cx="380" cy="508" r="13" fill="#e03131" stroke="#495057" stroke-width="2"/>
+		<rect class="p1-t" x="376" y="230" width="8" height="276" fill="#e03131"/>
+		<g stroke="#495057" stroke-width="1.5">
+			<line x1="389" y1="240" x2="396" y2="240"/><line x1="389" y1="280" x2="396" y2="280"/><line x1="389" y1="320" x2="396" y2="320"/><line x1="389" y1="360" x2="396" y2="360"/><line x1="389" y1="400" x2="396" y2="400"/><line x1="389" y1="440" x2="396" y2="440"/>
+		</g>
+
+		<!-- pomalejší částice vody (oranžové kuličky bez čárek) -->
+		<g fill="#ff922b" stroke="#d9480f" stroke-width="1.5">
+			<circle class="p1-k" cx="66" cy="318" r="9"/><circle class="p1-k" cx="142" cy="318" r="9" style="animation-delay:-0.3s"/><circle class="p1-k" cx="180" cy="318" r="9" style="animation-delay:-0.6s"/><circle class="p1-k" cx="256" cy="318" r="9" style="animation-delay:-0.2s"/>
+			<circle class="p1-k" cx="85" cy="354" r="9" style="animation-delay:-0.5s"/><circle class="p1-k" cx="123" cy="354" r="9" style="animation-delay:-0.1s"/><circle class="p1-k" cx="161" cy="354" r="9" style="animation-delay:-0.7s"/><circle class="p1-k" cx="199" cy="354" r="9" style="animation-delay:-0.4s"/><circle class="p1-k" cx="237" cy="354" r="9" style="animation-delay:-0.8s"/><circle class="p1-k" cx="275" cy="354" r="9" style="animation-delay:-0.2s"/><circle class="p1-k" cx="313" cy="354" r="9" style="animation-delay:-0.6s"/>
+			<circle class="p1-k" cx="66" cy="390" r="9" style="animation-delay:-0.3s"/><circle class="p1-k" cx="104" cy="390" r="9" style="animation-delay:-0.7s"/><circle class="p1-k" cx="142" cy="390" r="9"/><circle class="p1-k" cx="180" cy="390" r="9" style="animation-delay:-0.5s"/><circle class="p1-k" cx="218" cy="390" r="9" style="animation-delay:-0.1s"/><circle class="p1-k" cx="256" cy="390" r="9" style="animation-delay:-0.8s"/><circle class="p1-k" cx="294" cy="390" r="9" style="animation-delay:-0.4s"/>
+			<circle class="p1-k" cx="85" cy="426" r="9" style="animation-delay:-0.6s"/><circle class="p1-k" cx="123" cy="426" r="9" style="animation-delay:-0.2s"/><circle class="p1-k" cx="161" cy="426" r="9" style="animation-delay:-0.8s"/><circle class="p1-k" cx="237" cy="426" r="9" style="animation-delay:-0.3s"/><circle class="p1-k" cx="275" cy="426" r="9" style="animation-delay:-0.5s"/><circle class="p1-k" cx="313" cy="426" r="9" style="animation-delay:-0.1s"/>
+			<circle class="p1-k" cx="66" cy="462" r="9" style="animation-delay:-0.4s"/><circle class="p1-k" cx="104" cy="462" r="9" style="animation-delay:-0.8s"/><circle class="p1-k" cx="142" cy="462" r="9" style="animation-delay:-0.2s"/><circle class="p1-k" cx="180" cy="462" r="9" style="animation-delay:-0.6s"/><circle class="p1-k" cx="218" cy="462" r="9"/><circle class="p1-k" cx="256" cy="462" r="9" style="animation-delay:-0.3s"/><circle class="p1-k" cx="294" cy="462" r="9" style="animation-delay:-0.7s"/>
+			<circle class="p1-k" cx="85" cy="498" r="9" style="animation-delay:-0.1s"/><circle class="p1-k" cx="123" cy="498" r="9" style="animation-delay:-0.5s"/><circle class="p1-k" cx="161" cy="498" r="9" style="animation-delay:-0.3s"/><circle class="p1-k" cx="199" cy="498" r="9" style="animation-delay:-0.7s"/><circle class="p1-k" cx="237" cy="498" r="9" style="animation-delay:-0.2s"/><circle class="p1-k" cx="275" cy="498" r="9" style="animation-delay:-0.6s"/><circle class="p1-k" cx="313" cy="498" r="9" style="animation-delay:-0.4s"/>
+		</g>
+		<!-- rychlejší částice: stejná oranžová, navíc čárky pohybu -->
+		<g fill="#ff922b" stroke="#d9480f" stroke-width="1.5">
+			<g class="p1-u1"><g class="p1-kr"><circle cx="104" cy="318" r="9"/><path d="M90,311 Q85,318 90,325 M118,311 Q123,318 118,325" fill="none" stroke="#d9480f" stroke-width="2.2" stroke-linecap="round"/></g></g>
+			<g class="p1-u2"><g class="p1-kr" style="animation-delay:-0.1s"><circle cx="218" cy="318" r="9"/><path d="M204,311 Q199,318 204,325 M232,311 Q237,318 232,325" fill="none" stroke="#d9480f" stroke-width="2.2" stroke-linecap="round"/></g></g>
+			<g class="p1-u3"><g class="p1-kr" style="animation-delay:-0.2s"><circle cx="294" cy="318" r="9"/><path d="M280,311 Q275,318 280,325 M308,311 Q313,318 308,325" fill="none" stroke="#d9480f" stroke-width="2.2" stroke-linecap="round"/></g></g>
+			<g class="p1-kr" style="animation-delay:-0.15s"><circle cx="199" cy="426" r="9"/><path d="M185,419 Q180,426 185,433 M213,419 Q218,426 213,433" fill="none" stroke="#d9480f" stroke-width="2.2" stroke-linecap="round"/></g>
+		</g>
+		<!-- jen bez animace: stopy úniku a původní výška sloupce teploměru -->
+		<g class="p1-stopa" fill="none" stroke="#868e96" stroke-width="2" stroke-dasharray="5 5">
+			<circle cx="104" cy="318" r="9"/><circle cx="218" cy="318" r="9"/><circle cx="294" cy="318" r="9"/>
+			<path d="M100,306 L74,182"/><path d="M220,306 L238,164"/><path d="M294,306 L298,182"/>
+			<line x1="366" y1="230" x2="394" y2="230" stroke="#495057" stroke-dasharray="4 3"/>
+			<path d="M408,236 L408,288" stroke="#495057" stroke-dasharray="none"/>
+			<path d="M402,280 L408,292 L414,280" stroke="#495057" stroke-dasharray="none"/>
+		</g>
+
+		<rect class="p1-zav" x="30" y="110" width="400" height="430" rx="8" fill="#ffffff" opacity="0"/>
+
+		<!-- legenda a závěr -->
+		<circle cx="50" cy="568" r="9" fill="#ff922b" stroke="#d9480f" stroke-width="1.5"/>
+		<path d="M36,561 Q31,568 36,575 M64,561 Q69,568 64,575" fill="none" stroke="#d9480f" stroke-width="2.2" stroke-linecap="round"/>
+		<text x="76" y="574" font-size="17" fill="#2b2a26">rychlejší částice vody (čárky pohybu)</text>
+		<circle cx="50" cy="596" r="9" fill="#ff922b" stroke="#d9480f" stroke-width="1.5"/>
+		<text x="76" y="602" font-size="17" fill="#2b2a26">pomalejší částice vody</text>
+		<text x="34" y="640" font-size="18" fill="#2b2a26">Z hladiny unikají rychlejší částice.</text>
+		<text x="34" y="666" font-size="18" fill="#2b2a26">Uvnitř vody uniknout nemohou.</text>
+		<text x="34" y="692" font-size="18" fill="#2b2a26">Zbylé jsou pomalejší: voda se ochlazuje.</text>
+	</g>
+</svg>

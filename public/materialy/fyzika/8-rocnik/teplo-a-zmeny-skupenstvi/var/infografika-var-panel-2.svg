@@ -1,0 +1,124 @@
+<svg viewBox="0 0 460 790" width="460" height="790" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Destilace: baňka se směsí lihu a vody stojí na trojnožce nad modrým plamenem kahanu, směs vře a pára (oranžové kuličky) stoupá hrdlem do šikmé trubice. Trubice vede chladičem, kterým proudí studená voda (modré šipečky ukazují směr proudu); pára se v něm ochladí a zkapalní. Kapky odkapávají do kádinky a kapaliny v ní přibývá. Odvedená pára je bohatší na líh, proto má získaná kapalina vyšší podíl lihu. Líh vře přibližně při 78 °C, voda při 100 °C." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Var 2/2: Destilace</title>
+	<!-- OPRAVA 2 (14. 10. 2026, TEPLO-A-kontrola): plamen kahanu modrý dle živého var-obr-05 (LEGENDA-TEPLO), 10. šipečka chladicí vody u vstupu, aby se nic neobjevovalo skokem. -->
+	<style>
+		.p2-para { animation: p2para 1.2s linear infinite; }
+		@keyframes p2para { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -18; } }
+		.p2-kap { animation: p2kap 1.2s linear infinite; }
+		@keyframes p2kap { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -20; } }
+		.p2-chl { animation: p2chl 1.6s linear infinite; }
+		@keyframes p2chl { from { transform: translate(0px, 0px); } to { transform: translate(-20.70px, -12.15px); } }
+		.p2-b { transform-box: fill-box; transform-origin: center; animation: p2b 1.4s linear infinite; }
+		@keyframes p2b { 0% { transform: translateY(0px) scale(0.5); opacity: 0; } 15% { opacity: 1; } 85% { transform: translateY(-28px) scale(1); opacity: 1; } 100% { transform: translateY(-32px) scale(1.2); opacity: 0; } }
+		.p2-pl { transform-box: fill-box; transform-origin: 50% 100%; animation: p2pl 0.5s ease-in-out infinite alternate; }
+		@keyframes p2pl { from { transform: scale(1, 0.9); } to { transform: scale(0.94, 1.08); } }
+		.p2-kv { animation: p2kv 1.5s ease-in infinite; }
+		@keyframes p2kv { 0% { transform: translateY(0px); opacity: 0; } 15% { opacity: 1; } 90% { transform: translateY(46px); opacity: 1; } 100% { transform: translateY(50px); opacity: 0; } }
+		.p2-hl { transform-box: fill-box; transform-origin: 50% 100%; animation: p2hl 15s linear infinite; }
+		@keyframes p2hl { 0% { transform: scaleY(0.2); } 92% { transform: scaleY(1); } 100% { transform: scaleY(1); } }
+		.p2-zav { animation: p2zav 15s linear infinite; }
+		@keyframes p2zav { 0%, 92% { opacity: 0; } 96% { opacity: 1; } 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) { .p2-para, .p2-kap, .p2-chl, .p2-b, .p2-pl, .p2-kv, .p2-hl, .p2-zav { animation: none; } }
+	</style>
+	<rect x="0" y="0" width="460" height="790" fill="#f8f9fa"/>
+	<g id="panel-2">
+		<rect x="26" y="16" width="420" height="766" rx="12" fill="#dee2e6"/>
+		<rect x="20" y="10" width="420" height="766" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/>
+		<circle cx="52" cy="44" r="17" fill="#2b2a26"/>
+		<text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">2</text>
+		<text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Destilace</text>
+		<text x="34" y="92" font-size="21" fill="#2b2a26">Pára odchází a v chladiči zkapalní.</text>
+		<rect x="30" y="110" width="400" height="480" rx="8" fill="#ffffff"/>
+
+		<!-- stůl -->
+		<rect x="32" y="572" width="396" height="16" fill="#c8935a"/>
+		<line x1="32" y1="572" x2="428" y2="572" stroke="#8a5a2b" stroke-width="2"/>
+
+		<!-- stojan s držákem baňky -->
+		<rect x="40" y="564" width="110" height="8" rx="2" fill="#495057"/>
+		<rect x="52" y="250" width="6" height="314" fill="#868e96"/>
+		<rect x="52" y="318" width="52" height="6" fill="#868e96"/>
+		<rect x="98" y="312" width="10" height="18" rx="2" fill="#495057"/>
+
+		<!-- trojnožka a kahan -->
+		<line x1="66" y1="492" x2="154" y2="492" stroke="#495057" stroke-width="4"/>
+		<line x1="72" y1="492" x2="66" y2="564" stroke="#495057" stroke-width="4"/>
+		<line x1="148" y1="492" x2="154" y2="564" stroke="#495057" stroke-width="4"/>
+		<rect x="98" y="534" width="24" height="30" rx="3" fill="#adb5bd" stroke="#495057" stroke-width="2"/>
+		<rect x="104" y="522" width="12" height="13" fill="#868e96" stroke="#495057" stroke-width="1.5"/>
+		<path class="p2-pl" d="M110,520 C100,512 103,500 110,494 C117,500 120,512 110,520 Z" fill="#74c0fc" stroke="#1971c2" stroke-width="1.5"/>
+		<path d="M110,519 C106,514 107,508 110,504 C113,508 114,514 110,519 Z" fill="#e7f5ff"/>
+
+		<!-- baňka se směsí -->
+		<path d="M64,444 A46,46 0 0 0 156,444 Z" fill="#a5d8ff"/>
+		<g fill="#ffffff" fill-opacity="0.9" stroke="#1c7ed6" stroke-width="1.5">
+			<circle class="p2-b" cx="92" cy="478" r="4"/>
+			<circle class="p2-b" cx="112" cy="482" r="4" style="animation-delay:-0.5s"/>
+			<circle class="p2-b" cx="132" cy="476" r="4" style="animation-delay:-0.9s"/>
+		</g>
+		<line x1="66" y1="444" x2="154" y2="444" stroke="#1c7ed6" stroke-width="2"/>
+		<circle cx="110" cy="444" r="46" fill="#ffffff" fill-opacity="0.2" stroke="#495057" stroke-width="2.5"/>
+		<rect x="101" y="300" width="18" height="102" fill="#ffffff" stroke="#495057" stroke-width="2.5"/>
+		<rect x="102.5" y="380" width="15" height="26" fill="#ffffff"/>
+		<rect x="96" y="290" width="28" height="14" rx="3" fill="#495057"/>
+
+		<!-- odvodní trubice a chladič (šikmo dolů) -->
+		<path d="M119,322 L176,350 L380,470 L380,496" fill="none" stroke="#495057" stroke-width="12" stroke-linejoin="round"/>
+		<path d="M119,322 L176,350 L380,470 L380,496" fill="none" stroke="#ffffff" stroke-width="7" stroke-linejoin="round"/>
+		<path d="M196,334 L370,436 L352,466 L178,364 Z" fill="#a5d8ff" fill-opacity="0.75" stroke="#495057" stroke-width="2.5"/>
+		<clipPath id="var2-plast"><path d="M196,334 L370,436 L352,466 L178,364 Z"/></clipPath>
+		<g clip-path="url(#var2-plast)"><g class="p2-chl" fill="none" stroke="#1971c2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M-4,-5 L3,0 L-4,5" transform="translate(385.4 457.25) rotate(-149.6)"/><path d="M-4,-5 L3,0 L-4,5" transform="translate(364.7 445.1) rotate(-149.6)"/><path d="M-4,-5 L3,0 L-4,5" transform="translate(344.0 433.0) rotate(-149.6)"/><path d="M-4,-5 L3,0 L-4,5" transform="translate(323.3 420.9) rotate(-149.6)"/><path d="M-4,-5 L3,0 L-4,5" transform="translate(302.6 408.7) rotate(-149.6)"/><path d="M-4,-5 L3,0 L-4,5" transform="translate(281.9 396.6) rotate(-149.6)"/><path d="M-4,-5 L3,0 L-4,5" transform="translate(261.2 384.4) rotate(-149.6)"/><path d="M-4,-5 L3,0 L-4,5" transform="translate(240.5 372.3) rotate(-149.6)"/><path d="M-4,-5 L3,0 L-4,5" transform="translate(219.8 360.1) rotate(-149.6)"/><path d="M-4,-5 L3,0 L-4,5" transform="translate(199.1 348.0) rotate(-149.6)"/></g></g>
+		<path d="M119,322 L176,350 L380,470 L380,496" fill="none" stroke="#495057" stroke-width="2"/>
+		<path d="M119,322 L176,350 L380,470 L380,496" fill="none" stroke="#ffffff" stroke-width="5" stroke-linejoin="round"/>
+		<!-- přívod a odvod chladicí vody -->
+		<rect x="354" y="446" width="10" height="24" fill="#a5d8ff" stroke="#495057" stroke-width="2" transform="rotate(30 359 458)"/>
+		<rect x="197" y="318" width="10" height="24" fill="#a5d8ff" stroke="#495057" stroke-width="2" transform="rotate(30 202 330)"/>
+		<path d="M352,494 L362,476" stroke="#1971c2" stroke-width="3" fill="none"/><path d="M356,472 L368,474 L362,484 Z" fill="#1971c2" transform="rotate(-20 362 478)"/>
+		<path d="M208,316 L218,298" stroke="#1971c2" stroke-width="3" fill="none"/><path d="M212,296 L224,298 L218,288 Z" fill="#1971c2"/>
+		<text x="320" y="512" font-size="15" text-anchor="end" fill="#1864ab">studená voda</text>
+		<text x="228" y="296" font-size="15" fill="#1864ab">ohřátá voda ven</text>
+
+		<!-- pára: tečky v hrdle a trubici -->
+		<path class="p2-para" d="M110,440 L110,322 L176,350 L250,393" fill="none" stroke="#d9480f" stroke-width="13" stroke-linecap="round" stroke-dasharray="0.1 18"/>
+		<path class="p2-para" d="M110,440 L110,322 L176,350 L250,393" fill="none" stroke="#ff922b" stroke-width="10" stroke-linecap="round" stroke-dasharray="0.1 18"/>
+		<!-- zkapalněná kapalina: čárky -->
+		<path class="p2-kap" d="M250,393 L380,470 L380,494" fill="none" stroke="#1971c2" stroke-width="4" stroke-linecap="round" stroke-dasharray="8 12"/>
+
+		<!-- kádinka a odkapávání -->
+		<path class="p2-kv" d="M380,500 C376,506 376,511 380,512 C384,511 384,506 380,500 Z" fill="#1971c2"/>
+		<rect class="p2-hl" x="345" y="530" width="70" height="40" fill="#74c0fc"/>
+		<path d="M342,506 L342,570 L418,570 L418,506" fill="none" stroke="#495057" stroke-width="2.5"/>
+
+		<!-- kroky -->
+		<g font-size="15" font-weight="bold" text-anchor="middle" fill="#fff">
+			<circle cx="172" cy="430" r="13" fill="#2b2a26"/><text x="172" y="435">1</text>
+			<circle cx="138" cy="292" r="13" fill="#2b2a26"/><text x="138" y="297">2</text>
+			<circle cx="300" cy="380" r="13" fill="#2b2a26"/><text x="300" y="385">3</text>
+			<circle cx="312" cy="548" r="13" fill="#2b2a26"/><text x="312" y="553">4</text>
+		</g>
+
+		<!-- legenda v horní části -->
+		<circle cx="250" cy="146" r="5" fill="#ff922b" stroke="#d9480f" stroke-width="1.5"/>
+		<text x="264" y="152" font-size="17" fill="#2b2a26">pára (částice)</text>
+		<line x1="242" y1="176" x2="258" y2="176" stroke="#1971c2" stroke-width="4" stroke-linecap="round"/>
+		<text x="264" y="182" font-size="17" fill="#2b2a26">kapalina</text>
+		<circle cx="250" cy="206" r="7" fill="#ffffff" stroke="#1c7ed6" stroke-width="1.5"/>
+		<text x="264" y="212" font-size="17" fill="#2b2a26">bublina páry</text>
+		<path d="M246,230 L253,236 L246,242" fill="none" stroke="#1971c2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+		<text x="264" y="242" font-size="17" fill="#2b2a26">proud chladicí vody</text>
+
+		<rect class="p2-zav" x="30" y="110" width="400" height="480" rx="8" fill="#ffffff" opacity="0"/>
+
+		<g font-size="18" fill="#2b2a26">
+			<circle cx="46" cy="618" r="12" fill="#2b2a26"/><text x="46" y="623" font-size="15" font-weight="bold" text-anchor="middle" fill="#fff">1</text>
+			<text x="66" y="624">Směs lihu a vody zahříváme, vře.</text>
+			<circle cx="46" cy="646" r="12" fill="#2b2a26"/><text x="46" y="651" font-size="15" font-weight="bold" text-anchor="middle" fill="#fff">2</text>
+			<text x="66" y="652">Pára odchází trubicí.</text>
+			<circle cx="46" cy="674" r="12" fill="#2b2a26"/><text x="46" y="679" font-size="15" font-weight="bold" text-anchor="middle" fill="#fff">3</text>
+			<text x="66" y="680">V chladiči se ochladí a zkapalní.</text>
+			<circle cx="46" cy="702" r="12" fill="#2b2a26"/><text x="46" y="707" font-size="15" font-weight="bold" text-anchor="middle" fill="#fff">4</text>
+			<text x="66" y="708">Kapalina v kádince má vyšší podíl lihu.</text>
+		</g>
+		<text x="34" y="748" font-size="17" fill="#495057">Líh vře asi při 78 °C, voda při 100 °C.</text>
+	</g>
+</svg>
