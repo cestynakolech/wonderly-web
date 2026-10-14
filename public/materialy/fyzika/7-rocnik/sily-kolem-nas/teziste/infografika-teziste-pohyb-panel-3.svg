@@ -1,0 +1,108 @@
+<svg viewBox="0 0 460 446" width="460" height="446" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Těžiště v pohybu 3/4, Nižší těžiště: dva stejně velké hrnky nakloníme o stejný úhel a pustíme. Dětský hrnek má těžké dno a těžiště nízko, svislice z T zůstane nad dnem a hrnek se vrátí. Obyčejný hrnek má těžiště výš, svislice z T vyjde mimo dno a hrnek se převrátí." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Těžiště v pohybu 3/4: Nižší těžiště: hrnek</title>
+	<!-- W74 OPRAVA 1 (14. 10. 2026): T dětského 12 px nad dnem (mez 71,1°), obyčejného 48 px (mez 36,1°); při 50° svislice 13,3 px uvnitř dna / 14,3 px za hranou; dno zeleně.
+	     W74 (14. 10. 2026): samostatná animovaná infografika ke statickým panelům infografika-teziste-panel-5/6.
+	     Animace jen CSS transform/opacity, počátek otáčení = (0,0) obalové skupiny (translate). -->
+	<style>
+		.p3-de { transform: rotate(0deg); animation: p3-de 8s ease-in-out infinite; }
+		@keyframes p3-de { 0% { transform: rotate(0deg); } 12% { transform: rotate(0deg); } 26% { transform: rotate(50deg); } 40% { transform: rotate(50deg); } 52% { transform: rotate(0deg); } 95% { transform: rotate(0deg); } 100% { transform: rotate(0deg); } }
+		.p3-dea { transform: rotate(0deg); animation: p3-dea 8s ease-in-out infinite; }
+		@keyframes p3-dea { 0% { transform: rotate(0deg); } 12% { transform: rotate(0deg); } 26% { transform: rotate(-50deg); } 40% { transform: rotate(-50deg); } 52% { transform: rotate(0deg); } 95% { transform: rotate(0deg); } 100% { transform: rotate(0deg); } }
+		.p3-ob { transform: rotate(90deg); animation: p3-ob 8s ease-in-out infinite; }
+		@keyframes p3-ob { 0% { transform: rotate(0deg); } 12% { transform: rotate(0deg); } 26% { transform: rotate(50deg); } 40% { transform: rotate(50deg); } 52% { transform: rotate(90deg); } 95% { transform: rotate(90deg); } 96% { transform: rotate(0deg); } 100% { transform: rotate(0deg); } }
+		.p3-oba { transform: rotate(-90deg); animation: p3-oba 8s ease-in-out infinite; }
+		@keyframes p3-oba { 0% { transform: rotate(0deg); } 12% { transform: rotate(0deg); } 26% { transform: rotate(-50deg); } 40% { transform: rotate(-50deg); } 52% { transform: rotate(-90deg); } 95% { transform: rotate(-90deg); } 96% { transform: rotate(0deg); } 100% { transform: rotate(0deg); } }
+		.p3k0 { opacity: 0; animation: p3k0 8s linear infinite; }
+		@keyframes p3k0 { 0% { opacity: 1; } 11% { opacity: 1; } 12% { opacity: 0; } 99% { opacity: 0; } 100% { opacity: 1; } }
+		.p3k1 { opacity: 0; animation: p3k1 8s linear infinite; }
+		@keyframes p3k1 { 0% { opacity: 0; } 11% { opacity: 0; } 12% { opacity: 1; } 39% { opacity: 1; } 40% { opacity: 0; } 100% { opacity: 0; } }
+		.p3k2 { opacity: 1; animation: p3k2 8s linear infinite; }
+		@keyframes p3k2 { 0% { opacity: 0; } 39% { opacity: 0; } 40% { opacity: 1; } 100% { opacity: 1; } }
+		.cyk { opacity: 1; animation: cyk 8s linear infinite; }
+		@keyframes cyk { 0% { opacity: 1; } 90% { opacity: 1; } 94% { opacity: 0; } 97% { opacity: 0; } 100% { opacity: 1; } }
+		.p3-vys { opacity: 1; animation: p3-vys 8s linear infinite; }
+		@keyframes p3-vys { 0% { opacity: 0; } 52% { opacity: 0; } 58% { opacity: 1; } 90% { opacity: 1; } 94% { opacity: 0; } 100% { opacity: 0; } }
+		.p3-nap { opacity: 0; animation: p3-nap 8s linear infinite; }
+		@keyframes p3-nap { 0% { opacity: 0; } 24% { opacity: 0; } 27% { opacity: 1; } 50% { opacity: 1; } 54% { opacity: 0; } 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) {
+			.p3-de, .p3-dea, .p3-ob, .p3-oba, .cyk, .p3-vys, .p3-nap, .p3k0, .p3k1, .p3k2 { animation: none; }
+		}
+	</style>
+	<defs>
+		<!-- těžiště s tíhovou silou: počátek = T -->
+		<g id="d-t">
+			<line x1="0" y1="0" x2="0" y2="22" stroke="#c92a2a" stroke-width="5" />
+			<polygon points="0,36 -7,22 7,22" fill="#c92a2a" />
+			<path d="M -6 -6 L 6 6 M 6 -6 L -6 6" stroke="#2b2a26" stroke-width="2.5" />
+		</g>
+		<!-- samotná značka těžiště (bez šipky): počátek = T -->
+		<g id="d-x">
+			<circle r="9" fill="#fbfaf6" fill-opacity="0.85" stroke="#c92a2a" stroke-width="2" />
+			<path d="M -6 -6 L 6 6 M 6 -6 L -6 6" stroke="#2b2a26" stroke-width="2.5" />
+		</g>
+		<clipPath id="klip-podlaha" clipPathUnits="userSpaceOnUse"><rect x="-300" y="-300" width="600" height="322" /></clipPath>
+	</defs>
+	<rect x="0" y="0" width="460" height="446" fill="#f8f9fa" />
+	<g id="panel-3">
+		<rect x="26" y="22" width="420" height="410" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="410" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">3</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Nižší těžiště: hrnek</text>
+		<text class="p3k0" x="230" y="100" text-anchor="middle" font-size="21" font-weight="bold" fill="#5f3dc4">v klidu</text>
+		<text class="p3k1" x="230" y="100" text-anchor="middle" font-size="21" font-weight="bold" fill="#5f3dc4">1. nakloníme</text>
+		<text class="p3k2" x="230" y="100" text-anchor="middle" font-size="21" font-weight="bold" fill="#5f3dc4">2. pustíme</text>
+		<defs>
+			<!-- ořez svislic deskou stolu (v souřadnicích skupiny na ose naklápění) -->
+			<clipPath id="p3-klip" clipPathUnits="userSpaceOnUse"><rect x="-300" y="-300" width="600" height="301.5" /></clipPath>
+		</defs>
+		<!-- deska stolu v šikmém pohledu -->
+		<polygon points="58,252 402,252 426,296 34,296" fill="#e3c9a0" stroke="#2b2a26" stroke-width="2" stroke-linejoin="round" />
+		<rect x="34" y="296" width="392" height="12" fill="#c9a77c" stroke="#2b2a26" stroke-width="2" />
+		<g class="cyk">
+			<g transform="translate(155,280)" clip-path="url(#p3-klip)"><g class="p3-de">
+				<path d="M -72 -72 C -96 -72 -96 -30 -72 -30" fill="none" stroke="#2b2a26" stroke-width="7" />
+				<path d="M -72 -72 C -96 -72 -96 -30 -72 -30" fill="none" stroke="#ffa8a8" stroke-width="3" />
+				<rect x="-70" y="-90" width="70" height="90" rx="4" fill="#ffa8a8" stroke="#2b2a26" stroke-width="2.5" />
+				<rect x="-67" y="-86" width="64" height="83" fill="#fbfaf6" opacity="0.55" />
+				<rect x="-67" y="-26" width="64" height="23" fill="#495057" />
+				<ellipse cx="-35" cy="-90" rx="35" ry="8" fill="#e9ecef" stroke="#2b2a26" stroke-width="2" />
+				<line x1="-70" y1="0" x2="0" y2="0" stroke="#2f9e44" stroke-width="7" stroke-linecap="round" />
+				<g transform="translate(-35,-12)"><g class="p3-dea">
+					<line x1="0" y1="-30" x2="0" y2="200" stroke="#5f3dc4" stroke-width="3" stroke-dasharray="6 4" />
+					<use href="#d-x" />
+					<text x="8" y="-6" font-size="22" font-weight="bold" fill="#2b2a26">T</text>
+				</g></g>
+			</g></g>
+			<g transform="translate(325,280)" clip-path="url(#p3-klip)"><g class="p3-ob">
+				<path d="M -72 -72 C -96 -72 -96 -30 -72 -30" fill="none" stroke="#2b2a26" stroke-width="7" />
+				<path d="M -72 -72 C -96 -72 -96 -30 -72 -30" fill="none" stroke="#a5d8ff" stroke-width="3" />
+				<rect x="-70" y="-90" width="70" height="90" rx="4" fill="#a5d8ff" stroke="#2b2a26" stroke-width="2.5" />
+				<rect x="-67" y="-86" width="64" height="83" fill="#fbfaf6" opacity="0.55" />
+				<rect x="-67" y="-8" width="64" height="5" fill="#868e96" />
+				<ellipse cx="-35" cy="-90" rx="35" ry="8" fill="#e9ecef" stroke="#2b2a26" stroke-width="2" />
+				<line x1="-70" y1="0" x2="0" y2="0" stroke="#2f9e44" stroke-width="7" stroke-linecap="round" />
+				<g transform="translate(-35,-48)"><g class="p3-oba">
+					<line x1="0" y1="-30" x2="0" y2="200" stroke="#5f3dc4" stroke-width="3" stroke-dasharray="6 4" />
+					<use href="#d-x" />
+					<text x="8" y="-6" font-size="22" font-weight="bold" fill="#2b2a26">T</text>
+				</g></g>
+			</g></g>
+		</g>
+		<text x="120" y="336" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">dětský hrnek</text>
+		<text x="120" y="360" text-anchor="middle" font-size="20" fill="#2b2a26">těžké dno, T nízko</text>
+		<text x="300" y="336" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">obyčejný hrnek</text>
+		<text x="300" y="360" text-anchor="middle" font-size="20" fill="#2b2a26">T výš</text>
+		<g class="p3-vys">
+			<text x="120" y="390" text-anchor="middle" font-size="21" font-weight="bold" fill="#1e7a34">vrátí se</text>
+			<text x="300" y="390" text-anchor="middle" font-size="21" font-weight="bold" fill="#c92a2a">převrátí se</text>
+		</g>
+		<!-- po naklonění: kam míří svislice z T -->
+		<g class="p3-nap">
+			<text x="120" y="136" text-anchor="middle" font-size="20" font-weight="bold" fill="#1e7a34">svislice na dno</text>
+			<text x="305" y="136" text-anchor="middle" font-size="20" font-weight="bold" fill="#c92a2a">svislice mimo dno</text>
+		</g>
+		<line x1="118" y1="414" x2="150" y2="414" stroke="#2f9e44" stroke-width="7" stroke-linecap="round" />
+		<text x="160" y="420" font-size="20" fill="#2b2a26">= dno, na kterém hrnek stojí</text>
+	</g>
+</svg>

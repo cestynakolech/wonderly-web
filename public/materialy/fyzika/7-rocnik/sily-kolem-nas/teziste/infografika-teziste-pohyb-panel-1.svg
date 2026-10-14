@@ -1,0 +1,160 @@
+<svg viewBox="0 0 460 502" width="460" height="502" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Těžiště v pohybu 1/4, Jedna tyč, tři osy: tutéž tyč nasadíme na osu postupně třemi otvory a vychýlíme ji. T pod osou: po vychýlení se těžiště zvedne nad původní výšku, svislice z T míjí osu a tyč se zhoupne a vrátí zpátky, stálá poloha. T přímo v ose: těžiště zůstane stejně vysoko, svislice z T prochází osou a tyč zůstane, kde je, volná poloha. T nad osou: po vychýlení těžiště klesne, svislice z T míjí osu a tyč se převrátí dolů, vratká poloha." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Těžiště v pohybu 1/4: Jedna tyč, tři osy</title>
+	<!-- W74 OPRAVA 1 (14. 10. 2026): jiný děj a rozvržení než statický panel 6 / obr-08.
+	     Jedna tyč se třemi otvory, osa postupně nad T, v T a pod T; šedá čárkovaná čára = výška T před vychýlením.
+	     Cyklus 15 s = 3 scény po 5 s. Animace jen CSS transform/opacity, počátek otáčení = (0,0) obalové skupiny. -->
+	<style>
+		.rmv { opacity: 0; }
+		.a-st { transform: rotate(45deg); animation: a-st 15s ease-in-out infinite; }
+		@keyframes a-st { 0% { transform: rotate(0deg); } 5.33% { transform: rotate(0deg); } 10.67% { transform: rotate(45deg); } 16% { transform: rotate(45deg); } 19.33% { transform: rotate(-30deg); } 22.33% { transform: rotate(18deg); } 25% { transform: rotate(-9deg); } 27.33% { transform: rotate(4deg); } 29.33% { transform: rotate(0deg); } 100% { transform: rotate(0deg); } }
+		.a-stx { transform: rotate(-45deg); animation: a-stx 15s ease-in-out infinite; }
+		@keyframes a-stx { 0% { transform: rotate(0deg); } 5.33% { transform: rotate(0deg); } 10.67% { transform: rotate(-45deg); } 16% { transform: rotate(-45deg); } 19.33% { transform: rotate(30deg); } 22.33% { transform: rotate(-18deg); } 25% { transform: rotate(9deg); } 27.33% { transform: rotate(-4deg); } 29.33% { transform: rotate(0deg); } 100% { transform: rotate(0deg); } }
+		.a-vo { transform: rotate(0deg); animation: a-vo 15s ease-in-out infinite; }
+		@keyframes a-vo { 0% { transform: rotate(0deg); } 38.67% { transform: rotate(0deg); } 44% { transform: rotate(-45deg); } 65.33% { transform: rotate(-45deg); } 66% { transform: rotate(0deg); } 100% { transform: rotate(0deg); } }
+		.a-vox { transform: rotate(0deg); animation: a-vox 15s ease-in-out infinite; }
+		@keyframes a-vox { 0% { transform: rotate(0deg); } 38.67% { transform: rotate(0deg); } 44% { transform: rotate(45deg); } 65.33% { transform: rotate(45deg); } 66% { transform: rotate(0deg); } 100% { transform: rotate(0deg); } }
+		.a-vr { transform: rotate(0deg); animation: a-vr 15s ease-in-out infinite; }
+		@keyframes a-vr { 0% { transform: rotate(0deg); } 72% { transform: rotate(0deg); } 77.33% { transform: rotate(-30deg); } 82.67% { transform: rotate(-30deg); } 88.67% { transform: rotate(-240deg); } 91.67% { transform: rotate(-140deg); } 94% { transform: rotate(-205deg); } 96% { transform: rotate(-170deg); } 97.67% { transform: rotate(-180deg); } 98.67% { transform: rotate(-180deg); } 99.33% { transform: rotate(0deg); } 100% { transform: rotate(0deg); } }
+		.a-vrx { transform: rotate(0deg); animation: a-vrx 15s ease-in-out infinite; }
+		@keyframes a-vrx { 0% { transform: rotate(0deg); } 72% { transform: rotate(0deg); } 77.33% { transform: rotate(30deg); } 82.67% { transform: rotate(30deg); } 88.67% { transform: rotate(240deg); } 91.67% { transform: rotate(140deg); } 94% { transform: rotate(205deg); } 96% { transform: rotate(170deg); } 97.67% { transform: rotate(180deg); } 98.67% { transform: rotate(180deg); } 99.33% { transform: rotate(0deg); } 100% { transform: rotate(0deg); } }
+		.s1 { opacity: 1; animation: s1 15s linear infinite; }
+		@keyframes s1 { 0% { opacity: 1; } 30.67% { opacity: 1; } 32% { opacity: 0; } 98.67% { opacity: 0; } 100% { opacity: 1; } }
+		.s2 { opacity: 0; animation: s2 15s linear infinite; }
+		@keyframes s2 { 0% { opacity: 0; } 33.33% { opacity: 0; } 34.67% { opacity: 1; } 64% { opacity: 1; } 65.33% { opacity: 0; } 100% { opacity: 0; } }
+		.s3 { opacity: 0; animation: s3 15s linear infinite; }
+		@keyframes s3 { 0% { opacity: 0; } 66.67% { opacity: 0; } 68% { opacity: 1; } 97.33% { opacity: 1; } 98.67% { opacity: 0; } 100% { opacity: 0; } }
+		.h1 { opacity: 1; animation: h1 15s linear infinite; }
+		@keyframes h1 { 0% { opacity: 0; } 10.67% { opacity: 0; } 12% { opacity: 1; } 30.67% { opacity: 1; } 32% { opacity: 0; } 100% { opacity: 0; } }
+		.h2 { opacity: 0; animation: h2 15s linear infinite; }
+		@keyframes h2 { 0% { opacity: 0; } 44% { opacity: 0; } 45.33% { opacity: 1; } 64% { opacity: 1; } 65.33% { opacity: 0; } 100% { opacity: 0; } }
+		.h3 { opacity: 0; animation: h3 15s linear infinite; }
+		@keyframes h3 { 0% { opacity: 0; } 77.33% { opacity: 0; } 78.67% { opacity: 1; } 97.33% { opacity: 1; } 98.67% { opacity: 0; } 100% { opacity: 0; } }
+		.r1 { opacity: 1; animation: r1 15s linear infinite; }
+		@keyframes r1 { 0% { opacity: 0; } 24% { opacity: 0; } 26% { opacity: 1; } 30.67% { opacity: 1; } 32% { opacity: 0; } 100% { opacity: 0; } }
+		.r2 { opacity: 0; animation: r2 15s linear infinite; }
+		@keyframes r2 { 0% { opacity: 0; } 57.33% { opacity: 0; } 59.33% { opacity: 1; } 64% { opacity: 1; } 65.33% { opacity: 0; } 100% { opacity: 0; } }
+		.r3 { opacity: 0; animation: r3 15s linear infinite; }
+		@keyframes r3 { 0% { opacity: 0; } 89.33% { opacity: 0; } 91.33% { opacity: 1; } 97.33% { opacity: 1; } 98.67% { opacity: 0; } 100% { opacity: 0; } }
+		.f0 { opacity: 0; animation: f0 15s linear infinite; }
+		@keyframes f0 { 0% { opacity: 1; } 5% { opacity: 1; } 5.33% { opacity: 0; } 33.33% { opacity: 0; } 33.67% { opacity: 1; } 38.33% { opacity: 1; } 38.67% { opacity: 0; } 66.67% { opacity: 0; } 67% { opacity: 1; } 71.67% { opacity: 1; } 72% { opacity: 0; } 98.67% { opacity: 0; } 100% { opacity: 1; } }
+		.f1 { opacity: 1; animation: f1 15s linear infinite; }
+		@keyframes f1 { 0% { opacity: 0; } 5.33% { opacity: 0; } 5.67% { opacity: 1; } 15.67% { opacity: 1; } 16% { opacity: 0; } 38.67% { opacity: 0; } 39% { opacity: 1; } 49% { opacity: 1; } 49.33% { opacity: 0; } 72% { opacity: 0; } 72.33% { opacity: 1; } 82.33% { opacity: 1; } 82.67% { opacity: 0; } 100% { opacity: 0; } }
+		.f2 { opacity: 0; animation: f2 15s linear infinite; }
+		@keyframes f2 { 0% { opacity: 0; } 16% { opacity: 0; } 16.33% { opacity: 1; } 31.67% { opacity: 1; } 32% { opacity: 0; } 49.33% { opacity: 0; } 49.67% { opacity: 1; } 65% { opacity: 1; } 65.33% { opacity: 0; } 82.67% { opacity: 0; } 83% { opacity: 1; } 98.33% { opacity: 1; } 98.67% { opacity: 0; } 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) {
+			.a-st, .a-stx, .a-vo, .a-vox, .a-vr, .a-vrx, .s1, .s2, .s3, .h1, .h2, .h3, .r1, .r2, .r3, .f0, .f1, .f2 { animation: none; }
+			/* OPRAVA 2: bez pohybu se ukážou všechny tři polohy naráz (statická trojice) */
+			.s1, .s2, .s3, .f0, .f1, .f2, .an { opacity: 0; }
+			.hd, .rmv { opacity: 1; }
+		}
+	</style>
+	<defs>
+		<!-- těžiště s tíhovou silou a svislicí z T: počátek = T (skupina se protiotáčí, zůstává svislá) -->
+		<g id="d-ts">
+			<line x1="0" y1="-90" x2="0" y2="85" stroke="#5f3dc4" stroke-width="3" stroke-dasharray="7 5" />
+			<line x1="0" y1="0" x2="0" y2="22" stroke="#c92a2a" stroke-width="5" />
+			<polygon points="0,36 -7,22 7,22" fill="#c92a2a" />
+			<circle r="8" fill="#fbfaf6" stroke="#c92a2a" stroke-width="2" />
+			<path d="M -5 -5 L 5 5 M 5 -5 L -5 5" stroke="#2b2a26" stroke-width="2.5" />
+		</g>
+		<!-- tyč délky 140 se třemi otvory po 60 px; počátek = horní otvor -->
+		<g id="d-tyc">
+			<rect x="-7" y="-10" width="14" height="140" rx="4" fill="#74c0fc" stroke="#2b2a26" stroke-width="2" />
+			<circle cx="0" cy="0" r="3.5" fill="#fbfaf6" stroke="#2b2a26" stroke-width="1.2" />
+			<circle cx="0" cy="60" r="3.5" fill="#fbfaf6" stroke="#2b2a26" stroke-width="1.2" />
+			<circle cx="0" cy="120" r="3.5" fill="#fbfaf6" stroke="#2b2a26" stroke-width="1.2" />
+		</g>
+	</defs>
+	<rect x="0" y="0" width="460" height="502" fill="#f8f9fa" />
+	<g id="panel-1">
+		<rect x="26" y="22" width="420" height="470" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="470" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Jedna tyč, tři osy</text>
+		<!-- ukazatel scén (OPRAVA 2: ne tlačítka, jen nápis + podtržení právě ukazované polohy) -->
+		<text x="115" y="98" text-anchor="middle" font-size="20" fill="#868e96">stálá</text>
+		<text x="230" y="98" text-anchor="middle" font-size="20" fill="#868e96">volná</text>
+		<text x="345" y="98" text-anchor="middle" font-size="20" fill="#868e96">vratká</text>
+		<g class="s1 hd"><rect x="77" y="104" width="76" height="5" rx="2" fill="#2f9e44" /><text x="115" y="98" text-anchor="middle" font-size="20" font-weight="bold" fill="#1e7a34" stroke="#fbfaf6" stroke-width="3" paint-order="stroke">stálá</text></g>
+		<g class="s2 hd"><rect x="192" y="104" width="76" height="5" rx="2" fill="#1864ab" /><text x="230" y="98" text-anchor="middle" font-size="20" font-weight="bold" fill="#1864ab" stroke="#fbfaf6" stroke-width="3" paint-order="stroke">volná</text></g>
+		<g class="s3 hd"><rect x="307" y="104" width="76" height="5" rx="2" fill="#c92a2a" /><text x="345" y="98" text-anchor="middle" font-size="20" font-weight="bold" fill="#c92a2a" stroke="#fbfaf6" stroke-width="3" paint-order="stroke">vratká</text></g>
+		<!-- fáze děje -->
+		<text class="f0" x="426" y="146" text-anchor="end" font-size="21" font-weight="bold" fill="#5f3dc4">v klidu</text>
+		<text class="f1" x="426" y="146" text-anchor="end" font-size="21" font-weight="bold" fill="#5f3dc4">1. vychýlíme</text>
+		<text class="f2" x="426" y="146" text-anchor="end" font-size="21" font-weight="bold" fill="#5f3dc4">2. pustíme</text>
+		<!-- destička na zdi, v ní osa (čep) -->
+		<rect x="216" y="236" width="28" height="28" rx="5" fill="#dee2e6" stroke="#868e96" stroke-width="2" />
+		<text class="an" x="252" y="240" font-size="20" fill="#2b2a26">osa</text>
+		<!-- SCÉNA 1: osa v horním otvoru, T 60 pod osou -->
+		<g class="s1">
+			<line x1="96" y1="310" x2="430" y2="310" stroke="#868e96" stroke-width="2" stroke-dasharray="4 5" />
+			<text x="430" y="303" text-anchor="end" font-size="20" fill="#495057">T na začátku</text>
+			<g transform="translate(230,250)"><g class="a-st">
+				<use href="#d-tyc" />
+				<g transform="translate(0,60)"><g class="a-stx"><use href="#d-ts" /><text x="11" y="-7" font-size="22" font-weight="bold" fill="#2b2a26" stroke="#fbfaf6" stroke-width="4" paint-order="stroke">T</text></g></g>
+			</g></g>
+			<text x="230" y="414" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2a26">T visí pod osou</text>
+			<text class="h1" x="230" y="442" text-anchor="middle" font-size="20" fill="#5f3dc4">po vychýlení se T zvedne</text>
+			<text class="r1" x="230" y="470" text-anchor="middle" font-size="21" font-weight="bold" fill="#1e7a34">tyč se vrátí zpátky</text>
+		</g>
+		<!-- SCÉNA 2: osa v prostředním otvoru = v T -->
+		<g class="s2">
+			<line x1="96" y1="250" x2="430" y2="250" stroke="#868e96" stroke-width="2" stroke-dasharray="4 5" />
+			<text x="430" y="243" text-anchor="end" font-size="20" fill="#495057">T na začátku</text>
+			<g transform="translate(230,250)"><g class="a-vo">
+				<g transform="translate(0,-60)"><use href="#d-tyc" /></g>
+				<g class="a-vox"><use href="#d-ts" /><text x="-26" y="30" font-size="22" font-weight="bold" fill="#2b2a26" stroke="#fbfaf6" stroke-width="4" paint-order="stroke">T</text></g>
+			</g></g>
+			<text x="230" y="414" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2a26">T je přímo v ose</text>
+			<text class="h2" x="230" y="442" text-anchor="middle" font-size="20" fill="#5f3dc4">po vychýlení je T stejně vysoko</text>
+			<text class="r2" x="230" y="470" text-anchor="middle" font-size="21" font-weight="bold" fill="#1864ab">tyč zůstane, kde je</text>
+		</g>
+		<!-- SCÉNA 3: osa v dolním otvoru, T 60 nad osou -->
+		<g class="s3">
+			<line x1="96" y1="190" x2="430" y2="190" stroke="#868e96" stroke-width="2" stroke-dasharray="4 5" />
+			<text x="430" y="183" text-anchor="end" font-size="20" fill="#495057">T na začátku</text>
+			<g transform="translate(230,250)"><g class="a-vr">
+				<g transform="translate(0,-120)"><use href="#d-tyc" /></g>
+				<g transform="translate(0,-60)"><g class="a-vrx"><use href="#d-ts" /><text x="11" y="-7" font-size="22" font-weight="bold" fill="#2b2a26" stroke="#fbfaf6" stroke-width="4" paint-order="stroke">T</text></g></g>
+			</g></g>
+			<text x="230" y="414" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2a26">T stojí nad osou</text>
+			<text class="h3" x="230" y="442" text-anchor="middle" font-size="20" fill="#5f3dc4">po vychýlení T klesne</text>
+			<text class="r3" x="230" y="470" text-anchor="middle" font-size="21" font-weight="bold" fill="#c92a2a">tyč se převrátí dolů</text>
+		</g>
+		<!-- OPRAVA 2: statická trojice jen pro prefers-reduced-motion (tyč vychýlená o 45°, měřítko 0,75, osa y = 250) -->
+		<g class="rmv">
+			<rect x="101" y="236" width="28" height="28" rx="5" fill="#dee2e6" stroke="#868e96" stroke-width="2" />
+			<rect x="331" y="236" width="28" height="28" rx="5" fill="#dee2e6" stroke="#868e96" stroke-width="2" />
+			<line x1="40" y1="295" x2="175" y2="295" stroke="#868e96" stroke-width="2" stroke-dasharray="4 5" />
+			<line x1="180" y1="250" x2="285" y2="250" stroke="#868e96" stroke-width="2" stroke-dasharray="4 5" />
+			<line x1="290" y1="205" x2="425" y2="205" stroke="#868e96" stroke-width="2" stroke-dasharray="4 5" />
+			<g transform="translate(115,250) scale(0.75)"><g transform="rotate(45)">
+				<use href="#d-tyc" />
+				<g transform="translate(0,60)"><g transform="rotate(-45)"><use href="#d-ts" /></g></g>
+			</g></g>
+			<g transform="translate(230,250) scale(0.75)"><g transform="rotate(-45)">
+				<g transform="translate(0,-60)"><use href="#d-tyc" /></g>
+				<g transform="rotate(45)"><use href="#d-ts" /></g>
+			</g></g>
+			<g transform="translate(345,250) scale(0.75)"><g transform="rotate(45)">
+				<g transform="translate(0,-120)"><use href="#d-tyc" /></g>
+				<g transform="translate(0,-60)"><g transform="rotate(-45)"><use href="#d-ts" /></g></g>
+			</g></g>
+			<circle cx="115" cy="250" r="5" fill="#495057" stroke="#2b2a26" stroke-width="1.5" />
+			<circle cx="345" cy="250" r="5" fill="#495057" stroke="#2b2a26" stroke-width="1.5" />
+			<text x="71" y="278" font-size="20" font-weight="bold" fill="#2b2a26" stroke="#fbfaf6" stroke-width="4" paint-order="stroke" text-anchor="end">T</text>
+			<text x="214" y="276" font-size="20" font-weight="bold" fill="#2b2a26" stroke="#fbfaf6" stroke-width="4" paint-order="stroke" text-anchor="end">T</text>
+			<text x="395" y="212" font-size="20" font-weight="bold" fill="#2b2a26" stroke="#fbfaf6" stroke-width="4" paint-order="stroke">T</text>
+			<text x="115" y="406" text-anchor="middle" font-size="20" fill="#2b2a26">T pod osou</text>
+			<text x="230" y="406" text-anchor="middle" font-size="20" fill="#2b2a26">T v ose</text>
+			<text x="345" y="406" text-anchor="middle" font-size="20" fill="#2b2a26">T nad osou</text>
+			<text x="115" y="436" text-anchor="middle" font-size="21" font-weight="bold" fill="#1e7a34">vrátí se</text>
+			<text x="230" y="436" text-anchor="middle" font-size="21" font-weight="bold" fill="#1864ab">zůstane</text>
+			<text x="345" y="436" text-anchor="middle" font-size="21" font-weight="bold" fill="#c92a2a">převrátí se</text>
+			<text x="230" y="470" text-anchor="middle" font-size="20" fill="#495057">čárkovaně: výška T před vychýlením</text>
+		</g>
+		<!-- čep osy navrchu -->
+		<circle cx="230" cy="250" r="6" fill="#495057" stroke="#2b2a26" stroke-width="1.5" />
+	</g>
+</svg>

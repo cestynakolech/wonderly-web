@@ -1,0 +1,116 @@
+<svg viewBox="0 0 460 420" width="460" height="420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Těžiště v pohybu 2/4, Kulička, koule a tužka: rovnovážné polohy kolem nás. Stálá, kulička na dně misky se po vychýlení houpe a vrátí se na dno; volná, koule na podlaze se odkutálí a zůstane na novém místě, těžiště je pořád stejně vysoko; vratká, tužka postavená na špičku se po vychýlení převrátí." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Těžiště v pohybu 2/4: Kulička, koule a tužka</title>
+	<!-- W74 (14. 10. 2026): samostatná animovaná infografika ke statickým panelům infografika-teziste-panel-5/6.
+	     Animace jen CSS transform/opacity, počátek otáčení = (0,0) obalové skupiny (translate). -->
+	<style>
+		.p2-ku { transform: rotate(0deg); animation: p2-ku 8s ease-in-out infinite; }
+		@keyframes p2-ku { 0% { transform: rotate(0deg); } 12% { transform: rotate(0deg); } 24% { transform: rotate(-40deg); } 34% { transform: rotate(28deg); } 44% { transform: rotate(-18deg); } 54% { transform: rotate(11deg); } 64% { transform: rotate(-5deg); } 72% { transform: rotate(2deg); } 78% { transform: rotate(0deg); } 100% { transform: rotate(0deg); } }
+		.p2-kua { transform: rotate(0deg); animation: p2-kua 8s ease-in-out infinite; }
+		@keyframes p2-kua { 0% { transform: rotate(0deg); } 12% { transform: rotate(0deg); } 24% { transform: rotate(40deg); } 34% { transform: rotate(-28deg); } 44% { transform: rotate(18deg); } 54% { transform: rotate(-11deg); } 64% { transform: rotate(5deg); } 72% { transform: rotate(-2deg); } 78% { transform: rotate(0deg); } 100% { transform: rotate(0deg); } }
+		.p2-kx { transform: translateX(-58px); animation: p2-kx 8s ease-out infinite; }
+		@keyframes p2-kx { 0% { transform: translateX(0px); } 12% { transform: translateX(0px); } 40% { transform: translateX(-58px); } 95% { transform: translateX(-58px); } 96% { transform: translateX(0px); } 100% { transform: translateX(0px); } }
+		.p2-kr { transform: rotate(-138deg); animation: p2-kr 8s ease-out infinite; }
+		@keyframes p2-kr { 0% { transform: rotate(0deg); } 12% { transform: rotate(0deg); } 40% { transform: rotate(-138deg); } 95% { transform: rotate(-138deg); } 96% { transform: rotate(0deg); } 100% { transform: rotate(0deg); } }
+		.p2-tu { transform: rotate(-88deg); animation: p2-tu 8s ease-in infinite; }
+		@keyframes p2-tu { 0% { transform: rotate(0deg); } 12% { transform: rotate(0deg); } 24% { transform: rotate(-6deg); } 40% { transform: rotate(-88deg); } 95% { transform: rotate(-88deg); } 96% { transform: rotate(0deg); } 100% { transform: rotate(0deg); } }
+		.p2-tua { transform: rotate(88deg); animation: p2-tua 8s ease-in infinite; }
+		@keyframes p2-tua { 0% { transform: rotate(0deg); } 12% { transform: rotate(0deg); } 24% { transform: rotate(6deg); } 40% { transform: rotate(88deg); } 95% { transform: rotate(88deg); } 96% { transform: rotate(0deg); } 100% { transform: rotate(0deg); } }
+		.p2k0 { opacity: 0; animation: p2k0 8s linear infinite; }
+		@keyframes p2k0 { 0% { opacity: 1; } 11% { opacity: 1; } 12% { opacity: 0; } 99% { opacity: 0; } 100% { opacity: 1; } }
+		.p2k1 { opacity: 0; animation: p2k1 8s linear infinite; }
+		@keyframes p2k1 { 0% { opacity: 0; } 11% { opacity: 0; } 12% { opacity: 1; } 23% { opacity: 1; } 24% { opacity: 0; } 100% { opacity: 0; } }
+		.p2k2 { opacity: 1; animation: p2k2 8s linear infinite; }
+		@keyframes p2k2 { 0% { opacity: 0; } 23% { opacity: 0; } 24% { opacity: 1; } 100% { opacity: 1; } }
+		.cyk { opacity: 1; animation: cyk 8s linear infinite; }
+		@keyframes cyk { 0% { opacity: 1; } 90% { opacity: 1; } 94% { opacity: 0; } 97% { opacity: 0; } 100% { opacity: 1; } }
+		.p2-vys { opacity: 1; animation: p2-vys 8s linear infinite; }
+		@keyframes p2-vys { 0% { opacity: 0; } 58% { opacity: 0; } 64% { opacity: 1; } 90% { opacity: 1; } 94% { opacity: 0; } 100% { opacity: 0; } }
+		.p2-sv { opacity: 0; animation: p2-sv 8s linear infinite; }
+		@keyframes p2-sv { 0% { opacity: 0.6; } 24% { opacity: 0.6; } 28% { opacity: 0; } 99% { opacity: 0; } 100% { opacity: 0.6; } }
+		@media (prefers-reduced-motion: reduce) {
+			.p2-ku, .p2-kua, .p2-kx, .p2-kr, .p2-tu, .p2-tua, .cyk, .p2-vys, .p2k0, .p2k1, .p2k2, .p2-sv { animation: none; }
+		}
+	</style>
+	<defs>
+		<!-- těžiště s tíhovou silou: počátek = T -->
+		<g id="d-t">
+			<line x1="0" y1="0" x2="0" y2="22" stroke="#c92a2a" stroke-width="5" />
+			<polygon points="0,36 -7,22 7,22" fill="#c92a2a" />
+			<path d="M -6 -6 L 6 6 M 6 -6 L -6 6" stroke="#2b2a26" stroke-width="2.5" />
+		</g>
+		<!-- samotná značka těžiště (bez šipky): počátek = T -->
+		<g id="d-x">
+			<circle r="9" fill="#fbfaf6" fill-opacity="0.85" stroke="#c92a2a" stroke-width="2" />
+			<path d="M -6 -6 L 6 6 M 6 -6 L -6 6" stroke="#2b2a26" stroke-width="2.5" />
+		</g>
+		<clipPath id="klip-podlaha" clipPathUnits="userSpaceOnUse"><rect x="-300" y="-300" width="600" height="322" /></clipPath>
+	</defs>
+	<rect x="0" y="0" width="460" height="420" fill="#f8f9fa" />
+	<g id="panel-2">
+		<rect x="26" y="22" width="420" height="384" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="384" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">2</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Kulička, koule a tužka</text>
+		<text class="p2k0" x="230" y="100" text-anchor="middle" font-size="21" font-weight="bold" fill="#5f3dc4">v klidu</text>
+		<text class="p2k1" x="230" y="100" text-anchor="middle" font-size="21" font-weight="bold" fill="#5f3dc4">1. vychýlíme</text>
+		<text class="p2k2" x="230" y="100" text-anchor="middle" font-size="21" font-weight="bold" fill="#5f3dc4">2. pustíme</text>
+		<!-- vodorovná podlaha (prkna) v šikmém pohledu, OPRAVA 1: dřív deska stolu -->
+		<polygon points="22,214 438,214 438,274 22,274" fill="#e3c9a0" />
+		<path d="M 22 214 H 438 M 22 232 H 438 M 22 252 H 438 M 120 214 L 112 232 M 300 214 L 296 232 M 200 232 L 192 252 M 380 232 L 376 252 M 70 252 L 60 274 M 260 252 L 252 274" stroke="#b08a5a" stroke-width="1.5" fill="none" />
+		<line x1="22" y1="214" x2="438" y2="214" stroke="#2b2a26" stroke-width="2" />
+		<!-- miska: zadní vnitřek, kulička, pak průhledná přední stěna -->
+		<ellipse cx="95" cy="190" rx="65" ry="13" fill="#d0ebff" stroke="#2b2a26" stroke-width="2" />
+		<path d="M 30 190 A 68 68 0 0 0 160 190 Z" fill="#a5d8ff" />
+		<line x1="95" y1="170" x2="95" y2="246" stroke="#5f3dc4" stroke-width="2.5" stroke-dasharray="6 4" />
+		<g class="cyk">
+			<g transform="translate(95,170)"><g class="p2-ku"><g transform="translate(0,55)">
+				<circle r="13" fill="#e8590c" stroke="#2b2a26" stroke-width="2" />
+				<circle cx="-6" cy="-7" r="3" fill="#ffd8a8" />
+				<g class="p2-kua"><use href="#d-x" /></g>
+			</g></g></g>
+		</g>
+		<path d="M 30 190 A 68 68 0 0 0 160 190 A 65 13 0 0 1 30 190 Z" fill="#74c0fc" fill-opacity="0.35" stroke="#2b2a26" stroke-width="2.5" />
+		<path d="M 30 190 A 65 13 0 0 0 160 190" fill="none" stroke="#2b2a26" stroke-width="2.5" />
+		<ellipse cx="95" cy="240" rx="22" ry="5" fill="#74c0fc" stroke="#2b2a26" stroke-width="2" />
+		<!-- koule na podlaze, poloměr 24, valí se bez prokluzu -->
+		<g class="cyk">
+			<g transform="translate(255,214)"><g class="p2-kx">
+				<line x1="0" y1="-34" x2="0" y2="22" stroke="#5f3dc4" stroke-width="2.5" stroke-dasharray="6 4" />
+				<g class="p2-kr">
+					<circle r="24" fill="#40c057" stroke="#2b2a26" stroke-width="2.5" />
+					<path d="M -24 0 A 24 9 0 0 0 24 0" fill="none" stroke="#2b2a26" stroke-width="2" />
+					<path d="M 0 -24 A 9 24 0 0 0 0 24" fill="none" stroke="#2b8a3e" stroke-width="3" />
+				</g>
+				<use href="#d-x" />
+				<text x="10" y="-36" font-size="22" font-weight="bold" fill="#2b2a26">T</text>
+			</g></g>
+			<!-- tužka na špičce: otáčí se kolem hrotu, T v půlce délky -->
+			<g transform="translate(372,238)"><g class="p2-tu">
+				<polygon points="0,0 -6,-18 6,-18" fill="#f1c9a5" stroke="#2b2a26" stroke-width="1.5" stroke-linejoin="round" />
+				<polygon points="0,0 -2,-6 2,-6" fill="#2b2a26" />
+				<rect x="-6" y="-112" width="12" height="94" fill="#fcc419" stroke="#2b2a26" stroke-width="2" />
+				<line x1="0" y1="-112" x2="0" y2="-18" stroke="#e67700" stroke-width="2" />
+				<rect x="-6" y="-120" width="12" height="9" fill="#adb5bd" stroke="#2b2a26" stroke-width="1.5" />
+				<rect x="-6" y="-130" width="12" height="10" rx="3" fill="#f783ac" stroke="#2b2a26" stroke-width="1.5" />
+				<g transform="translate(0,-62)"><g class="p2-tua"><use href="#d-x" /><text x="10" y="-6" font-size="22" font-weight="bold" fill="#2b2a26">T</text></g></g>
+			</g></g>
+		</g>
+		<!-- OPRAVA 2: svislice nad hrotem jen do pádu tužky -->
+		<line class="p2-sv" x1="372" y1="106" x2="372" y2="238" stroke="#5f3dc4" stroke-width="2.5" stroke-dasharray="6 4" />
+		<text x="95" y="306" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2a26">stálá</text>
+		<text x="230" y="306" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2a26">volná</text>
+		<text x="365" y="306" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2a26">vratká</text>
+		<text x="95" y="332" text-anchor="middle" font-size="20" fill="#2b2a26">kulička</text>
+		<text x="95" y="356" text-anchor="middle" font-size="20" fill="#2b2a26">na dně misky</text>
+		<text x="230" y="332" text-anchor="middle" font-size="20" fill="#2b2a26">koule</text>
+		<text x="230" y="356" text-anchor="middle" font-size="20" fill="#2b2a26">na podlaze</text>
+		<text x="365" y="332" text-anchor="middle" font-size="20" fill="#2b2a26">tužka</text>
+		<text x="365" y="356" text-anchor="middle" font-size="20" fill="#2b2a26">na špičce</text>
+		<g class="p2-vys">
+			<text x="95" y="388" text-anchor="middle" font-size="21" font-weight="bold" fill="#1e7a34">vrátí se</text>
+			<text x="230" y="388" text-anchor="middle" font-size="21" font-weight="bold" fill="#1864ab">zůstane</text>
+			<text x="365" y="388" text-anchor="middle" font-size="21" font-weight="bold" fill="#c92a2a">převrátí se</text>
+		</g>
+	</g>
+</svg>
