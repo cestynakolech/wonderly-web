@@ -1,0 +1,116 @@
+<svg viewBox="0 0 460 640" width="460" height="640" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Optická čočka v pohybu 3/3, Strom jde blíž ke spojce: jeden strom se ve třech krocích přibližuje ke spojce a jeho obraz se mění. Z vrcholu stromu vedou dva paprsky, rovnoběžný s osou se láme do ohniska F´ a středový jde středem čočky beze změny směru. Dál než 2f: obraz je skutečný, převrácený a zmenšený. Mezi f a 2f: skutečný, převrácený, zvětšený. Blíž než f, jako u lupy: paprsky se za čočkou neprotnou, oko vidí obraz zdánlivý, vzpřímený a zvětšený." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Optická čočka v pohybu 3/3: Strom jde blíž ke spojce</title>
+	<!-- W88 (14. 10. 2026, OPRAVA 1). Předloha: PDF 25 Čočky, spojky, rozptylky, s. 11–13 (zelený strom před spojkou
+	     na optické ose, rysky F, F´ a 2f, oranžové paprsky rovnoběžný a středový, světlejší převrácený obraz za čočkou;
+	     s. 13 zdánlivý zvětšený obraz s čárkovaným prodloužením paprsků, „Využití: lupa“) a s. 10 (kde se paprsky
+	     protnou, je skutečný obraz; neprotnou-li se, oko vidí zdánlivý obraz). Jen TŘI druhy obrazu jako PDF s. 11–13
+	     (stav „přesně ve 2f“ vypuštěn – rozhodnutí orchestrátora). Odlišení od živých obr-03/obr-04 (statické
+	     samostatné případy): tady JEDEN strom jede ke spojce a obraz se mění v jednom ději.
+	     Geometrie: spojka x = 220, osa y = 290, f = 60 px (F 160, F´ 280, 2f 100 a 340). Strom výška 40 px.
+	     Čočková rovnice 1/f = 1/a + 1/a´: a = 180 / 90 / 40 px → a´ = a·f/(a − f) = 90 / 180 / −120 px
+	     (x obrazu = 310 / 400 / 100), zvětšení |a´/a| = 0,5 / 2 / 3 (výška 20 / 80 / 120 px).
+	     Strom x = 40 / 130 / 180 (posun 0 / 90 / 140). Stav 3: zdánlivý obraz x 73–127, strom x 171–189 (mezera 44 px).
+	     Barvy stromu a obrazu jako W89 (kmen #7a4a1f, koruna #2f9e44/#1b5e20; obraz #e9d8c4/#7a4a1f, #d3f9d8/#2b8a3e;
+	     zdánlivý čárkovaně 5 4).
+	     Cyklus 12 s, 3 stavy po 4 s (záporné zpoždění 0 / −8 / −4 s): 0–0,8 s strom se posune, 1,0 s paprsky před
+	     čočkou, 1,4 s za čočkou, 1,8 s obraz a popisek; do 4 s stojí. Bez pohybu: první stav (dál než 2f). -->
+	<defs>
+		<g id="strom">
+			<rect x="-3" y="-12" width="6" height="12" fill="#7a4a1f" />
+			<path d="M0 -40C10 -40 11 -24 9 -16Q0 -10 -9 -16C-11 -24 -10 -40 0 -40Z" fill="#2f9e44" stroke="#1b5e20" stroke-width="2" vector-effect="non-scaling-stroke" />
+		</g>
+		<g id="obraz">
+			<rect x="-3" y="-12" width="6" height="12" fill="#e9d8c4" stroke="#7a4a1f" stroke-width="2" vector-effect="non-scaling-stroke" />
+			<path d="M0 -40C10 -40 11 -24 9 -16Q0 -10 -9 -16C-11 -24 -10 -40 0 -40Z" fill="#d3f9d8" stroke="#2b8a3e" stroke-width="2.5" vector-effect="non-scaling-stroke" />
+		</g>
+		<g id="zdanlivy">
+			<rect x="-3" y="-12" width="6" height="12" fill="#e9d8c4" stroke="#7a4a1f" stroke-width="2" stroke-dasharray="5 4" vector-effect="non-scaling-stroke" />
+			<path d="M0 -40C10 -40 11 -24 9 -16Q0 -10 -9 -16C-11 -24 -10 -40 0 -40Z" fill="#d3f9d8" stroke="#2b8a3e" stroke-width="2.5" stroke-dasharray="5 4" vector-effect="non-scaling-stroke" />
+		</g>
+	</defs>
+	<style>
+		.tr { animation: tr 12s linear infinite; }
+		@keyframes tr { 0% { transform: translateX(140px); } 6.667% { transform: translateX(0px); } 33.333% { transform: translateX(0px); } 40% { transform: translateX(90px); } 66.667% { transform: translateX(90px); } 73.333% { transform: translateX(140px); } 100% { transform: translateX(140px); } }
+		.s { opacity: 0; animation: s 12s step-end infinite; }
+		@keyframes s { 0% { opacity: 1; } 33.333% { opacity: 0; } 100% { opacity: 0; } }
+		.u1 { animation: u1 12s step-end infinite; }
+		@keyframes u1 { 0% { opacity: 0; } 8.333% { opacity: 1; } 100% { opacity: 1; } }
+		.u2 { animation: u2 12s step-end infinite; }
+		@keyframes u2 { 0% { opacity: 0; } 11.667% { opacity: 1; } 100% { opacity: 1; } }
+		.u3 { animation: u3 12s step-end infinite; }
+		@keyframes u3 { 0% { opacity: 0; } 15% { opacity: 1; } 100% { opacity: 1; } }
+		.k1 { animation-delay: -8s; }
+		.k2 { animation-delay: -4s; }
+		@media (prefers-reduced-motion: reduce) {
+			.tr, .s, .u1, .u2, .u3 { animation: none; }
+			.s { opacity: 0; }
+			.s.k0 { opacity: 1; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="640" fill="#f8f9fa" />
+	<g id="panel-3">
+		<rect x="26" y="22" width="420" height="608" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="608" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">3</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Strom jde blíž ke spojce</text>
+		<text x="40" y="96" font-size="20" fill="#2b2a26">Jeden strom jede ke spojce.</text>
+		<text x="40" y="120" font-size="20" fill="#2b2a26">Jak se mění jeho obraz?</text>
+
+		<!-- optická osa a rysky -->
+		<path d="M30 290H430" stroke="#495057" stroke-width="2" stroke-dasharray="14 5 3 5" />
+		<path d="M100 282V298M160 282V298M280 282V298M340 282V298" stroke="#2b2a26" stroke-width="3" />
+		<text x="100" y="320" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">2f</text>
+		<text x="160" y="320" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">F</text>
+		<text x="280" y="346" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">F´</text>
+
+		<!-- spojka -->
+		<path d="M220 220Q240 290 220 360Q200 290 220 220Z" fill="#c3fae8" fill-opacity="0.75" stroke="#0b7285" stroke-width="2.5" />
+
+		<!-- strom (předmět) se posouvá -->
+		<g class="tr"><use href="#strom" transform="translate(40,290)" /></g>
+
+		<g fill="none" stroke="#c2410c" stroke-width="3.5" stroke-linejoin="round">
+			<!-- stav 1: dál než 2f (a = 180) -->
+			<g class="s k0">
+				<path class="u1 k0" d="M40 250H220M40 250L220 290" />
+				<path class="u2 k0" d="M220 250L340 330M220 290L340 316.7" />
+			</g>
+			<!-- stav 2: mezi f a 2f (a = 90) -->
+			<g class="s k1">
+				<path class="u1 k1" d="M130 250H220M130 250L220 290" />
+				<path class="u2 k1" d="M220 250L420 383.3M220 290L420 378.9" />
+			</g>
+			<!-- stav 3: blíž než f (a = 40) -->
+			<g class="s k2">
+				<path class="u1 k2" d="M180 250H220M180 250L220 290" />
+				<path class="u2 k2" d="M220 250L340 330M220 290L300 370" />
+				<path class="u3 k2" d="M220 250L100 170M180 250L100 170" stroke-width="3" stroke-dasharray="8 6" />
+			</g>
+		</g>
+
+		<!-- obrazy a popisky -->
+		<g class="s k0"><g class="u3 k0">
+			<use href="#obraz" transform="translate(310,290) scale(0.5,-0.5)" />
+			<text x="310" y="276" text-anchor="middle" font-size="20" font-weight="bold" fill="#1b5e20">obraz</text>
+			<text x="40" y="420" font-size="22" font-weight="bold" fill="#2b2a26">Dál než 2f → obraz je</text>
+			<text x="40" y="448" font-size="20" fill="#2b2a26">skutečný, převrácený, zmenšený.</text>
+		</g></g>
+		<g class="s k1"><g class="u3 k1">
+			<use href="#obraz" transform="translate(400,290) scale(2,-2)" />
+			<text x="396" y="276" text-anchor="middle" font-size="20" font-weight="bold" fill="#1b5e20">obraz</text>
+			<text x="40" y="420" font-size="22" font-weight="bold" fill="#2b2a26">Mezi f a 2f → obraz je</text>
+			<text x="40" y="448" font-size="20" fill="#2b2a26">skutečný, převrácený, zvětšený.</text>
+		</g></g>
+		<g class="s k2"><g class="u3 k2">
+			<use href="#zdanlivy" transform="translate(100,290) scale(3,3)" />
+			<text x="112" y="160" text-anchor="middle" font-size="20" font-weight="bold" fill="#1b5e20">zdánlivý obraz</text>
+			<text x="40" y="420" font-size="22" font-weight="bold" fill="#2b2a26">Blíž než f (lupa) → obraz je</text>
+			<text x="40" y="448" font-size="20" fill="#2b2a26">zdánlivý, vzpřímený, zvětšený.</text>
+		</g></g>
+
+		<text x="40" y="548" font-size="20" fill="#2b2a26">Kde se paprsky za čočkou protnou,</text>
+		<text x="40" y="574" font-size="20" fill="#2b2a26">je obraz. Když se neprotnou,</text>
+		<text x="40" y="600" font-size="20" fill="#2b2a26">oko vidí zdánlivý obraz.</text>
+	</g>
+</svg>

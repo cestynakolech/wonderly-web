@@ -1,0 +1,86 @@
+<svg viewBox="0 0 460 640" width="460" height="640" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Optická čočka v pohybu 1/3, Lupa a Slunce: sluneční paprsky dopadají na lupu rovnoběžně. Lupa je spojka a paprsky za ní spojí do jednoho bodu, do ohniska. Lupa stoupá nad papírem a světlá skvrna na papíru se zmenšuje, až z ní je jasný bod, ohnisko. Varování: nikdy se lupou nedívej do Slunce!" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Optická čočka v pohybu 1/3: Lupa a Slunce</title>
+	<!-- W88 (14. 10. 2026, OPRAVA 1: bez ohně a kouře, místo nich jasný bod v ohnisku + varování; rozhodnutí
+	     orchestrátora). Předloha: PDF 25 Čočky, spojky, rozptylky, s. 7 (spojka, lupa, sluneční paprsky, ohnisko),
+	     s. 8 (rovnoběžný svazek pěti paprsků se za spojkou setká v ohnisku F´), s. 9 (spojka jako světle modré sklo).
+	     Výklad: „rovnoběžný svazek paprsků spojují do jednoho bodu — do ohniska“. PDF obrázek lupy nemá — lupa
+	     kreslena z boku (sklo spojky v kovové obrubě s rukojetí), sklo stejnou barvou jako sklo ve W87 (#c3fae8 / #0b7285),
+	     paprsek stejně jako W87 (#c2410c, 4 px).
+	     Geometrie: 5 svislých paprsků x = 170…290 (po 30 px), ohnisková vzdálenost f = 150 px. Konec stavu: střed lupy
+	     y = 329, ohnisko = (230, 479) leží na papíru. Začátek: lupa o 110 px níž (40 px nad papírem), polovina šířky
+	     svazku na papíru = 60 · (150 − 40) / 150 = 44 px; konec = 0 (skvrna kreslena r = 4, start scale 11 = 44 px).
+	     Šířka svazku je lineární ve vzdálenosti, takže lineární posun + lineární scale sedí přesně.
+	     Cyklus 6 s: 0–2 s lupa stoupá, skvrna se zmenšuje; 2,6 s jasný bod (jiskřičky) a popisek „ohnisko“; do 6 s stojí.
+	     Bez pohybu: konečný stav (papír v ohnisku, jasný bod). -->
+	<defs>
+		<clipPath id="c1-svetlo"><rect x="22" y="208" width="416" height="271" /></clipPath>
+	</defs>
+	<style>
+		.lp { animation: lp 6s linear infinite; }
+		@keyframes lp { 0% { transform: translateY(110px); } 33.33% { transform: translateY(0px); } 100% { transform: translateY(0px); } }
+		.sp { transform-origin: 230px 479px; transform-box: view-box; animation: sp 6s linear infinite; }
+		@keyframes sp { 0% { transform: scale(11); } 33.33% { transform: scale(1); } 100% { transform: scale(1); } }
+		.oh { animation: oh 6s step-end infinite; }
+		@keyframes oh { 0% { opacity: 0; } 43.33% { opacity: 1; } 100% { opacity: 1; } }
+		@media (prefers-reduced-motion: reduce) {
+			.lp, .sp, .oh { animation: none; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="640" fill="#f8f9fa" />
+	<g id="panel-1">
+		<rect x="26" y="22" width="420" height="608" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="608" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Lupa a Slunce</text>
+		<text x="40" y="96" font-size="20" fill="#2b2a26">Lupa stoupá nad papírem: světlá</text>
+		<text x="40" y="120" font-size="20" fill="#2b2a26">skvrna se zmenší na jasný bod.</text>
+
+		<!-- Slunce -->
+		<g stroke="#e8590c" stroke-width="3" stroke-linecap="round">
+			<path d="M230 140V132M230 204V212M198 172H190M262 172H270M207.4 149.4L201.7 143.7M252.6 194.6L258.3 200.3M207.4 194.6L201.7 200.3M252.6 149.4L258.3 143.7" />
+		</g>
+		<circle cx="230" cy="172" r="22" fill="#ffd43b" stroke="#e8590c" stroke-width="3" />
+		<text x="282" y="166" font-size="21" font-weight="bold" fill="#2b2a26">Slunce</text>
+
+		<!-- stůl a papír -->
+		<rect x="22" y="456" width="416" height="56" fill="#f1e3c6" />
+		<path d="M22 456H438" stroke="#8a6a3a" stroke-width="2" />
+		<path d="M110 464H350L392 496H68Z" fill="#ffffff" stroke="#495057" stroke-width="2" />
+		<text x="104" y="486" font-size="20" fill="#2b2a26">papír</text>
+
+		<!-- světlá skvrna na papíru (zmenšuje se) -->
+		<ellipse class="sp" cx="230" cy="479" rx="4" ry="1.4" fill="#ffd43b" stroke="#e8590c" stroke-width="2" vector-effect="non-scaling-stroke" />
+
+		<!-- lupa a paprsky (pohybuje se celá skupina, ořez: pod Sluncem až k papíru) -->
+		<g clip-path="url(#c1-svetlo)">
+			<g class="lp">
+				<!-- sklo spojky z boku: uprostřed nejširší (pod paprsky, ať jsou paprsky vidět i ve skle) -->
+				<path d="M150 329Q230 305 310 329Q230 353 150 329Z" fill="#c3fae8" fill-opacity="0.75" stroke="#0b7285" stroke-width="2.5" />
+				<g stroke="#c2410c" stroke-width="4">
+					<path d="M170 0V329M200 0V329M230 0V329M260 0V329M290 0V329" />
+					<path d="M170 329L230 479M200 329L230 479M230 329V479M260 329L230 479M290 329L230 479" />
+				</g>
+				<!-- obruba a rukojeť -->
+				<rect x="144" y="321" width="8" height="16" rx="2" fill="#343a40" />
+				<rect x="308" y="321" width="8" height="16" rx="2" fill="#343a40" />
+				<rect x="316" y="325" width="16" height="8" fill="#495057" />
+				<rect x="332" y="322" width="74" height="14" rx="6" fill="#343a40" />
+				<text x="338" y="312" font-size="21" font-weight="bold" fill="#2b2a26">lupa</text>
+			</g>
+		</g>
+
+		<!-- jasný bod v ohnisku (žádný oheň ani kouř) -->
+		<g class="oh">
+			<path d="M237.4 482.1L243.9 484.7M233.1 486.4L235.7 492.9M226.9 486.4L224.3 492.9M222.6 482.1L216.1 484.7M222.6 475.9L216.1 473.3M226.9 471.6L224.3 465.1M233.1 471.6L235.7 465.1M237.4 475.9L243.9 473.3" stroke="#e8590c" stroke-width="3" stroke-linecap="round" />
+			<circle cx="230" cy="479" r="5" fill="#fff3bf" stroke="#c2410c" stroke-width="2.5" />
+			<path d="M286 449L248 472" stroke="#2b2a26" stroke-width="2" />
+			<text x="290" y="446" font-size="21" font-weight="bold" fill="#2b2a26">ohnisko</text>
+		</g>
+
+		<text x="40" y="540" font-size="20" fill="#2b2a26">Lupa je spojka: rovnoběžné paprsky</text>
+		<text x="40" y="564" font-size="20" fill="#2b2a26">ze Slunce spojí do ohniska.</text>
+		<rect x="32" y="578" width="396" height="38" rx="8" fill="#fff5f5" stroke="#c92a2a" stroke-width="2.5" />
+		<text x="230" y="604" text-anchor="middle" font-size="20" font-weight="bold" fill="#c92a2a">Nikdy se lupou nedívej do Slunce!</text>
+	</g>
+</svg>

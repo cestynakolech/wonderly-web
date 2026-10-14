@@ -2572,6 +2572,7 @@ export const temata: Record<string, Tema[]> = {
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Svět skrz čočku', cesta: 'cERyrQE-PBQ' },
 						{ druh: 'video', nazev: 'Píseň: Optická jízda 🎵', cesta: '/materialy/fyzika/7-rocnik/zrcadla-a-cocky/opticka-cocka/pisen-opticka-jizda.mp4' },
+						{ druh: 'infografika', nazev: 'Optická čočka v pohybu', cesta: '/materialy/fyzika/7-rocnik/zrcadla-a-cocky/opticka-cocka/infografika-opticka-cocka-pohyb-panel-1.svg', panely: ['/materialy/fyzika/7-rocnik/zrcadla-a-cocky/opticka-cocka/infografika-opticka-cocka-pohyb-panel-1.svg', '/materialy/fyzika/7-rocnik/zrcadla-a-cocky/opticka-cocka/infografika-opticka-cocka-pohyb-panel-2.svg', '/materialy/fyzika/7-rocnik/zrcadla-a-cocky/opticka-cocka/infografika-opticka-cocka-pohyb-panel-3.svg'] },
 					],
 				},
 				{
