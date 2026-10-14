@@ -1,0 +1,50 @@
+---
+// Kladka — F7 infografika (tahák bez interakce; OBSAH-PRAVIDLA kap. 12 bod 7).
+// JEDINÝ DOMOV obsahu je SVG v materiálech:
+//   public/materialy/fyzika/7-rocnik/jednoduche-stroje/kladka/infografika-kladka.svg
+// (úzké 460 × 3314, 5 panelů <g id="panel-1…5"> s vlastním nadpisem, vyříznuté i samostatně
+//  jako …-panel-N.svg; písmo min. 21, indexy 18 → na telefonu 375 px je panel v materiálech
+//  stránky 323,8 px (změřeno 14. 10. 2026 headless Chrome s CSS živého webu), škála 0,704 →
+//  písmo 14,8 px, indexy 12,7 px; CSS animace dějů uvnitř SVG, při prefers-reduced-motion
+//  zůstane koncový stav = zvednuté závaží). Tahle komponenta ho jen vloží, nic neopisuje.
+// Platné zapojení na stránku je položka `materialy` (druh 'infografika' s polem `panely`) v temata.ts —
+// komponenta je jen pro případné vložení mimo materiály (vzor TransformatorInfografika.astro).
+const cesta = '/materialy/fyzika/7-rocnik/jednoduche-stroje/kladka/infografika-kladka.svg';
+---
+
+<section class="ramecek infografika-kl">
+	<h2><span class="podtrh">Kladka — tahák 📊</span></h2>
+	<p>
+		Kladka je <strong>kolo s drážkou pro lano</strong>. Pevná kladka mění směr tahu,
+		volná kladka šetří sílu, ale lano se táhne po <strong>dvojnásobné dráze</strong>.
+	</p>
+	<img
+		src={cesta}
+		width="460"
+		height="3314"
+		loading="lazy"
+		alt="Infografika kladky: kladka je kolo s drážkou pro lano, otáčí se kolem osy; závaží 2 kg má tíhu FG = m · g = 2 · 10 = 20 N; pevná kladka visí nahoře, ruka táhne dolů silou F = 20 N, lano 1 m dolů, závaží 1 m nahoru, síla se nezmění, vlajka na stožáru, studna s okovem; volná kladka jede se závažím, drží ho dvě části lana po 10 N, F = FG : 2 = 10 N, ruka vytáhne 2 m lana a závaží vyjede o 1 m; něco za něco: kolikrát menší síla, tolikrát delší dráha lana, břemeno 10 kg má tíhu 100 N, na volné kladce táhneš 50 N; kladkostroj: pevná a volná kladka spojené, závaží drží 2 části lana, 20 N : 2 = 10 N, jeřáby, lodě, dílny"
+	/>
+</section>
+
+<style>
+	.infografika-kl { padding: 1.5rem; }
+	.infografika-kl h2 { margin-top: 0; }
+	.infografika-kl img {
+		display: block;
+		width: 100%;
+		max-width: min(100%, 34rem);
+		height: auto;
+		margin: 1rem auto 0;
+		border: 2.5px solid #2b2a26;
+		border-radius: 12px;
+	}
+	.podtrh { border-bottom: 3px solid #ffd43b; padding-bottom: 2px; }
+	/* Na telefonu by padding 1.5rem zúžil obrázek pod škálu 0,667 (písmo 21 → < 14 px).
+	   Obrázek proto zabere celou vnitřní šířku rámečku, text si okraj drží sám. */
+	@media (max-width: 480px) {
+		.infografika-kl { padding: 1rem 0; }
+		.infografika-kl h2,
+		.infografika-kl p { padding: 0 1rem; }
+	}
+</style>

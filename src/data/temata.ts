@@ -2149,6 +2149,7 @@ export const temata: Record<string, Tema[]> = {
 						{ nazev: 'TechMania — Deformace pevných těles', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/sila/deformace-pevnych-teles' },
 					],
 					materialy: [
+						{ druh: 'infografika', nazev: 'Infografika: Působení těles a deformace v kostce', cesta: '/materialy/fyzika/7-rocnik/jednoduche-stroje/pusobeni-teles-a-deformace/infografika-pusobeni-teles-a-deformace.svg', panely: ['/materialy/fyzika/7-rocnik/jednoduche-stroje/pusobeni-teles-a-deformace/infografika-pusobeni-teles-a-deformace-panel-1.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/pusobeni-teles-a-deformace/infografika-pusobeni-teles-a-deformace-panel-2.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/pusobeni-teles-a-deformace/infografika-pusobeni-teles-a-deformace-panel-3.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/pusobeni-teles-a-deformace/infografika-pusobeni-teles-a-deformace-panel-4.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/pusobeni-teles-a-deformace/infografika-pusobeni-teles-a-deformace-panel-5.svg'] },
 						{ druh: 'youtube', nazev: 'Video: Porozumění síle a deformaci', cesta: '0vmDKVXisgE' },
 						{ druh: 'youtube', nazev: 'Video: Síla a interakce', cesta: 'RRSRb_6VXt0' },
 					],
@@ -2184,6 +2185,7 @@ export const temata: Record<string, Tema[]> = {
 						{ nazev: 'Umíme fakta — Kladky (lehké), cvičení', url: 'https://www.umimefakta.cz/fyzika/rozhodovacka-kladky-1' },
 					],
 					materialy: [
+						{ druh: 'infografika', nazev: 'Infografika: Kladka v kostce', cesta: '/materialy/fyzika/7-rocnik/jednoduche-stroje/kladka/infografika-kladka.svg', panely: ['/materialy/fyzika/7-rocnik/jednoduche-stroje/kladka/infografika-kladka-panel-1.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/kladka/infografika-kladka-panel-2.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/kladka/infografika-kladka-panel-3.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/kladka/infografika-kladka-panel-4.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/kladka/infografika-kladka-panel-5.svg'] },
 						{
 							druh: 'video',
 							nazev: 'Polemika: Pevná kladka (1/3)',
