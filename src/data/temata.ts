@@ -2884,6 +2884,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 					materialy: [
 						{ druh: 'infografika', nazev: 'Infografika: Spalovací motory v kostce', cesta: '/materialy/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/infografika-spalovaci-motory.svg', panely: ['/materialy/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/infografika-spalovaci-motory-panel-1.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/infografika-spalovaci-motory-panel-2.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/infografika-spalovaci-motory-panel-3.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/infografika-spalovaci-motory-panel-4.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/infografika-spalovaci-motory-panel-5.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/infografika-spalovaci-motory-panel-6.svg'] },
+						{ druh: 'infografika', nazev: 'Infografika: Spalovací motory v pohybu', cesta: '/materialy/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/infografika-spalovaci-motory-pohyb-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/infografika-spalovaci-motory-pohyb-panel-1.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/infografika-spalovaci-motory-pohyb-panel-2.svg'] },
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Tajemství spalovacích motorů (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/notebooklm-spalovaci-motory.mp4' },
 					],
 				},
