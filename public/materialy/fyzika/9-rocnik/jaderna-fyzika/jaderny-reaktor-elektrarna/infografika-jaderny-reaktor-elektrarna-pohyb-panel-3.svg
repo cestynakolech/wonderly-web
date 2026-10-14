@@ -1,0 +1,109 @@
+<svg viewBox="0 0 460 576" width="460" height="576" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Jaderný reaktor v pohybu 3/3, Chladicí věž. Teplá voda z kondenzátoru se ve věži rozstřikuje a padá po kapkách do bazénu. Zespodu proudí do věže studený vzduch, kapky ochladí a jako teplý vzduch stoupá vzhůru. Část vody se odpaří. Pára sama není vidět, bílý oblak nad věží jsou drobné kapičky vody, ne kouř. Ochlazená voda jde zpět do kondenzátoru." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Jaderný reaktor v pohybu 3/3: Chladicí věž</title>
+	<!-- W80 (14. 10. 2026): děj uvnitř chladicí věže (obr-04 má věž jen zvenku a staticky).
+	     Opora PDF str. 8 (chladicí okruh): voda se rozstřikuje, padá po kapkách do bazénu, ochladí se
+	     proudícím vzduchem, část se odpaří, pak se čerpá zpět do kondenzátoru. Jen CSS transform/opacity. -->
+	<style>
+		.p3-ka { opacity: 1; transform: translateY(0px); animation: p3-ka 1s linear infinite; }
+		@keyframes p3-ka { 0% { opacity: 1; transform: translateY(0px); } 88% { opacity: 1; transform: translateY(72px); } 100% { opacity: 0; transform: translateY(82px); } }
+		.p3-vz { opacity: 1; transform: translateY(0px); animation: p3-vz 2s linear infinite; }
+		@keyframes p3-vz { 0% { opacity: 0; transform: translateY(0px); } 20% { opacity: 1; } 80% { opacity: 1; } 100% { opacity: 0; transform: translateY(-50px); } }
+		.p3-sv { opacity: 1; transform: translateX(0px); animation: p3-sv 2s linear infinite; }
+		@keyframes p3-sv { 0% { opacity: 0; transform: translateX(-30px); } 20% { opacity: 1; } 80% { opacity: 1; } 100% { opacity: 0; transform: translateX(10px); } }
+		.p3-svp { opacity: 1; transform: translateX(0px); animation: p3-svp 2s linear infinite; }
+		@keyframes p3-svp { 0% { opacity: 0; transform: translateX(20px); } 20% { opacity: 1; } 80% { opacity: 1; } 100% { opacity: 0; transform: translateX(-6px); } }
+		.p3-ob { opacity: 1; transform: translateY(0px); animation: p3-ob 3s ease-out infinite; }
+		@keyframes p3-ob { 0% { opacity: 0; transform: translateY(14px); } 20% { opacity: 1; } 70% { opacity: 1; } 100% { opacity: 0; transform: translateY(-34px); } }
+		.p3-sm { opacity: 1; animation: p3-sm 1.2s linear infinite; }
+		@keyframes p3-sm { 0% { opacity: 1; } 35% { opacity: 0.45; } 100% { opacity: 0.45; } }
+		@media (prefers-reduced-motion: reduce) {
+			.p3-ka, .p3-vz, .p3-sv, .p3-svp, .p3-ob, .p3-sm { animation: none; }
+		}
+	</style>
+	<defs>
+		<!-- kapka padající vody; počátek = střed -->
+		<ellipse id="p3-k" rx="3.5" ry="6" fill="#1971c2" />
+	</defs>
+	<rect x="0" y="0" width="460" height="576" fill="#f8f9fa" />
+	<g id="panel-3">
+		<rect x="26" y="22" width="420" height="540" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="540" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">3</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Chladicí věž</text>
+		<!-- zem -->
+		<line x1="120" y1="470" x2="436" y2="470" stroke="#868e96" stroke-width="3" />
+		<!-- plášť věže v šikmém pohledu -->
+		<path d="M 185 130 Q 232 300 150 470 L 390 470 Q 308 300 355 130 Z" fill="#ced4da" stroke="#495057" stroke-width="3" />
+		<ellipse cx="270" cy="130" rx="85" ry="14" fill="#868e96" stroke="#495057" stroke-width="3" />
+		<!-- oblak nad věží = drobné kapičky vody zkapalněné z páry (pára sama není vidět) -->
+		<!-- jeden obláček s vlnitým obrysem (ne kroužky = bubliny z P2); dvě kopie posunuté o půl periody -->
+		<g fill="#ffffff" stroke="#868e96" stroke-width="2.5" stroke-linejoin="round">
+			<path class="p3-ob" d="M 234 112 A 16 16 0 0 1 244 84 A 22 22 0 0 1 282 72 A 20 20 0 0 1 314 80 A 17 17 0 0 1 320 112 Q 300 120 278 113 Q 256 120 234 112 Z" style="animation-delay: 0s" />
+			<path class="p3-ob" d="M 234 112 A 16 16 0 0 1 244 84 A 22 22 0 0 1 282 72 A 20 20 0 0 1 314 80 A 17 17 0 0 1 320 112 Q 300 120 278 113 Q 256 120 234 112 Z" style="animation-delay: -1.5s" />
+		</g>
+		<!-- výřez: pohled dovnitř věže -->
+		<polygon points="200,210 202,240 202,270 200,300 196,330 192,350 184,380 175,410 163,440 155,462 385,462 377,440 365,410 356,380 348,350 344,330 340,300 338,270 338,240 340,210" fill="#f1f3f5" stroke="#495057" stroke-width="2" stroke-dasharray="7 5" />
+		<!-- bazén -->
+		<polygon points="161,444 379,444 385,462 155,462" fill="#74c0fc" />
+		<line x1="161" y1="444" x2="379" y2="444" stroke="#1c7ed6" stroke-width="3" />
+		<!-- padající kapky: 4 sloupce, v každém dvě kapky posunuté o půl periody -->
+		<g>
+			<use class="p3-ka" href="#p3-k" x="232" y="366" style="animation-delay: 0s" />
+			<use class="p3-ka" href="#p3-k" x="232" y="366" style="animation-delay: -0.5s" />
+			<use class="p3-ka" href="#p3-k" x="256" y="366" style="animation-delay: -0.25s" />
+			<use class="p3-ka" href="#p3-k" x="256" y="366" style="animation-delay: -0.75s" />
+			<use class="p3-ka" href="#p3-k" x="280" y="366" style="animation-delay: -0.1s" />
+			<use class="p3-ka" href="#p3-k" x="280" y="366" style="animation-delay: -0.6s" />
+			<use class="p3-ka" href="#p3-k" x="304" y="366" style="animation-delay: -0.35s" />
+			<use class="p3-ka" href="#p3-k" x="304" y="366" style="animation-delay: -0.85s" />
+		</g>
+		<!-- teplá voda z kondenzátoru: rozstřikovací potrubí -->
+		<path d="M 22 352 H 336" fill="none" stroke="#e03131" stroke-width="10" />
+		<g fill="#495057">
+			<rect x="228" y="356" width="8" height="6" />
+			<rect x="252" y="356" width="8" height="6" />
+			<rect x="276" y="356" width="8" height="6" />
+			<rect x="300" y="356" width="8" height="6" />
+		</g>
+		<!-- studený vzduch vstupuje zespodu do věže (modrá čárkovaná) -->
+		<g class="p3-sv" fill="none" stroke="#1971c2" stroke-width="3">
+			<line x1="34" y1="424" x2="150" y2="424" stroke-dasharray="9 6" />
+			<polygon points="166,424 152,416 152,432" fill="#1971c2" stroke="none" />
+		</g>
+		<g class="p3-svp" fill="none" stroke="#1971c2" stroke-width="3">
+			<line x1="434" y1="424" x2="396" y2="424" stroke-dasharray="9 6" />
+			<polygon points="380,424 394,416 394,432" fill="#1971c2" stroke="none" />
+		</g>
+		<!-- teplý vzduch stoupá vzhůru (červená čárkovaná) -->
+		<g class="p3-vz" fill="none" stroke="#e03131" stroke-width="3">
+			<line x1="216" y1="430" x2="216" y2="300" stroke-dasharray="9 6" />
+			<polygon points="216,284 208,298 224,298" fill="#e03131" stroke="none" />
+			<line x1="324" y1="430" x2="324" y2="300" stroke-dasharray="9 6" />
+			<polygon points="324,284 316,298 332,298" fill="#e03131" stroke="none" />
+		</g>
+		<!-- ochlazená voda zpět do kondenzátoru -->
+		<path d="M 372 454 H 424 V 506" fill="none" stroke="#1c7ed6" stroke-width="10" stroke-linejoin="round" />
+		<!-- směr toku v trubkách: jediná značka = bílý trojúhelník s tmavým obrysem (stejná jako v panelu 2) -->
+		<g fill="#ffffff" stroke="#2b2a26" stroke-width="1.5" stroke-linejoin="round">
+			<polygon class="p3-sm" points="66,352 56,347 56,357" style="animation-delay: -1.2s" />
+			<polygon class="p3-sm" points="106,352 96,347 96,357" style="animation-delay: -0.9s" />
+			<polygon class="p3-sm" points="146,352 136,347 136,357" style="animation-delay: -0.6s" />
+			<polygon class="p3-sm" points="186,352 176,347 176,357" style="animation-delay: -0.3s" />
+			<polygon class="p3-sm" points="404,454 394,449 394,459" style="animation-delay: -0.9s" />
+			<polygon class="p3-sm" points="424,488 419,478 429,478" style="animation-delay: -0.5s" />
+		</g>
+		<!-- popisky -->
+		<text x="28" y="98" font-size="20" font-weight="bold" fill="#2b2a26">oblak = drobné</text>
+		<text x="28" y="122" font-size="20" font-weight="bold" fill="#2b2a26">kapičky vody,</text>
+		<text x="28" y="146" font-size="20" font-weight="bold" fill="#2b2a26">ne kouř</text>
+		<text x="28" y="300" font-size="20" fill="#c92a2a">teplá voda z</text>
+		<text x="28" y="324" font-size="20" fill="#c92a2a">kondenzátoru</text>
+		<text x="28" y="456" font-size="20" fill="#1864ab">studený</text>
+		<text x="28" y="480" font-size="20" fill="#1864ab">vzduch</text>
+		<text x="270" y="252" text-anchor="middle" font-size="20" fill="#c92a2a">teplý</text>
+		<text x="270" y="276" text-anchor="middle" font-size="20" fill="#c92a2a">vzduch</text>
+		<text x="210" y="510" text-anchor="middle" font-size="20" fill="#2b2a26">proudící vzduch ochladí kapky,</text>
+		<text x="210" y="540" text-anchor="middle" font-size="20" fill="#1864ab">voda jde zpět do kondenzátoru</text>
+	</g>
+</svg>

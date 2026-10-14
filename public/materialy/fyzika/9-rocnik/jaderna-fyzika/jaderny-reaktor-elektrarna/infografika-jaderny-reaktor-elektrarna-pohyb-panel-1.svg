@@ -1,0 +1,115 @@
+<svg viewBox="0 0 460 576" width="460" height="576" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Jaderný reaktor v pohybu 1/3, Tyče řídí výkon. Regulační tyče se postupně zasouvají mezi palivo. Vysunuté tyče: oba neutrony doletí k dalšímu palivu a rozštěpí jádro, výkon 100 %. Tyče do poloviny: horní neutron tyč pohltí, dolní doletí, výkon 50 %. Tyče zasunuté: tyč pohltí oba neutrony, štěpení ustane, výkon 0 %." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Jaderný reaktor v pohybu 1/3: Tyče řídí výkon</title>
+	<!-- W80 (14. 10. 2026): děj k obr-02 (tam čtyři statické stavy). Smyčka 12 s:
+	     0–30 % tyče vysunuté (100 %), 30–36 % zasouvání, 36–63 % do poloviny (50 %),
+	     63–69 % zasouvání, 69–94 % zasunuté (0 %), 94–100 % vysunutí. Jen CSS transform/opacity. -->
+	<style>
+		.p1-ty { transform: translateY(0px); animation: p1-ty 12s ease-in-out infinite; }
+		@keyframes p1-ty { 0% { transform: translateY(0px); } 30% { transform: translateY(0px); } 36% { transform: translateY(115px); } 63% { transform: translateY(115px); } 69% { transform: translateY(215px); } 94% { transform: translateY(215px); } 100% { transform: translateY(0px); } }
+		.p1-vy { transform: scaleY(1); transform-origin: 360px 417px; transform-box: view-box; animation: p1-vy 12s ease-in-out infinite; }
+		@keyframes p1-vy { 0% { transform: scaleY(1); } 30% { transform: scaleY(1); } 36% { transform: scaleY(0.5); } 63% { transform: scaleY(0.5); } 69% { transform: scaleY(0); } 94% { transform: scaleY(0); } 100% { transform: scaleY(1); } }
+		.p1-npA { opacity: 1; transform: translateX(0px); animation: p1-npA 12s linear infinite; }
+		@keyframes p1-npA { 0% { opacity: 1; transform: translateX(0px); } 3% { opacity: 1; transform: translateX(0px); } 16% { opacity: 1; transform: translateX(60px); } 17% { opacity: 0; transform: translateX(60px); } 18% { opacity: 0; transform: translateX(0px); } 99% { opacity: 0; transform: translateX(0px); } 100% { opacity: 1; transform: translateX(0px); } }
+		.p1-npB { opacity: 0; transform: translateX(0px); animation: p1-npB 12s linear infinite; }
+		@keyframes p1-npB { 0% { opacity: 0; transform: translateX(0px); } 38% { opacity: 0; transform: translateX(0px); } 39% { opacity: 1; transform: translateX(0px); } 52% { opacity: 1; transform: translateX(60px); } 53% { opacity: 0; transform: translateX(60px); } 100% { opacity: 0; transform: translateX(60px); } }
+		.p1-nzB { opacity: 0; transform: translateX(0px); animation: p1-nzB 12s linear infinite; }
+		@keyframes p1-nzB { 0% { opacity: 0; transform: translateX(0px); } 38% { opacity: 0; transform: translateX(0px); } 39% { opacity: 1; transform: translateX(0px); } 45% { opacity: 1; transform: translateX(19px); } 49% { opacity: 0; transform: translateX(19px); } 100% { opacity: 0; transform: translateX(19px); } }
+		.p1-nzC { opacity: 0; transform: translateX(0px); animation: p1-nzC 12s linear infinite; }
+		@keyframes p1-nzC { 0% { opacity: 0; transform: translateX(0px); } 71% { opacity: 0; transform: translateX(0px); } 72% { opacity: 1; transform: translateX(0px); } 78% { opacity: 1; transform: translateX(19px); } 82% { opacity: 0; transform: translateX(19px); } 100% { opacity: 0; transform: translateX(19px); } }
+		.p1-hA { opacity: 0; animation: p1-hA 12s linear infinite; }
+		@keyframes p1-hA { 0% { opacity: 0; } 15% { opacity: 0; } 16% { opacity: 1; } 28% { opacity: 1; } 30% { opacity: 0; } 100% { opacity: 0; } }
+		.p1-hB { opacity: 0; animation: p1-hB 12s linear infinite; }
+		@keyframes p1-hB { 0% { opacity: 0; } 51% { opacity: 0; } 52% { opacity: 1; } 61% { opacity: 1; } 63% { opacity: 0; } 100% { opacity: 0; } }
+		.p1-tA { opacity: 1; animation: p1-tA 12s linear infinite; }
+		@keyframes p1-tA { 0% { opacity: 1; } 30% { opacity: 1; } 32% { opacity: 0; } 96% { opacity: 0; } 98% { opacity: 1; } 100% { opacity: 1; } }
+		.p1-tB { opacity: 0; animation: p1-tB 12s linear infinite; }
+		@keyframes p1-tB { 0% { opacity: 0; } 32% { opacity: 0; } 34% { opacity: 1; } 63% { opacity: 1; } 65% { opacity: 0; } 100% { opacity: 0; } }
+		.p1-tC { opacity: 0; animation: p1-tC 12s linear infinite; }
+		@keyframes p1-tC { 0% { opacity: 0; } 65% { opacity: 0; } 67% { opacity: 1; } 94% { opacity: 1; } 96% { opacity: 0; } 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) {
+			.p1-ty, .p1-vy, .p1-npA, .p1-npB, .p1-nzB, .p1-nzC, .p1-hA, .p1-hB, .p1-tA, .p1-tB, .p1-tC { animation: none; }
+		}
+	</style>
+	<defs>
+		<!-- štěpení jádra = žlutá hvězda (stejný přechod jako W81 jaderna-energie-a-reakce a obr-02);
+		     tmavě červený obrys kvůli kontrastu na žlutém palivu i modré vodě; počátek = střed -->
+		<radialGradient id="p1-gz" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff3bf" /><stop offset=".55" stop-color="#ffd43b" /><stop offset="1" stop-color="#fab005" /></radialGradient>
+		<polygon id="p1-hv" points="0.0,-13.0 2.3,-5.5 9.2,-9.2 5.5,-2.3 13.0,0.0 5.5,2.3 9.2,9.2 2.3,5.5 0.0,13.0 -2.3,5.5 -9.2,9.2 -5.5,2.3 -13.0,0.0 -5.5,-2.3 -9.2,-9.2 -2.3,-5.5" fill="url(#p1-gz)" stroke="#c92a2a" stroke-width="2" stroke-linejoin="round" />
+		<!-- neutron (šedá kulička jako obr-02); počátek = střed -->
+		<circle id="p1-n" r="6" fill="#adb5bd" stroke="#495057" stroke-width="2" />
+		<clipPath id="p1-klip" clipPathUnits="userSpaceOnUse"><rect x="42" y="150" width="226" height="318" /></clipPath>
+	</defs>
+	<rect x="0" y="0" width="460" height="576" fill="#f8f9fa" />
+	<g id="panel-1">
+		<rect x="26" y="22" width="420" height="540" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="540" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Tyče řídí výkon</text>
+		<text class="p1-tA" x="230" y="98" text-anchor="middle" font-size="21" font-weight="bold" fill="#5f3dc4">tyče vysunuté</text>
+		<text class="p1-tB" x="230" y="98" text-anchor="middle" font-size="21" font-weight="bold" fill="#5f3dc4">tyče do poloviny</text>
+		<text class="p1-tC" x="230" y="98" text-anchor="middle" font-size="21" font-weight="bold" fill="#5f3dc4">tyče zasunuté</text>
+		<!-- tlaková nádoba v šikmém pohledu, uvnitř voda -->
+		<path d="M 40 150 V 430 Q 40 470 80 470 H 230 Q 270 470 270 430 V 150 Z" fill="#d0ebff" stroke="#495057" stroke-width="3.5" />
+		<!-- palivo (uran 235) -->
+		<rect x="58" y="240" width="16" height="200" rx="3" fill="#ffd43b" stroke="#e67700" stroke-width="2" />
+		<rect x="118" y="240" width="16" height="200" rx="3" fill="#ffd43b" stroke="#e67700" stroke-width="2" />
+		<rect x="178" y="240" width="16" height="200" rx="3" fill="#ffd43b" stroke="#e67700" stroke-width="2" />
+		<rect x="238" y="240" width="16" height="200" rx="3" fill="#ffd43b" stroke="#e67700" stroke-width="2" />
+		<!-- víko -->
+		<ellipse cx="155" cy="150" rx="115" ry="18" fill="#ced4da" stroke="#495057" stroke-width="3" />
+		<!-- regulační tyče (bórová ocel): spodek vysunutých y=225, do poloviny 340, zasunutých 440 -->
+		<g clip-path="url(#p1-klip)">
+			<g class="p1-ty">
+				<rect x="91" y="-155" width="10" height="380" fill="#343a40" />
+				<rect x="151" y="-155" width="10" height="380" fill="#343a40" />
+				<rect x="211" y="-155" width="10" height="380" fill="#343a40" />
+			</g>
+		</g>
+		<!-- pohony tyčí nad víkem -->
+		<rect x="89" y="112" width="14" height="40" fill="#868e96" stroke="#495057" stroke-width="2" />
+		<rect x="149" y="112" width="14" height="40" fill="#868e96" stroke="#495057" stroke-width="2" />
+		<rect x="209" y="112" width="14" height="40" fill="#868e96" stroke="#495057" stroke-width="2" />
+		<rect x="86" y="106" width="20" height="10" rx="2" fill="#495057" />
+		<rect x="146" y="106" width="20" height="10" rx="2" fill="#495057" />
+		<rect x="206" y="106" width="20" height="10" rx="2" fill="#495057" />
+		<!-- neutrony: horní dráha y=290, dolní y=400; dvě mezery (posun o 60) -->
+		<g>
+			<g transform="translate(66,290)"><g class="p1-npA"><use href="#p1-n" /></g></g>
+			<g transform="translate(66,290)"><g class="p1-nzB"><use href="#p1-n" /></g></g>
+			<g transform="translate(66,290)"><g class="p1-nzC"><use href="#p1-n" /></g></g>
+			<g transform="translate(66,400)"><g class="p1-npA"><use href="#p1-n" /></g></g>
+			<g transform="translate(66,400)"><g class="p1-npB"><use href="#p1-n" /></g></g>
+			<g transform="translate(66,400)"><g class="p1-nzC"><use href="#p1-n" /></g></g>
+			<g class="p1-hA"><use href="#p1-hv" x="126" y="290" /><use href="#p1-hv" x="126" y="400" /></g>
+			<g class="p1-hB"><use href="#p1-hv" x="126" y="400" /></g>
+		</g>
+		<g transform="translate(60,0)">
+			<g transform="translate(66,290)"><g class="p1-npA"><use href="#p1-n" /></g></g>
+			<g transform="translate(66,290)"><g class="p1-nzB"><use href="#p1-n" /></g></g>
+			<g transform="translate(66,290)"><g class="p1-nzC"><use href="#p1-n" /></g></g>
+			<g transform="translate(66,400)"><g class="p1-npA"><use href="#p1-n" /></g></g>
+			<g transform="translate(66,400)"><g class="p1-npB"><use href="#p1-n" /></g></g>
+			<g transform="translate(66,400)"><g class="p1-nzC"><use href="#p1-n" /></g></g>
+			<g class="p1-hA"><use href="#p1-hv" x="126" y="290" /><use href="#p1-hv" x="126" y="400" /></g>
+			<g class="p1-hB"><use href="#p1-hv" x="126" y="400" /></g>
+		</g>
+		<!-- ukazatel výkonu -->
+		<text x="360" y="158" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2a26">výkon</text>
+		<rect x="330" y="170" width="60" height="250" rx="4" fill="#ffffff" stroke="#2b2a26" stroke-width="2.5" />
+		<rect class="p1-vy" x="333" y="173" width="54" height="244" fill="#e03131" />
+		<line x1="324" y1="295" x2="336" y2="295" stroke="#2b2a26" stroke-width="2" />
+		<text class="p1-tA" x="360" y="454" text-anchor="middle" font-size="26" font-weight="bold" fill="#2b2a26">100 %</text>
+		<text class="p1-tB" x="360" y="454" text-anchor="middle" font-size="26" font-weight="bold" fill="#2b2a26">50 %</text>
+		<text class="p1-tC" x="360" y="454" text-anchor="middle" font-size="26" font-weight="bold" fill="#2b2a26">0 %</text>
+		<!-- legenda -->
+		<use href="#p1-n" x="48" y="495" />
+		<text x="62" y="502" font-size="20" fill="#2b2a26">neutron</text>
+		<use href="#p1-hv" x="178" y="495" />
+		<text x="196" y="502" font-size="20" fill="#2b2a26">štěpení</text>
+		<rect x="300" y="483" width="12" height="24" rx="2" fill="#ffd43b" stroke="#e67700" stroke-width="2" />
+		<text x="320" y="502" font-size="20" fill="#2b2a26">palivo</text>
+		<rect x="43" y="515" width="10" height="26" fill="#343a40" />
+		<text x="62" y="535" font-size="20" fill="#2b2a26">regulační tyč pohlcuje neutrony</text>
+	</g>
+</svg>

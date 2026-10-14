@@ -1,0 +1,117 @@
+<svg viewBox="0 0 460 576" width="460" height="576" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Jaderný reaktor v pohybu 2/3, Teplo přejde, voda ne. Parogenerátor zblízka: horká voda primárního okruhu z reaktoru, asi 300 °C, proudí uzavřenou trubkou a ochlazená se vrací do reaktoru. Teplo předá vodě sekundárního okruhu kolem trubky, ta se vaří a pára odchází k turbíně. Voda z kondenzátoru se vrací zpět. Vody se nemísí, přejde jen teplo." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Jaderný reaktor v pohybu 2/3: Teplo přejde, voda ne</title>
+	<!-- W80 (14. 10. 2026): detail parogenerátoru (obr-04 má celé schéma bez děje uvnitř).
+	     Opora PDF str. 8: primární voda uzavřená v potrubí prochází parogenerátorem, ochlazuje se
+	     a předává teplo vodě sekundárního okruhu, ta se mění na páru. Jen CSS opacity/transform. -->
+	<style>
+		.p2-ch { opacity: 1; animation: p2-ch 2.6s linear infinite; }
+		@keyframes p2-ch { 0% { opacity: 1; } 20% { opacity: 0.45; } 100% { opacity: 0.45; } }
+		.p2-sm { opacity: 1; animation: p2-sm 1.2s linear infinite; }
+		@keyframes p2-sm { 0% { opacity: 1; } 35% { opacity: 0.45; } 100% { opacity: 0.45; } }
+		.p2-te { opacity: 1; animation: p2-te 1.2s ease-in-out infinite; }
+		@keyframes p2-te { 0% { opacity: 0.25; } 50% { opacity: 1; } 100% { opacity: 0.25; } }
+		.p2-b1 { opacity: 1; transform: translateY(0px); animation: p2-b1 1.8s ease-in infinite; }
+		@keyframes p2-b1 { 0% { opacity: 0; transform: translateY(0px); } 10% { opacity: 1; } 90% { opacity: 1; transform: translateY(-72px); } 100% { opacity: 0; transform: translateY(-80px); } }
+		.p2-b2 { opacity: 1; transform: translateY(0px); animation: p2-b2 1.8s ease-in infinite; }
+		@keyframes p2-b2 { 0% { opacity: 0; transform: translateY(0px); } 10% { opacity: 1; } 90% { opacity: 1; transform: translateY(-110px); } 100% { opacity: 0; transform: translateY(-120px); } }
+		.p2-b3 { opacity: 1; transform: translateY(0px); animation: p2-b3 1.8s ease-in infinite; }
+		@keyframes p2-b3 { 0% { opacity: 0; transform: translateY(0px); } 10% { opacity: 1; } 90% { opacity: 1; transform: translateY(-148px); } 100% { opacity: 0; transform: translateY(-160px); } }
+		@media (prefers-reduced-motion: reduce) {
+			.p2-ch, .p2-sm, .p2-te, .p2-b1, .p2-b2, .p2-b3 { animation: none; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="576" fill="#f8f9fa" />
+	<g id="panel-2">
+		<rect x="26" y="22" width="420" height="540" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="540" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">2</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Teplo přejde, voda ne</text>
+		<!-- pára k turbíně: šedá trubka; směr toku všude = bílý trojúhelník s tmavým obrysem
+		     (bílá výplň ≥4,2:1 na modré a červené, tmavý obrys ≥6:1 na šedé a světle červené) -->
+		<path d="M 230 110 V 88 H 408" fill="none" stroke="#ced4da" stroke-width="16" stroke-linejoin="round" />
+		<polygon points="426,88 408,76 408,100" fill="#ffffff" stroke="#2b2a26" stroke-width="2" stroke-linejoin="round" />
+		<g fill="#ffffff" stroke="#2b2a26" stroke-width="1.5" stroke-linejoin="round">
+			<polygon class="p2-sm" points="276,88 266,81 266,95" style="animation-delay: -1.2s" />
+			<polygon class="p2-sm" points="316,88 306,81 306,95" style="animation-delay: -0.9s" />
+			<polygon class="p2-sm" points="356,88 346,81 346,95" style="animation-delay: -0.6s" />
+			<polygon class="p2-sm" points="396,88 386,81 386,95" style="animation-delay: -0.3s" />
+		</g>
+		<text x="300" y="126" font-size="20" fill="#2b2a26">k turbíně</text>
+		<!-- voda z kondenzátoru zpět do parogenerátoru -->
+		<path d="M 432 440 H 290" fill="none" stroke="#1c7ed6" stroke-width="12" />
+		<g fill="#ffffff" stroke="#2b2a26" stroke-width="1.5" stroke-linejoin="round">
+			<polygon class="p2-sm" points="404,440 414,435 414,445" style="animation-delay: -1.2s" />
+			<polygon class="p2-sm" points="364,440 374,435 374,445" style="animation-delay: -0.9s" />
+			<polygon class="p2-sm" points="324,440 334,435 334,445" style="animation-delay: -0.6s" />
+		</g>
+		<text x="300" y="422" font-size="20" fill="#2b2a26">voda z</text>
+		<text x="300" y="474" font-size="20" fill="#2b2a26">kondenzátoru</text>
+		<text x="300" y="300" font-size="20" font-weight="bold" fill="#1864ab">sekundární</text>
+		<text x="300" y="324" font-size="20" font-weight="bold" fill="#1864ab">okruh</text>
+		<!-- nádoba parogenerátoru: dole voda sekundárního okruhu, nahoře pára -->
+		<path d="M 170 120 V 450 Q 170 480 200 480 H 260 Q 290 480 290 450 V 120 Z" fill="#a5d8ff" />
+		<rect x="170" y="120" width="120" height="100" fill="#f1f3f5" />
+		<line x1="170" y1="220" x2="290" y2="220" stroke="#1c7ed6" stroke-width="3" />
+		<text x="230" y="192" text-anchor="middle" font-size="20" fill="#495057">pára</text>
+		<!-- bubliny páry stoupají z okolí trubky k hladině -->
+		<g fill="#ffffff" stroke="#1864ab" stroke-width="2.5">
+			<circle class="p2-b1" cx="215" cy="300" r="6" style="animation-delay: -0.2s" />
+			<circle class="p2-b1" cx="248" cy="300" r="5" style="animation-delay: -1.1s" />
+			<circle class="p2-b2" cx="232" cy="340" r="6" style="animation-delay: -0.7s" />
+			<circle class="p2-b2" cx="258" cy="340" r="5" style="animation-delay: -1.5s" />
+			<circle class="p2-b3" cx="212" cy="380" r="6" style="animation-delay: -1.3s" />
+			<circle class="p2-b3" cx="242" cy="380" r="5" style="animation-delay: -0.4s" />
+		</g>
+		<!-- trubka primárního okruhu: horká (červená) → chladnější → ochlazená (modrá) -->
+		<path d="M 22 280 H 265 A 20 20 0 0 1 265 320 H 195" fill="none" stroke="#e03131" stroke-width="12" />
+		<path d="M 195 320 A 20 20 0 0 0 195 360 H 265 A 20 20 0 0 1 265 400" fill="none" stroke="#ff8787" stroke-width="12" />
+		<path d="M 265 400 H 22" fill="none" stroke="#1971c2" stroke-width="12" />
+		<g fill="#ffffff" stroke="#2b2a26" stroke-width="1.5" stroke-linejoin="round">
+			<polygon class="p2-ch" points="45,280 35,275 35,285" style="animation-delay: -2.6s" />
+			<polygon class="p2-ch" points="75,280 65,275 65,285" style="animation-delay: -2.5s" />
+			<polygon class="p2-ch" points="105,280 95,275 95,285" style="animation-delay: -2.4s" />
+			<polygon class="p2-ch" points="135,280 125,275 125,285" style="animation-delay: -2.3s" />
+			<polygon class="p2-ch" points="165,280 155,275 155,285" style="animation-delay: -2.2s" />
+			<polygon class="p2-ch" points="195,280 185,275 185,285" style="animation-delay: -2.1s" />
+			<polygon class="p2-ch" points="225,280 215,275 215,285" style="animation-delay: -2.0s" />
+			<polygon class="p2-ch" points="255,280 245,275 245,285" style="animation-delay: -1.9s" />
+			<polygon class="p2-ch" points="285,305 280,295 290,295" style="animation-delay: -1.8s" />
+			<polygon class="p2-ch" points="250,320 260,315 260,325" style="animation-delay: -1.7s" />
+			<polygon class="p2-ch" points="225,320 235,315 235,325" style="animation-delay: -1.6s" />
+			<polygon class="p2-ch" points="200,320 210,315 210,325" style="animation-delay: -1.5s" />
+			<polygon class="p2-ch" points="175,345 170,335 180,335" style="animation-delay: -1.4s" />
+			<polygon class="p2-ch" points="210,360 200,355 200,365" style="animation-delay: -1.3s" />
+			<polygon class="p2-ch" points="235,360 225,355 225,365" style="animation-delay: -1.2s" />
+			<polygon class="p2-ch" points="260,360 250,355 250,365" style="animation-delay: -1.1s" />
+			<polygon class="p2-ch" points="285,385 280,375 290,375" style="animation-delay: -1.0s" />
+			<polygon class="p2-ch" points="250,400 260,395 260,405" style="animation-delay: -0.9s" />
+			<polygon class="p2-ch" points="225,400 235,395 235,405" style="animation-delay: -0.8s" />
+			<polygon class="p2-ch" points="200,400 210,395 210,405" style="animation-delay: -0.7s" />
+			<polygon class="p2-ch" points="175,400 185,395 185,405" style="animation-delay: -0.6s" />
+			<polygon class="p2-ch" points="145,400 155,395 155,405" style="animation-delay: -0.5s" />
+			<polygon class="p2-ch" points="115,400 125,395 125,405" style="animation-delay: -0.4s" />
+			<polygon class="p2-ch" points="85,400 95,395 95,405" style="animation-delay: -0.3s" />
+			<polygon class="p2-ch" points="55,400 65,395 65,405" style="animation-delay: -0.2s" />
+			<polygon class="p2-ch" points="25,400 35,395 35,405" style="animation-delay: -0.1s" />
+		</g>
+		<!-- teplo z trubky do vody (červené šipky tepla) -->
+		<g fill="#c92a2a" stroke="#c92a2a" stroke-width="3">
+			<g class="p2-te" style="animation-delay: 0s"><line x1="205" y1="270" x2="205" y2="246" /><polygon points="205,236 199,247 211,247" stroke="none" /></g>
+			<g class="p2-te" style="animation-delay: -0.4s"><line x1="230" y1="270" x2="230" y2="246" /><polygon points="230,236 224,247 236,247" stroke="none" /></g>
+			<g class="p2-te" style="animation-delay: -0.8s"><line x1="255" y1="270" x2="255" y2="246" /><polygon points="255,236 249,247 261,247" stroke="none" /></g>
+		</g>
+		<!-- obrys nádoby a víko navrch -->
+		<path d="M 170 120 V 450 Q 170 480 200 480 H 260 Q 290 480 290 450 V 120" fill="none" stroke="#495057" stroke-width="3.5" />
+		<ellipse cx="230" cy="120" rx="60" ry="12" fill="#ced4da" stroke="#495057" stroke-width="3" />
+		<rect x="222" y="96" width="16" height="22" fill="#ced4da" />
+		<!-- popisky primárního okruhu -->
+		<text x="28" y="214" font-size="20" font-weight="bold" fill="#c92a2a">primární</text>
+		<text x="28" y="238" font-size="20" font-weight="bold" fill="#c92a2a">okruh</text>
+		<text x="28" y="266" font-size="20" fill="#2b2a26">asi 300 °C</text>
+		<text x="28" y="432" font-size="20" fill="#2b2a26">zpět do</text>
+		<text x="28" y="456" font-size="20" fill="#2b2a26">reaktoru</text>
+		<text x="230" y="510" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2a26">parogenerátor</text>
+		<text x="230" y="540" text-anchor="middle" font-size="20" fill="#2b2a26">Vody se nemísí, přejde jen teplo.</text>
+	</g>
+</svg>
