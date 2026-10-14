@@ -1,0 +1,109 @@
+<svg viewBox="0 0 460 520" width="460" height="520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Obnovitelné a neobnovitelné zdroje v pohybu 2/3, Den, noc a bezvětří. Slunce přejde po obloze a zapadne, přijde noc. Sluneční panel vyrábí elektřinu jen ve dne, v noci nevyrábí. Větrná elektrárna se točí a vyrábí, když fouká vítr, za bezvětří stojí. Sluneční panel nevyrábí v noci a větrník za bezvětří, jejich výkon nejde poručit." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Obnovitelné a neobnovitelné zdroje v pohybu 2/3: Den, noc a bezvětří</title>
+	<!-- W82 (14. 10. 2026): opora výkladu oddíl Přečerpávací elektrárna: „Sluneční panel nevyrábí v noci a větrník za bezvětří“;
+	     odd. Úlohy: „výkon nejde poručit“. Přečerpávací elektrárnu (v noci čerpá, ve dne vypouští) ukazuje obr-03 — tady se nezdvojuje.
+	     OPRAVA 1 (14. 10.): cyklus 10 s, východ (střed Slunce na obzoru, rotate −83,5°) přesně ve 4 %, západ (+83,5°) ve 46 %;
+	     DEN = 4–46 %, NOC jinak; závoj noci 0,8 mimo 4,5–45,5 %, měsíc jen v noci; bezvětří 24–45 % (celé ve dne, rotor dobíhá 21–24 %, rozbíhá se až 45–48 %);
+	     rotor končí na 2400° = 20 × 120° (bez skoku na konci smyčky). Barvy: vyrábí #2b7a3a 5,09:1, DEN #c2410c 4,96:1.
+	     Blesk = zdroj právě vyrábí elektřinu (jediný význam).
+	     Rotor v šikmém pohledu: vnější statické scale(0.55,1), uvnitř CSS rotate kolem (0,0) = náboj.
+	     OPRAVA 2 (14. 10.): Slunce obrys + paprsky #c2410c (≥3:1 na obloze); čáry větru tmavé jádro #343a40 + bílý lem (den i noc ≥3:1);
+	     legendový blesk scale 0.9 a řádky pod ním níž, aby nezasahoval do textu. -->
+	<style>
+		.p2-slunce { transform: rotate(0deg); animation: p2-slunce 10s linear infinite; }
+		@keyframes p2-slunce { 0% { transform: rotate(-96deg); } 4% { transform: rotate(-83.5deg); } 46% { transform: rotate(83.5deg); } 50% { transform: rotate(96deg); } 100% { transform: rotate(96deg); } }
+		.p2-noc { opacity: 0; animation: p2-noc 10s linear infinite; }
+		@keyframes p2-noc { 0% { opacity: 0.8; } 3.5% { opacity: 0.8; } 4.5% { opacity: 0; } 45.5% { opacity: 0; } 46.5% { opacity: 0.8; } 100% { opacity: 0.8; } }
+		.p2-mesic { opacity: 0; animation: p2-mesic 10s linear infinite; }
+		@keyframes p2-mesic { 0% { opacity: 1; } 3.5% { opacity: 1; } 4% { opacity: 0; } 46% { opacity: 0; } 46.5% { opacity: 1; } 100% { opacity: 1; } }
+		.p2-rotor { transform: rotate(0deg); animation: p2-rotor 10s linear infinite; }
+		@keyframes p2-rotor { 0% { transform: rotate(0deg); } 21% { transform: rotate(630deg); animation-timing-function: ease-out; } 24% { transform: rotate(690deg); } 45% { transform: rotate(690deg); animation-timing-function: ease-in; } 48% { transform: rotate(750deg); } 100% { transform: rotate(2400deg); } }
+		.p2-vitr { opacity: 1; animation: p2-vitr 10s linear infinite; }
+		@keyframes p2-vitr { 0% { opacity: 1; } 21% { opacity: 1; } 23% { opacity: 0; } 45% { opacity: 0; } 47% { opacity: 1; } 100% { opacity: 1; } }
+		.p2-cara { transform: translateX(0px); opacity: 1; animation: p2-cara 1.25s linear infinite; }
+		@keyframes p2-cara { 0% { transform: translateX(0px); opacity: 0; } 20% { opacity: 1; } 80% { opacity: 1; } 100% { transform: translateX(44px); opacity: 0; } }
+		.p2-bp { opacity: 1; animation: p2-bp 10s linear infinite; }
+		@keyframes p2-bp { 0% { opacity: 0; } 3.9% { opacity: 0; } 4% { opacity: 1; } 45.9% { opacity: 1; } 46% { opacity: 0; } 100% { opacity: 0; } }
+		.p2-bn { opacity: 0; animation: p2-bn 10s linear infinite; }
+		@keyframes p2-bn { 0% { opacity: 1; } 3.9% { opacity: 1; } 4% { opacity: 0; } 45.9% { opacity: 0; } 46% { opacity: 1; } 100% { opacity: 1; } }
+		.p2-bv { opacity: 1; animation: p2-bv 10s linear infinite; }
+		@keyframes p2-bv { 0% { opacity: 1; } 23.9% { opacity: 1; } 24% { opacity: 0; } 44.9% { opacity: 0; } 45% { opacity: 1; } 100% { opacity: 1; } }
+		.p2-bs { opacity: 0; animation: p2-bs 10s linear infinite; }
+		@keyframes p2-bs { 0% { opacity: 0; } 23.9% { opacity: 0; } 24% { opacity: 1; } 44.9% { opacity: 1; } 45% { opacity: 0; } 100% { opacity: 0; } }
+		.p2-den { opacity: 1; animation: p2-den 10s linear infinite; }
+		@keyframes p2-den { 0% { opacity: 0; } 3.9% { opacity: 0; } 4% { opacity: 1; } 45.9% { opacity: 1; } 46% { opacity: 0; } 100% { opacity: 0; } }
+		.p2-nc { opacity: 0; animation: p2-nc 10s linear infinite; }
+		@keyframes p2-nc { 0% { opacity: 1; } 3.9% { opacity: 1; } 4% { opacity: 0; } 45.9% { opacity: 0; } 46% { opacity: 1; } 100% { opacity: 1; } }
+		@media (prefers-reduced-motion: reduce) {
+			.p2-slunce, .p2-noc, .p2-mesic, .p2-rotor, .p2-vitr, .p2-cara, .p2-bp, .p2-bn, .p2-bv, .p2-bs, .p2-den, .p2-nc { animation: none; }
+		}
+	</style>
+	<defs>
+		<!-- blesk = zdroj právě vyrábí elektřinu; počátek = střed -->
+		<polygon id="d-blesk" points="3,-17 -9,2 -1,2 -4,17 9,-3 1,-3" fill="#fcc419" stroke="#2b2a26" stroke-width="2" stroke-linejoin="round" />
+		<clipPath id="p2-obloha" clipPathUnits="userSpaceOnUse"><rect x="32" y="82" width="396" height="190" /></clipPath>
+	</defs>
+	<rect x="0" y="0" width="460" height="520" fill="#f8f9fa" />
+	<g id="panel-2">
+		<rect x="26" y="22" width="420" height="484" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="484" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">2</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Den, noc a bezvětří</text>
+		<!-- obloha, Slunce na oblouku (střed otáčení pod obzorem), noc = tmavý závoj -->
+		<g clip-path="url(#p2-obloha)">
+			<rect x="32" y="82" width="396" height="190" fill="#d0ebff" />
+			<g transform="translate(230,292)"><g class="p2-slunce"><g transform="translate(0,-176)">
+				<path d="M 0 -34 V -27 M 0 27 V 34 M -34 0 H -27 M 27 0 H 34 M -24 -24 L -19 -19 M 19 19 L 24 24 M -24 24 L -19 19 M 19 -19 L 24 -24" stroke="#c2410c" stroke-width="4" stroke-linecap="round" />
+				<circle r="21" fill="#ffd43b" stroke="#c2410c" stroke-width="2.5" />
+			</g></g></g>
+			<rect class="p2-noc" x="32" y="82" width="396" height="190" fill="#1c2a4d" />
+			<g class="p2-mesic">
+				<path d="M 214 112 A 20 20 0 1 0 236 140 A 15 15 0 1 1 214 112 Z" fill="#fff3bf" stroke="#f59f00" stroke-width="2" />
+				<circle cx="120" cy="118" r="2.5" fill="#fff" /><circle cx="300" cy="104" r="2.5" fill="#fff" /><circle cx="170" cy="160" r="2" fill="#fff" /><circle cx="400" cy="128" r="2" fill="#fff" />
+			</g>
+		</g>
+		<!-- štítek DEN / NOC -->
+		<rect x="40" y="92" width="82" height="34" rx="8" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text class="p2-den" x="81" y="117" text-anchor="middle" font-size="21" font-weight="bold" fill="#c2410c">DEN</text>
+		<text class="p2-nc" x="81" y="117" text-anchor="middle" font-size="21" font-weight="bold" fill="#1864ab">NOC</text>
+		<!-- zem (Slunce za ní zapadá) -->
+		<rect x="32" y="272" width="396" height="66" fill="#b2f2bb" />
+		<line x1="32" y1="272" x2="428" y2="272" stroke="#2f9e44" stroke-width="2" />
+		<rect class="p2-noc" x="32" y="272" width="396" height="66" fill="#1c2a4d" fill-opacity="0.45" />
+		<!-- vítr: čáry jen když fouká -->
+		<g class="p2-vitr">
+			<g class="p2-cara"><path d="M 196 196 H 236 M 204 214 H 250 M 196 232 H 232" stroke="#fff" stroke-width="8" stroke-linecap="round" fill="none" /><path d="M 196 196 H 236 M 204 214 H 250 M 196 232 H 232" stroke="#343a40" stroke-width="4" stroke-linecap="round" fill="none" /></g>
+		</g>
+		<!-- sluneční panel v šikmém pohledu, nohy na zemi -->
+		<line x1="96" y1="300" x2="96" y2="322" stroke="#495057" stroke-width="5" />
+		<line x1="150" y1="285" x2="150" y2="316" stroke="#495057" stroke-width="5" />
+		<line x1="78" y1="272" x2="78" y2="308" stroke="#495057" stroke-width="4" />
+		<line x1="134" y1="258" x2="134" y2="302" stroke="#495057" stroke-width="4" />
+		<polygon points="52,254 132,236 166,286 86,304" fill="#1864ab" stroke="#2b2a26" stroke-width="2.5" stroke-linejoin="round" />
+		<path d="M 69 279 L 149 261 M 72 250 L 106 298 M 92 245 L 126 293 M 112 241 L 146 289" stroke="#74c0fc" stroke-width="1.5" />
+		<g class="p2-bp"><use href="#d-blesk" transform="translate(180,236)" /></g>
+		<!-- větrná elektrárna: stožár, gondola, rotor v šikmém pohledu -->
+		<polygon points="320,326 336,326 332,170 324,170" fill="#e9ecef" stroke="#495057" stroke-width="2" />
+		<polygon points="320,160 352,156 354,172 322,176" fill="#e9ecef" stroke="#495057" stroke-width="2" />
+		<g transform="translate(320,167) scale(0.55,1)"><g class="p2-rotor">
+			<polygon points="0,0 -7,-10 0,-76 7,-10" fill="#fff" stroke="#495057" stroke-width="2.5" />
+			<polygon points="0,0 -7,-10 0,-76 7,-10" fill="#fff" stroke="#495057" stroke-width="2.5" transform="rotate(120)" />
+			<polygon points="0,0 -7,-10 0,-76 7,-10" fill="#fff" stroke="#495057" stroke-width="2.5" transform="rotate(240)" />
+		</g></g>
+		<ellipse cx="320" cy="167" rx="5" ry="8" fill="#adb5bd" stroke="#495057" stroke-width="2" />
+		<g class="p2-bv"><use href="#d-blesk" transform="translate(372,190)" /></g>
+		<!-- popisky a stav -->
+		<text x="110" y="364" text-anchor="middle" font-size="20" fill="#2b2a26">sluneční panel</text>
+		<text x="328" y="364" text-anchor="middle" font-size="20" fill="#2b2a26">větrná elektrárna</text>
+		<text class="p2-bp" x="110" y="394" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b7a3a">vyrábí</text>
+		<text class="p2-bn" x="110" y="394" text-anchor="middle" font-size="21" font-weight="bold" fill="#c92a2a">nevyrábí</text>
+		<text class="p2-bv" x="328" y="394" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b7a3a">vyrábí</text>
+		<text class="p2-bs" x="328" y="394" text-anchor="middle" font-size="21" font-weight="bold" fill="#c92a2a">bezvětří, stojí</text>
+		<line x1="40" y1="408" x2="420" y2="408" stroke="#ced4da" stroke-width="2" />
+		<use href="#d-blesk" transform="translate(58,429) scale(0.9)" />
+		<text x="76" y="436" font-size="20" fill="#2b2a26">= právě vyrábí elektřinu</text>
+		<text x="230" y="467" text-anchor="middle" font-size="20" fill="#2b2a26">Panel nevyrábí v noci, větrník za bezvětří.</text>
+		<text x="230" y="490" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">Jejich výkon nejde poručit.</text>
+	</g>
+</svg>

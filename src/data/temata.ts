@@ -3751,6 +3751,7 @@ export const temata: Record<string, Tema[]> = {
 					zapis: {"jednotky":["P (W, MW), E (Wh, MWh)"],"body":["obnovitelné zdroje se stále doplňují: slunce, vítr, voda","neobnovitelné zdroje se vyčerpají: uhlí, ropa, zemní plyn, uran","fosilní paliva vznikla ze zbytků organismů","přečerpávací elektrárna je baterie z vody"]},
 					materialy: [
 						{ druh: 'video', nazev: 'Píseň: Od uhlí ke hvězdám 🎵', cesta: '/materialy/fyzika/9-rocnik/energie-a-vesmir/obnovitelne-a-neobnovitelne-zdroje/pisen-od-uhli-ke-hvezdam.m4a' },
+						{ druh: 'infografika', nazev: 'Zdroje energie v pohybu', cesta: '/materialy/fyzika/9-rocnik/energie-a-vesmir/obnovitelne-a-neobnovitelne-zdroje/infografika-obnovitelne-a-neobnovitelne-zdroje-pohyb-panel-1.svg', panely: ['/materialy/fyzika/9-rocnik/energie-a-vesmir/obnovitelne-a-neobnovitelne-zdroje/infografika-obnovitelne-a-neobnovitelne-zdroje-pohyb-panel-1.svg', '/materialy/fyzika/9-rocnik/energie-a-vesmir/obnovitelne-a-neobnovitelne-zdroje/infografika-obnovitelne-a-neobnovitelne-zdroje-pohyb-panel-2.svg', '/materialy/fyzika/9-rocnik/energie-a-vesmir/obnovitelne-a-neobnovitelne-zdroje/infografika-obnovitelne-a-neobnovitelne-zdroje-pohyb-panel-3.svg'] },
 					],
 					interakce: 'obnovitelne-zdroje',
 					odkazy: [

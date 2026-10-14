@@ -1,0 +1,98 @@
+<svg viewBox="0 0 460 520" width="460" height="520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Obnovitelné a neobnovitelné zdroje v pohybu 1/3, Les doroste, uhlí ne. Vlevo les: jeden strom pokácíme a na jeho místě vyroste nový, les doroste, je to obnovitelný zdroj. Vpravo uhlí pod zemí: vozíky ho vyvážejí, sloj uhlí se zmenšuje, nové nevznikne a uhlí dojde, je to neobnovitelný zdroj. Uhlí vzniklo z odumřelých rostlin. Rozhoduje, jak rychle se zdroj doplňuje." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Obnovitelné a neobnovitelné zdroje v pohybu 1/3: Les doroste, uhlí ne</title>
+	<!-- W82 (14. 10. 2026): animovaná infografika; obr-01 už animuje měřidla zásob, tady je děj (kácení a dorůstání stromu × těžba sloje).
+	     Opora výkladu: „pokácený les zase doroste“, „neobnovitelné … za určitou dobu se vyčerpají“, „Rozhoduje rychlost, jakou se zdroj obnovuje“;
+	     PDF učitele s. 1: fosilní paliva „vznikají ze zbytků odumřelých rostlin a živočichů“. Animace jen CSS transform/opacity, počátek otáčení = (0,0) obalové skupiny.
+	     OPRAVA 1 (14. 10.): stromy posunuty doleva (64/104/144), padající koruna při 66° končí na x≈225 < dělicí čára 232; zelená #2b7a3a (5,09:1).
+	     OPRAVA 2 (14. 10.): sloj se zmenší až na nulu (scaleX 0 v 68 %, kdy vozíky přestanou) = uhlí opravdu dojde; dělicí čára #495057. -->
+	<style>
+		.p1-strom { transform: rotate(0deg) scale(1); opacity: 1; animation: p1-strom 8s linear infinite; }
+		@keyframes p1-strom { 0% { transform: rotate(0deg) scale(1); opacity: 1; } 10% { transform: rotate(0deg) scale(1); opacity: 1; animation-timing-function: ease-in; } 24% { transform: rotate(66deg) scale(1); opacity: 1; } 29% { transform: rotate(66deg) scale(1); opacity: 0; } 30% { transform: rotate(0deg) scale(0.12); opacity: 0; } 33% { transform: rotate(0deg) scale(0.12); opacity: 1; animation-timing-function: ease-out; } 85% { transform: rotate(0deg) scale(1); opacity: 1; } 100% { transform: rotate(0deg) scale(1); opacity: 1; } }
+		.p1-l1 { opacity: 0; animation: p1-l1 8s linear infinite; }
+		@keyframes p1-l1 { 0% { opacity: 1; } 30% { opacity: 1; } 31% { opacity: 0; } 99% { opacity: 0; } 100% { opacity: 1; } }
+		.p1-l2 { opacity: 1; animation: p1-l2 8s linear infinite; }
+		@keyframes p1-l2 { 0% { opacity: 0; } 30% { opacity: 0; } 31% { opacity: 1; } 99% { opacity: 1; } 100% { opacity: 0; } }
+		.p1-sloj { transform: scaleX(0); animation: p1-sloj 8s linear infinite; }
+		@keyframes p1-sloj { 0% { transform: scaleX(1); } 4% { transform: scaleX(1); } 68% { transform: scaleX(0); } 100% { transform: scaleX(0); } }
+		.p1-voz { transform: translateX(60px); opacity: 1; animation: p1-voz 2s linear infinite; }
+		@keyframes p1-voz { 0% { transform: translateX(0px); opacity: 0; } 10% { transform: translateX(10px); opacity: 1; } 85% { transform: translateX(96px); opacity: 1; } 100% { transform: translateX(112px); opacity: 0; } }
+		.p1-vozy { opacity: 0; animation: p1-vozy 8s linear infinite; }
+		@keyframes p1-vozy { 0% { opacity: 1; } 67% { opacity: 1; } 68% { opacity: 0; } 100% { opacity: 0; } }
+		.p1-r1 { opacity: 0; animation: p1-r1 8s linear infinite; }
+		@keyframes p1-r1 { 0% { opacity: 1; } 67% { opacity: 1; } 68% { opacity: 0; } 99% { opacity: 0; } 100% { opacity: 1; } }
+		.p1-r2 { opacity: 1; animation: p1-r2 8s linear infinite; }
+		@keyframes p1-r2 { 0% { opacity: 0; } 67% { opacity: 0; } 68% { opacity: 1; } 99% { opacity: 1; } 100% { opacity: 0; } }
+		.cyk { opacity: 1; animation: cyk 8s linear infinite; }
+		@keyframes cyk { 0% { opacity: 1; } 92% { opacity: 1; } 96% { opacity: 0; } 99% { opacity: 0; } 100% { opacity: 1; } }
+		@media (prefers-reduced-motion: reduce) {
+			.p1-strom, .p1-l1, .p1-l2, .p1-sloj, .p1-voz, .p1-vozy, .p1-r1, .p1-r2, .cyk { animation: none; }
+		}
+	</style>
+	<defs>
+		<!-- strom: počátek = pata kmene na zemi -->
+		<g id="d-strom">
+			<rect x="-6" y="-40" width="12" height="40" fill="#8d5524" stroke="#2b2a26" stroke-width="2" />
+			<circle cx="-14" cy="-48" r="17" fill="#40c057" stroke="#2b8a3e" stroke-width="2" />
+			<circle cx="14" cy="-48" r="17" fill="#40c057" stroke="#2b8a3e" stroke-width="2" />
+			<circle cx="0" cy="-64" r="22" fill="#40c057" stroke="#2b8a3e" stroke-width="2" />
+		</g>
+	</defs>
+	<rect x="0" y="0" width="460" height="520" fill="#f8f9fa" />
+	<g id="panel-1">
+		<rect x="26" y="22" width="420" height="484" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="484" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Les doroste, uhlí ne</text>
+		<!-- obloha, tráva, půda v řezu -->
+		<rect x="32" y="82" width="396" height="158" fill="#e7f1fa" />
+		<rect x="32" y="240" width="396" height="92" fill="#d9b98c" />
+		<rect x="32" y="234" width="396" height="10" fill="#69db7c" />
+		<line x1="32" y1="234" x2="428" y2="234" stroke="#2b8a3e" stroke-width="2" />
+		<line x1="232" y1="86" x2="232" y2="330" stroke="#495057" stroke-width="2" stroke-dasharray="6 5" />
+		<text x="128" y="112" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2a26">les</text>
+		<text x="332" y="112" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2a26">uhlí</text>
+		<!-- LES: dva stromy stojí, třetí se pokácí a znovu vyroste -->
+		<use href="#d-strom" transform="translate(64,240)" />
+		<use href="#d-strom" transform="translate(104,240)" />
+		<!-- pařez -->
+		<rect x="138" y="230" width="12" height="10" fill="#6f4518" stroke="#2b2a26" stroke-width="2" />
+		<ellipse cx="144" cy="230" rx="6" ry="2.5" fill="#e9c46a" stroke="#2b2a26" stroke-width="1.5" />
+		<g transform="translate(144,240)"><g class="p1-strom"><use href="#d-strom" /></g></g>
+		<!-- UHLÍ: těžní věž nad šachtou, sloj se zmenšuje -->
+		<rect x="262" y="240" width="14" height="66" fill="#495057" />
+		<line x1="269" y1="186" x2="269" y2="300" stroke="#2b2a26" stroke-width="1.5" />
+		<path d="M 254 238 L 269 184 L 284 238 M 258 222 H 280 M 262 206 H 276" fill="none" stroke="#2b2a26" stroke-width="3" />
+		<circle cx="269" cy="186" r="7" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<!-- vytěžená chodba za slojí -->
+		<rect x="276" y="282" width="150" height="26" fill="#868e96" />
+		<text x="350" y="268" text-anchor="middle" font-size="20" fill="#2b2a26">sloj uhlí</text>
+		<g class="cyk">
+			<g transform="translate(426,0)"><g class="p1-sloj">
+				<rect x="-150" y="282" width="150" height="26" fill="#212529" />
+				<path d="M -140 290 l 8 -4 l 6 6 M -110 300 l 7 -5 l 7 4 M -80 288 l 6 5 l 8 -3 M -50 299 l 7 -5 l 6 5 M -22 289 l 6 4 l 8 -3" fill="none" stroke="#495057" stroke-width="2" />
+			</g></g>
+			<!-- koleje a vozíky s uhlím -->
+			<line x1="284" y1="232" x2="426" y2="232" stroke="#495057" stroke-width="3" />
+			<g class="p1-vozy">
+				<g transform="translate(288,230)"><g class="p1-voz">
+					<polygon points="0,-18 38,-18 34,-2 4,-2" fill="#868e96" stroke="#2b2a26" stroke-width="2" />
+					<circle cx="9" cy="-21" r="6" fill="#212529" />
+					<circle cx="19" cy="-23" r="7" fill="#212529" />
+					<circle cx="29" cy="-21" r="6" fill="#212529" />
+					<circle cx="10" cy="0" r="4" fill="#2b2a26" />
+					<circle cx="28" cy="0" r="4" fill="#2b2a26" />
+				</g></g>
+			</g>
+			<text class="p1-r1" x="332" y="368" text-anchor="middle" font-size="21" font-weight="bold" fill="#5f3dc4">1. těžíme</text>
+			<text class="p1-r2" x="332" y="368" text-anchor="middle" font-size="21" font-weight="bold" fill="#5f3dc4">2. uhlí dojde</text>
+		</g>
+		<text class="p1-l1" x="128" y="368" text-anchor="middle" font-size="21" font-weight="bold" fill="#5f3dc4">1. pokácíme</text>
+		<text class="p1-l2" x="128" y="368" text-anchor="middle" font-size="21" font-weight="bold" fill="#5f3dc4">2. les doroste</text>
+		<text x="128" y="402" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b7a3a">obnovitelný</text>
+		<text x="332" y="402" text-anchor="middle" font-size="21" font-weight="bold" fill="#c92a2a">neobnovitelný</text>
+		<line x1="40" y1="424" x2="420" y2="424" stroke="#ced4da" stroke-width="2" />
+		<text x="230" y="452" text-anchor="middle" font-size="20" fill="#2b2a26">Uhlí vzniklo z odumřelých rostlin.</text>
+		<text x="230" y="482" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">Rozhoduje, jak rychle se doplňuje.</text>
+	</g>
+</svg>
