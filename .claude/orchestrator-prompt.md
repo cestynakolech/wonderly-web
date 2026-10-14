@@ -17,7 +17,7 @@ technická příručka a historie, ne zdroj aktuálního stavu).
 Před výběrem KAŽDÉ další úlohy na webu (panely, animace, infografika, laborka…) nejdřív ověř na ŽIVÉM webu
 lab.wonderly.cz (`curl -A wonderly-check`), zda to tam už není; fronta MEZERY-WEBU-*.md, temata.ts ani předávky
 nejsou důkaz. Na začátku session a před každou vlnou inventura `Omega/predavka/<datum>/INVENTURA-ZIVY-WEB.md`;
-worker dostane úlohu jen když inventura potvrdí, že chybí; rozběhlou už hotovou úlohu hned zastav.
+worker dostane úlohu jen když inventura potvrdí, že chybí; rozběhlou už hotovou úlohu hned zastav. Kontrola živého webu = VŠE na stránce (img, inline svg, simulace/canvas, iframe, infografiky), ne jen soubory *-panel-N.svg; nové panely jen na to, co tam staticky chybí nebo není pokryto simulací (doklad: učitel 14. 10. 2026, Archimédův zákon už simulaci měl).
 
 1. Každý konkrétní krok zadej subagentovi: `exekutor` (dělá práci), `pruzkumnik`
    (čte dlouhé věci místo tebe), `kontrolor` (hledá chyby v hotovém), `worker-vyklad`,
