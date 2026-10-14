@@ -2362,6 +2362,19 @@ export const temata: Record<string, Tema[]> = {
 							nazev: 'Hydrostatický tlak: od rovnic k přehradám (infografiky v PDF)',
 							cesta: '/materialy/fyzika/7-rocnik/tlak-v-kapalinach/hydrostaticky-tlak/hydrostaticky-tlak-od-rovnic-k-prehradam.pdf',
 						},
+						{
+							druh: 'infografika',
+							nazev: 'Infografika: Hydrostatický tlak v kostce',
+							cesta: '/materialy/fyzika/7-rocnik/tlak-v-kapalinach/hydrostaticky-tlak/infografika-hydrostaticky-tlak-panel-1.svg',
+							panely: [
+								'/materialy/fyzika/7-rocnik/tlak-v-kapalinach/hydrostaticky-tlak/infografika-hydrostaticky-tlak-panel-1.svg',
+								'/materialy/fyzika/7-rocnik/tlak-v-kapalinach/hydrostaticky-tlak/infografika-hydrostaticky-tlak-panel-2.svg',
+								'/materialy/fyzika/7-rocnik/tlak-v-kapalinach/hydrostaticky-tlak/infografika-hydrostaticky-tlak-panel-3.svg',
+								'/materialy/fyzika/7-rocnik/tlak-v-kapalinach/hydrostaticky-tlak/infografika-hydrostaticky-tlak-panel-4.svg',
+								'/materialy/fyzika/7-rocnik/tlak-v-kapalinach/hydrostaticky-tlak/infografika-hydrostaticky-tlak-panel-5.svg',
+								'/materialy/fyzika/7-rocnik/tlak-v-kapalinach/hydrostaticky-tlak/infografika-hydrostaticky-tlak-panel-6.svg',
+							],
+						},
 					],
 					odkazy: [
 						{ nazev: 'Umíme fakta — Hydrostatický tlak: intuitivně (7. třída), cvičení', url: 'https://www.umimefakta.cz/fyzika/cviceni-hydrostaticky-tlak-intuitivne-7-trida' },
