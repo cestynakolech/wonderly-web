@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 540" width="460" height="540" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Dva svislé ohebné vodiče vedle sebe. Bez proudu visí rovně. Když jimi teče proud stejným směrem, magnetické síly F je přitáhnou k sobě. Když teče opačným směrem, odpuzují se.">
+	<title>Magnetické pole vodiče a cívky s proudem 1/5: Dva vodiče s proudem</title>
+	<!-- Panel 1/5, generátor W57 14. 10. 2026 (podle PDF Magnetické pole vodiče a cívky s proudem). -->
+	<style>
+		.p1-0 { opacity: 0; animation: p1-0 10s linear infinite; }
+		@keyframes p1-0 { 0.000% { opacity: 1; } 12.000% { opacity: 1; } 12.600% { opacity: 0; } 47.400% { opacity: 0; } 48.000% { opacity: 1; } 56.000% { opacity: 1; } 56.600% { opacity: 0; } 91.400% { opacity: 0; } 92.000% { opacity: 1; } 100.000% { opacity: 1; } }
+		.p1-a { opacity: 1; animation: p1-a 10s linear infinite; }
+		@keyframes p1-a { 0.000% { opacity: 0; } 11.400% { opacity: 0; } 12.000% { opacity: 1; } 48.000% { opacity: 1; } 48.600% { opacity: 0; } 100.000% { opacity: 0; } }
+		.p1-b { opacity: 0; animation: p1-b 10s linear infinite; }
+		@keyframes p1-b { 0.000% { opacity: 0; } 55.400% { opacity: 0; } 56.000% { opacity: 1; } 92.000% { opacity: 1; } 92.600% { opacity: 0; } 100.000% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) { .p1-0, .p1-a, .p1-b { animation: none; } }
+	</style>
+	<rect x="0" y="0" width="460" height="540" fill="#f8f9fa" />
+	<rect x="18" y="16" width="432" height="520" rx="12" fill="#dee2e6" /><rect x="12" y="10" width="432" height="520" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2" /><circle cx="44" cy="44" r="17" fill="#2b2a26" /><text x="44" y="52" font-size="21" font-weight="bold" fill="#ffffff" text-anchor="middle">1</text><text x="72" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Dva vodiče s proudem</text>
+	<text x="30" y="84" font-size="21" fill="#2b2a26">Vodiče s proudem na sebe působí</text>
+	<text x="30" y="110" font-size="21" fill="#2b2a26">silou, podobně jako dva magnety.</text>
+	<rect x="28" y="126" width="400" height="300" rx="8" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+	<rect x="96" y="140" width="264" height="14" rx="3" fill="#c08a50" stroke="#8d5524" stroke-width="1.5" />
+	<rect x="96" y="372" width="264" height="14" rx="3" fill="#c08a50" stroke="#8d5524" stroke-width="1.5" />
+	<g class="p1-0"><path d="M 180,154 Q 180,263 180,372" fill="none" stroke="#868e96" stroke-width="9" stroke-linecap="round" /><path d="M 180,154 Q 180,263 180,372" fill="none" stroke="#e9ecef" stroke-width="5" stroke-linecap="round" /></g><g class="p1-0"><path d="M 276,154 Q 276,263 276,372" fill="none" stroke="#868e96" stroke-width="9" stroke-linecap="round" /><path d="M 276,154 Q 276,263 276,372" fill="none" stroke="#e9ecef" stroke-width="5" stroke-linecap="round" /></g>
+	<g class="p1-a"><path d="M 180,154 Q 212,263 180,372" fill="none" stroke="#868e96" stroke-width="9" stroke-linecap="round" /><path d="M 180,154 Q 212,263 180,372" fill="none" stroke="#e9ecef" stroke-width="5" stroke-linecap="round" /></g><g class="p1-a"><path d="M 276,154 Q 244,263 276,372" fill="none" stroke="#868e96" stroke-width="9" stroke-linecap="round" /><path d="M 276,154 Q 244,263 276,372" fill="none" stroke="#e9ecef" stroke-width="5" stroke-linecap="round" /></g>
+	<g class="p1-b"><path d="M 180,154 Q 148,263 180,372" fill="none" stroke="#868e96" stroke-width="9" stroke-linecap="round" /><path d="M 180,154 Q 148,263 180,372" fill="none" stroke="#e9ecef" stroke-width="5" stroke-linecap="round" /></g><g class="p1-b"><path d="M 276,154 Q 308,263 276,372" fill="none" stroke="#868e96" stroke-width="9" stroke-linecap="round" /><path d="M 276,154 Q 308,263 276,372" fill="none" stroke="#e9ecef" stroke-width="5" stroke-linecap="round" /></g>
+	<g class="p1-a"><line x1="112" y1="304" x2="112" y2="226" stroke="#e8590c" stroke-width="5" stroke-linecap="round" /><polygon points="112,212 119.7,226 104.3,226" fill="#e8590c" /></g><g class="p1-a"><line x1="344" y1="304" x2="344" y2="226" stroke="#e8590c" stroke-width="5" stroke-linecap="round" /><polygon points="344,212 351.7,226 336.3,226" fill="#e8590c" /></g>
+	<g class="p1-b"><line x1="112" y1="304" x2="112" y2="226" stroke="#e8590c" stroke-width="5" stroke-linecap="round" /><polygon points="112,212 119.7,226 104.3,226" fill="#e8590c" /></g><g class="p1-b"><line x1="344" y1="212" x2="344" y2="290" stroke="#e8590c" stroke-width="5" stroke-linecap="round" /><polygon points="344,304 336.3,290 351.7,290" fill="#e8590c" /></g>
+	<text class="p1-a" x="86" y="266" font-size="22" font-weight="bold" fill="#e8590c">I</text>
+	<text class="p1-a" x="358" y="266" font-size="22" font-weight="bold" fill="#e8590c">I</text>
+	<text class="p1-b" x="86" y="266" font-size="22" font-weight="bold" fill="#e8590c">I</text>
+	<text class="p1-b" x="358" y="266" font-size="22" font-weight="bold" fill="#e8590c">I</text>
+	<g class="p1-a"><line x1="202" y1="263" x2="208" y2="263" stroke="#2f9e44" stroke-width="6" stroke-linecap="round" /><polygon points="222,263 208,270.7 208,255.3" fill="#2f9e44" /></g><g class="p1-a"><line x1="254" y1="263" x2="248" y2="263" stroke="#2f9e44" stroke-width="6" stroke-linecap="round" /><polygon points="234,263 248,255.3 248,270.7" fill="#2f9e44" /></g>
+	<g class="p1-b"><line x1="158" y1="263" x2="148" y2="263" stroke="#2f9e44" stroke-width="6" stroke-linecap="round" /><polygon points="134,263 148,255.3 148,270.7" fill="#2f9e44" /></g><g class="p1-b"><line x1="298" y1="263" x2="308" y2="263" stroke="#2f9e44" stroke-width="6" stroke-linecap="round" /><polygon points="322,263 308,270.7 308,255.3" fill="#2f9e44" /></g>
+	<text class="p1-a" x="228" y="247" font-size="22" font-weight="bold" fill="#2f9e44" text-anchor="middle">F</text>
+	<text class="p1-b" x="146" y="247" font-size="22" font-weight="bold" fill="#2f9e44" text-anchor="middle">F</text>
+	<text class="p1-b" x="310" y="247" font-size="22" font-weight="bold" fill="#2f9e44" text-anchor="middle">F</text>
+	<text class="p1-0" x="44" y="412" font-size="20" fill="#2b2a26">proud nejde: vodiče visí rovně</text>
+	<text class="p1-a" x="44" y="412" font-size="20" fill="#2b2a26">stejný směr: přitahují se</text>
+	<text class="p1-b" x="44" y="412" font-size="20" fill="#2b2a26">opačný směr: odpuzují se</text>
+	<text x="30" y="462" font-size="21" fill="#2b2a26">stejný směr proudu → přitahují se</text>
+	<text x="30" y="490" font-size="21" fill="#2b2a26">opačný směr proudu → odpuzují se</text>
+</svg>

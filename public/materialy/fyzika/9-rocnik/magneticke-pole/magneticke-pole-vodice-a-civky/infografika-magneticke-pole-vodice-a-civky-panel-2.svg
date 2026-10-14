@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 530" width="460" height="530" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Cívka: dlouhý měděný drát s průhlednou lakovou izolací je navinutý v mnoha závitech na plastovém válci. Uprostřed válce je dutina, do které můžeme vložit železné jádro.">
+	<title>Magnetické pole vodiče a cívky s proudem 2/5: Z čeho je cívka</title>
+	<!-- Panel 2/5, generátor W57 14. 10. 2026 (podle PDF Magnetické pole vodiče a cívky s proudem). -->
+	<style>
+		.p2-z0 { opacity: 1; animation: p2-z0 9s linear infinite; }
+		@keyframes p2-z0 { 0.000% { opacity: 0; } 3.400% { opacity: 0; } 4.000% { opacity: 1; } 94.000% { opacity: 1; } 94.600% { opacity: 0; } 100.000% { opacity: 0; } }
+		.p2-z1 { opacity: 1; animation: p2-z1 9s linear infinite; }
+		@keyframes p2-z1 { 0.000% { opacity: 0; } 8.000% { opacity: 0; } 8.600% { opacity: 1; } 94.000% { opacity: 1; } 94.600% { opacity: 0; } 100.000% { opacity: 0; } }
+		.p2-z2 { opacity: 1; animation: p2-z2 9s linear infinite; }
+		@keyframes p2-z2 { 0.000% { opacity: 0; } 12.600% { opacity: 0; } 13.200% { opacity: 1; } 94.000% { opacity: 1; } 94.600% { opacity: 0; } 100.000% { opacity: 0; } }
+		.p2-z3 { opacity: 1; animation: p2-z3 9s linear infinite; }
+		@keyframes p2-z3 { 0.000% { opacity: 0; } 17.200% { opacity: 0; } 17.800% { opacity: 1; } 94.000% { opacity: 1; } 94.600% { opacity: 0; } 100.000% { opacity: 0; } }
+		.p2-z4 { opacity: 1; animation: p2-z4 9s linear infinite; }
+		@keyframes p2-z4 { 0.000% { opacity: 0; } 21.800% { opacity: 0; } 22.400% { opacity: 1; } 94.000% { opacity: 1; } 94.600% { opacity: 0; } 100.000% { opacity: 0; } }
+		.p2-z5 { opacity: 1; animation: p2-z5 9s linear infinite; }
+		@keyframes p2-z5 { 0.000% { opacity: 0; } 26.400% { opacity: 0; } 27.000% { opacity: 1; } 94.000% { opacity: 1; } 94.600% { opacity: 0; } 100.000% { opacity: 0; } }
+		.p2-z6 { opacity: 1; animation: p2-z6 9s linear infinite; }
+		@keyframes p2-z6 { 0.000% { opacity: 0; } 31.000% { opacity: 0; } 31.600% { opacity: 1; } 94.000% { opacity: 1; } 94.600% { opacity: 0; } 100.000% { opacity: 0; } }
+		.p2-z7 { opacity: 1; animation: p2-z7 9s linear infinite; }
+		@keyframes p2-z7 { 0.000% { opacity: 0; } 35.600% { opacity: 0; } 36.200% { opacity: 1; } 94.000% { opacity: 1; } 94.600% { opacity: 0; } 100.000% { opacity: 0; } }
+		.p2-z8 { opacity: 1; animation: p2-z8 9s linear infinite; }
+		@keyframes p2-z8 { 0.000% { opacity: 0; } 40.200% { opacity: 0; } 40.800% { opacity: 1; } 94.000% { opacity: 1; } 94.600% { opacity: 0; } 100.000% { opacity: 0; } }
+		.p2-z9 { opacity: 1; animation: p2-z9 9s linear infinite; }
+		@keyframes p2-z9 { 0.000% { opacity: 0; } 44.800% { opacity: 0; } 45.400% { opacity: 1; } 94.000% { opacity: 1; } 94.600% { opacity: 0; } 100.000% { opacity: 0; } }
+		.p2-0 { opacity: 0; animation: p2-0 9s linear infinite; }
+		@keyframes p2-0 { 0.000% { opacity: 1; } 52.000% { opacity: 1; } 52.600% { opacity: 0; } 94.000% { opacity: 0; } 94.600% { opacity: 1; } 100.000% { opacity: 1; } }
+		.p2-a { opacity: 1; animation: p2-a 9s linear infinite; }
+		@keyframes p2-a { 0.000% { opacity: 0; } 52.000% { opacity: 0; } 52.600% { opacity: 1; } 94.000% { opacity: 1; } 94.600% { opacity: 0; } 100.000% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) { .p2-z0, .p2-z1, .p2-z2, .p2-z3, .p2-z4, .p2-z5, .p2-z6, .p2-z7, .p2-z8, .p2-z9, .p2-0, .p2-a { animation: none; } }
+	</style>
+	<rect x="0" y="0" width="460" height="530" fill="#f8f9fa" />
+	<rect x="18" y="16" width="432" height="510" rx="12" fill="#dee2e6" /><rect x="12" y="10" width="432" height="510" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2" /><circle cx="44" cy="44" r="17" fill="#2b2a26" /><text x="44" y="52" font-size="21" font-weight="bold" fill="#ffffff" text-anchor="middle">2</text><text x="72" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Z čeho je cívka</text>
+	<text x="30" y="84" font-size="21" fill="#2b2a26">Dlouhý izolovaný drát navinutý</text>
+	<text x="30" y="110" font-size="21" fill="#2b2a26">na válci z plastu.</text>
+	<rect x="28" y="126" width="400" height="300" rx="8" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+	<rect x="112" y="208" width="226" height="84" rx="4" fill="#e9ecef" stroke="#adb5bd" stroke-width="2" />
+	<ellipse cx="112" cy="250" rx="12" ry="42" fill="#f8f9fa" stroke="#adb5bd" stroke-width="2" /><ellipse cx="112" cy="250" rx="7" ry="32" fill="#495057" />
+	<g class="p2-z0"><line x1="120" y1="204" x2="130" y2="296" stroke="#8a4513" stroke-width="7" stroke-linecap="round" /><line x1="120" y1="204" x2="130" y2="296" stroke="#c87533" stroke-width="4" stroke-linecap="round" /><line x1="121" y1="210" x2="129" y2="282" stroke="#f1b07a" stroke-width="1.3" stroke-linecap="round" /></g><g class="p2-z1"><line x1="140" y1="204" x2="150" y2="296" stroke="#8a4513" stroke-width="7" stroke-linecap="round" /><line x1="140" y1="204" x2="150" y2="296" stroke="#c87533" stroke-width="4" stroke-linecap="round" /><line x1="141" y1="210" x2="149" y2="282" stroke="#f1b07a" stroke-width="1.3" stroke-linecap="round" /></g><g class="p2-z2"><line x1="160" y1="204" x2="170" y2="296" stroke="#8a4513" stroke-width="7" stroke-linecap="round" /><line x1="160" y1="204" x2="170" y2="296" stroke="#c87533" stroke-width="4" stroke-linecap="round" /><line x1="161" y1="210" x2="169" y2="282" stroke="#f1b07a" stroke-width="1.3" stroke-linecap="round" /></g><g class="p2-z3"><line x1="180" y1="204" x2="190" y2="296" stroke="#8a4513" stroke-width="7" stroke-linecap="round" /><line x1="180" y1="204" x2="190" y2="296" stroke="#c87533" stroke-width="4" stroke-linecap="round" /><line x1="181" y1="210" x2="189" y2="282" stroke="#f1b07a" stroke-width="1.3" stroke-linecap="round" /></g><g class="p2-z4"><line x1="200" y1="204" x2="210" y2="296" stroke="#8a4513" stroke-width="7" stroke-linecap="round" /><line x1="200" y1="204" x2="210" y2="296" stroke="#c87533" stroke-width="4" stroke-linecap="round" /><line x1="201" y1="210" x2="209" y2="282" stroke="#f1b07a" stroke-width="1.3" stroke-linecap="round" /></g><g class="p2-z5"><line x1="220" y1="204" x2="230" y2="296" stroke="#8a4513" stroke-width="7" stroke-linecap="round" /><line x1="220" y1="204" x2="230" y2="296" stroke="#c87533" stroke-width="4" stroke-linecap="round" /><line x1="221" y1="210" x2="229" y2="282" stroke="#f1b07a" stroke-width="1.3" stroke-linecap="round" /></g><g class="p2-z6"><line x1="240" y1="204" x2="250" y2="296" stroke="#8a4513" stroke-width="7" stroke-linecap="round" /><line x1="240" y1="204" x2="250" y2="296" stroke="#c87533" stroke-width="4" stroke-linecap="round" /><line x1="241" y1="210" x2="249" y2="282" stroke="#f1b07a" stroke-width="1.3" stroke-linecap="round" /></g><g class="p2-z7"><line x1="260" y1="204" x2="270" y2="296" stroke="#8a4513" stroke-width="7" stroke-linecap="round" /><line x1="260" y1="204" x2="270" y2="296" stroke="#c87533" stroke-width="4" stroke-linecap="round" /><line x1="261" y1="210" x2="269" y2="282" stroke="#f1b07a" stroke-width="1.3" stroke-linecap="round" /></g><g class="p2-z8"><line x1="280" y1="204" x2="290" y2="296" stroke="#8a4513" stroke-width="7" stroke-linecap="round" /><line x1="280" y1="204" x2="290" y2="296" stroke="#c87533" stroke-width="4" stroke-linecap="round" /><line x1="281" y1="210" x2="289" y2="282" stroke="#f1b07a" stroke-width="1.3" stroke-linecap="round" /></g><g class="p2-z9"><line x1="300" y1="204" x2="310" y2="296" stroke="#8a4513" stroke-width="7" stroke-linecap="round" /><line x1="300" y1="204" x2="310" y2="296" stroke="#c87533" stroke-width="4" stroke-linecap="round" /><line x1="301" y1="210" x2="309" y2="282" stroke="#f1b07a" stroke-width="1.3" stroke-linecap="round" /></g>
+	<path d="M 120,204 C 114,174 80,178 60,176" fill="none" stroke="#c87533" stroke-width="4" stroke-linecap="round" />
+	<path class="p2-z9" d="M 310,296 C 320,322 350,326 400,326" fill="none" stroke="#c87533" stroke-width="4" stroke-linecap="round" />
+	<line class="p2-a" x1="222" y1="200" x2="262" y2="170" stroke="#495057" stroke-width="1.5" />
+	<text class="p2-a" x="266" y="168" font-size="19" font-weight="bold" fill="#495057">závit</text>
+	<line x1="104" y1="270" x2="78" y2="336" stroke="#495057" stroke-width="1.5" />
+	<text x="44" y="356" font-size="19" font-weight="bold" fill="#495057">dutina</text>
+	<line class="p2-a" x1="265" y1="286" x2="250" y2="340" stroke="#495057" stroke-width="1.5" />
+	<text class="p2-a" x="214" y="358" font-size="19" font-weight="bold" fill="#495057">drát s lakovou izolací</text>
+	<text class="p2-0" x="44" y="412" font-size="20" fill="#2b2a26">navíjíme drát závit po závitu…</text>
+	<text class="p2-a" x="44" y="412" font-size="20" fill="#2b2a26">hotová cívka: mnoho závitů</text>
+	<text x="30" y="462" font-size="21" fill="#2b2a26">Do dutiny cívky můžeme vložit</text>
+	<text x="30" y="490" font-size="21" fill="#2b2a26">železné jádro.</text>
+</svg>
