@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 590" width="460" height="590" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Jistič rozříznutý: proud ze sítě jde cívkou s jádrem, kotvou a kontaktem ke spotřebičům. Postupně zapínáme lampu, rychlovarnou konvici a přímotop a proud roste, až je příliš velký. Silné pole cívky přitáhne kotvu, kontakt se rozpojí, ručka jističe skočí dolů a všechno zhasne. Západka drží kotvu nahoře. Vypneme přímotop a jistič rukou zase zapneme. Výhoda proti tavné pojistce: jistič zapneme znovu.">
+	<title>Elektromagnet a jeho využití 5/5: Jistič</title>
+	<!-- Panel 5/5, generátor W58 14. 10. 2026 (Omega/predavka/2026-10-14/W58-elektromagnet.md). -->
+	<style>
+		.j5-k { transform-box: view-box; transform-origin: 0 0; transform: translate(172px, 292px) rotate(0deg) translate(-172px, -292px); animation: j5-k 12s ease-in-out infinite; }
+		.j5-i { opacity: 1; animation: j5-i 12s linear infinite; }
+		.j5-t { stroke-dasharray: 5 13; animation: j5-t 0.9s linear infinite; }
+		.j5-p { opacity: 0.3; animation: j5-p 12s linear infinite; }
+		.j5-pr { transform-box: view-box; transform-origin: 0 0; transform: translate(120px, 352px) scale(1, 1) translate(-120px, -352px); animation: j5-pr 12s ease-in-out infinite; }
+		.j5-r { transform-box: view-box; transform-origin: 0 0; transform: translate(196px, 166px) rotate(0deg) translate(-196px, -166px); animation: j5-r 12s ease-in-out infinite; }
+		.j5-z { transform-box: view-box; transform-origin: 0 0; transform: translate(0px, 0px); animation: j5-z 12s linear infinite; }
+		.j5-b { transform-box: view-box; transform-origin: 0 0; transform: translate(232px, 0px) scale(0.034, 1) translate(-232px, 0px); animation: j5-b 12s ease-in-out infinite; }
+		.j5-s2 { opacity: 0; animation: j5-s2 12s linear infinite; }
+		.j5-s3 { opacity: 0; animation: j5-s3 12s linear infinite; }
+		.j5-w1 { opacity: 1; animation: j5-w1 12s linear infinite; }
+		.j5-w2 { opacity: 0; animation: j5-w2 12s linear infinite; }
+		.j5-w3 { opacity: 0; animation: j5-w3 12s linear infinite; }
+		.j5-h { opacity: 0; animation: j5-h 12s linear infinite; }
+		.j5-cA { opacity: 1; animation: j5-cA 12s linear infinite; }
+		.j5-cB { opacity: 0; animation: j5-cB 12s linear infinite; }
+		.j5-cC { opacity: 0; animation: j5-cC 12s linear infinite; }
+		.j5-cD { opacity: 0; animation: j5-cD 12s linear infinite; }
+		.j5-cZ { opacity: 1; animation: j5-cZ 12s linear infinite; }
+		.j5-cV { opacity: 0; animation: j5-cV 12s linear infinite; }
+		@keyframes j5-k { 0% { transform: translate(172px, 292px) rotate(0deg) translate(-172px, -292px); } 32.5% { transform: translate(172px, 292px) rotate(0deg) translate(-172px, -292px); } 34% { transform: translate(172px, 292px) rotate(12.061deg) translate(-172px, -292px); } 62% { transform: translate(172px, 292px) rotate(12.061deg) translate(-172px, -292px); } 63.5% { transform: translate(172px, 292px) rotate(0deg) translate(-172px, -292px); } 100% { transform: translate(172px, 292px) rotate(0deg) translate(-172px, -292px); } }
+		@keyframes j5-i { 0% { opacity: 1; } 34.5% { opacity: 1; } 34.9% { opacity: 0; } 63.5% { opacity: 0; } 63.9% { opacity: 1; } 100% { opacity: 1; } }
+		@keyframes j5-t { 0% { stroke-dashoffset: 18; } 100% { stroke-dashoffset: 0; } }
+		@keyframes j5-p { 0% { opacity: 0.3; } 25% { opacity: 0.3; } 27% { opacity: 1; } 34.5% { opacity: 1; } 35% { opacity: 0; } 63.5% { opacity: 0; } 64% { opacity: 0.3; } 100% { opacity: 0.3; } }
+		@keyframes j5-pr { 0% { transform: translate(120px, 352px) scale(1, 1) translate(-120px, -352px); } 32.5% { transform: translate(120px, 352px) scale(1, 1) translate(-120px, -352px); } 34% { transform: translate(120px, 352px) scale(1, 1.201) translate(-120px, -352px); } 62% { transform: translate(120px, 352px) scale(1, 1.201) translate(-120px, -352px); } 63.5% { transform: translate(120px, 352px) scale(1, 1) translate(-120px, -352px); } 100% { transform: translate(120px, 352px) scale(1, 1) translate(-120px, -352px); } }
+		@keyframes j5-r { 0% { transform: translate(196px, 166px) rotate(0deg) translate(-196px, -166px); } 34.5% { transform: translate(196px, 166px) rotate(0deg) translate(-196px, -166px); } 35.5% { transform: translate(196px, 166px) rotate(180deg) translate(-196px, -166px); } 60% { transform: translate(196px, 166px) rotate(180deg) translate(-196px, -166px); } 62.5% { transform: translate(196px, 166px) rotate(0deg) translate(-196px, -166px); } 100% { transform: translate(196px, 166px) rotate(0deg) translate(-196px, -166px); } }
+		@keyframes j5-z { 0% { transform: translate(0px, 0px); } 34.5% { transform: translate(0px, 0px); } 35.5% { transform: translate(14px, 0px); } 62% { transform: translate(14px, 0px); } 62.5% { transform: translate(0px, 0px); } 100% { transform: translate(0px, 0px); } }
+		@keyframes j5-b { 0% { transform: translate(232px, 0px) scale(0.034, 1) translate(-232px, 0px); } 8% { transform: translate(232px, 0px) scale(0.034, 1) translate(-232px, 0px); } 10% { transform: translate(232px, 0px) scale(0.494, 1) translate(-232px, 0px); } 25% { transform: translate(232px, 0px) scale(0.494, 1) translate(-232px, 0px); } 27% { transform: translate(232px, 0px) scale(1, 1) translate(-232px, 0px); } 34.5% { transform: translate(232px, 0px) scale(1, 1) translate(-232px, 0px); } 35% { transform: translate(232px, 0px) scale(0.001, 1) translate(-232px, 0px); } 63.5% { transform: translate(232px, 0px) scale(0.001, 1) translate(-232px, 0px); } 64% { transform: translate(232px, 0px) scale(0.494, 1) translate(-232px, 0px); } 90% { transform: translate(232px, 0px) scale(0.494, 1) translate(-232px, 0px); } 92% { transform: translate(232px, 0px) scale(0.034, 1) translate(-232px, 0px); } 100% { transform: translate(232px, 0px) scale(0.034, 1) translate(-232px, 0px); } }
+		@keyframes j5-s2 { 0% { opacity: 0; } 8% { opacity: 0; } 8.4% { opacity: 1; } 90% { opacity: 1; } 90.4% { opacity: 0; } 100% { opacity: 0; } }
+		@keyframes j5-s3 { 0% { opacity: 0; } 25% { opacity: 0; } 25.4% { opacity: 1; } 55% { opacity: 1; } 55.4% { opacity: 0; } 100% { opacity: 0; } }
+		@keyframes j5-w1 { 0% { opacity: 1; } 34.5% { opacity: 1; } 34.9% { opacity: 0; } 63.5% { opacity: 0; } 63.9% { opacity: 1; } 100% { opacity: 1; } }
+		@keyframes j5-w2 { 0% { opacity: 0; } 8% { opacity: 0; } 8.4% { opacity: 1; } 34.5% { opacity: 1; } 34.9% { opacity: 0; } 63.5% { opacity: 0; } 63.9% { opacity: 1; } 90% { opacity: 1; } 90.4% { opacity: 0; } 100% { opacity: 0; } }
+		@keyframes j5-w3 { 0% { opacity: 0; } 25% { opacity: 0; } 25.4% { opacity: 1; } 34.5% { opacity: 1; } 34.9% { opacity: 0; } 100% { opacity: 0; } }
+		@keyframes j5-h { 0% { opacity: 0; } 55% { opacity: 0; } 55.4% { opacity: 1; } 63% { opacity: 1; } 63.4% { opacity: 0; } 100% { opacity: 0; } }
+		@keyframes j5-cA { 0% { opacity: 1; } 25% { opacity: 1; } 25.4% { opacity: 0; } 64% { opacity: 0; } 64.4% { opacity: 1; } 100% { opacity: 1; } }
+		@keyframes j5-cB { 0% { opacity: 0; } 25% { opacity: 0; } 25.4% { opacity: 1; } 34.5% { opacity: 1; } 34.9% { opacity: 0; } 100% { opacity: 0; } }
+		@keyframes j5-cC { 0% { opacity: 0; } 34.5% { opacity: 0; } 34.9% { opacity: 1; } 55% { opacity: 1; } 55.4% { opacity: 0; } 100% { opacity: 0; } }
+		@keyframes j5-cD { 0% { opacity: 0; } 55% { opacity: 0; } 55.4% { opacity: 1; } 64% { opacity: 1; } 64.4% { opacity: 0; } 100% { opacity: 0; } }
+		@keyframes j5-cZ { 0% { opacity: 1; } 35% { opacity: 1; } 35.4% { opacity: 0; } 62.5% { opacity: 0; } 62.9% { opacity: 1; } 100% { opacity: 1; } }
+		@keyframes j5-cV { 0% { opacity: 0; } 35% { opacity: 0; } 35.4% { opacity: 1; } 62.5% { opacity: 1; } 62.9% { opacity: 0; } 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) { .j5-k, .j5-i, .j5-t, .j5-p, .j5-pr, .j5-r, .j5-z, .j5-b, .j5-s2, .j5-s3, .j5-w1, .j5-w2, .j5-w3, .j5-h, .j5-cA, .j5-cB, .j5-cC, .j5-cD, .j5-cZ, .j5-cV { animation: none; } }
+	</style>
+	<rect x="0" y="0" width="460" height="590" fill="#f8f9fa" />
+	<rect x="18" y="16" width="432" height="570" rx="12" fill="#dee2e6" /><rect x="12" y="10" width="432" height="570" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2" /><circle cx="44" cy="44" r="17" fill="#2b2a26" /><text x="44" y="52" font-size="21" font-weight="bold" fill="#ffffff" text-anchor="middle">5</text><text x="72" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Jistič</text>
+	<text x="30" y="84" font-size="21" fill="#2b2a26">Při příliš velkém proudu</text>
+	<text x="30" y="110" font-size="21" fill="#2b2a26">elektromagnet obvod vypne.</text>
+	<rect x="28" y="126" width="400" height="330" rx="8" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+	<rect x="38" y="150" width="180" height="296" rx="8" fill="#f8f9fa" stroke="#495057" stroke-width="2" /><rect x="38" y="150" width="180" height="12" rx="4" fill="#e03131" />
+	<text x="128" y="186" font-size="17" font-weight="bold" text-anchor="middle" fill="#495057">jistič</text>
+	<text x="68" y="144" font-size="15" fill="#868e96">ze sítě</text>
+	<path d="M60,128 L60,215 L85,215" fill="none" stroke="#adb5bd" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" /><path d="M125,231 L172,231 L172,285" fill="none" stroke="#adb5bd" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" /><path d="M65,313 L65,320 L48,320 L48,430 L232,430" fill="none" stroke="#adb5bd" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" /><g class="j5-i"><path d="M60,128 L60,215 L85,215" fill="none" stroke="#e03131" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" /><path d="M125,231 L172,231 L172,285" fill="none" stroke="#e03131" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" /><path d="M65,313 L65,320 L48,320 L48,430 L232,430" fill="none" stroke="#e03131" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" /><path class="j5-t" d="M60,128 L60,215 L85,215" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" /><path class="j5-t" d="M125,231 L172,231 L172,285" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" /><path class="j5-t" d="M65,313 L65,320 L48,320 L48,430 L232,430" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" /></g>
+	<rect x="97" y="192" width="16" height="80" fill="#868e96" stroke="#343a40" stroke-width="1.5" />
+	<rect x="85" y="200" width="40" height="62" rx="4" fill="#d9480f" stroke="#7a2a05" stroke-width="1.5" /><line x1="85" y1="213.333" x2="125" y2="207.333" stroke="#7a2a05" stroke-width="1.5" /><line x1="85" y1="223.667" x2="125" y2="217.667" stroke="#7a2a05" stroke-width="1.5" /><line x1="85" y1="234" x2="125" y2="228" stroke="#7a2a05" stroke-width="1.5" /><line x1="85" y1="244.333" x2="125" y2="238.333" stroke="#7a2a05" stroke-width="1.5" /><line x1="85" y1="254.667" x2="125" y2="248.667" stroke="#7a2a05" stroke-width="1.5" />
+	<g class="j5-p" fill="none" stroke="#339af0" stroke-width="2.5" stroke-dasharray="7 5"><path d="M91,196 C68,196 68,276 91,276" /><path d="M119,196 C142,196 142,276 119,276" /></g>
+	<text x="134" y="214" font-size="15" fill="#495057">cívka</text>
+	<g class="j5-pr"><path d="M120,298 L113,304 L127,310 L113,316 L127,322 L113,328 L127,334 L113,340 L120,352" fill="none" stroke="#868e96" stroke-width="2" /></g><rect x="108" y="352" width="24" height="6" fill="#495057" />
+	<text x="136" y="346" font-size="15" fill="#495057">pružina</text>
+	<rect x="56" y="304" width="18" height="9" rx="2" fill="#f08c00" stroke="#a35200" stroke-width="1.5" />
+	<g class="j5-z"><rect x="40" y="276" width="12" height="8" fill="#2b2a26" /></g>
+	<text x="56" y="340" font-size="14" fill="#495057">kontakt</text>
+	<g class="j5-k"><rect x="56" y="286" width="118" height="12" rx="4" fill="#495057" /><rect x="58" y="298" width="14" height="5" fill="#f08c00" /></g>
+	<circle cx="172" cy="292" r="6" fill="#ffffff" stroke="#2b2a26" stroke-width="2.5" />
+	<text x="176" y="318" font-size="15" fill="#495057">kotva</text>
+	<rect x="186" y="156" width="20" height="20" rx="3" fill="#dee2e6" stroke="#495057" stroke-width="1.5" />
+	<g class="j5-r"><rect x="191" y="128" width="10" height="38" rx="4" fill="#2b2a26" /></g>
+	<text x="222" y="174" font-size="15" fill="#495057">ručka</text>
+	<text class="j5-cZ" x="222" y="194" font-size="15" font-weight="bold" fill="#2f9e44">ZAP</text>
+	<text class="j5-cV" x="222" y="194" font-size="15" font-weight="bold" fill="#e03131">VYP</text>
+	<g class="j5-h"><path d="M232,150 L212,150 M220,142 L212,150 L220,158" fill="none" stroke="#2f9e44" stroke-width="3" stroke-linecap="round" /><text x="238" y="156" font-size="16" font-weight="bold" fill="#2f9e44">zapneme rukou</text></g>
+	<text x="232" y="216" font-size="16" font-weight="bold" fill="#495057">proud</text>
+	<rect x="232" y="224" width="178" height="20" rx="4" fill="#f1f3f5" stroke="#ced4da" stroke-width="1.5" />
+	<rect x="382" y="224" width="28" height="20" fill="#ffc9c9" />
+	<g class="j5-b"><rect x="232" y="224" width="178" height="20" rx="4" fill="#e03131" opacity="0.85" /></g>
+	<line x1="382" y1="218" x2="382" y2="250" stroke="#e03131" stroke-width="2" />
+	<text x="410" y="266" font-size="14" font-weight="bold" text-anchor="end" fill="#e03131">příliš velký</text>
+	<rect x="228" y="420" width="196" height="22" rx="6" fill="#f8f9fa" stroke="#495057" stroke-width="2" />
+	<circle cx="262" cy="431" r="6" fill="#dee2e6" stroke="#495057" stroke-width="1.5" /><path d="M262,425 L262,400" fill="none" stroke="#2b2a26" stroke-width="2" />
+	<circle cx="328" cy="431" r="6" fill="#dee2e6" stroke="#495057" stroke-width="1.5" /><path d="M328,425 L328,400" fill="none" stroke="#2b2a26" stroke-width="2" />
+	<circle cx="394" cy="431" r="6" fill="#dee2e6" stroke="#495057" stroke-width="1.5" /><path d="M394,425 L394,400" fill="none" stroke="#2b2a26" stroke-width="2" />
+	<rect x="258" y="330" width="8" height="70" fill="#495057" /><path d="M244,334 L280,334 L272,300 L252,300 Z" fill="#f1f3f5" stroke="#495057" stroke-width="2" />
+	<g class="j5-w1"><path d="M246,336 L278,336 L292,380 L232,380 Z" fill="#ffe066" opacity="0.6" /><path d="M244,334 L280,334 L272,300 L252,300 Z" fill="#ffd43b" stroke="#495057" stroke-width="2" /></g>
+	<path d="M312,398 L344,398 L340,340 L316,340 Z" fill="#e7f5ff" stroke="#495057" stroke-width="2" /><path d="M344,352 C356,352 356,384 342,384" fill="none" stroke="#495057" stroke-width="3" />
+	<g class="j5-w2" fill="none" stroke="#adb5bd" stroke-width="3" stroke-linecap="round"><path d="M322,330 C316,320 328,314 322,304" /><path d="M334,330 C328,320 340,314 334,304" /></g>
+	<circle class="j5-s2" cx="328" cy="390" r="4" fill="#2f9e44" />
+	<rect x="372" y="324" width="44" height="74" rx="5" fill="#f1f3f5" stroke="#495057" stroke-width="2" />
+	<g class="j5-w3"><rect x="378" y="332" width="5" height="58" rx="2" fill="#ff8787" /><rect x="387" y="332" width="5" height="58" rx="2" fill="#ff8787" /><rect x="396" y="332" width="5" height="58" rx="2" fill="#ff8787" /><rect x="405" y="332" width="5" height="58" rx="2" fill="#ff8787" /></g>
+	<circle class="j5-s3" cx="394" cy="320" r="4" fill="#2f9e44" />
+	<text class="j5-cA" x="30" y="496" font-size="21" font-weight="bold" fill="#2b2a26">Běžný proud: kontakt drží.</text>
+	<text class="j5-cB" x="30" y="496" font-size="21" font-weight="bold" fill="#e03131">Moc spotřebičů: velký proud!</text>
+	<text class="j5-cC" x="30" y="496" font-size="21" font-weight="bold" fill="#e03131">Magnet přitáhl kotvu: vypnuto.</text>
+	<text class="j5-cD" x="30" y="496" font-size="21" font-weight="bold" fill="#2f9e44">Vypneme přímotop, jistič zapneme.</text>
+	<text x="30" y="530" font-size="21" fill="#2b2a26">Výhoda proti tavné pojistce:</text>
+	<text x="30" y="556" font-size="21" fill="#2b2a26">jistič zapneme zase rukou.</text>
+</svg>

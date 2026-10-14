@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 580" width="460" height="580" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Koloběh elektrického zvonku ve čtyřech krocích dokola: 1 přerušovač T je sepnutý a proud teče, 2 elektromagnet E přitáhne kotvu A, 3 kladívko udeří na zvonek a přerušovač T se rozpojí, 4 proud neteče a kotva se vrací. Pak se T znovu sepne. Opakuje se to, dokud držíme tlačítko K.">
+	<title>Elektromagnet a jeho využití 2/5: Zvonek zvoní dokola</title>
+	<!-- Panel 2/5, generátor W58 14. 10. 2026 (Omega/predavka/2026-10-14/W58-elektromagnet.md). -->
+	<style>
+		.z2-h0 { opacity: 1; animation: z2-h0 8s linear infinite; }
+		.z2-h1 { opacity: 0; animation: z2-h1 8s linear infinite; }
+		.z2-h2 { opacity: 0; animation: z2-h2 8s linear infinite; }
+		.z2-h3 { opacity: 0; animation: z2-h3 8s linear infinite; }
+		@keyframes z2-h0 { 0% { opacity: 1; } 25% { opacity: 1; } 25.4% { opacity: 0; } 100% { opacity: 0; } }
+		@keyframes z2-h1 { 0% { opacity: 0; } 25% { opacity: 0; } 25.4% { opacity: 1; } 50% { opacity: 1; } 50.4% { opacity: 0; } 100% { opacity: 0; } }
+		@keyframes z2-h2 { 0% { opacity: 0; } 50% { opacity: 0; } 50.4% { opacity: 1; } 75% { opacity: 1; } 75.4% { opacity: 0; } 100% { opacity: 0; } }
+		@keyframes z2-h3 { 0% { opacity: 0; } 75% { opacity: 0; } 75.4% { opacity: 1; } 100% { opacity: 1; } }
+		@media (prefers-reduced-motion: reduce) { .z2-h0, .z2-h1, .z2-h2, .z2-h3 { animation: none; } }
+	</style>
+	<rect x="0" y="0" width="460" height="580" fill="#f8f9fa" />
+	<rect x="18" y="16" width="432" height="560" rx="12" fill="#dee2e6" /><rect x="12" y="10" width="432" height="560" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2" /><circle cx="44" cy="44" r="17" fill="#2b2a26" /><text x="44" y="52" font-size="21" font-weight="bold" fill="#ffffff" text-anchor="middle">2</text><text x="72" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Zvonek zvoní dokola</text>
+	<text x="30" y="84" font-size="21" fill="#2b2a26">Čtyři kroky se pořád opakují.</text>
+	<rect x="28" y="126" width="400" height="330" rx="8" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+	<defs><marker id="z2-s" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#495057" /></marker></defs>
+	<path d="M328,176 C372,178 360,214 352,250" fill="none" stroke="#495057" stroke-width="4" marker-end="url(#z2-s)" />
+	<path d="M352,332 C360,370 372,404 334,408" fill="none" stroke="#495057" stroke-width="4" marker-end="url(#z2-s)" />
+	<path d="M122,408 C84,404 96,370 104,332" fill="none" stroke="#495057" stroke-width="4" marker-end="url(#z2-s)" />
+	<path d="M104,250 C96,214 84,178 122,176" fill="none" stroke="#495057" stroke-width="4" marker-end="url(#z2-s)" />
+	<rect x="128" y="140" width="200" height="70" rx="10" fill="#f1f3f5" stroke="#ced4da" stroke-width="2" />
+	<rect class="z2-h0" x="128" y="140" width="200" height="70" rx="10" fill="#fff3bf" stroke="#f08c00" stroke-width="3" />
+	<text x="228" y="170" font-size="18" font-weight="bold" text-anchor="middle" fill="#2b2a26">1 T sepnuto:</text>
+	<text x="228" y="195" font-size="18" text-anchor="middle" fill="#2b2a26">proud teče</text>
+	<rect x="272" y="256" width="152" height="70" rx="10" fill="#f1f3f5" stroke="#ced4da" stroke-width="2" />
+	<rect class="z2-h1" x="272" y="256" width="152" height="70" rx="10" fill="#fff3bf" stroke="#f08c00" stroke-width="3" />
+	<text x="348" y="286" font-size="18" font-weight="bold" text-anchor="middle" fill="#2b2a26">2 E přitáhne</text>
+	<text x="348" y="311" font-size="18" text-anchor="middle" fill="#2b2a26">kotvu A</text>
+	<rect x="128" y="372" width="200" height="70" rx="10" fill="#f1f3f5" stroke="#ced4da" stroke-width="2" />
+	<rect class="z2-h2" x="128" y="372" width="200" height="70" rx="10" fill="#fff3bf" stroke="#f08c00" stroke-width="3" />
+	<text x="228" y="402" font-size="18" font-weight="bold" text-anchor="middle" fill="#2b2a26">3 kladívko udeří,</text>
+	<text x="228" y="427" font-size="18" text-anchor="middle" fill="#2b2a26">T se rozpojí</text>
+	<rect x="32" y="256" width="152" height="70" rx="10" fill="#f1f3f5" stroke="#ced4da" stroke-width="2" />
+	<rect class="z2-h3" x="32" y="256" width="152" height="70" rx="10" fill="#fff3bf" stroke="#f08c00" stroke-width="3" />
+	<text x="108" y="286" font-size="18" font-weight="bold" text-anchor="middle" fill="#2b2a26">4 bez proudu:</text>
+	<text x="108" y="311" font-size="18" text-anchor="middle" fill="#2b2a26">kotva se vrací</text>
+	<circle cx="228" cy="291" r="40" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+	<rect x="208" y="290" width="40" height="8" rx="2" fill="#2b2a26" /><rect x="219" y="280" width="18" height="10" rx="2" fill="#f08c00" />
+	<path d="M228,276 L228,262 M220,268 L228,276 L236,268" fill="none" stroke="#495057" stroke-width="3" stroke-linecap="round" />
+	<text x="228" y="314" font-size="15" font-weight="bold" text-anchor="middle" fill="#495057">držíme K</text>
+	<text x="30" y="490" font-size="21" fill="#2b2a26">Kotva pořád kmitá sem a tam,</text>
+	<text x="30" y="516" font-size="21" fill="#2b2a26">kladívko bije do zvonku znovu</text>
+	<text x="30" y="542" font-size="21" fill="#2b2a26">a znovu, dokud držíme K.</text>
+</svg>
