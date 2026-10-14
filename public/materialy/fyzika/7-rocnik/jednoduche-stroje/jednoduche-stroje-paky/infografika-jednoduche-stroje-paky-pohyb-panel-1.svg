@@ -1,0 +1,109 @@
+<svg viewBox="0 0 460 528" width="460" height="528" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Moment síly na kormidle. Ruka táhne kormidlo pořád stejnou silou F = 10 N, ale pokaždé jinde. Nejdřív síla působí na okraji, rameno a = 40 cm, moment M = 10 · 40 = 400 N · cm a otáčivý účinek je největší. Potom síla působí blíž ke středu, a = 30 cm, M = 10 · 30 = 300 N · cm a otáčivý účinek je menší. Nakonec přímka síly prochází osou, rameno je nulové, M = 0 a kormidlo se neotočí. Čím větší moment síly, tím větší otáčivý účinek." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Páka v pohybu 1/4: Moment síly na kormidle</title>
+	<!-- Páka v pohybu, panel 1 (W69, oprava 1 14. 10. 2026); čísla = výklad „Moment síly“ (obr-04: F = 10 N, a = 40/30/0 cm, M = 400/300/0 N · cm).
+	     Měřítko: 40 cm = 100 px, 10 N = 80 px. Úhel otočení je jen názorný model (40° : 30° : 0°), text tvrdí jen „větší otáčivý účinek“. Případy se střídají střihem (bez prolínání). Bez animace = 1. případ. -->
+	<style>
+		.p7-ra { transform-box: view-box; transform-origin: 200px 268px; animation: p7ra 12s infinite; }
+		@keyframes p7ra { 0%, 5% { transform: none; animation-timing-function: ease-in-out; } 22%, 31% { transform: rotate(40deg); } 31.5%, 100% { transform: none; } }
+		.p7-rb { transform-box: view-box; transform-origin: 200px 268px; animation: p7rb 12s infinite; }
+		@keyframes p7rb { 0%, 38% { transform: none; animation-timing-function: ease-in-out; } 55%, 65% { transform: rotate(30deg); } 65.5%, 100% { transform: none; } }
+		.p7-a { animation: p7a 12s infinite; }
+		@keyframes p7a { 0%, 30.9% { opacity: 1; } 31%, 99.9% { opacity: 0; } 100% { opacity: 1; } }
+		.p7-b { animation: p7b 12s infinite; }
+		@keyframes p7b { 0%, 30.9% { opacity: 0; } 31%, 64.9% { opacity: 1; } 65%, 100% { opacity: 0; } }
+		.p7-c { animation: p7c 12s infinite; }
+		@keyframes p7c { 0%, 64.9% { opacity: 0; } 65%, 99.9% { opacity: 1; } 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) { .p7-ra, .p7-rb, .p7-a, .p7-b, .p7-c { animation: none; } }
+	</style>
+	<defs>
+		<clipPath id="ok7"><rect x="30" y="138" width="400" height="260" rx="8"/></clipPath>
+		<!-- kormidlo (střed 200,268; okraj r = 100 px = 40 cm), mírně šikmo: tmavší spodní hrana dává tloušťku -->
+		<g id="p7kolo">
+			<g stroke="#7a4a1f" stroke-width="9" stroke-linecap="round">
+				<line x1="200" y1="152" x2="200" y2="384"/>
+				<line x1="84" y1="268" x2="316" y2="268"/>
+				<line x1="118" y1="186" x2="282" y2="350"/>
+				<line x1="118" y1="350" x2="282" y2="186"/>
+			</g>
+			<circle cx="200" cy="268" r="100" fill="none" stroke="#a9692f" stroke-width="12"/>
+			<circle cx="200" cy="268" r="94" fill="none" stroke="#c98a4b" stroke-width="2"/>
+			<g fill="#c98a4b" stroke="#7a4a1f" stroke-width="1.5">
+				<rect x="194" y="148" width="12" height="16" rx="5"/>
+				<rect x="194" y="372" width="12" height="16" rx="5"/>
+				<rect x="80" y="262" width="16" height="12" rx="5"/>
+				<rect x="304" y="262" width="16" height="12" rx="5"/>
+				<rect x="112" y="180" width="13" height="13" rx="5"/>
+				<rect x="275" y="180" width="13" height="13" rx="5"/>
+				<rect x="112" y="343" width="13" height="13" rx="5"/>
+				<rect x="275" y="343" width="13" height="13" rx="5"/>
+			</g>
+			<circle cx="200" cy="268" r="20" fill="#a9692f" stroke="#5c3a1a" stroke-width="2"/>
+		</g>
+	</defs>
+	<rect x="0" y="0" width="460" height="528" fill="#f8f9fa"/>
+	<g id="panel-7">
+		<rect x="26" y="16" width="420" height="508" rx="12" fill="#dee2e6"/>
+		<rect x="20" y="10" width="420" height="508" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/>
+		<circle cx="52" cy="44" r="17" fill="#2b2a26"/><text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">1</text>
+		<text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Moment síly na kormidle</text>
+		<text x="34" y="92" font-size="21" fill="#2b2a26">Stejná síla F = 10 N, jiné rameno a.</text>
+		<text x="34" y="120" font-size="21" fill="#2b2a26">Větší moment = větší otáčivý účinek.</text>
+		<rect x="30" y="138" width="400" height="260" rx="8" fill="#ffffff"/>
+		<g clip-path="url(#ok7)">
+			<!-- tloušťka obruče (pevný stín, neotáčí se) -->
+			<circle cx="203" cy="272" r="100" fill="none" stroke="#5c3a1a" stroke-width="13"/>
+			<!-- 1. případ: síla na okraji, a = 40 cm -->
+			<g class="p7-a">
+				<g class="p7-ra">
+					<use href="#p7kolo"/>
+					<line x1="112" y1="168" x2="420" y2="168" stroke="#cc6a00" stroke-width="2" stroke-dasharray="7 6"/>
+					<line x1="200" y1="268" x2="200" y2="168" stroke="#cc6a00" stroke-width="5"/>
+					<circle cx="200" cy="168" r="4.5" fill="#c92a2a"/>
+					<line x1="200" y1="168" x2="267" y2="168" stroke="#c92a2a" stroke-width="5" stroke-linecap="round"/>
+					<path d="M280,168 L265,159.5 L265,176.5 Z" fill="#c92a2a"/>
+				</g>
+			</g>
+			<!-- 2. případ: síla blíž ke středu, a = 30 cm -->
+			<g class="p7-b" opacity="0">
+				<g class="p7-rb">
+					<use href="#p7kolo"/>
+					<line x1="112" y1="193" x2="420" y2="193" stroke="#cc6a00" stroke-width="2" stroke-dasharray="7 6"/>
+					<line x1="200" y1="268" x2="200" y2="193" stroke="#cc6a00" stroke-width="5"/>
+					<circle cx="200" cy="193" r="4.5" fill="#c92a2a"/>
+					<line x1="200" y1="193" x2="267" y2="193" stroke="#c92a2a" stroke-width="5" stroke-linecap="round"/>
+					<path d="M280,193 L265,184.5 L265,201.5 Z" fill="#c92a2a"/>
+				</g>
+			</g>
+			<!-- 3. případ: síla míří k ose, a = 0 -->
+			<g class="p7-c" opacity="0">
+				<use href="#p7kolo"/>
+				<line x1="40" y1="268" x2="420" y2="268" stroke="#cc6a00" stroke-width="2" stroke-dasharray="7 6"/>
+				<circle cx="300" cy="268" r="4.5" fill="#c92a2a"/>
+				<line x1="300" y1="268" x2="367" y2="268" stroke="#c92a2a" stroke-width="5" stroke-linecap="round"/>
+				<path d="M380,268 L365,259.5 L365,276.5 Z" fill="#c92a2a"/>
+				<text x="345" y="250" font-size="19" font-weight="bold" text-anchor="middle" fill="#cc6a00"><tspan font-style="italic">a</tspan> = 0</text>
+			</g>
+			<!-- osa O (pevná) -->
+			<circle cx="200" cy="268" r="9" fill="#ffd43b" stroke="#2b2a26" stroke-width="2"/>
+			<line x1="193" y1="268" x2="207" y2="268" stroke="#2b2a26" stroke-width="2"/>
+			<line x1="200" y1="261" x2="200" y2="275" stroke="#2b2a26" stroke-width="2"/>
+			<text x="44" y="166" font-size="21" font-weight="bold" fill="#2b2a26">osa O</text>
+			<line x1="78" y1="174" x2="188" y2="262" stroke="#2b2a26" stroke-width="1.5" stroke-dasharray="3 3"/>
+			<!-- legenda -->
+			<rect x="322" y="334" width="104" height="60" rx="6" fill="#ffffff" stroke="#ced4da" stroke-width="1.5"/>
+			<line x1="332" y1="352" x2="352" y2="352" stroke="#c92a2a" stroke-width="5" stroke-linecap="round"/>
+			<path d="M362,352 L350,345.5 L350,358.5 Z" fill="#c92a2a"/>
+			<text x="368" y="358" font-size="16" font-weight="bold" fill="#c92a2a">10 N</text>
+			<line x1="330" y1="379" x2="352" y2="379" stroke="#cc6a00" stroke-width="5"/>
+			<text x="358" y="385" font-size="16" font-weight="bold" fill="#cc6a00">rameno</text>
+		</g>
+		<rect x="30" y="138" width="400" height="260" rx="8" fill="none" stroke="#ced4da" stroke-width="2"/>
+		<!-- zvýraznění právě ukázaného případu -->
+		<rect class="p7-a" x="28" y="411" width="404" height="29" rx="6" fill="#fff3bf"/>
+		<rect class="p7-b" opacity="0" x="28" y="441" width="404" height="29" rx="6" fill="#fff3bf"/>
+		<rect class="p7-c" opacity="0" x="28" y="471" width="404" height="29" rx="6" fill="#fff3bf"/>
+		<text x="34" y="432" font-size="20" fill="#2b2a26"><tspan font-style="italic">a</tspan> = 40 cm: <tspan font-style="italic">M</tspan> = 10 · 40 = 400 N · cm</text>
+		<text x="34" y="462" font-size="20" fill="#2b2a26"><tspan font-style="italic">a</tspan> = 30 cm: <tspan font-style="italic">M</tspan> = 10 · 30 = 300 N · cm</text>
+		<text x="34" y="492" font-size="20" fill="#2b2a26"><tspan font-style="italic">a</tspan> = 0 cm: <tspan font-style="italic">M</tspan> = 0 → <tspan font-weight="bold">neotočí se</tspan></text>
+	</g>
+</svg>

@@ -1,0 +1,80 @@
+<svg viewBox="0 0 460 528" width="460" height="528" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Páka v těle: paže a sval. Osa otáčení O je v lokti. Sval na paži se zkrátí a zvedne předloktí s koulí v ruce do vodorovné polohy, pak ho zase spustí. Sval je uchycený blízko lokte, má velmi krátké rameno síly a1. Koule v ruce působí na předloktí svou tíhou F2 daleko od lokte, na dlouhém rameni a2. Proto musí sval táhnout silou F1, která je mnohem větší, než je tíha koule." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Páka v pohybu 3/4: Páka v těle – loket</title>
+	<!-- Páka v pohybu, panel 3 (W69, oprava 1 14. 10. 2026); děj = výklad „Páka kolem nás“ (obr-22, PDF Páka s. 14: osa v lokti, sval s krátkým ramenem).
+	     Bez čísel (výklad je nemá). Kreslené v poměru: a1 = 32 px, a2 = 192 px (6×), šipka F1 = 6 × šipka F2 (132 : 22 px).
+	     Předloktí: otočení 18° → 0° kolem lokte (110,300). Sval: horní úpon (130,155), dolní úpon (142,284) se při 18° posune
+	     na (145,4; 294,7) → délka 129,6 → 140,6 px (scaleY 1,085), směr 5,3° → 6,3° (pevně −5,8°). Bez animace = vodorovně, síly vidět. -->
+	<style>
+		.p9-predlokti { transform-box: view-box; transform-origin: 110px 300px; animation: p9pred 10s infinite; }
+		@keyframes p9pred { 0%, 10% { transform: rotate(18deg); animation-timing-function: ease-in-out; } 40%, 80% { transform: none; animation-timing-function: ease-in-out; } 95%, 100% { transform: rotate(18deg); } }
+		.p9-sval { transform-box: view-box; transform-origin: 0px 0px; animation: p9sval 10s infinite; }
+		@keyframes p9sval { 0%, 10% { transform: scale(0.75, 1.085); animation-timing-function: ease-in-out; } 40%, 80% { transform: none; animation-timing-function: ease-in-out; } 95%, 100% { transform: scale(0.75, 1.085); } }
+		.p9-sily { animation: p9sily 10s infinite; }
+		@keyframes p9sily { 0%, 44% { opacity: 0; } 50%, 76% { opacity: 1; } 80%, 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) { .p9-predlokti, .p9-sval, .p9-sily { animation: none; } }
+	</style>
+	<defs><clipPath id="ok9"><rect x="30" y="138" width="400" height="260" rx="8"/></clipPath></defs>
+	<rect x="0" y="0" width="460" height="528" fill="#f8f9fa"/>
+	<g id="panel-9">
+		<rect x="26" y="16" width="420" height="508" rx="12" fill="#dee2e6"/>
+		<rect x="20" y="10" width="420" height="508" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/>
+		<circle cx="52" cy="44" r="17" fill="#2b2a26"/><text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">3</text>
+		<text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Páka v těle: loket</text>
+		<text x="34" y="92" font-size="21" fill="#2b2a26">Osa O je v lokti. Sval se zkrátí</text>
+		<text x="34" y="120" font-size="21" fill="#2b2a26">a zvedne předloktí s koulí.</text>
+		<rect x="30" y="138" width="400" height="260" rx="8" fill="#ffffff"/>
+		<g clip-path="url(#ok9)">
+			<!-- paže (svislá, nehýbe se) -->
+			<rect x="92" y="100" width="36" height="218" rx="18" fill="#f1c9a5" stroke="#a0663d" stroke-width="2"/>
+			<!-- předloktí s rukou a koulí -->
+			<g class="p9-predlokti">
+				<rect x="92" y="284" width="236" height="32" rx="16" fill="#f1c9a5" stroke="#a0663d" stroke-width="2"/>
+				<circle cx="302" cy="260" r="22" fill="#868e96" stroke="#495057" stroke-width="2"/>
+				<path d="M290,248 C295,243 302,242 308,244" fill="none" stroke="#adb5bd" stroke-width="2.5" stroke-linecap="round"/>
+				<rect x="280" y="276" width="54" height="42" rx="14" fill="#f1c9a5" stroke="#a0663d" stroke-width="2"/>
+				<path d="M286,280 C284,270 288,264 293,266 M323,280 C326,270 322,263 316,265" fill="none" stroke="#a0663d" stroke-width="7" stroke-linecap="round"/>
+				<path d="M286,280 C284,270 288,264 293,266 M323,280 C326,270 322,263 316,265" fill="none" stroke="#f1c9a5" stroke-width="4" stroke-linecap="round"/>
+			</g>
+			<!-- sval: horní úpon (130,155), dolní úpon blízko lokte -->
+			<g transform="translate(130 155) rotate(-5.8)">
+				<g class="p9-sval">
+					<path d="M0,0 C26,30 26,100 0,129.6 C-14,100 -14,30 0,0 Z" fill="#f783ac" stroke="#a61e4d" stroke-width="2"/>
+					<path d="M4,30 C9,55 9,80 4,100" fill="none" stroke="#c2255c" stroke-width="1.5" stroke-linecap="round"/>
+				</g>
+			</g>
+			<text x="162" y="216" font-size="18" font-weight="bold" fill="#a61e4d">sval</text>
+			<!-- osa O v lokti -->
+			<circle cx="110" cy="300" r="9" fill="#ffd43b" stroke="#2b2a26" stroke-width="2"/>
+			<line x1="103" y1="300" x2="117" y2="300" stroke="#2b2a26" stroke-width="2"/>
+			<line x1="110" y1="293" x2="110" y2="307" stroke="#2b2a26" stroke-width="2"/>
+			<text x="74" y="307" font-size="21" font-weight="bold" text-anchor="middle" fill="#2b2a26">O</text>
+			<!-- síly a ramena ve vodorovné poloze -->
+			<g class="p9-sily">
+				<line x1="142" y1="284" x2="142" y2="166" stroke="#ffffff" stroke-width="9" stroke-linecap="round"/>
+				<line x1="142" y1="284" x2="142" y2="166" stroke="#c92a2a" stroke-width="5" stroke-linecap="round"/>
+				<path d="M142,152 L133.5,168 L150.5,168 Z" fill="#c92a2a" stroke="#ffffff" stroke-width="1.5"/>
+				<circle cx="142" cy="284" r="4.5" fill="#c92a2a"/>
+				<text x="154" y="168" font-size="21" font-weight="bold" fill="#c92a2a"><tspan font-style="italic">F</tspan><tspan font-size="16" dy="5">1</tspan></text>
+				<circle cx="302" cy="284" r="4.5" fill="#c92a2a"/>
+				<line x1="302" y1="284" x2="302" y2="294" stroke="#c92a2a" stroke-width="5" stroke-linecap="round"/>
+				<path d="M302,306 L294.5,293 L309.5,293 Z" fill="#c92a2a"/>
+				<text x="342" y="304" font-size="21" font-weight="bold" fill="#c92a2a"><tspan font-style="italic">F</tspan><tspan font-size="16" dy="5">2</tspan></text>
+				<g stroke="#495057" stroke-width="1.5" stroke-dasharray="4 4">
+					<line x1="110" y1="310" x2="110" y2="364"/>
+					<line x1="142" y1="318" x2="142" y2="342"/>
+					<line x1="302" y1="320" x2="302" y2="364"/>
+				</g>
+				<g stroke="#cc6a00" stroke-width="4">
+					<line x1="110" y1="336" x2="142" y2="336"/><line x1="142" y1="329" x2="142" y2="343"/>
+					<line x1="110" y1="358" x2="302" y2="358"/><line x1="302" y1="351" x2="302" y2="365"/>
+				</g>
+				<text x="150" y="342" font-size="18" font-weight="bold" fill="#cc6a00"><tspan font-style="italic">a</tspan><tspan font-size="14" dy="4">1</tspan></text>
+				<text x="220" y="347" font-size="18" font-weight="bold" fill="#cc6a00"><tspan font-style="italic">a</tspan><tspan font-size="14" dy="4">2</tspan></text>
+			</g>
+		</g>
+		<rect x="30" y="138" width="400" height="260" rx="8" fill="none" stroke="#ced4da" stroke-width="2"/>
+		<text x="34" y="432" font-size="21" fill="#2b2a26">Sval má krátké rameno <tspan font-style="italic">a</tspan><tspan font-size="16" dy="4">1</tspan><tspan dy="-4">, koule</tspan></text>
+		<text x="34" y="462" font-size="21" fill="#2b2a26">dlouhé <tspan font-style="italic">a</tspan><tspan font-size="16" dy="4">2</tspan><tspan dy="-4">. Proto sval táhne mnohem</tspan></text>
+		<text x="34" y="492" font-size="21" fill="#2b2a26">větší silou, než je tíha koule.</text>
+	</g>
+</svg>

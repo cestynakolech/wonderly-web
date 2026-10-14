@@ -1,0 +1,97 @@
+<svg viewBox="0 0 460 528" width="460" height="528" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Váha decimálka je nerovnoramenná páka. Na krátkém rameni a1 stojí na plošině náklad 10 kg, rameno pro závaží a2 je desetkrát delší. Nejdřív je váha nakloněná na stranu nákladu. Na misku dáme závaží 1 kg a váha se vyrovná do vodorovné polohy. Šipka dolů od nákladu ukazuje jeho tíhu F1 = 100 N, desetkrát kratší šipka od závaží jeho tíhu F2 = 10 N. 100 N · a1 = 10 N · 10 · a1. Na desetkrát delším rameni stačí desetkrát lehčí závaží." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Páka v pohybu 4/4: Váha decimálka</title>
+	<!-- Páka v pohybu, panel 4 (W69, oprava 1 14. 10. 2026); čísla = výklad „Dvojzvratná a jednozvratná páka“ (decimálka: rameno závaží 10× delší,
+	     závaží 10× lehčí; obr-18: 10 kg a 1 kg) + výklad g = 10 N/kg (1 kg → 10 N, tedy 10 kg → 100 N).
+	     Osa O (116,215); závěsy na y 220: plošina x 88 (a1 = 28 px), miska x 396 (a2 = 280 px = 10 · a1).
+	     Náklon −8° kolem O: plošina posun (0,97; 3,85), miska (−2,03; −39,02) = poloha závěsů po otočení.
+	     Šipky sil 80 px : 8 px = 100 N : 10 N (F1 z y 300 do 380, F2 z y 313 do 321). Podstava plošiny x 70–106, stojan na y 306 začíná x 111,9 (mezera 5 px).
+	     Bez animace = rovnováha se závažím a silami. -->
+	<style>
+		.p10-tram { transform-box: view-box; transform-origin: 116px 215px; animation: p10tram 12s infinite; }
+		@keyframes p10tram { 0%, 30% { transform: rotate(-8deg); animation-timing-function: ease-in-out; } 48%, 88% { transform: none; animation-timing-function: ease-in-out; } 98%, 100% { transform: rotate(-8deg); } }
+		.p10-l { animation: p10l 12s infinite; }
+		@keyframes p10l { 0%, 30% { transform: translate(0.97px, 3.85px); animation-timing-function: ease-in-out; } 48%, 88% { transform: none; animation-timing-function: ease-in-out; } 98%, 100% { transform: translate(0.97px, 3.85px); } }
+		.p10-p { animation: p10p 12s infinite; }
+		@keyframes p10p { 0%, 30% { transform: translate(-2.03px, -39.02px); animation-timing-function: ease-in-out; } 48%, 88% { transform: none; animation-timing-function: ease-in-out; } 98%, 100% { transform: translate(-2.03px, -39.02px); } }
+		.p10-z { animation: p10z 12s infinite; }
+		@keyframes p10z { 0%, 14% { opacity: 0; transform: translateY(-36px); } 18% { opacity: 1; transform: translateY(-36px); animation-timing-function: ease-in; } 26%, 87% { opacity: 1; transform: none; } 90% { opacity: 0; transform: none; } 92%, 100% { opacity: 0; transform: translateY(-36px); } }
+		.p10-s { animation: p10s 12s infinite; }
+		@keyframes p10s { 0%, 52% { opacity: 0; } 56%, 84% { opacity: 1; } 87%, 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) { .p10-tram, .p10-l, .p10-p, .p10-z, .p10-s { animation: none; } }
+	</style>
+	<defs><clipPath id="ok10"><rect x="30" y="138" width="400" height="260" rx="8"/></clipPath></defs>
+	<rect x="0" y="0" width="460" height="528" fill="#f8f9fa"/>
+	<g id="panel-4">
+		<rect x="26" y="16" width="420" height="508" rx="12" fill="#dee2e6"/>
+		<rect x="20" y="10" width="420" height="508" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/>
+		<circle cx="52" cy="44" r="17" fill="#2b2a26"/><text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">4</text>
+		<text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Váha decimálka</text>
+		<text x="34" y="92" font-size="21" fill="#2b2a26">Rameno závaží je 10× delší.</text>
+		<text x="34" y="120" font-size="21" fill="#2b2a26">Na misku dáme závaží 1 kg.</text>
+		<rect x="30" y="138" width="400" height="260" rx="8" fill="#ffffff"/>
+		<g clip-path="url(#ok10)">
+			<!-- podlaha -->
+			<rect x="30" y="381" width="400" height="17" fill="#e9ecef"/>
+			<line x1="30" y1="381" x2="430" y2="381" stroke="#adb5bd" stroke-width="2"/>
+			<!-- stojan -->
+			<path d="M116,215 L109,372 L123,372 Z" fill="#868e96" stroke="#495057" stroke-width="2" stroke-linejoin="round"/>
+			<rect x="99" y="372" width="34" height="9" rx="3" fill="#868e96" stroke="#495057" stroke-width="2"/>
+			<!-- plošina s nákladem 10 kg (visí, zůstává svisle) -->
+			<g class="p10-l">
+				<g stroke="#495057" stroke-width="2.5" fill="none" stroke-linejoin="round">
+					<path d="M70,302 L70,250 L88,220 L106,250 L106,302"/>
+				</g>
+				<rect x="72" y="268" width="32" height="32" rx="3" fill="#c08552" stroke="#7a4a1f" stroke-width="2"/>
+				<line x1="72" y1="284" x2="104" y2="284" stroke="#7a4a1f" stroke-width="1.5"/>
+				<text x="88" y="282" font-size="11" font-weight="bold" text-anchor="middle" fill="#ffffff">10 kg</text>
+				<path d="M68,300 L108,300 L106,306 L70,306 Z" fill="#495057"/>
+			</g>
+			<!-- miska se závažím 1 kg -->
+			<g class="p10-p">
+				<g stroke="#495057" stroke-width="2" fill="none">
+					<line x1="396" y1="220" x2="368" y2="300"/><line x1="396" y1="220" x2="424" y2="300"/>
+				</g>
+				<g class="p10-z">
+					<rect x="382" y="273" width="28" height="25" rx="4" fill="#343a40" stroke="#212529" stroke-width="1.5"/>
+					<text x="396" y="290" font-size="11" font-weight="bold" text-anchor="middle" fill="#ffffff">1 kg</text>
+				</g>
+				<path d="M364,300 L428,300 Q396,326 364,300 Z" fill="#ced4da" stroke="#495057" stroke-width="2"/>
+				<ellipse cx="396" cy="300" rx="32" ry="4" fill="#e9ecef" stroke="#495057" stroke-width="1.5"/>
+			</g>
+			<!-- trám (páka) -->
+			<g class="p10-tram">
+				<rect x="68" y="210" width="336" height="10" rx="3" fill="#339af0" stroke="#1864ab" stroke-width="1.5"/>
+				<line x1="70" y1="212" x2="402" y2="212" stroke="#a5d8ff" stroke-width="2" stroke-linecap="round"/>
+				<circle cx="88" cy="220" r="3" fill="#495057"/>
+				<circle cx="396" cy="220" r="3" fill="#495057"/>
+			</g>
+			<!-- osa O -->
+			<circle cx="116" cy="215" r="5" fill="#fff" stroke="#2b2a26" stroke-width="2.5"/>
+			<text x="128" y="248" font-size="21" font-weight="bold" fill="#2b2a26">O</text>
+			<!-- ramena a síly v rovnováze (šipky 80 px : 8 px = 100 N : 10 N, od spodku plošiny a misky) -->
+			<g class="p10-s">
+				<g stroke="#cc6a00" stroke-width="4">
+					<line x1="88" y1="176" x2="116" y2="176"/><line x1="88" y1="169" x2="88" y2="183"/><line x1="116" y1="169" x2="116" y2="183"/>
+					<line x1="116" y1="176" x2="396" y2="176"/><line x1="396" y1="169" x2="396" y2="183"/>
+				</g>
+				<text x="90" y="163" font-size="18" font-weight="bold" fill="#cc6a00"><tspan font-style="italic">a</tspan><tspan font-size="14" dy="4">1</tspan></text>
+				<text x="256" y="163" font-size="18" font-weight="bold" text-anchor="middle" fill="#cc6a00"><tspan font-style="italic">a</tspan><tspan font-size="14" dy="4">2</tspan><tspan dy="-4"> = 10 · </tspan><tspan font-style="italic">a</tspan><tspan font-size="14" dy="4">1</tspan></text>
+				<!-- F1: tíha nákladu 100 N -->
+				<line x1="88" y1="306" x2="88" y2="368" stroke="#ffffff" stroke-width="9" stroke-linecap="round"/>
+				<line x1="88" y1="306" x2="88" y2="368" stroke="#c92a2a" stroke-width="5" stroke-linecap="round"/>
+				<path d="M88,380 L79.5,364 L96.5,364 Z" fill="#c92a2a" stroke="#ffffff" stroke-width="1.5"/>
+				<circle cx="88" cy="303" r="4.5" fill="#c92a2a" stroke="#ffffff" stroke-width="1.5"/>
+				<text x="36" y="334" font-size="18" font-weight="bold" fill="#c92a2a"><tspan font-style="italic">F</tspan><tspan font-size="14" dy="4">1</tspan><tspan dy="-4"> =</tspan></text>
+				<text x="36" y="356" font-size="17" font-weight="bold" fill="#c92a2a">100 N</text>
+				<!-- F2: tíha závaží 10 N (desetkrát kratší šipka) -->
+				<circle cx="396" cy="313" r="3.5" fill="#c92a2a" stroke="#ffffff" stroke-width="1.5"/>
+				<path d="M396,321 L390.5,313 L401.5,313 Z" fill="#c92a2a" stroke="#ffffff" stroke-width="1.5"/>
+				<text x="424" y="344" font-size="18" font-weight="bold" text-anchor="end" fill="#c92a2a"><tspan font-style="italic">F</tspan><tspan font-size="14" dy="4">2</tspan><tspan dy="-4"> = 10 N</tspan></text>
+			</g>
+		</g>
+		<rect x="30" y="138" width="400" height="260" rx="8" fill="none" stroke="#ced4da" stroke-width="2"/>
+		<text x="34" y="432" font-size="21" fill="#2b2a26">100 N · <tspan font-style="italic">a</tspan><tspan font-size="16" dy="4">1</tspan><tspan dy="-4"> = 10 N · 10 · </tspan><tspan font-style="italic">a</tspan><tspan font-size="16" dy="4">1</tspan><tspan dy="-4"> → </tspan><tspan font-weight="bold">rovnováha</tspan></text>
+		<text x="34" y="462" font-size="21" fill="#2b2a26">Závaží 1 kg vyváží náklad 10 kg.</text>
+		<text x="34" y="492" font-size="21" fill="#2b2a26">Desetkrát delší rameno, 10× lehčí.</text>
+	</g>
+</svg>

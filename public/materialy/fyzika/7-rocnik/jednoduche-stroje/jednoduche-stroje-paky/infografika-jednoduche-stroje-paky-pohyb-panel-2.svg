@@ -1,0 +1,136 @@
+<svg viewBox="0 0 460 528" width="460" height="528" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kam dát podpěru. Člověk drží tyčí stejný kámen nad zemí a podpěru posouváme blíž ke kameni. Kámen leží na konci tyče a ruka na tyč tlačí po celou dobu, i když se podpěra posouvá. Nejdřív je podpěra uprostřed: rameno ruky a1 je stejně dlouhé jako rameno kamene a2 a ruka tlačí stejně velkou silou, jako je tíha kamene. Potom je rameno ruky dvakrát delší než rameno kamene a stačí poloviční síla. Nakonec je rameno ruky třikrát delší a stačí třikrát menší síla. Kolikrát je rameno ruky delší, tolikrát menší síla stačí." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Páka v pohybu 2/4: Kam dát podpěru?</title>
+	<!-- Páka v pohybu, panel 2 (W69, oprava 1 a OPRAVA 2 14. 10. 2026) – nahrazuje vyřazený „Páčení kamene“ (opakoval panel 2 Páky v kostce).
+	     Opora: výklad „Rovnováha na páce“ – „Kolikrát je síla menší, tolikrát větší je její vzdálenost od osy“, příklad 2 „Na delší rameno
+	     tedy stačí poloviční síla“, příklad 3 „stačí třikrát menší síla“; stejná ramena → stejné síly (houpačka). Předloha obr-09 (člověk, tyč,
+	     klínová podpěra, břemeno na konci). Tyč vodorovně (rovnováha): ruka x 100, kámen x 400, podpěra (klín 48 × 44, stále stejný)
+	     x 250 / 300 / 325 → a1 : a2 = 150 : 150, 200 : 100, 225 : 75 = 1 : 1, 2 : 1, 3 : 1.
+	     Šipky: F2 = 72 px (tíha kamene), F1 = 72 / 36 / 24 px → F1 · a1 = F2 · a2 (10800, 7200, 5400 obě strany).
+	     OPRAVA 2: šipka F1 je JEDNA a je vidět po celou dobu; při posunu podpěry se plynule zkracuje/prodlužuje (scaleY 1 / 0,4 / 0,2 kolem
+	     hrotu y 310) se stejným časováním jako klín → tyč nikdy není vodorovně bez síly ruky. Kámen x 381–419 celý na tyči (tyč do x 416).
+	     Scéna (zem, klín, člověk, tyč, kámen, šipky) posunuta o 20 px nahoru (translate 0 −20), výška 528 jako ostatní panely.
+	     Bez animace = 3. případ. -->
+	<style>
+		.p8-pod { animation: p8pod 15s infinite; }
+		@keyframes p8pod { 0%, 28% { transform: translateX(-75px); animation-timing-function: ease-in-out; } 31%, 61% { transform: translateX(-25px); animation-timing-function: ease-in-out; } 64%, 94% { transform: none; animation-timing-function: ease-in-out; } 98%, 100% { transform: translateX(-75px); } }
+		.p8-f1 { transform-box: view-box; transform-origin: 100px 310px; transform: scaleY(0.2); animation: p8f1 15s infinite; }
+		@keyframes p8f1 { 0%, 28% { transform: scaleY(1); animation-timing-function: ease-in-out; } 31%, 61% { transform: scaleY(0.4); animation-timing-function: ease-in-out; } 64%, 94% { transform: scaleY(0.2); animation-timing-function: ease-in-out; } 98%, 100% { transform: scaleY(1); } }
+		.p8-f1t { transform: translateY(42px); animation: p8f1t 15s infinite; }
+		@keyframes p8f1t { 0%, 28% { transform: none; animation-timing-function: ease-in-out; } 31%, 61% { transform: translateY(36px); animation-timing-function: ease-in-out; } 64%, 94% { transform: translateY(42px); animation-timing-function: ease-in-out; } 98%, 100% { transform: none; } }
+		.p8-a { animation: p8a 15s infinite; }
+		@keyframes p8a { 0%, 2% { opacity: 0; } 5%, 26% { opacity: 1; } 28%, 100% { opacity: 0; } }
+		.p8-b { animation: p8b 15s infinite; }
+		@keyframes p8b { 0%, 32% { opacity: 0; } 35%, 59% { opacity: 1; } 61%, 100% { opacity: 0; } }
+		.p8-c { animation: p8c 15s infinite; }
+		@keyframes p8c { 0%, 65% { opacity: 0; } 68%, 92% { opacity: 1; } 94%, 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) { .p8-pod, .p8-f1, .p8-f1t, .p8-a, .p8-b, .p8-c { animation: none; } }
+	</style>
+	<defs><clipPath id="ok8"><rect x="30" y="138" width="400" height="260" rx="8"/></clipPath></defs>
+	<rect x="0" y="0" width="460" height="528" fill="#f8f9fa"/>
+	<g id="panel-2">
+		<rect x="26" y="16" width="420" height="508" rx="12" fill="#dee2e6"/>
+		<rect x="20" y="10" width="420" height="508" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/>
+		<circle cx="52" cy="44" r="17" fill="#2b2a26"/><text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">2</text>
+		<text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Kam dát podpěru?</text>
+		<text x="34" y="92" font-size="21" fill="#2b2a26">Kámen je pořád stejný. Podpěru</text>
+		<text x="34" y="120" font-size="21" fill="#2b2a26">posouváme blíž ke kameni.</text>
+		<rect x="30" y="138" width="400" height="260" rx="8" fill="#ffffff"/>
+		<g clip-path="url(#ok8)">
+			<!-- scéna na zemi: vše o 20 px výš (souřadnice uvnitř jako v opravě 1) -->
+			<g transform="translate(0,-20)">
+				<!-- tráva -->
+				<rect x="30" y="390" width="400" height="48" fill="#d3f9d8"/>
+				<line x1="30" y1="390" x2="430" y2="390" stroke="#69db7c" stroke-width="2"/>
+				<!-- podpěra: dřevěný klín, pořád stejně velký, jen se posouvá (výchozí místo x 325) -->
+				<g class="p8-pod">
+					<path d="M325,346 L349,390 L301,390 Z" fill="#c98a4b" stroke="#7a4a1f" stroke-width="2" stroke-linejoin="round"/>
+					<circle cx="325" cy="346" r="4" fill="#2b2a26"/>
+					<text x="325" y="380" font-size="18" font-weight="bold" text-anchor="middle" fill="#2b2a26">O</text>
+				</g>
+				<!-- člověk (podle obr-09): stojí z boku v mírném výpadu, předklání se a oběma rukama tlačí na konec tyče -->
+				<g stroke-linecap="round" stroke-linejoin="round">
+					<!-- vzdálenější ruka a noha (tmavší) -->
+					<polyline points="61,305 79,321 96,330" fill="none" stroke="#d9a982" stroke-width="7"/>
+					<polyline points="58,350 50,369 46,386" fill="none" stroke="#343a40" stroke-width="10"/>
+					<path d="M38,385 L52,385 Q55,390 52,391 L38,391 Z" fill="#212529"/>
+					<!-- bližší noha -->
+					<polyline points="66,350 76,368 76,386" fill="none" stroke="#495057" stroke-width="10"/>
+					<path d="M71,385 L86,385 Q90,390 86,391 L71,391 Z" fill="#212529"/>
+					<!-- trup (mírný předklon) -->
+					<path d="M53,302 Q60,292 72,296 Q78,300 76,312 L72,352 Q63,357 53,352 Q50,326 53,302 Z" fill="#1c7ed6" stroke="#1864ab" stroke-width="1.5"/>
+					<path d="M56,346 L72,346" stroke="#1864ab" stroke-width="2"/>
+					<!-- krk a hlava (dívá se doprava k tyči) -->
+					<line x1="66" y1="296" x2="68" y2="288" stroke="#f1c9a5" stroke-width="7"/>
+					<circle cx="70" cy="276" r="13" fill="#f1c9a5" stroke="#a0663d" stroke-width="1.5"/>
+					<path d="M57,276 Q56,262 70,262 Q81,262 83,270 Q74,267 67,270 Q62,272 61,280 Z" fill="#5c3b1e"/>
+					<circle cx="77" cy="275" r="1.6" fill="#2b2a26"/>
+					<path d="M83,277 L86,281 L82,282" fill="none" stroke="#a0663d" stroke-width="1.5"/>
+					<!-- bližší ruka -->
+					<polyline points="70,305 86,322 97,328" fill="none" stroke="#f1c9a5" stroke-width="7"/>
+				</g>
+				<!-- tyč (vodorovně, rovnováha); konec x 416, kámen leží celý na ní -->
+				<line x1="96" y1="340" x2="416" y2="340" stroke="#364fc7" stroke-width="13" stroke-linecap="round"/>
+				<line x1="96" y1="340" x2="416" y2="340" stroke="#5c7cfa" stroke-width="10" stroke-linecap="round"/>
+				<line x1="98" y1="336.5" x2="414" y2="336.5" stroke="#bac8ff" stroke-width="2" stroke-linecap="round"/>
+				<circle cx="100" cy="329" r="6" fill="#f1c9a5" stroke="#a0663d" stroke-width="1.5"/>
+				<!-- kámen na konci tyče (x 381–419, střed x 400), nad zemí -->
+				<path d="M384,334 C379,320 385,301 400,297 C414,294 421,307 419,320 C418,328 416,332 414,334 Z" fill="#868e96" stroke="#495057" stroke-width="2"/>
+				<path d="M390,308 C395,303 402,301 409,303" fill="none" stroke="#adb5bd" stroke-width="2.5" stroke-linecap="round"/>
+				<!-- tíha kamene F2 (pořád stejná, 72 px) -->
+				<line x1="400" y1="313" x2="400" y2="373" stroke="#ffffff" stroke-width="9" stroke-linecap="round"/>
+				<line x1="400" y1="313" x2="400" y2="373" stroke="#c92a2a" stroke-width="5" stroke-linecap="round"/>
+				<path d="M400,385 L392,370 L408,370 Z" fill="#c92a2a" stroke="#ffffff" stroke-width="1.5"/>
+				<circle cx="400" cy="313" r="4.5" fill="#c92a2a" stroke="#ffffff" stroke-width="1.5"/>
+				<text x="393" y="364" font-size="19" font-weight="bold" text-anchor="end" fill="#c92a2a"><tspan font-style="italic">F</tspan><tspan font-size="14" dy="4">2</tspan></text>
+				<!-- síla ruky F1: JEDNA šipka, vidět stále; délka 72 / 36 / 24 px (tělo 60 / 24 / 12 px nad hrotem) -->
+				<g class="p8-f1">
+					<line x1="100" y1="250" x2="100" y2="311" stroke="#ffffff" stroke-width="9"/>
+					<line x1="100" y1="250" x2="100" y2="311" stroke="#c92a2a" stroke-width="5"/>
+				</g>
+				<path d="M100,322 L92,307 L108,307 Z" fill="#c92a2a" stroke="#ffffff" stroke-width="1.5"/>
+				<text class="p8-f1t" x="110" y="264" font-size="19" font-weight="bold" fill="#c92a2a"><tspan font-style="italic">F</tspan><tspan font-size="14" dy="4">1</tspan></text>
+				<!-- ramena (kóty) jednotlivých případů -->
+				<g class="p8-a" opacity="0">
+					<g stroke="#495057" stroke-width="1.5" stroke-dasharray="4 4">
+						<line x1="100" y1="204" x2="100" y2="236"/><line x1="250" y1="204" x2="250" y2="330"/><line x1="400" y1="204" x2="400" y2="286"/>
+					</g>
+					<g stroke="#cc6a00" stroke-width="4">
+						<line x1="100" y1="196" x2="247" y2="196"/><line x1="100" y1="188" x2="100" y2="204"/><line x1="250" y1="188" x2="250" y2="204"/>
+						<line x1="253" y1="196" x2="400" y2="196"/><line x1="400" y1="188" x2="400" y2="204"/>
+					</g>
+					<text x="175" y="182" font-size="18" font-weight="bold" text-anchor="middle" fill="#cc6a00"><tspan font-style="italic">a</tspan><tspan font-size="14" dy="4">1</tspan></text>
+					<text x="325" y="182" font-size="18" font-weight="bold" text-anchor="middle" fill="#cc6a00"><tspan font-style="italic">a</tspan><tspan font-size="14" dy="4">2</tspan></text>
+				</g>
+				<g class="p8-b" opacity="0">
+					<g stroke="#495057" stroke-width="1.5" stroke-dasharray="4 4">
+						<line x1="100" y1="204" x2="100" y2="236"/><line x1="300" y1="204" x2="300" y2="330"/><line x1="400" y1="204" x2="400" y2="286"/>
+					</g>
+					<g stroke="#cc6a00" stroke-width="4">
+						<line x1="100" y1="196" x2="297" y2="196"/><line x1="100" y1="188" x2="100" y2="204"/><line x1="300" y1="188" x2="300" y2="204"/>
+						<line x1="303" y1="196" x2="400" y2="196"/><line x1="400" y1="188" x2="400" y2="204"/>
+					</g>
+					<text x="200" y="182" font-size="18" font-weight="bold" text-anchor="middle" fill="#cc6a00"><tspan font-style="italic">a</tspan><tspan font-size="14" dy="4">1</tspan></text>
+					<text x="350" y="182" font-size="18" font-weight="bold" text-anchor="middle" fill="#cc6a00"><tspan font-style="italic">a</tspan><tspan font-size="14" dy="4">2</tspan></text>
+				</g>
+				<g class="p8-c">
+					<g stroke="#495057" stroke-width="1.5" stroke-dasharray="4 4">
+						<line x1="100" y1="204" x2="100" y2="236"/><line x1="325" y1="204" x2="325" y2="330"/><line x1="400" y1="204" x2="400" y2="286"/>
+					</g>
+					<g stroke="#cc6a00" stroke-width="4">
+						<line x1="100" y1="196" x2="322" y2="196"/><line x1="100" y1="188" x2="100" y2="204"/><line x1="325" y1="188" x2="325" y2="204"/>
+						<line x1="328" y1="196" x2="400" y2="196"/><line x1="400" y1="188" x2="400" y2="204"/>
+					</g>
+					<text x="212" y="182" font-size="18" font-weight="bold" text-anchor="middle" fill="#cc6a00"><tspan font-style="italic">a</tspan><tspan font-size="14" dy="4">1</tspan></text>
+					<text x="362" y="182" font-size="18" font-weight="bold" text-anchor="middle" fill="#cc6a00"><tspan font-style="italic">a</tspan><tspan font-size="14" dy="4">2</tspan></text>
+				</g>
+			</g>
+		</g>
+		<rect x="30" y="138" width="400" height="260" rx="8" fill="none" stroke="#ced4da" stroke-width="2"/>
+		<rect class="p8-a" opacity="0" x="28" y="411" width="404" height="29" rx="6" fill="#fff3bf"/>
+		<rect class="p8-b" opacity="0" x="28" y="441" width="404" height="29" rx="6" fill="#fff3bf"/>
+		<rect class="p8-c" x="28" y="471" width="404" height="29" rx="6" fill="#fff3bf"/>
+		<text x="34" y="432" font-size="19" fill="#2b2a26"><tspan font-style="italic">a</tspan><tspan font-size="15" dy="4">1</tspan><tspan dy="-4"> = </tspan><tspan font-style="italic">a</tspan><tspan font-size="15" dy="4">2</tspan><tspan dy="-4"></tspan>: <tspan font-style="italic">F</tspan><tspan font-size="15" dy="4">1</tspan><tspan dy="-4"> je stejná jako tíha kamene</tspan></text>
+		<text x="34" y="462" font-size="19" fill="#2b2a26"><tspan font-style="italic">a</tspan><tspan font-size="15" dy="4">1</tspan><tspan dy="-4"> = </tspan>2 · <tspan font-style="italic">a</tspan><tspan font-size="15" dy="4">2</tspan><tspan dy="-4"></tspan>: stačí poloviční síla <tspan font-style="italic">F</tspan><tspan font-size="15" dy="4">1</tspan><tspan dy="-4"></tspan></text>
+		<text x="34" y="492" font-size="19" fill="#2b2a26"><tspan font-style="italic">a</tspan><tspan font-size="15" dy="4">1</tspan><tspan dy="-4"> = </tspan>3 · <tspan font-style="italic">a</tspan><tspan font-size="15" dy="4">2</tspan><tspan dy="-4"></tspan>: stačí třikrát menší síla <tspan font-style="italic">F</tspan><tspan font-size="15" dy="4">1</tspan><tspan dy="-4"></tspan></text>
+	</g>
+</svg>
