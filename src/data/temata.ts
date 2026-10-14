@@ -2337,6 +2337,7 @@ export const temata: Record<string, Tema[]> = {
 								'/materialy/fyzika/7-rocnik/tlak-v-kapalinach/pascaluv-zakon/infografika-pascaluv-zakon-panel-6.svg',
 							],
 						},
+						{ druh: 'infografika', nazev: 'Pascalův zákon v pohybu', cesta: '/materialy/fyzika/7-rocnik/tlak-v-kapalinach/pascaluv-zakon/infografika-pascaluv-zakon-pohyb-panel-1.svg', panely: ['/materialy/fyzika/7-rocnik/tlak-v-kapalinach/pascaluv-zakon/infografika-pascaluv-zakon-pohyb-panel-1.svg', '/materialy/fyzika/7-rocnik/tlak-v-kapalinach/pascaluv-zakon/infografika-pascaluv-zakon-pohyb-panel-2.svg'] },
 						{
 							druh: 'pdf',
 							nazev: 'Síla kapalin: Pascalův zákon a hydraulika (infografiky v PDF)',

@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="672" viewBox="0 0 460 672" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Hydraulický lis lisuje vysokou kupu starého papíru. Malý a velký válec s olejem jsou dole propojené. Ruka jednou zatlačí na malý píst o obsahu S₁ = 2 cm² silou F₁ = 16 N. Malý píst ujede dlouhou dráhu dolů, olej přenese tlak na velký píst o obsahu S₂ = 8 cm² a ten se zvedne 4krát méně. Velký píst přitlačí kupu papíru k pevné horní desce a kupa se slisuje na méně než polovinu své výšky. Velký píst je 8 : 2 = 4krát větší, proto na něj působí síla F₂ = 4 · 16 N = 64 N. Pak ruka povolí, slisovaný papír se odebere a do lisu se vloží nová kupa.">
+	<title>Pascalův zákon v pohybu 2/2: Hydraulický lis</title>
+	<!-- Pascalův zákon v pohybu, panel 2 (W77, 14. 10. 2026; OPRAVA 1: jeden zdvih místo pumpování, bez páky a ventilů; OPRAVA 2: vrstvy stolu a papíru, F₂ jede s pístem; OPRAVA 3: lupa zrušena, lisuje se kupa starého papíru).
+	     Předloha: PDF „Tlak v kapalinách vyvolaný vnější silou, Pascalův zákon“ s. 7 (dva propojené písty, malý vlevo, velký vpravo; „Hydraulické lisy – ke stlačování materiálů“).
+	     OPRAVA 4 (14. 10.): poměr ploch 1 : 4 místo 1 : 25, aby bylo stlačení kupy vidět.
+	     OPRAVA 5 (14. 10.): panel zhuštěn z 884 na 672 px (kratší dráha pístů, nižší sloupy, text o dráze nahoru vpravo).
+	     Čísla = výklad stránky (pole „zvídavé“, třetí zařízení): S₁ = 2 cm², S₂ = 8 cm², F₁ = 16 N → 8 : 2 = 4krát, F₂ = 4 · 16 N = 64 N.
+	     Rozměry v poměru: vnitřní šířka malého válce 36 px, velkého 72 px (průměry 1 : 2, obsahy 1 : 4).
+	     Objem sedí v každém okamžiku: malý píst ujede 160 px, velký se zvedne 160 : 4 = 40 px (18² · 160 = 51 840 = 36² · 40).
+	     Olej malý válec 185 → 25 px (scaleY 7,4 → 1), velký válec 60 → 100 px (scaleY 0,6 → 1); stejné klíčové časy i easing.
+	     Kupa papíru 72 px se stlačí na 32 px (o 40 px = zdvih velkého pístu, na méně než polovinu). Horní hrana kupy y 282 = spodek pevné desky.
+	     F₂ svítí jen spolu s F₁. Bez animace = koncový stav (zatlačeno, slisováno, F₁ i F₂ vidět). -->
+	<style>
+		.p2-ruka { animation: p2-ruka 10s ease-in-out infinite; }
+		@keyframes p2-ruka { 0% { transform: translateY(-160px) } 13% { transform: translateY(-160px) } 45% { transform: translateY(0px) } 80% { transform: translateY(0px) } 97% { transform: translateY(-160px) } 100% { transform: translateY(-160px) } }
+		.p2-olm { animation: p2-olm 10s ease-in-out infinite; transform-box: view-box; transform-origin: 90px 494px; }
+		@keyframes p2-olm { 0% { transform: scaleY(7.4) } 13% { transform: scaleY(7.4) } 45% { transform: scaleY(1) } 80% { transform: scaleY(1) } 97% { transform: scaleY(7.4) } 100% { transform: scaleY(7.4) } }
+		.p2-pist { animation: p2-pist 10s ease-in-out infinite; }
+		@keyframes p2-pist { 0% { transform: translateY(40px) } 13% { transform: translateY(40px) } 45% { transform: translateY(0px) } 80% { transform: translateY(0px) } 97% { transform: translateY(40px) } 100% { transform: translateY(40px) } }
+		.p2-olv { animation: p2-olv 10s ease-in-out infinite; transform-box: view-box; transform-origin: 300px 494px; }
+		@keyframes p2-olv { 0% { transform: scaleY(0.6) } 13% { transform: scaleY(0.6) } 45% { transform: scaleY(1) } 80% { transform: scaleY(1) } 97% { transform: scaleY(0.6) } 100% { transform: scaleY(0.6) } }
+		.p2-papir { animation: p2-papir 10s ease-in-out infinite; transform-box: view-box; transform-origin: 300px 314px; }
+		@keyframes p2-papir { 0% { transform: scaleY(2.25); opacity: 1 } 13% { transform: scaleY(2.25); opacity: 1 } 45% { transform: scaleY(1); opacity: 1 } 80% { transform: scaleY(1); opacity: 1 } 84% { transform: scaleY(1); opacity: 0 } 100% { transform: scaleY(1); opacity: 0 } }
+		.p2-novy { animation: p2-novy 10s linear infinite; }
+		@keyframes p2-novy { 0% { opacity: 1 } 13% { opacity: 1 } 13.5% { opacity: 0 } 97% { opacity: 0 } 100% { opacity: 1 } }
+		.p2-popis { animation: p2-popis 10s linear infinite; }
+		@keyframes p2-popis { 0% { opacity: 1 } 80% { opacity: 1 } 84% { opacity: 0 } 97% { opacity: 0 } 100% { opacity: 1 } }
+		.p2-f1 { animation: p2-f1 10s linear infinite; }
+		@keyframes p2-f1 { 0% { opacity: 0 } 10% { opacity: 0 } 13% { opacity: 1 } 80% { opacity: 1 } 83% { opacity: 0 } 100% { opacity: 0 } }
+		.p2-f2 { animation: p2-f2 10s linear infinite; }
+		@keyframes p2-f2 { 0% { opacity: 0 } 14% { opacity: 0 } 17% { opacity: 1 } 80% { opacity: 1 } 83% { opacity: 0 } 100% { opacity: 0 } }
+		@media (prefers-reduced-motion: reduce) {
+			.p2-ruka, .p2-olm, .p2-pist, .p2-olv, .p2-papir, .p2-novy, .p2-popis, .p2-f1, .p2-f2 { animation: none; }
+		}
+	</style>
+	<defs>
+		<clipPath id="p2-karta"><rect x="20" y="10" width="420" height="650" rx="12"/></clipPath>
+		<!-- kupa starého papíru ve slisovaném stavu (výška 32 px, y 282–314); nestlačená kupa = scaleY 2,25 kolem spodní hrany (72 px).
+		     Obrysy mají non-scaling-stroke, aby se při stlačení neměnila tloušťka čar. -->
+		<g id="p2-kupa">
+			<polygon points="370,282 384,272 384,304 370,314" fill="#cdb98f" stroke="#2b2a26" stroke-width="2" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+			<rect x="230" y="282" width="140" height="32" fill="#f8f1de"/>
+			<polygon points="230,288.8 244,287.6 258,289.2 272,288 286,289.6 300,288 314,289.2 328,287.6 342,289.6 356,288 370,288.8 370,294.8 356,295.6 342,294.4 328,296 314,294.4 300,295.6 286,294 272,295.6 258,294.4 244,296 230,294.8" fill="#c9ced4"/>
+			<polygon points="230,294.8 244,296 258,294.4 272,295.6 286,294 300,295.6 314,294.4 328,296 342,294.4 356,295.6 370,294.8 370,301.6 356,300.4 342,302.4 328,300.8 314,302 300,300.4 286,302.4 272,300.8 258,302 244,300.4 230,301.6" fill="#efe2bf"/>
+			<polygon points="230,301.6 244,300.4 258,302 272,300.8 286,302.4 300,300.4 314,302 328,300.8 342,302.4 356,300.4 370,301.6 370,307.6 356,308.8 342,307.2 328,308.4 314,307.2 300,308.8 286,307.2 272,308.4 258,307.2 244,308.8 230,307.6" fill="#d6b17a"/>
+			<polygon points="230,307.6 244,308.8 258,307.2 272,308.4 286,307.2 300,308.8 314,307.2 328,308.4 342,307.2 356,308.8 370,307.6 370,314 230,314" fill="#c9ced4"/>
+			<path d="M230,288.8 L244,287.6 L258,289.2 L272,288 L286,289.6 L300,288 L314,289.2 L328,287.6 L342,289.6 L356,288 L370,288.8 M230,294.8 L244,296 L258,294.4 L272,295.6 L286,294 L300,295.6 L314,294.4 L328,296 L342,294.4 L356,295.6 L370,294.8 M230,301.6 L244,300.4 L258,302 L272,300.8 L286,302.4 L300,300.4 L314,302 L328,300.8 L342,302.4 L356,300.4 L370,301.6 M230,307.6 L244,308.8 L258,307.2 L272,308.4 L286,307.2 L300,308.8 L314,307.2 L328,308.4 L342,307.2 L356,308.8 L370,307.6" fill="none" stroke="#6b5a3a" stroke-width="1.5" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+			<path d="M240,285.2 L256,285.2 M276,284.8 L292,284.8 M318,285.2 L334,285.2 M248,292 L262,292 M290,291.6 L306,291.6 M332,292 L346,292 M262,310.8 L278,310.8 M306,311.2 L322,311.2" fill="none" stroke="#6c757d" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+			<rect x="230" y="282" width="140" height="32" fill="none" stroke="#2b2a26" stroke-width="2" vector-effect="non-scaling-stroke"/>
+		</g>
+	</defs>
+	<rect x="0" y="0" width="460" height="672" fill="#f8f9fa"/>
+	<rect x="26" y="16" width="420" height="650" rx="12" fill="#dee2e6"/><rect x="20" y="10" width="420" height="650" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/><circle cx="52" cy="44" r="17" fill="#2b2a26"/><text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">2</text><text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Hydraulický lis</text>
+	<text x="232" y="98" font-size="21" fill="#2b2a26">Lis stlačuje kupu</text>
+	<text x="232" y="124" font-size="21" fill="#2b2a26">starého papíru.</text>
+	<text x="232" y="162" font-size="20" fill="#6b6a60">Malý píst ujede</text>
+	<text x="232" y="186" font-size="20" fill="#6b6a60">4krát delší dráhu,</text>
+	<text x="232" y="210" font-size="20" fill="#6b6a60">velký se zvedne</text>
+	<text x="232" y="234" font-size="20" fill="#6b6a60">4krát méně.</text>
+
+	<!-- podstavec (šikmý pohled) -->
+	<polygon points="30,494 420,494 436,482 46,482" fill="#adb5bd" stroke="#2b2a26" stroke-width="2" stroke-linejoin="round"/>
+	<polygon points="420,494 436,482 436,512 420,524" fill="#6c757d" stroke="#2b2a26" stroke-width="2" stroke-linejoin="round"/>
+	<rect x="30" y="494" width="390" height="30" fill="#868e96" stroke="#2b2a26" stroke-width="2"/>
+	<!-- olej v kanálu podstavce (řez): propojuje oba válce -->
+	<rect x="84" y="502" width="222" height="12" fill="#f6c453" stroke="#b07d12" stroke-width="1.5"/>
+	<rect x="84" y="492" width="12" height="20" fill="#f6c453"/>
+	<rect x="294" y="492" width="12" height="20" fill="#f6c453"/>
+
+	<!-- rám lisu: sloupy (vedou za stolem a za papírem; stůl dosahuje k oběma) -->
+	<rect x="200" y="266" width="14" height="220" fill="#6c757d" stroke="#2b2a26" stroke-width="2"/>
+	<rect x="386" y="266" width="14" height="220" fill="#6c757d" stroke="#2b2a26" stroke-width="2"/>
+
+	<!-- velký válec (řez), vnitřní šířka 72 px -->
+	<rect x="258" y="370" width="84" height="124" fill="#adb5bd" stroke="#2b2a26" stroke-width="2"/>
+	<rect x="264" y="374" width="72" height="120" fill="#e9ecef"/>
+	<rect class="p2-olv" x="264" y="394" width="72" height="100" fill="#f6c453"/>
+	<ellipse cx="300" cy="370" rx="42" ry="7" fill="#ced4da" stroke="#2b2a26" stroke-width="2"/>
+
+	<!-- velký píst, pístnice a stůl lisu (koncová poloha; na začátku o 40 px níž) -->
+	<g class="p2-pist">
+		<rect x="292" y="320" width="16" height="66" fill="#ced4da" stroke="#2b2a26" stroke-width="2"/>
+		<rect x="264" y="378" width="72" height="16" fill="#8d5a2b" stroke="#2b2a26" stroke-width="2"/>
+		<polygon points="196,314 404,314 418,304 210,304" fill="#868e96" stroke="#2b2a26" stroke-width="2" stroke-linejoin="round"/>
+		<rect x="196" y="314" width="208" height="8" fill="#495057" stroke="#2b2a26" stroke-width="2"/>
+	</g>
+
+	<!-- kupa papíru leží na stole a jede s ním (p2-pist); stlačuje se kolem spodku (y 314): výška 32 + posun stolu = 72 → 32 px,
+	     horní hrana tak zůstává u desky (282). Po povolení slisovaná kupa klesá se stolem a mizí; nová kupa se objeví na spuštěném stole. -->
+	<g class="p2-pist">
+		<g class="p2-papir"><use href="#p2-kupa"/></g>
+		<g class="p2-novy" opacity="0"><g transform="translate(0 314) scale(1 2.25) translate(0 -314)"><use href="#p2-kupa"/></g></g>
+	</g>
+	<g class="p2-popis">
+		<text x="188" y="298" font-size="20" font-weight="bold" text-anchor="end" fill="#5c4a24">starý</text>
+		<text x="188" y="320" font-size="20" font-weight="bold" text-anchor="end" fill="#5c4a24">papír</text>
+		<line x1="193" y1="292" x2="236" y2="292" stroke="#5c4a24" stroke-width="2" stroke-linecap="round"/>
+		<circle cx="236" cy="292" r="3" fill="#5c4a24"/>
+	</g>
+
+	<!-- pevná horní deska -->
+	<polygon points="196,266 404,266 418,256 210,256" fill="#868e96" stroke="#2b2a26" stroke-width="2" stroke-linejoin="round"/>
+	<polygon points="404,266 418,256 418,272 404,282" fill="#495057" stroke="#2b2a26" stroke-width="2" stroke-linejoin="round"/>
+	<rect x="196" y="266" width="208" height="16" fill="#495057" stroke="#2b2a26" stroke-width="2"/>
+
+	<!-- malý válec (řez), vnitřní šířka 36 px -->
+	<rect x="66" y="291" width="48" height="203" fill="#adb5bd" stroke="#2b2a26" stroke-width="2"/>
+	<rect x="72" y="295" width="36" height="199" fill="#e9ecef"/>
+	<rect class="p2-olm" x="72" y="469" width="36" height="25" fill="#f6c453"/>
+	<ellipse cx="90" cy="291" rx="24" ry="5" fill="#ced4da" stroke="#2b2a26" stroke-width="2"/>
+
+	<!-- malý píst, pístnice, rukojeť a ruka (koncová poloha, zatlačeno; na začátku o 160 px výš) -->
+	<g clip-path="url(#p2-karta)">
+		<g class="p2-ruka">
+			<rect x="85" y="284" width="10" height="175" fill="#ced4da" stroke="#2b2a26" stroke-width="2"/>
+			<rect x="72" y="459" width="36" height="10" fill="#8d5a2b" stroke="#2b2a26" stroke-width="1.5"/>
+			<rect x="50" y="272" width="80" height="12" rx="4" fill="#495057" stroke="#2b2a26" stroke-width="2"/>
+			<rect x="10" y="244" width="34" height="28" rx="5" fill="#4c6ef5" stroke="#2b2a26" stroke-width="2"/>
+			<rect x="40" y="247" width="38" height="22" rx="6" fill="#f4c7a1" stroke="#2b2a26" stroke-width="2"/>
+			<rect x="72" y="240" width="36" height="32" rx="10" fill="#f4c7a1" stroke="#2b2a26" stroke-width="2"/>
+			<path d="M82,248 L98,248 M82,256 L98,256 M82,264 L98,264" stroke="#c98e6a" stroke-width="2" fill="none" stroke-linecap="round"/>
+			<g class="p2-f1">
+				<line x1="120" y1="232" x2="120" y2="258" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/>
+				<polygon points="120,272 113,258 127,258" fill="#c92a2a"/>
+				<text x="134" y="250" font-size="20" font-weight="bold" fill="#c92a2a">F₁ = 16 N</text>
+			</g>
+		</g>
+	</g>
+
+	<!-- síla na velký píst: šipka jede s pístem (hrot na spodku pístu), štítek F₂ stojí mimo olej -->
+	<g class="p2-pist"><g class="p2-f2">
+		<line x1="316" y1="450" x2="316" y2="408" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/>
+		<polygon points="316,394 309,408 323,408" fill="#c92a2a"/>
+	</g></g>
+	<g class="p2-f2"><text x="348" y="452" font-size="20" font-weight="bold" fill="#c92a2a">F₂</text></g>
+
+	<text x="90" y="548" font-size="20" text-anchor="middle" fill="#2b2a26">malý píst</text>
+	<text x="90" y="570" font-size="20" font-weight="bold" text-anchor="middle" fill="#2b2a26">S₁ = 2 cm²</text>
+	<text x="300" y="548" font-size="20" text-anchor="middle" fill="#2b2a26">velký píst</text>
+	<text x="300" y="570" font-size="20" font-weight="bold" text-anchor="middle" fill="#2b2a26">S₂ = 8 cm²</text>
+
+	<rect x="40" y="580" width="380" height="68" rx="10" fill="#fff4e6" stroke="#b8460b" stroke-width="2"/>
+	<text x="230" y="606" font-size="20" text-anchor="middle" fill="#2b2a26">Velký píst je 8 : 2 = 4krát větší.</text>
+	<text x="230" y="637" font-size="25" font-weight="bold" text-anchor="middle" fill="#b8460b">F₂ = 4 · 16 N = 64 N</text>
+</svg>

@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="620" viewBox="0 0 460 620" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Uzavřená nádoba s vodou stojí na stole. Nahoře z ní vedou čtyři stejné svislé trubice, z boku do ní vede píst. Ruka zatlačí na píst silou F a voda ve všech čtyřech trubicích stoupne stejně vysoko. Fialová čárkovaná čára ukazuje, že hladina je ve všech trubicích stejně vysoko. Tlak vyvolaný pístem se zvětší ve všech místech kapaliny stejně.">
+	<title>Pascalův zákon v pohybu 1/2: Hladiny v trubicích</title>
+	<!-- Pascalův zákon v pohybu, panel 1 (W77, 14. 10. 2026; OPRAVA 1 téhož dne). Předloha: obr-02 stránky (pokus z učebnice „ruka tlačí na píst, hladina ve všech trubicích stoupne stejně“), výklad stránky.
+	     Bez čísel. Objem sedí: píst průměr 32 px (= otvor objímky) vjede o 50 px do nádoby; 4 trubice 16 px × vzestup 50 px (32² · 50 = 51 200 = 4 · 16² · 50).
+	     Bez animace = koncový stav (píst zatlačený, hladiny nahoře, čárkovaná čára vidět). Animace jen transform/opacity.
+	     OPRAVA 5 (14. 10.): červená síly i čáry „stejně vysoko“ ztmavena #e03131 → #c92a2a (5,2 : 1 na kartě), stejně jako v panelu 2.
+	     OPRAVA 6 (14. 10.): červená jen pro sílu F; čára „stejně vysoko“ fialová #5028a8 (9,1 : 1 karta, 4,84 : 1 voda); stůl začíná na x = 21 (uvnitř karty). -->
+	<style>
+		.p1-pist { animation: p1-pist 8s ease-in-out infinite; }
+		@keyframes p1-pist { 0% { transform: translateX(50px) } 12% { transform: translateX(50px) } 40% { transform: translateX(0px) } 80% { transform: translateX(0px) } 92% { transform: translateX(50px) } 100% { transform: translateX(50px) } }
+		.p1-hl { animation: p1-hl 8s ease-in-out infinite; }
+		@keyframes p1-hl { 0% { transform: translateY(50px) } 12% { transform: translateY(50px) } 40% { transform: translateY(0px) } 80% { transform: translateY(0px) } 92% { transform: translateY(50px) } 100% { transform: translateY(50px) } }
+		.p1-cara { animation: p1-cara 8s linear infinite; }
+		@keyframes p1-cara { 0% { opacity: 0 } 40% { opacity: 0 } 44% { opacity: 1 } 80% { opacity: 1 } 84% { opacity: 0 } 100% { opacity: 0 } }
+		.p1-f { animation: p1-f 8s linear infinite; }
+		@keyframes p1-f { 0% { opacity: 0 } 10% { opacity: 0 } 13% { opacity: 1 } 40% { opacity: 1 } 44% { opacity: 0 } 100% { opacity: 0 } }
+		@media (prefers-reduced-motion: reduce) {
+			.p1-pist, .p1-hl, .p1-cara, .p1-f { animation: none; }
+		}
+	</style>
+	<defs>
+		<clipPath id="p1-klip"><rect x="0" y="0" width="460" height="368"/></clipPath>
+		<clipPath id="p1-karta"><rect x="20" y="10" width="420" height="600" rx="12"/></clipPath>
+		<clipPath id="p1-ven"><rect x="306" y="380" width="134" height="70"/></clipPath>
+	</defs>
+	<rect x="0" y="0" width="460" height="620" fill="#f8f9fa"/>
+	<rect x="26" y="16" width="420" height="600" rx="12" fill="#dee2e6"/><rect x="20" y="10" width="420" height="600" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/><circle cx="52" cy="44" r="17" fill="#2b2a26"/><text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">1</text><text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Hladiny v trubicích</text>
+	<text x="40" y="95" font-size="21" fill="#2b2a26">Ruka zatlačí na píst nádoby s vodou.</text>
+	<text x="40" y="125" font-size="20" fill="#6b6a60">Nádoba je uzavřená, nahoře má trubice.</text>
+
+	<!-- stůl (šikmý pohled) -->
+	<polygon points="21,486 330,486 399,440 90,440" fill="#e9d3a8" stroke="#2b2a26" stroke-width="2"/>
+	<rect x="21" y="486" width="309" height="10" fill="#c9a46b" stroke="#2b2a26" stroke-width="2"/>
+	<polygon points="330,486 399,440 399,450 330,496" fill="#a9824a" stroke="#2b2a26" stroke-width="2"/>
+
+	<g clip-path="url(#p1-karta)">
+		<!-- uzavřená nádoba s vodou -->
+		<polygon points="40,380 260,380 296,356 76,356" fill="#a5d8ff" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round"/>
+		<polygon points="260,380 296,356 296,446 260,470" fill="#4dabf7" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round"/>
+		<rect x="40" y="380" width="220" height="90" fill="#74c0fc" stroke="#2b2a26" stroke-width="3"/>
+		<text x="150" y="432" font-size="20" font-weight="bold" text-anchor="middle" fill="#1c3d5a">voda</text>
+
+		<!-- trubice: sklo vzadu -->
+		<rect x="84" y="170" width="22" height="198" fill="#f1f3f5"/>
+		<rect x="129" y="170" width="22" height="198" fill="#f1f3f5"/>
+		<rect x="174" y="170" width="22" height="198" fill="#f1f3f5"/>
+		<rect x="219" y="170" width="22" height="198" fill="#f1f3f5"/>
+		<!-- voda v trubicích (stoupá stejně) -->
+		<g clip-path="url(#p1-klip)">
+			<g class="p1-hl">
+				<rect x="87" y="230" width="16" height="190" fill="#74c0fc"/><ellipse cx="95" cy="230" rx="8" ry="3" fill="#a5d8ff"/>
+				<rect x="132" y="230" width="16" height="190" fill="#74c0fc"/><ellipse cx="140" cy="230" rx="8" ry="3" fill="#a5d8ff"/>
+				<rect x="177" y="230" width="16" height="190" fill="#74c0fc"/><ellipse cx="185" cy="230" rx="8" ry="3" fill="#a5d8ff"/>
+				<rect x="222" y="230" width="16" height="190" fill="#74c0fc"/><ellipse cx="230" cy="230" rx="8" ry="3" fill="#a5d8ff"/>
+			</g>
+		</g>
+		<!-- trubice: obrys skla -->
+		<g fill="none" stroke="#495057" stroke-width="2">
+			<line x1="84" y1="170" x2="84" y2="368"/><line x1="106" y1="170" x2="106" y2="368"/><ellipse cx="95" cy="170" rx="11" ry="4"/><ellipse cx="95" cy="368" rx="11" ry="4"/>
+			<line x1="129" y1="170" x2="129" y2="368"/><line x1="151" y1="170" x2="151" y2="368"/><ellipse cx="140" cy="170" rx="11" ry="4"/><ellipse cx="140" cy="368" rx="11" ry="4"/>
+			<line x1="174" y1="170" x2="174" y2="368"/><line x1="196" y1="170" x2="196" y2="368"/><ellipse cx="185" cy="170" rx="11" ry="4"/><ellipse cx="185" cy="368" rx="11" ry="4"/>
+			<line x1="219" y1="170" x2="219" y2="368"/><line x1="241" y1="170" x2="241" y2="368"/><ellipse cx="230" cy="170" rx="11" ry="4"/><ellipse cx="230" cy="368" rx="11" ry="4"/>
+		</g>
+		<text x="162" y="158" font-size="20" text-anchor="middle" fill="#2b2a26">trubice</text>
+
+		<!-- objímka pístu na boku nádoby: otvor 32 px = průměr pístu -->
+		<rect x="278" y="393" width="28" height="40" fill="#adb5bd" stroke="#2b2a26" stroke-width="2"/>
+		<ellipse cx="306" cy="413" rx="5" ry="16" fill="#495057" stroke="#2b2a26" stroke-width="2"/>
+
+		<!-- píst (průměr 32 px) + ruka; část vlevo od otvoru je v nádobě (ořez) -->
+		<g clip-path="url(#p1-ven)">
+			<g class="p1-pist">
+				<rect x="250" y="397" width="76" height="32" fill="#ced4da" stroke="#495057" stroke-width="2"/>
+				<ellipse cx="326" cy="413" rx="6" ry="16" fill="#8d5a2b" stroke="#2b2a26" stroke-width="2"/>
+				<rect x="392" y="398" width="34" height="30" rx="5" fill="#4c6ef5" stroke="#2b2a26" stroke-width="2"/>
+				<rect x="362" y="402" width="34" height="22" rx="6" fill="#f4c7a1" stroke="#2b2a26" stroke-width="2"/>
+				<rect x="331" y="396" width="34" height="34" rx="11" fill="#f4c7a1" stroke="#2b2a26" stroke-width="2"/>
+				<path d="M340,405 L354,405 M340,413 L354,413 M340,421 L354,421" stroke="#c98e6a" stroke-width="2" fill="none" stroke-linecap="round"/>
+			</g>
+		</g>
+		<text x="314" y="464" font-size="20" fill="#2b2a26">píst</text>
+	</g>
+
+	<!-- síla F (jen při tlačení) -->
+	<g class="p1-f">
+		<line x1="404" y1="378" x2="354" y2="378" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/>
+		<polygon points="340,378 354,371 354,385" fill="#c92a2a"/>
+		<text x="410" y="385" font-size="21" font-weight="bold" fill="#c92a2a">F</text>
+	</g>
+
+	<!-- stejná výška hladin -->
+	<g class="p1-cara">
+		<line x1="72" y1="230" x2="252" y2="230" stroke="#5028a8" stroke-width="2.5" stroke-dasharray="7 5"/>
+		<text x="256" y="237" font-size="20" font-weight="bold" fill="#5028a8">stejně vysoko</text>
+	</g>
+
+	<rect x="40" y="506" width="380" height="94" rx="10" fill="#fff4e6" stroke="#b8460b" stroke-width="2"/>
+	<text x="230" y="536" font-size="20" font-weight="bold" text-anchor="middle" fill="#b8460b">Tlak se zvětší všude stejně,</text>
+	<text x="230" y="562" font-size="20" font-weight="bold" text-anchor="middle" fill="#b8460b">proto voda stoupne ve všech</text>
+	<text x="230" y="588" font-size="20" font-weight="bold" text-anchor="middle" fill="#b8460b">trubicích stejně vysoko.</text>
+</svg>
