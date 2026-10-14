@@ -1,0 +1,47 @@
+<svg viewBox="0 0 460 512" width="460" height="512" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Proč 10 m/s = 36 km/h: auto jede stálou rychlostí 10 m/s, každou sekundu ujede 10 m. Hodiny ukazují, že uběhne 1 hodina, to je 3 600 s, a auto mezitím dojede od 0 km do 36 km. Za 1 h ujede 3 600 · 10 m = 36 000 m = 36 km, proto 10 m/s = 36 km/h" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Rychlost v pohybu 2/3: Proč 10 m/s = 36 km/h</title>
+	<style>
+		.v2-auto { transform: translate(170px, 0px); animation: v2-auto 10s linear infinite; } @keyframes v2-auto { 0%, 10% { transform: translate(0px, 0px); opacity: 1; } 60% { transform: translate(170px, 0px); opacity: 1; } 92% { transform: translate(170px, 0px); opacity: 1; } 94% { transform: translate(170px, 0px); opacity: 0; } 95% { transform: translate(0px, 0px); opacity: 0; } 98%, 100% { transform: translate(0px, 0px); opacity: 1; } }
+		.v2-min { transform-box: view-box; transform-origin: 100px 226px; transform: rotate(360deg); animation: v2-min 10s linear infinite; } @keyframes v2-min { 0%, 10% { transform: rotate(0deg); } 60% { transform: rotate(360deg); } 95% { transform: rotate(360deg); } 95.5%, 100% { transform: rotate(0deg); } }
+		.v2-hod { transform-box: view-box; transform-origin: 100px 226px; transform: rotate(30deg); animation: v2-hod 10s linear infinite; } @keyframes v2-hod { 0%, 10% { transform: rotate(0deg); } 60% { transform: rotate(30deg); } 95% { transform: rotate(30deg); } 95.5%, 100% { transform: rotate(0deg); } }
+		.v2-t1 { opacity: 1; animation: v2-t1 10s linear infinite; } @keyframes v2-t1 { 0%, 60% { opacity: 0; } 62%, 92% { opacity: 1; } 95%, 100% { opacity: 0; } }
+		.v2-t2 { opacity: 1; animation: v2-t2 10s linear infinite; } @keyframes v2-t2 { 0%, 63% { opacity: 0; } 66%, 92% { opacity: 1; } 95%, 100% { opacity: 0; } }
+		.v2-t3 { opacity: 1; animation: v2-t3 10s linear infinite; } @keyframes v2-t3 { 0%, 69% { opacity: 0; } 72%, 92% { opacity: 1; } 95%, 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) { .v2-auto, .v2-min, .v2-hod, .v2-t1, .v2-t2, .v2-t3 { animation: none; } }
+	</style>
+	<rect x="0" y="0" width="460" height="512" fill="#f8f9fa"/>
+	<g id="panel-2">
+		<rect x="26" y="16" width="420" height="482" rx="12" fill="#dee2e6"/>
+		<rect x="20" y="10" width="420" height="482" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/>
+		<circle cx="52" cy="44" r="17" fill="#2b2a26"/><text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">2</text>
+		<text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Proč 10 m/s = 36 km/h</text>
+		<text x="34" y="96" font-size="21" fill="#2b2a26">Auto jede stálou rychlostí <tspan font-weight="bold" fill="#1864ab">10 m/s</tspan>:</text>
+		<text x="34" y="124" font-size="21" fill="#2b2a26">každou sekundu ujede 10 m.</text>
+
+		<rect x="30" y="136" width="400" height="196" rx="8" fill="#ffffff" stroke="#ced4da" stroke-width="2"/>
+		<circle cx="100" cy="226" r="56" fill="#fff9db" stroke="#343a40" stroke-width="4"/>
+		<line x1="100" y1="175" x2="100" y2="184" stroke="#343a40" stroke-width="3"/>
+		<line x1="151" y1="226" x2="142" y2="226" stroke="#343a40" stroke-width="3"/>
+		<line x1="100" y1="277" x2="100" y2="268" stroke="#343a40" stroke-width="3"/>
+		<line x1="49" y1="226" x2="58" y2="226" stroke="#343a40" stroke-width="3"/>
+		<line class="v2-hod" x1="100" y1="226" x2="100" y2="198" stroke="#343a40" stroke-width="6" stroke-linecap="round"/>
+		<line class="v2-min" x1="100" y1="226" x2="100" y2="180" stroke="#1864ab" stroke-width="4" stroke-linecap="round"/>
+		<circle cx="100" cy="226" r="5" fill="#343a40"/>
+		<text x="100" y="316" font-size="20" font-weight="bold" text-anchor="middle" fill="#2b2a26">1 h = 3 600 s</text>
+
+		<rect x="176" y="262" width="252" height="14" fill="#ced4da"/>
+		<line x1="176" y1="262" x2="428" y2="262" stroke="#868e96" stroke-width="2"/>
+		<line x1="243" y1="262" x2="243" y2="284" stroke="#343a40" stroke-width="2.5"/>
+		<text x="243" y="306" font-size="18" font-weight="bold" text-anchor="middle" fill="#495057">0 km</text>
+		<line x1="413" y1="262" x2="413" y2="284" stroke="#343a40" stroke-width="2.5"/>
+		<text class="v2-t1" x="426" y="306" font-size="18" font-weight="bold" text-anchor="end" fill="#1864ab">36 km</text>
+		<g transform="translate(140, -88)"><g class="v2-auto"><path d="M46,341 L46,329 Q47,325 52,325 L59,325 L66,314 L84,314 L92,325 L98,326 Q103,327 103,333 L103,341 Z" fill="#1864ab" stroke="#343a40" stroke-width="1.5" stroke-linejoin="round"/><path d="M62,324 L67,317 L74,317 L74,324 Z" fill="#d0ebff"/><path d="M77,324 L77,317 L83,317 L88,324 Z" fill="#d0ebff"/><rect x="98" y="330" width="5" height="4" fill="#ffe066"/><circle cx="58" cy="343" r="7" fill="#343a40"/><circle cx="58" cy="343" r="2.94" fill="#adb5bd"/><circle cx="91" cy="343" r="7" fill="#343a40"/><circle cx="91" cy="343" r="2.94" fill="#adb5bd"/></g></g>
+
+		<text class="v2-t1" x="34" y="366" font-size="21" fill="#2b2a26">Za 1 h = 3 600 s ujede auto</text>
+		<text class="v2-t2" x="34" y="394" font-size="21" fill="#2b2a26">3 600 · 10 m = 36 000 m = <tspan font-weight="bold">36 km</tspan>.</text>
+		<g class="v2-t3">
+			<rect x="60" y="410" width="340" height="62" rx="10" fill="#e7f5ff" stroke="#1864ab" stroke-width="2.5"/>
+			<text x="230" y="452" font-size="30" font-weight="bold" text-anchor="middle" fill="#1864ab">10 m/s = 36 km/h</text>
+		</g>
+	</g>
+</svg>

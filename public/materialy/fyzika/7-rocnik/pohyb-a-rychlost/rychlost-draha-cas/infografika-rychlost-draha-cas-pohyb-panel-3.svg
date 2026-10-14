@@ -1,0 +1,84 @@
+<svg viewBox="0 0 460 710" width="460" height="710" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Okamžitá rychlost a tachometr: tachometr ukazuje, jak rychle auto jede právě teď. Auto jede ve městě 50 km/h. Na semaforu naskočí oranžová a pak červená, auto zabrzdí u čáry a stojí, tachometr ukazuje 0 km/h. Na zelenou se rozjede znovu na 50 km/h a za značkou konec obce zrychlí na 90 km/h. Tachometr na palubní desce má stupnici od 0 do 220 km/h po 20 km/h, ručička i displej ukazují 50, 0, 50 a 90 km/h" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Rychlost v pohybu 3/3: Tachometr ukazuje okamžitou rychlost</title>
+	<style>
+		.v3-auto { transform: translate(330px, 0px); animation: v3-auto 12s linear infinite; } @keyframes v3-auto { 0% { transform: translate(0px, 0px); opacity: 1; } 28% { transform: translate(140px, 0px); } 30% { transform: translate(147px, 0px); } 32%, 48% { transform: translate(150px, 0px); } 50% { transform: translate(153px, 0px); } 52% { transform: translate(160px, 0px); } 68% { transform: translate(240px, 0px); } 70% { transform: translate(254px, 0px); } 72% { transform: translate(270px, 0px); } 88% { transform: translate(414px, 0px); opacity: 1; } 90% { transform: translate(432px, 0px); opacity: 0; } 92% { transform: translate(0px, 0px); opacity: 0; } 96%, 100% { transform: translate(0px, 0px); opacity: 1; } }
+		.v3-rucka { transform-box: view-box; transform-origin: 0px 0px; transform: rotate(-24deg); animation: v3-rucka 12s linear infinite; } @keyframes v3-rucka { 0%, 28% { transform: rotate(-72deg); } 32%, 48% { transform: rotate(-132deg); } 52%, 68% { transform: rotate(-72deg); } 72%, 92% { transform: rotate(-24deg); } 95%, 100% { transform: rotate(-72deg); } }
+		.v3-c50 { opacity: 0; animation: v3-c50 12s linear infinite; } @keyframes v3-c50 { 0%, 27% { opacity: 1; } 29%, 50% { opacity: 0; } 52%, 67% { opacity: 1; } 69%, 93% { opacity: 0; } 95%, 100% { opacity: 1; } }
+		.v3-c0 { opacity: 0; animation: v3-c0 12s linear infinite; } @keyframes v3-c0 { 0%, 30% { opacity: 0; } 32%, 47% { opacity: 1; } 49%, 100% { opacity: 0; } }
+		.v3-c90 { opacity: 1; animation: v3-c90 12s linear infinite; } @keyframes v3-c90 { 0%, 70% { opacity: 0; } 72%, 89% { opacity: 1; } 91%, 100% { opacity: 0; } }
+		.v3-zelena { opacity: 1; animation: v3-zelena 12s step-end infinite; } @keyframes v3-zelena { 0% { opacity: 1; } 18% { opacity: 0; } 48% { opacity: 1; } }
+		.v3-oranzova { opacity: 0; animation: v3-oranzova 12s step-end infinite; } @keyframes v3-oranzova { 0% { opacity: 0; } 18% { opacity: 1; } 22% { opacity: 0; } 46% { opacity: 1; } 48% { opacity: 0; } }
+		.v3-cervena { opacity: 0; animation: v3-cervena 12s step-end infinite; } @keyframes v3-cervena { 0% { opacity: 0; } 22% { opacity: 1; } 48% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) { .v3-auto, .v3-rucka, .v3-c50, .v3-c0, .v3-c90, .v3-zelena, .v3-oranzova, .v3-cervena { animation: none; } }
+	</style>
+	<defs>
+		<clipPath id="v3-okno"><rect x="31" y="137" width="398" height="188" rx="7"/></clipPath>
+		<clipPath id="v3-deska"><rect x="31" y="339" width="398" height="298" rx="7"/></clipPath>
+	</defs>
+	<rect x="0" y="0" width="460" height="710" fill="#f8f9fa"/>
+	<g id="panel-3">
+		<rect x="26" y="16" width="420" height="680" rx="12" fill="#dee2e6"/>
+		<rect x="20" y="10" width="420" height="680" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/>
+		<circle cx="52" cy="44" r="17" fill="#2b2a26"/><text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">3</text>
+		<text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Okamžitá rychlost</text>
+		<text x="34" y="96" font-size="21" fill="#2b2a26"><tspan font-weight="bold">Tachometr</tspan> ukazuje okamžitou rychlost:</text>
+		<text x="34" y="124" font-size="21" fill="#2b2a26">jak rychle auto jede právě teď.</text>
+
+		<rect x="30" y="136" width="400" height="190" rx="8" fill="#ffffff" stroke="#ced4da" stroke-width="2"/>
+		<g clip-path="url(#v3-okno)">
+			<rect x="31" y="298" width="398" height="28" fill="#d3f9d8"/>
+			<text x="110" y="164" font-size="18" font-weight="bold" text-anchor="middle" fill="#495057">ve městě</text>
+			<text x="370" y="164" font-size="18" font-weight="bold" text-anchor="middle" fill="#495057">za městem</text>
+			<path d="M36,228 L58,206 L80,228 Z" fill="#c92a2a" stroke="#343a40" stroke-width="1.5" stroke-linejoin="round"/>
+			<rect x="40" y="228" width="36" height="52" fill="#ffe8cc" stroke="#343a40" stroke-width="1.5"/>
+			<rect x="47" y="238" width="10" height="10" fill="#d0ebff" stroke="#343a40"/><rect x="60" y="238" width="10" height="10" fill="#d0ebff" stroke="#343a40"/>
+			<path d="M92,214 L118,190 L144,214 Z" fill="#c92a2a" stroke="#343a40" stroke-width="1.5" stroke-linejoin="round"/>
+			<rect x="96" y="214" width="44" height="66" fill="#fff3bf" stroke="#343a40" stroke-width="1.5"/>
+			<rect x="103" y="224" width="12" height="12" fill="#d0ebff" stroke="#343a40"/><rect x="121" y="224" width="12" height="12" fill="#d0ebff" stroke="#343a40"/><rect x="103" y="246" width="12" height="12" fill="#d0ebff" stroke="#343a40"/><rect x="121" y="246" width="12" height="12" fill="#d0ebff" stroke="#343a40"/>
+			<path d="M152,232 L171,212 L190,232 Z" fill="#c92a2a" stroke="#343a40" stroke-width="1.5" stroke-linejoin="round"/>
+			<rect x="155" y="232" width="32" height="48" fill="#e7f5ff" stroke="#343a40" stroke-width="1.5"/>
+			<rect x="164" y="242" width="14" height="12" fill="#d0ebff" stroke="#343a40"/>
+			<rect x="352" y="252" width="8" height="28" fill="#8d5524"/><circle cx="356" cy="240" r="18" fill="#40c057" stroke="#2b8a3e" stroke-width="1.5"/>
+			<rect x="402" y="256" width="8" height="24" fill="#8d5524"/><circle cx="406" cy="244" r="16" fill="#40c057" stroke="#2b8a3e" stroke-width="1.5"/>
+			<rect x="31" y="280" width="398" height="18" fill="#ced4da"/>
+			<line x1="31" y1="280" x2="429" y2="280" stroke="#868e96" stroke-width="2"/>
+			<line x1="209" y1="281" x2="209" y2="297" stroke="#ffffff" stroke-width="4"/>
+			<line x1="222" y1="228" x2="222" y2="280" stroke="#495057" stroke-width="4"/>
+			<rect x="210" y="163" width="24" height="66" rx="4" fill="#343a40"/>
+			<circle cx="222" cy="176" r="7" fill="#5c2b2b"/><circle cx="222" cy="196" r="7" fill="#5c4a1f"/><circle cx="222" cy="216" r="7" fill="#2b4a33"/>
+			<circle class="v3-cervena" cx="222" cy="176" r="7" fill="#fa5252"/>
+			<circle class="v3-oranzova" cx="222" cy="196" r="7" fill="#fcc419"/>
+			<circle class="v3-zelena" cx="222" cy="216" r="7" fill="#51cf66"/>
+			<line x1="292" y1="236" x2="292" y2="280" stroke="#495057" stroke-width="3"/>
+			<rect x="272" y="212" width="40" height="26" fill="#ffffff" stroke="#343a40" stroke-width="2"/>
+			<line x1="275" y1="235" x2="309" y2="215" stroke="#e03131" stroke-width="4"/>
+			<g transform="translate(-48, -70)"><g class="v3-auto"><path d="M46,341 L46,329 Q47,325 52,325 L59,325 L66,314 L84,314 L92,325 L98,326 Q103,327 103,333 L103,341 Z" fill="#1864ab" stroke="#343a40" stroke-width="1.5" stroke-linejoin="round"/><path d="M62,324 L67,317 L74,317 L74,324 Z" fill="#d0ebff"/><path d="M77,324 L77,317 L83,317 L88,324 Z" fill="#d0ebff"/><rect x="98" y="330" width="5" height="4" fill="#ffe066"/><circle cx="58" cy="343" r="7" fill="#343a40"/><circle cx="58" cy="343" r="2.94" fill="#adb5bd"/><circle cx="91" cy="343" r="7" fill="#343a40"/><circle cx="91" cy="343" r="2.94" fill="#adb5bd"/></g></g>
+		</g>
+
+		<!-- palubní deska a tachometr v šikmém pohledu (podle fotky PDF s. 5): černý číselník, stupnice 0–220 po 20 km/h, oranžová ručička, modrý displej -->
+		<rect x="30" y="338" width="400" height="300" rx="8" fill="#5c636a" stroke="#ced4da" stroke-width="2"/>
+		<g clip-path="url(#v3-deska)">
+			<ellipse cx="234" cy="484" rx="176" ry="150" fill="#2b2f33"/>
+		</g>
+		<g transform="translate(230 488) skewX(-6) scale(1 0.86)">
+			<circle cx="0" cy="12" r="148" fill="#1c1f22"/>
+			<circle cx="0" cy="0" r="148" fill="#3d4247" stroke="#868e96" stroke-width="3"/>
+			<circle cx="0" cy="0" r="141" fill="#0b0c0d"/>
+			<line x1="-87.7" y1="79" x2="-102.6" y2="92.3" stroke="#f8f9fa" stroke-width="4"/><line x1="-109.1" y1="63" x2="-119.5" y2="69" stroke="#f8f9fa" stroke-width="2"/><line x1="-112.2" y1="36.5" x2="-131.2" y2="42.6" stroke="#f8f9fa" stroke-width="4"/><line x1="-125.3" y1="13.2" x2="-137.2" y2="14.4" stroke="#f8f9fa" stroke-width="2"/><line x1="-117.4" y1="-12.3" x2="-137.2" y2="-14.4" stroke="#f8f9fa" stroke-width="4"/><line x1="-119.8" y1="-38.9" x2="-131.2" y2="-42.6" stroke="#f8f9fa" stroke-width="2"/><line x1="-102.2" y1="-59" x2="-119.5" y2="-69" stroke="#f8f9fa" stroke-width="4"/><line x1="-93.6" y1="-84.3" x2="-102.6" y2="-92.3" stroke="#f8f9fa" stroke-width="2"/><line x1="-69.4" y1="-95.5" x2="-81.1" y2="-111.6" stroke="#f8f9fa" stroke-width="4"/><line x1="-51.2" y1="-115.1" x2="-56.1" y2="-126.1" stroke="#f8f9fa" stroke-width="2"/><line x1="-24.5" y1="-115.4" x2="-28.7" y2="-135" stroke="#f8f9fa" stroke-width="4"/><line x1="0" y1="-126" x2="0" y2="-138" stroke="#f8f9fa" stroke-width="2"/><line x1="24.5" y1="-115.4" x2="28.7" y2="-135" stroke="#f8f9fa" stroke-width="4"/><line x1="51.2" y1="-115.1" x2="56.1" y2="-126.1" stroke="#f8f9fa" stroke-width="2"/><line x1="69.4" y1="-95.5" x2="81.1" y2="-111.6" stroke="#f8f9fa" stroke-width="4"/><line x1="93.6" y1="-84.3" x2="102.6" y2="-92.3" stroke="#f8f9fa" stroke-width="2"/><line x1="102.2" y1="-59" x2="119.5" y2="-69" stroke="#f8f9fa" stroke-width="4"/><line x1="119.8" y1="-38.9" x2="131.2" y2="-42.6" stroke="#f8f9fa" stroke-width="2"/><line x1="117.4" y1="-12.3" x2="137.2" y2="-14.4" stroke="#f8f9fa" stroke-width="4"/><line x1="125.3" y1="13.2" x2="137.2" y2="14.4" stroke="#f8f9fa" stroke-width="2"/><line x1="112.2" y1="36.5" x2="131.2" y2="42.6" stroke="#f8f9fa" stroke-width="4"/><line x1="109.1" y1="63" x2="119.5" y2="69" stroke="#f8f9fa" stroke-width="2"/><line x1="87.7" y1="79" x2="102.6" y2="92.3" stroke="#f8f9fa" stroke-width="4"/>
+			<rect x="-52" y="52" width="104" height="34" rx="5" fill="#1c7ed6" stroke="#0b0c0d" stroke-width="2"/>
+		</g>
+		<text x="153.7" y="548.7" font-size="18" text-anchor="middle" fill="#f8f9fa">0</text><text x="137" y="519.2" font-size="18" text-anchor="middle" fill="#f8f9fa">20</text><text x="136.4" y="485.5" font-size="18" text-anchor="middle" fill="#f8f9fa">40</text><text x="152" y="453.2" font-size="18" text-anchor="middle" fill="#f8f9fa">60</text><text x="181.1" y="427.9" font-size="18" text-anchor="middle" fill="#f8f9fa">80</text><text x="218.6" y="414.1" font-size="18" text-anchor="middle" fill="#f8f9fa">100</text><text x="258.2" y="414.1" font-size="18" text-anchor="middle" fill="#f8f9fa">120</text><text x="292.8" y="427.9" font-size="18" text-anchor="middle" fill="#f8f9fa">140</text><text x="316.6" y="453.2" font-size="18" text-anchor="middle" fill="#f8f9fa">160</text><text x="325.4" y="485.5" font-size="18" text-anchor="middle" fill="#f8f9fa">180</text><text x="317.7" y="519.2" font-size="18" text-anchor="middle" fill="#f8f9fa">200</text><text x="294.9" y="548.7" font-size="18" text-anchor="middle" fill="#f8f9fa">220</text>
+		<text x="269" y="449" font-size="18" text-anchor="middle" fill="#ced4da">km/h</text>
+		<text class="v3-c50" x="224" y="556" font-size="23" font-weight="bold" text-anchor="middle" fill="#e7f5ff">50</text>
+		<text class="v3-c0" x="224" y="556" font-size="23" font-weight="bold" text-anchor="middle" fill="#e7f5ff">0</text>
+		<text class="v3-c90" x="224" y="556" font-size="23" font-weight="bold" text-anchor="middle" fill="#e7f5ff">90</text>
+		<g transform="translate(230 488) skewX(-6) scale(1 0.86)">
+			<g class="v3-rucka"><path d="M-4.5,10 L-1.5,-82 L1.5,-82 L4.5,10 Z" fill="#f76707" stroke="#f08c00" stroke-width="1"/></g>
+			<circle cx="0" cy="0" r="12" fill="#212529" stroke="#f08c00" stroke-width="3"/>
+		</g>
+
+		<text class="v3-c50" x="230" y="672" font-size="21" text-anchor="middle" fill="#2b2a26">Ve městě jede <tspan font-weight="bold">50 km/h</tspan>.</text>
+		<text class="v3-c0" x="230" y="672" font-size="21" text-anchor="middle" fill="#2b2a26">Na křižovatce stojí: <tspan font-weight="bold">0 km/h</tspan>.</text>
+		<text class="v3-c90" x="230" y="672" font-size="21" text-anchor="middle" fill="#2b2a26">Za městem jede <tspan font-weight="bold">90 km/h</tspan>.</text>
+	</g>
+</svg>
