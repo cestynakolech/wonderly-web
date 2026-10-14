@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="510" viewBox="0 0 460 510" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Působení na dálku. Gravitační síla: Země přitahuje jablko, jablko se utrhne z větve a padá stále rychleji k zemi. Elektrická síla: ruka drží zelektrizované pravítko nad stolem, pravítko přitahuje papírky a papírky vyskočí ze stolu k pravítku. Tělesa se nedotýkají, a přesto na sebe působí, kolem nich je silové pole.">
+	<title>Síla v pohybu 4/4: Působení na dálku</title>
+	<!-- Infografika „Síla v pohybu“, panel 4 (W70, oprava 3, 14. 10. 2026: gravitační síla je vždy přitažlivá, proto šipka F jablka svítí TRVALE — při visení, celém pádu i ležení; začíná ve středu jablka (y 160), hrot končí u spodního okraje jablka (y 174), pohybuje se s jablkem, takže nikdy nezasáhne do trávy y 330; stejná logika u papírku: síla trvá, dokud působí — šipka i písmeno F jedou s papírkem, po přilepení je zakryje pravítko, do kterého míří); opora: výklad „Síla“ (silové pole gravitační, magnetické, elektrické;
+	     „Elektrická síla – například zelektrizované pravítko přitahuje papírky“), obr. sila-obr-12. Magnet a hřebík už animuje panel 1 první infografiky.
+	     Děj navíc proti obrázku: jablko padá zrychleně, papírky vyskočí k pravítku. Šipka F na papírku (třetí zleva) je vidět po celou dobu a pohybuje se s ním.
+	     Měřítko pravítka: dílek 12 px = 1 cm, mezera pravítko–papírky 32 px ≈ 3 cm. Jablko r 14 px, pád 156 px, zrychlený (ease-in).
+	     Bez animace = výchozí stav: jablko na větvi, papírky na stole, šipky sil F viditelné. -->
+	<style>
+		.p10-jab { animation: p10-jab 7s linear infinite; }
+		@keyframes p10-jab { 0% { transform: translateY(0px); opacity: 1 } 22% { transform: translateY(0px); opacity: 1; animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45) } 42% { transform: translateY(156px); opacity: 1 } 80% { transform: translateY(156px); opacity: 1 } 85% { transform: translateY(156px); opacity: 0 } 86% { transform: translateY(0px); opacity: 0 } 92% { transform: translateY(0px); opacity: 1 } 100% { transform: translateY(0px); opacity: 1 } }
+		.p10-a, .p10-b, .p10-c, .p10-d { animation-duration: 7s; animation-iteration-count: infinite; animation-timing-function: linear; }
+		.p10-a { animation-name: p10-a; } .p10-b { animation-name: p10-b; } .p10-c { animation-name: p10-c; } .p10-d { animation-name: p10-d; }
+		@keyframes p10-a { 0% { transform: translateY(0px); opacity: 1 } 24% { transform: translateY(0px); opacity: 1; animation-timing-function: ease-in } 32% { transform: translateY(-32px); opacity: 1 } 82% { transform: translateY(-32px); opacity: 1 } 86% { transform: translateY(-32px); opacity: 0 } 87% { transform: translateY(0px); opacity: 0 } 93% { transform: translateY(0px); opacity: 1 } 100% { transform: translateY(0px); opacity: 1 } }
+		@keyframes p10-b { 0% { transform: translateY(0px); opacity: 1 } 30% { transform: translateY(0px); opacity: 1; animation-timing-function: ease-in } 38% { transform: translateY(-32px); opacity: 1 } 82% { transform: translateY(-32px); opacity: 1 } 86% { transform: translateY(-32px); opacity: 0 } 87% { transform: translateY(0px); opacity: 0 } 93% { transform: translateY(0px); opacity: 1 } 100% { transform: translateY(0px); opacity: 1 } }
+		@keyframes p10-c { 0% { transform: translateY(0px); opacity: 1 } 36% { transform: translateY(0px); opacity: 1; animation-timing-function: ease-in } 44% { transform: translateY(-32px); opacity: 1 } 82% { transform: translateY(-32px); opacity: 1 } 86% { transform: translateY(-32px); opacity: 0 } 87% { transform: translateY(0px); opacity: 0 } 93% { transform: translateY(0px); opacity: 1 } 100% { transform: translateY(0px); opacity: 1 } }
+		@keyframes p10-d { 0% { transform: translateY(0px); opacity: 1 } 42% { transform: translateY(0px); opacity: 1; animation-timing-function: ease-in } 50% { transform: translateY(-32px); opacity: 1 } 82% { transform: translateY(-32px); opacity: 1 } 86% { transform: translateY(-32px); opacity: 0 } 87% { transform: translateY(0px); opacity: 0 } 93% { transform: translateY(0px); opacity: 1 } 100% { transform: translateY(0px); opacity: 1 } }
+		@media (prefers-reduced-motion: reduce) {
+			.p10-jab, .p10-a, .p10-b, .p10-c, .p10-d { animation: none; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="510" fill="#f8f9fa"/>
+	<rect x="26" y="16" width="420" height="490" rx="12" fill="#dee2e6"/><rect x="20" y="10" width="420" height="490" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/><circle cx="52" cy="44" r="17" fill="#2b2a26"/><text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">4</text><text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Působení na dálku</text>
+	<rect x="30" y="72" width="196" height="348" rx="8" fill="#fff" stroke="#ced4da" stroke-width="2"/>
+	<rect x="234" y="72" width="196" height="348" rx="8" fill="#fff" stroke="#ced4da" stroke-width="2"/>
+
+	<!-- GRAVITAČNÍ SÍLA: Země a jablko -->
+	<text x="128" y="100" font-size="18" font-weight="bold" text-anchor="middle" fill="#2b2a26">Gravitační síla</text>
+	<path d="M34,132 Q110,116 214,124" fill="none" stroke="#8a5a2b" stroke-width="8" stroke-linecap="round"/>
+	<ellipse cx="70" cy="122" rx="18" ry="8" fill="#2f9e44"/><ellipse cx="160" cy="116" rx="18" ry="8" fill="#2f9e44"/><ellipse cx="196" cy="128" rx="14" ry="7" fill="#2f9e44"/>
+	<line x1="110" y1="125" x2="110" y2="146" stroke="#8a5a2b" stroke-width="3"/>
+	<rect x="34" y="330" width="188" height="12" fill="#8ce99a"/><rect x="34" y="342" width="188" height="16" fill="#c9a37a"/>
+	<text x="190" y="356" font-size="16" font-weight="bold" text-anchor="middle" fill="#2b2a26">Země</text>
+	<g class="p10-jab">
+		<circle cx="110" cy="160" r="14" fill="#a9e34b" stroke="#2b2a26" stroke-width="2"/><line x1="110" y1="146" x2="112" y2="140" stroke="#8a5a2b" stroke-width="3"/>
+		<g transform="translate(110,160) rotate(90)"><line x1="0" y1="0" x2="4" y2="0" stroke="#e03131" stroke-width="5"/><polygon points="14,0 4,-7 4,7" fill="#e03131"/><circle cx="0" cy="0" r="4" fill="#2b2a26"/></g>
+		<text x="90" y="166" font-size="21" font-weight="bold" text-anchor="end" fill="#e03131">F</text>
+	</g>
+	<text x="128" y="384" font-size="18" text-anchor="middle" fill="#2b2a26">Země přitahuje</text>
+	<text x="128" y="406" font-size="18" text-anchor="middle" fill="#2b2a26">jablko.</text>
+
+	<!-- ELEKTRICKÁ SÍLA: ruka drží zelektrizované pravítko nad papírky -->
+	<text x="332" y="100" font-size="18" font-weight="bold" text-anchor="middle" fill="#2b2a26">Elektrická síla</text>
+	<rect x="244" y="330" width="176" height="10" rx="2" fill="#c9a37a" stroke="#8a5a2b" stroke-width="2"/>
+	<text x="332" y="358" font-size="16" text-anchor="middle" fill="#495057">stůl</text>
+	<!-- papírky jsou v pořadí před pravítkem: při výskoku šipku F zakryje pravítko -->
+	<g class="p10-a"><rect x="276" y="322" width="16" height="8" fill="#fff" stroke="#868e96" stroke-width="1.5" transform="rotate(-8 284 326)"/></g>
+	<g class="p10-b"><rect x="306" y="322" width="14" height="8" fill="#fff" stroke="#868e96" stroke-width="1.5" transform="rotate(10 313 326)"/></g>
+	<g class="p10-c">
+		<g><g transform="translate(346,322) rotate(-90)"><line x1="0" y1="0" x2="5" y2="0" stroke="#e03131" stroke-width="5"/><polygon points="15,0 5,-7 5,7" fill="#e03131"/></g></g>
+		<rect x="338" y="322" width="16" height="8" fill="#fff" stroke="#868e96" stroke-width="1.5" transform="rotate(4 346 326)"/>
+		<circle cx="346" cy="322" r="4" fill="#2b2a26"/>
+		<text x="334" y="321" font-size="21" font-weight="bold" text-anchor="end" fill="#e03131">F</text>
+	</g>
+	<g class="p10-d"><rect x="370" y="322" width="15" height="8" fill="#fff" stroke="#868e96" stroke-width="1.5" transform="rotate(-12 377 326)"/></g>
+	<!-- ruka drží pravítko -->
+	<line x1="414" y1="272" x2="420" y2="150" stroke="#868e96" stroke-width="14" stroke-linecap="round"/>
+	<rect x="258" y="274" width="150" height="16" rx="2" fill="#fff3bf" stroke="#2b2a26" stroke-width="2"/>
+	<path d="M270,274 v6 M282,274 v4 M294,274 v6 M306,274 v4 M318,274 v6 M330,274 v4 M342,274 v6 M354,274 v4 M366,274 v6 M378,274 v4 M390,274 v6" stroke="#2b2a26" stroke-width="1.5"/>
+	<rect x="398" y="266" width="24" height="32" rx="9" fill="#f1c27d" stroke="#2b2a26" stroke-width="2"/>
+	<text x="322" y="236" font-size="16" text-anchor="middle" fill="#495057">zelektrizované</text>
+	<text x="322" y="256" font-size="16" text-anchor="middle" fill="#495057">pravítko</text>
+	<text x="332" y="384" font-size="18" text-anchor="middle" fill="#2b2a26">Pravítko přitahuje</text>
+	<text x="332" y="406" font-size="18" text-anchor="middle" fill="#2b2a26">papírky.</text>
+
+	<text x="230" y="452" font-size="18" text-anchor="middle" fill="#2b2a26">Tělesa se nedotýkají, a přesto na sebe</text>
+	<text x="230" y="476" font-size="18" text-anchor="middle" fill="#2b2a26">působí: kolem nich je silové pole.</text>
+</svg>

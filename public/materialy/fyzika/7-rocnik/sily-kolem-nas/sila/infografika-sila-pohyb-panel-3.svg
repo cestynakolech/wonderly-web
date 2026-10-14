@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="520" viewBox="0 0 460 520" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Tenisový míček přilétá zprava, hráč máchne raketou a udeří do míčku. Raketa působí na míček a míček působí na raketu, obě šipky jsou stejně dlouhé a mají opačný směr. Míček se na chvíli zmáčkne, pak odlétá rychleji a jiným směrem šikmo nahoru a vrátí se do kulatého tvaru. Síla změnila směr i rychlost míčku a deformace byla jen dočasná.">
+	<title>Síla v pohybu 3/4: Raketa a míček</title>
+	<!-- Infografika „Síla v pohybu“, panel 3 (W70, oprava 2, 14. 10. 2026: popisky „odlétá jinam / a rychleji“ posunuty nad dráhu míčku, x ≤ 268, aby je letící míček nezakryl); animovaná verze obr. sila-obr-10, předloha PDF „Ipůsobení těles deformace“ str. 8 (fotky rakety a míčku).
+	     Opora výkladu: „tenisová raketa udeří do míčku“, „změnit jeho rychlost či směr“, „každé z nich dostane sílu opačného směru“, „míč se dočasně zdeformuje“.
+	     Děj navíc proti obrázku: máchnutí raketou, odlet RYCHLEJI (přílet 224 px za 26 % cyklu = 8,6 px/%, odlet 260 px za 14 % = 18,6 px/%, tj. asi 2× rychleji) a jiným směrem.
+	     Raketa skloněná o 11°, síly kolmo na výplet; odraz podle kolmice → odlet −22° (posun 241, −97 px). Bez animace = okamžik dotyku. -->
+	<defs>
+		<clipPath id="p9-hlava"><ellipse cx="112" cy="222" rx="19" ry="73"/></clipPath>
+	</defs>
+	<style>
+		.p9-mic { animation: p9-mic 6s linear infinite; }
+		@keyframes p9-mic { 0% { transform: translate(256px,0px); opacity: 0 } 4% { transform: translate(224px,0px); opacity: 1 } 30% { transform: translate(0px,0px); opacity: 1 } 44% { transform: translate(0px,0px); opacity: 1 } 58% { transform: translate(241px,-97px); opacity: 1 } 84% { transform: translate(241px,-97px); opacity: 1 } 90% { transform: translate(241px,-97px); opacity: 0 } 100% { transform: translate(241px,-97px); opacity: 0 } }
+		.p9-zm { transform-box: view-box; transform-origin: 112px 230px; animation: p9-zm 6s linear infinite; }
+		@keyframes p9-zm { 0% { transform: scale(1,1) } 30% { transform: scale(1,1) } 35% { transform: scale(0.7,1.18) } 39% { transform: scale(0.7,1.18) } 44% { transform: scale(1,1) } 100% { transform: scale(1,1) } }
+		.p9-rak { transform-box: view-box; transform-origin: 112px 380px; animation: p9-rak 6s linear infinite; }
+		@keyframes p9-rak { 0% { transform: rotate(-12deg) } 12% { transform: rotate(-12deg); animation-timing-function: ease-in } 30% { transform: rotate(0deg) } 44% { transform: rotate(0deg); animation-timing-function: ease-out } 56% { transform: rotate(5deg) } 80% { transform: rotate(5deg); animation-timing-function: ease-in-out } 96% { transform: rotate(-12deg) } 100% { transform: rotate(-12deg) } }
+		.p9-f { animation: p9-f 6s linear infinite; }
+		@keyframes p9-f { 0% { opacity: 0 } 30% { opacity: 0 } 32% { opacity: 1 } 44% { opacity: 1 } 47% { opacity: 0 } 100% { opacity: 0 } }
+		.p9-zmp { animation: p9-zmp 6s linear infinite; }
+		@keyframes p9-zmp { 0% { opacity: 0 } 31% { opacity: 0 } 33% { opacity: 1 } 46% { opacity: 1 } 50% { opacity: 0 } 100% { opacity: 0 } }
+		.p9-rych { animation: p9-rych 6s linear infinite; }
+		@keyframes p9-rych { 0% { opacity: 0 } 46% { opacity: 0 } 50% { opacity: 1 } 86% { opacity: 1 } 90% { opacity: 0 } 100% { opacity: 0 } }
+		@media (prefers-reduced-motion: reduce) {
+			.p9-mic, .p9-zm, .p9-rak, .p9-f, .p9-zmp, .p9-rych { animation: none; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="520" fill="#f8f9fa"/>
+	<rect x="26" y="16" width="420" height="500" rx="12" fill="#dee2e6"/><rect x="20" y="10" width="420" height="500" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/><circle cx="52" cy="44" r="17" fill="#2b2a26"/><text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">3</text><text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Raketa a míček</text>
+	<rect x="30" y="72" width="400" height="320" rx="8" fill="#fff" stroke="#ced4da" stroke-width="2"/>
+	<!-- dráha míčku: přilétá vodorovně, odlétá šikmo nahoru -->
+	<line x1="176" y1="225" x2="404" y2="225" stroke="#adb5bd" stroke-width="2" stroke-dasharray="7 6"/>
+	<polygon points="196,225 208,219 208,231" fill="#868e96"/>
+	<text x="330" y="252" font-size="18" text-anchor="middle" fill="#495057">přilétá</text>
+	<line x1="172" y1="214" x2="400" y2="122" stroke="#adb5bd" stroke-width="2" stroke-dasharray="7 6"/>
+	<polygon points="406,120 392,120 397,131" fill="#868e96"/>
+	<text x="268" y="104" font-size="18" text-anchor="end" fill="#495057">odlétá jinam</text>
+	<text class="p9-rych" x="268" y="128" font-size="18" font-weight="bold" text-anchor="end" fill="#2b2a26">a rychleji</text>
+	<!-- raketa skloněná o 11°: rám, výplet, krk, rukojeť; máchne kolem konce rukojeti -->
+	<g transform="rotate(-11 120 230)">
+		<g class="p9-rak">
+			<line x1="112" y1="318" x2="112" y2="380" stroke="#343a40" stroke-width="11" stroke-linecap="round"/>
+			<path d="M98,288 L112,320 L126,288" fill="none" stroke="#e8590c" stroke-width="5" stroke-linejoin="round"/>
+			<ellipse cx="112" cy="222" rx="22" ry="76" fill="#fffdf7"/>
+			<g clip-path="url(#p9-hlava)" stroke="#adb5bd" stroke-width="1.2">
+				<path d="M100,140 V300 M106,140 V300 M112,140 V300 M118,140 V300 M124,140 V300"/>
+				<path d="M88,164 H136 M88,177 H136 M88,190 H136 M88,203 H136 M88,216 H136 M88,229 H136 M88,242 H136 M88,255 H136 M88,268 H136 M88,281 H136"/>
+			</g>
+			<ellipse cx="112" cy="222" rx="22" ry="76" fill="none" stroke="#e8590c" stroke-width="6"/>
+		</g>
+	</g>
+	<text x="164" y="366" font-size="18" fill="#495057">raketa</text>
+	<!-- míček -->
+	<g class="p9-mic">
+		<g transform="rotate(-11 120 230)">
+			<g class="p9-zm" transform="scale(0.7,1.18)">
+				<circle cx="136" cy="230" r="24" fill="#c0eb75" stroke="#2b2a26" stroke-width="2.5" vector-effect="non-scaling-stroke"/>
+				<path d="M120,212 Q136,230 120,248" fill="none" stroke="#fff" stroke-width="3" vector-effect="non-scaling-stroke"/>
+			</g>
+		</g>
+	</g>
+	<!-- vzájemné působení v místě dotyku: raketa na míček a míček na raketu, stejně dlouhé, opačný směr -->
+	<g class="p9-f">
+		<g transform="rotate(-11 120 230)">
+			<g transform="translate(112,230)"><line x1="0" y1="0" x2="50" y2="0" stroke="#e03131" stroke-width="5"/><polygon points="64,0 50,-7 50,7" fill="#e03131"/></g>
+			<g transform="translate(112,230) rotate(180)"><line x1="0" y1="0" x2="50" y2="0" stroke="#e03131" stroke-width="5"/><polygon points="64,0 50,-7 50,7" fill="#e03131"/></g>
+			<circle cx="112" cy="230" r="5" fill="#2b2a26"/>
+		</g>
+		<text x="150" y="282" font-size="15" font-weight="bold" fill="#e03131">raketa na míček</text>
+		<text x="34" y="300" font-size="15" font-weight="bold" fill="#e03131">míček</text>
+		<text x="34" y="318" font-size="15" font-weight="bold" fill="#e03131">na raketu</text>
+	</g>
+	<text class="p9-zmp" x="150" y="308" font-size="18" fill="#2b2a26">míček se zmáčkne</text>
+	<text x="230" y="424" font-size="18" text-anchor="middle" fill="#2b2a26">Raketa a míček na sebe působí navzájem.</text>
+	<text x="230" y="448" font-size="18" text-anchor="middle" fill="#2b2a26">Míček změní směr i rychlost a na chvíli</text>
+	<text x="230" y="472" font-size="18" text-anchor="middle" fill="#2b2a26">se zmáčkne: deformace je dočasná.</text>
+</svg>
