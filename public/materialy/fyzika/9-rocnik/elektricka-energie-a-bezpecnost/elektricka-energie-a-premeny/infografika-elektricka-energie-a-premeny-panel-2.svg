@@ -1,0 +1,65 @@
+<svg viewBox="0 0 460 610" width="460" height="610" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pokus: ke zdroji jsou za sebou připojeny měděný drát s malým odporem a odporový drát s velkým odporem, oběma prochází stejný proud. Po zapnutí se ohřeje jen odporový drát, měděný zůstane chladný. Když zvýšíme napětí zdroje, ručka ampérmetru ukáže větší proud a odporový drát se rozžhaví víc. Čím větší odpor a čím větší proud, tím víc tepla. Využití: topná spirála, vařič, žehlička, pájka" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Elektrická energie a její přeměny 2/3: Odpor a proud rozhodují</title>
+	<style>
+		.fa { animation: fa 10s linear infinite; } .fb { animation: fb 10s linear infinite; } .fc { animation: fc 10s linear infinite; }
+		.rb { animation: rb 10s linear infinite; } .rc { animation: rc 10s linear infinite; }
+		.tb { animation: tb 10s linear infinite; } .tc { animation: tc 10s linear infinite; }
+		.ruc { transform-box: view-box; transform-origin: 130px 330px; animation: ruc 10s ease-in-out infinite; }
+		.kno { transform-box: view-box; transform-origin: 216px 372px; animation: kno 10s ease-in-out infinite; }
+		.fb.pb { animation-name: fb, pb; animation-duration: 10s, 0.9s; animation-timing-function: linear; animation-iteration-count: infinite; }
+		.fc.pc { animation-name: fc, pc; animation-duration: 10s, 0.35s; animation-timing-function: linear; animation-iteration-count: infinite; }
+		@keyframes fa { 0% { opacity: 1; } 14% { opacity: 1; } 15% { opacity: 0; } 95% { opacity: 0; } 96% { opacity: 1; } 100% { opacity: 1; } }
+		@keyframes fb { 0% { opacity: 0; } 14% { opacity: 0; } 15% { opacity: 1; } 54% { opacity: 1; } 55% { opacity: 0; } 100% { opacity: 0; } }
+		@keyframes fc { 0% { opacity: 0; } 54% { opacity: 0; } 55% { opacity: 1; } 94% { opacity: 1; } 95% { opacity: 0; } 100% { opacity: 0; } }
+		@keyframes rb { 0% { opacity: 0; } 15% { opacity: 0; } 30% { opacity: 0.85; } 55% { opacity: 0.85; } 60% { opacity: 0; } 100% { opacity: 0; } }
+		@keyframes rc { 0% { opacity: 0; } 55% { opacity: 0; } 65% { opacity: 1; } 94% { opacity: 1; } 96% { opacity: 0; } 100% { opacity: 0; } }
+		@keyframes tb { 0% { opacity: 0; } 25% { opacity: 0; } 35% { opacity: 1; } 94% { opacity: 1; } 96% { opacity: 0; } 100% { opacity: 0; } }
+		@keyframes tc { 0% { opacity: 0; } 60% { opacity: 0; } 70% { opacity: 1; } 94% { opacity: 1; } 96% { opacity: 0; } 100% { opacity: 0; } }
+		@keyframes ruc { 0% { transform: rotate(-55deg); } 14% { transform: rotate(-55deg); } 18% { transform: rotate(-25deg); } 54% { transform: rotate(-25deg); } 58% { transform: rotate(30deg); } 94% { transform: rotate(30deg); } 97% { transform: rotate(-55deg); } 100% { transform: rotate(-55deg); } }
+		@keyframes kno { 0% { transform: rotate(-60deg); } 13% { transform: rotate(-60deg); } 15% { transform: rotate(-15deg); } 52% { transform: rotate(-15deg); } 55% { transform: rotate(50deg); } 94% { transform: rotate(50deg); } 96% { transform: rotate(-60deg); } 100% { transform: rotate(-60deg); } }
+		@keyframes pb { 0% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -18; } }
+		@keyframes pc { 0% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -18; } }
+		@media (prefers-reduced-motion: reduce) { .fa, .fb, .fc, .rb, .rc, .tb, .tc, .ruc, .kno, .fb.pb, .fc.pc { animation: none; } .ruc { transform: rotate(30deg); } .kno { transform: rotate(50deg); } }
+	</style>
+	<rect x="0" y="0" width="460" height="610" fill="#f8f9fa"/>
+	<g id="panel-2"><rect x="26" y="16" width="420" height="590" rx="12" fill="#dee2e6"/><rect x="20" y="10" width="420" height="590" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/><circle cx="52" cy="44" r="17" fill="#2b2a26"/><text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">2</text><text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Odpor a proud rozhodují</text>
+<text x="34" y="92" font-size="21" fill="#2b2a26">Měděný a odporový drát zapojíme</text>
+<text x="34" y="120" font-size="21" fill="#2b2a26">za sebou: proud v nich je stejný.</text>
+<rect x="34" y="138" width="392" height="312" rx="8" fill="#ffffff" stroke="#ced4da" stroke-width="2"/>
+<rect x="44" y="404" width="372" height="10" fill="#ced4da"/>
+<rect x="75" y="232" width="10" height="172" fill="#495057"/><rect x="395" y="232" width="10" height="172" fill="#495057"/>
+<rect x="65" y="398" width="30" height="6" fill="#343a40"/><rect x="385" y="398" width="30" height="6" fill="#343a40"/>
+<path d="M285,348 C285,300 400,310 400,232 M80,232 C70,280 100,320 130,320 C190,320 265,320 265,348" fill="none" stroke="#343a40" stroke-width="3"/>
+<path d="M80,230 L240,230" fill="none" stroke="#c2703d" stroke-width="9" stroke-linecap="round"/>
+<path d="M240,230 L400,230" fill="none" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<path class="rb" opacity="0" d="M244,230 L396,230" fill="none" stroke="#e03131" stroke-width="6" stroke-linecap="round"/>
+<g class="rc"><path d="M244,230 L396,230" fill="none" stroke="#ff922b" stroke-width="14" stroke-linecap="round" opacity="0.5"/><path d="M244,230 L396,230" fill="none" stroke="#ffd43b" stroke-width="5" stroke-linecap="round"/></g>
+<circle cx="240" cy="230" r="6" fill="#343a40"/><circle cx="80" cy="230" r="7" fill="#343a40"/><circle cx="400" cy="230" r="7" fill="#343a40"/>
+<path class="fb pb" opacity="0" d="M285,348 C285,300 400,310 400,230 L80,230 C70,280 100,320 130,320 C190,320 265,320 265,348" fill="none" stroke="#1c7ed6" stroke-width="7" stroke-linecap="round" stroke-dasharray="0 18"/>
+<path class="fc pc" d="M285,348 C285,300 400,310 400,230 L80,230 C70,280 100,320 130,320 C190,320 265,320 265,348" fill="none" stroke="#1c7ed6" stroke-width="7" stroke-linecap="round" stroke-dasharray="0 18"/>
+<g class="tb" fill="none" stroke="#e03131" stroke-width="3" stroke-linecap="round"><path d="M285,212 q-6,-7 0,-14 q6,-7 0,-14 q-6,-7 0,-14"/><path d="M355,212 q-6,-7 0,-14 q6,-7 0,-14 q-6,-7 0,-14"/></g>
+<g class="tc" fill="none" stroke="#e03131" stroke-width="3" stroke-linecap="round"><path d="M260,212 q-6,-7 0,-14 q6,-7 0,-14 q-6,-7 0,-14"/><path d="M320,212 q-6,-7 0,-14 q6,-7 0,-14 q-6,-7 0,-14"/><path d="M380,212 q-6,-7 0,-14 q6,-7 0,-14 q-6,-7 0,-14"/></g>
+<circle cx="130" cy="330" r="30" fill="#fff" stroke="#343a40" stroke-width="3"/>
+<path d="M108,318 A26,26 0 0 1 152,318" fill="none" stroke="#adb5bd" stroke-width="2"/>
+<text x="130" y="350" font-size="17" font-weight="bold" text-anchor="middle" fill="#2b2a26">A</text>
+<line class="ruc" x1="130" y1="330" x2="130" y2="306" stroke="#c92a2a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="130" cy="330" r="3" fill="#343a40"/>
+<polygon points="180,340 196,328 316,328 300,340" fill="#ced4da" stroke="#495057" stroke-width="2"/>
+<polygon points="300,340 316,328 316,388 300,400" fill="#adb5bd" stroke="#495057" stroke-width="2"/>
+<rect x="180" y="340" width="120" height="60" fill="#dee2e6" stroke="#495057" stroke-width="2"/>
+<circle cx="216" cy="372" r="14" fill="#495057"/>
+<line class="kno" x1="216" y1="372" x2="216" y2="360" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+<circle cx="265" cy="352" r="6" fill="#e03131" stroke="#495057" stroke-width="1.5"/><circle cx="285" cy="352" r="6" fill="#343a40"/>
+<text x="265" y="375" font-size="15" font-weight="bold" text-anchor="middle" fill="#c92a2a">+</text><text x="285" y="375" font-size="15" font-weight="bold" text-anchor="middle" fill="#2b2a26">−</text>
+<text x="252" y="394" font-size="14" fill="#2b2a26">zdroj</text>
+<text x="96" y="262" font-size="17" font-weight="bold" fill="#8a4a1f">měděný drát</text><text x="96" y="282" font-size="17" fill="#2b2a26">malý odpor</text>
+<text x="256" y="262" font-size="17" font-weight="bold" fill="#495057">odporový drát</text><text x="256" y="282" font-size="17" fill="#2b2a26">velký odpor</text>
+<text class="fa" opacity="0" x="50" y="438" font-size="19" font-weight="bold" fill="#2b2a26">Vypnuto: proud neteče.</text>
+<text class="fb" opacity="0" x="50" y="438" font-size="19" font-weight="bold" fill="#c92a2a">Menší proud: drát se ohřeje.</text>
+<text class="fc" x="50" y="438" font-size="19" font-weight="bold" fill="#c92a2a">Větší proud: drát se rozžhaví.</text>
+<text x="34" y="488" font-size="21" font-weight="bold" fill="#2b2a26">Víc hřeje drát s větším odporem.</text>
+<text x="34" y="516" font-size="21" fill="#2b2a26">Čím větší proud, tím víc tepla.</text>
+<text x="34" y="552" font-size="21" fill="#2b2a26">Využití: topná spirála, vařič,</text>
+<text x="34" y="580" font-size="21" fill="#2b2a26">žehlička, pájka.</text>
+	</g>
+</svg>

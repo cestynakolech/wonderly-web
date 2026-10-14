@@ -1,0 +1,62 @@
+<svg viewBox="0 0 460 610" width="460" height="610" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zvětšený kousek kovového drátu: uvnitř jsou atomy kovu a volné elektrony. Po zapnutí proudu se elektrony posouvají drátem a narážejí do atomů kovu. Atomy jim ztěžují pohyb, rozkmitají se víc a drát se zahřívá. Proto má každý vodič elektrický odpor" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Elektrická energie a její přeměny 1/3: Proč se drát zahřívá</title>
+	<style>
+		.f0 { animation: f0 10s linear infinite; } .f1 { animation: f1 10s linear infinite; } .f2 { animation: f2 10s linear infinite; }
+		.on { animation: on 10s linear infinite; } .zar { animation: zar 10s linear infinite; } .tep { animation: tep 10s linear infinite; }
+		.j1 { animation: j1 0.3s linear infinite; } .j2 { animation: j2 0.2s linear infinite; }
+		.e { animation: e 2s linear infinite; }
+		@keyframes f0 { 0% { opacity: 1; } 14% { opacity: 1; } 15% { opacity: 0; } 95% { opacity: 0; } 96% { opacity: 1; } 100% { opacity: 1; } }
+		@keyframes f1 { 0% { opacity: 0; } 14% { opacity: 0; } 15% { opacity: 1; } 49% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 0; } }
+		@keyframes f2 { 0% { opacity: 0; } 49% { opacity: 0; } 50% { opacity: 1; } 94% { opacity: 1; } 95% { opacity: 0; } 100% { opacity: 0; } }
+		@keyframes on { 0% { opacity: 0; } 14% { opacity: 0; } 15% { opacity: 1; } 94% { opacity: 1; } 95% { opacity: 0; } 100% { opacity: 0; } }
+		@keyframes zar { 0% { opacity: 0; } 15% { opacity: 0; } 50% { opacity: 0.25; } 70% { opacity: 0.5; } 94% { opacity: 0.5; } 96% { opacity: 0; } 100% { opacity: 0; } }
+		@keyframes tep { 0% { opacity: 0; } 40% { opacity: 0; } 60% { opacity: 1; } 94% { opacity: 1; } 96% { opacity: 0; } 100% { opacity: 0; } }
+		@keyframes j1 { 0% { transform: translate(0px, 0px); } 25% { transform: translate(1.5px, -1px); } 50% { transform: translate(-1px, 1.5px); } 75% { transform: translate(1px, 1px); } 100% { transform: translate(0px, 0px); } }
+		@keyframes j2 { 0% { transform: translate(0px, 0px); } 25% { transform: translate(3.5px, -2.5px); } 50% { transform: translate(-3px, 3.5px); } 75% { transform: translate(2.5px, 3px); } 100% { transform: translate(0px, 0px); } }
+		@keyframes e { 0% { transform: translate(0px, 0px); opacity: 0; } 5% { opacity: 1; } 9% { transform: translate(30px, -7px); } 26% { transform: translate(85px, 7px); } 42% { transform: translate(140px, -7px); } 59% { transform: translate(195px, 7px); } 76% { transform: translate(250px, -7px); } 92% { transform: translate(305px, 7px); } 95% { opacity: 1; } 100% { transform: translate(330px, 0px); opacity: 0; } }
+		.erm1 { display: none; }
+		@media (prefers-reduced-motion: reduce) { .f0, .f1, .f2, .on, .zar, .tep, .j1, .j2, .e { animation: none; } .pohyb1 { display: none; } .erm1 { display: inline; } }
+	</style>
+	<defs>
+		<g id="atomy" fill="#868e96" stroke="#495057" stroke-width="2">
+			<circle cx="100" cy="228" r="13"/><circle cx="155" cy="228" r="13"/><circle cx="210" cy="228" r="13"/><circle cx="265" cy="228" r="13"/><circle cx="320" cy="228" r="13"/><circle cx="375" cy="228" r="13"/>
+			<circle cx="100" cy="270" r="13"/><circle cx="155" cy="270" r="13"/><circle cx="210" cy="270" r="13"/><circle cx="265" cy="270" r="13"/><circle cx="320" cy="270" r="13"/><circle cx="375" cy="270" r="13"/>
+			<circle cx="100" cy="312" r="13"/><circle cx="155" cy="312" r="13"/><circle cx="210" cy="312" r="13"/><circle cx="265" cy="312" r="13"/><circle cx="320" cy="312" r="13"/><circle cx="375" cy="312" r="13"/>
+		</g>
+		<g id="el1"><circle cx="70" cy="249" r="6" fill="#1c7ed6"/><line x1="67" y1="249" x2="73" y2="249" stroke="#fff" stroke-width="2"/></g>
+		<g id="el2"><circle cx="70" cy="291" r="6" fill="#1c7ed6"/><line x1="67" y1="291" x2="73" y2="291" stroke="#fff" stroke-width="2"/></g>
+	</defs>
+	<rect x="0" y="0" width="460" height="610" fill="#f8f9fa"/>
+	<g id="panel-1"><rect x="26" y="16" width="420" height="590" rx="12" fill="#dee2e6"/><rect x="20" y="10" width="420" height="590" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/><circle cx="52" cy="44" r="17" fill="#2b2a26"/><text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">1</text><text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Proč se drát zahřívá</text>
+<text x="34" y="92" font-size="21" fill="#2b2a26">Když drátem teče proud, volné</text>
+<text x="34" y="120" font-size="21" fill="#2b2a26">elektrony se v něm posouvají.</text>
+<rect x="34" y="138" width="392" height="312" rx="8" fill="#ffffff" stroke="#ced4da" stroke-width="2"/>
+<g class="tep" opacity="1" fill="none" stroke="#e03131" stroke-width="3" stroke-linecap="round">
+<path d="M120,190 q-7,-7 0,-14 q7,-7 0,-14 q-7,-7 0,-14"/><path d="M190,190 q-7,-7 0,-14 q7,-7 0,-14 q-7,-7 0,-14"/><path d="M260,190 q-7,-7 0,-14 q7,-7 0,-14 q-7,-7 0,-14"/><path d="M330,190 q-7,-7 0,-14 q7,-7 0,-14 q-7,-7 0,-14"/>
+</g>
+<rect x="60" y="200" width="340" height="140" fill="#f1f3f5" stroke="#adb5bd" stroke-width="3"/>
+<path d="M60,200 A22,70 0 0 0 60,340" fill="none" stroke="#adb5bd" stroke-width="3" stroke-dasharray="6 5"/>
+<rect class="zar" opacity="0.5" x="60" y="200" width="340" height="140" fill="#ff6b6b"/>
+<ellipse cx="400" cy="270" rx="22" ry="70" fill="#dee2e6" stroke="#adb5bd" stroke-width="3"/>
+<ellipse class="zar" opacity="0.5" cx="400" cy="270" rx="22" ry="70" fill="#ff6b6b"/>
+<g class="f0" opacity="0"><use href="#atomy"/></g>
+<g class="f1" opacity="0"><g class="j1"><use href="#atomy"/></g></g>
+<g class="f2"><g class="j2"><use href="#atomy"/></g></g>
+<g class="f0" opacity="0"><use href="#el1" transform="translate(40,0)"/><use href="#el1" transform="translate(150,0)"/><use href="#el1" transform="translate(260,0)"/><use href="#el2" transform="translate(10,0)"/><use href="#el2" transform="translate(120,0)"/><use href="#el2" transform="translate(230,0)"/></g>
+<g class="on pohyb1">
+<g class="e"><use href="#el1"/></g><g class="e" style="animation-delay:-0.67s"><use href="#el1"/></g><g class="e" style="animation-delay:-1.33s"><use href="#el1"/></g>
+<g class="e" style="animation-delay:-0.33s"><use href="#el2"/></g><g class="e" style="animation-delay:-1s"><use href="#el2"/></g><g class="e" style="animation-delay:-1.67s"><use href="#el2"/></g>
+</g>
+<g class="erm1"><use href="#el1" transform="translate(48,-7)"/><use href="#el1" transform="translate(167,7)"/><use href="#el1" transform="translate(277,-7)"/><use href="#el2" transform="translate(12,7)"/><use href="#el2" transform="translate(112,-7)"/><use href="#el2" transform="translate(222,7)"/></g>
+<text x="60" y="370" font-size="17" fill="#495057">zvětšený kousek drátu</text>
+<circle cx="66" cy="396" r="6" fill="#1c7ed6"/><line x1="63" y1="396" x2="69" y2="396" stroke="#fff" stroke-width="2"/><text x="80" y="402" font-size="17" fill="#2b2a26">volný elektron</text>
+<circle cx="252" cy="396" r="10" fill="#868e96" stroke="#495057" stroke-width="2"/><text x="270" y="402" font-size="17" fill="#2b2a26">atom kovu</text>
+<text class="f0" opacity="0" x="50" y="436" font-size="19" font-weight="bold" fill="#2b2a26">Vypnuto: proud neteče.</text>
+<text class="f1" opacity="0" x="50" y="436" font-size="19" font-weight="bold" fill="#2b2a26">Proud teče: elektrony narážejí.</text>
+<text class="f2" x="50" y="436" font-size="19" font-weight="bold" fill="#c92a2a">Atomy kmitají víc: drát se hřeje.</text>
+<text x="34" y="488" font-size="21" font-weight="bold" fill="#2b2a26">Atomy kovu elektrony brzdí.</text>
+<text x="34" y="516" font-size="21" fill="#2b2a26">Při nárazech se rozkmitají víc</text>
+<text x="34" y="544" font-size="21" fill="#2b2a26">a drát se zahřívá.</text>
+<text x="34" y="580" font-size="21" fill="#2b2a26">Proto má každý vodič <tspan font-weight="bold">odpor</tspan>.</text>
+	</g>
+</svg>

@@ -3613,6 +3613,7 @@ export const temata: Record<string, Tema[]> = {
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Elektromagnetická indukce', cesta: 'MaQ4DzuqK5E' },
 						{ druh: 'video', nazev: 'Píseň: Dobrý sluha, zlý pán 🎵', cesta: '/materialy/fyzika/9-rocnik/elektricka-energie-a-bezpecnost/elektricka-energie-a-premeny/pisen-dobry-sluha-zly-pan.m4a' },
+						{ druh: 'infografika', nazev: 'Infografika: Elektrická energie a její přeměny v kostce', cesta: '/materialy/fyzika/9-rocnik/elektricka-energie-a-bezpecnost/elektricka-energie-a-premeny/infografika-elektricka-energie-a-premeny-panel-1.svg', panely: ['/materialy/fyzika/9-rocnik/elektricka-energie-a-bezpecnost/elektricka-energie-a-premeny/infografika-elektricka-energie-a-premeny-panel-1.svg', '/materialy/fyzika/9-rocnik/elektricka-energie-a-bezpecnost/elektricka-energie-a-premeny/infografika-elektricka-energie-a-premeny-panel-2.svg', '/materialy/fyzika/9-rocnik/elektricka-energie-a-bezpecnost/elektricka-energie-a-premeny/infografika-elektricka-energie-a-premeny-panel-3.svg'] },
 					],
 					odkazy: [
 						{ nazev: 'Video: Generátor elektrického proudu (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/3524-generator-elektrickeho-proudu' },
