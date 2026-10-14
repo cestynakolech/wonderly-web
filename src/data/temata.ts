@@ -3024,6 +3024,7 @@ export const temata: Record<string, Tema[]> = {
 						{ nazev: 'Techmania Edu — Atmosférické srážky', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/meteorologie/atmosfericke-srazky' },
 					],
 					materialy: [
+						{ druh: 'infografika', nazev: 'Infografika: Voda v přírodě v pohybu', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/skupenske-zmeny-vody-v-prirode/infografika-skupenske-zmeny-vody-v-prirode-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/skupenske-zmeny-vody-v-prirode/infografika-skupenske-zmeny-vody-v-prirode-panel-1.svg', '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/skupenske-zmeny-vody-v-prirode/infografika-skupenske-zmeny-vody-v-prirode-panel-2.svg', '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/skupenske-zmeny-vody-v-prirode/infografika-skupenske-zmeny-vody-v-prirode-panel-3.svg', '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/skupenske-zmeny-vody-v-prirode/infografika-skupenske-zmeny-vody-v-prirode-panel-4.svg'] },
 						{ druh: 'video', nazev: 'Píseň: Koloběh vody 🎵', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/skupenske-zmeny-vody-v-prirode/pisen-skupenske-zmeny-vody-v-prirode.m4a' },
 					],
 				},

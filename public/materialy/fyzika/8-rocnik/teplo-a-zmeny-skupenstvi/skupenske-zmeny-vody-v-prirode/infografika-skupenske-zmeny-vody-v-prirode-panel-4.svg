@@ -1,0 +1,130 @@
+<svg viewBox="0 0 460 720" width="460" height="720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Jinovatka: dva šípky na větvičce v mrazivém ránu. Částice vodní páry ze vzduchu dopadají na studený povrch šípků a větvičky a mění se rovnou v bílé ledové krystalky, bez kapek. Krystalků postupně přibývá, až je šípek pokrytý jinovatkou. Lupa ukazuje, jak z částic páry na povrchu roste ledový krystalek. Led na kaluži naopak vzniká tuhnutím kapalné vody." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Skupenské změny vody v přírodě 4/4: Jinovatka – z páry rovnou led</title>
+	<defs>
+		<clipPath id="pri4-lupa"><circle cx="360" cy="428" r="56"/></clipPath>
+		<!-- ledový krystalek = bílá hvězdička s obrysem #74c0fc (legenda tématu) -->
+		<filter id="pri4-obrys" x="-20%" y="-20%" width="140%" height="140%">
+			<feMorphology in="SourceAlpha" operator="dilate" radius="1.3" result="tl"/>
+			<feFlood flood-color="#74c0fc"/>
+			<feComposite in2="tl" operator="in" result="obr"/>
+			<feMerge><feMergeNode in="obr"/><feMergeNode in="SourceGraphic"/></feMerge>
+		</filter>
+	</defs>
+	<style>
+		.p4-k1, .p4-k2, .p4-k3, .p4-k4 { transform-box: fill-box; transform-origin: center; animation: 12s linear infinite; }
+		.p4-k1 { animation-name: p4k1; } .p4-k2 { animation-name: p4k2; } .p4-k3 { animation-name: p4k3; } .p4-k4 { animation-name: p4k4; }
+		@keyframes p4k1 { 0%, 4% { transform: scale(0); opacity: 0; } 12% { transform: scale(1); opacity: 1; } 88% { transform: scale(1); opacity: 1; } 95%, 100% { transform: scale(1); opacity: 0; } }
+		@keyframes p4k2 { 0%, 18% { transform: scale(0); opacity: 0; } 26% { transform: scale(1); opacity: 1; } 88% { transform: scale(1); opacity: 1; } 95%, 100% { transform: scale(1); opacity: 0; } }
+		@keyframes p4k3 { 0%, 32% { transform: scale(0); opacity: 0; } 40% { transform: scale(1); opacity: 1; } 88% { transform: scale(1); opacity: 1; } 95%, 100% { transform: scale(1); opacity: 0; } }
+		@keyframes p4k4 { 0%, 46% { transform: scale(0); opacity: 0; } 54% { transform: scale(1); opacity: 1; } 88% { transform: scale(1); opacity: 1; } 95%, 100% { transform: scale(1); opacity: 0; } }
+		.p4-par { animation: p4par 3s ease-out infinite; }
+		@keyframes p4par { 0% { transform: translate(70px, -40px); opacity: 0; } 15% { opacity: 1; } 80% { transform: translate(0px, 0px); opacity: 1; } 100% { transform: translate(0px, 0px); opacity: 0; } }
+		.p4-lkr { transform-box: fill-box; transform-origin: center; animation: p4lkr 12s linear infinite; }
+		@keyframes p4lkr { 0% { transform: scale(0.15); opacity: 1; } 60% { transform: scale(1); opacity: 1; } 90% { transform: scale(1); opacity: 1; } 100% { transform: scale(1); opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) { .p4-k1, .p4-k2, .p4-k3, .p4-k4, .p4-par, .p4-lkr { animation: none; } }
+	</style>
+	<rect x="0" y="0" width="460" height="720" fill="#f8f9fa"/>
+	<g id="panel-4">
+		<rect x="26" y="16" width="420" height="696" rx="12" fill="#dee2e6"/>
+		<rect x="20" y="10" width="420" height="696" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/>
+		<circle cx="52" cy="44" r="17" fill="#2b2a26"/>
+		<text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">4</text>
+		<text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Jinovatka: z páry led</text>
+		<text x="34" y="92" font-size="21" fill="#2b2a26">Mrazivé ráno, šípky na větvičce.</text>
+		<rect x="30" y="110" width="400" height="420" rx="8" fill="#2f4f3e"/>
+
+		<!-- větvička a šípky -->
+		<!-- větvička pod šípky, šípky visí na stopkách (PDF 17 s. 4) -->
+		<path d="M30,520 L430,272" stroke="#6b4a2b" stroke-width="9" stroke-linecap="round"/>
+		<path d="M199,390 Q204,402 210,410" fill="none" stroke="#6b4a2b" stroke-width="4" stroke-linecap="round"/>
+		<path d="M272,303 Q276,336 288,360" fill="none" stroke="#6b4a2b" stroke-width="4" stroke-linecap="round"/>
+		<path d="M110,470 L96,446 M96,446 l-8,-4 M96,446 l2,-9" fill="none" stroke="#6b4a2b" stroke-width="3" stroke-linecap="round"/>
+		<ellipse cx="180" cy="340" rx="44" ry="58" transform="rotate(-20 180 340)" fill="#d6336c" stroke="#a61e4d" stroke-width="2"/>
+		<ellipse cx="166" cy="318" rx="10" ry="18" transform="rotate(-20 166 318)" fill="#f783ac" opacity="0.7"/>
+		<ellipse cx="292" cy="262" rx="38" ry="50" transform="rotate(25 292 262)" fill="#d6336c" stroke="#a61e4d" stroke-width="2"/>
+		<ellipse cx="282" cy="246" rx="8" ry="15" transform="rotate(25 282 246)" fill="#f783ac" opacity="0.7"/>
+		<g stroke="#3b2414" stroke-width="3" stroke-linecap="round">
+			<path d="M160,286 l-8,-12 M160,286 l4,-14 M160,286 l-14,-2 M160,286 l12,-6"/>
+			<path d="M313,217 l2,-14 M313,217 l12,-8 M313,217 l-10,-8 M313,217 l14,4"/>
+		</g>
+
+		<!-- částice páry dopadají na studený povrch -->
+		<g fill="#ff922b" stroke="#d9480f" stroke-width="1.5">
+			<circle class="p4-par" cx="230" cy="326" r="5"/>
+			<circle class="p4-par" style="animation-delay:-0.75s" cx="334" cy="250" r="5"/>
+			<circle class="p4-par" style="animation-delay:-1.5s" cx="214" cy="296" r="5"/>
+			<circle class="p4-par" style="animation-delay:-2.25s" cx="322" cy="290" r="5"/>
+		</g>
+
+		<!-- ledové krystalky jinovatky -->
+		<g fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" filter="url(#pri4-obrys)">
+			<path class="p4-k1" d="M219,336 h10 M224,331 v10 M220,332 l8,8 M228,332 l-8,8"/>
+			<path class="p4-k2" d="M220,361 h10 M225,356 v10 M221,357 l8,8 M229,357 l-8,8"/>
+			<path class="p4-k3" d="M212,382 h10 M217,377 v10 M213,378 l8,8 M221,378 l-8,8"/>
+			<path class="p4-k4" d="M196,394 h10 M201,389 v10 M197,390 l8,8 M205,390 l-8,8"/>
+			<path class="p4-k1" d="M176,396 h10 M181,391 v10 M177,392 l8,8 M185,392 l-8,8"/>
+			<path class="p4-k2" d="M156,387 h10 M161,382 v10 M157,383 l8,8 M165,383 l-8,8"/>
+			<path class="p4-k3" d="M140,368 h10 M145,363 v10 M141,364 l8,8 M149,364 l-8,8"/>
+			<path class="p4-k4" d="M131,344 h10 M136,339 v10 M132,340 l8,8 M140,340 l-8,8"/>
+			<path class="p4-k1" d="M130,319 h10 M135,314 v10 M131,315 l8,8 M139,315 l-8,8"/>
+			<path class="p4-k2" d="M138,298 h10 M143,293 v10 M139,294 l8,8 M147,294 l-8,8"/>
+			<path class="p4-k3" d="M154,286 h10 M159,281 v10 M155,282 l8,8 M163,282 l-8,8"/>
+			<path class="p4-k4" d="M174,284 h10 M179,279 v10 M175,280 l8,8 M183,280 l-8,8"/>
+			<path class="p4-k1" d="M194,293 h10 M199,288 v10 M195,289 l8,8 M203,289 l-8,8"/>
+			<path class="p4-k2" d="M210,312 h10 M215,307 v10 M211,308 l8,8 M219,308 l-8,8"/>
+			<path class="p4-k3" d="M317,287 h10 M322,282 v10 M318,283 l8,8 M326,283 l-8,8"/>
+			<path class="p4-k4" d="M299,304 h10 M304,299 v10 M300,300 l8,8 M308,300 l-8,8"/>
+			<path class="p4-k1" d="M278,310 h10 M283,305 v10 M279,306 l8,8 M287,306 l-8,8"/>
+			<path class="p4-k2" d="M259,303 h10 M264,298 v10 M260,299 l8,8 M268,299 l-8,8"/>
+			<path class="p4-k3" d="M248,285 h10 M253,280 v10 M249,281 l8,8 M257,281 l-8,8"/>
+			<path class="p4-k4" d="M248,261 h10 M253,256 v10 M249,257 l8,8 M257,257 l-8,8"/>
+			<path class="p4-k1" d="M257,237 h10 M262,232 v10 M258,233 l8,8 M266,233 l-8,8"/>
+			<path class="p4-k2" d="M275,220 h10 M280,215 v10 M276,216 l8,8 M284,216 l-8,8"/>
+			<path class="p4-k3" d="M296,214 h10 M301,209 v10 M297,210 l8,8 M305,210 l-8,8"/>
+			<path class="p4-k4" d="M315,221 h10 M320,216 v10 M316,217 l8,8 M324,217 l-8,8"/>
+			<path class="p4-k1" d="M326,239 h10 M331,234 v10 M327,235 l8,8 M335,235 l-8,8"/>
+			<path class="p4-k2" d="M326,263 h10 M331,258 v10 M327,259 l8,8 M335,259 l-8,8"/>
+			<g transform="translate(0,44)">
+			<path class="p4-k3" d="M55,452 h10 M60,447 v10 M56,448 l8,8 M64,448 l-8,8"/>
+			<path class="p4-k4" d="M89,431 h10 M94,426 v10 M90,427 l8,8 M98,427 l-8,8"/>
+			<path class="p4-k1" d="M123,409 h10 M128,404 v10 M124,405 l8,8 M132,405 l-8,8"/>
+			<path class="p4-k3" d="M191,367 h10 M196,362 v10 M192,363 l8,8 M200,363 l-8,8"/>
+			<path class="p4-k4" d="M225,346 h10 M230,341 v10 M226,342 l8,8 M234,342 l-8,8"/>
+			<path class="p4-k1" d="M259,325 h10 M264,320 v10 M260,321 l8,8 M268,321 l-8,8"/>
+			<path class="p4-k4" d="M361,262 h10 M366,257 v10 M362,258 l8,8 M370,258 l-8,8"/>
+			<path class="p4-k2" d="M395,242 h10 M400,237 v10 M396,238 l8,8 M404,238 l-8,8"/>
+			</g>
+		</g>
+
+		<!-- štítek mrazu -->
+		<rect x="40" y="122" width="96" height="30" rx="15" fill="#2f4f3e" stroke="#ffffff" stroke-width="1.5"/>
+		<path d="M54,137 h12 M60,131 v12 M55,132 l10,10 M65,132 l-10,10" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" filter="url(#pri4-obrys)"/>
+		<text x="74" y="143" font-size="18" font-weight="bold" fill="#ffffff">mráz</text>
+
+		<!-- lupa: povrch šípku -->
+		<circle cx="360" cy="428" r="56" fill="#e7f5ff"/>
+		<g clip-path="url(#pri4-lupa)">
+			<rect x="300" y="448" width="120" height="40" fill="#d6336c"/>
+			<line x1="300" y1="448" x2="420" y2="448" stroke="#a61e4d" stroke-width="2"/>
+			<g filter="url(#pri4-obrys)"><path d="M346,432 h28 M360,418 v28 M350,422 l20,20 M370,422 l-20,20" class="p4-lkr" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" style="transform-origin: center bottom"/></g>
+			<g fill="#ff922b" stroke="#d9480f" stroke-width="1.5">
+				<circle class="p4-par" cx="372" cy="430" r="5"/>
+				<circle class="p4-par" style="animation-delay:-1s" cx="348" cy="430" r="5"/>
+				<circle class="p4-par" style="animation-delay:-2s" cx="360" cy="418" r="5"/>
+			</g>
+		</g>
+		<circle cx="360" cy="428" r="56" fill="none" stroke="#ffffff" stroke-width="4"/>
+		<line x1="304" y1="420" x2="232" y2="346" stroke="#ffffff" stroke-width="2"/>
+		<text x="354" y="510" font-size="14" font-weight="bold" text-anchor="middle" fill="#ffffff">pára → rovnou led</text>
+
+		<!-- legenda a závěr -->
+		<circle cx="52" cy="558" r="5" fill="#ff922b" stroke="#d9480f" stroke-width="1.5"/>
+		<text x="70" y="564" font-size="17" fill="#2b2a26">částice vodní páry</text>
+		<path d="M226,558 h12 M232,552 v12 M227,553 l10,10 M237,553 l-10,10" stroke="#ffffff" stroke-width="2" stroke-linecap="round" filter="url(#pri4-obrys)"/>
+		<text x="248" y="564" font-size="17" fill="#2b2a26">ledový krystalek</text>
+		<text x="34" y="604" font-size="18" fill="#2b2a26">Na studeném povrchu přejde pára</text>
+		<text x="34" y="628" font-size="18" fill="#2b2a26">rovnou na led, bez kapek. To je</text>
+		<text x="34" y="652" font-size="18" fill="#2b2a26"><tspan font-weight="bold">desublimace</tspan> – vzniká jinovatka.</text>
+		<text x="34" y="684" font-size="18" fill="#2b2a26">Led na kaluži vzniká <tspan font-weight="bold">tuhnutím</tspan> vody.</text>
+	</g>
+</svg>

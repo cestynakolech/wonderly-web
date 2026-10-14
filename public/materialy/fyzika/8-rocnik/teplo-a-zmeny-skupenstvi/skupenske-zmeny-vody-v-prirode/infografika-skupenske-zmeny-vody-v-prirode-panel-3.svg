@@ -1,0 +1,105 @@
+<svg viewBox="0 0 460 720" width="460" height="720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Jak rostou kroupy: řez mohutným bouřkovým oblakem nad polem. V levé části oblaku stoupá proud vzduchu nahoru, v pravé klesá dolů. Kapka vody je vynesena do studené horní části oblaku a zmrzne. Pak krouží oblakem dokola, při každém oběhu na ní namrzne další vrstva vody a kroupa roste. Po třetím oběhu je tak těžká, že ji proud neudrží, a spadne na zem. Vlevo dole je kroupa v řezu s vrstvami jako cibule." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Skupenské změny vody v přírodě 3/4: Jak rostou kroupy</title>
+	<defs>
+		<clipPath id="pri3-oblak"><path d="M48,150 Q60,128 120,130 L340,130 Q404,128 414,150 Q400,168 350,170 Q372,196 366,230 Q392,262 376,300 Q396,336 368,370 Q360,398 320,396 L120,396 Q82,398 82,368 Q60,334 86,300 Q72,262 98,230 Q90,196 112,170 Q62,168 48,150 Z"/></clipPath>
+		<marker id="pri3-cervena" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#e03131"/></marker>
+		<marker id="pri3-modra" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#1c7ed6"/></marker>
+	</defs>
+	<style>
+		.p3-poz { animation: p3poz 15s linear infinite; }
+		@keyframes p3poz {
+			0% { transform: translate(0px, 0px); opacity: 1; }
+			8% { transform: translate(0px, -176px); }
+			13% { transform: translate(160px, -176px); }
+			21% { transform: translate(160px, 0px); }
+			26% { transform: translate(0px, 0px); }
+			34% { transform: translate(0px, -176px); }
+			39% { transform: translate(160px, -176px); }
+			47% { transform: translate(160px, 0px); }
+			52% { transform: translate(0px, 0px); }
+			60% { transform: translate(0px, -176px); }
+			65% { transform: translate(160px, -176px); }
+			73% { transform: translate(160px, 0px); }
+			86% { transform: translate(160px, 104px); opacity: 1; }
+			96% { transform: translate(160px, 104px); opacity: 1; }
+			100% { transform: translate(160px, 104px); opacity: 0; }
+		}
+		.p3-led { transform-box: fill-box; transform-origin: center; animation: p3led 15s linear infinite; }
+		@keyframes p3led { 0%, 6% { transform: scale(1); opacity: 0; } 7% { transform: scale(1); opacity: 1; } 30% { transform: scale(1); } 36% { transform: scale(1.5); } 56% { transform: scale(1.5); } 62%, 100% { transform: scale(2.1); opacity: 1; } }
+		.p3-kapka { animation: p3kapka 15s linear infinite; }
+		@keyframes p3kapka { 0%, 6% { opacity: 1; } 7%, 100% { opacity: 0; } }
+		.p3-v1 { animation: p3v1 15s linear infinite; }
+		@keyframes p3v1 { 0%, 6% { opacity: 0; } 8%, 100% { opacity: 1; } }
+		.p3-v2 { animation: p3v2 15s linear infinite; }
+		@keyframes p3v2 { 0%, 34% { opacity: 0; } 36%, 100% { opacity: 1; } }
+		.p3-v3 { animation: p3v3 15s linear infinite; }
+		@keyframes p3v3 { 0%, 60% { opacity: 0; } 62%, 100% { opacity: 1; } }
+		.p3-proud { animation: p3proud 0.9s linear infinite; }
+		@keyframes p3proud { from { stroke-dashoffset: 30; } to { stroke-dashoffset: 0; } }
+		@media (prefers-reduced-motion: reduce) { .p3-poz, .p3-led, .p3-kapka, .p3-v1, .p3-v2, .p3-v3, .p3-proud { animation: none; } .p3-led, .p3-v1, .p3-v2, .p3-v3 { opacity: 1; } .p3-kapka { opacity: 0; }
+			/* statický obraz: velká kroupa už dopadla na pole */
+			.p3-poz { transform: translate(160px, 104px); } .p3-led { transform: scale(2.1); } }
+	</style>
+	<rect x="0" y="0" width="460" height="720" fill="#f8f9fa"/>
+	<g id="panel-3">
+		<rect x="26" y="16" width="420" height="696" rx="12" fill="#dee2e6"/>
+		<rect x="20" y="10" width="420" height="696" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/>
+		<circle cx="52" cy="44" r="17" fill="#2b2a26"/>
+		<text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">3</text>
+		<text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Jak rostou kroupy</text>
+		<text x="34" y="92" font-size="21" fill="#2b2a26">Řez mohutným bouřkovým oblakem.</text>
+		<rect x="30" y="110" width="400" height="420" rx="8" fill="#d0dbe5"/>
+
+		<!-- pole -->
+		<path d="M30,488 L430,488 L430,522 Q430,530 422,530 L38,530 Q30,530 30,522 Z" fill="#ffe066"/>
+		<line x1="30" y1="488" x2="430" y2="488" stroke="#e8b100" stroke-width="2"/>
+
+		<!-- bouřkový oblak s kovadlinou -->
+		<path d="M48,150 Q60,128 120,130 L340,130 Q404,128 414,150 Q400,168 350,170 Q372,196 366,230 Q392,262 376,300 Q396,336 368,370 Q360,398 320,396 L120,396 Q82,398 82,368 Q60,334 86,300 Q72,262 98,230 Q90,196 112,170 Q62,168 48,150 Z" fill="#adb5bd" stroke="#495057" stroke-width="2.5"/>
+		<g clip-path="url(#pri3-oblak)">
+			<rect x="40" y="120" width="380" height="118" fill="#d0ebff"/>
+			<line x1="40" y1="238" x2="420" y2="238" stroke="#1c7ed6" stroke-width="2" stroke-dasharray="6 5"/>
+		</g>
+		<path d="M48,150 Q60,128 120,130 L340,130 Q404,128 414,150 Q400,168 350,170 Q372,196 366,230 Q392,262 376,300 Q396,336 368,370 Q360,398 320,396 L120,396 Q82,398 82,368 Q60,334 86,300 Q72,262 98,230 Q90,196 112,170 Q62,168 48,150 Z" fill="none" stroke="#495057" stroke-width="2.5"/>
+		<path d="M150,370 L150,194 L310,194 L310,370 Z" fill="none" stroke="#495057" stroke-width="1.5" stroke-dasharray="2 5" opacity="0.7"/>
+		<text x="232" y="158" font-size="15" font-weight="bold" text-anchor="middle" fill="#1864ab">nahoře mráz: kapky mrznou</text>
+
+		<!-- proudy vzduchu -->
+		<line class="p3-proud" x1="124" y1="384" x2="124" y2="190" stroke="#e03131" stroke-width="5" stroke-dasharray="20 10" marker-end="url(#pri3-cervena)"/>
+		<line class="p3-proud" x1="340" y1="190" x2="340" y2="384" stroke="#1c7ed6" stroke-width="5" stroke-dasharray="20 10" marker-end="url(#pri3-modra)"/>
+
+		<!-- déšť pod oblakem -->
+		<g stroke="#1971c2" stroke-width="2" stroke-linecap="round" opacity="0.7">
+			<line x1="140" y1="404" x2="132" y2="440"/><line x1="170" y1="420" x2="162" y2="456"/><line x1="200" y1="404" x2="192" y2="440"/>
+			<line x1="230" y1="424" x2="222" y2="460"/><line x1="260" y1="404" x2="252" y2="440"/><line x1="152" y1="452" x2="146" y2="478"/><line x1="214" y1="448" x2="208" y2="476"/>
+		</g>
+
+		<!-- kroupa: kapka, potom ledové kuličky -->
+		<g class="p3-poz">
+			<path class="p3-kapka" d="M150,362 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z" fill="#a5d8ff" stroke="#1c7ed6" stroke-width="1.5"/>
+			<!-- kroupa = soustředné kruhy ledu (#e7f5ff, obrys #74c0fc), ne bublina páry -->
+			<g class="p3-led" opacity="0" fill="#e7f5ff" stroke="#74c0fc">
+				<circle cx="150" cy="370" r="7" stroke-width="2"/>
+				<circle cx="150" cy="370" r="4.2" stroke-width="1.2"/>
+				<circle cx="150" cy="370" r="1.8" fill="#74c0fc" stroke="none"/>
+			</g>
+		</g>
+
+		<!-- legenda a závěr -->
+		<g transform="translate(70,586)">
+			<circle class="p3-v3" r="26" fill="#e7f5ff" stroke="#74c0fc" stroke-width="2" opacity="0"/>
+			<circle class="p3-v2" r="18" fill="#e7f5ff" stroke="#74c0fc" stroke-width="2" opacity="0"/>
+			<circle class="p3-v1" r="10" fill="#e7f5ff" stroke="#74c0fc" stroke-width="2" opacity="0"/>
+			<circle r="4" fill="#74c0fc"/>
+		</g>
+		<text x="110" y="570" font-size="17" font-weight="bold" fill="#2b2a26">kroupa v řezu:</text>
+		<text x="110" y="592" font-size="17" fill="#2b2a26">vrstvy jako cibule</text>
+		<line x1="300" y1="574" x2="300" y2="550" stroke="#e03131" stroke-width="4" marker-end="url(#pri3-cervena)"/>
+		<text x="312" y="570" font-size="15" fill="#2b2a26">stoupá</text>
+		<line x1="300" y1="584" x2="300" y2="608" stroke="#1c7ed6" stroke-width="4" marker-end="url(#pri3-modra)"/>
+		<text x="312" y="604" font-size="15" fill="#2b2a26">klesá</text>
+		<text x="34" y="642" font-size="18" fill="#2b2a26">Proud vzduchu vynese kapku nahoru, zmrzne.</text>
+		<text x="34" y="666" font-size="18" fill="#2b2a26">Při každém oběhu na ní namrzne další voda.</text>
+		<text x="34" y="690" font-size="18" fill="#2b2a26">Těžkou kroupu proud neudrží, spadne.</text>
+	</g>
+</svg>

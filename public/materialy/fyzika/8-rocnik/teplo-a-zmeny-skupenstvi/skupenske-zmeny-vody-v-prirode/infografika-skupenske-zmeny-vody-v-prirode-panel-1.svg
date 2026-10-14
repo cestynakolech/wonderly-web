@@ -1,0 +1,205 @@
+<svg viewBox="0 0 460 720" width="460" height="720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cesta jedné kapky koloběhem vody: výpar, kondenzace, srážky. Krok 1 výpar: voda z moře přijímá teplo od Slunce a mění se v páru, z kapaliny je plyn. Částice páry jsou daleko od sebe. Krok 2 kondenzace: pára stoupá, nahoře se ochladí a v oblaku z ní vznikají kapičky, z plynu je kapalina. Krok 3 srážky: z oblaku padá déšť, kapky. V zimě místo toho sněží: ledové krystalky rostou v oblaku přímo z páry, z plynu je pevná látka. Krok 4 odtok a vsakování: voda teče řekou a půdou zpět do moře, to je jen pohyb, skupenství se nemění. Pak se koloběh opakuje." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Skupenské změny vody v přírodě 1/4: Cesta jedné kapky</title>
+	<defs>
+		<clipPath id="pri1-scena"><rect x="30" y="110" width="400" height="350" rx="8"/></clipPath>
+		<marker id="pri1-modra" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#1971c2"/></marker>
+		<marker id="pri1-seda" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#495057"/></marker>
+		<!-- ledový krystalek = bílá hvězdička s obrysem #74c0fc (LEGENDA-TEPLO, stejně jako panel 4) -->
+		<filter id="pri1-obrys" x="-30%" y="-30%" width="160%" height="160%">
+			<feMorphology in="SourceAlpha" operator="dilate" radius="1.3" result="tl"/>
+			<feFlood flood-color="#74c0fc"/>
+			<feComposite in2="tl" operator="in" result="obr"/>
+			<feMerge><feMergeNode in="obr"/><feMergeNode in="SourceGraphic"/></feMerge>
+		</filter>
+	</defs>
+	<style>
+		/* jedna sledovaná kapka, cyklus 16 s: 1 výpar 0–14 %, 2 kondenzace 14–42 %, 3 srážky 42–60 %, 4 odtok 60–100 % */
+		.p1-cesta { animation: p1cesta 16s linear infinite; }
+		@keyframes p1cesta {
+			0%, 4% { transform: translate(330px, 420px); }
+			10% { transform: translate(330px, 350px); }
+			26% { transform: translate(330px, 262px); }
+			36%, 44% { transform: translate(182px, 210px); }
+			58% { transform: translate(182px, 354px); }
+			66% { transform: translate(215px, 368px); }
+			74% { transform: translate(254px, 374px); }
+			80% { transform: translate(292px, 398px); }
+			86%, 100% { transform: translate(330px, 420px); }
+		}
+		.p1-fk { animation: p1fk 16s linear infinite; }
+		@keyframes p1fk { 0%, 9% { opacity: 1; } 10%, 37% { opacity: 0; } 38%, 100% { opacity: 1; } }
+		.p1-fp { animation: p1fp 16s linear infinite; }
+		@keyframes p1fp { 0%, 9% { opacity: 0; } 10%, 37% { opacity: 1; } 38%, 100% { opacity: 0; } }
+		.p1-kmit { animation: p1kmit 0.5s linear infinite alternate; }
+		@keyframes p1kmit { from { transform: translate(-2px, 2px); } to { transform: translate(2px, -2px); } }
+		.p1-mrak { animation: p1mrak 16s ease-in-out infinite; }
+		@keyframes p1mrak { 0%, 26% { opacity: 0; } 34%, 90% { opacity: 1; } 97%, 100% { opacity: 0; } }
+		.p1-kapicky { animation: p1kapicky 16s linear infinite; }
+		@keyframes p1kapicky { 0%, 32% { opacity: 0; } 37%, 100% { opacity: 1; } }
+		.p1-srazky { animation: p1srazky 16s linear infinite; }
+		@keyframes p1srazky { 0%, 42% { opacity: 0; } 44%, 60% { opacity: 1; } 62%, 100% { opacity: 0; } }
+		.p1-dest { animation: p1dest 1s linear infinite; }
+		@keyframes p1dest { 0% { transform: translate(0px, 0px); opacity: 0; } 15% { opacity: 1; } 75% { opacity: 1; } 100% { transform: translate(0px, 60px); opacity: 0; } }
+		.p1-tok { animation: p1tok 1.2s linear infinite; }
+		@keyframes p1tok { from { stroke-dashoffset: 0; } to { stroke-dashoffset: 24; } }
+		.p1-h1 { animation: p1h1 16s linear infinite; }
+		@keyframes p1h1 { 0%, 13.9% { opacity: 1; } 14%, 100% { opacity: 0; } }
+		.p1-h2 { animation: p1h2 16s linear infinite; }
+		@keyframes p1h2 { 0%, 13.9% { opacity: 0; } 14%, 41.9% { opacity: 1; } 42%, 100% { opacity: 0; } }
+		.p1-h3 { animation: p1h3 16s linear infinite; }
+		@keyframes p1h3 { 0%, 41.9% { opacity: 0; } 42%, 59.9% { opacity: 1; } 60%, 100% { opacity: 0; } }
+		.p1-h4 { animation: p1h4 16s linear infinite; }
+		@keyframes p1h4 { 0%, 59.9% { opacity: 0; } 60%, 100% { opacity: 1; } }
+		@media (prefers-reduced-motion: reduce) {
+			.p1-cesta, .p1-fk, .p1-fp, .p1-kmit, .p1-mrak, .p1-kapicky, .p1-srazky, .p1-dest, .p1-tok, .p1-h1, .p1-h2, .p1-h3, .p1-h4 { animation: none; }
+			/* statický obraz: voda zakreslena v zastávkách (čísla = kroky dole), oblak s kapičkami a deštěm */
+			.p1-cesta, .p1-stav { opacity: 0; }
+			.p1-rm { opacity: 1; }
+			.p1-mrak, .p1-kapicky, .p1-srazky { opacity: 1; }
+			.p1-h1, .p1-h2, .p1-h3, .p1-h4 { opacity: 0; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="720" fill="#f8f9fa"/>
+	<g id="panel-1">
+		<rect x="26" y="16" width="420" height="696" rx="12" fill="#dee2e6"/>
+		<rect x="20" y="10" width="420" height="696" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/>
+		<circle cx="52" cy="44" r="17" fill="#2b2a26"/>
+		<text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">1</text>
+		<text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Cesta jedné kapky</text>
+		<text x="34" y="92" font-size="21" fill="#2b2a26">Koloběh: <tspan font-weight="bold">výpar, kondenzace, srážky</tspan></text>
+
+		<g clip-path="url(#pri1-scena)">
+			<rect x="30" y="110" width="400" height="350" fill="#e7f5ff"/>
+			<!-- slunce (žluté, obrys #fab005 – oranžová #f59f00 je vyhrazena šipce přeměny) -->
+			<circle cx="392" cy="150" r="22" fill="#ffd43b" stroke="#fab005" stroke-width="2"/>
+			<g stroke="#fab005" stroke-width="3" stroke-linecap="round">
+				<line x1="392" y1="118" x2="392" y2="110"/><line x1="360" y1="150" x2="352" y2="150"/><line x1="392" y1="182" x2="392" y2="190"/><line x1="424" y1="150" x2="432" y2="150"/>
+				<line x1="369" y1="127" x2="363" y2="121"/><line x1="369" y1="173" x2="363" y2="179"/>
+			</g>
+			<text x="238" y="140" font-size="14" fill="#1864ab">nahoře chladněji</text>
+			<!-- moře vpravo -->
+			<rect x="250" y="372" width="180" height="88" fill="#74c0fc"/>
+			<path d="M250,372 Q266,366 282,372 T314,372 T346,372 T378,372 T410,372 T442,372" fill="none" stroke="#1c7ed6" stroke-width="2.5"/>
+			<text x="372" y="446" font-size="18" font-weight="bold" fill="#0c3d6b">moře</text>
+			<!-- pevnina vlevo: půda v řezu, louka, hory -->
+			<rect x="30" y="392" width="230" height="68" fill="#c08a5a"/>
+			<path d="M30,366 L250,370 L262,392 L30,392 Z" fill="#8ce99a"/>
+			<path d="M30,366 L30,318 L58,290 L76,306 L100,250 L132,296 L150,282 L196,368 Z" fill="#a9a29a" stroke="#6c665f" stroke-width="2" stroke-linejoin="round"/>
+			<path d="M113,270 L100,250 L88,268 L95,263 L101,270 L107,263 Z" fill="#ffffff" stroke="#adb5bd"/>
+			<path d="M66,298 L58,290 L50,298 Z" fill="#ffffff" stroke="#adb5bd"/>
+			<path d="M157,294 L150,282 L143,292 Z" fill="#ffffff" stroke="#adb5bd"/>
+			<line x1="30" y1="392" x2="260" y2="392" stroke="#8d5b3a" stroke-width="2"/>
+			<!-- řeka do moře -->
+			<path d="M160,318 Q166,348 190,360 Q222,374 256,374" fill="none" stroke="#1971c2" stroke-width="7" stroke-linecap="round"/>
+			<path class="p1-tok" d="M160,318 Q166,348 190,360 Q222,374 256,374" fill="none" stroke="#a5d8ff" stroke-width="3" stroke-dasharray="10 14" stroke-linecap="round"/>
+			<text x="214" y="346" font-size="14" fill="#1864ab">řeka</text>
+			<!-- vsakování do půdy (popisek přímo pod šipkou) -->
+			<path class="p1-tok" d="M176,396 L176,418 Q176,430 190,430 L244,430" fill="none" stroke="#1971c2" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#pri1-modra)"/>
+			<text x="176" y="452" font-size="14" font-weight="bold" fill="#2b2a26">vsakování</text>
+
+			<!-- trasa sledované kapky (čárkovaná smyčka) -->
+			<path d="M330,420 L330,262 L182,210 L182,354 Q200,364 215,368 L254,374 L292,398 Z" fill="none" stroke="#495057" stroke-width="2" stroke-dasharray="3 6" stroke-linecap="round" opacity="0.8"/>
+			<!-- čísla kroků na trase -->
+			<g font-size="14" font-weight="bold" text-anchor="middle" fill="#fff">
+				<circle cx="368" cy="330" r="10" fill="#2b2a26"/><text x="368" y="335">1</text>
+				<circle cx="262" cy="198" r="10" fill="#2b2a26"/><text x="262" y="203">2</text>
+				<circle cx="210" cy="290" r="10" fill="#2b2a26"/><text x="210" y="295">3</text>
+				<circle cx="230" cy="394" r="10" fill="#2b2a26"/><text x="230" y="399">4</text>
+			</g>
+
+			<!-- oblak: vznikne, když stoupající pára nahoře zkondenzuje na kapičky -->
+			<g class="p1-mrak" opacity="0">
+				<g class="p1-srazky" opacity="0" fill="#a5d8ff" stroke="#1c7ed6" stroke-width="1.2">
+					<path class="p1-dest" d="M128,226 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z"/>
+					<path class="p1-dest" style="animation-delay:-0.5s" d="M154,232 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z"/>
+					<path class="p1-dest" style="animation-delay:-0.25s" d="M118,228 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z"/>
+					<path class="p1-dest" style="animation-delay:-0.75s" d="M168,226 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z"/>
+				</g>
+				<path d="M110,228 Q100,206 122,202 Q126,180 150,186 Q164,168 186,182 Q210,176 212,198 Q230,206 218,228 Z" fill="#f1f3f5" stroke="#868e96" stroke-width="2"/>
+				<!-- kapičky v oblaku (kapalina) -->
+				<g class="p1-kapicky" opacity="0" fill="#a5d8ff" stroke="#1c7ed6" stroke-width="1">
+					<path d="M126,208 c-3,5 -3,8 0,9 c3,-1 3,-4 0,-9 z"/>
+					<path d="M148,196 c-3,5 -3,8 0,9 c3,-1 3,-4 0,-9 z"/>
+					<path d="M150,214 c-3,5 -3,8 0,9 c3,-1 3,-4 0,-9 z"/>
+					<path d="M200,200 c-3,5 -3,8 0,9 c3,-1 3,-4 0,-9 z"/>
+					<path d="M206,216 c-3,5 -3,8 0,9 c3,-1 3,-4 0,-9 z"/>
+				</g>
+			</g>
+
+			<!-- statický obraz (jen reduced-motion): kapka v zastávkách -->
+			<g class="p1-rm" opacity="0">
+				<circle cx="330" cy="420" r="13" fill="#ffffff" fill-opacity="0.75" stroke="#2b2a26" stroke-width="2"/>
+				<path d="M330,412 c-6,8 -6,13 0,14 c6,-1 6,-6 0,-14 z" fill="#74c0fc" stroke="#1971c2" stroke-width="1.8"/>
+				<circle cx="330" cy="300" r="22" fill="#ffffff" fill-opacity="0.5" stroke="#495057" stroke-width="1.5" stroke-dasharray="4 4"/>
+				<g fill="#ff922b" stroke="#d9480f" stroke-width="1.5">
+					<circle cx="318" cy="291" r="5"/><circle cx="341" cy="288" r="5"/><circle cx="331" cy="312" r="5"/>
+				</g>
+				<circle cx="198" cy="362" r="13" fill="#ffffff" fill-opacity="0.75" stroke="#2b2a26" stroke-width="2"/>
+				<path d="M198,354 c-6,8 -6,13 0,14 c6,-1 6,-6 0,-14 z" fill="#74c0fc" stroke="#1971c2" stroke-width="1.8"/>
+			</g>
+
+			<!-- sledovaná kapka: mění podobu podle skupenství (kapka / částice páry daleko od sebe) -->
+			<g class="p1-cesta" transform="translate(330,420)">
+				<g class="p1-fk">
+					<circle r="13" fill="#ffffff" fill-opacity="0.75" stroke="#2b2a26" stroke-width="2"/>
+					<path d="M0,-8 c-6,8 -6,13 0,14 c6,-1 6,-6 0,-14 z" fill="#74c0fc" stroke="#1971c2" stroke-width="1.8"/>
+				</g>
+				<g class="p1-fp" opacity="0">
+					<circle r="22" fill="#ffffff" fill-opacity="0.5" stroke="#495057" stroke-width="1.5" stroke-dasharray="4 4"/>
+					<g fill="#ff922b" stroke="#d9480f" stroke-width="1.5">
+						<circle class="p1-kmit" cx="-12" cy="-9" r="5"/>
+						<circle class="p1-kmit" style="animation-delay:-0.2s" cx="11" cy="-12" r="5"/>
+						<circle class="p1-kmit" style="animation-delay:-0.35s" cx="1" cy="12" r="5"/>
+					</g>
+				</g>
+			</g>
+		</g>
+
+		<!-- štítek: v jakém skupenství je kapka právě teď -->
+		<g class="p1-stav">
+			<rect x="40" y="120" width="186" height="28" rx="14" fill="#ffffff" stroke="#ced4da"/>
+			<text class="p1-fk" x="52" y="140" font-size="16" fill="#2b2a26">teď je to: <tspan font-weight="bold">kapalina</tspan></text>
+			<text class="p1-fp" x="52" y="140" font-size="16" fill="#2b2a26" opacity="0">teď je to: <tspan font-weight="bold">pára (plyn)</tspan></text>
+		</g>
+
+		<!-- kroky: přeměna skupenství, nebo jen pohyb -->
+		<rect class="p1-h1" x="30" y="470" width="400" height="44" rx="6" fill="#ffe8cc"/>
+		<rect class="p1-h2" x="30" y="514" width="400" height="44" rx="6" fill="#ffe8cc"/>
+		<rect class="p1-h3" x="30" y="558" width="400" height="44" rx="6" fill="#ffe8cc"/>
+		<rect class="p1-h4" x="30" y="648" width="400" height="44" rx="6" fill="#ffe8cc"/>
+		<!-- zimní větev kroku 3 (menší, čárkovaný rámeček) -->
+		<rect x="58" y="604" width="372" height="42" rx="6" fill="#f1f3f5" stroke="#adb5bd" stroke-dasharray="4 3"/>
+		<path d="M46,600 L46,624 L56,624" fill="none" stroke="#adb5bd" stroke-width="2"/>
+		<g fill="#ff922b" stroke="#d9480f" stroke-width="1.2">
+			<circle cx="70" cy="616" r="4"/><circle cx="82" cy="634" r="4"/>
+		</g>
+		<line x1="90" y1="625" x2="102" y2="625" stroke="#495057" stroke-width="2" marker-end="url(#pri1-seda)"/>
+		<path d="M106,625 h12 M112,619 v12 M107,620 l10,10 M117,620 l-10,10" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" filter="url(#pri1-obrys)"/>
+
+		<g font-size="14" font-weight="bold" text-anchor="middle" fill="#fff">
+			<circle cx="46" cy="486" r="10" fill="#2b2a26"/><text x="46" y="491">1</text>
+			<circle cx="46" cy="530" r="10" fill="#2b2a26"/><text x="46" y="535">2</text>
+			<circle cx="46" cy="574" r="10" fill="#2b2a26"/><text x="46" y="579">3</text>
+			<circle cx="46" cy="664" r="10" fill="#2b2a26"/><text x="46" y="669">4</text>
+		</g>
+		<g fill="#2b2a26">
+			<text x="62" y="491" font-size="16" font-weight="bold">Výpar</text>
+			<text x="62" y="509" font-size="15">voda z moře přijímá teplo a mění se v páru</text>
+			<text x="62" y="535" font-size="16" font-weight="bold">Kondenzace</text>
+			<text x="62" y="553" font-size="15">pára stoupá, ochladí se, v oblaku jsou kapičky</text>
+			<text x="62" y="579" font-size="16" font-weight="bold">Srážky</text>
+			<text x="62" y="597" font-size="15">z oblaku padá déšť (kapky)</text>
+			<text x="128" y="621" font-size="15" font-weight="bold">v zimě: sníh</text>
+			<text x="128" y="639" font-size="14">krystalky rostou přímo z páry</text>
+			<text x="62" y="669" font-size="16" font-weight="bold">Odtok a vsakování</text>
+			<text x="62" y="687" font-size="15">teče zpět do moře, skupenství se nemění</text>
+		</g>
+		<g font-size="16" font-weight="bold" fill="#2b2a26" text-anchor="end">
+			<text x="424" y="491">kapalina → plyn</text>
+			<text x="424" y="535">plyn → kapalina</text>
+			<text x="424" y="579" font-weight="normal" fill="#495057">kapky padají</text>
+			<text x="424" y="621" font-size="15">plyn → pevná látka</text>
+			<text x="424" y="669" font-weight="normal" fill="#495057">jen pohyb</text>
+		</g>
+	</g>
+</svg>

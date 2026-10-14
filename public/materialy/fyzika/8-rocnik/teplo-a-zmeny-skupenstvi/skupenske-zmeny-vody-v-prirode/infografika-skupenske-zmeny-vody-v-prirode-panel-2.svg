@@ -1,0 +1,122 @@
+<svg viewBox="0 0 460 720" width="460" height="720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Jak vzniká oblak a déšť: od země stoupá bublina teplého vzduchu s vodní párou a drobnými částečkami prachu. Nahoře je chladněji, bublina se ochladí a na kondenzačních jádrech vzniknou kapičky. Z kapiček je oblak, který s přibývajícími kapkami tmavne. Kapičky se spojují ve větší kapky, a když je stoupající vzduch neudrží, padají jako déšť. Lupa ukazuje kapičku, která vzniká na zrnku prachu." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Skupenské změny vody v přírodě 2/4: Jak vzniká oblak a déšť</title>
+	<defs>
+		<linearGradient id="pri2-teplota" x1="0" y1="1" x2="0" y2="0">
+			<stop offset="0" stop-color="#ff8787"/>
+			<stop offset="1" stop-color="#74c0fc"/>
+		</linearGradient>
+		<clipPath id="pri2-lupa"><circle cx="356" cy="330" r="50"/></clipPath>
+		<marker id="pri2-sip" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#e03131"/></marker>
+	</defs>
+	<style>
+		.p2-bub { animation: p2bub 14s ease-in-out infinite; }
+		@keyframes p2bub { 0% { transform: translate(0px, 0px); opacity: 0; } 4% { opacity: 1; } 36% { transform: translate(0px, -226px); opacity: 1; } 48% { transform: translate(0px, -226px); opacity: 1; } 56%, 100% { transform: translate(0px, -226px); opacity: 0; } }
+		.p2-obrys { animation: p2obrys 14s linear infinite; }
+		@keyframes p2obrys { 0%, 40% { opacity: 1; } 50%, 100% { opacity: 0; } }
+		.p2-kap { transform-box: fill-box; transform-origin: center; animation: p2kap 14s linear infinite; }
+		@keyframes p2kap { 0%, 36% { transform: scale(0); opacity: 0; } 46%, 100% { transform: scale(1); opacity: 1; } }
+		.p2-par { animation: p2par 1s linear infinite alternate; }
+		@keyframes p2par { from { transform: translate(-4px, 3px); } to { transform: translate(4px, -3px); } }
+		.p2-oblak { animation: p2oblak 14s linear infinite; }
+		@keyframes p2oblak { 0%, 44% { opacity: 0; fill: #f8f9fa; } 56% { opacity: 1; fill: #f1f3f5; } 74% { opacity: 1; fill: #868e96; } 94% { opacity: 1; fill: #868e96; } 100% { opacity: 0; fill: #868e96; } }
+		.p2-dest { animation: p2dest 14s linear infinite; }
+		@keyframes p2dest { 0%, 72% { opacity: 0; } 76%, 94% { opacity: 1; } 98%, 100% { opacity: 0; } }
+		.p2-pad { animation: p2pad 1s linear infinite; }
+		@keyframes p2pad { 0% { transform: translate(0px, 0px); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translate(0px, 200px); opacity: 0; } }
+		.p2-lkap { transform-box: fill-box; transform-origin: center; animation: p2lkap 14s ease-out infinite; }
+		@keyframes p2lkap { 0%, 44% { transform: scale(0.2); opacity: 0; } 50% { transform: scale(0.3); opacity: 1; } 62%, 96% { transform: scale(1); opacity: 1; } 100% { transform: scale(1); opacity: 0; } }
+		.p2-lpar { animation: p2lpar 2s ease-out infinite; }
+		@keyframes p2lpar { 0% { transform: translate(40px, -30px); opacity: 0; } 15% { opacity: 1; } 80% { transform: translate(0px, 0px); opacity: 1; } 100% { transform: translate(0px, 0px); opacity: 0; } }
+		.p2-lupa { animation: p2lupa 14s linear infinite; }
+		@keyframes p2lupa { 0%, 44% { opacity: 0; } 50%, 96% { opacity: 1; } 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) { .p2-bub, .p2-obrys, .p2-kap, .p2-par, .p2-oblak, .p2-dest, .p2-pad, .p2-lkap, .p2-lpar, .p2-lupa { animation: none; } .p2-oblak, .p2-dest, .p2-kap, .p2-lkap, .p2-lupa { opacity: 1; } }
+	</style>
+	<rect x="0" y="0" width="460" height="720" fill="#f8f9fa"/>
+	<g id="panel-2">
+		<rect x="26" y="16" width="420" height="696" rx="12" fill="#dee2e6"/>
+		<rect x="20" y="10" width="420" height="696" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/>
+		<circle cx="52" cy="44" r="17" fill="#2b2a26"/>
+		<text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">2</text>
+		<text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Jak vzniká oblak a déšť</text>
+		<text x="34" y="92" font-size="21" fill="#2b2a26">Teplý vlhký vzduch stoupá vzhůru.</text>
+		<rect x="30" y="110" width="400" height="420" rx="8" fill="#e7f5ff"/>
+
+		<!-- teplotní pruh: nahoře chladněji -->
+		<rect x="40" y="132" width="16" height="340" rx="8" fill="url(#pri2-teplota)" stroke="#868e96" stroke-width="1.5"/>
+		<text x="64" y="146" font-size="15" fill="#1971c2">nahoře chladněji</text>
+		<text x="64" y="468" font-size="15" fill="#c92a2a">u země tepleji</text>
+
+		<!-- země a slunce -->
+		<circle cx="392" cy="150" r="20" fill="#ffd43b" stroke="#fab005" stroke-width="2"/>
+		<path d="M30,480 L430,480 L430,522 Q430,530 422,530 L38,530 Q30,530 30,522 Z" fill="#c0eb75"/>
+		<line x1="30" y1="480" x2="430" y2="480" stroke="#74b816" stroke-width="2"/>
+
+		<!-- stoupající vzduch -->
+		<line x1="236" y1="460" x2="236" y2="290" stroke="#e03131" stroke-width="4" stroke-dasharray="10 8" marker-end="url(#pri2-sip)"/>
+		<text x="236" y="510" font-size="16" font-weight="bold" text-anchor="middle" fill="#c92a2a">teplý vzduch stoupá</text>
+
+		<!-- oblak (vznikne nahoře) -->
+		<path class="p2-oblak" d="M96,250 Q80,222 106,212 Q108,180 142,184 Q156,158 190,170 Q214,152 240,174 Q272,170 276,198 Q302,206 290,232 Q296,254 270,256 Z" fill="#f8f9fa" stroke="#868e96" stroke-width="2" opacity="0"/>
+		<!-- kapičky v oblaku -->
+		<g fill="#a5d8ff" stroke="#1c7ed6" stroke-width="1">
+			<path class="p2-kap" d="M150,206 c-4,6 -4,10 0,11 c4,-1 4,-5 0,-11 z"/>
+			<path class="p2-kap" d="M172,226 c-4,6 -4,10 0,11 c4,-1 4,-5 0,-11 z"/>
+			<path class="p2-kap" d="M196,204 c-4,6 -4,10 0,11 c4,-1 4,-5 0,-11 z"/>
+			<path class="p2-kap" d="M126,230 c-4,6 -4,10 0,11 c4,-1 4,-5 0,-11 z"/>
+			<path class="p2-kap" d="M222,222 c-4,6 -4,10 0,11 c4,-1 4,-5 0,-11 z"/>
+			<path class="p2-kap" d="M248,204 c-4,6 -4,10 0,11 c4,-1 4,-5 0,-11 z"/>
+			<path class="p2-kap" d="M262,232 c-4,6 -4,10 0,11 c4,-1 4,-5 0,-11 z"/>
+		</g>
+		<!-- bublina teplého vzduchu s párou a jádry (posunuta na šipku „teplý vzduch stoupá“, x = 236) -->
+		<g transform="translate(66,0)"><g class="p2-bub">
+			<circle class="p2-obrys" cx="170" cy="444" r="36" fill="#fff5f5" fill-opacity="0.6" stroke="#e03131" stroke-width="2.5" stroke-dasharray="7 5"/>
+			<g fill="#ff922b" stroke="#d9480f" stroke-width="1.5">
+				<circle class="p2-par" cx="156" cy="430" r="5"/>
+				<circle class="p2-par" style="animation-delay:-0.5s" cx="186" cy="440" r="5"/>
+				<circle class="p2-par" style="animation-delay:-0.3s" cx="164" cy="460" r="5"/>
+			</g>
+			<g fill="#8d5b3a"><circle cx="176" cy="424" r="3"/><circle cx="150" cy="450" r="3"/><circle cx="190" cy="462" r="3"/></g>
+		</g></g>
+		<!-- déšť -->
+		<g class="p2-dest" opacity="0" fill="#a5d8ff" stroke="#1c7ed6" stroke-width="1.2">
+			<path class="p2-pad" d="M120,256 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z"/>
+			<path class="p2-pad" style="animation-delay:-0.5s" d="M150,262 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z"/>
+			<path class="p2-pad" style="animation-delay:-0.25s" d="M182,256 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z"/>
+			<path class="p2-pad" style="animation-delay:-0.75s" d="M212,262 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z"/>
+			<path class="p2-pad" style="animation-delay:-0.4s" d="M244,256 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z"/>
+			<path class="p2-pad" style="animation-delay:-0.9s" d="M266,260 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z"/>
+		</g>
+
+		<!-- lupa: kapička na kondenzačním jádru (ukáže se až s oblakem) -->
+		<g class="p2-lupa">
+		<line x1="262" y1="230" x2="320" y2="294" stroke="#2b2a26" stroke-width="2"/>
+		<circle cx="356" cy="330" r="50" fill="#ffffff"/>
+		<g clip-path="url(#pri2-lupa)">
+			<path class="p2-lkap" d="M356,300 c-20,28 -22,46 0,48 c22,-2 20,-20 0,-48 z" fill="#a5d8ff" stroke="#1c7ed6" stroke-width="2"/>
+			<circle cx="356" cy="334" r="7" fill="#8d5b3a"/>
+			<g fill="#ff922b" stroke="#d9480f" stroke-width="1.5">
+				<circle class="p2-lpar" cx="374" cy="318" r="5"/>
+				<circle class="p2-lpar" style="animation-delay:-0.7s" cx="378" cy="338" r="5"/>
+				<circle class="p2-lpar" style="animation-delay:-1.4s" cx="370" cy="352" r="5"/>
+			</g>
+		</g>
+		<circle cx="356" cy="330" r="50" fill="none" stroke="#2b2a26" stroke-width="4"/>
+		<text x="356" y="398" font-size="15" text-anchor="middle" fill="#2b2a26">kapička na jádře</text>
+		<text x="356" y="416" font-size="15" text-anchor="middle" fill="#2b2a26">(zrnko prachu)</text>
+		</g>
+
+		<!-- legenda a závěr -->
+		<circle cx="52" cy="556" r="5" fill="#ff922b" stroke="#d9480f" stroke-width="1.5"/>
+		<text x="70" y="562" font-size="16" fill="#2b2a26">částice vodní páry</text>
+		<circle cx="250" cy="556" r="4" fill="#8d5b3a"/>
+		<text x="264" y="562" font-size="16" fill="#2b2a26">kondenzační jádro</text>
+		<path d="M52,572 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z" fill="#a5d8ff" stroke="#1c7ed6" stroke-width="1.5"/>
+		<text x="70" y="586" font-size="16" fill="#2b2a26">kapka vody</text>
+		<circle cx="250" cy="580" r="9" fill="#fff5f5" stroke="#e03131" stroke-width="2" stroke-dasharray="4 3"/>
+		<text x="264" y="586" font-size="16" fill="#2b2a26">teplý vlhký vzduch</text>
+		<text x="34" y="618" font-size="18" fill="#2b2a26">Vzduch s párou stoupá a nahoře chladne.</text>
+		<text x="34" y="642" font-size="18" fill="#2b2a26">Na jádrech vznikají kapičky – oblak.</text>
+		<text x="34" y="666" font-size="18" fill="#2b2a26">Víc kapek = tmavší oblak. Velké kapky</text>
+		<text x="34" y="690" font-size="18" fill="#2b2a26">stoupající vzduch neudrží – prší.</text>
+	</g>
+</svg>
