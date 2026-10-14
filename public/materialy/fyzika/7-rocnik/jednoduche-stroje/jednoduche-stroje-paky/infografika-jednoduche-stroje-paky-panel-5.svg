@@ -35,7 +35,7 @@
 				<line x1="196" y1="268" x2="382" y2="268" stroke="#1864ab" stroke-width="5" stroke-linecap="round"/>
 				<!-- náklad (hlína) -->
 				<path d="M206,266 C222,246 250,234 285,232 C320,234 350,246 372,266 Z" fill="#8d6e4a" stroke="#5c4630" stroke-width="2"/>
-				<text x="285" y="259" font-size="16" font-weight="bold" text-anchor="middle" fill="#fff">45 kg</text>
+				<text x="328" y="261" font-size="16" font-weight="bold" text-anchor="middle" fill="#fff">45 kg</text>
 				<!-- ruka zvedá držadla -->
 				<line x1="57" y1="290" x2="26" y2="190" stroke="#4c6ef5" stroke-width="18" stroke-linecap="round"/>
 				<rect x="49" y="286" width="32" height="30" rx="10" fill="#f1c9a5" stroke="#a0663d" stroke-width="1.5"/>

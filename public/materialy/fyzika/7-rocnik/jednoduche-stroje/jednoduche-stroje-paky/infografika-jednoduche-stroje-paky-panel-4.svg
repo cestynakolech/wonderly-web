@@ -37,7 +37,7 @@
 				<g transform="translate(60 0)">
 					<line x1="-6" y1="322" x2="-9" y2="336" stroke="#343a40" stroke-width="6" stroke-linecap="round"/>
 					<rect x="-16" y="272" width="32" height="44" rx="9" fill="#fcc419" stroke="#e67700" stroke-width="1.5"/>
-					<text x="0" y="299" font-size="12" font-weight="bold" text-anchor="middle" fill="#2b2a26">30 kg</text>
+					<text x="0" y="288" font-size="12" font-weight="bold" text-anchor="middle" fill="#2b2a26">30 kg</text>
 					<circle cx="0" cy="256" r="15" fill="#f1c9a5" stroke="#a0663d" stroke-width="1.5"/>
 					<path d="M-15,253 Q-14,238 0,239 Q14,238 15,253 Q8,245 0,246 Q-8,245 -15,253 Z" fill="#e8590c"/>
 					<circle cx="-5" cy="257" r="1.8" fill="#2b2a26"/><circle cx="5" cy="257" r="1.8" fill="#2b2a26"/>
@@ -49,7 +49,7 @@
 						<!-- odraz nohou od země (jen v animaci) -->
 						<line class="p4-odraz" opacity="0" x1="6" y1="322" x2="13" y2="352" stroke="#343a40" stroke-width="7" stroke-linecap="round"/>
 						<rect x="-19" y="266" width="38" height="50" rx="10" fill="#e03131" stroke="#a61e1e" stroke-width="1.5"/>
-						<text x="0" y="296" font-size="12" font-weight="bold" text-anchor="middle" fill="#fff">48 kg</text>
+						<text x="0" y="285" font-size="12" font-weight="bold" text-anchor="middle" fill="#fff">48 kg</text>
 						<circle cx="0" cy="248" r="17" fill="#f1c9a5" stroke="#a0663d" stroke-width="1.5"/>
 						<path d="M-17,245 Q-16,229 0,230 Q16,229 17,245 Q9,237 0,238 Q-9,237 -17,245 Z" fill="#5c3d1e"/>
 						<circle cx="-6" cy="249" r="2" fill="#2b2a26"/><circle cx="6" cy="249" r="2" fill="#2b2a26"/>
