@@ -2068,7 +2068,7 @@ export const temata: Record<string, Tema[]> = {
 					zvidave: "<p>Jednotka síly se jmenuje newton podle anglického fyzika Isaaca Newtona.</p>",
 					zapis: {"jednotky":["síla F (N, kN), měří ji siloměr"],"body":["síla je vzájemné působení těles, dotykem i na dálku","účinky síly: posuvný, otáčivý, deformační","síla má velikost, směr a působiště, kreslíme ji šipkou","druhy sil: elektrická, magnetická, gravitační, tíhová, třecí, tahová, tlaková, vztlaková"]},
 					materialy: [
-						{ druh: 'infografika', nazev: 'Infografika: Síla v kostce', cesta: '/materialy/fyzika/7-rocnik/sily-kolem-nas/sila/infografika-sila.svg' },
+						{ druh: 'infografika', nazev: 'Infografika: Síla v kostce', cesta: '/materialy/fyzika/7-rocnik/sily-kolem-nas/sila/infografika-sila.svg', panely: ['/materialy/fyzika/7-rocnik/sily-kolem-nas/sila/infografika-sila-panel-1.svg', '/materialy/fyzika/7-rocnik/sily-kolem-nas/sila/infografika-sila-panel-2.svg', '/materialy/fyzika/7-rocnik/sily-kolem-nas/sila/infografika-sila-panel-3.svg', '/materialy/fyzika/7-rocnik/sily-kolem-nas/sila/infografika-sila-panel-4.svg', '/materialy/fyzika/7-rocnik/sily-kolem-nas/sila/infografika-sila-panel-5.svg', '/materialy/fyzika/7-rocnik/sily-kolem-nas/sila/infografika-sila-panel-6.svg'] },
 						{ druh: 'video', nazev: 'Píseň: Síly kolem nás 🎵', cesta: '/materialy/fyzika/7-rocnik/sily-kolem-nas/sila/pisen-sily-kolem-nas.m4a' },
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Fyzika síly (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/7-rocnik/sily-kolem-nas/sila/notebooklm-sila.mp4' },
 					],
