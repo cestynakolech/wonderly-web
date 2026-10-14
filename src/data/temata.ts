@@ -2396,6 +2396,7 @@ export const temata: Record<string, Tema[]> = {
 					zapis: {"zakon":"Vztlaková síla se rovná tíze vytlačené kapaliny.","vzorec":"Fvz = Vpod · ρk · g\nFvz = Fg − F","jednotky":["Fvz, Fg, F (N; F = údaj siloměru ve vodě), Vpod (m³), ρk (kg/m³), g = 10 N/kg"],"body":["kapalina tlačí na těleso zdola silněji než shora, vztlak míří vzhůru","ponořené těleso: Fg > Fvz klesá, Fg < Fvz stoupá, Fg = Fvz se vznáší nebo plove"]},
 					materialy: [
 						{ druh: 'video', nazev: 'Píseň: Archimédes 🎵', cesta: '/materialy/fyzika/7-rocnik/vztlakova-sila-a-plovani-teles/archimeduv-zakon/pisen-archimedes.mp4' },
+						{ druh: 'infografika', nazev: 'Archimédův zákon: Proč voda nadnáší', cesta: '/materialy/fyzika/7-rocnik/vztlakova-sila-a-plovani-teles/archimeduv-zakon/infografika-archimeduv-zakon-panel-1.svg', panely: ['/materialy/fyzika/7-rocnik/vztlakova-sila-a-plovani-teles/archimeduv-zakon/infografika-archimeduv-zakon-panel-1.svg'] },
 						{
 							druh: 'video',
 							nazev: 'Podkást POLEMIKA: Archimédův zákon — 1. díl',
