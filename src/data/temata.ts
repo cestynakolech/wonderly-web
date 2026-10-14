@@ -2530,6 +2530,7 @@ export const temata: Record<string, Tema[]> = {
 					zapis: {"body":["stín je prostor bez světla za tělesem, polostín vzniká u plošných zdrojů","Měsíc nesvítí, vidíme jeho osvětlenou část (fáze: nov, úplněk)","cyklus fází trvá asi 29,5 dne","zatmění Měsíce může nastat jen při úplňku, zatmění Slunce jen při novu","na Slunce se dívej jen přes ochranné brýle"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Stíny, fáze a zatmění', cesta: '2_f7R5E_rrY' },
+						{ druh: 'infografika', nazev: 'Stín a zatmění v pohybu', cesta: '/materialy/fyzika/7-rocnik/svetlo-a-jeho-sireni/stin-faze-mesice/infografika-stin-faze-mesice-pohyb-panel-1.svg', panely: ['/materialy/fyzika/7-rocnik/svetlo-a-jeho-sireni/stin-faze-mesice/infografika-stin-faze-mesice-pohyb-panel-1.svg', '/materialy/fyzika/7-rocnik/svetlo-a-jeho-sireni/stin-faze-mesice/infografika-stin-faze-mesice-pohyb-panel-2.svg'] },
 					],
 				},
 			],

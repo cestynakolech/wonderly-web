@@ -1,0 +1,103 @@
+<svg viewBox="0 0 460 700" width="460" height="700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stín a fáze Měsíce v pohybu 2/2, Úplněk a stín Země: Měsíc neobíhá Zemi ve stejné rovině jako Země kolem Slunce, proto při úplňku stín Země často mine. Na noční obloze je čárkovaně naznačené místo, kde je stín Země; na obloze ho nevidíme, poznáme ho jen podle toho, že Měsíc ztmavne. Měsíc v úplňku jde třikrát po sobě po jiné dráze. Poprvé jde nad stínem, zůstane celý světlý a zatmění nenastane. Podruhé jde přes okraj stínu a ztmavne jen ta část, která je ve stínu: částečné zatmění. Potřetí jde středem stínu, celý je ve stínu a zrudne: úplné zatmění, krvavý Měsíc. Velikosti nejsou v měřítku." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Stín a fáze Měsíce v pohybu 2/2: Úplněk a stín Země</title>
+	<!-- W93 (15. 10. 2026), OPRAVA 1 (dle W93-kontrola-1 nálezy 3–5). Předloha: PDF 20 Stín, fáze Měsíce…, s. 9 („K zatmění Měsíce dochází,
+	     když Měsíc vstoupí do stínu Země. Může nastat pouze tehdy, když je Měsíc ve fázi úplňku“; obrázek: plný stín Země = kužel za Zemí),
+	     s. 10 („Protože Měsíc neobíhá Zemi ve stejné rovině jako Země kolem Slunce, často stín Země mine nebo do něj vstoupí jen částečně“;
+	     úplné: „Celý Měsíc vstoupí do stínu Země“, rudý = krvavý Měsíc), s. 11 (částečné: „Část Měsíce je osvětlená Sluncem, zatímco na část
+	     Měsíce Země vrhá svůj stín“). Výklad § Zatmění Měsíce.
+	     Pohled ze Země na noční oblohu: kruh = průřez kuželem stínu Země v místě Měsíce. Na obloze stín vidět není → jen čárkovaný obrys
+	     bez výplně (hvězdy prosvítají), stín poznáme podle ztmavnutí Měsíce.
+	     Barvy: Měsíc světlý #f1f3f5; část ve stínu při částečném zatmění ztmavne #6c757d (šedá, ne červená); červená #b4441f (z obr-03)
+	     JEN když je celý Měsíc ve stínu (úplné zatmění, krvavý Měsíc) – stejný význam jako v obr-03.
+	     Geometrie: stín kruh (230, 300) r = 66, Měsíc r = 24. Dráhy y = 194 (mine), 234 (střed na okraji), 300 (středem).
+	     Celý ve stínu: |x − 230| ≤ 66 − 24 = 42 → x 272…188. Okraj Měsíce se dotkne stínu na dráze 234: dx = √(90² − 66²) = 61,2 → x 291,2 / 168,8.
+	     Časování 14 s, Měsíc zprava doleva (jako obr-04):
+	     1. úplněk 0–4 s: objeví se 0–0,3 s, jede 396 → 64 za 0,3–3,5 s (103,75 px/s), zmizí 3,5–3,8 s. Střed x = 230 v 1,9 s → „Zatmění nenastane“ od 1,9 s.
+	     2. úplněk 4–8 s: totéž posunuté o 4 s; vstup do stínu (x 291,2) v 5,31 s → „Část Měsíce ztmavne“ od 5,4 s.
+	     3. úplněk 8–14 s: objeví se 8,0–8,3 s; 396 → 272 za 8,3–9,5 s (103,3 px/s); 272 → 188 za 9,5–12,0 s (zpomalí, 33,6 px/s, celý ve stínu);
+	        188 → 64 za 12,0–13,2 s; zmizí 13,2–13,5 s. Červená a text „zrudne“ jen 9,5–12,0 s (celý ve stínu).
+	     Bez pohybu (prefers-reduced-motion): 3. úplněk uprostřed stínu, celý červený, text úplného zatmění. Polostín Země se nekreslí. -->
+	<style>
+		.m1 { animation: m1 14s linear infinite; }
+		@keyframes m1 { 0% { transform: translate(396px,194px); opacity: 0; } 2.143% { transform: translate(396px,194px); opacity: 1; } 25% { transform: translate(64px,194px); opacity: 1; } 27.143%, 100% { transform: translate(64px,194px); opacity: 0; } }
+		.m2 { animation: m2 14s linear infinite; }
+		@keyframes m2 { 0%, 28.571% { transform: translate(396px,234px); opacity: 0; } 30.714% { transform: translate(396px,234px); opacity: 1; } 53.571% { transform: translate(64px,234px); opacity: 1; } 55.714%, 100% { transform: translate(64px,234px); opacity: 0; } }
+		.m3 { animation: m3 14s linear infinite; }
+		@keyframes m3 { 0%, 57.143% { transform: translate(396px,300px); opacity: 0; } 59.286% { transform: translate(396px,300px); opacity: 1; } 67.857% { transform: translate(272px,300px); opacity: 1; } 85.714% { transform: translate(188px,300px); opacity: 1; } 94.286% { transform: translate(64px,300px); opacity: 1; } 96.429%, 100% { transform: translate(64px,300px); opacity: 0; } }
+		.r3 { animation: r3 14s step-end infinite; }
+		@keyframes r3 { 0% { opacity: 0; } 67.857% { opacity: 1; } 85.714% { opacity: 0; } 100% { opacity: 0; } }
+		.a1 { animation: a1 14s step-end infinite; }
+		@keyframes a1 { 0% { opacity: 1; } 28.571% { opacity: 0; } 100% { opacity: 0; } }
+		.b1 { animation: b1 14s step-end infinite; }
+		@keyframes b1 { 0% { opacity: 0; } 13.571% { opacity: 1; } 28.571% { opacity: 0; } 100% { opacity: 0; } }
+		.a2 { animation: a2 14s step-end infinite; }
+		@keyframes a2 { 0% { opacity: 0; } 28.571% { opacity: 1; } 57.143% { opacity: 0; } 100% { opacity: 0; } }
+		.b2 { animation: b2 14s step-end infinite; }
+		@keyframes b2 { 0% { opacity: 0; } 38.571% { opacity: 1; } 57.143% { opacity: 0; } 100% { opacity: 0; } }
+		.a3 { animation: a3 14s step-end infinite; }
+		@keyframes a3 { 0% { opacity: 0; } 57.143% { opacity: 1; } 100% { opacity: 1; } }
+		.p1 { animation: a1 14s step-end infinite; }
+		.p2 { animation: a2 14s step-end infinite; }
+		.p3 { animation: a3 14s step-end infinite; }
+		@media (prefers-reduced-motion: reduce) {
+			.m1, .m2, .m3, .r3, .a1, .b1, .a2, .b2, .a3, .p1, .p2, .p3 { animation: none; }
+		}
+	</style>
+	<defs>
+		<clipPath id="p2-stin"><circle cx="230" cy="300" r="66" /></clipPath>
+		<marker id="p2-sm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#ced4da" /></marker>
+	</defs>
+	<rect x="0" y="0" width="460" height="700" fill="#f8f9fa" />
+	<g id="panel-2">
+		<rect x="26" y="22" width="420" height="668" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="668" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">2</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Úplněk a stín Země</text>
+		<text x="40" y="96" font-size="20" fill="#2b2a26">Měsíc neobíhá Zemi ve stejné rovině</text>
+		<text x="40" y="120" font-size="20" fill="#2b2a26">jako Země kolem Slunce. Při úplňku</text>
+		<text x="40" y="144" font-size="20" fill="#2b2a26">proto stín Země často mine.</text>
+
+		<!-- noční obloha; stín Země jen čárkovaně (na obloze ho nevidíme, hvězdy prosvítají) -->
+		<rect x="40" y="160" width="380" height="270" rx="10" fill="#0f1b3d" />
+		<circle cx="70" cy="180" r="1.5" fill="#dee2e6" /><circle cx="400" cy="176" r="1.5" fill="#dee2e6" /><circle cx="86" cy="410" r="1.5" fill="#dee2e6" />
+		<circle cx="380" cy="400" r="1.5" fill="#dee2e6" /><circle cx="120" cy="270" r="1.5" fill="#dee2e6" /><circle cx="350" cy="350" r="1.5" fill="#dee2e6" />
+		<circle cx="190" cy="348" r="1.5" fill="#dee2e6" /><circle cx="272" cy="342" r="1.5" fill="#dee2e6" />
+		<circle cx="230" cy="300" r="66" fill="none" stroke="#868e96" stroke-width="3" stroke-dasharray="10 7" />
+		<text x="230" y="402" text-anchor="middle" font-size="20" font-weight="bold" fill="#f8f9fa">stín Země</text>
+		<text x="230" y="424" text-anchor="middle" font-size="20" fill="#ced4da">(na obloze ho nevidíme)</text>
+
+		<!-- dráha Měsíce při tomto úplňku (zprava doleva) -->
+		<path class="p1" d="M410 194H52" stroke="#ced4da" stroke-width="2" stroke-dasharray="8 6" marker-end="url(#p2-sm)" opacity="0" />
+		<path class="p2" d="M410 234H52" stroke="#ced4da" stroke-width="2" stroke-dasharray="8 6" marker-end="url(#p2-sm)" opacity="0" />
+		<path class="p3" d="M410 300H52" stroke="#ced4da" stroke-width="2" stroke-dasharray="8 6" marker-end="url(#p2-sm)" />
+
+		<!-- Měsíc v úplňku: světlý; část ve stínu Země ztmavne (šedá); celý ve stínu zrudne -->
+		<g class="m1" transform="translate(396,194)" opacity="0"><circle r="24" fill="#f1f3f5" stroke="#adb5bd" stroke-width="1.5" /></g>
+		<g clip-path="url(#p2-stin)"><g class="m1" transform="translate(396,194)" opacity="0"><circle r="24" fill="#6c757d" stroke="#adb5bd" stroke-width="1.5" /></g></g>
+		<g class="m2" transform="translate(396,234)" opacity="0"><circle r="24" fill="#f1f3f5" stroke="#adb5bd" stroke-width="1.5" /></g>
+		<g clip-path="url(#p2-stin)"><g class="m2" transform="translate(396,234)" opacity="0"><circle r="24" fill="#6c757d" stroke="#adb5bd" stroke-width="1.5" /></g></g>
+		<g class="m3" transform="translate(230,300)"><circle r="24" fill="#f1f3f5" stroke="#adb5bd" stroke-width="1.5" /></g>
+		<g clip-path="url(#p2-stin)"><g class="m3" transform="translate(230,300)"><circle r="24" fill="#6c757d" stroke="#adb5bd" stroke-width="1.5" /></g></g>
+		<g class="m3" transform="translate(230,300)"><g class="r3"><circle r="24" fill="#b4441f" stroke="#adb5bd" stroke-width="1.5" /></g></g>
+
+		<!-- co se děje (druhý řádek se ukáže, až se to stane) -->
+		<g font-size="21" font-weight="bold" fill="#2b2a26">
+			<text class="a1" x="40" y="468" opacity="0">1. úplněk: jde nad stínem.</text>
+			<text class="b1" x="40" y="494" opacity="0">Zatmění nenastane.</text>
+			<text class="a2" x="40" y="468" opacity="0">2. úplněk: jde přes okraj stínu.</text>
+			<g class="b2" opacity="0"><text x="40" y="494">Část Měsíce ztmavne:</text><text x="40" y="520">částečné zatmění.</text></g>
+			<text class="a3" x="40" y="468">3. úplněk: jde středem stínu.</text>
+			<g class="r3"><text x="40" y="494">Celý Měsíc je ve stínu a zrudne:</text><text x="40" y="520">úplné zatmění, krvavý Měsíc.</text></g>
+		</g>
+
+		<!-- legenda -->
+		<circle cx="58" cy="552" r="12" fill="#f1f3f5" stroke="#495057" stroke-width="2" />
+		<text x="88" y="559" font-size="20" fill="#2b2a26">Měsíc v úplňku</text>
+		<circle cx="58" cy="588" r="12" fill="#6c757d" stroke="#495057" stroke-width="2" />
+		<text x="88" y="595" font-size="20" fill="#2b2a26">část Měsíce ve stínu: ztmavne</text>
+		<circle cx="58" cy="624" r="12" fill="#b4441f" stroke="#495057" stroke-width="2" />
+		<text x="88" y="631" font-size="20" fill="#2b2a26">celý Měsíc ve stínu: zrudne</text>
+		<text x="40" y="666" font-size="20" fill="#495057">Není v měřítku.</text>
+	</g>
+</svg>

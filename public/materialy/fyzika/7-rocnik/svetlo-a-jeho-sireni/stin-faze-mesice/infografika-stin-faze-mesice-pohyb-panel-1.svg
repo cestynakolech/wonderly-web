@@ -1,0 +1,105 @@
+<svg viewBox="0 0 460 720" width="460" height="720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stín a fáze Měsíce v pohybu 1/2, Dvě lampy a polostín: dvě lampy nad sebou svítí na míč, za míčem je stínítko. Když svítí jen lampa 1, je na stínítku jeden tmavý stín. Když svítí obě lampy, zůstane tmavý stín jen uprostřed, kam nesvítí ani jedna lampa, a nad ním a pod ním je slabě šedý polostín, kam svítí jen jedna lampa. Když svítí jen lampa 2, je tmavý stín posunutý jinam. Tmavý stín vzniká jen tam, kam nedopadá světlo ani od jedné lampy." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Stín a fáze Měsíce v pohybu 1/2: Dvě lampy a polostín</title>
+	<!-- W93 (15. 10. 2026). Předloha: PDF 20 Stín, fáze Měsíce…, s. 3 (Polostín: „V případě více světelných zdrojů: prostor, kam proniká
+	     světlo pouze z některého zdroje“, „Polostín není úplně tmavý, na stínítku je slabě šedý“, příklad s lampami: „tmavý stín vzniká pouze
+	     tam, kam nedopadá světlo ani od jedné lampy“) a s. 2 (míč a žluté stínítko). Výklad § Stín a polostín (polostín: světlo jen z části zdroje,
+	     slabě šedý). Na stránce dosud není (obr-01 má jeden bodový zdroj).
+	     Geometrie: lampa 1 S1 = (98, 270), lampa 2 S2 = (98, 350), míč (238, 310) r = 30, stínítko x = 400.
+	     Okrajové paprsky (tečny k míči) dopadají: od S1 na y = 291,4 a 429,5; od S2 na y = 190,5 a 328,6.
+	     Stínítko: 190,5–291,4 stín jen od lampy 2; 291,4–328,6 stín od obou (tmavý vždy); 328,6–429,5 stín jen od lampy 1.
+	     Stínítko: každý stav (jen L1 / obě / jen L2) má vlastní vrstvu na žlutém podkladu, hranice tmavou čarou (oprava 1: dřív prosvítaly obrysy).
+	     Časování 9 s: svítí jen lampa 1 (0–2 s), obě (2–5 s), jen lampa 2 (5–7 s), obě (7–9 s). První změna ve 2 s.
+	     Bez pohybu: svítí obě lampy (stín uprostřed, polostín nad a pod). -->
+	<style>
+		.l1 { animation: l1 9s step-end infinite; }
+		@keyframes l1 { 0% { opacity: 1; } 55.556% { opacity: 0; } 77.778% { opacity: 1; } 100% { opacity: 1; } }
+		.l2 { animation: l2 9s step-end infinite; }
+		@keyframes l2 { 0% { opacity: 0; } 22.222% { opacity: 1; } 100% { opacity: 1; } }
+		.sa { animation: sa 9s step-end infinite; }
+		@keyframes sa { 0% { opacity: 1; } 22.222% { opacity: 0; } 100% { opacity: 0; } }
+		.sb { animation: sb 9s step-end infinite; }
+		@keyframes sb { 0% { opacity: 0; } 55.556% { opacity: 1; } 77.778% { opacity: 0; } 100% { opacity: 0; } }
+		.so { animation: so 9s step-end infinite; }
+		@keyframes so { 0% { opacity: 0; } 22.222% { opacity: 1; } 55.556% { opacity: 0; } 77.778% { opacity: 1; } 100% { opacity: 1; } }
+		@media (prefers-reduced-motion: reduce) {
+			.l1, .l2, .sa, .sb, .so { animation: none; }
+		}
+	</style>
+	<defs>
+		<clipPath id="p1-mic"><circle cx="238" cy="310" r="30" /></clipPath>
+	</defs>
+	<rect x="0" y="0" width="460" height="720" fill="#f8f9fa" />
+	<g id="panel-1">
+		<rect x="26" y="22" width="420" height="688" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="688" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Dvě lampy a polostín</text>
+		<text x="40" y="96" font-size="20" fill="#2b2a26">Dvě lampy svítí na míč. Střídavě</text>
+		<text x="40" y="120" font-size="20" fill="#2b2a26">se rozsvěcují a zhasínají.</text>
+		<text x="432" y="160" text-anchor="end" font-size="20" fill="#2b2a26">stínítko</text>
+
+		<!-- okrajové paprsky lampy 1 a lampy 2 (tečny k míči) -->
+		<g class="l1" stroke="#e8590c" stroke-width="2.5" stroke-linecap="round">
+			<line x1="98" y1="270" x2="400" y2="291.4" />
+			<line x1="98" y1="270" x2="400" y2="429.5" />
+		</g>
+		<g class="l2" stroke="#e8590c" stroke-width="2.5" stroke-linecap="round">
+			<line x1="98" y1="350" x2="400" y2="190.5" />
+			<line x1="98" y1="350" x2="400" y2="328.6" />
+		</g>
+
+		<!-- míč (jako obr-01) -->
+		<g clip-path="url(#p1-mic)">
+			<circle cx="238" cy="310" r="30" fill="#4dabf7" />
+			<ellipse cx="238" cy="310" rx="11.3" ry="31.5" fill="#ffd43b" />
+			<ellipse cx="220" cy="310" rx="6" ry="31.5" fill="#e64980" />
+			<ellipse cx="256" cy="310" rx="6" ry="31.5" fill="#e64980" />
+			<ellipse cx="225" cy="295" rx="6.8" ry="3.8" fill="#ffffff" opacity="0.7" />
+		</g>
+		<circle cx="238" cy="310" r="30" fill="none" stroke="#212529" stroke-width="2" />
+		<text x="238" y="368" text-anchor="middle" font-size="20" fill="#2b2a26">míč</text>
+
+		<!-- stínítko: osvětlené žluté, polostín slabě šedý, stín tmavý -->
+		<rect x="400" y="170" width="18" height="280" fill="#ffe066" stroke="#495057" stroke-width="2" />
+		<!-- každý stav má vlastní vrstvu přímo na žlutém stínítku (nic pod ní neprosvítá); hranice ploch = tmavá čára #212529 -->
+		<g class="so">
+			<rect x="401.75" y="191.25" width="14.5" height="99.4" fill="#adb5bd" stroke="#212529" stroke-width="2" />
+			<rect x="401.75" y="291.4" width="14.5" height="37.2" fill="#495057" stroke="#212529" stroke-width="2" />
+			<rect x="401.75" y="328.6" width="14.5" height="100.15" fill="#adb5bd" stroke="#212529" stroke-width="2" />
+		</g>
+		<rect class="sa" x="401.75" y="291.4" width="14.5" height="138.1" fill="#495057" stroke="#212529" stroke-width="2" opacity="0" />
+		<rect class="sb" x="401.75" y="190.5" width="14.5" height="138.1" fill="#495057" stroke="#212529" stroke-width="2" opacity="0" />
+
+		<!-- lampy (žárovky): žlutá = svítí, šedá = zhasnutá -->
+		<g>
+			<rect x="66" y="263" width="20" height="14" rx="2" fill="#495057" stroke="#212529" stroke-width="1.5" />
+			<circle cx="98" cy="270" r="13" fill="#e9ecef" stroke="#495057" stroke-width="2" />
+			<g class="l1"><circle cx="98" cy="270" r="20" fill="#ffd43b" opacity="0.35" /><circle cx="98" cy="270" r="13" fill="#ffd43b" stroke="#495057" stroke-width="2" /></g>
+			<text x="92" y="240" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">lampa 1</text>
+		</g>
+		<g>
+			<rect x="66" y="343" width="20" height="14" rx="2" fill="#495057" stroke="#212529" stroke-width="1.5" />
+			<circle cx="98" cy="350" r="13" fill="#e9ecef" stroke="#495057" stroke-width="2" />
+			<g class="l2"><circle cx="98" cy="350" r="20" fill="#ffd43b" opacity="0.35" /><circle cx="98" cy="350" r="13" fill="#ffd43b" stroke="#495057" stroke-width="2" /></g>
+			<text x="92" y="396" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">lampa 2</text>
+		</g>
+
+		<!-- co se děje -->
+		<g font-size="21" font-weight="bold" fill="#2b2a26">
+			<g class="sa" opacity="0"><text x="40" y="492">Svítí jen lampa 1:</text><text x="40" y="518">na stínítku je jen tmavý stín.</text></g>
+			<g class="so"><text x="40" y="492">Svítí obě lampy:</text><text x="40" y="518">kolem stínu je polostín.</text></g>
+			<g class="sb" opacity="0"><text x="40" y="492">Svítí jen lampa 2:</text><text x="40" y="518">tmavý stín je teď jinde.</text></g>
+		</g>
+		<text x="40" y="558" font-size="20" fill="#2b2a26">Tmavý stín je jen tam, kam nesvítí</text>
+		<text x="40" y="582" font-size="20" fill="#2b2a26">ani jedna lampa.</text>
+
+		<!-- legenda -->
+		<rect x="46" y="602" width="24" height="24" fill="#495057" />
+		<text x="88" y="621" font-size="20" fill="#2b2a26">stín: nesvítí sem žádná lampa</text>
+		<rect x="46" y="636" width="24" height="24" fill="#adb5bd" stroke="#212529" stroke-width="1.5" />
+		<text x="88" y="655" font-size="20" fill="#2b2a26">polostín: svítí sem jen jedna</text>
+		<rect x="46" y="670" width="24" height="24" fill="#ffe066" stroke="#495057" stroke-width="2" />
+		<text x="88" y="689" font-size="20" fill="#2b2a26">osvětlené stínítko</text>
+	</g>
+</svg>
