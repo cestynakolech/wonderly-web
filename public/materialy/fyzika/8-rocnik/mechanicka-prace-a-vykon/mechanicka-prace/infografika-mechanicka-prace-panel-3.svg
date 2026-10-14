@@ -65,10 +65,10 @@
 			<line x1="200" y1="1363" x2="200" y2="1395" stroke="#343a40" stroke-width="9" stroke-linecap="round" />
 			<line x1="200" y1="1395" x2="188" y2="1428" stroke="#343a40" stroke-width="6" stroke-linecap="round" />
 			<line x1="200" y1="1395" x2="212" y2="1428" stroke="#343a40" stroke-width="6" stroke-linecap="round" />
-			<line x1="200" y1="1370" x2="236" y2="1392" stroke="#343a40" stroke-width="5" stroke-linecap="round" />
-			<path d="M228,1402 Q236,1382 244,1402" fill="none" stroke="#495057" stroke-width="3" />
-			<rect x="222" y="1400" width="28" height="24" rx="4" fill="#ffe8cc" stroke="#e8590c" stroke-width="3" />
-			<line x1="236" y1="1388" x2="236" y2="1344" stroke="#c92a2a" stroke-width="6" marker-end="url(#mpa-cer)" />
+			<line x1="200" y1="1370" x2="226" y2="1386" stroke="#343a40" stroke-width="5" stroke-linecap="round" />
+			<path d="M220,1396 Q228,1376 236,1396" fill="none" stroke="#495057" stroke-width="3" />
+			<rect x="214" y="1394" width="28" height="18" rx="4" fill="#ffe8cc" stroke="#e8590c" stroke-width="3" />
+			<line x1="228" y1="1382" x2="228" y2="1340" stroke="#c92a2a" stroke-width="6" marker-end="url(#mpa-cer)" />
 		</g>
 		<line x1="126" y1="1444" x2="236" y2="1444" stroke="#1971c2" stroke-width="4" marker-end="url(#mpa-mod)" />
 		<text x="300" y="1370" font-size="22" font-weight="bold" fill="#c92a2a">F nahoru</text>
