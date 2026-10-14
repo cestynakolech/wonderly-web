@@ -1,0 +1,123 @@
+<svg viewBox="0 0 460 640" width="460" height="640" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Jaderná energie v pohybu 1/2, Kam se energie poděje: atom uranu 235 je uvnitř kousku látky mezi dalšími atomy. Jádro je nakreslené zvětšené, ve skutečnosti je asi 100 000krát menší než atom. Neutron ho rozštěpí, uvolní se energie, úlomky jádra a neutrony vyletí rychle a nesou pohybovou energii. Atomy pak kmitají víc a látka se zahřeje, teploměr stoupá. Jaderná energie se projeví hlavně jako teplo." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Jaderná energie v pohybu 1/2: Kam se energie poděje?</title>
+	<!-- W81 (14. 10. 2026). Předloha: PDF 19 Jaderná energie, s. 1 (energie se uvolňuje jako pohybová energie částic unikajících z jádra a projevuje se
+	     hlavně jako teplo, zahřívání látek). Výklad: úvod („Uvolní se při vhodné jaderné reakci a projeví se hlavně jako teplo“).
+	     Náhrada návrhu „kam zmizela hmotnost“: úbytek hmotnosti není v PDF ani ve výkladu, proto se nekreslí.
+	     Jen děj v látce (žádná voda, pára ani turbína: to je podtéma reaktor/elektrárna, W80). Rychlost atomů = čárky pohybu + silnější kmitání (LEGENDA-TEPLO bod 2),
+	     teploměr červený #e03131 (jen grafika; text „látka se zahřeje“ #c92a2a kvůli kontrastu 5,23:1). Jádra zjednodušená, zmenšená 0,4: U 19 = 8 p + 11 n; + 1 n = Ba 10 + Kr 7 + 3 n.
+	     MĚŘÍTKO (OPRAVA 2, PDF 17 Jádro atomu: „Jádro je vzhledem k velikosti atomu velice maličké (asi stotisíckrát menší …)“): atomy látky r 28 bez jader,
+	     atom uranu = čárkovaný obal r 28, jádro uvnitř jen průměr ≈ 32 (výrazně menší než atom) s popiskem „jádro zvětšeno“ + dole „Jádro je asi 100 000krát menší než atom.“
+	     Volné neutrony = malá šedá kulička r 3,5 (velikost nukleonu v jádře). Hvězda štěpení jako W80: přechod #fff3bf→#ffd43b→#fab005, obrys #c92a2a.
+	     Opora „atomy kmitají víc, látka se zahřeje“: 8. r. 2 Energie / 7 Vnitřní energie tělesa, PDF s. 1–2 („Čím vyšší teplota tělesa ➪ tím rychlejší pohyb částic“,
+	     „v pevných látkách částice kmitají“) + PDF 19 s. 1 („Projevuje se hlavně ve formě tepla - zahřívání látek“). Opora „vyletí rychle, nesou pohybovou energii“: PDF 19 s. 1
+	     („Uvolňuje se ve formě pohybové energie částic, které během reakce unikají z jádra“). Srážky s atomy se nekreslí ani nepíšou (bez opory).
+	     Cyklus 10 s: neutron dolétne za 1,2 s, úlomky a neutrony vyletí 1,3–3 s a zmizí (nezůstanou ležet
+	     přes atomy), od 3 s atomy kmitají víc, teploměr stoupá do 7 s. Bez pohybu = konečné polohy úlomků se šipkami. -->
+	<style>
+		.rmv { opacity: 0; }
+		.an { animation: an 10s linear infinite; }
+		@keyframes an { 0% { transform: translate(0px, 0px); opacity: 1; } 12% { transform: translate(122px, 0px); opacity: 1; } 13% { transform: translate(122px, 0px); opacity: 0; } 98% { transform: translate(0px, 0px); opacity: 0; } 100% { transform: translate(0px, 0px); opacity: 1; } }
+		.au { opacity: 0; animation: au 10s linear infinite; }
+		@keyframes au { 0%, 12% { opacity: 1; } 13%, 98% { opacity: 0; } 100% { opacity: 1; } }
+		.az { opacity: 0; transform-box: view-box; transform-origin: 192px 238px; animation: az 10s ease-out infinite; }
+		@keyframes az { 0%, 12% { opacity: 0; transform: scale(0.3); } 15% { opacity: 1; transform: scale(1.1); } 22% { opacity: 1; transform: scale(1); } 30%, 100% { opacity: 0; transform: scale(1); } }
+		.f1 { animation: f1 10s ease-out infinite; }
+		@keyframes f1 { 0%, 12% { opacity: 0; transform: translate(56px, -39px); } 13% { opacity: 1; transform: translate(56px, -39px); } 25% { opacity: 1; transform: translate(0px, 0px); } 30%, 100% { opacity: 0; transform: translate(-12px, 8px); } }
+		.f2 { animation: f2 10s ease-out infinite; }
+		@keyframes f2 { 0%, 12% { opacity: 0; transform: translate(-56px, 39px); } 13% { opacity: 1; transform: translate(-56px, 39px); } 25% { opacity: 1; transform: translate(0px, 0px); } 30%, 100% { opacity: 0; transform: translate(12px, -8px); } }
+		.f3 { animation: f3 10s ease-out infinite; }
+		@keyframes f3 { 0%, 12% { opacity: 0; transform: translate(-56px, 0px); } 13% { opacity: 1; transform: translate(-56px, 0px); } 23% { opacity: 1; transform: translate(0px, 0px); } 28%, 100% { opacity: 0; transform: translate(12px, 0px); } }
+		.f4 { animation: f4 10s ease-out infinite; }
+		@keyframes f4 { 0%, 12% { opacity: 0; transform: translate(0px, -42px); } 13% { opacity: 1; transform: translate(0px, -42px); } 23% { opacity: 1; transform: translate(0px, 0px); } 28%, 100% { opacity: 0; transform: translate(0px, 6px); } }
+		.f5 { animation: f5 10s ease-out infinite; }
+		@keyframes f5 { 0%, 12% { opacity: 0; transform: translate(56px, 39px); } 13% { opacity: 1; transform: translate(56px, 39px); } 23% { opacity: 1; transform: translate(0px, 0px); } 28%, 100% { opacity: 0; transform: translate(-10px, -7px); } }
+		.cr { animation: cr 10s linear infinite; }
+		@keyframes cr { 0%, 28% { opacity: 0; } 32% { opacity: 1; } 92% { opacity: 1; } 96%, 100% { opacity: 0; } }
+		.tc { transform-box: view-box; transform-origin: 385px 350px; animation: tc 10s ease-in-out infinite; }
+		@keyframes tc { 0%, 28% { transform: scale(1, 0.3); } 70% { transform: scale(1, 1); } 92% { transform: scale(1, 1); } 98%, 100% { transform: scale(1, 0.3); } }
+		.kA { animation: kA 10s linear infinite; }
+		@keyframes kA { 0% { transform: translate(0px, 0px); } 3% { transform: translate(1px, 0px); } 6% { transform: translate(-1px, 0px); } 9% { transform: translate(1px, 0px); } 12% { transform: translate(-1px, 0px); } 15% { transform: translate(1px, 0px); } 18% { transform: translate(-1px, 0px); } 21% { transform: translate(1px, 0px); } 24% { transform: translate(-1px, 0px); } 27% { transform: translate(1px, 0px); } 30% { transform: translate(-1px, 0px); } 31% { transform: translate(4px, 1px); } 32% { transform: translate(-3px, -3px); } 33% { transform: translate(-4px, 2px); } 34% { transform: translate(3px, -2px); } 35% { transform: translate(1px, 4px); } 36% { transform: translate(-2px, -4px); } 37% { transform: translate(4px, 1px); } 38% { transform: translate(-3px, -3px); } 39% { transform: translate(-4px, 2px); } 40% { transform: translate(3px, -2px); } 41% { transform: translate(1px, 4px); } 42% { transform: translate(-2px, -4px); } 43% { transform: translate(4px, 1px); } 44% { transform: translate(-3px, -3px); } 45% { transform: translate(-4px, 2px); } 46% { transform: translate(3px, -2px); } 47% { transform: translate(1px, 4px); } 48% { transform: translate(-2px, -4px); } 49% { transform: translate(4px, 1px); } 50% { transform: translate(-3px, -3px); } 51% { transform: translate(-4px, 2px); } 52% { transform: translate(3px, -2px); } 53% { transform: translate(1px, 4px); } 54% { transform: translate(-2px, -4px); } 55% { transform: translate(4px, 1px); } 56% { transform: translate(-3px, -3px); } 57% { transform: translate(-4px, 2px); } 58% { transform: translate(3px, -2px); } 59% { transform: translate(1px, 4px); } 60% { transform: translate(-2px, -4px); } 61% { transform: translate(4px, 1px); } 62% { transform: translate(-3px, -3px); } 63% { transform: translate(-4px, 2px); } 64% { transform: translate(3px, -2px); } 65% { transform: translate(1px, 4px); } 66% { transform: translate(-2px, -4px); } 67% { transform: translate(4px, 1px); } 68% { transform: translate(-3px, -3px); } 69% { transform: translate(-4px, 2px); } 70% { transform: translate(3px, -2px); } 71% { transform: translate(1px, 4px); } 72% { transform: translate(-2px, -4px); } 73% { transform: translate(4px, 1px); } 74% { transform: translate(-3px, -3px); } 75% { transform: translate(-4px, 2px); } 76% { transform: translate(3px, -2px); } 77% { transform: translate(1px, 4px); } 78% { transform: translate(-2px, -4px); } 79% { transform: translate(4px, 1px); } 80% { transform: translate(-3px, -3px); } 81% { transform: translate(-4px, 2px); } 82% { transform: translate(3px, -2px); } 83% { transform: translate(1px, 4px); } 84% { transform: translate(-2px, -4px); } 85% { transform: translate(4px, 1px); } 86% { transform: translate(-3px, -3px); } 87% { transform: translate(-4px, 2px); } 88% { transform: translate(3px, -2px); } 89% { transform: translate(1px, 4px); } 90% { transform: translate(-2px, -4px); } 91% { transform: translate(4px, 1px); } 94%, 100% { transform: translate(0px, 0px); } }
+		.kB { animation: kB 10s linear infinite; }
+		@keyframes kB { 0% { transform: translate(0px, 0px); } 3% { transform: translate(-1px, 0px); } 6% { transform: translate(1px, 0px); } 9% { transform: translate(-1px, 0px); } 12% { transform: translate(1px, 0px); } 15% { transform: translate(-1px, 0px); } 18% { transform: translate(1px, 0px); } 21% { transform: translate(-1px, 0px); } 24% { transform: translate(1px, 0px); } 27% { transform: translate(-1px, 0px); } 30% { transform: translate(1px, 0px); } 31% { transform: translate(-4px, -1px); } 32% { transform: translate(3px, 3px); } 33% { transform: translate(4px, -2px); } 34% { transform: translate(-3px, 2px); } 35% { transform: translate(-1px, -4px); } 36% { transform: translate(2px, 4px); } 37% { transform: translate(-4px, -1px); } 38% { transform: translate(3px, 3px); } 39% { transform: translate(4px, -2px); } 40% { transform: translate(-3px, 2px); } 41% { transform: translate(-1px, -4px); } 42% { transform: translate(2px, 4px); } 43% { transform: translate(-4px, -1px); } 44% { transform: translate(3px, 3px); } 45% { transform: translate(4px, -2px); } 46% { transform: translate(-3px, 2px); } 47% { transform: translate(-1px, -4px); } 48% { transform: translate(2px, 4px); } 49% { transform: translate(-4px, -1px); } 50% { transform: translate(3px, 3px); } 51% { transform: translate(4px, -2px); } 52% { transform: translate(-3px, 2px); } 53% { transform: translate(-1px, -4px); } 54% { transform: translate(2px, 4px); } 55% { transform: translate(-4px, -1px); } 56% { transform: translate(3px, 3px); } 57% { transform: translate(4px, -2px); } 58% { transform: translate(-3px, 2px); } 59% { transform: translate(-1px, -4px); } 60% { transform: translate(2px, 4px); } 61% { transform: translate(-4px, -1px); } 62% { transform: translate(3px, 3px); } 63% { transform: translate(4px, -2px); } 64% { transform: translate(-3px, 2px); } 65% { transform: translate(-1px, -4px); } 66% { transform: translate(2px, 4px); } 67% { transform: translate(-4px, -1px); } 68% { transform: translate(3px, 3px); } 69% { transform: translate(4px, -2px); } 70% { transform: translate(-3px, 2px); } 71% { transform: translate(-1px, -4px); } 72% { transform: translate(2px, 4px); } 73% { transform: translate(-4px, -1px); } 74% { transform: translate(3px, 3px); } 75% { transform: translate(4px, -2px); } 76% { transform: translate(-3px, 2px); } 77% { transform: translate(-1px, -4px); } 78% { transform: translate(2px, 4px); } 79% { transform: translate(-4px, -1px); } 80% { transform: translate(3px, 3px); } 81% { transform: translate(4px, -2px); } 82% { transform: translate(-3px, 2px); } 83% { transform: translate(-1px, -4px); } 84% { transform: translate(2px, 4px); } 85% { transform: translate(-4px, -1px); } 86% { transform: translate(3px, 3px); } 87% { transform: translate(4px, -2px); } 88% { transform: translate(-3px, 2px); } 89% { transform: translate(-1px, -4px); } 90% { transform: translate(2px, 4px); } 91% { transform: translate(-4px, -1px); } 94%, 100% { transform: translate(0px, 0px); } }
+		@media (prefers-reduced-motion: reduce) {
+			.an, .au, .az, .f1, .f2, .f3, .f4, .f5, .cr, .tc, .kA, .kB { animation: none; }
+			.rmv { opacity: 1; }
+		}
+	</style>
+	<defs>
+		<radialGradient id="gz" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff3bf" /><stop offset=".55" stop-color="#ffd43b" /><stop offset="1" stop-color="#fab005" /></radialGradient>
+		<marker id="sip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#495057" /></marker>
+		<g id="p"><circle r="8" fill="#c92a2a" stroke="#212529" stroke-width="1.5" /><path d="M-4.5 0H4.5M0 -4.5V4.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" /></g>
+		<circle id="n" r="8" fill="#adb5bd" stroke="#212529" stroke-width="1.5" />
+		<!-- atom látky kolem: zelenomodrá kulička (jiná barva než proton, neutron i energie) -->
+		<circle id="at" r="28" fill="#96f2d7" stroke="#087f5b" stroke-width="2" />
+		<!-- volný neutron v ději = velikost nukleonu v jádře zvětšeném 0,4 (legenda kreslí #n větší) -->
+		<circle id="ns" r="3.5" fill="#adb5bd" stroke="#212529" stroke-width="1" />
+		<!-- čárky pohybu = atom kmitá rychleji -->
+		<path id="cp" d="M-34 -11 Q-39 0 -34 11 M34 -11 Q39 0 34 11" fill="none" stroke="#087f5b" stroke-width="2.2" stroke-linecap="round" />
+		<path id="hvv" d="M0.0 -30.0 L3.9 -14.5 L15.0 -26.0 L10.6 -10.6 L26.0 -15.0 L14.5 -3.9 L30.0 0.0 L14.5 3.9 L26.0 15.0 L10.6 10.6 L15.0 26.0 L3.9 14.5 L0.0 30.0 L-3.9 14.5 L-15.0 26.0 L-10.6 10.6 L-26.0 15.0 L-14.5 3.9 L-30.0 0.0 L-14.5 -3.9 L-26.0 -15.0 L-10.6 -10.6 L-15.0 -26.0 L-3.9 -14.5Z" fill="url(#gz)" stroke="#c92a2a" stroke-width="2.5" stroke-linejoin="round" />
+		<!-- jU: 19 nukleonů, 8 p, 11 n -->
+		<g id="jU"><use href="#n" x="0" y="0" /><use href="#p" x="16" y="0" /><use href="#n" x="8" y="13.9" /><use href="#p" x="-8" y="13.9" /><use href="#n" x="-16" y="0" /><use href="#p" x="-8" y="-13.9" /><use href="#n" x="8" y="-13.9" /><use href="#n" x="32" y="0" /><use href="#p" x="24" y="13.9" /><use href="#n" x="16" y="27.7" /><use href="#p" x="0" y="27.7" /><use href="#n" x="-16" y="27.7" /><use href="#n" x="-24" y="13.9" /><use href="#p" x="-32" y="0" /><use href="#n" x="-24" y="-13.9" /><use href="#p" x="-16" y="-27.7" /><use href="#n" x="0" y="-27.7" /><use href="#p" x="16" y="-27.7" /><use href="#n" x="24" y="-13.9" /></g>
+		<!-- jBa: 10 nukleonů, 5 p, 5 n; jKr: 7 nukleonů, 3 p, 4 n -->
+		<g id="jBa"><use href="#p" x="0" y="0" /><use href="#n" x="16" y="0" /><use href="#p" x="8" y="13.9" /><use href="#n" x="-8" y="13.9" /><use href="#p" x="-16" y="0" /><use href="#n" x="-8" y="-13.9" /><use href="#n" x="8" y="-13.9" /><use href="#p" x="-24" y="13.9" /><use href="#n" x="24" y="13.9" /><use href="#p" x="0" y="27.7" /></g>
+		<g id="jKr"><use href="#n" x="0" y="0" /><use href="#p" x="16" y="0" /><use href="#n" x="8" y="13.9" /><use href="#p" x="-8" y="13.9" /><use href="#n" x="-16" y="0" /><use href="#p" x="-8" y="-13.9" /><use href="#n" x="8" y="-13.9" /></g>
+	</defs>
+	<rect x="0" y="0" width="460" height="640" fill="#f8f9fa" />
+	<g id="panel-1">
+		<rect x="26" y="22" width="420" height="608" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="608" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Kam se energie poděje?</text>
+		<text x="40" y="96" font-size="20" fill="#2b2a26">Atom uranu 235 je uvnitř látky.</text>
+
+		<!-- kousek látky: atomy r 28 bez jader (jádro by bylo neviditelně malé), uprostřed atom uranu -->
+		<rect x="40" y="114" width="304" height="240" rx="10" fill="#f1f3f5" stroke="#ced4da" stroke-width="2" />
+		<g class="kA"><use href="#at" x="80" y="160" /><g class="cr"><use href="#cp" x="80" y="160" /></g></g>
+		<g class="kB"><use href="#at" x="304" y="160" /><g class="cr"><use href="#cp" x="304" y="160" /></g></g>
+		<g class="kA"><use href="#at" x="304" y="238" /><g class="cr"><use href="#cp" x="304" y="238" /></g></g>
+		<g class="kB"><use href="#at" x="80" y="316" /><g class="cr"><use href="#cp" x="80" y="316" /></g></g>
+		<g class="kA"><use href="#at" x="192" y="316" /><g class="cr"><use href="#cp" x="192" y="316" /></g></g>
+		<g class="kB"><use href="#at" x="304" y="316" /><g class="cr"><use href="#cp" x="304" y="316" /></g></g>
+		<g class="au"><text x="192" y="150" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">uran 235</text></g>
+		<text x="192" y="176" text-anchor="middle" font-size="20" fill="#495057">jádro zvětšeno</text>
+
+		<!-- bez pohybu: šipky děje -->
+		<g class="rmv">
+			<path d="M56 238L162 238" stroke="#495057" stroke-width="2.5" stroke-dasharray="8 6" fill="none" marker-end="url(#sip)" />
+			<path d="M178 250L150 270" stroke="#495057" stroke-width="2.5" stroke-dasharray="8 6" fill="none" marker-end="url(#sip)" />
+			<path d="M206 226L234 206" stroke="#495057" stroke-width="2.5" stroke-dasharray="8 6" fill="none" marker-end="url(#sip)" />
+		</g>
+		<!-- štěpení: atom uranu = čárkovaný obal, jádro uvnitř výrazně menší -->
+		<g class="an"><use href="#ns" x="50" y="238" /></g>
+		<g class="au"><circle cx="192" cy="238" r="28" fill="#fff" stroke="#495057" stroke-width="2" stroke-dasharray="5 4" /></g>
+		<g class="au"><g transform="translate(192,238) scale(0.4)"><use href="#jU" /></g></g>
+		<g class="rmv"><g transform="translate(192,238) scale(0.5)"><use href="#hvv" /></g></g>
+		<g class="az"><g transform="translate(192,238) scale(0.8)"><use href="#hvv" /></g></g>
+		<!-- úlomky jádra a 3 neutrony letí rychle mezi atomy -->
+		<g class="f1"><g transform="translate(136,277) scale(0.4)"><use href="#jBa" /></g></g>
+		<g class="f2"><g transform="translate(248,199) scale(0.4)"><use href="#jKr" /></g></g>
+		<g class="f3"><use href="#ns" x="248" y="238" /></g>
+		<g class="f4"><use href="#ns" x="192" y="280" /></g>
+		<g class="f5"><use href="#ns" x="136" y="199" /></g>
+
+		<!-- teploměr -->
+		<text x="385" y="122" text-anchor="middle" font-size="20" fill="#2b2a26">teplota</text>
+		<rect x="373" y="130" width="24" height="215" rx="12" fill="#fff" stroke="#495057" stroke-width="2" />
+		<g class="tc"><rect x="379" y="160" width="12" height="190" fill="#e03131" /></g>
+		<circle cx="385" cy="355" r="20" fill="#e03131" stroke="#495057" stroke-width="2" />
+
+		<text x="40" y="402" font-size="20" fill="#495057">Jádro je asi 100 000krát menší než atom.</text>
+
+		<text x="40" y="440" font-size="20" fill="#2b2a26">Úlomky jádra a neutrony vyletí rychle</text>
+		<text x="40" y="466" font-size="20" fill="#2b2a26">a nesou pohybovou energii.</text>
+		<text x="40" y="502" font-size="21" font-weight="bold" fill="#2b2a26">Atomy kmitají víc,</text>
+		<text x="40" y="530" font-size="21" font-weight="bold" fill="#c92a2a">látka se zahřeje.</text>
+
+		<!-- legenda -->
+		<circle cx="51" cy="566" r="11" fill="#96f2d7" stroke="#087f5b" stroke-width="2" /><text x="68" y="573" font-size="20" fill="#2b2a26">atom látky</text>
+		<use href="#n" x="196" y="566" /><text x="212" y="573" font-size="20" fill="#2b2a26">neutron</text>
+		<use href="#p" x="310" y="566" /><text x="326" y="573" font-size="20" fill="#2b2a26">proton</text>
+		<g transform="translate(52,600) scale(0.4)"><use href="#hvv" /></g><text x="70" y="607" font-size="20" fill="#2b2a26">energie</text>
+	</g>
+</svg>

@@ -1,0 +1,102 @@
+<svg viewBox="0 0 460 640" width="460" height="640" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Jaderná energie v pohybu 2/2, Na povel, nebo samo: nahoře jaderná reakce, něco zasáhne jádro: jádro dusíku zasáhne částice alfa, vznikne jádro kyslíku a vyletí proton, vznikne jádro jiného prvku. Dole radioaktivita: do nestabilního jádra nic nenarazí, a přesto z něj samo vyletí částice alfa a zbude jádro jiného prvku. Jaderná reakce je vyvolaná, radioaktivní rozpad je samovolný. Jádra jsou zjednodušená, počet nukleonů i protonů před a po je stejný." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Jaderná energie v pohybu 2/2: Na povel, nebo samo?</title>
+	<!-- W81 (14. 10. 2026). Předloha: PDF 19 Jaderná energie, s. 1 (jaderná reakce = vyvolaná přeměna, srážka s částicí; Rutherford: dusík + α → kyslík),
+	     s. 2 (rozdíl: reakce vyvolaná × radioaktivita samovolná přeměna nestabilních jader). Výklad § Co je jaderná reakce.
+	     Jádra zjednodušená, počty sedí: N 14 (7 p + 7 n) + α 4 (2 p + 2 n) = 18 = O 17 (8 p + 9 n) + p 1; protony 7 + 2 = 9 = 8 + 1.
+	     Nestabilní jádro 19 (8 p + 11 n) = 15 (6 p + 9 n) + α 4 (2 p + 2 n). Částice α vyletující při rozpadu: podtéma Radioaktivita (předchozí stránka).
+	     Cyklus 10 s: nahoře α dolétne za 1,2 s, dole se jádro samo přemění v 5,5 s. Bez pohybu = schéma se šipkami. Jen CSS transform/opacity. -->
+	<style>
+		.rmv { opacity: 0; }
+		.ta { animation: ta 10s linear infinite; }
+		@keyframes ta { 0% { transform: translate(0px, 0px); opacity: 1; } 12% { transform: translate(86px, 0px); opacity: 1; } 13% { transform: translate(86px, 0px); opacity: 0; } 98% { transform: translate(0px, 0px); opacity: 0; } 100% { transform: translate(0px, 0px); opacity: 1; } }
+		.tal { animation: tal 10s linear infinite; }
+		@keyframes tal { 0%, 10% { opacity: 1; } 13%, 98% { opacity: 0; } 100% { opacity: 1; } }
+		.tn { opacity: 0; animation: tn 10s linear infinite; }
+		@keyframes tn { 0%, 12% { opacity: 1; } 13%, 98% { opacity: 0; } 100% { opacity: 1; } }
+		.to { animation: to 10s linear infinite; }
+		.tol { opacity: 0; animation: to 10s linear infinite; }
+		@keyframes to { 0%, 12% { opacity: 0; } 13% { opacity: 1; } 92% { opacity: 1; } 96%, 100% { opacity: 0; } }
+		.tp { animation: tp 10s ease-out infinite; }
+		@keyframes tp { 0%, 12% { opacity: 0; transform: translate(-190px, 35px); } 13% { opacity: 1; transform: translate(-190px, 35px); } 28% { opacity: 1; transform: translate(0px, 0px); } 92% { opacity: 1; transform: translate(0px, 0px); } 96%, 100% { opacity: 0; transform: translate(0px, 0px); } }
+		.tpl { animation: tpl 10s linear infinite; }
+		@keyframes tpl { 0%, 26% { opacity: 0; } 30% { opacity: 1; } 92% { opacity: 1; } 96%, 100% { opacity: 0; } }
+		.bu { opacity: 0; animation: bu 10s linear infinite; }
+		@keyframes bu { 0%, 55% { opacity: 1; } 56%, 98% { opacity: 0; } 100% { opacity: 1; } }
+		.bx { animation: bx 10s linear infinite; }
+		.bxl { opacity: 0; animation: bx 10s linear infinite; }
+		@keyframes bx { 0%, 55% { opacity: 0; } 56% { opacity: 1; } 92% { opacity: 1; } 96%, 100% { opacity: 0; } }
+		.ba { animation: ba 10s ease-out infinite; }
+		@keyframes ba { 0%, 55% { opacity: 0; transform: translate(-170px, 20px); } 56% { opacity: 1; transform: translate(-170px, 20px); } 70% { opacity: 1; transform: translate(0px, 0px); } 92% { opacity: 1; transform: translate(0px, 0px); } 96%, 100% { opacity: 0; transform: translate(0px, 0px); } }
+		.bal { animation: bal 10s linear infinite; }
+		@keyframes bal { 0%, 68% { opacity: 0; } 72% { opacity: 1; } 92% { opacity: 1; } 96%, 100% { opacity: 0; } }
+		.bt { animation: bt 10s linear infinite; }
+		@keyframes bt { 0%, 55% { opacity: 1; } 58%, 98% { opacity: 0; } 100% { opacity: 1; } }
+		@media (prefers-reduced-motion: reduce) {
+			.ta, .tal, .tn, .to, .tol, .tp, .tpl, .bu, .bx, .bxl, .ba, .bal, .bt { animation: none; }
+			.rmv { opacity: 1; }
+		}
+	</style>
+	<defs>
+		<marker id="sip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#495057" /></marker>
+		<g id="p"><circle r="8" fill="#c92a2a" stroke="#212529" stroke-width="1.5" /><path d="M-4.5 0H4.5M0 -4.5V4.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" /></g>
+		<circle id="n" r="8" fill="#adb5bd" stroke="#212529" stroke-width="1.5" />
+		<!-- částice α = 2 p + 2 n (stejně jako jádro helia v obr-05) -->
+		<g id="jHe"><use href="#p" x="-8" y="-8" /><use href="#n" x="8" y="-8" /><use href="#n" x="-8" y="8" /><use href="#p" x="8" y="8" /></g>
+		<!-- jN: 14 nukleonů, 7 p, 7 n -->
+		<g id="jN"><use href="#p" x="0" y="0" /><use href="#n" x="16" y="0" /><use href="#p" x="8" y="13.9" /><use href="#n" x="-8" y="13.9" /><use href="#p" x="-16" y="0" /><use href="#n" x="-8" y="-13.9" /><use href="#p" x="8" y="-13.9" /><use href="#n" x="32" y="0" /><use href="#p" x="24" y="13.9" /><use href="#n" x="16" y="27.7" /><use href="#p" x="0" y="27.7" /><use href="#n" x="-16" y="27.7" /><use href="#p" x="-24" y="13.9" /><use href="#n" x="-32" y="0" /></g>
+		<!-- jO: 17 nukleonů, 8 p, 9 n -->
+		<g id="jO"><use href="#n" x="0" y="0" /><use href="#p" x="16" y="0" /><use href="#n" x="8" y="13.9" /><use href="#p" x="-8" y="13.9" /><use href="#n" x="-16" y="0" /><use href="#p" x="-8" y="-13.9" /><use href="#n" x="8" y="-13.9" /><use href="#p" x="32" y="0" /><use href="#n" x="24" y="13.9" /><use href="#p" x="16" y="27.7" /><use href="#n" x="0" y="27.7" /><use href="#p" x="-16" y="27.7" /><use href="#n" x="-24" y="13.9" /><use href="#p" x="-32" y="0" /><use href="#n" x="-24" y="-13.9" /><use href="#p" x="-16" y="-27.7" /><use href="#n" x="0" y="-27.7" /></g>
+		<!-- jU: nestabilní jádro 19 nukleonů, 8 p, 11 n -->
+		<g id="jU"><use href="#n" x="0" y="0" /><use href="#p" x="16" y="0" /><use href="#n" x="8" y="13.9" /><use href="#p" x="-8" y="13.9" /><use href="#n" x="-16" y="0" /><use href="#p" x="-8" y="-13.9" /><use href="#n" x="8" y="-13.9" /><use href="#n" x="32" y="0" /><use href="#p" x="24" y="13.9" /><use href="#n" x="16" y="27.7" /><use href="#p" x="0" y="27.7" /><use href="#n" x="-16" y="27.7" /><use href="#n" x="-24" y="13.9" /><use href="#p" x="-32" y="0" /><use href="#n" x="-24" y="-13.9" /><use href="#p" x="-16" y="-27.7" /><use href="#n" x="0" y="-27.7" /><use href="#p" x="16" y="-27.7" /><use href="#n" x="24" y="-13.9" /></g>
+		<!-- jX: jádro jiného prvku 15 nukleonů, 6 p, 9 n -->
+		<g id="jX"><use href="#n" x="0" y="0" /><use href="#p" x="16" y="0" /><use href="#n" x="8" y="13.9" /><use href="#p" x="-8" y="13.9" /><use href="#n" x="-16" y="0" /><use href="#p" x="-8" y="-13.9" /><use href="#n" x="8" y="-13.9" /><use href="#n" x="32" y="0" /><use href="#p" x="24" y="13.9" /><use href="#n" x="16" y="27.7" /><use href="#p" x="0" y="27.7" /><use href="#n" x="-16" y="27.7" /><use href="#p" x="-24" y="13.9" /><use href="#n" x="-32" y="0" /><use href="#n" x="-24" y="-13.9" /></g>
+	</defs>
+	<rect x="0" y="0" width="460" height="640" fill="#f8f9fa" />
+	<g id="panel-2">
+		<rect x="26" y="22" width="420" height="608" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="608" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">2</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Na povel, nebo samo?</text>
+
+		<!-- JADERNÁ REAKCE: vyvolaná -->
+		<text x="40" y="100" font-size="21" font-weight="bold" fill="#1864ab">Jaderná reakce: něco zasáhne jádro</text>
+		<g class="rmv">
+			<path d="M86 185L146 185" stroke="#495057" stroke-width="2.5" stroke-dasharray="8 6" fill="none" marker-end="url(#sip)" />
+			<path d="M246 178L374 154" stroke="#495057" stroke-width="2.5" stroke-dasharray="8 6" fill="none" marker-end="url(#sip)" />
+			<text x="200" y="258" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">dusík → kyslík</text>
+		</g>
+		<g class="ta"><use href="#jHe" x="62" y="185" /></g>
+		<g class="tal"><text x="76" y="232" text-anchor="middle" font-size="20" fill="#2b2a26">částice α</text></g>
+		<g class="tn"><use href="#jN" x="200" y="185" /></g>
+		<g class="tn"><text x="200" y="258" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">dusík</text></g>
+		<g class="to"><use href="#jO" x="200" y="185" /></g>
+		<g class="tol"><text x="200" y="258" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">kyslík</text></g>
+		<g class="tp"><use href="#p" x="390" y="150" /></g>
+		<g class="tpl"><text x="390" y="190" text-anchor="middle" font-size="20" fill="#2b2a26">proton</text></g>
+		<text x="40" y="292" font-size="20" fill="#2b2a26">→ vznikne jádro jiného prvku</text>
+		<line x1="40" y1="314" x2="420" y2="314" stroke="#868e96" stroke-width="2" stroke-dasharray="5 5" />
+
+		<!-- RADIOAKTIVITA: samovolná -->
+		<text x="40" y="350" font-size="21" font-weight="bold" fill="#5f3dc4">Radioaktivita: přemění se samo</text>
+		<g class="rmv">
+			<path d="M246 426L352 412" stroke="#495057" stroke-width="2.5" stroke-dasharray="8 6" fill="none" marker-end="url(#sip)" />
+			<text x="200" y="503" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">nestabilní jádro → jiný prvek</text>
+		</g>
+		<g class="bt">
+			<text x="95" y="420" text-anchor="middle" font-size="20" fill="#2b2a26">nic do něj</text>
+			<text x="95" y="446" text-anchor="middle" font-size="20" fill="#2b2a26">nenarazí</text>
+		</g>
+		<g class="bu"><use href="#jU" x="200" y="430" /></g>
+		<g class="bu"><text x="200" y="503" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">nestabilní jádro</text></g>
+		<g class="bx"><use href="#jX" x="200" y="430" /></g>
+		<g class="bxl"><text x="200" y="503" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">jádro jiného prvku</text></g>
+		<g class="ba"><use href="#jHe" x="370" y="410" /></g>
+		<g class="bal"><text x="370" y="456" text-anchor="middle" font-size="20" fill="#2b2a26">částice α</text></g>
+
+		<text x="40" y="546" font-size="21" font-weight="bold" fill="#1864ab">reakce: vyvolaná</text>
+		<text x="40" y="574" font-size="21" font-weight="bold" fill="#5f3dc4">radioaktivita: samovolná</text>
+		<use href="#p" x="48" y="603" /><text x="64" y="610" font-size="20" fill="#2b2a26">proton</text>
+		<use href="#n" x="150" y="603" /><text x="166" y="610" font-size="20" fill="#2b2a26">neutron</text>
+	</g>
+</svg>
