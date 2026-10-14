@@ -1,0 +1,137 @@
+<svg viewBox="0 0 460 680" width="460" height="680" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zvuk v pohybu 1/3, Jak rozkmitáme těleso: zvuk vzniká chvěním pružných těles. Úderem: palička udeří do bubnu a blána se chvěje. Drnkáním: prst drnkne strunu kytary a struna kmitá. Smýkáním: smyčec táhneme napříč přes strunu houslí a struna se chvěje. Prouděním vzduchu kolem ostré hrany: foukáme do píšťalky. Chvění je zpomalené." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Zvuk v pohybu 1/3: Jak rozkmitáme těleso</title>
+	<!-- W86 (14. 10. 2026). Předloha: PDF 34 Zvuk, vznik a šíření zvuku, s. 1 („Vzniká chvěním těles (např. rozkmitaná struna, blána
+	     bubnu …)“) a s. 4 („úderem rozkmitáme blánu bubnu“, „drnkáním rozkmitáme struny harfy či kytary“, „smýkáním rozkmitá smyčec
+	     struny houslí“, „prouděním vzduchu kolem ostré hrany tělesa rozkmitáme píšťalku, flétnu“). Strana 4 je bez obrázku — scény
+	     jsou kresba podle textu. Výklad: § Zdroje zvuku, tón a hluk (tytéž čtyři způsoby). Žádný statický obr podtématu je neukazuje
+	     (obr-05 = tón × hluk).
+	     Oranžová = chvějící se těleso (blána, struna; stejný význam jako „kulička, kterou rozkmitáme“ ve W85), šedé oblouky = zvuk.
+	     Chvění je zpomalené (skutečné má aspoň 16 kmitů za 1 s — výklad § Frekvence), proto nápis „Pohyb je zpomalený“.
+	     Cyklus buben/kytara 2 s: úder/drnknutí v 0,5 s, pak doznívání do 1,4 s. Smyčec 2 s tam a 2 s zpět, píšťalka 0,6 s.
+	     OPRAVA 1 (W86-kontrola-1): housle stojí svisle (struny svisle), smyčec leží NAPŘÍČ přes struny mezi hmatníkem a kobylkou
+	     a táhne se tam a zpět napříč (translateX, kolmo ke strunám) — tvar podle infografiky učitele (unnamed.png u PDF 34:
+	     housle s hlavicí, krkem, hmatníkem, kobylkou, efy a smyčcem přes struny). Kytara: korpus se dvěma oblouky, otvor,
+	     kobylka, krk s pražci a hlava s kolíčky (korpus jako obr-05). Struny kmitají krokově (step-end) mezi hodnotami bez nuly
+	     (|scale| ≥ 0,05) — struna se nikdy nezdegeneruje a nezmizí.
+	     Bez pohybu: palička na bláně, prst na struně, oblouky zvuku vidět. -->
+	<style>
+		.pa { transform-box: view-box; transform-origin: 206px 186px; animation: pa 2s ease-in infinite; }
+		@keyframes pa { 0%, 15% { transform: rotate(30deg); } 25% { transform: rotate(0deg); } 33%, 100% { transform: rotate(30deg); } }
+		.bl { animation: bl 2s linear infinite; }
+		@keyframes bl { 0%, 25% { transform: translateY(0px); } 28% { transform: translateY(3px); } 31% { transform: translateY(-3px); } 34% { transform: translateY(2.4px); } 37% { transform: translateY(-2px); } 40% { transform: translateY(1.5px); } 43% { transform: translateY(-1px); } 46% { transform: translateY(0.6px); } 49%, 100% { transform: translateY(0px); } }
+		.pr { animation: pr 2s linear infinite; }
+		@keyframes pr { 0% { transform: translateY(-34px); } 10% { transform: translateY(4px); } 22% { transform: translateY(12px); } 25%, 100% { transform: translateY(-34px); } }
+		.st { transform-box: view-box; transform-origin: 335px 262px; animation: st 2s step-end infinite; }
+		@keyframes st { 0% { transform: scaleY(0.05); } 11% { transform: scaleY(0.11); } 12% { transform: scaleY(0.17); } 13% { transform: scaleY(0.24); } 14% { transform: scaleY(0.30); } 15% { transform: scaleY(0.36); } 16% { transform: scaleY(0.42); } 17% { transform: scaleY(0.49); } 18% { transform: scaleY(0.55); } 19% { transform: scaleY(0.61); } 20% { transform: scaleY(0.68); } 21% { transform: scaleY(0.74); } 22% { transform: scaleY(0.80); } 23% { transform: scaleY(0.36); } 24% { transform: scaleY(-0.33); } 25% { transform: scaleY(-0.59); } 26% { transform: scaleY(-0.27); } 27% { transform: scaleY(0.24); } 28% { transform: scaleY(0.44); } 29% { transform: scaleY(0.20); } 30% { transform: scaleY(-0.18); } 31% { transform: scaleY(-0.33); } 32% { transform: scaleY(-0.15); } 33% { transform: scaleY(0.13); } 34% { transform: scaleY(0.24); } 35% { transform: scaleY(0.11); } 36% { transform: scaleY(-0.10); } 37% { transform: scaleY(-0.18); } 38% { transform: scaleY(-0.08); } 39% { transform: scaleY(0.07); } 40% { transform: scaleY(0.13); } 41% { transform: scaleY(0.06); } 42% { transform: scaleY(-0.05); } 43% { transform: scaleY(-0.10); } 44% { transform: scaleY(-0.05); } 45%, 100% { transform: scaleY(0.05); } }
+		.vl { animation: vl 2s linear infinite; }
+		@keyframes vl { 0%, 25% { opacity: 0; } 28%, 62% { opacity: 1; } 72%, 100% { opacity: 0; } }
+		.sy { animation: sy 2s ease-in-out infinite alternate; }
+		@keyframes sy { 0% { transform: translateX(-20px); } 100% { transform: translateX(20px); } }
+		.sm { transform-box: view-box; transform-origin: 104px 466px; animation: sm 0.4s step-end infinite; }
+		@keyframes sm { 0% { transform: scaleX(0.92); } 12.5% { transform: scaleX(0.38); } 25% { transform: scaleX(-0.38); } 37.5%, 50% { transform: scaleX(-0.92); } 62.5% { transform: scaleX(-0.38); } 75% { transform: scaleX(0.38); } 87.5%, 100% { transform: scaleX(0.92); } }
+		.vp { animation: vp 0.9s linear infinite; }
+		@keyframes vp { 0% { opacity: 0.3; } 50% { opacity: 1; } 100% { opacity: 0.3; } }
+		.vz { animation: vz 0.6s linear infinite; }
+		@keyframes vz { 0% { transform: translateX(0px); opacity: 1; } 100% { transform: translateX(24px); opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) {
+			.pa, .bl, .pr, .st, .vl, .sy, .sm, .vp, .vz { animation: none; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="680" fill="#f8f9fa" />
+	<g id="panel-1">
+		<rect x="26" y="22" width="420" height="648" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="648" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Jak rozkmitáme těleso</text>
+		<text x="40" y="96" font-size="20" fill="#2b2a26">Zvuk vzniká chvěním pružných těles.</text>
+		<text x="40" y="124" font-size="20" fill="#495057">Pohyb je zpomalený.</text>
+
+		<!-- 1) úderem: buben a palička -->
+		<rect x="34" y="140" width="192" height="210" rx="8" fill="#f1f3f5" stroke="#ced4da" stroke-width="1.5" />
+		<text x="46" y="168" font-size="20" font-weight="bold" fill="#2b2a26">úderem</text>
+		<ellipse cx="142" cy="300" rx="42" ry="9" fill="#a5875a" stroke="#495057" stroke-width="2" />
+		<rect x="100" y="252" width="84" height="48" fill="#a5875a" />
+		<path d="M100 252V300M184 252V300M100 262L142 292L184 262" fill="none" stroke="#495057" stroke-width="2" />
+		<g class="bl"><ellipse cx="142" cy="252" rx="42" ry="9" fill="#ffd8a8" stroke="#e8590c" stroke-width="3" /></g>
+		<g class="pa">
+			<path d="M206 186L150 236" stroke="#495057" stroke-width="5" stroke-linecap="round" />
+			<circle cx="150" cy="236" r="7" fill="#fbfaf6" stroke="#495057" stroke-width="2.5" />
+		</g>
+		<path class="vl" d="M90 236Q78 262 90 288" fill="none" stroke="#495057" stroke-width="3" stroke-linecap="round" />
+		<path class="vl" style="animation-delay:0.1s" d="M76 228Q60 262 76 296" fill="none" stroke="#495057" stroke-width="3" stroke-linecap="round" />
+		<path class="vl" style="animation-delay:0.2s" d="M62 220Q42 262 62 304" fill="none" stroke="#495057" stroke-width="3" stroke-linecap="round" />
+		<text x="130" y="336" text-anchor="middle" font-size="20" fill="#495057">buben</text>
+
+		<!-- 2) drnkáním: struna kytary a prst -->
+		<rect x="234" y="140" width="192" height="210" rx="8" fill="#f1f3f5" stroke="#ced4da" stroke-width="1.5" />
+		<text x="246" y="168" font-size="20" font-weight="bold" fill="#2b2a26">drnkáním</text>
+		<path d="M240 262C240 236 256 222 278 222C296 222 304 236 312 236C320 236 326 230 340 230C356 230 364 244 364 262C364 280 356 294 340 294C326 294 320 288 312 288C304 288 296 302 278 302C256 302 240 288 240 262Z" fill="#e9d3a8" stroke="#a5875a" stroke-width="2.5" />
+		<circle cx="334" cy="262" r="12" fill="#495057" />
+		<rect x="360" y="255" width="46" height="14" fill="#7a5c3a" stroke="#495057" stroke-width="1.5" />
+		<path d="M372 255V269M381 255V269M389 255V269M396 255V269" stroke="#ced4da" stroke-width="1.5" />
+		<path d="M404 252L422 248V276L404 272Z" fill="#7a5c3a" stroke="#495057" stroke-width="1.5" />
+		<circle cx="410" cy="246" r="3" fill="#495057" /><circle cx="418" cy="244" r="3" fill="#495057" />
+		<circle cx="410" cy="278" r="3" fill="#495057" /><circle cx="418" cy="280" r="3" fill="#495057" />
+		<rect x="262" y="250" width="8" height="24" rx="2" fill="#7a5c3a" stroke="#495057" stroke-width="1.5" />
+		<path d="M266 257H404M266 267H404" stroke="#495057" stroke-width="1.5" />
+		<g class="st">
+			<path d="M266 262Q335 282 404 262" fill="none" stroke="#2b2a26" stroke-width="7" vector-effect="non-scaling-stroke" />
+			<path d="M266 262Q335 282 404 262" fill="none" stroke="#e8590c" stroke-width="3.5" vector-effect="non-scaling-stroke" />
+		</g>
+		<rect class="pr" x="326" y="210" width="16" height="46" rx="8" fill="#f4c7a1" stroke="#495057" stroke-width="2" />
+		<path class="vl" d="M262 214Q280 204 298 214" fill="none" stroke="#495057" stroke-width="3" stroke-linecap="round" />
+		<path class="vl" style="animation-delay:0.1s" d="M254 200Q280 186 306 200" fill="none" stroke="#495057" stroke-width="3" stroke-linecap="round" />
+		<path class="vl" style="animation-delay:0.2s" d="M248 188Q280 172 312 188" fill="none" stroke="#495057" stroke-width="3" stroke-linecap="round" />
+		<text x="330" y="336" text-anchor="middle" font-size="20" fill="#495057">struna kytary</text>
+
+		<!-- 3) smýkáním: smyčec a struna houslí -->
+		<rect x="34" y="360" width="192" height="210" rx="8" fill="#f1f3f5" stroke="#ced4da" stroke-width="1.5" />
+		<text x="46" y="388" font-size="20" font-weight="bold" fill="#2b2a26">smýkáním</text>
+		<path d="M100 448C120 448 128 456 126 470C125 480 116 484 117 492C118 500 134 504 134 518C134 532 118 540 100 540C82 540 66 532 66 518C66 504 82 500 83 492C84 484 75 480 74 470C72 456 80 448 100 448Z" fill="#d9822b" stroke="#7a3e12" stroke-width="2.5" />
+		<path d="M86 494Q82 503 86 512M114 494Q118 503 114 512" fill="none" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round" />
+		<path d="M93 520H107L104 536H96Z" fill="#2b2a26" />
+		<circle cx="100" cy="402" r="6" fill="#d9822b" stroke="#7a3e12" stroke-width="2" />
+		<rect x="96" y="406" width="8" height="14" fill="#d9822b" stroke="#7a3e12" stroke-width="1.5" />
+		<path d="M96 410H89M96 416H89M104 410H111M104 416H111" stroke="#2b2a26" stroke-width="3" stroke-linecap="round" />
+		<path d="M95 420H105L109 488H91Z" fill="#2b2a26" />
+		<rect x="88" y="511" width="24" height="5" rx="1" fill="#f1d3a0" stroke="#495057" stroke-width="1.5" />
+		<path d="M93 420V522M97 420V522M107 420V522" stroke="#ced4da" stroke-width="1.2" />
+		<g class="sm">
+			<path d="M102 420Q108 466 102 522" fill="none" stroke="#2b2a26" stroke-width="6" vector-effect="non-scaling-stroke" />
+			<path d="M102 420Q108 466 102 522" fill="none" stroke="#e8590c" stroke-width="3" vector-effect="non-scaling-stroke" />
+		</g>
+		<g class="sy">
+			<path d="M52 494Q120 488 186 494" fill="none" stroke="#3b2614" stroke-width="4" stroke-linecap="round" />
+			<path d="M56 502H176" stroke="#343a40" stroke-width="2.5" />
+			<path d="M54 494V502" stroke="#3b2614" stroke-width="3" stroke-linecap="round" />
+			<rect x="172" y="492" width="14" height="13" rx="2" fill="#495057" />
+		</g>
+		<path class="vp" d="M160 438Q182 428 204 438" fill="none" stroke="#495057" stroke-width="3" stroke-linecap="round" />
+		<path class="vp" style="animation-delay:0.15s" d="M152 424Q182 410 212 424" fill="none" stroke="#495057" stroke-width="3" stroke-linecap="round" />
+		<path class="vp" style="animation-delay:0.3s" d="M144 410Q182 392 220 410" fill="none" stroke="#495057" stroke-width="3" stroke-linecap="round" />
+		<text x="130" y="556" text-anchor="middle" font-size="20" fill="#495057">housle a smyčec</text>
+
+		<!-- 4) prouděním vzduchu kolem ostré hrany: píšťalka -->
+		<rect x="234" y="360" width="192" height="210" rx="8" fill="#f1f3f5" stroke="#ced4da" stroke-width="1.5" />
+		<text x="246" y="388" font-size="20" font-weight="bold" fill="#2b2a26">prouděním</text>
+		<text x="246" y="412" font-size="20" font-weight="bold" fill="#2b2a26">kolem hrany</text>
+		<rect x="262" y="492" width="34" height="18" rx="3" fill="#ffe066" stroke="#495057" stroke-width="2" />
+		<rect x="292" y="484" width="118" height="34" rx="8" fill="#ffe066" stroke="#495057" stroke-width="2.5" />
+		<path d="M304 484H326V498Z" fill="#495057" />
+		<g class="vz"><path d="M238 495H250" stroke="#495057" stroke-width="2.5" stroke-linecap="round" /></g>
+		<g class="vz" style="animation-delay:0.2s"><path d="M238 501H250" stroke="#495057" stroke-width="2.5" stroke-linecap="round" /></g>
+		<g class="vz" style="animation-delay:0.4s"><path d="M238 507H250" stroke="#495057" stroke-width="2.5" stroke-linecap="round" /></g>
+		<path class="vp" d="M300 470Q315 460 330 470" fill="none" stroke="#495057" stroke-width="3" stroke-linecap="round" />
+		<path class="vp" style="animation-delay:0.15s" d="M292 456Q315 442 338 456" fill="none" stroke="#495057" stroke-width="3" stroke-linecap="round" />
+		<path class="vp" style="animation-delay:0.3s" d="M284 442Q315 424 346 442" fill="none" stroke="#495057" stroke-width="3" stroke-linecap="round" />
+		<text x="330" y="556" text-anchor="middle" font-size="20" fill="#495057">píšťalka</text>
+
+		<!-- legenda -->
+		<path d="M40 592H72" stroke="#2b2a26" stroke-width="7" stroke-linecap="round" />
+		<path d="M40 592H72" stroke="#e8590c" stroke-width="3.5" stroke-linecap="round" />
+		<text x="84" y="599" font-size="20" fill="#2b2a26">chvějící se těleso</text>
+		<path d="M44 622Q52 632 44 642M54 618Q64 632 54 646M64 614Q76 632 64 650" fill="none" stroke="#495057" stroke-width="3" stroke-linecap="round" />
+		<text x="84" y="639" font-size="20" fill="#2b2a26">zvuk</text>
+	</g>
+</svg>

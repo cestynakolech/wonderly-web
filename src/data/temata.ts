@@ -3287,6 +3287,7 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '4uaNca3El9A',
 						},
 						{ druh: 'video', nazev: 'Píseň: Ve vakuu ticho 🎵', cesta: '/materialy/fyzika/8-rocnik/zvuk/zvuk-vznik-a-sireni/pisen-ve-vakuu-ticho.m4a' },
+						{ druh: 'infografika', nazev: 'Zvuk v pohybu', cesta: '/materialy/fyzika/8-rocnik/zvuk/zvuk-vznik-a-sireni/infografika-zvuk-vznik-a-sireni-pohyb-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/zvuk/zvuk-vznik-a-sireni/infografika-zvuk-vznik-a-sireni-pohyb-panel-1.svg', '/materialy/fyzika/8-rocnik/zvuk/zvuk-vznik-a-sireni/infografika-zvuk-vznik-a-sireni-pohyb-panel-2.svg', '/materialy/fyzika/8-rocnik/zvuk/zvuk-vznik-a-sireni/infografika-zvuk-vznik-a-sireni-pohyb-panel-3.svg'] },
 					],
 				},
 				{

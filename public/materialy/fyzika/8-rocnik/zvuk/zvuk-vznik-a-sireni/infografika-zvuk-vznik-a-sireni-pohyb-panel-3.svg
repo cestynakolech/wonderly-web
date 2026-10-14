@@ -1,0 +1,94 @@
+<svg viewBox="0 0 460 700" width="460" height="700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zvuk v pohybu 3/3, Ultrazvuk pod hladinou: loď vyšle ultrazvuk, ten se odrazí a vrátí se zpět k lodi jako ozvěna. Sonar měří hloubku moře, ultrazvuk se odrazí ode dna. Echolot hledá hejna ryb, ultrazvuk se odrazí od ryb. Ultrazvuk se odráží nejlépe. Ryby jsou blíž, proto se jejich ozvěna vrátí dřív." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Zvuk v pohybu 3/3: Ultrazvuk pod hladinou</title>
+	<!-- W86 (14. 10. 2026). Předloha: PDF 34 Zvuk, vznik a šíření zvuku, s. 6 („Zvukové vlnění se od velkých ploch (… mořské dno, …)
+	     odráží“) a s. 7 („ultrazvuk se odráží nejlépe ➪ využíváme ho v přístrojích“, „sonar pro měření hloubky moře, echolot pro
+	     vyhledávání ryb v moři“). Strana 7 je bez obrázku — loď, dno a hejno jsou kresba podle textu. Výklad: § Odraz zvuku
+	     („sonar (hloubka moře)“, „echolot (hejna ryb)“). Statické obr-07 (delfín) a obr-08 (sonografie) ukazují jiné využití.
+	     Barvy jako obr-07: vysílaný ultrazvuk červený #e03131, odražený (ozvěna) modrý #1971c2.
+	     Model: obě vlny jdou stejnou vodou stejně rychle, 200 px/s; cyklus 3 s. Sonar: dolů 220 px (1,1 s), nahoru 218 px
+	     (do 2,19 s). Echolot: dolů 70 px (0,35 s), nahoru 70 px (do 0,7 s) — ozvěna od ryb je zpět dřív, protože jsou blíž.
+	     Bez pohybu: vlny stojí u lodi a u dna/ryb, šipky tam a zpět ukazují cestu. -->
+	<style>
+		.rmv { opacity: 0; }
+		.s1d { animation: s1d 3s linear infinite; }
+		@keyframes s1d { 0% { transform: translateY(0px); opacity: 1; } 36.7% { transform: translateY(220px); opacity: 1; } 36.8%, 100% { transform: translateY(220px); opacity: 0; } }
+		.s1u { animation: s1u 3s linear infinite; }
+		@keyframes s1u { 0%, 36.7% { transform: translateY(0px); opacity: 0; } 36.8% { transform: translateY(0px); opacity: 1; } 73% { transform: translateY(-218px); opacity: 1; } 73.1%, 100% { transform: translateY(-218px); opacity: 0; } }
+		.s2d { animation: s2d 3s linear infinite; }
+		@keyframes s2d { 0% { transform: translateY(0px); opacity: 1; } 11.7% { transform: translateY(70px); opacity: 1; } 11.8%, 100% { transform: translateY(70px); opacity: 0; } }
+		.s2u { animation: s2u 3s linear infinite; }
+		@keyframes s2u { 0%, 11.7% { transform: translateY(0px); opacity: 0; } 11.8% { transform: translateY(0px); opacity: 1; } 23.4% { transform: translateY(-70px); opacity: 1; } 23.5%, 100% { transform: translateY(-70px); opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) {
+			.s1d, .s1u, .s2d, .s2u { animation: none; }
+			.rmv { opacity: 1; }
+		}
+	</style>
+	<defs>
+		<marker id="sc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#e03131" /></marker>
+		<marker id="sm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#1971c2" /></marker>
+	</defs>
+	<rect x="0" y="0" width="460" height="700" fill="#f8f9fa" />
+	<g id="panel-3">
+		<rect x="26" y="22" width="420" height="668" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="668" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">3</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Ultrazvuk pod hladinou</text>
+		<text x="40" y="96" font-size="20" fill="#2b2a26">Loď vyšle ultrazvuk. Ten se odrazí</text>
+		<text x="40" y="124" font-size="20" fill="#2b2a26">a vrátí se zpět k lodi (ozvěna).</text>
+
+		<text x="130" y="154" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">sonar</text>
+		<text x="330" y="154" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">echolot</text>
+
+		<!-- moře a dno -->
+		<rect x="34" y="196" width="392" height="274" fill="#d0ebff" />
+		<path d="M34 196H426" stroke="#1864ab" stroke-width="2" />
+		<path d="M34 442Q90 432 150 442T270 440T426 442V470H34Z" fill="#e9d3a8" stroke="#7a5c3a" stroke-width="2.5" />
+		<text x="400" y="462" text-anchor="end" font-size="20" fill="#495057">dno</text>
+
+		<!-- hejno ryb pod druhou lodí -->
+		<g fill="#495057">
+			<g transform="translate(306,300)"><ellipse cx="0" cy="0" rx="11" ry="6" /><path d="M-9 0L-18 -6V6Z" /></g>
+			<g transform="translate(338,296)"><ellipse cx="0" cy="0" rx="11" ry="6" /><path d="M-9 0L-18 -6V6Z" /></g>
+			<g transform="translate(368,306)"><ellipse cx="0" cy="0" rx="11" ry="6" /><path d="M-9 0L-18 -6V6Z" /></g>
+			<g transform="translate(320,320)"><ellipse cx="0" cy="0" rx="11" ry="6" /><path d="M-9 0L-18 -6V6Z" /></g>
+			<g transform="translate(352,324)"><ellipse cx="0" cy="0" rx="11" ry="6" /><path d="M-9 0L-18 -6V6Z" /></g>
+			<g transform="translate(298,338)"><ellipse cx="0" cy="0" rx="11" ry="6" /><path d="M-9 0L-18 -6V6Z" /></g>
+		</g>
+		<text x="400" y="372" text-anchor="end" font-size="20" fill="#495057">ryby</text>
+
+		<!-- lodě -->
+		<g transform="translate(130,192)">
+			<rect x="-18" y="-30" width="30" height="20" rx="2" fill="#fbfaf6" stroke="#495057" stroke-width="2" />
+			<path d="M-50 -10H50L38 10H-38Z" fill="#495057" />
+		</g>
+		<g transform="translate(330,192)">
+			<rect x="-18" y="-30" width="30" height="20" rx="2" fill="#fbfaf6" stroke="#495057" stroke-width="2" />
+			<path d="M-50 -10H50L38 10H-38Z" fill="#495057" />
+		</g>
+
+		<!-- vlny: vysílaný (červená) a odražený (modrá) ultrazvuk -->
+		<g transform="translate(130,214)"><g class="s1d"><path d="M-26 0Q0 16 26 0M-20 -10Q0 4 20 -10" fill="none" stroke="#e03131" stroke-width="3.5" stroke-linecap="round" /></g></g>
+		<g transform="translate(130,432)"><g class="s1u"><path d="M-26 0Q0 -16 26 0M-20 10Q0 -4 20 10" fill="none" stroke="#1971c2" stroke-width="3.5" stroke-linecap="round" /></g></g>
+		<g transform="translate(330,214)"><g class="s2d"><path d="M-26 0Q0 16 26 0M-20 -10Q0 4 20 -10" fill="none" stroke="#e03131" stroke-width="3.5" stroke-linecap="round" /></g></g>
+		<g transform="translate(330,276)"><g class="s2u"><path d="M-26 0Q0 -16 26 0M-20 10Q0 -4 20 10" fill="none" stroke="#1971c2" stroke-width="3.5" stroke-linecap="round" /></g></g>
+		<!-- bez pohybu: cesta tam a zpět -->
+		<g class="rmv" fill="none" stroke-width="3">
+			<path d="M80 230V420" stroke="#e03131" marker-end="url(#sc)" />
+			<path d="M180 420V230" stroke="#1971c2" marker-end="url(#sm)" />
+			<path d="M262 226V284" stroke="#e03131" marker-end="url(#sc)" />
+			<path d="M398 284V226" stroke="#1971c2" marker-end="url(#sm)" />
+		</g>
+
+		<text x="130" y="502" text-anchor="middle" font-size="20" fill="#2b2a26">měří hloubku moře</text>
+		<text x="330" y="502" text-anchor="middle" font-size="20" fill="#2b2a26">hledá hejna ryb</text>
+		<text x="40" y="548" font-size="21" font-weight="bold" fill="#2b2a26">Ultrazvuk se odráží nejlépe.</text>
+		<text x="40" y="578" font-size="20" fill="#2b2a26">Ryby jsou blíž – ozvěna je zpět dřív.</text>
+
+		<!-- legenda -->
+		<path d="M40 612Q60 624 80 612M44 602Q60 612 76 602" fill="none" stroke="#e03131" stroke-width="3.5" stroke-linecap="round" />
+		<text x="94" y="619" font-size="20" fill="#2b2a26">vysílaný ultrazvuk</text>
+		<path d="M40 658Q60 646 80 658M44 668Q60 658 76 668" fill="none" stroke="#1971c2" stroke-width="3.5" stroke-linecap="round" />
+		<text x="94" y="661" font-size="20" fill="#2b2a26">odražený ultrazvuk (ozvěna)</text>
+	</g>
+</svg>
