@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 535" width="460" height="535" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Řez rybníkem v mrazu: led začíná růst na hladině od břehů a od kamene, který vyčnívá z vody, a postupně pokryje celou hladinu a zesílí. Led plave na hladině a ryba plave ve vodě pod ním.">
+	<title>Tuhnutí 2/3: Rybník zamrzá od břehu</title>
+	<!-- Tuhnutí 2/3: Rybník zamrzá od břehu — generátor W61 14. 10. 2026 (podle PDF 8/4 Teplo teplota, výklad na webu). -->
+	<style>
+		.tu2-ryba {  animation: tu2-ryba 14s linear infinite; }
+		@keyframes tu2-ryba { 0.00% { transform: translate(0px, 0px) scale(1, 1); } 45.00% { transform: translate(65px, 0px) scale(1, 1); } 47.00% { transform: translate(65px, 0px) scale(-1, 1); } 93.00% { transform: translate(0px, 0px) scale(-1, 1); } 95.00% { transform: translate(0px, 0px) scale(1, 1); } 100.00% { transform: translate(0px, 0px) scale(1, 1); } }
+		.tu2-tl { transform: scaleY(1.6); transform-box: view-box; transform-origin: 230px 210px; animation: tu2-tl 14s linear infinite; }
+		@keyframes tu2-tl { 0.00% { transform: scaleY(1); } 62.00% { transform: scaleY(1); } 80.00% { transform: scaleY(1.6); } 94.00% { transform: scaleY(1.6); } 99.00% { transform: scaleY(1); } 100.00% { transform: scaleY(1); } }
+		.tu2-led0 { transform: scaleX(1); transform-box: view-box; transform-origin: 50px 210px; animation: tu2-led0 14s linear infinite; }
+		@keyframes tu2-led0 { 0.00% { transform: scaleX(0.001); } 8.00% { transform: scaleX(0.001); } 60.00% { transform: scaleX(1); } 94.00% { transform: scaleX(1); } 99.00% { transform: scaleX(0.001); } 100.00% { transform: scaleX(0.001); } }
+		.tu2-led1 { transform: scaleX(1); transform-box: view-box; transform-origin: 280px 210px; animation: tu2-led1 14s linear infinite; }
+		@keyframes tu2-led1 { 0.00% { transform: scaleX(0.001); } 14.00% { transform: scaleX(0.001); } 60.00% { transform: scaleX(1); } 94.00% { transform: scaleX(1); } 99.00% { transform: scaleX(0.001); } 100.00% { transform: scaleX(0.001); } }
+		.tu2-led2 { transform: scaleX(1); transform-box: view-box; transform-origin: 320px 210px; animation: tu2-led2 14s linear infinite; }
+		@keyframes tu2-led2 { 0.00% { transform: scaleX(0.001); } 8.00% { transform: scaleX(0.001); } 40.00% { transform: scaleX(1); } 94.00% { transform: scaleX(1); } 99.00% { transform: scaleX(0.001); } 100.00% { transform: scaleX(0.001); } }
+		.tu2-led3 { transform: scaleX(1); transform-box: view-box; transform-origin: 410px 210px; animation: tu2-led3 14s linear infinite; }
+		@keyframes tu2-led3 { 0.00% { transform: scaleX(0.001); } 8.00% { transform: scaleX(0.001); } 40.00% { transform: scaleX(1); } 94.00% { transform: scaleX(1); } 99.00% { transform: scaleX(0.001); } 100.00% { transform: scaleX(0.001); } }
+		.tu2-zavoj { opacity: 0; animation: tu2-zavoj 14s linear infinite; }
+		@keyframes tu2-zavoj { 0.00% { opacity: 0; } 94.00% { opacity: 0; } 95.20% { opacity: 1; } 99.00% { opacity: 1; } 100.00% { opacity: 0; } 100.00% { opacity: 0; } }
+		.tu2-k0 { fill: #212529; animation: tu2-k0 14s linear infinite; }
+		@keyframes tu2-k0 { 0.00% { fill: #212529; } 60.00% { fill: #212529; } 60.80% { fill: #adb5bd; } 100.00% { fill: #adb5bd; } }
+		.tu2-k1 { fill: #212529; animation: tu2-k1 14s linear infinite; }
+		@keyframes tu2-k1 { 0.00% { fill: #212529; } 60.00% { fill: #212529; } 60.80% { fill: #adb5bd; } 100.00% { fill: #adb5bd; } }
+		.tu2-k2 { fill: #212529; animation: tu2-k2 14s linear infinite; }
+		@keyframes tu2-k2 { 0.00% { fill: #adb5bd; } 60.00% { fill: #adb5bd; } 60.80% { fill: #212529; } 94.00% { fill: #212529; } 94.80% { fill: #adb5bd; } 100.00% { fill: #adb5bd; } }
+		.tu2-k3 { fill: #212529; animation: tu2-k3 14s linear infinite; }
+		@keyframes tu2-k3 { 0.00% { fill: #adb5bd; } 60.00% { fill: #adb5bd; } 60.80% { fill: #212529; } 94.00% { fill: #212529; } 94.80% { fill: #adb5bd; } 100.00% { fill: #adb5bd; } }
+		@media (prefers-reduced-motion: reduce) { .tu2-ryba, .tu2-tl, .tu2-led0, .tu2-led1, .tu2-led2, .tu2-led3, .tu2-zavoj, .tu2-k0, .tu2-k1, .tu2-k2, .tu2-k3 { animation: none; } }
+	</style>
+	<defs>
+		<marker id="sr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e03131"/></marker>
+		<marker id="sm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1971c2"/></marker>
+		<marker id="sk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#495057"/></marker>
+		<pattern id="mraz" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="10" height="10" fill="#d0ebff"/><line x1="0" y1="0" x2="0" y2="10" stroke="#ffffff" stroke-width="3"/></pattern>
+	</defs>
+	<rect x="0" y="0" width="460" height="535" fill="#f8f9fa" />
+	<rect x="16" y="16" width="440" height="515" rx="12" fill="#dee2e6"/>
+	<rect x="10" y="10" width="440" height="515" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/>
+	<circle cx="42" cy="44" r="17" fill="#2b2a26"/>
+	<text x="42" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">2</text>
+	<text x="70" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Rybník zamrzá od břehu</text>
+	<rect x="22" y="70" width="416" height="150" fill="#e7f5ff"/>
+	<path d="M22,190 L40,192 L50,210 Q230,450 410,210 L420,192 L438,190 L438,360 L22,360 Z" fill="#8d6e4f"/>
+	<path d="M22,190 L40,192 L50,208" fill="none" stroke="#ffffff" stroke-width="5"/>
+	<path d="M410,208 L420,192 L438,190" fill="none" stroke="#ffffff" stroke-width="5"/>
+	<path d="M50,210 Q230,450 410,210 Z" fill="#74c0fc"/>
+	<line x1="50" y1="210" x2="410" y2="210" stroke="#1c7ed6" stroke-width="2"/>
+	<path d="M266,317.9 Q264,267.9 282,204 Q296,188 314,197 Q334,267.9 332,317.9 Z" fill="#868e96" stroke="#495057" stroke-width="2"/>
+	<g stroke="#74c0fc" stroke-width="2"><line x1="64" y1="100" x2="76" y2="100"/><line x1="67" y1="95" x2="73" y2="105"/><line x1="67" y1="105" x2="73" y2="95"/></g>
+	<g stroke="#74c0fc" stroke-width="2"><line x1="144" y1="130" x2="156" y2="130"/><line x1="147" y1="125" x2="153" y2="135"/><line x1="147" y1="135" x2="153" y2="125"/></g>
+	<g stroke="#74c0fc" stroke-width="2"><line x1="244" y1="95" x2="256" y2="95"/><line x1="247" y1="90" x2="253" y2="100"/><line x1="247" y1="100" x2="253" y2="90"/></g>
+	<g stroke="#74c0fc" stroke-width="2"><line x1="374" y1="120" x2="386" y2="120"/><line x1="377" y1="115" x2="383" y2="125"/><line x1="377" y1="125" x2="383" y2="115"/></g>
+	<g stroke="#74c0fc" stroke-width="2"><line x1="324" y1="150" x2="336" y2="150"/><line x1="327" y1="145" x2="333" y2="155"/><line x1="327" y1="155" x2="333" y2="145"/></g>
+	<g stroke="#74c0fc" stroke-width="2"><line x1="104" y1="165" x2="116" y2="165"/><line x1="107" y1="160" x2="113" y2="170"/><line x1="107" y1="170" x2="113" y2="160"/></g>
+	<text x="405" y="98" font-size="17" fill="#1971c2" text-anchor="end" font-weight="bold">mráz</text>
+	<g transform="translate(165,270)"><g class="tu2-ryba"><path d="M-18,0 Q0,-12 18,0 Q0,12 -18,0 Z" fill="#8fa3b8" stroke="#495a6b" stroke-width="1.5"/><path d="M-16,0 L-28,-8 L-28,8 Z" fill="#8fa3b8" stroke="#495a6b" stroke-width="1.5"/><circle cx="10" cy="-2" r="2" fill="#212529"/></g></g>
+	<g class="tu2-tl">
+		<rect class="tu2-led0" x="50" y="208.8" width="125" height="12" fill="#e7f5ff" stroke="#74c0fc" stroke-width="1.5"/>
+		<rect class="tu2-led1" x="175" y="208.8" width="105" height="12" fill="#e7f5ff" stroke="#74c0fc" stroke-width="1.5"/>
+		<rect class="tu2-led2" x="320" y="208.8" width="90" height="12" fill="#e7f5ff" stroke="#74c0fc" stroke-width="1.5"/>
+		<rect class="tu2-led3" x="320" y="208.8" width="90" height="12" fill="#e7f5ff" stroke="#74c0fc" stroke-width="1.5"/>
+	</g>
+	<rect class="tu2-zavoj" x="22" y="186" width="416" height="174" fill="#fbfaf6"/>
+	<text x="32" y="392" font-size="17" fill="#212529" text-anchor="start" font-weight="bold" class="tu2-k0">1  Voda začíná mrznout u břehu</text>
+	<text x="32" y="418" font-size="17" fill="#212529" text-anchor="start" font-weight="bold" class="tu2-k1">    a u kamene, led roste po hladině.</text>
+	<text x="32" y="444" font-size="17" fill="#212529" text-anchor="start" font-weight="bold" class="tu2-k2">2  Led plave na hladině a sílí.</text>
+	<text x="32" y="470" font-size="17" fill="#212529" text-anchor="start" font-weight="bold" class="tu2-k3">    Ryby plavou ve vodě pod ledem.</text>
+	<text x="230" y="512" font-size="16" fill="#212529" text-anchor="middle" font-weight="bold">Led má menší hustotu než voda, proto plave.</text>
+</svg>

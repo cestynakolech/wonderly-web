@@ -1,0 +1,130 @@
+<svg viewBox="0 0 460 720" width="460" height="720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rosa a mlha přes noc: louka s trávou a rybníkem. Přes den svítí slunce, večer zapadá a vzduch se ochlazuje, teploměr klesá. Když teplota klesne na rosný bod, na stéblech trávy se objeví kapky rosy a nad rybníkem vznikne mlha. V noci svítí měsíc. Ráno vyjde slunce, oteplí se a rosa i mlha zmizí." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Kondenzace (kapalnění) 3/3: Rosa a mlha přes noc</title>
+	<defs>
+		<clipPath id="kon3-scena"><rect x="30" y="110" width="400" height="420" rx="8"/></clipPath>
+		<clipPath id="kon3-lupa"><circle cx="190" cy="282" r="46"/></clipPath>
+	</defs>
+	<style>
+		.k3-nebe { animation: k3nebe 16s linear infinite; }
+		@keyframes k3nebe { 0%, 12% { fill: #d0ebff; } 28% { fill: #ffc078; } 38%, 66% { fill: #1c2541; } 76% { fill: #ffd8a8; } 88%, 100% { fill: #d0ebff; } }
+		.k3-slunce { animation: k3slunce 16s ease-in-out infinite; }
+		@keyframes k3slunce { 0%, 12% { transform: translate(0px, 0px); } 32%, 68% { transform: translate(0px, 330px); } 86%, 100% { transform: translate(0px, 0px); } }
+		.k3-noc { animation: k3noc 16s linear infinite; }
+		@keyframes k3noc { 0%, 32% { opacity: 0; } 40%, 64% { opacity: 1; } 72%, 100% { opacity: 0; } }
+		.k3-tma { animation: k3tma 16s linear infinite; }
+		@keyframes k3tma { 0%, 14% { opacity: 0; } 38%, 66% { opacity: 0.4; } 84%, 100% { opacity: 0; } }
+		.k3-tep { transform-box: fill-box; transform-origin: center bottom; animation: k3tep 16s ease-in-out infinite; }
+		@keyframes k3tep { 0%, 12% { transform: scaleY(1); } 36% { transform: scaleY(0.46); } 66% { transform: scaleY(0.4); } 88%, 100% { transform: scaleY(1); } }
+		.k3-rosa { transform-box: fill-box; transform-origin: center; animation: k3rosa 16s linear infinite; }
+		@keyframes k3rosa { 0%, 36% { transform: scale(0); opacity: 0; } 46% { transform: scale(1); opacity: 1; } 80% { transform: scale(1); opacity: 1; } 90%, 100% { transform: scale(0.3); opacity: 0; } }
+		.k3-mlha { animation: k3mlha 16s linear infinite; }
+		@keyframes k3mlha { 0%, 40% { opacity: 0; transform: translate(0px, 0px); } 56%, 76% { opacity: 0.85; transform: translate(10px, 0px); } 90%, 100% { opacity: 0; transform: translate(16px, 0px); } }
+		.k3-den { animation: k3den 16s linear infinite; }
+		@keyframes k3den { 0%, 13% { opacity: 1; } 14%, 91% { opacity: 0; } 92%, 100% { opacity: 1; } }
+		.k3-vecer { animation: k3vecer 16s linear infinite; }
+		@keyframes k3vecer { 0%, 13% { opacity: 0; } 14%, 33% { opacity: 1; } 34%, 100% { opacity: 0; } }
+		.k3-nocn { animation: k3nocn 16s linear infinite; }
+		@keyframes k3nocn { 0%, 33% { opacity: 0; } 34%, 67% { opacity: 1; } 68%, 100% { opacity: 0; } }
+		.k3-rano { animation: k3rano 16s linear infinite; }
+		@keyframes k3rano { 0%, 67% { opacity: 0; } 68%, 91% { opacity: 1; } 92%, 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) { .k3-nebe, .k3-slunce, .k3-noc, .k3-tma, .k3-tep, .k3-rosa, .k3-mlha, .k3-den, .k3-vecer, .k3-nocn, .k3-rano { animation: none; }
+			/* statický obraz = noc: teplota pod rosným bodem, rosa i mlha (ne rosa přes den) */
+			.k3-nebe { fill: #1c2541; } .k3-slunce { opacity: 0; } .k3-noc { opacity: 1; } .k3-tma { opacity: 0.4; }
+			.k3-tep { transform: scaleY(0.4); } .k3-mlha { opacity: 0.85; } .k3-den { opacity: 0; } .k3-nocn { opacity: 1; } }
+	</style>
+	<rect x="0" y="0" width="460" height="720" fill="#f8f9fa"/>
+	<g id="panel-3">
+		<rect x="26" y="16" width="420" height="696" rx="12" fill="#dee2e6"/>
+		<rect x="20" y="10" width="420" height="696" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/>
+		<circle cx="52" cy="44" r="17" fill="#2b2a26"/>
+		<text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">3</text>
+		<text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Rosa a mlha přes noc</text>
+		<text x="34" y="92" font-size="21" fill="#2b2a26">Louka u rybníka od večera do rána.</text>
+
+		<g clip-path="url(#kon3-scena)">
+			<rect class="k3-nebe" x="30" y="110" width="400" height="320" fill="#d0ebff"/>
+			<!-- hvězdy a měsíc -->
+			<g class="k3-noc" opacity="0" fill="#fff3bf">
+				<circle cx="60" cy="140" r="2"/><circle cx="130" cy="176" r="2"/><circle cx="270" cy="130" r="2"/><circle cx="300" cy="196" r="2"/><circle cx="96" cy="216" r="2"/>
+				<circle cx="250" cy="174" r="17"/>
+			</g>
+			<!-- slunce -->
+			<g class="k3-slunce">
+				<circle cx="90" cy="172" r="24" fill="#ffd43b" stroke="#f59f00" stroke-width="2"/>
+				<g stroke="#f59f00" stroke-width="3" stroke-linecap="round">
+					<line x1="90" y1="136" x2="90" y2="126"/><line x1="90" y1="208" x2="90" y2="218"/><line x1="54" y1="172" x2="44" y2="172"/><line x1="126" y1="172" x2="136" y2="172"/>
+					<line x1="65" y1="147" x2="58" y2="140"/><line x1="115" y1="147" x2="122" y2="140"/><line x1="65" y1="197" x2="58" y2="204"/><line x1="115" y1="197" x2="122" y2="204"/>
+				</g>
+			</g>
+			<!-- louka a rybník -->
+			<rect x="30" y="420" width="400" height="110" fill="#69db7c"/>
+			<path d="M30,420 Q130,410 230,420 T430,418 L430,430 L30,430 Z" fill="#51cf66"/>
+			<ellipse cx="336" cy="474" rx="88" ry="28" fill="#74c0fc" stroke="#1c7ed6" stroke-width="2"/>
+			<g fill="none" stroke="#2b8a3e" stroke-width="3" stroke-linecap="round">
+				<path d="M56,526 Q52,490 44,462"/><path d="M70,526 Q72,488 80,456"/><path d="M96,526 Q92,494 86,470"/>
+				<path d="M120,526 Q124,486 132,458"/><path d="M146,526 Q140,492 134,466"/><path d="M168,526 Q172,490 180,462"/>
+				<path d="M196,526 Q190,494 184,470"/><path d="M220,526 Q224,490 232,464"/>
+			</g>
+			<rect class="k3-tma" x="30" y="420" width="400" height="110" fill="#1c2541" opacity="0"/>
+			<!-- rosa na špičkách stébel -->
+			<g fill="#a5d8ff" stroke="#1c7ed6" stroke-width="1">
+				<path class="k3-rosa" d="M44,458 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z"/>
+				<path class="k3-rosa" style="animation-delay:-0.3s" d="M80,452 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z"/>
+				<path class="k3-rosa" style="animation-delay:-0.6s" d="M88,468 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z"/>
+				<path class="k3-rosa" style="animation-delay:-0.2s" d="M132,454 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z"/>
+				<path class="k3-rosa" style="animation-delay:-0.4s" d="M180,456 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z"/>
+				<path class="k3-rosa" style="animation-delay:-0.7s" d="M186,470 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z"/>
+				<path class="k3-rosa" style="animation-delay:-0.1s" d="M232,458 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z"/>
+				<path class="k3-rosa" style="animation-delay:-0.45s" d="M74,490 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z"/>
+				<path class="k3-rosa" style="animation-delay:-0.25s" d="M170,494 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z"/>
+			</g>
+			<!-- mlha nad rybníkem -->
+			<g class="k3-mlha" opacity="0" fill="#f1f3f5">
+				<ellipse cx="300" cy="452" rx="70" ry="16"/>
+				<ellipse cx="370" cy="446" rx="60" ry="18"/>
+				<ellipse cx="336" cy="430" rx="80" ry="14"/>
+				<ellipse cx="270" cy="470" rx="40" ry="12"/>
+			</g>
+		</g>
+
+		<!-- teploměr -->
+		<rect x="300" y="122" width="122" height="214" rx="8" fill="#ffffff" stroke="#ced4da" stroke-width="1.5"/>
+		<text x="361" y="144" font-size="15" font-weight="bold" text-anchor="middle" fill="#2b2a26">teplota</text>
+		<rect x="384" y="156" width="16" height="148" rx="8" fill="#ffffff" stroke="#495057" stroke-width="2"/>
+		<rect class="k3-tep" x="388" y="170" width="8" height="132" fill="#e03131"/>
+		<circle cx="392" cy="312" r="13" fill="#e03131" stroke="#495057" stroke-width="2"/>
+		<line x1="374" y1="242" x2="408" y2="242" stroke="#1c7ed6" stroke-width="3"/>
+		<text x="370" y="238" font-size="15" text-anchor="end" fill="#1c7ed6">rosný</text>
+		<text x="370" y="256" font-size="15" text-anchor="end" fill="#1c7ed6">bod</text>
+
+		<!-- lupa na stéblo -->
+		<line x1="180" y1="462" x2="190" y2="330" stroke="#2b2a26" stroke-width="2"/>
+		<circle cx="190" cy="282" r="46" fill="#e7f5ff"/>
+		<g clip-path="url(#kon3-lupa)">
+			<path d="M150,330 Q178,290 230,240 L238,250 Q190,296 166,334 Z" fill="#40c057" stroke="#2b8a3e" stroke-width="2"/>
+			<g fill="#a5d8ff" stroke="#1c7ed6" stroke-width="1.5">
+				<path class="k3-rosa" d="M184,280 c-7,10 -7,17 0,18 c7,-1 7,-8 0,-18 z"/>
+				<path class="k3-rosa" style="animation-delay:-0.4s" d="M206,258 c-6,9 -6,15 0,16 c6,-1 6,-7 0,-16 z"/>
+				<path class="k3-rosa" style="animation-delay:-0.8s" d="M168,302 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z"/>
+			</g>
+		</g>
+		<circle cx="190" cy="282" r="46" fill="none" stroke="#2b2a26" stroke-width="4"/>
+
+		<!-- ukazatel části dne -->
+		<rect x="40" y="120" width="96" height="30" rx="15" fill="#ffffff" stroke="#ced4da" stroke-width="1.5"/>
+		<g font-size="18" font-weight="bold" text-anchor="middle" fill="#2b2a26">
+			<text class="k3-den" x="88" y="141">den</text>
+			<text class="k3-vecer" x="88" y="141" opacity="0">večer</text>
+			<text class="k3-nocn" x="88" y="141" opacity="0">noc</text>
+			<text class="k3-rano" x="88" y="141" opacity="0">ráno</text>
+		</g>
+
+		<!-- legenda a závěr -->
+		<line x1="40" y1="558" x2="64" y2="558" stroke="#1c7ed6" stroke-width="3"/>
+		<text x="74" y="564" font-size="17" fill="#2b2a26">rosný bod: vzduch je nasycený párou</text>
+		<text x="34" y="602" font-size="18" fill="#2b2a26">V noci se tráva i vzduch u země ochladí.</text>
+		<text x="34" y="628" font-size="18" fill="#2b2a26">Pod rosným bodem pára kondenzuje:</text>
+		<text x="34" y="654" font-size="18" fill="#2b2a26">rosa na trávě, mlha (kapičky) nad vodou.</text>
+		<text x="34" y="680" font-size="18" fill="#2b2a26">Ráno se oteplí a obojí se vypaří.</text>
+	</g>
+</svg>

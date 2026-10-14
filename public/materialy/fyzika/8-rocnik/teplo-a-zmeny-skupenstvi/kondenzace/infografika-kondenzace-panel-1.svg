@@ -1,0 +1,93 @@
+<svg viewBox="0 0 460 720" width="460" height="720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Proč se orosí plechovka: studená plechovka z lednice stojí na stole a na jejím plášti postupně přibývají a rostou kapky vody, jedna kapka steče dolů na stůl. Lupa ukazuje stěnu plechovky: částice vodní páry ze vzduchu letí ke studené stěně, zpomalí a spojí se do kapky, která roste. Kapky nejsou z nápoje, ale z vodní páry ve vzduchu." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Kondenzace (kapalnění) 1/3: Proč se orosí plechovka?</title>
+	<defs>
+		<clipPath id="kon1-lupa"><circle cx="320" cy="290" r="88"/></clipPath>
+	</defs>
+	<style>
+		.k1-kap { transform-box: fill-box; transform-origin: center top; animation: k1kap 12s linear infinite; }
+		@keyframes k1kap { 0% { transform: scale(0.2); opacity: 0; } 8% { transform: scale(0.3); opacity: 1; } 55% { transform: scale(1); opacity: 1; } 92% { transform: scale(1); opacity: 1; } 100% { transform: scale(1); opacity: 0; } }
+		.k1-tec { transform-box: fill-box; transform-origin: center top; animation: k1tec 12s linear infinite; }
+		@keyframes k1tec { 0% { transform: translate(0px, 0px) scale(0.2); opacity: 0; } 8% { transform: translate(0px, 0px) scale(0.3); opacity: 1; } 55% { transform: translate(0px, 0px) scale(1); opacity: 1; } 62% { transform: translate(0px, 0px) scale(1.15); opacity: 1; } 82% { transform: translate(0px, 124px) scale(1.15); opacity: 1; } 86%, 100% { transform: translate(0px, 124px) scale(1.15); opacity: 0; } }
+		.k1-lou { animation: k1lou 12s linear infinite; }
+		@keyframes k1lou { 0%, 80% { opacity: 0; } 86%, 94% { opacity: 1; } 100% { opacity: 0; } }
+		.k1-lkap { transform-box: fill-box; transform-origin: left center; animation: k1lkap 12s linear infinite; }
+		@keyframes k1lkap { 0% { transform: scale(0.15); opacity: 0.4; } 6% { transform: scale(0.2); opacity: 1; } 85% { transform: scale(1); opacity: 1; } 95% { transform: scale(1); opacity: 1; } 100% { transform: scale(1); opacity: 0; } }
+		.k1-pri { animation: k1pri 3s cubic-bezier(0.1, 0.7, 0.3, 1) infinite; }
+		@keyframes k1pri { 0% { transform: translate(120px, -44px); opacity: 0; } 8% { opacity: 1; } 80% { transform: translate(0px, 0px); opacity: 1; } 100% { transform: translate(0px, 0px); opacity: 0; } }
+		.k1-tan { animation: k1tan 0.5s linear infinite alternate; }
+		@keyframes k1tan { from { transform: translate(-10px, 8px); } to { transform: translate(10px, -8px); } }
+		@media (prefers-reduced-motion: reduce) { .k1-kap, .k1-tec, .k1-lou, .k1-lkap, .k1-pri, .k1-tan { animation: none; } }
+	</style>
+	<rect x="0" y="0" width="460" height="720" fill="#f8f9fa"/>
+	<g id="panel-1">
+		<rect x="26" y="16" width="420" height="696" rx="12" fill="#dee2e6"/>
+		<rect x="20" y="10" width="420" height="696" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/>
+		<circle cx="52" cy="44" r="17" fill="#2b2a26"/>
+		<text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">1</text>
+		<text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Proč se orosí plechovka?</text>
+		<text x="34" y="92" font-size="21" fill="#2b2a26">Právě jsme ji vytáhli z lednice.</text>
+		<rect x="30" y="110" width="400" height="420" rx="8" fill="#ffffff"/>
+
+		<text x="230" y="146" font-size="17" text-anchor="middle" fill="#495057">Vzduch v kuchyni je teplý a vlhký.</text>
+		<text x="230" y="170" font-size="17" text-anchor="middle" fill="#495057">Je v něm neviditelná vodní pára.</text>
+		<!-- stůl -->
+		<rect x="30" y="440" width="400" height="16" fill="#b5835a"/>
+		<rect x="30" y="456" width="400" height="74" fill="#8d5b3a"/>
+		<line x1="30" y1="440" x2="430" y2="440" stroke="#6f4528" stroke-width="2"/>
+
+		<!-- plechovka -->
+		<text x="130" y="232" font-size="16" font-weight="bold" text-anchor="middle" fill="#1971c2">studená</text>
+		<ellipse cx="130" cy="438" rx="40" ry="6" fill="#343a40"/>
+		<rect x="90" y="262" width="80" height="176" rx="6" fill="#495057" stroke="#343a40" stroke-width="2"/>
+		<rect x="102" y="272" width="9" height="156" rx="4" fill="#adb5bd" opacity="0.55"/>
+		<ellipse cx="130" cy="262" rx="40" ry="8" fill="#868e96" stroke="#343a40" stroke-width="2"/>
+		<ellipse cx="138" cy="261" rx="10" ry="3" fill="#495057"/>
+		<circle cx="124" cy="261" r="2.5" fill="#495057"/>
+		<ellipse class="k1-lou" cx="130" cy="443" rx="52" ry="4" fill="#a5d8ff" opacity="0"/>
+		<!-- kapky na plášti -->
+		<g fill="#a5d8ff" stroke="#1c7ed6" stroke-width="1">
+			<path class="k1-kap" d="M100,284 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z"/>
+			<path class="k1-kap" style="animation-delay:-1s" d="M122,292 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z"/>
+			<path class="k1-kap" style="animation-delay:-2s" d="M158,286 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z"/>
+			<path class="k1-kap" style="animation-delay:-0.5s" d="M112,322 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z"/>
+			<path class="k1-kap" style="animation-delay:-1.5s" d="M136,330 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z"/>
+			<path class="k1-kap" style="animation-delay:-2.5s" d="M98,358 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z"/>
+			<path class="k1-kap" style="animation-delay:-0.8s" d="M126,366 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z"/>
+			<path class="k1-kap" style="animation-delay:-1.8s" d="M160,352 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z"/>
+			<path class="k1-kap" style="animation-delay:-0.3s" d="M108,398 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z"/>
+			<path class="k1-kap" style="animation-delay:-2.2s" d="M140,404 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z"/>
+			<path class="k1-kap" style="animation-delay:-1.2s" d="M162,416 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z"/>
+			<path class="k1-tec" d="M148,300 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z"/>
+		</g>
+
+		<!-- lupa -->
+		<circle cx="166" cy="320" r="12" fill="none" stroke="#2b2a26" stroke-width="2"/>
+		<line x1="178" y1="316" x2="234" y2="298" stroke="#2b2a26" stroke-width="2"/>
+		<circle cx="320" cy="290" r="88" fill="#ffffff"/>
+		<g clip-path="url(#kon1-lupa)">
+			<rect x="226" y="196" width="36" height="190" fill="#495057"/>
+			<line x1="262" y1="196" x2="262" y2="386" stroke="#343a40" stroke-width="2"/>
+			<path class="k1-lkap" d="M262,268 A22,26 0 0 1 262,320 Z" fill="#a5d8ff" stroke="#1c7ed6" stroke-width="2"/>
+			<g fill="#ff922b" stroke="#d9480f" stroke-width="1.5">
+				<circle class="k1-pri" cx="286" cy="282" r="5"/>
+				<circle class="k1-pri" style="animation-delay:-1s" cx="288" cy="298" r="5"/>
+				<circle class="k1-pri" style="animation-delay:-2s" cx="282" cy="312" r="5"/>
+				<circle class="k1-tan" cx="360" cy="236" r="5"/>
+				<circle class="k1-tan" style="animation-delay:-0.25s" cx="384" cy="300" r="5"/>
+				<circle class="k1-tan" style="animation-delay:-0.4s" cx="352" cy="352" r="5"/>
+			</g>
+		</g>
+		<circle cx="320" cy="290" r="88" fill="none" stroke="#2b2a26" stroke-width="4"/>
+		<text x="320" y="404" font-size="15" text-anchor="middle" fill="#2b2a26">stěna plechovky</text>
+		<text x="320" y="422" font-size="15" text-anchor="middle" fill="#2b2a26">pod lupou</text>
+
+		<!-- legenda a závěr -->
+		<circle cx="52" cy="558" r="5" fill="#ff922b" stroke="#d9480f" stroke-width="1.5"/>
+		<text x="70" y="564" font-size="17" fill="#2b2a26">částice vodní páry (pára je neviditelná)</text>
+		<path d="M52,578 c-5,8 -5,13 0,14 c5,-1 5,-6 0,-14 z" fill="#a5d8ff" stroke="#1c7ed6" stroke-width="1.5"/>
+		<text x="70" y="592" font-size="17" fill="#2b2a26">kapka vody (kapalina)</text>
+		<text x="34" y="632" font-size="18" fill="#2b2a26">Studená plechovka odebírá páře teplo.</text>
+		<text x="34" y="658" font-size="18" fill="#2b2a26">Částice páry zpomalí a spojí se do kapek.</text>
+		<text x="34" y="684" font-size="18" font-weight="bold" fill="#2b2a26">Kapky jsou ze vzduchu, ne z nápoje.</text>
+	</g>
+</svg>

@@ -2937,6 +2937,7 @@ export const temata: Record<string, Tema[]> = {
 					materialy: [
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Tání a skupenské teplo (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tani/notebooklm-tani-a-skupenske-teplo.mp4' },
 						{ druh: 'video', nazev: 'Píseň: Tání 🎵', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tani/pisen-tani.m4a' },
+						{ druh: 'infografika', nazev: 'Infografika: Tání v pohybu — částice, led a parafín, pájení', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tani/infografika-tani-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tani/infografika-tani-panel-1.svg', '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tani/infografika-tani-panel-2.svg', '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tani/infografika-tani-panel-3.svg'] },
 					],
 				},
 				{
@@ -2954,6 +2955,7 @@ export const temata: Record<string, Tema[]> = {
 					materialy: [
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Fyzika tuhnutí (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tuhnuti/notebooklm-tuhnuti.mp4' },
 						{ druh: 'video', nazev: 'Píseň: Tuhnutí 🎵', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tuhnuti/pisen-tuhnuti.m4a' },
+						{ druh: 'infografika', nazev: 'Infografika: Tuhnutí v pohybu — krystalizace, rybník, potrubí', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tuhnuti/infografika-tuhnuti-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tuhnuti/infografika-tuhnuti-panel-1.svg', '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tuhnuti/infografika-tuhnuti-panel-2.svg', '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tuhnuti/infografika-tuhnuti-panel-3.svg'] },
 					],
 				},
 				{
@@ -3001,6 +3003,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 					materialy: [
 						{ druh: 'video', nazev: 'Píseň: Kondenzace 🎵', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/kondenzace/pisen-kondenzace.m4a' },
+						{ druh: 'infografika', nazev: 'Infografika: Kondenzace v pohybu', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/kondenzace/infografika-kondenzace-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/kondenzace/infografika-kondenzace-panel-1.svg', '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/kondenzace/infografika-kondenzace-panel-2.svg', '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/kondenzace/infografika-kondenzace-panel-3.svg'] },
 					],
 				},
 				{

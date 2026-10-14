@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 590" width="460" height="590" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Dvě kádinky na vařičích. Vlevo kostka ledu: teploměr stoupá na 0 °C, pak stojí na 0 °C, dokud se led nezmění na vodu, a teprve potom teplota vody roste. Vpravo kousek parafínu: od 34 °C postupně měkne a rozlévá se, teplota přitom stále roste, nad 56 °C je celý kapalný. Krystalická látka taje při jedné teplotě, amorfní v rozmezí teplot.">
+	<title>Tání 2/3: Led a parafín: jak tají</title>
+	<!-- Tání 2/3: Led a parafín: jak tají — generátor W61 14. 10. 2026 (podle PDF 8/4 Teplo teplota, výklad na webu). -->
+	<style>
+		.ta2-plotna120 { opacity: 1; animation: ta2-plotna120 14s linear infinite; }
+		@keyframes ta2-plotna120 { 0.00% { opacity: 0.5; } 50.00% { opacity: 1; } 100.00% { opacity: 0.5; } }
+		.ta2-voda { transform: scaleY(0.5); transform-box: view-box; transform-origin: 120px 390px; animation: ta2-voda 14s linear infinite; }
+		@keyframes ta2-voda { 0.00% { transform: scaleY(0.001); } 20.00% { transform: scaleY(0.001); } 70.00% { transform: scaleY(1); } 93.00% { transform: scaleY(1); } 98.00% { transform: scaleY(0.001); } 100.00% { transform: scaleY(0.001); } }
+		.ta2-kostka { transform: scale(0.5); transform-box: view-box; transform-origin: 92px 390px; animation: ta2-kostka 14s linear infinite; }
+		@keyframes ta2-kostka { 0.00% { transform: translate(0px, 0px) scale(1); } 20.00% { transform: translate(0px, 0px) scale(1); } 22.00% { transform: translate(0px, 0px) scale(0.96); } 24.00% { transform: translate(0px, 0px) scale(0.92); } 26.00% { transform: translate(0px, 0px) scale(0.88); } 28.00% { transform: translate(0px, 0px) scale(0.84); } 30.00% { transform: translate(0px, 0px) scale(0.8); } 32.00% { transform: translate(0px, 0px) scale(0.76); } 34.00% { transform: translate(0px, 0px) scale(0.72); } 36.00% { transform: translate(0px, 0px) scale(0.68); } 38.00% { transform: translate(0px, 0px) scale(0.64); } 40.00% { transform: translate(0px, 0px) scale(0.6); } 42.00% { transform: translate(0px, 0px) scale(0.56); } 44.00% { transform: translate(0px, 0px) scale(0.52); } 46.00% { transform: translate(0px, 0px) scale(0.48); } 48.00% { transform: translate(0px, 0px) scale(0.44); } 50.00% { transform: translate(0px, 0px) scale(0.4); } 52.00% { transform: translate(0px, 0px) scale(0.36); } 54.00% { transform: translate(0px, -2.5px) scale(0.32); } 56.00% { transform: translate(0px, -5.2px) scale(0.28); } 58.00% { transform: translate(0px, -7.9px) scale(0.24); } 60.00% { transform: translate(0px, -10.6px) scale(0.2); } 62.00% { transform: translate(0px, -13.2px) scale(0.16); } 64.00% { transform: translate(0px, -15.9px) scale(0.12); } 66.00% { transform: translate(0px, -18.6px) scale(0.08); } 68.00% { transform: translate(0px, -21.3px) scale(0.04); } 70.00% { transform: translate(0px, -24px) scale(0.001); } 93.00% { transform: translate(0px, -24px) scale(0.001); } 98.00% { transform: translate(0px, 0px) scale(1); } 100.00% { transform: translate(0px, 0px) scale(1); } }
+		.ta2-sl-led { transform: scaleY(0.818); transform-box: view-box; transform-origin: 132px 380px; animation: ta2-sl-led 14s linear infinite; }
+		@keyframes ta2-sl-led { 0.00% { transform: scaleY(0.636); } 20.00% { transform: scaleY(0.818); } 70.00% { transform: scaleY(0.818); } 85.00% { transform: scaleY(1.000); } 93.00% { transform: scaleY(1.000); } 98.00% { transform: scaleY(0.636); } 100.00% { transform: scaleY(0.636); } }
+		.ta2-plotna330 { opacity: 1; animation: ta2-plotna330 14s linear infinite; }
+		@keyframes ta2-plotna330 { 0.00% { opacity: 0.5; } 50.00% { opacity: 1; } 100.00% { opacity: 0.5; } }
+		.ta2-kap { transform: scaleY(0.5); transform-box: view-box; transform-origin: 330px 390px; animation: ta2-kap 14s linear infinite; }
+		@keyframes ta2-kap { 0.00% { transform: scaleY(0.001); } 20.00% { transform: scaleY(0.001); } 75.00% { transform: scaleY(1); } 93.00% { transform: scaleY(1); } 98.00% { transform: scaleY(0.001); } 100.00% { transform: scaleY(0.001); } }
+		.ta2-blok { transform: scale(1.35, 0.55); transform-box: view-box; transform-origin: 302px 390px; animation: ta2-blok 14s linear infinite; }
+		@keyframes ta2-blok { 0.00% { transform: scale(1, 1); opacity: 1; } 20.00% { transform: scale(1, 1); opacity: 1; } 40.00% { transform: scale(1.15, 0.8); opacity: 1; } 55.00% { transform: scale(1.35, 0.55); opacity: 0.9; } 70.00% { transform: scale(1.6, 0.3); opacity: 0.5; } 75.00% { transform: scale(1.7, 0.2); opacity: 0; } 93.00% { transform: scale(1.7, 0.2); opacity: 0; } 98.00% { transform: scale(1, 1); opacity: 1; } 100.00% { transform: scale(1, 1); opacity: 1; } }
+		.ta2-sl-par { transform: scaleY(0.827); transform-box: view-box; transform-origin: 342px 380px; animation: ta2-sl-par 14s linear infinite; }
+		@keyframes ta2-sl-par { 0.00% { transform: scaleY(0.636); } 20.00% { transform: scaleY(0.727); } 75.00% { transform: scaleY(0.927); } 88.00% { transform: scaleY(0.982); } 93.00% { transform: scaleY(0.982); } 98.00% { transform: scaleY(0.636); } 100.00% { transform: scaleY(0.636); } }
+		.ta2-zavoj { opacity: 0; animation: ta2-zavoj 14s linear infinite; }
+		@keyframes ta2-zavoj { 0.00% { opacity: 0; } 93.00% { opacity: 0; } 94.20% { opacity: 1; } 99.00% { opacity: 1; } 100.00% { opacity: 0; } 100.00% { opacity: 0; } }
+		.ta2-f120-0 { opacity: 0; animation: ta2-f120-0 14s linear infinite; }
+		@keyframes ta2-f120-0 { 0.00% { opacity: 1; } 20.00% { opacity: 1; } 20.80% { opacity: 0; } 100.00% { opacity: 0; } }
+		.ta2-f120-1 { opacity: 1; animation: ta2-f120-1 14s linear infinite; }
+		@keyframes ta2-f120-1 { 0.00% { opacity: 0; } 20.00% { opacity: 0; } 20.80% { opacity: 1; } 70.00% { opacity: 1; } 70.80% { opacity: 0; } 100.00% { opacity: 0; } }
+		.ta2-f120-2 { opacity: 0; animation: ta2-f120-2 14s linear infinite; }
+		@keyframes ta2-f120-2 { 0.00% { opacity: 0; } 70.00% { opacity: 0; } 70.80% { opacity: 1; } 93.00% { opacity: 1; } 93.80% { opacity: 0; } 100.00% { opacity: 0; } }
+		.ta2-f330-0 { opacity: 0; animation: ta2-f330-0 14s linear infinite; }
+		@keyframes ta2-f330-0 { 0.00% { opacity: 1; } 20.00% { opacity: 1; } 20.80% { opacity: 0; } 100.00% { opacity: 0; } }
+		.ta2-f330-1 { opacity: 1; animation: ta2-f330-1 14s linear infinite; }
+		@keyframes ta2-f330-1 { 0.00% { opacity: 0; } 20.00% { opacity: 0; } 20.80% { opacity: 1; } 75.00% { opacity: 1; } 75.80% { opacity: 0; } 100.00% { opacity: 0; } }
+		.ta2-f330-2 { opacity: 0; animation: ta2-f330-2 14s linear infinite; }
+		@keyframes ta2-f330-2 { 0.00% { opacity: 0; } 75.00% { opacity: 0; } 75.80% { opacity: 1; } 93.00% { opacity: 1; } 93.80% { opacity: 0; } 100.00% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) { .ta2-plotna120, .ta2-voda, .ta2-kostka, .ta2-sl-led, .ta2-plotna330, .ta2-kap, .ta2-blok, .ta2-sl-par, .ta2-zavoj, .ta2-f120-0, .ta2-f120-1, .ta2-f120-2, .ta2-f330-0, .ta2-f330-1, .ta2-f330-2 { animation: none; } }
+	</style>
+	<defs>
+		<marker id="sr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e03131"/></marker>
+		<marker id="sm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1971c2"/></marker>
+		<marker id="sk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#495057"/></marker>
+		<pattern id="mraz" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="10" height="10" fill="#d0ebff"/><line x1="0" y1="0" x2="0" y2="10" stroke="#ffffff" stroke-width="3"/></pattern>
+	</defs>
+	<rect x="0" y="0" width="460" height="590" fill="#f8f9fa" />
+	<rect x="16" y="16" width="440" height="570" rx="12" fill="#dee2e6"/>
+	<rect x="10" y="10" width="440" height="570" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/>
+	<circle cx="42" cy="44" r="17" fill="#2b2a26"/>
+	<text x="42" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">2</text>
+	<text x="70" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Led a parafín: jak tají</text>
+	<text x="120" y="92" font-size="19" fill="#212529" text-anchor="middle" font-weight="bold">led</text>
+	<text x="120" y="112" font-size="15" fill="#495057" text-anchor="middle">krystalická látka</text>
+	<rect x="40" y="402" width="160" height="26" rx="5" fill="#495057"/>
+	<circle cx="175" cy="415" r="6" fill="#adb5bd"/>
+	<rect class="ta2-plotna120" x="50" y="396" width="140" height="6" rx="2" fill="#e03131"/>
+	<path d="M58,250 L58,392 L152,392 L152,250" fill="#f1f8ff" fill-opacity="0.5" stroke="#495057" stroke-width="3"/>
+	<rect class="ta2-kostka" x="68" y="342" width="48" height="48" rx="5" fill="#e7f5ff" stroke="#74c0fc" stroke-width="2.5"/>
+	<rect class="ta2-voda" x="60" y="366" width="90" height="24" fill="#74c0fc" fill-opacity="0.55"/>
+	<rect x="125" y="142" width="14" height="236" rx="7" fill="#ffffff" stroke="#495057" stroke-width="2"/>
+	<circle cx="132" cy="380" r="11" fill="#e03131" stroke="#495057" stroke-width="2"/>
+	<rect class="ta2-sl-led" x="129" y="160" width="6" height="214" fill="#e03131"/>
+	<line x1="139" y1="160" x2="146" y2="160" stroke="#495057" stroke-width="2"/>
+	<text x="150" y="166" font-size="16" fill="#212529" text-anchor="start">20 °C</text>
+	<line x1="139" y1="200" x2="146" y2="200" stroke="#495057" stroke-width="2"/>
+	<text x="150" y="206" font-size="16" fill="#212529" text-anchor="start">0 °C</text>
+	<line x1="139" y1="240" x2="146" y2="240" stroke="#495057" stroke-width="2"/>
+	<text x="150" y="246" font-size="16" fill="#212529" text-anchor="start">−20 °C</text>
+	<text x="330" y="92" font-size="19" fill="#212529" text-anchor="middle" font-weight="bold">parafín</text>
+	<text x="330" y="112" font-size="15" fill="#495057" text-anchor="middle">amorfní látka</text>
+	<rect x="250" y="402" width="160" height="26" rx="5" fill="#495057"/>
+	<circle cx="385" cy="415" r="6" fill="#adb5bd"/>
+	<rect class="ta2-plotna330" x="260" y="396" width="140" height="6" rx="2" fill="#e03131"/>
+	<path d="M268,250 L268,392 L362,392 L362,250" fill="#f1f8ff" fill-opacity="0.5" stroke="#495057" stroke-width="3"/>
+	<rect class="ta2-kap" x="270" y="370" width="90" height="20" fill="#ffd43b" fill-opacity="0.55"/>
+	<rect class="ta2-blok" x="278" y="342" width="48" height="48" rx="12" fill="#fff9db" stroke="#e8b100" stroke-width="2.5"/>
+	<rect x="335" y="142" width="14" height="236" rx="7" fill="#ffffff" stroke="#495057" stroke-width="2"/>
+	<circle cx="342" cy="380" r="11" fill="#e03131" stroke="#495057" stroke-width="2"/>
+	<rect class="ta2-sl-par" x="339" y="160" width="6" height="214" fill="#e03131"/>
+	<line x1="349" y1="176" x2="356" y2="176" stroke="#495057" stroke-width="2"/>
+	<text x="360" y="182" font-size="16" fill="#212529" text-anchor="start">56 °C</text>
+	<line x1="349" y1="220" x2="356" y2="220" stroke="#495057" stroke-width="2"/>
+	<text x="360" y="226" font-size="16" fill="#212529" text-anchor="start">34 °C</text>
+	<rect class="ta2-zavoj" x="22" y="140" width="416" height="292" fill="#fbfaf6"/>
+	<g class="ta2-f120-0">
+	<text x="120" y="456" font-size="16" fill="#e03131" text-anchor="middle" font-weight="bold">led se ohřívá</text>
+	<text x="120" y="478" font-size="16" fill="#e03131" text-anchor="middle" font-weight="bold">na 0 °C</text>
+	</g>
+	<g class="ta2-f120-1">
+	<text x="120" y="456" font-size="16" fill="#212529" text-anchor="middle" font-weight="bold">0 °C: led taje,</text>
+	<text x="120" y="478" font-size="16" fill="#212529" text-anchor="middle" font-weight="bold">teplota stojí</text>
+	</g>
+	<g class="ta2-f120-2">
+	<text x="120" y="456" font-size="16" fill="#e03131" text-anchor="middle" font-weight="bold">teplota vody</text>
+	<text x="120" y="478" font-size="16" fill="#e03131" text-anchor="middle" font-weight="bold">roste</text>
+	</g>
+	<g class="ta2-f330-0">
+	<text x="330" y="456" font-size="16" fill="#e03131" text-anchor="middle" font-weight="bold">pevný parafín</text>
+	<text x="330" y="478" font-size="16" fill="#e03131" text-anchor="middle" font-weight="bold">se ohřívá</text>
+	</g>
+	<g class="ta2-f330-1">
+	<text x="330" y="456" font-size="16" fill="#e03131" text-anchor="middle" font-weight="bold">od 34 °C do 56 °C měkne,</text>
+	<text x="330" y="478" font-size="16" fill="#e03131" text-anchor="middle" font-weight="bold">teplota stále roste</text>
+	</g>
+	<g class="ta2-f330-2">
+	<text x="330" y="456" font-size="16" fill="#e03131" text-anchor="middle" font-weight="bold">nad 56 °C je</text>
+	<text x="330" y="478" font-size="16" fill="#e03131" text-anchor="middle" font-weight="bold">celý kapalný</text>
+	</g>
+	<rect x="24" y="500" width="412" height="66" rx="8" fill="#f1f3f5"/>
+	<text x="230" y="527" font-size="16" fill="#212529" text-anchor="middle" font-weight="bold">Krystalická látka taje při jedné teplotě.</text>
+	<text x="230" y="552" font-size="16" fill="#212529" text-anchor="middle" font-weight="bold">Amorfní látka taje v rozmezí teplot.</text>
+</svg>

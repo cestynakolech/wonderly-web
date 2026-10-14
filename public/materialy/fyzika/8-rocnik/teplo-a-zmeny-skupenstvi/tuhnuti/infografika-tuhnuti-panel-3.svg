@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 645" width="460" height="645" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Řez zemí v zimě: mráz proniká do půdy shora. Voda v mělce uložené trubce zmrzne, zvětší svůj objem a led trubku roztrhne. V trubce uložené 90 cm pod zemí, v nezámrzné hloubce, voda teče dál. V chladnějších oblastech se trubky ukládají až 140 cm hluboko.">
+	<title>Tuhnutí 3/3: Proč v mrazu praskne potrubí</title>
+	<!-- Tuhnutí 3/3: Proč v mrazu praskne potrubí — generátor W61 14. 10. 2026 (podle PDF 8/4 Teplo teplota, výklad na webu). -->
+	<style>
+		.tu3-mraz { transform: scaleY(1); transform-box: view-box; transform-origin: 230px 140px; animation: tu3-mraz 14s linear infinite; }
+		@keyframes tu3-mraz { 0.00% { transform: scaleY(0.001); } 5.00% { transform: scaleY(0.001); } 45.00% { transform: scaleY(1); } 94.00% { transform: scaleY(1); } 99.00% { transform: scaleY(0.001); } 100.00% { transform: scaleY(0.001); } }
+		.tu3-mraz-t { opacity: 1; animation: tu3-mraz-t 14s linear infinite; }
+		@keyframes tu3-mraz-t { 0.00% { opacity: 0; } 30.00% { opacity: 0; } 30.80% { opacity: 1; } 94.00% { opacity: 1; } 94.80% { opacity: 0; } 100.00% { opacity: 0; } }
+		.tu3-prouda { opacity: 0; animation: tu3-prouda 14s linear infinite; }
+		@keyframes tu3-prouda { 0.00% { stroke-dashoffset: 0; opacity: 1; } 30.00% { stroke-dashoffset: -90; opacity: 1; } 32.00% { stroke-dashoffset: -96; opacity: 0; } 97.00% { stroke-dashoffset: -96; opacity: 0; } 99.00% { stroke-dashoffset: -96; opacity: 1; } 100.00% { stroke-dashoffset: -96; opacity: 1; } }
+		.tu3-ledA { opacity: 1; animation: tu3-ledA 14s linear infinite; }
+		@keyframes tu3-ledA { 0.00% { opacity: 0; } 30.00% { opacity: 0; } 36.00% { opacity: 1; } 94.00% { opacity: 1; } 100.00% { opacity: 0; } }
+		.tu3-vydut { transform: scale(1); transform-box: view-box; transform-origin: 260px 215px; animation: tu3-vydut 14s linear infinite; }
+		@keyframes tu3-vydut { 0.00% { transform: scale(0.001); } 40.00% { transform: scale(0.001); } 50.00% { transform: scale(1); } 94.00% { transform: scale(1); } 99.00% { transform: scale(0.001); } 100.00% { transform: scale(0.001); } }
+		.tu3-prask { opacity: 1; animation: tu3-prask 14s linear infinite; }
+		@keyframes tu3-prask { 0.00% { opacity: 0; } 50.00% { opacity: 0; } 51.00% { opacity: 1; } 94.00% { opacity: 1; } 95.00% { opacity: 0; } 100.00% { opacity: 0; } }
+		.tu3-proudb {  animation: tu3-proudb 14s linear infinite; }
+		@keyframes tu3-proudb { 0.00% { stroke-dashoffset: 0; } 100.00% { stroke-dashoffset: -300; } }
+		.tu3-zavoj { opacity: 0; animation: tu3-zavoj 14s linear infinite; }
+		@keyframes tu3-zavoj { 0.00% { opacity: 0; } 94.00% { opacity: 0; } 95.20% { opacity: 1; } 99.00% { opacity: 1; } 100.00% { opacity: 0; } 100.00% { opacity: 0; } }
+		.tu3-k0 { fill: #212529; animation: tu3-k0 14s linear infinite; }
+		@keyframes tu3-k0 { 0.00% { fill: #212529; } 30.00% { fill: #212529; } 30.80% { fill: #adb5bd; } 100.00% { fill: #adb5bd; } }
+		.tu3-k1 { fill: #212529; animation: tu3-k1 14s linear infinite; }
+		@keyframes tu3-k1 { 0.00% { fill: #adb5bd; } 30.00% { fill: #adb5bd; } 30.80% { fill: #212529; } 50.00% { fill: #212529; } 50.80% { fill: #adb5bd; } 100.00% { fill: #adb5bd; } }
+		.tu3-k2 { fill: #212529; animation: tu3-k2 14s linear infinite; }
+		@keyframes tu3-k2 { 0.00% { fill: #adb5bd; } 30.00% { fill: #adb5bd; } 30.80% { fill: #212529; } 50.00% { fill: #212529; } 50.80% { fill: #adb5bd; } 100.00% { fill: #adb5bd; } }
+		.tu3-k3 { fill: #212529; animation: tu3-k3 14s linear infinite; }
+		@keyframes tu3-k3 { 0.00% { fill: #adb5bd; } 50.00% { fill: #adb5bd; } 50.80% { fill: #212529; } 94.00% { fill: #212529; } 94.80% { fill: #adb5bd; } 100.00% { fill: #adb5bd; } }
+		@media (prefers-reduced-motion: reduce) { .tu3-mraz, .tu3-mraz-t, .tu3-prouda, .tu3-ledA, .tu3-vydut, .tu3-prask, .tu3-proudb, .tu3-zavoj, .tu3-k0, .tu3-k1, .tu3-k2, .tu3-k3 { animation: none; } }
+	</style>
+	<defs>
+		<marker id="sr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e03131"/></marker>
+		<marker id="sm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1971c2"/></marker>
+		<marker id="sk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#495057"/></marker>
+		<pattern id="mraz" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="10" height="10" fill="#d0ebff"/><line x1="0" y1="0" x2="0" y2="10" stroke="#ffffff" stroke-width="3"/></pattern>
+	</defs>
+	<rect x="0" y="0" width="460" height="645" fill="#f8f9fa" />
+	<rect x="16" y="16" width="440" height="625" rx="12" fill="#dee2e6"/>
+	<rect x="10" y="10" width="440" height="625" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/>
+	<circle cx="42" cy="44" r="17" fill="#2b2a26"/>
+	<text x="42" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">3</text>
+	<text x="70" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Proč v mrazu praskne potrubí</text>
+	<rect x="22" y="66" width="416" height="74" fill="#e7f5ff"/>
+	<rect x="22" y="140" width="416" height="290" fill="#a47148"/>
+	<rect x="22" y="132" width="416" height="10" rx="4" fill="#ffffff" stroke="#dee2e6"/>
+	<g stroke="#74c0fc" stroke-width="2"><line x1="114" y1="90" x2="126" y2="90"/><line x1="117" y1="85" x2="123" y2="95"/><line x1="117" y1="95" x2="123" y2="85"/></g>
+	<g stroke="#74c0fc" stroke-width="2"><line x1="224" y1="110" x2="236" y2="110"/><line x1="227" y1="105" x2="233" y2="115"/><line x1="227" y1="115" x2="233" y2="105"/></g>
+	<g stroke="#74c0fc" stroke-width="2"><line x1="314" y1="105" x2="326" y2="105"/><line x1="317" y1="100" x2="323" y2="110"/><line x1="317" y1="110" x2="323" y2="100"/></g>
+	<g stroke="#74c0fc" stroke-width="2"><line x1="274" y1="80" x2="286" y2="80"/><line x1="277" y1="75" x2="283" y2="85"/><line x1="277" y1="85" x2="283" y2="75"/></g>
+	<text x="410" y="100" font-size="17" fill="#1971c2" text-anchor="end" font-weight="bold">mráz</text>
+	<rect class="tu3-mraz" x="22" y="142" width="416" height="150" fill="url(#mraz)" opacity="0.85"/>
+	<text x="430" y="166" font-size="16" fill="#1864ab" text-anchor="end" font-weight="bold" class="tu3-mraz-t">zmrzlá půda</text>
+	<rect x="90" y="202" width="346" height="26" rx="4" fill="#868e96" stroke="#495057" stroke-width="2"/>
+	<rect x="90" y="207" width="346" height="16" fill="#74c0fc"/>
+	<line class="tu3-prouda" x1="94" y1="215" x2="432" y2="215" stroke="#e7f5ff" stroke-width="3" stroke-dasharray="12 18"/>
+	<rect class="tu3-ledA" x="90" y="207" width="346" height="16" fill="#e7f5ff"/>
+	<ellipse class="tu3-vydut" cx="260" cy="215" rx="34" ry="20" fill="#e7f5ff" stroke="#74c0fc" stroke-width="2"/>
+	<g class="tu3-prask"><path d="M236,194 l6,8 l-5,5 l7,6 M282,235 l-5,-8 l6,-5 l-6,-6" fill="none" stroke="#212529" stroke-width="3" stroke-linejoin="round"/>
+	<text x="305" y="193" font-size="16" fill="#c92a2a" text-anchor="start" font-weight="bold">prasklina!</text>
+	</g>
+	<rect x="90" y="397" width="346" height="26" rx="4" fill="#868e96" stroke="#495057" stroke-width="2"/>
+	<rect x="90" y="402" width="346" height="16" fill="#74c0fc"/>
+	<line class="tu3-proudb" x1="94" y1="410" x2="432" y2="410" stroke="#e7f5ff" stroke-width="3" stroke-dasharray="12 18"/>
+	<text x="110" y="388" font-size="16" fill="#ffffff" text-anchor="start" font-weight="bold">voda teče dál</text>
+	<g stroke="#212529" stroke-width="7" stroke-linecap="round"><line x1="46" y1="140" x2="46" y2="404"/><line x1="36" y1="140" x2="56" y2="140"/><line x1="36" y1="410" x2="56" y2="410"/></g>
+	<line x1="46" y1="140" x2="46" y2="410" stroke="#ffffff" stroke-width="3" marker-end="url(#sk)"/>
+	<line x1="36" y1="140" x2="56" y2="140" stroke="#ffffff" stroke-width="3"/><line x1="36" y1="410" x2="56" y2="410" stroke="#ffffff" stroke-width="3"/>
+	<text x="58" y="330" font-size="17" fill="#ffffff" text-anchor="start" font-weight="bold">90 cm</text>
+	<rect class="tu3-zavoj" x="22" y="136" width="416" height="294" fill="#fbfaf6"/>
+	<text x="32" y="458" font-size="17" fill="#212529" text-anchor="start" font-weight="bold" class="tu3-k0">1  Mráz proniká do půdy shora.</text>
+	<text x="32" y="484" font-size="17" fill="#212529" text-anchor="start" font-weight="bold" class="tu3-k1">2  Voda v mělké trubce zmrzne</text>
+	<text x="32" y="510" font-size="17" fill="#212529" text-anchor="start" font-weight="bold" class="tu3-k2">    a zvětší svůj objem.</text>
+	<text x="32" y="536" font-size="17" fill="#212529" text-anchor="start" font-weight="bold" class="tu3-k3">3  Led trubku roztrhne.</text>
+	<rect x="24" y="560" width="412" height="66" rx="8" fill="#f1f3f5"/>
+	<text x="230" y="586" font-size="16" fill="#212529" text-anchor="middle" font-weight="bold">Nezámrzná hloubka: trubky aspoň 90 cm</text>
+	<text x="230" y="610" font-size="16" fill="#212529" text-anchor="middle" font-weight="bold">pod zemí, v chladných oblastech až 140 cm.</text>
+</svg>
