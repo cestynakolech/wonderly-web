@@ -2266,6 +2266,7 @@ export const temata: Record<string, Tema[]> = {
 					zapis: {"vzorec":"p = F : S","jednotky":["p (Pa, kPa, hPa), F (N), S (m²)"],"body":["tlaková síla F působí kolmo na plochu","při stejné ploše větší síla dává větší tlak, při stejné síle větší plocha menší","tlak zvětšíme malou plochou (nůž), zmenšíme velkou (lyže)"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Porozumění tlaku', cesta: 'Pzxvvf0fbTg' },
+						{ druh: 'infografika', nazev: 'Infografika: Tlak v kostce', cesta: '/materialy/fyzika/7-rocnik/tlak-v-kapalinach/tlak/infografika-tlak-panel-1.svg', panely: ['/materialy/fyzika/7-rocnik/tlak-v-kapalinach/tlak/infografika-tlak-panel-1.svg', '/materialy/fyzika/7-rocnik/tlak-v-kapalinach/tlak/infografika-tlak-panel-2.svg', '/materialy/fyzika/7-rocnik/tlak-v-kapalinach/tlak/infografika-tlak-panel-3.svg', '/materialy/fyzika/7-rocnik/tlak-v-kapalinach/tlak/infografika-tlak-panel-4.svg', '/materialy/fyzika/7-rocnik/tlak-v-kapalinach/tlak/infografika-tlak-panel-5.svg', '/materialy/fyzika/7-rocnik/tlak-v-kapalinach/tlak/infografika-tlak-panel-6.svg'] },
 						{
 							druh: 'infografika',
 							nazev: 'Co je to tlak a jak funguje?',
