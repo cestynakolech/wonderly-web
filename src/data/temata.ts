@@ -2516,6 +2516,7 @@ export const temata: Record<string, Tema[]> = {
 					zapis: {"vzorec":"n = c / v","jednotky":["n bez jednotky, c a v (km/s)"],"vzorecSlovy":"index lomu = rychlost světla ve vakuu děleno rychlostí v prostředí","body":["lom: na rozhraní dvou prostředí světlo mění rychlost, při šikmém dopadu i směr","řidší → hustší: lom ke kolmici, hustší → řidší: lom od kolmice","z hustšího do řidšího prostředí nad mezním úhlem nastává úplný odraz (optická vlákna)"]},
 					materialy: [
 						{ druh: 'video', nazev: 'Píseň: Index lomu 🎵', cesta: '/materialy/fyzika/7-rocnik/svetlo-a-jeho-sireni/lom-svetla/pisen-index-lomu.mp4' },
+						{ druh: 'infografika', nazev: 'Lom světla v pohybu', cesta: '/materialy/fyzika/7-rocnik/svetlo-a-jeho-sireni/lom-svetla/infografika-lom-svetla-pohyb-panel-1.svg', panely: ['/materialy/fyzika/7-rocnik/svetlo-a-jeho-sireni/lom-svetla/infografika-lom-svetla-pohyb-panel-1.svg', '/materialy/fyzika/7-rocnik/svetlo-a-jeho-sireni/lom-svetla/infografika-lom-svetla-pohyb-panel-2.svg', '/materialy/fyzika/7-rocnik/svetlo-a-jeho-sireni/lom-svetla/infografika-lom-svetla-pohyb-panel-3.svg'] },
 					],
 				},
 				{

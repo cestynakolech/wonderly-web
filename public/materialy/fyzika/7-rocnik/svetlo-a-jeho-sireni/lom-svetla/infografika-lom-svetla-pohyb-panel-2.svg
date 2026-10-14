@@ -1,0 +1,134 @@
+<svg viewBox="0 0 460 640" width="460" height="640" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lom světla v pohybu 2/3, Větší úhel dopadu, větší úhel lomu: světlo jde ze skla do vzduchu postupně čtyřikrát. Nejdřív kolmo na rozhraní, paprsek se neláme. Pak stále šikměji: s rostoucím úhlem dopadu alfa roste i úhel lomu beta. Ve vzduchu je úhel lomu beta větší než úhel dopadu alfa, paprsek se láme od kolmice. Při mezním úhlu dopadu je úhel lomu 90 stupňů a paprsek běží podél rozhraní." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Lom světla v pohybu 2/3: Větší úhel dopadu, větší úhel lomu</title>
+	<!-- W87 OPRAVA 1 (14. 10. 2026). Předloha: PDF 24 Lom světla, s. 10 (sklo nahoře, vzduch dole, kolmice k, řada obrázků:
+	     kolmo — neláme se; lom od kolmice β > α; mezní úhel β = 90°). Úplný odraz z s. 10 se záměrně NEkreslí.
+	     Výklad: „Když paprsek dopadá přesně po kolmici, vůbec se neláme“, lom OD kolmice z hustšího do řidšího,
+	     „s rostoucím úhlem dopadu se zvětšuje úhel lomu“, „Při mezním úhlu dopadu je úhel lomu 90°“; sklo n = 1,5, 200 000 km/s.
+	     Geometrie: P = (230, 290), α = 0°, 20°, 35°, 42°; β = 0°, 31°, 59°, 90° (sin β = 1,5 · sin α: 30,9° / 59,4° / mezní 41,8°).
+	     Paprsek ve skle 110 px, ve vzduchu 165 px (= 2 : 3, stejná doba 0,6 s, poměr rychlostí 200 000 : 300 000).
+	     Úhly se nečíslují (jen β = 90° z výkladu). Popisek α vlevo od kolmice nad rozhraním, β vpravo pod ním (u oblouků).
+	     Cyklus 10 s, 4 stavy po 2,5 s (záporné zpoždění 0 / −7,5 / −5 / −2,5 s): 0–0,6 s paprsek sklem, 0,6–1,2 s vzduchem,
+	     od 1,2 s oblouky úhlů, do 2,5 s stojí. Bez pohybu: jen třetí stav (α = 35°) v hotové podobě. -->
+	<style>
+		.s { opacity: 0; animation: s 10s step-end infinite; }
+		@keyframes s { 0% { opacity: 1; } 25% { opacity: 0; } 100% { opacity: 0; } }
+		.ra { animation: ra 10s linear infinite; }
+		@keyframes ra { 0% { transform: scaleX(0); } 6% { transform: scaleX(1); } 100% { transform: scaleX(1); } }
+		.rw { animation: rw 10s linear infinite; }
+		@keyframes rw { 0% { transform: scaleX(0); } 6% { transform: scaleX(0); } 12% { transform: scaleX(1); } 100% { transform: scaleX(1); } }
+		.za { opacity: 0; animation: za 10s linear infinite; }
+		@keyframes za { 0% { opacity: 1; transform: translateX(0px); } 6% { opacity: 1; transform: translateX(110px); } 6.01% { opacity: 0; transform: translateX(110px); } 100% { opacity: 0; transform: translateX(110px); } }
+		.zw { opacity: 0; animation: zw 10s linear infinite; }
+		@keyframes zw { 0% { opacity: 0; transform: translateX(0px); } 5.99% { opacity: 0; transform: translateX(0px); } 6% { opacity: 1; transform: translateX(0px); } 12% { opacity: 1; transform: translateX(165px); } 12.01% { opacity: 0; transform: translateX(165px); } 100% { opacity: 0; transform: translateX(165px); } }
+		.u { animation: u 10s step-end infinite; }
+		@keyframes u { 0% { opacity: 0; } 12% { opacity: 1; } 100% { opacity: 1; } }
+		.k1 { animation-delay: -7.5s; }
+		.k2 { animation-delay: -5s; }
+		.k3 { animation-delay: -2.5s; }
+		@media (prefers-reduced-motion: reduce) {
+			.s, .ra, .rw, .za, .zw, .u { animation: none; }
+			.s { opacity: 0; }
+			.s.k2 { opacity: 1; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="640" fill="#f8f9fa" />
+	<g id="panel-2">
+		<rect x="26" y="22" width="420" height="608" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="608" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">2</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Svítíme stále šikměji</text>
+		<text x="40" y="96" font-size="20" fill="#2b2a26">Ze skla do vzduchu, úhly od kolmice.</text>
+
+		<!-- sklo nahoře (jiná barva než voda), vzduch dole, rozhraní -->
+		<rect x="22" y="112" width="416" height="178" fill="#c3fae8" />
+		<path d="M22 290H438" stroke="#0b7285" stroke-width="3" />
+		<text x="420" y="140" text-anchor="end" font-size="21" font-weight="bold" fill="#2b2a26">sklo</text>
+		<text x="40" y="328" font-size="21" font-weight="bold" fill="#2b2a26">vzduch</text>
+
+		<!-- kolmice dopadu -->
+		<path d="M230 120V462" stroke="#495057" stroke-width="2" stroke-dasharray="7 6" />
+		<text x="222" y="446" text-anchor="end" font-size="20" fill="#2b2a26">kolmice</text>
+
+		<!-- stav 1: α = 0° -->
+		<g class="s k0">
+			<g transform="translate(230,180) rotate(90)">
+				<g class="ra k0"><path d="M0 0H110" stroke="#c2410c" stroke-width="4" /></g>
+				<circle class="za k0" cx="0" cy="0" r="9" fill="#ffd43b" stroke="#2b2a26" stroke-width="2.5" />
+			</g>
+			<g transform="translate(230,290) rotate(90)">
+				<g class="rw k0"><path d="M0 0H165" stroke="#c2410c" stroke-width="4" /></g>
+				<path class="u k0" d="M165 0l-16 -8v16z" fill="#c2410c" />
+				<circle class="zw k0" cx="0" cy="0" r="9" fill="#ffd43b" stroke="#2b2a26" stroke-width="2.5" />
+			</g>
+			<text x="40" y="496" font-size="22" font-weight="bold" fill="#2b2a26">Kolmo: paprsek se neláme.</text>
+		</g>
+
+		<!-- stav 2: α = 20°, β = 31° -->
+		<g class="s k1">
+			<g transform="translate(192.4,186.6) rotate(70)">
+				<g class="ra k1"><path d="M0 0H110" stroke="#c2410c" stroke-width="4" /></g>
+				<circle class="za k1" cx="0" cy="0" r="9" fill="#ffd43b" stroke="#2b2a26" stroke-width="2.5" />
+			</g>
+			<g transform="translate(230,290) rotate(59)">
+				<g class="rw k1"><path d="M0 0H165" stroke="#c2410c" stroke-width="4" /></g>
+				<path class="u k1" d="M165 0l-16 -8v16z" fill="#c2410c" />
+				<circle class="zw k1" cx="0" cy="0" r="9" fill="#ffd43b" stroke="#2b2a26" stroke-width="2.5" />
+			</g>
+			<g class="u k1">
+				<path d="M230 230A60 60 0 0 0 209.5 233.6" fill="none" stroke="#862e9c" stroke-width="3" />
+				<text x="215" y="215" text-anchor="middle" font-size="24" font-weight="bold" fill="#862e9c">α</text>
+				<path d="M230 340A50 50 0 0 0 255.8 332.9" fill="none" stroke="#1d6b2e" stroke-width="3" />
+				<text x="250" y="369" text-anchor="middle" font-size="24" font-weight="bold" fill="#1d6b2e">β</text>
+			</g>
+			<text x="40" y="496" font-size="22" font-weight="bold" fill="#2b2a26">Malý úhel dopadu α</text>
+			<text x="40" y="524" font-size="22" font-weight="bold" fill="#2b2a26">→ malý úhel lomu β.</text>
+		</g>
+
+		<!-- stav 3: α = 35°, β = 59° -->
+		<g class="s k2">
+			<g transform="translate(166.9,199.9) rotate(55)">
+				<g class="ra k2"><path d="M0 0H110" stroke="#c2410c" stroke-width="4" /></g>
+				<circle class="za k2" cx="0" cy="0" r="9" fill="#ffd43b" stroke="#2b2a26" stroke-width="2.5" />
+			</g>
+			<g transform="translate(230,290) rotate(31)">
+				<g class="rw k2"><path d="M0 0H165" stroke="#c2410c" stroke-width="4" /></g>
+				<path class="u k2" d="M165 0l-16 -8v16z" fill="#c2410c" />
+				<circle class="zw k2" cx="0" cy="0" r="9" fill="#ffd43b" stroke="#2b2a26" stroke-width="2.5" />
+			</g>
+			<g class="u k2">
+				<path d="M230 230A60 60 0 0 0 195.6 240.9" fill="none" stroke="#862e9c" stroke-width="3" />
+				<text x="205" y="218" text-anchor="middle" font-size="24" font-weight="bold" fill="#862e9c">α</text>
+				<path d="M230 340A50 50 0 0 0 272.9 315.8" fill="none" stroke="#1d6b2e" stroke-width="3" />
+				<text x="266" y="362" text-anchor="middle" font-size="24" font-weight="bold" fill="#1d6b2e">β</text>
+			</g>
+			<text x="40" y="496" font-size="22" font-weight="bold" fill="#2b2a26">Větší úhel dopadu α</text>
+			<text x="40" y="524" font-size="22" font-weight="bold" fill="#2b2a26">→ větší úhel lomu β.</text>
+		</g>
+
+		<!-- stav 4: mezní úhel α = 42° (výpočet 41,8°), β = 90° -->
+		<g class="s k3">
+			<g transform="translate(156.4,208.3) rotate(48)">
+				<g class="ra k3"><path d="M0 0H110" stroke="#c2410c" stroke-width="4" /></g>
+				<circle class="za k3" cx="0" cy="0" r="9" fill="#ffd43b" stroke="#2b2a26" stroke-width="2.5" />
+			</g>
+			<g transform="translate(230,290)">
+				<g class="rw k3"><path d="M0 0H165" stroke="#c2410c" stroke-width="4" /></g>
+				<path class="u k3" d="M165 0l-16 -8v16z" fill="#c2410c" />
+				<circle class="zw k3" cx="0" cy="0" r="9" fill="#ffd43b" stroke="#2b2a26" stroke-width="2.5" />
+			</g>
+			<g class="u k3">
+				<path d="M230 230A60 60 0 0 0 189.9 245.4" fill="none" stroke="#862e9c" stroke-width="3" />
+				<text x="200" y="220" text-anchor="middle" font-size="24" font-weight="bold" fill="#862e9c">α</text>
+				<path d="M230 340A50 50 0 0 0 280 290" fill="none" stroke="#1d6b2e" stroke-width="3" />
+				<text x="282" y="350" text-anchor="middle" font-size="24" font-weight="bold" fill="#1d6b2e">β</text>
+			</g>
+			<text x="40" y="496" font-size="22" font-weight="bold" fill="#2b2a26">Mezní úhel dopadu α</text>
+			<text x="40" y="524" font-size="22" font-weight="bold" fill="#2b2a26">→ úhel lomu β = 90°,</text>
+			<text x="40" y="552" font-size="22" font-weight="bold" fill="#2b2a26">paprsek běží podél rozhraní.</text>
+		</g>
+
+		<text x="40" y="584" font-size="20" fill="#2b2a26">Ze skla do vzduchu je β větší než α:</text>
+		<text x="40" y="610" font-size="20" fill="#2b2a26">paprsek se láme od kolmice.</text>
+	</g>
+</svg>

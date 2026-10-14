@@ -1,0 +1,100 @@
+<svg viewBox="0 0 460 640" width="460" height="640" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lom světla v pohybu 3/3, Proč vypadá brčko zlomené: brčko stojí šikmo ve sklenici plné vody, oko se dívá shora z boku. Světlo od ponořeného konce brčka letí vodou k hladině, na hladině se láme od kolmice a letí k oku. Oko prodlouží paprsek rovně zpět, a proto vidí konec brčka výš, než skutečně je. Ponořená část brčka se zdá zalomená." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Lom světla v pohybu 3/3: Proč vypadá brčko zlomené?</title>
+	<!-- W87 (14. 10. 2026). Předloha: PDF 24 Lom světla, s. 2 (bílé brčko s červeným proužkem šikmo ve vodě, nad hladinou rovné,
+	     pod hladinou zalomené: „Hůl do vody ponořená vypadá jak nalomená") a s. 14 (oko prodlouží lomený paprsek čárkovaně zpět,
+	     „lom světla z vody do vzduchu: od kolmice"). Výklad: „Paprsky od ponořené části hole nebo brčka se na hladině lámou —
+	     oko je prodlouží rovně a předmět se zdá zalomený", lom OD kolmice voda → vzduch.
+	     Geometrie: hladina y = 330, skutečný konec brčka T = (250, 450), paprsek ve vodě 30° od kolmice, ve vzduchu 41,8°
+	     (sin = 4/3 · sin 30°), bod na hladině H = (180,7; 330), oko E = (80,7; 218,2). Prodloužení z H zpět do svislice konce:
+	     zdánlivý konec T' = (250; 407,5). Paprsek nad hladinou přejde stěnu sklenice (x = 150) ve výšce y = 295,7, tedy nad
+	     okrajem (y = 310) — sklenice je plná. Brčko z R = (400, 140) přes hladinu v W = (308,1; 330).
+	     Cyklus 5 s: 0–0,8 s záblesk vodou (138,6 px), 0,8–1,45 s vzduchem (134 px, rychleji 4 : 3), 1,45–2 s roste čárkované
+	     prodloužení, od 2 s zdánlivé brčko, do 5 s stojí. Bez pohybu: hotový obraz bez záblesku. -->
+	<style>
+		.rw { animation: rw 5s linear infinite; }
+		@keyframes rw { 0% { transform: scaleX(0); } 16% { transform: scaleX(1); } 100% { transform: scaleX(1); } }
+		.ra { animation: ra 5s linear infinite; }
+		@keyframes ra { 0% { transform: scaleX(0); } 16% { transform: scaleX(0); } 29% { transform: scaleX(1); } 100% { transform: scaleX(1); } }
+		.rp { animation: rp 5s linear infinite; }
+		@keyframes rp { 0% { transform: scaleX(0); } 29% { transform: scaleX(0); } 40% { transform: scaleX(1); } 100% { transform: scaleX(1); } }
+		.zw { opacity: 0; animation: zw 5s linear infinite; }
+		@keyframes zw { 0% { opacity: 1; transform: translateX(0px); } 16% { opacity: 1; transform: translateX(138.6px); } 16.01% { opacity: 0; transform: translateX(138.6px); } 100% { opacity: 0; transform: translateX(138.6px); } }
+		.za { opacity: 0; animation: za 5s linear infinite; }
+		@keyframes za { 0% { opacity: 0; transform: translateX(0px); } 15.99% { opacity: 0; transform: translateX(0px); } 16% { opacity: 1; transform: translateX(0px); } 29% { opacity: 1; transform: translateX(134px); } 29.01% { opacity: 0; transform: translateX(134px); } 100% { opacity: 0; transform: translateX(134px); } }
+		.ua { animation: ua 5s step-end infinite; }
+		@keyframes ua { 0% { opacity: 0; } 29% { opacity: 1; } 100% { opacity: 1; } }
+		.ub { animation: ub 5s step-end infinite; }
+		@keyframes ub { 0% { opacity: 0; } 40% { opacity: 1; } 100% { opacity: 1; } }
+		@media (prefers-reduced-motion: reduce) {
+			.rw, .ra, .rp, .zw, .za, .ua, .ub { animation: none; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="640" fill="#f8f9fa" />
+	<g id="panel-3">
+		<rect x="26" y="22" width="420" height="608" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="608" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">3</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Proč vypadá brčko zlomené?</text>
+		<text x="40" y="96" font-size="20" fill="#2b2a26">Světlo od konce brčka letí k oku.</text>
+		<text x="40" y="120" font-size="20" fill="#2b2a26">Na hladině se láme od kolmice.</text>
+
+		<!-- sklenice plná vody -->
+		<rect x="152" y="330" width="256" height="138" fill="#d0ebff" />
+		<path d="M152 330H408" stroke="#1864ab" stroke-width="3" />
+		<path d="M150 310V470H410V310" fill="none" stroke="#495057" stroke-width="4" stroke-linejoin="round" />
+		<text x="200" y="250" font-size="21" font-weight="bold" fill="#2b2a26">vzduch</text>
+		<text x="398" y="458" text-anchor="end" font-size="21" font-weight="bold" fill="#2b2a26">voda</text>
+
+		<!-- zdánlivá ponořená část brčka (W → T'), objeví se po prodloužení paprsku -->
+		<g class="ub">
+			<path d="M308.1 330L250 407.5" stroke="#495057" stroke-width="15" stroke-dasharray="7 5" />
+			<path d="M308.1 330L250 407.5" stroke="#fbfaf6" stroke-width="10" />
+			<path d="M308.1 330L250 407.5" stroke="#d6336c" stroke-width="2.5" stroke-dasharray="7 5" />
+		</g>
+		<!-- skutečné brčko (R → T) -->
+		<path d="M400 140L250 450" stroke="#495057" stroke-width="15" stroke-linecap="round" />
+		<path d="M400 140L250 450" stroke="#ffffff" stroke-width="10" stroke-linecap="round" />
+		<path d="M400 140L250 450" stroke="#d6336c" stroke-width="2.5" />
+
+		<!-- kolmice dopadu v bodě H -->
+		<path d="M180.7 266V396" stroke="#495057" stroke-width="2" stroke-dasharray="7 6" />
+
+		<!-- paprsek ve vodě: T → H, 138,6 px pod úhlem −120° -->
+		<g transform="translate(250,450) rotate(-120)">
+			<g class="rw"><path d="M0 0H138.6" stroke="#c2410c" stroke-width="4" /></g>
+			<circle class="zw" cx="0" cy="0" r="9" fill="#ffd43b" stroke="#2b2a26" stroke-width="2.5" />
+		</g>
+		<!-- paprsek ve vzduchu: H → oko, 134 px pod úhlem −131,8° -->
+		<g transform="translate(180.7,330) rotate(-131.8)">
+			<g class="ra"><path d="M0 0H134" stroke="#c2410c" stroke-width="4" /></g>
+			<path class="ua" d="M134 0l-16 -8v16z" fill="#c2410c" />
+			<circle class="za" cx="0" cy="0" r="9" fill="#ffd43b" stroke="#2b2a26" stroke-width="2.5" />
+		</g>
+		<!-- prodloužení zpět: H → T', 103,9 px pod úhlem 48,2° -->
+		<g transform="translate(180.7,330) rotate(48.2)">
+			<g class="rp"><path d="M0 0H103.9" stroke="#c2410c" stroke-width="3" stroke-dasharray="8 6" /></g>
+		</g>
+
+		<!-- oko -->
+		<g transform="translate(80.7,218.2) rotate(48.2)">
+			<path d="M-18 0Q0 -15 18 0Q0 15 -18 0Z" fill="#ffffff" stroke="#2b2a26" stroke-width="2.5" />
+			<circle cx="5" cy="0" r="6" fill="#1864ab" />
+			<circle cx="5" cy="0" r="2.5" fill="#2b2a26" />
+		</g>
+		<text x="40" y="196" font-size="20" fill="#2b2a26">oko</text>
+
+		<!-- legenda -->
+		<path d="M44 508H96" stroke="#495057" stroke-width="15" />
+		<path d="M44 508H96" stroke="#ffffff" stroke-width="10" />
+		<path d="M44 508H96" stroke="#d6336c" stroke-width="2.5" />
+		<text x="110" y="515" font-size="20" fill="#2b2a26">skutečné brčko</text>
+		<path d="M44 540H96" stroke="#495057" stroke-width="15" stroke-dasharray="7 5" />
+		<path d="M44 540H96" stroke="#fbfaf6" stroke-width="10" />
+		<path d="M44 540H96" stroke="#d6336c" stroke-width="2.5" stroke-dasharray="7 5" />
+		<text x="110" y="547" font-size="20" fill="#2b2a26">kde ho vidí oko</text>
+
+		<text x="40" y="582" font-size="20" fill="#2b2a26">Oko prodlouží paprsek rovně zpět,</text>
+		<text x="40" y="608" font-size="22" font-weight="bold" fill="#2b2a26">proto brčko vypadá zlomené.</text>
+	</g>
+</svg>

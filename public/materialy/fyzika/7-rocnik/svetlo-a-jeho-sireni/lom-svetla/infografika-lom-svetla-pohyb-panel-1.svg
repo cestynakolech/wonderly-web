@@ -1,0 +1,89 @@
+<svg viewBox="0 0 460 640" width="460" height="640" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lom světla v pohybu 1/3, Ve vodě světlo zpomalí: laser svítí šikmo ze vzduchu do vody. Záblesk světla letí po paprsku, čárky na paprsku ukazují, kam světlo doletí vždy za stejnou dobu. Ve vzduchu jsou úseky mezi čárkami delší, ve vodě kratší, protože světlo letí ve vzduchu asi 300 000 km/s a ve vodě jen asi 225 000 km/s. Na hladině se paprsek láme ke kolmici, úhel lomu beta je menší než úhel dopadu alfa." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Lom světla v pohybu 1/3: Ve vodě světlo zpomalí</title>
+	<!-- W87 (14. 10. 2026). Předloha: PDF 24 Lom světla, s. 4 (laser svítí na rozhraní, kolmice dopadu, úhly od kolmice),
+	     s. 5 (vakuum 300 000 km/s, v každém jiném prostředí pomaleji) a s. 7 (lom ke kolmici vzduch → voda: oranžový paprsek,
+	     čárkovaná svislá kolmice k, úhly α a β, voda dole). Výklad: rychlosti 300 000 a 225 000 km/s, „mění rychlost — a proto se láme“,
+	     lom KE kolmici z řidšího do hustšího, β menší než α.
+	     Geometrie: dopadový bod P = (230, 280), α = 50°, β = 35° (sin β = sin α · 225/300). Úsek ve vzduchu 192 px = 4 × 48 px,
+	     ve vodě 144 px = 4 × 36 px; 48 : 36 = 300 000 : 225 000 = 4 : 3 (stejná doba 0,25 s na úsek).
+	     Cyklus 4 s: 0–1 s záblesk letí vzduchem, 1–2 s vodou, 2–4 s stojí hotový obraz. Úhly se nečíslují (výklad čísla úhlů nemá).
+	     Bez pohybu: celý paprsek, všechny čárky i úhly, bez záblesku. -->
+	<style>
+		.ra { animation: ra 4s linear infinite; }
+		@keyframes ra { 0% { transform: scaleX(0); } 25% { transform: scaleX(1); } 100% { transform: scaleX(1); } }
+		.rw { animation: rw 4s linear infinite; }
+		@keyframes rw { 0% { transform: scaleX(0); } 25% { transform: scaleX(0); } 50% { transform: scaleX(1); } 100% { transform: scaleX(1); } }
+		.za { opacity: 0; animation: za 4s linear infinite; }
+		@keyframes za { 0% { opacity: 1; transform: translateX(0px); } 25% { opacity: 1; transform: translateX(192px); } 25.01% { opacity: 0; transform: translateX(192px); } 100% { opacity: 0; transform: translateX(192px); } }
+		.zw { opacity: 0; animation: zw 4s linear infinite; }
+		@keyframes zw { 0% { opacity: 0; transform: translateX(0px); } 24.99% { opacity: 0; transform: translateX(0px); } 25% { opacity: 1; transform: translateX(0px); } 50% { opacity: 1; transform: translateX(144px); } 50.01% { opacity: 0; transform: translateX(144px); } 100% { opacity: 0; transform: translateX(144px); } }
+		.c1 { animation: c1 4s step-end infinite; } @keyframes c1 { 0% { opacity: 0; } 6.25% { opacity: 1; } 100% { opacity: 1; } }
+		.c2 { animation: c2 4s step-end infinite; } @keyframes c2 { 0% { opacity: 0; } 12.5% { opacity: 1; } 100% { opacity: 1; } }
+		.c3 { animation: c3 4s step-end infinite; } @keyframes c3 { 0% { opacity: 0; } 18.75% { opacity: 1; } 100% { opacity: 1; } }
+		.c4 { animation: c4 4s step-end infinite; } @keyframes c4 { 0% { opacity: 0; } 25% { opacity: 1; } 100% { opacity: 1; } }
+		.c5 { animation: c5 4s step-end infinite; } @keyframes c5 { 0% { opacity: 0; } 31.25% { opacity: 1; } 100% { opacity: 1; } }
+		.c6 { animation: c6 4s step-end infinite; } @keyframes c6 { 0% { opacity: 0; } 37.5% { opacity: 1; } 100% { opacity: 1; } }
+		.c7 { animation: c7 4s step-end infinite; } @keyframes c7 { 0% { opacity: 0; } 43.75% { opacity: 1; } 100% { opacity: 1; } }
+		.c8 { animation: c8 4s step-end infinite; } @keyframes c8 { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 1; } }
+		@media (prefers-reduced-motion: reduce) {
+			.ra, .rw, .za, .zw, .c1, .c2, .c3, .c4, .c5, .c6, .c7, .c8 { animation: none; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="640" fill="#f8f9fa" />
+	<g id="panel-1">
+		<rect x="26" y="22" width="420" height="608" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="608" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Ve vodě světlo zpomalí</text>
+		<text x="40" y="96" font-size="20" fill="#2b2a26">Mezi čárkami letí světlo</text>
+		<text x="40" y="120" font-size="20" fill="#2b2a26">vždy stejně dlouho.</text>
+
+		<!-- voda dole, hladina -->
+		<rect x="22" y="280" width="416" height="160" fill="#d0ebff" />
+		<path d="M22 280H438" stroke="#1864ab" stroke-width="3" />
+		<text x="420" y="268" text-anchor="end" font-size="21" font-weight="bold" fill="#2b2a26">vzduch</text>
+		<text x="420" y="308" text-anchor="end" font-size="21" font-weight="bold" fill="#2b2a26">voda</text>
+
+		<!-- kolmice dopadu -->
+		<path d="M230 150V430" stroke="#495057" stroke-width="2" stroke-dasharray="7 6" />
+		<text x="240" y="160" font-size="20" fill="#2b2a26">kolmice</text>
+
+		<!-- paprsek ve vzduchu: z S = (82.9, 156.6) pod úhlem 40° k ose x, délka 192 px -->
+		<g transform="translate(82.9,156.6) rotate(40)">
+			<rect x="-48" y="-9" width="44" height="18" rx="3" fill="#343a40" />
+			<rect x="-6" y="-6" width="6" height="12" fill="#495057" />
+			<g class="ra"><path d="M0 0H192" stroke="#c2410c" stroke-width="4" /></g>
+			<path class="c1" d="M48 -9V9" stroke="#2b2a26" stroke-width="3" />
+			<path class="c2" d="M96 -9V9" stroke="#2b2a26" stroke-width="3" />
+			<path class="c3" d="M144 -9V9" stroke="#2b2a26" stroke-width="3" />
+			<path class="c4" d="M192 -9V9" stroke="#2b2a26" stroke-width="3" />
+			<circle class="za" cx="0" cy="0" r="9" fill="#ffd43b" stroke="#2b2a26" stroke-width="2.5" />
+		</g>
+		<!-- paprsek ve vodě: z P = (230, 280) pod úhlem 54.9°, délka 144 px -->
+		<g transform="translate(230,280) rotate(54.9)">
+			<g class="rw"><path d="M0 0H144" stroke="#c2410c" stroke-width="4" /></g>
+			<path class="c8" d="M144 0l-16 -8v16z" fill="#c2410c" />
+			<path class="c5" d="M36 -9V9" stroke="#2b2a26" stroke-width="3" />
+			<path class="c6" d="M72 -9V9" stroke="#2b2a26" stroke-width="3" />
+			<path class="c7" d="M108 -9V9" stroke="#2b2a26" stroke-width="3" />
+			<circle class="zw" cx="0" cy="0" r="9" fill="#ffd43b" stroke="#2b2a26" stroke-width="2.5" />
+		</g>
+
+		<!-- úhly od kolmice -->
+		<g class="c4">
+			<path d="M230 230A50 50 0 0 0 191.7 247.9" fill="none" stroke="#862e9c" stroke-width="3" />
+			<text x="198" y="218" text-anchor="middle" font-size="24" font-weight="bold" fill="#862e9c">α</text>
+		</g>
+		<g class="c8">
+			<path d="M230 330A50 50 0 0 0 258.7 320.9" fill="none" stroke="#1d6b2e" stroke-width="3" />
+			<text x="252" y="356" text-anchor="middle" font-size="24" font-weight="bold" fill="#1d6b2e">β</text>
+		</g>
+
+		<text x="40" y="478" font-size="20" fill="#2b2a26">Ve vzduchu letí asi 300 000 km/s,</text>
+		<text x="40" y="504" font-size="20" fill="#2b2a26">ve vodě jen asi 225 000 km/s.</text>
+		<text x="40" y="540" font-size="20" fill="#2b2a26">Ve vodě jsou úseky kratší.</text>
+		<text x="40" y="580" font-size="22" font-weight="bold" fill="#2b2a26">Světlo zpomalí a láme se</text>
+		<text x="40" y="606" font-size="22" font-weight="bold" fill="#2b2a26">ke kolmici: β je menší než α.</text>
+	</g>
+</svg>
