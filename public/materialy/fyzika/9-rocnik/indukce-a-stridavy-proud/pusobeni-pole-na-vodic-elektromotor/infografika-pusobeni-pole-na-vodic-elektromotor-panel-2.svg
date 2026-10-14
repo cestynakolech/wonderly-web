@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 560" width="460" height="560" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Pravidlo levé ruky: levá ruka dlaní k nám, prsty nahoru, palec vlevo. Indukční čáry B vstupují kolmo do dlaně (značka křížek v kroužku), prsty ukazují směr proudu I, palec ukazuje směr magnetické síly F.">
+	<title>Působení magnetického pole na vodič s proudem, elektromotor 2/6: Pravidlo levé ruky</title>
+	<!-- Panel 2/6, kresleno šikmo (kabinetní promítání), generátor W45 14. 10. 2026. -->
+	<style>
+		.p2-b { animation: p2-b 1.6s ease-in-out infinite; }
+		.p2-f { transform-box: view-box; transform-origin: 0 0; animation: p2-f 3s ease-in-out infinite; }
+		@keyframes p2-b { 0% { opacity: 1; } 50% { opacity: 0.45; } 100% { opacity: 1; } }
+		@keyframes p2-f { 0.000% { transform: translate(0px, 0px); } 50.000% { transform: translate(-10px, 0px); } 100.000% { transform: translate(0px, 0px); } }
+		@media (prefers-reduced-motion: reduce) { .p2-b, .p2-f { animation: none; } }
+	</style>
+	<rect x="0" y="0" width="460" height="560" fill="#f8f9fa" />
+	<rect x="18" y="16" width="432" height="540" rx="12" fill="#dee2e6" /><rect x="12" y="10" width="432" height="540" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2" /><circle cx="44" cy="44" r="17" fill="#2b2a26" /><text x="44" y="52" font-size="21" font-weight="bold" fill="#ffffff" text-anchor="middle">2</text><text x="72" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Pravidlo levé ruky</text>
+	<text x="30" y="84" font-size="21" fill="#2b2a26">Směr síly určíme levou rukou</text>
+	<text x="30" y="110" font-size="21" fill="#2b2a26">(Flemingovo pravidlo).</text>
+	<rect x="28" y="126" width="400" height="300" rx="8" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+	<rect x="190" y="372" width="92" height="52" fill="#f4c9a8" stroke="#b0714a" stroke-width="2" />
+	<rect x="180" y="398" width="112" height="26" rx="4" fill="#5c7cfa" />
+	<rect x="184" y="176" width="24" height="104" rx="11" fill="#f4c9a8" stroke="#b0714a" stroke-width="2" />
+	<rect x="212" y="160" width="24" height="120" rx="11" fill="#f4c9a8" stroke="#b0714a" stroke-width="2" />
+	<rect x="240" y="168" width="24" height="112" rx="11" fill="#f4c9a8" stroke="#b0714a" stroke-width="2" />
+	<rect x="268" y="190" width="20" height="90" rx="11" fill="#f4c9a8" stroke="#b0714a" stroke-width="2" />
+	<path d="M206,334 C176,326 150,312 124,304 C112,300 106,288 116,282 C128,276 148,284 168,290 C186,296 198,296 210,298 Z" fill="#f4c9a8" stroke="#b0714a" stroke-width="2" />
+	<rect x="182" y="246" width="110" height="140" rx="26" fill="#f4c9a8" stroke="#b0714a" stroke-width="2" />
+	<rect x="186" y="250" width="20" height="30" fill="#f4c9a8" />
+	<rect x="214" y="250" width="20" height="30" fill="#f4c9a8" />
+	<rect x="242" y="250" width="20" height="30" fill="#f4c9a8" />
+	<rect x="270" y="250" width="16" height="30" fill="#f4c9a8" />
+	<path d="M206,318 C224,340 250,352 274,346" fill="none" stroke="#b0714a" stroke-width="1.5" />
+	<path d="M214,296 C236,300 258,296 280,286" fill="none" stroke="#b0714a" stroke-width="1.5" />
+	<g class="p2-b"><circle cx="210" cy="272" r="12" fill="#ffffff" stroke="#495057" stroke-width="3" /><line x1="202.6" y1="264.6" x2="217.4" y2="279.4" stroke="#495057" stroke-width="3" stroke-linecap="round" /><line x1="202.6" y1="279.4" x2="217.4" y2="264.6" stroke="#495057" stroke-width="3" stroke-linecap="round" /></g>
+	<g class="p2-b"><circle cx="262" cy="270" r="12" fill="#ffffff" stroke="#495057" stroke-width="3" /><line x1="254.6" y1="262.6" x2="269.4" y2="277.4" stroke="#495057" stroke-width="3" stroke-linecap="round" /><line x1="254.6" y1="277.4" x2="269.4" y2="262.6" stroke="#495057" stroke-width="3" stroke-linecap="round" /></g>
+	<g class="p2-b"><circle cx="240" cy="322" r="12" fill="#ffffff" stroke="#495057" stroke-width="3" /><line x1="232.6" y1="314.6" x2="247.4" y2="329.4" stroke="#495057" stroke-width="3" stroke-linecap="round" /><line x1="232.6" y1="329.4" x2="247.4" y2="314.6" stroke="#495057" stroke-width="3" stroke-linecap="round" /></g>
+	<text x="36" y="404" font-size="22" font-weight="bold" fill="#495057">B</text><circle cx="66" cy="397" r="9" fill="#ffffff" stroke="#495057" stroke-width="2.5" /><line x1="60.4" y1="391.4" x2="71.6" y2="402.6" stroke="#495057" stroke-width="2.5" stroke-linecap="round" /><line x1="60.4" y1="402.6" x2="71.6" y2="391.4" stroke="#495057" stroke-width="2.5" stroke-linecap="round" /><text x="82" y="404" font-size="19" fill="#495057">do dlaně</text>
+	<line x1="318" y1="330" x2="318" y2="186" stroke="#e8590c" stroke-width="6" stroke-linecap="round" /><polygon points="318,168 329,186 307,186" fill="#e8590c" /><text x="330" y="190" font-size="22" font-weight="bold" fill="#e8590c">I</text>
+	<text x="330" y="252" font-size="19" fill="#e8590c">prsty</text>
+	<g class="p2-f"><line x1="104" y1="292" x2="64" y2="292" stroke="#2f9e44" stroke-width="6" stroke-linecap="round" /><polygon points="46,292 64,281 64,303" fill="#2f9e44" /><text x="56" y="276" font-size="22" font-weight="bold" fill="#2f9e44">F</text></g>
+	<text x="40" y="330" font-size="19" fill="#2f9e44">palec</text>
+	<text x="300" y="414" font-size="19" fill="#2b2a26">levá ruka</text>
+	<text x="34" y="458" font-size="21" font-weight="bold" fill="#495057">B</text><text x="58" y="458" font-size="21" fill="#2b2a26">indukční čáry vstupují do dlaně</text>
+	<text x="34" y="486" font-size="21" font-weight="bold" fill="#e8590c">I</text><text x="58" y="486" font-size="21" fill="#2b2a26">prsty ukazují směr proudu</text>
+	<text x="34" y="514" font-size="21" font-weight="bold" fill="#2f9e44">F</text><text x="58" y="514" font-size="21" fill="#2b2a26">palec ukazuje směr síly</text>
+</svg>
