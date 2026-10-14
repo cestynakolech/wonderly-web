@@ -13,6 +13,12 @@ registrovaný jen v `/Users/Shared/Škola/.claude/settings.json`).
 Fronta úkolů i stav jsou jedno — `SAMOSTATNY-REZIM.md` (`PROGRESS.md` je jen
 technická příručka a historie, ne zdroj aktuálního stavu).
 
+⭐ HLAVNÍ PRAVIDLO: živý web před výběrem úlohy (učitel 14. 10. 2026: „je to stále dokola“).
+Před výběrem KAŽDÉ další úlohy na webu (panely, animace, infografika, laborka…) nejdřív ověř na ŽIVÉM webu
+lab.wonderly.cz (`curl -A wonderly-check`), zda to tam už není; fronta MEZERY-WEBU-*.md, temata.ts ani předávky
+nejsou důkaz. Na začátku session a před každou vlnou inventura `Omega/predavka/<datum>/INVENTURA-ZIVY-WEB.md`;
+worker dostane úlohu jen když inventura potvrdí, že chybí; rozběhlou už hotovou úlohu hned zastav.
+
 1. Každý konkrétní krok zadej subagentovi: `exekutor` (dělá práci), `pruzkumnik`
    (čte dlouhé věci místo tebe), `kontrolor` (hledá chyby v hotovém), `worker-vyklad`,
    `worker-simulace`, `worker-kviz`, `worker-media`. Do zadání piš jen proměnné části
