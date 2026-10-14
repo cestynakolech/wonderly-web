@@ -1,0 +1,87 @@
+<svg viewBox="0 0 460 720" width="460" height="720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stejná frekvence: transformátor má na primární cívce 500 závitů a napětí 200 V, na sekundární cívce 100 závitů a napětí 40 V, transformační poměr k = 100 : 500 = 1 : 5; dva záznamy napětí se kreslí současně: napětí na sekundární cívce je pětkrát menší, ale kmitá stejně rychle, z 50 Hz zůstane 50 Hz; záznam je zpomalený" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Transformátor v pohybu 1/3: Stejná frekvence</title>
+	<style>
+		.p7-kryt { transform: translateX(360px); animation: p7x 5s linear infinite; }
+		.p7-pero { transform: translateX(360px); animation: p7x 5s linear infinite; }
+		@keyframes p7x { 0% { transform: translateX(0px); } 80%, 100% { transform: translateX(360px); } }
+		.p7-y1 { animation: p7y1 5s infinite; }
+		.p7-y2 { animation: p7y2 5s infinite; }
+		@keyframes p7y1 { 0% { transform: translateY(0.0px); animation-timing-function: cubic-bezier(0.61, 1, 0.88, 1); } 10% { transform: translateY(-42.0px); animation-timing-function: cubic-bezier(0.12, 0, 0.39, 0); } 20% { transform: translateY(0.0px); animation-timing-function: cubic-bezier(0.61, 1, 0.88, 1); } 30% { transform: translateY(42.0px); animation-timing-function: cubic-bezier(0.12, 0, 0.39, 0); } 40% { transform: translateY(0.0px); animation-timing-function: cubic-bezier(0.61, 1, 0.88, 1); } 50% { transform: translateY(-42.0px); animation-timing-function: cubic-bezier(0.12, 0, 0.39, 0); } 60% { transform: translateY(0.0px); animation-timing-function: cubic-bezier(0.61, 1, 0.88, 1); } 70% { transform: translateY(42.0px); animation-timing-function: cubic-bezier(0.12, 0, 0.39, 0); } 80% { transform: translateY(0.0px); animation-timing-function: linear; } 100% { transform: translateY(0.0px); animation-timing-function: linear; } }
+		@keyframes p7y2 { 0% { transform: translateY(0.0px); animation-timing-function: cubic-bezier(0.61, 1, 0.88, 1); } 10% { transform: translateY(-8.4px); animation-timing-function: cubic-bezier(0.12, 0, 0.39, 0); } 20% { transform: translateY(0.0px); animation-timing-function: cubic-bezier(0.61, 1, 0.88, 1); } 30% { transform: translateY(8.4px); animation-timing-function: cubic-bezier(0.12, 0, 0.39, 0); } 40% { transform: translateY(0.0px); animation-timing-function: cubic-bezier(0.61, 1, 0.88, 1); } 50% { transform: translateY(-8.4px); animation-timing-function: cubic-bezier(0.12, 0, 0.39, 0); } 60% { transform: translateY(0.0px); animation-timing-function: cubic-bezier(0.61, 1, 0.88, 1); } 70% { transform: translateY(8.4px); animation-timing-function: cubic-bezier(0.12, 0, 0.39, 0); } 80% { transform: translateY(0.0px); animation-timing-function: linear; } 100% { transform: translateY(0.0px); animation-timing-function: linear; } }
+		@media (prefers-reduced-motion: reduce) { .p7-kryt, .p7-pero, .p7-y1, .p7-y2 { animation: none; } }
+	</style>
+	<rect x="0" y="0" width="460" height="720" fill="#f8f9fa"/>
+
+	<defs><clipPath id="p7ok"><rect x="30" y="352" width="400" height="232" rx="8"/></clipPath></defs>
+<rect x="26" y="16" width="420" height="700" rx="12" fill="#dee2e6"/><rect x="20" y="10" width="420" height="700" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/><circle cx="52" cy="44" r="17" fill="#2b2a26"/><text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">1</text><text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Stejná frekvence</text>
+<text x="34" y="92" font-size="21" fill="#2b2a26">Napětí se zmenší, ale kmitá</text>
+<text x="34" y="120" font-size="21" fill="#2b2a26">stejně rychle: z 50 Hz zůstane 50 Hz.</text>
+<rect x="30" y="136" width="400" height="200" rx="8" fill="#ffffff"/>
+<polygon points="150.0,190.0 310.0,190.0 334.0,174.0 174.0,174.0" fill="#e9ecef" stroke="#495057" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="310.0,190.0 334.0,174.0 334.0,298.0 310.0,314.0" fill="#868e96" stroke="#495057" stroke-width="2" stroke-linejoin="round"/>
+<path d="M150,190 h160 v124 h-160 Z M180,220 v64 h100 v-64 Z" fill="#ced4da" stroke="#495057" stroke-width="2" fill-rule="evenodd"/>
+<polygon points="180.0,284.0 280.0,284.0 280.0,268.0 204.0,268.0" fill="#e9ecef" stroke="#495057" stroke-width="1.5"/>
+<polygon points="180.0,220.0 204.0,220.0 204.0,268.0 180.0,284.0" fill="#868e96" stroke="#495057" stroke-width="1.5"/>
+<rect x="204" y="220" width="76" height="48" fill="#ffffff"/>
+<path d="M180,220 v64 h100 v-64 Z" fill="none" stroke="#495057" stroke-width="2"/>
+<line x1="180" y1="200.0" x2="280" y2="200.0" stroke="#adb5bd" stroke-width="1"/>
+<line x1="180" y1="304.0" x2="280" y2="304.0" stroke="#adb5bd" stroke-width="1"/>
+<line x1="180" y1="210.0" x2="280" y2="210.0" stroke="#adb5bd" stroke-width="1"/>
+<line x1="180" y1="294.0" x2="280" y2="294.0" stroke="#adb5bd" stroke-width="1"/>
+<polygon points="142.0,212.0 188.0,212.0 196.0,206.0 150.0,206.0" fill="#a8612a" stroke="#7a4a1f" stroke-width="1.5"/>
+<polygon points="188.0,212.0 196.0,206.0 196.0,296.0 188.0,302.0" fill="#7a4a1f" stroke="#7a4a1f" stroke-width="1.5"/>
+<rect x="142.0" y="212" width="46" height="90" fill="#c87a3a" stroke="#7a4a1f" stroke-width="1.5"/>
+<line x1="143.0" y1="223.0" x2="187.0" y2="219.0" stroke="#7a4a1f" stroke-width="1.6"/>
+<line x1="188.0" y1="219.0" x2="196.0" y2="213.0" stroke="#5a3415" stroke-width="1.2"/>
+<line x1="143.0" y1="232.0" x2="187.0" y2="228.0" stroke="#7a4a1f" stroke-width="1.6"/>
+<line x1="188.0" y1="228.0" x2="196.0" y2="222.0" stroke="#5a3415" stroke-width="1.2"/>
+<line x1="143.0" y1="241.0" x2="187.0" y2="237.0" stroke="#7a4a1f" stroke-width="1.6"/>
+<line x1="188.0" y1="237.0" x2="196.0" y2="231.0" stroke="#5a3415" stroke-width="1.2"/>
+<line x1="143.0" y1="250.0" x2="187.0" y2="246.0" stroke="#7a4a1f" stroke-width="1.6"/>
+<line x1="188.0" y1="246.0" x2="196.0" y2="240.0" stroke="#5a3415" stroke-width="1.2"/>
+<line x1="143.0" y1="259.0" x2="187.0" y2="255.0" stroke="#7a4a1f" stroke-width="1.6"/>
+<line x1="188.0" y1="255.0" x2="196.0" y2="249.0" stroke="#5a3415" stroke-width="1.2"/>
+<line x1="143.0" y1="268.0" x2="187.0" y2="264.0" stroke="#7a4a1f" stroke-width="1.6"/>
+<line x1="188.0" y1="264.0" x2="196.0" y2="258.0" stroke="#5a3415" stroke-width="1.2"/>
+<line x1="143.0" y1="277.0" x2="187.0" y2="273.0" stroke="#7a4a1f" stroke-width="1.6"/>
+<line x1="188.0" y1="273.0" x2="196.0" y2="267.0" stroke="#5a3415" stroke-width="1.2"/>
+<line x1="143.0" y1="286.0" x2="187.0" y2="282.0" stroke="#7a4a1f" stroke-width="1.6"/>
+<line x1="188.0" y1="282.0" x2="196.0" y2="276.0" stroke="#5a3415" stroke-width="1.2"/>
+<line x1="143.0" y1="295.0" x2="187.0" y2="291.0" stroke="#7a4a1f" stroke-width="1.6"/>
+<line x1="188.0" y1="291.0" x2="196.0" y2="285.0" stroke="#5a3415" stroke-width="1.2"/>
+<polygon points="272.0,248.0 318.0,248.0 326.0,242.0 280.0,242.0" fill="#a8612a" stroke="#7a4a1f" stroke-width="1.5"/>
+<polygon points="318.0,248.0 326.0,242.0 326.0,280.0 318.0,286.0" fill="#7a4a1f" stroke="#7a4a1f" stroke-width="1.5"/>
+<rect x="272.0" y="248" width="46" height="38" fill="#c87a3a" stroke="#7a4a1f" stroke-width="1.5"/>
+<line x1="273.0" y1="269.0" x2="317.0" y2="265.0" stroke="#7a4a1f" stroke-width="1.6"/>
+<line x1="318.0" y1="265.0" x2="326.0" y2="259.0" stroke="#5a3415" stroke-width="1.2"/>
+<path d="M142,236 L60,236 M142,290 L60,290" stroke="#495057" stroke-width="3" fill="none" stroke-linecap="round"/>
+<path d="M318,256 L400,256 M318,278 L400,278" stroke="#495057" stroke-width="3" fill="none" stroke-linecap="round"/>
+<circle cx="60" cy="236" r="4" fill="#495057"/><circle cx="60" cy="290" r="4" fill="#495057"/>
+<circle cx="400" cy="256" r="4" fill="#495057"/><circle cx="400" cy="278" r="4" fill="#495057"/>
+<text x="42" y="170" font-size="20" fill="#2b2a26"><tspan font-style="italic">N</tspan><tspan font-size="15" dy="5">1</tspan><tspan dy="-5"> = 500</tspan></text>
+<text x="418" y="170" font-size="20" text-anchor="end" fill="#2b2a26"><tspan font-style="italic">N</tspan><tspan font-size="15" dy="5">2</tspan><tspan dy="-5"> = 100</tspan></text>
+<text x="42" y="322" font-size="18" fill="#495057">primární</text>
+<text x="418" y="322" font-size="18" text-anchor="end" fill="#495057">sekundární</text>
+<rect x="30" y="352" width="400" height="232" rx="8" fill="#ffffff"/>
+<g clip-path="url(#p7ok)">
+<path d="M60.0,432.0 L62.0,429.1 L64.0,426.2 L66.0,423.3 L68.0,420.4 L70.0,417.6 L72.0,414.9 L74.0,412.3 L76.0,409.7 L78.0,407.3 L80.0,405.0 L82.0,402.8 L84.0,400.8 L86.0,398.9 L88.0,397.2 L90.0,395.6 L92.0,394.3 L94.0,393.1 L96.0,392.1 L98.0,391.2 L100.0,390.6 L102.0,390.2 L104.0,390.0 L106.0,390.0 L108.0,390.2 L110.0,390.6 L112.0,391.2 L114.0,392.1 L116.0,393.1 L118.0,394.3 L120.0,395.6 L122.0,397.2 L124.0,398.9 L126.0,400.8 L128.0,402.8 L130.0,405.0 L132.0,407.3 L134.0,409.7 L136.0,412.3 L138.0,414.9 L140.0,417.6 L142.0,420.4 L144.0,423.3 L146.0,426.2 L148.0,429.1 L150.0,432.0 L152.0,434.9 L154.0,437.8 L156.0,440.7 L158.0,443.6 L160.0,446.4 L162.0,449.1 L164.0,451.7 L166.0,454.3 L168.0,456.7 L170.0,459.0 L172.0,461.2 L174.0,463.2 L176.0,465.1 L178.0,466.8 L180.0,468.4 L182.0,469.7 L184.0,470.9 L186.0,471.9 L188.0,472.8 L190.0,473.4 L192.0,473.8 L194.0,474.0 L196.0,474.0 L198.0,473.8 L200.0,473.4 L202.0,472.8 L204.0,471.9 L206.0,470.9 L208.0,469.7 L210.0,468.4 L212.0,466.8 L214.0,465.1 L216.0,463.2 L218.0,461.2 L220.0,459.0 L222.0,456.7 L224.0,454.3 L226.0,451.7 L228.0,449.1 L230.0,446.4 L232.0,443.6 L234.0,440.7 L236.0,437.8 L238.0,434.9 L240.0,432.0 L242.0,429.1 L244.0,426.2 L246.0,423.3 L248.0,420.4 L250.0,417.6 L252.0,414.9 L254.0,412.3 L256.0,409.7 L258.0,407.3 L260.0,405.0 L262.0,402.8 L264.0,400.8 L266.0,398.9 L268.0,397.2 L270.0,395.6 L272.0,394.3 L274.0,393.1 L276.0,392.1 L278.0,391.2 L280.0,390.6 L282.0,390.2 L284.0,390.0 L286.0,390.0 L288.0,390.2 L290.0,390.6 L292.0,391.2 L294.0,392.1 L296.0,393.1 L298.0,394.3 L300.0,395.6 L302.0,397.2 L304.0,398.9 L306.0,400.8 L308.0,402.8 L310.0,405.0 L312.0,407.3 L314.0,409.7 L316.0,412.3 L318.0,414.9 L320.0,417.6 L322.0,420.4 L324.0,423.3 L326.0,426.2 L328.0,429.1 L330.0,432.0 L332.0,434.9 L334.0,437.8 L336.0,440.7 L338.0,443.6 L340.0,446.4 L342.0,449.1 L344.0,451.7 L346.0,454.3 L348.0,456.7 L350.0,459.0 L352.0,461.2 L354.0,463.2 L356.0,465.1 L358.0,466.8 L360.0,468.4 L362.0,469.7 L364.0,470.9 L366.0,471.9 L368.0,472.8 L370.0,473.4 L372.0,473.8 L374.0,474.0 L376.0,474.0 L378.0,473.8 L380.0,473.4 L382.0,472.8 L384.0,471.9 L386.0,470.9 L388.0,469.7 L390.0,468.4 L392.0,466.8 L394.0,465.1 L396.0,463.2 L398.0,461.2 L400.0,459.0 L402.0,456.7 L404.0,454.3 L406.0,451.7 L408.0,449.1 L410.0,446.4 L412.0,443.6 L414.0,440.7 L416.0,437.8 L418.0,434.9 L420.0,432.0" fill="none" stroke="#c92a2a" stroke-width="4" stroke-linejoin="round"/>
+<path d="M60.0,538.0 L62.0,537.4 L64.0,536.8 L66.0,536.3 L68.0,535.7 L70.0,535.1 L72.0,534.6 L74.0,534.1 L76.0,533.5 L78.0,533.1 L80.0,532.6 L82.0,532.2 L84.0,531.8 L86.0,531.4 L88.0,531.0 L90.0,530.7 L92.0,530.5 L94.0,530.2 L96.0,530.0 L98.0,529.8 L100.0,529.7 L102.0,529.6 L104.0,529.6 L106.0,529.6 L108.0,529.6 L110.0,529.7 L112.0,529.8 L114.0,530.0 L116.0,530.2 L118.0,530.5 L120.0,530.7 L122.0,531.0 L124.0,531.4 L126.0,531.8 L128.0,532.2 L130.0,532.6 L132.0,533.1 L134.0,533.5 L136.0,534.1 L138.0,534.6 L140.0,535.1 L142.0,535.7 L144.0,536.3 L146.0,536.8 L148.0,537.4 L150.0,538.0 L152.0,538.6 L154.0,539.2 L156.0,539.7 L158.0,540.3 L160.0,540.9 L162.0,541.4 L164.0,541.9 L166.0,542.5 L168.0,542.9 L170.0,543.4 L172.0,543.8 L174.0,544.2 L176.0,544.6 L178.0,545.0 L180.0,545.3 L182.0,545.5 L184.0,545.8 L186.0,546.0 L188.0,546.2 L190.0,546.3 L192.0,546.4 L194.0,546.4 L196.0,546.4 L198.0,546.4 L200.0,546.3 L202.0,546.2 L204.0,546.0 L206.0,545.8 L208.0,545.5 L210.0,545.3 L212.0,545.0 L214.0,544.6 L216.0,544.2 L218.0,543.8 L220.0,543.4 L222.0,542.9 L224.0,542.5 L226.0,541.9 L228.0,541.4 L230.0,540.9 L232.0,540.3 L234.0,539.7 L236.0,539.2 L238.0,538.6 L240.0,538.0 L242.0,537.4 L244.0,536.8 L246.0,536.3 L248.0,535.7 L250.0,535.1 L252.0,534.6 L254.0,534.1 L256.0,533.5 L258.0,533.1 L260.0,532.6 L262.0,532.2 L264.0,531.8 L266.0,531.4 L268.0,531.0 L270.0,530.7 L272.0,530.5 L274.0,530.2 L276.0,530.0 L278.0,529.8 L280.0,529.7 L282.0,529.6 L284.0,529.6 L286.0,529.6 L288.0,529.6 L290.0,529.7 L292.0,529.8 L294.0,530.0 L296.0,530.2 L298.0,530.5 L300.0,530.7 L302.0,531.0 L304.0,531.4 L306.0,531.8 L308.0,532.2 L310.0,532.6 L312.0,533.1 L314.0,533.5 L316.0,534.1 L318.0,534.6 L320.0,535.1 L322.0,535.7 L324.0,536.3 L326.0,536.8 L328.0,537.4 L330.0,538.0 L332.0,538.6 L334.0,539.2 L336.0,539.7 L338.0,540.3 L340.0,540.9 L342.0,541.4 L344.0,541.9 L346.0,542.5 L348.0,542.9 L350.0,543.4 L352.0,543.8 L354.0,544.2 L356.0,544.6 L358.0,545.0 L360.0,545.3 L362.0,545.5 L364.0,545.8 L366.0,546.0 L368.0,546.2 L370.0,546.3 L372.0,546.4 L374.0,546.4 L376.0,546.4 L378.0,546.4 L380.0,546.3 L382.0,546.2 L384.0,546.0 L386.0,545.8 L388.0,545.5 L390.0,545.3 L392.0,545.0 L394.0,544.6 L396.0,544.2 L398.0,543.8 L400.0,543.4 L402.0,542.9 L404.0,542.5 L406.0,541.9 L408.0,541.4 L410.0,540.9 L412.0,540.3 L414.0,539.7 L416.0,539.2 L418.0,538.6 L420.0,538.0" fill="none" stroke="#c92a2a" stroke-width="4" stroke-linejoin="round"/>
+<rect class="p7-kryt" x="62" y="380" width="380" height="180" fill="#ffffff"/>
+</g>
+<line x1="60" y1="384" x2="60" y2="556" stroke="#868e96" stroke-width="1.5" stroke-dasharray="5 5"/>
+<line x1="240" y1="384" x2="240" y2="556" stroke="#868e96" stroke-width="1.5" stroke-dasharray="5 5"/>
+<line x1="420" y1="384" x2="420" y2="556" stroke="#868e96" stroke-width="1.5" stroke-dasharray="5 5"/>
+<line x1="60" y1="432" x2="428" y2="432" stroke="#495057" stroke-width="2"/>
+<line x1="60" y1="538" x2="428" y2="538" stroke="#495057" stroke-width="2"/>
+<text x="68" y="378" font-size="20" font-weight="bold" fill="#2b2a26"><tspan font-style="italic">U</tspan><tspan font-size="15" dy="5">1</tspan><tspan dy="-5"> = 200 V</tspan></text>
+<text x="68" y="510" font-size="20" font-weight="bold" fill="#2b2a26"><tspan font-style="italic">U</tspan><tspan font-size="15" dy="5">2</tspan><tspan dy="-5"> = 40 V</tspan></text>
+<text x="150" y="578" font-size="18" text-anchor="middle" fill="#495057">1 kmit</text>
+<text x="330" y="578" font-size="18" text-anchor="middle" fill="#495057">1 kmit</text>
+<g class="p7-pero"><g class="p7-y1"><circle cx="60" cy="432" r="7" fill="#c92a2a" stroke="#fff" stroke-width="2"/></g></g>
+<g class="p7-pero"><g class="p7-y2"><circle cx="60" cy="538" r="7" fill="#c92a2a" stroke="#fff" stroke-width="2"/></g></g>
+<rect x="30" y="352" width="400" height="232" rx="8" fill="none" stroke="#ced4da" stroke-width="2"/>
+<rect x="30" y="136" width="400" height="200" rx="8" fill="none" stroke="#ced4da" stroke-width="2"/>
+<text x="34" y="618" font-size="21" fill="#2b2a26"><tspan font-style="italic">k</tspan> = 100 : 500 = 1 : 5, napětí je 5× menší.</text>
+<text x="34" y="648" font-size="21" fill="#2b2a26">Kmity začínají a končí současně.</text>
+<text x="34" y="680" font-size="18" fill="#495057">Záznam je zpomalený.</text>
+</svg>

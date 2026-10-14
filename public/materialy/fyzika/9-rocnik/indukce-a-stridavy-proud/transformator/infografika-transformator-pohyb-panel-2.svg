@@ -1,0 +1,116 @@
+<svg viewBox="0 0 460 740" width="460" height="740" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Nabíječka telefonu: malá nabíječka s evropskou vidlicí je v zásuvce, kabel USB-C vede ze zdířky na její čelní stěně do telefonu ve stojánku; zvětšený pohled dovnitř nabíječky ukazuje transformátor a další součástky; ze zásuvky přichází střídavé napětí 230 V, transformátor ho sníží na 20 V, další součástky přemění střídavý proud na stejnosměrný a baterie telefonu se postupně nabíjí; telefon se nabíjí stejnosměrným proudem" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Transformátor v pohybu 2/3: Nabíječka telefonu</title>
+	<style>
+		.p8-konektor { animation: p8kon 9s infinite; }
+		@keyframes p8kon { 0%, 6% { transform: translateY(26px); animation-timing-function: ease-in-out; } 16%, 94% { transform: translateY(0px); } 100% { transform: translateY(26px); } }
+		.p8-0 { opacity: 0; animation: p8n 9s linear infinite; }
+		@keyframes p8n { 0%, 16% { opacity: 1; } 18%, 95% { opacity: 0; } 97%, 100% { opacity: 1; } }
+		.p8-a { animation: p8a 9s linear infinite; }
+		@keyframes p8a { 0%, 18% { opacity: 0; } 22%, 92% { opacity: 1; } 97%, 100% { opacity: 0; } }
+		.p8-b { animation: p8b 9s linear infinite; }
+		@keyframes p8b { 0%, 26% { opacity: 0; } 30%, 92% { opacity: 1; } 97%, 100% { opacity: 0; } }
+		.p8-c { animation: p8c 9s linear infinite; }
+		@keyframes p8c { 0%, 34% { opacity: 0; } 38%, 92% { opacity: 1; } 97%, 100% { opacity: 0; } }
+		.p8-d1 { animation: p8d1 9s linear infinite; }
+		@keyframes p8d1 { 0%, 50% { opacity: 0; } 52%, 92% { opacity: 1; } 97%, 100% { opacity: 0; } }
+		.p8-d2 { animation: p8d2 9s linear infinite; }
+		@keyframes p8d2 { 0%, 60% { opacity: 0; } 62%, 92% { opacity: 1; } 97%, 100% { opacity: 0; } }
+		.p8-d3 { animation: p8d3 9s linear infinite; }
+		@keyframes p8d3 { 0%, 70% { opacity: 0; } 72%, 92% { opacity: 1; } 97%, 100% { opacity: 0; } }
+		.p8-d4 { animation: p8d4 9s linear infinite; }
+		@keyframes p8d4 { 0%, 80% { opacity: 0; } 82%, 92% { opacity: 1; } 97%, 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) { .p8-konektor, .p8-0, .p8-a, .p8-b, .p8-c, .p8-d1, .p8-d2, .p8-d3, .p8-d4 { animation: none; } }
+	</style>
+	<rect x="0" y="0" width="460" height="740" fill="#f8f9fa"/>
+
+<rect x="26" y="16" width="420" height="720" rx="12" fill="#dee2e6"/><rect x="20" y="10" width="420" height="720" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/><circle cx="52" cy="44" r="17" fill="#2b2a26"/><text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">2</text><text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Nabíječka telefonu</text>
+<text x="34" y="92" font-size="21" fill="#2b2a26">Transformátor v nabíječce sníží</text>
+<text x="34" y="120" font-size="21" fill="#2b2a26">napětí ze zásuvky 230 V na 20 V.</text>
+<rect x="30" y="136" width="400" height="330" rx="8" fill="#ffffff"/>
+<rect x="30" y="136" width="34" height="330" fill="#e9ecef"/>
+<line x1="64" y1="136" x2="64" y2="466" stroke="#adb5bd" stroke-width="2"/>
+<text x="52" y="310" font-size="16" fill="#495057" transform="rotate(-90 52 310)">zásuvka</text>
+<rect x="56" y="318" width="14" height="88" rx="4" fill="#f8f9fa" stroke="#868e96" stroke-width="2"/>
+<rect x="58" y="340" width="14" height="7" rx="3" fill="#adb5bd" stroke="#868e96" stroke-width="1"/>
+<rect x="58" y="368" width="14" height="7" rx="3" fill="#adb5bd" stroke="#868e96" stroke-width="1"/>
+<rect x="70" y="332" width="16" height="52" rx="3" fill="#f1f3f5" stroke="#adb5bd" stroke-width="2"/>
+<polygon points="84.0,326.0 144.0,326.0 156.0,318.0 96.0,318.0" fill="#f1f3f5" stroke="#adb5bd" stroke-width="2" stroke-linejoin="round"/>
+<rect x="84" y="326" width="60" height="72" rx="10" fill="#ffffff" stroke="#adb5bd" stroke-width="2.5"/>
+<polygon points="144.0,326.0 156.0,318.0 156.0,390.0 144.0,398.0" fill="#d0ebe3" stroke="#adb5bd" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="147.0,356.0 153.0,352.0 153.0,364.0 147.0,368.0" fill="#343a40" stroke="#343a40" stroke-width="2" stroke-linejoin="round"/>
+<rect x="152" y="352" width="22" height="12" rx="3" fill="#495057"/>
+<text x="114" y="422" font-size="15" text-anchor="middle" fill="#495057">nabíječka</text>
+<path d="M96,318 L76,286 M156,318 L286,286" stroke="#868e96" stroke-width="1.5" stroke-dasharray="5 4" fill="none"/>
+<rect x="76" y="146" width="210" height="140" rx="8" fill="#f8f9fa" stroke="#868e96" stroke-width="2" stroke-dasharray="8 5"/>
+<text x="84" y="166" font-size="14" fill="#495057">uvnitř nabíječky (zvětšeno)</text>
+<polygon points="100.0,194.0 184.0,194.0 194.0,187.0 110.0,187.0" fill="#e9ecef" stroke="#495057" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="184.0,194.0 194.0,187.0 194.0,253.0 184.0,260.0" fill="#868e96" stroke="#495057" stroke-width="2" stroke-linejoin="round"/>
+<path d="M100,194 h84 v66 h-84 Z M116,210 v34 h52 v-34 Z" fill="#ced4da" stroke="#495057" stroke-width="2" fill-rule="evenodd"/>
+<polygon points="116.0,244.0 168.0,244.0 168.0,237.0 126.0,237.0" fill="#e9ecef" stroke="#495057" stroke-width="1.5"/>
+<polygon points="116.0,210.0 126.0,210.0 126.0,237.0 116.0,244.0" fill="#868e96" stroke="#495057" stroke-width="1.5"/>
+<rect x="126" y="210" width="42" height="27" fill="#ffffff"/>
+<path d="M116,210 v34 h52 v-34 Z" fill="none" stroke="#495057" stroke-width="2"/>
+<line x1="116" y1="199.3" x2="168" y2="199.3" stroke="#adb5bd" stroke-width="1"/>
+<line x1="116" y1="254.7" x2="168" y2="254.7" stroke="#adb5bd" stroke-width="1"/>
+<line x1="116" y1="204.7" x2="168" y2="204.7" stroke="#adb5bd" stroke-width="1"/>
+<line x1="116" y1="249.3" x2="168" y2="249.3" stroke="#adb5bd" stroke-width="1"/>
+<polygon points="96.0,202.0 120.0,202.0 124.0,199.0 100.0,199.0" fill="#a8612a" stroke="#7a4a1f" stroke-width="1.5"/>
+<polygon points="120.0,202.0 124.0,199.0 124.0,249.0 120.0,252.0" fill="#7a4a1f" stroke="#7a4a1f" stroke-width="1.5"/>
+<rect x="96.0" y="202" width="24" height="50" fill="#c87a3a" stroke="#7a4a1f" stroke-width="1.5"/>
+<line x1="97.0" y1="210.2" x2="119.0" y2="206.2" stroke="#7a4a1f" stroke-width="1.6"/>
+<line x1="120.0" y1="206.2" x2="124.0" y2="203.2" stroke="#5a3415" stroke-width="1.2"/>
+<line x1="97.0" y1="216.5" x2="119.0" y2="212.5" stroke="#7a4a1f" stroke-width="1.6"/>
+<line x1="120.0" y1="212.5" x2="124.0" y2="209.5" stroke="#5a3415" stroke-width="1.2"/>
+<line x1="97.0" y1="222.8" x2="119.0" y2="218.8" stroke="#7a4a1f" stroke-width="1.6"/>
+<line x1="120.0" y1="218.8" x2="124.0" y2="215.8" stroke="#5a3415" stroke-width="1.2"/>
+<line x1="97.0" y1="229.0" x2="119.0" y2="225.0" stroke="#7a4a1f" stroke-width="1.6"/>
+<line x1="120.0" y1="225.0" x2="124.0" y2="222.0" stroke="#5a3415" stroke-width="1.2"/>
+<line x1="97.0" y1="235.2" x2="119.0" y2="231.2" stroke="#7a4a1f" stroke-width="1.6"/>
+<line x1="120.0" y1="231.2" x2="124.0" y2="228.2" stroke="#5a3415" stroke-width="1.2"/>
+<line x1="97.0" y1="241.5" x2="119.0" y2="237.5" stroke="#7a4a1f" stroke-width="1.6"/>
+<line x1="120.0" y1="237.5" x2="124.0" y2="234.5" stroke="#5a3415" stroke-width="1.2"/>
+<line x1="97.0" y1="247.8" x2="119.0" y2="243.8" stroke="#7a4a1f" stroke-width="1.6"/>
+<line x1="120.0" y1="243.8" x2="124.0" y2="240.8" stroke="#5a3415" stroke-width="1.2"/>
+<polygon points="164.0,216.0 188.0,216.0 192.0,213.0 168.0,213.0" fill="#a8612a" stroke="#7a4a1f" stroke-width="1.5"/>
+<polygon points="188.0,216.0 192.0,213.0 192.0,235.0 188.0,238.0" fill="#7a4a1f" stroke="#7a4a1f" stroke-width="1.5"/>
+<rect x="164.0" y="216" width="24" height="22" fill="#c87a3a" stroke="#7a4a1f" stroke-width="1.5"/>
+<line x1="165.0" y1="229.0" x2="187.0" y2="225.0" stroke="#7a4a1f" stroke-width="1.6"/>
+<line x1="188.0" y1="225.0" x2="192.0" y2="222.0" stroke="#5a3415" stroke-width="1.2"/>
+<path d="M80,214 L96,214 M80,240 L96,240" stroke="#495057" stroke-width="2.5"/>
+<path d="M188,220 L212,220 M188,234 L212,234" stroke="#495057" stroke-width="2.5"/>
+<rect x="212" y="208" width="38" height="38" rx="4" fill="#343a40"/>
+<line x1="208" y1="217" x2="212" y2="217" stroke="#868e96" stroke-width="2"/>
+<line x1="208" y1="227" x2="212" y2="227" stroke="#868e96" stroke-width="2"/>
+<line x1="208" y1="237" x2="212" y2="237" stroke="#868e96" stroke-width="2"/>
+<path d="M250,220 L282,220 M250,234 L282,234" stroke="#495057" stroke-width="2.5"/>
+<text x="142" y="278" font-size="14" text-anchor="middle" fill="#495057">transformátor</text>
+<text x="231" y="266" font-size="14" text-anchor="middle" fill="#495057">součástky</text>
+<rect x="290" y="424" width="128" height="16" rx="4" fill="#868e96"/>
+<rect x="396" y="196" width="12" height="230" rx="3" fill="#868e96"/>
+<rect x="296" y="356" width="112" height="10" rx="2" fill="#868e96"/><rect x="336" y="356" width="20" height="10" fill="#495057"/>
+<path d="M174,358 C232,358 232,416 286,416 C336,416 346,414 346,402" fill="none" stroke="#343a40" stroke-width="6" stroke-linecap="round"/>
+<rect x="300" y="170" width="92" height="186" rx="13" fill="#212529"/>
+<rect x="307" y="186" width="78" height="154" rx="4" fill="#e7f5ff"/>
+<rect x="338" y="348" width="16" height="4" rx="2" fill="#495057"/>
+<g class="p8-konektor"><rect x="339" y="356" width="14" height="18" rx="2" fill="#adb5bd" stroke="#495057" stroke-width="1.5"/><rect x="336" y="372" width="20" height="30" rx="4" fill="#495057"/></g>
+<rect x="64" y="440" width="366" height="26" fill="#e9d8c4"/><line x1="64" y1="440" x2="430" y2="440" stroke="#b08968" stroke-width="2"/>
+<rect x="328" y="216" width="36" height="78" rx="5" fill="#ffffff" stroke="#495057" stroke-width="3"/>
+<rect x="338" y="210" width="16" height="7" rx="2" fill="#495057"/>
+<rect x="333" y="276" width="26" height="13" rx="2" fill="#2f9e44"/>
+<rect class="p8-d1" x="333" y="261" width="26" height="13" rx="2" fill="#2f9e44"/>
+<rect class="p8-d2" x="333" y="246" width="26" height="13" rx="2" fill="#2f9e44"/>
+<rect class="p8-d3" x="333" y="231" width="26" height="13" rx="2" fill="#2f9e44"/>
+<rect class="p8-d4" x="333" y="216" width="26" height="13" rx="2" fill="#2f9e44"/>
+<g class="p8-c"><path d="M350,302 l-8,12 h7 l-4,10 l10,-14 h-7 l4,-8 Z" fill="#f08c00"/></g>
+<rect x="30" y="482" width="400" height="128" rx="8" fill="#ffffff"/>
+<g class="p8-0"><text x="230" y="552" font-size="18" text-anchor="middle" fill="#868e96">Telefon zatím není připojený.</text></g>
+<g class="p8-a"><path d="M52,518 q11.0,-46 22.0,0 t22.0,0" fill="none" stroke="#c92a2a" stroke-width="3" stroke-linecap="round"/><text x="74" y="564" font-size="20" font-weight="bold" text-anchor="middle" fill="#2b2a26">230 V</text><text x="74" y="590" font-size="16" text-anchor="middle" fill="#495057">střídavé</text></g>
+<g class="p8-b"><path d="M110,518 h28" stroke="#495057" stroke-width="3"/><path d="M146,518 l-10,-6 v12 Z" fill="#495057"/><path d="M162,518 q11.0,-4 22.0,0 t22.0,0" fill="none" stroke="#c92a2a" stroke-width="3" stroke-linecap="round"/><text x="184" y="564" font-size="20" font-weight="bold" text-anchor="middle" fill="#2b2a26">20 V</text><text x="184" y="590" font-size="16" text-anchor="middle" fill="#495057">střídavé</text></g>
+<g class="p8-c"><path d="M222,518 h28" stroke="#495057" stroke-width="3"/><path d="M258,518 l-10,-6 v12 Z" fill="#495057"/><path d="M272,516 h44" stroke="#1971c2" stroke-width="3" stroke-linecap="round"/><text x="294" y="564" font-size="20" font-weight="bold" text-anchor="middle" fill="#2b2a26">20 V</text><text x="294" y="590" font-size="16" text-anchor="middle" fill="#495057">stejnosměrné</text></g>
+<g class="p8-c"><path d="M334,518 h28" stroke="#495057" stroke-width="3"/><path d="M370,518 l-10,-6 v12 Z" fill="#495057"/><rect x="384" y="500" width="22" height="38" rx="4" fill="#212529"/><rect x="388" y="518" width="14" height="14" fill="#2f9e44"/><text x="395" y="564" font-size="16" text-anchor="middle" fill="#495057">mobil</text></g>
+<rect x="30" y="482" width="400" height="128" rx="8" fill="none" stroke="#ced4da" stroke-width="2"/>
+<rect x="30" y="136" width="400" height="330" rx="8" fill="none" stroke="#ced4da" stroke-width="2"/>
+<text x="34" y="644" font-size="21" fill="#2b2a26">Telefon se nabíjí stejnosměrným</text>
+<text x="34" y="672" font-size="21" fill="#2b2a26">proudem, proto jsou v nabíječce</text>
+<text x="34" y="700" font-size="21" fill="#2b2a26">ještě další součástky.</text>
+</svg>
