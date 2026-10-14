@@ -2232,6 +2232,7 @@ export const temata: Record<string, Tema[]> = {
 					obsah: "<h2>Nakloněná rovina</h2>\n<p>Nakloněná rovina patří mezi <strong>jednoduché stroje</strong>, stejně jako páka nebo kladka. Je to šikmá plocha — třeba rampa, prkno nebo skluz — po které vytahujeme nebo spouštíme těžké břemeno.</p>\n<p>Místo svislého zvedání táhneme břemeno šikmo nahoru. Stačí nám na to <strong>menší síla</strong>. Musíme ale těleso posunout po <strong>delší dráze</strong>.</p>\n<figure><a href=\"/obrazky/fyzika/7-rocnik/jednoduche-stroje/naklonena-rovina/naklonena-rovina-obr-01.svg\" target=\"_blank\" rel=\"noopener\"><img src=\"/obrazky/fyzika/7-rocnik/jednoduche-stroje/naklonena-rovina/naklonena-rovina-obr-01.svg\" alt=\"Stejnou bednu o tíze 600 N dostáváme do výšky 1 m: vlevo ji ruka zvedá svisle silou 600 N po dráze 1 m, vpravo ji táhne po nakloněné rovině dlouhé 3 m silou 200 N po dráze 3 m a bedna jede déle.\" loading=\"lazy\" /></a><figcaption>Po nakloněné rovině stačí třikrát menší síla, dráha je ale třikrát delší.</figcaption></figure>\n\n<h3>Jak nakloněná rovina šetří sílu</h3>\n<p>Bez tření platí pro potřebnou sílu <strong>F</strong> tento vztah:</p>\n<p><strong>F = G &middot; h : l</strong></p>\n<p><strong>G</strong> je tíha břemene, <strong>h</strong> je výška, do které břemeno zvedáme, a <strong>l</strong> je délka nakloněné roviny. Čím je rovina delší, tím je mírnější a tím menší síla stačí.</p>\n<p>Ze vzorce F = G &middot; h : l vyjádříme i l = G &middot; h : F, h = F &middot; l : G a G = F &middot; l : h. Do vzorce dosazujeme síly v newtonech a délky v metrech (1 kN = 1 000 N, 1 m = 100 cm).</p>\n<p>Ve skutečnosti sílu trochu zvětšuje i <strong>tření</strong> mezi břemenem a rovinou. Pro jednoduchost počítáme v ideálním případě bez tření.</p>\n\n<h3>Cena za menší sílu: delší dráha</h3>\n<p>Nakloněná rovina nám práci neušetří, jen ji rozloží pohodlněji. Platí <strong>zlaté pravidlo mechaniky</strong>: kolikrát si usnadníme sílu, tolikrát delší dráhu musíme urazit.</p>\n<p>Vytažení břemene po šikmé rampě trvá déle a je to dál. Zvládne to ale i slabší síla.</p>\n\n<h3>Nakloněná rovina kolem nás</h3>\n<p>S nakloněnou rovinou se setkáváme na každém kroku. Patří sem <strong>nájezdová rampa</strong> pro vozíčkáře nebo na nakládání beden do auta a <strong>silniční serpentiny</strong> v horách — klikaté zatáčky prodlužují dráhu, aby auto nemuselo do prudkého kopce.</p>\n<p>Dalším příkladem je dětská <strong>skluzavka</strong>. Zajímavý je i <strong>šroub</strong> — jeho závit je vlastně nakloněná rovina navinutá kolem válce.</p>\n<p>Proto se šroub zašroubuje malou silou na šroubováku, i když jím musíme mnohokrát otočit. Zatlouct hřebík rovnou by vyžadovalo mnohem větší sílu.</p>\n\n<h3>Pro zvídavé: počítáme</h3>\n<p>Břemeno o tíze G = 600 N táhneme po nakloněné rovině dlouhé l = 3 m na výšku h = 1 m. Jak velká síla F je potřeba, bez tření?</p>\n<p>F = G &middot; h : l = 600 &middot; 1 : 3 = 200 N</p>\n<p>Stačí nám síla 200 N — třikrát menší, než kdybychom břemeno zvedali svisle (600 N). Dráha je totiž třikrát delší než výška.</p>\n<p>Břemeno o tíze G = 800 N chceme vytáhnout do výšky h = 2 m silou F = 200 N. Jak dlouhá musí být nakloněná rovina?</p>\n<p>F = G &middot; h : l &nbsp;&rArr;&nbsp; l = G &middot; h : F</p>\n<p>l = 800 &middot; 2 : 200 = 8 m</p>\n<p>Nakloněná rovina musí být dlouhá 8 metrů — čtyřikrát delší než výška. Sílu jsme totiž zmenšili čtyřikrát, z 800 N na 200 N.</p>",
 					zapis: {"zakon":"Zlaté pravidlo mechaniky: kolikrát si usnadníme sílu, tolikrát delší dráhu musíme urazit.","vzorec":"F = G · h : l","jednotky":["F, G (N), h, l (m)"],"vzorecSlovy":"síla = tíha krát výška děleno délka","body":["do stejné výšky: delší a mírnější rovina dává menší sílu, ale delší dráhu","tření sílu zvětšuje, počítáme bez tření"]},
 					materialy: [
+						{ druh: 'infografika', nazev: 'Infografika: Nakloněná rovina v kostce', cesta: '/materialy/fyzika/7-rocnik/jednoduche-stroje/naklonena-rovina/infografika-naklonena-rovina.svg', panely: ['/materialy/fyzika/7-rocnik/jednoduche-stroje/naklonena-rovina/infografika-naklonena-rovina-panel-1.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/naklonena-rovina/infografika-naklonena-rovina-panel-2.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/naklonena-rovina/infografika-naklonena-rovina-panel-3.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/naklonena-rovina/infografika-naklonena-rovina-panel-4.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/naklonena-rovina/infografika-naklonena-rovina-panel-5.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/naklonena-rovina/infografika-naklonena-rovina-panel-6.svg'] },
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Nakloněná rovina (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/7-rocnik/jednoduche-stroje/naklonena-rovina/notebooklm-naklonena-rovina.mp4' },
 					],
 				},
@@ -2332,6 +2333,9 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '/materialy/fyzika/7-rocnik/tlak-v-kapalinach/hydrostaticky-tlak/hydrostaticky-tlak-od-rovnic-k-prehradam.pdf',
 						},
 					],
+					odkazy: [
+						{ nazev: 'Umíme fakta — Hydrostatický tlak: intuitivně (7. třída), cvičení', url: 'https://www.umimefakta.cz/fyzika/cviceni-hydrostaticky-tlak-intuitivne-7-trida' },
+					],
 				},
 			],
 		},
@@ -2356,6 +2360,9 @@ export const temata: Record<string, Tema[]> = {
 							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
 						},
 					],
+					odkazy: [
+						{ nazev: 'TechMania — Vztlaková síla', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/tekutiny/vztlakova-sila' },
+					],
 				},
 				{
 					slug: 'telesa-stejnoroda-a-nestejnoroda',
@@ -2366,6 +2373,9 @@ export const temata: Record<string, Tema[]> = {
 					zapis: {"vzorec":"ρp = m : V","jednotky":["ρp (kg/m³), m (kg), V (m³)"],"vzorecSlovy":"průměrná hustota = hmotnost celého tělesa děleno objem celého tělesa","body":["stejnorodé těleso je z jedné látky, nestejnorodé z více látek","u nestejnorodého tělesa počítáme průměrnou hustotu","loď plove díky vzduchu v dutině, ponorka mění hustotu vodou a vzduchem v nádržích"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Ocelový paradox — tajemství vztlaku', cesta: 'XvJnyVH_WMk' },
+					],
+					odkazy: [
+						{ nazev: 'Eductify — Vztlaková síla kolem nás (7. ročník)', url: 'https://www.eductify.com/cs/fyzika/c70/7-rocnik-zs/p-vvs/vztlakova-sila-kolem-nas' },
 					],
 				},
 			],
@@ -2801,6 +2811,7 @@ export const temata: Record<string, Tema[]> = {
 					zvidave: "<p><strong>Jak pára pohání píst.</strong> Voda se v kotli zahřeje až k varu a vznikne pára. Horká pára má velký tlak a tlačí na píst nebo na lopatky. Tím se teplo mění na pohyb — to je základ každého parního stroje.</p>\n<p><strong>Parní stroj je pístový, turbína je rotační.</strong> V parním stroji se píst pohybuje tam a zpět a klika teprve mění jeho pohyb na otáčení kola. Lopatky turbíny se otáčejí rovnou, proto je turbína vhodná pro velké a plynulé výkony, například v elektrárnách.</p>\n<p><strong>Energie se nevyrábí.</strong> Motor jen přeměňuje energii. Část vnitřní energie páry se změní na pohyb, ale zbytek odejde jako odpadní teplo do okolí. Proto nemůže být účinnost žádného tepelného motoru 100 %.</p>\n<p><strong>Větší jednotka.</strong> 1 MW (megawatt) = 1 000 000 W.</p>\n<p><strong>Počítáme.</strong> Účinnost říká, kolik procent dodané energie se promění na pohyb. Zbytek se ztratí jako teplo, které unikne do okolí.</p>\n<p><strong>Příklad:</strong> Parní stroj dostane 1 000 J tepla a má účinnost 15 %. Na pohyb promění 1 000 · 0,15 = 150 J. Zbylých 850 J unikne jako teplo.</p>\n<p><strong>Příklad:</strong> Parní turbína dostane také 1 000 J tepla, ale má účinnost 35 %. Na pohyb promění 1 000 · 0,35 = 350 J — víc než dvojnásobek parního stroje.</p>",
 					zapis: {"jednotky":["Q (J), P (W), účinnost (%)"],"body":["tepelný motor mění část vnitřní energie páry na pohyb","zbytek energie odejde jako teplo","parní stroj: pára tlačí na píst","parní turbínu roztáčí pára a turbína pohání generátory v elektrárnách"]},
 					materialy: [
+						{ druh: 'infografika', nazev: 'Infografika: Tepelný motor a parní stroj v kostce', cesta: '/materialy/fyzika/8-rocnik/tepelne-motory/tepelny-motor-parni-stroj/infografika-tepelny-motor-parni-stroj.svg', panely: ['/materialy/fyzika/8-rocnik/tepelne-motory/tepelny-motor-parni-stroj/infografika-tepelny-motor-parni-stroj-panel-1.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/tepelny-motor-parni-stroj/infografika-tepelny-motor-parni-stroj-panel-2.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/tepelny-motor-parni-stroj/infografika-tepelny-motor-parni-stroj-panel-3.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/tepelny-motor-parni-stroj/infografika-tepelny-motor-parni-stroj-panel-4.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/tepelny-motor-parni-stroj/infografika-tepelny-motor-parni-stroj-panel-5.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/tepelny-motor-parni-stroj/infografika-tepelny-motor-parni-stroj-panel-6.svg'] },
 						{ druh: 'youtube', nazev: 'Video: Parní stroj — Síla moderního světa', cesta: '1mdQ5Th3Vro' },
 						{ druh: 'video', nazev: 'Píseň: Teplo na pohyb 🎵', cesta: '/materialy/fyzika/8-rocnik/tepelne-motory/tepelny-motor-parni-stroj/pisen-teplo-na-pohyb.m4a' },
 					],
@@ -3612,6 +3623,9 @@ export const temata: Record<string, Tema[]> = {
 					zapis: {"body":["radioaktivita je samovolná přeměna nestabilních jader","záření alfa stíní papír, beta hliník, gama olovo nebo beton","poločas přeměny je doba, za kterou ubyde asi polovina jader","ochrana: kratší čas, větší vzdálenost, stínění","radon se měří a odvětrává"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Radioaktivita — neviditelná síla', cesta: '8QArttMYsHA' },
+					],
+					odkazy: [
+						{ nazev: 'Fyzika na Vltavě — Záření a rozpady alfa, beta, gama', url: 'https://www.zsvltava.cz/fyzika/?p=5849' },
 					],
 				},
 				{
