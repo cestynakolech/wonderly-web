@@ -1,0 +1,105 @@
+<svg viewBox="0 0 460 686" width="460" height="686" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Světlo a jeho zdroje v pohybu 1/3, Měsíc nesvítí sám: záblesk světla letí po paprsku ze Slunce k Měsíci. Měsíc světlo odrazí a další paprsek letí od Měsíce k člověku, který stojí na noční straně Země. Člověk na Zemi tak vidí Měsíc. Slunce je zdroj světla, světlo samo vyrábí. Měsíc nesvítí sám, jen odráží světlo ze Slunce. Velikosti a vzdálenosti nejsou ve skutečném poměru." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Světlo a jeho zdroje v pohybu 1/3: Měsíc nesvítí sám</title>
+	<!-- W92 (15. 10. 2026). Předloha: PDF 19 Světlo, zdroje světla, šíření světla, s. 3 (zdroj světla = těleso, které vysílá světlo)
+	     a s. 7 („Některá tělesa světlo nevysílají, ale pouze odráží. Jsou druhotnými zdroji světla. Např. Měsíc odráží sluneční světlo“);
+	     s. 11–12 (paprsek = přímka se šipkou, znázorňuje směr šíření světla ze zdroje). Výklad: úvod „Slunce svítí samo, Měsíc ale ne.
+	     Měsíc jen odráží světlo ze Slunce“, § úvod „Díky odrazu vidíme třeba Měsíc“. Odlišení od obr-01..04 (žádný neukazuje Měsíc).
+	     Geometrie: Slunce S = (82; 262) r 46, Země Z = (232; 316) r 38, Měsíc M = (386; 250) r 24 (Slunce–Země–Měsíc v řadě,
+	     člověk stojí NA POVRCHU noční strany Země). Paprsek 1 A = (128; 256) → B = (362; 250): délka 234,08, úhel −1,469°, u Země
+	     ve výšce y ≈ 253 (Země začíná y = 278, hlava člověka y ≥ 277 → míjí). OPRAVA 1: člověk stojí na povrchu v bodě
+	     F = (263,13; 294,20) (úhel 35° nad vodorovnou, noční polovina), postava kolmo k povrchu (rotate 55°), hlava H = F + 20·n =
+	     (279,51; 282,73). Měsíc je nad jeho obzorem (cos úhlu k normále 0,965). Paprsek 2 z osvětlené strany Měsíce P = (366,34; 263,77)
+	     k hlavě H: |PH| = 88,88, úhel 167,678°, kreslen 78 px (hrot 10,9 px před středem hlavy); od středu Země nejméně 68,2 px > 38.
+	     Země a Měsíc půlené jako W93: den #74c0fc / noc #1e3a8a, Měsíc osvětlený #f1f3f5 / odvrácený #495057.
+	     Časování 6 s: 0–1,2 s záblesk letí Slunce → Měsíc, 1,2–2 s Měsíc → oko, 2–6 s stojí hotový obraz. Pohyb začíná v 0 s.
+	     Barvy: paprsek #c2410c + šipka, záblesk žlutý kroužek (jako W87), noční/odvrácená polovina tmavá (jako W93).
+	     Bez pohybu: oba paprsky se šipkami, popisek 3. kroku, bez záblesku. -->
+	<style>
+		.r1 { animation: r1 6s linear infinite; }
+		@keyframes r1 { 0% { transform: scaleX(0); } 20% { transform: scaleX(1); } 100% { transform: scaleX(1); } }
+		.r2 { animation: r2 6s linear infinite; }
+		@keyframes r2 { 0% { transform: scaleX(0); } 20% { transform: scaleX(0); } 33.333% { transform: scaleX(1); } 100% { transform: scaleX(1); } }
+		.z1 { opacity: 0; animation: z1 6s linear infinite; }
+		@keyframes z1 { 0% { opacity: 1; transform: translateX(0px); } 20% { opacity: 1; transform: translateX(234px); } 20.01% { opacity: 0; transform: translateX(234px); } 100% { opacity: 0; transform: translateX(234px); } }
+		.z2 { opacity: 0; animation: z2 6s linear infinite; }
+		@keyframes z2 { 0% { opacity: 0; transform: translateX(0px); } 19.99% { opacity: 0; transform: translateX(0px); } 20% { opacity: 1; transform: translateX(0px); } 33.333% { opacity: 1; transform: translateX(78px); } 33.343% { opacity: 0; transform: translateX(78px); } 100% { opacity: 0; transform: translateX(78px); } }
+		.s1 { animation: s1 6s step-end infinite; } @keyframes s1 { 0% { opacity: 0; } 20% { opacity: 1; } 100% { opacity: 1; } }
+		.s2 { animation: s2 6s step-end infinite; } @keyframes s2 { 0% { opacity: 0; } 33.333% { opacity: 1; } 100% { opacity: 1; } }
+		.k1 { animation: k1 6s step-end infinite; } @keyframes k1 { 0% { opacity: 1; } 20% { opacity: 0; } 100% { opacity: 0; } }
+		.k2 { animation: k2 6s step-end infinite; } @keyframes k2 { 0% { opacity: 0; } 20% { opacity: 1; } 33.333% { opacity: 0; } 100% { opacity: 0; } }
+		.k3 { animation: k3 6s step-end infinite; } @keyframes k3 { 0% { opacity: 0; } 33.333% { opacity: 1; } 100% { opacity: 1; } }
+		@media (prefers-reduced-motion: reduce) {
+			.r1, .r2, .z1, .z2, .s1, .s2, .k1, .k2, .k3 { animation: none; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="686" fill="#f8f9fa" />
+	<g id="panel-1">
+		<rect x="26" y="22" width="420" height="654" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="654" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Měsíc nesvítí sám</text>
+		<text x="40" y="96" font-size="20" fill="#2b2a26">Světlo letí ze Slunce na Měsíc</text>
+		<text x="40" y="120" font-size="20" fill="#2b2a26">a od Měsíce k nám na Zemi.</text>
+
+		<!-- Slunce: zdroj světla -->
+		<g stroke="#2b2a26" stroke-width="3" stroke-linecap="round">
+			<path d="M82 206V196M82 318V328M29 262H36M128 262H138M42.4 222.4L35.3 215.3M121.6 301.6L128.7 308.7M42.4 301.6L35.3 308.7M121.6 222.4L128.7 215.3" />
+		</g>
+		<circle cx="82" cy="262" r="46" fill="#ffd43b" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="82" cy="262" r="30" fill="#fff3bf" />
+		<text x="82" y="362" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">Slunce</text>
+
+		<!-- Země: den vlevo (ke Slunci), noc vpravo (barvy jako W93) -->
+		<path d="M232 278A38 38 0 0 0 232 354Z" fill="#74c0fc" />
+		<path d="M232 278A38 38 0 0 1 232 354Z" fill="#1e3a8a" />
+		<circle cx="232" cy="316" r="38" fill="none" stroke="#2b2a26" stroke-width="2.5" />
+		<text x="232" y="384" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">Země</text>
+
+		<!-- Měsíc: světlo jen odráží; osvětlená polovina ke Slunci (barvy jako W93) -->
+		<path d="M386 226A24 24 0 0 0 386 274Z" fill="#f1f3f5" />
+		<path d="M386 226A24 24 0 0 1 386 274Z" fill="#495057" />
+		<circle cx="386" cy="250" r="24" fill="none" stroke="#2b2a26" stroke-width="2.5" />
+		<text x="386" y="212" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">Měsíc</text>
+
+		<!-- paprsek 1: Slunce → Měsíc -->
+		<g transform="translate(128,256) rotate(-1.469)">
+			<g class="r1"><path d="M0 0H234" stroke="#c2410c" stroke-width="4" /></g>
+			<path class="s1" d="M234 0l-16 -8v16z" fill="#c2410c" />
+			<circle class="z1" cx="0" cy="0" r="9" fill="#ffd43b" stroke="#2b2a26" stroke-width="2.5" />
+		</g>
+		<!-- paprsek 2: Měsíc → člověk na Zemi -->
+		<g transform="translate(366.34,263.77) rotate(167.678)">
+			<g class="r2"><path d="M0 0H78" stroke="#c2410c" stroke-width="4" /></g>
+			<path class="s2" d="M78 0l-16 -8v16z" fill="#c2410c" />
+			<circle class="z2" cx="0" cy="0" r="9" fill="#ffd43b" stroke="#2b2a26" stroke-width="2.5" />
+		</g>
+
+		<!-- člověk stojí na povrchu noční strany Země, dívá se k Měsíci -->
+		<g transform="translate(263.13,294.2) rotate(55)" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round" fill="none">
+			<path d="M-4 0L0 -9L4 0M0 -9V-15M-5 -12L0 -14L5 -12" />
+			<circle cx="0" cy="-20" r="5" fill="#ffe8cc" stroke-width="2" />
+		</g>
+		<circle cx="282.4" cy="281.8" r="1.6" fill="#2b2a26" />
+		<text x="282" y="322" font-size="20" fill="#2b2a26">člověk</text>
+
+		<!-- kroky děje -->
+		<g font-size="22" font-weight="bold" fill="#2b2a26">
+			<text class="k1" x="40" y="428" opacity="0">1. Slunce vysílá světlo.</text>
+			<text class="k2" x="40" y="428" opacity="0">2. Měsíc světlo odrazí k nám.</text>
+			<text class="k3" x="40" y="428">3. Člověk na Zemi vidí Měsíc.</text>
+		</g>
+
+		<text x="40" y="478" font-size="22" font-weight="bold" fill="#2b2a26">Slunce je zdroj světla:</text>
+		<text x="40" y="504" font-size="20" fill="#2b2a26">světlo samo vyrábí.</text>
+		<text x="40" y="540" font-size="22" font-weight="bold" fill="#2b2a26">Měsíc nesvítí sám:</text>
+		<text x="40" y="566" font-size="20" fill="#2b2a26">jen odráží světlo ze Slunce.</text>
+
+		<!-- legenda -->
+		<path d="M40 598H72" stroke="#c2410c" stroke-width="4" />
+		<path d="M82 598l-16 -8v16z" fill="#c2410c" />
+		<text x="94" y="605" font-size="20" fill="#2b2a26">paprsek = cesta světla</text>
+		<text x="40" y="634" font-size="20" fill="#495057">Velikosti a vzdálenosti nejsou</text>
+		<text x="40" y="658" font-size="20" fill="#495057">ve skutečném poměru.</text>
+	</g>
+</svg>

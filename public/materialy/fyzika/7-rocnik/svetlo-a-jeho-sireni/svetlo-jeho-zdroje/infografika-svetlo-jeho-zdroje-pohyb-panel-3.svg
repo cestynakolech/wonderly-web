@@ -1,0 +1,98 @@
+<svg viewBox="0 0 460 728" width="460" height="728" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Světlo a jeho zdroje v pohybu 3/3, Projde světlo? Tři lasery svítí zároveň, záblesk světla letí po přímce. Na čiré sklo: světlo projde a směr se nezmění, čiré sklo je průhledné. Na mléčné sklo: světlo projde jen zčásti a rozptýlí se do více směrů, mléčné sklo je průsvitné. Na dřevo: světlo neprojde, dřevo je neprůhledné. Ve stejnorodém prostředí letí světlo po přímce." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Světlo a jeho zdroje v pohybu 3/3: Projde světlo?</title>
+	<!-- W92 (15. 10. 2026); OPRAVA 1: závěr „Ve stejnorodém prostředí letí světlo po přímce“ (výklad § Šíření světla, PDF s. 10), aria-label = viditelný text. Předloha: PDF 19, s. 7–9 (optické prostředí; rozptyl „mění směr šíření do více směrů“; průhledné „neovlivňuje
+	     směr šíření“, např. sklo; průsvitné „zčásti prochází, ale zčásti se v něm rozptyluje“, např. mléčné sklo; neprůhledné „světlo vůbec
+	     neprochází“, např. dřevo), s. 10 (v homogenním prostředí se světlo šíří přímočaře), s. 11 (laser, paprsek = přímka se šipkou).
+	     Výklad § Optické prostředí (průhledné – čiré sklo, průsvitné – mléčné sklo, neprůhledné – dřevo) a § Šíření světla (přímočaře).
+	     Odlišení od obr-02 (laserová show) — tady laser svítí na tři prostředí. Rychlost světla se zde neukazuje (obr-04 a simulace).
+	     Geometrie: řádky y = 215, 365, 515 (řádek 2 obalem posunut o +16, řádek 3 o +32 → na obrázku 215, 381, 547); laser ústí x = 88, překážka x = 208–232. Paprsek do překážky 120 px, za čirým sklem
+	     208 → 404 (196 px), za mléčným sklem 5 rozptýlených paprsků z (232; 365) pod úhly −30, −15, 0, 15, 30° délky 76 px.
+	     Časování 6 s, záblesk stejnou rychlostí 160 px/s: k překážce 0–0,75 s (12,5 %), za čirým sklem 0,75–1,975 s (32,917 %),
+	     rozptyl 0,75–1,225 s (20,417 %); 2–6 s stojí hotový obraz. Pohyb začíná v 0 s.
+	     Barvy: paprsek #c2410c + šipka, záblesk žlutý kroužek, laser jako W87. Bez pohybu: všechny paprsky se šipkami, bez záblesku. -->
+	<style>
+		.p1 { animation: p1 6s linear infinite; }
+		@keyframes p1 { 0% { transform: scaleX(0); } 12.5% { transform: scaleX(1); } 100% { transform: scaleX(1); } }
+		.p2 { animation: p2 6s linear infinite; }
+		@keyframes p2 { 0% { transform: scaleX(0); } 12.5% { transform: scaleX(0); } 32.917% { transform: scaleX(1); } 100% { transform: scaleX(1); } }
+		.ro { animation: ro 6s linear infinite; }
+		@keyframes ro { 0% { transform: scaleX(0); } 12.5% { transform: scaleX(0); } 20.417% { transform: scaleX(1); } 100% { transform: scaleX(1); } }
+		.za { opacity: 0; animation: za 6s linear infinite; }
+		@keyframes za { 0% { opacity: 1; transform: translateX(0px); } 32.917% { opacity: 1; transform: translateX(316px); } 32.927% { opacity: 0; transform: translateX(316px); } 100% { opacity: 0; transform: translateX(316px); } }
+		.zb { opacity: 0; animation: zb 6s linear infinite; }
+		@keyframes zb { 0% { opacity: 1; transform: translateX(0px); } 12.5% { opacity: 1; transform: translateX(120px); } 12.51% { opacity: 0; transform: translateX(120px); } 100% { opacity: 0; transform: translateX(120px); } }
+		.sa { animation: sa 6s step-end infinite; } @keyframes sa { 0% { opacity: 0; } 32.917% { opacity: 1; } 100% { opacity: 1; } }
+		.sb { animation: sb 6s step-end infinite; } @keyframes sb { 0% { opacity: 0; } 20.417% { opacity: 1; } 100% { opacity: 1; } }
+		@media (prefers-reduced-motion: reduce) {
+			.p1, .p2, .ro, .za, .zb, .sa, .sb { animation: none; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="728" fill="#f8f9fa" />
+	<g id="panel-3">
+		<rect x="26" y="22" width="420" height="696" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="696" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">3</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Projde světlo?</text>
+		<text x="40" y="96" font-size="20" fill="#2b2a26">Tři lasery svítí na čiré sklo,</text>
+		<text x="40" y="120" font-size="20" fill="#2b2a26">na mléčné sklo a na dřevo.</text>
+
+		<!-- 1) čiré sklo: průhledné -->
+		<text x="40" y="163" font-size="22" font-weight="bold" fill="#2b2a26">čiré sklo: průhledné</text>
+		<rect x="208" y="177" width="24" height="76" fill="#e7f5ff" stroke="#1864ab" stroke-width="2.5" />
+		<path d="M214 184V206" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
+		<g transform="translate(88,215)">
+			<rect x="-48" y="-9" width="44" height="18" rx="3" fill="#343a40" />
+			<rect x="-6" y="-6" width="6" height="12" fill="#495057" />
+			<g class="p1"><path d="M0 0H120" stroke="#c2410c" stroke-width="4" /></g>
+			<g transform="translate(120,0)">
+				<g class="p2"><path d="M0 0H196" stroke="#c2410c" stroke-width="4" /></g>
+				<path class="sa" d="M196 0l-16 -8v16z" fill="#c2410c" />
+			</g>
+			<circle class="za" cx="0" cy="0" r="9" fill="#ffd43b" stroke="#2b2a26" stroke-width="2.5" />
+		</g>
+		<text x="64" y="249" text-anchor="middle" font-size="20" fill="#2b2a26">laser</text>
+		<text x="40" y="285" font-size="20" fill="#2b2a26">Světlo projde, směr se nezmění.</text>
+
+		<!-- 2) mléčné sklo: průsvitné (celý řádek posunut o 16 px dolů) -->
+		<g transform="translate(0,16)">
+		<text x="40" y="313" font-size="22" font-weight="bold" fill="#2b2a26">mléčné sklo: průsvitné</text>
+		<g transform="translate(88,365)">
+			<rect x="-48" y="-9" width="44" height="18" rx="3" fill="#343a40" />
+			<rect x="-6" y="-6" width="6" height="12" fill="#495057" />
+			<g class="p1"><path d="M0 0H120" stroke="#c2410c" stroke-width="4" /></g>
+			<circle class="zb" cx="0" cy="0" r="9" fill="#ffd43b" stroke="#2b2a26" stroke-width="2.5" />
+		</g>
+		<g transform="translate(232,365)">
+			<g transform="rotate(-30)"><g class="ro"><path d="M0 0H76" stroke="#c2410c" stroke-width="3" /></g><path class="sb" d="M76 0l-13 -6.5v13z" fill="#c2410c" /></g>
+			<g transform="rotate(-15)"><g class="ro"><path d="M0 0H76" stroke="#c2410c" stroke-width="3" /></g><path class="sb" d="M76 0l-13 -6.5v13z" fill="#c2410c" /></g>
+			<g><g class="ro"><path d="M0 0H76" stroke="#c2410c" stroke-width="3" /></g><path class="sb" d="M76 0l-13 -6.5v13z" fill="#c2410c" /></g>
+			<g transform="rotate(15)"><g class="ro"><path d="M0 0H76" stroke="#c2410c" stroke-width="3" /></g><path class="sb" d="M76 0l-13 -6.5v13z" fill="#c2410c" /></g>
+			<g transform="rotate(30)"><g class="ro"><path d="M0 0H76" stroke="#c2410c" stroke-width="3" /></g><path class="sb" d="M76 0l-13 -6.5v13z" fill="#c2410c" /></g>
+		</g>
+		<rect x="208" y="327" width="24" height="76" fill="#f1f3f5" stroke="#495057" stroke-width="2.5" />
+		<g fill="#ced4da">
+			<circle cx="214" cy="336" r="2.5" /><circle cx="225" cy="345" r="2.5" /><circle cx="216" cy="356" r="2.5" /><circle cx="226" cy="368" r="2.5" />
+			<circle cx="214" cy="378" r="2.5" /><circle cx="224" cy="387" r="2.5" /><circle cx="216" cy="396" r="2.5" />
+		</g>
+		<text x="40" y="435" font-size="20" fill="#2b2a26">Zčásti projde a rozptýlí se.</text>
+		</g>
+
+		<!-- 3) dřevo: neprůhledné (celý řádek posunut o 32 px dolů) -->
+		<g transform="translate(0,32)">
+		<text x="40" y="463" font-size="22" font-weight="bold" fill="#2b2a26">dřevo: neprůhledné</text>
+		<g transform="translate(88,515)">
+			<rect x="-48" y="-9" width="44" height="18" rx="3" fill="#343a40" />
+			<rect x="-6" y="-6" width="6" height="12" fill="#495057" />
+			<g class="p1"><path d="M0 0H120" stroke="#c2410c" stroke-width="4" /></g>
+			<circle class="zb" cx="0" cy="0" r="9" fill="#ffd43b" stroke="#2b2a26" stroke-width="2.5" />
+		</g>
+		<rect x="208" y="477" width="24" height="76" fill="#c08552" stroke="#5c3a1e" stroke-width="2.5" />
+		<path d="M214 482Q218 500 213 518Q209 534 215 548M224 482Q228 504 222 524Q219 538 226 548" fill="none" stroke="#5c3a1e" stroke-width="1.5" />
+		<text x="40" y="585" font-size="20" fill="#2b2a26">Světlo neprojde.</text>
+		</g>
+
+		<text x="40" y="664" font-size="22" font-weight="bold" fill="#2b2a26">Ve stejnorodém prostředí</text>
+		<text x="40" y="690" font-size="22" font-weight="bold" fill="#2b2a26">letí světlo po přímce.</text>
+	</g>
+</svg>

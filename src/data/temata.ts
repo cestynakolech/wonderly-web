@@ -2493,6 +2493,7 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'youtube', nazev: 'Video: Světlo — od plamene ke hvězdám', cesta: 'v4EdVxeZ9J0' },
 						{ druh: 'youtube', nazev: 'Video: Odhalený svět světla', cesta: 'JkgrUOUgZ7Q' },
 						{ druh: 'video', nazev: 'Píseň: Světelný proud 🎵', cesta: '/materialy/fyzika/7-rocnik/svetlo-a-jeho-sireni/svetlo-jeho-zdroje/pisen-svetelny-proud.mp4' },
+						{ druh: 'infografika', nazev: 'Zdroje světla v pohybu', cesta: '/materialy/fyzika/7-rocnik/svetlo-a-jeho-sireni/svetlo-jeho-zdroje/infografika-svetlo-jeho-zdroje-pohyb-panel-1.svg', panely: ['/materialy/fyzika/7-rocnik/svetlo-a-jeho-sireni/svetlo-jeho-zdroje/infografika-svetlo-jeho-zdroje-pohyb-panel-1.svg', '/materialy/fyzika/7-rocnik/svetlo-a-jeho-sireni/svetlo-jeho-zdroje/infografika-svetlo-jeho-zdroje-pohyb-panel-2.svg', '/materialy/fyzika/7-rocnik/svetlo-a-jeho-sireni/svetlo-jeho-zdroje/infografika-svetlo-jeho-zdroje-pohyb-panel-3.svg'] },
 					],
 				},
 				{
