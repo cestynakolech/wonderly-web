@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="660" viewBox="0 0 460 660" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Kolem nás: kde najdeme přetlak, podtlak a vakuum. Přetlak, tlak uvnitř větší než venku: nafouknutý míč, pneumatika, sprej, ve kterém plyn uvnitř tlačí obsah ven, lahev potápěče. Podtlak, tlak uvnitř menší než venku: pití brčkem, přísavka, kterou ke zdi přitlačí okolní vzduch, vysavač, který nasává vzduch i s prachem, gumový zvon na odpad. Vakuum, skoro žádný vzduch: klasická žárovka s vláknem, vakuově balené potraviny, vakuový vak na oblečení, vesmír. Plíce: při výdechu je v nich přetlak a vzduch jde ven, při nádechu podtlak a vzduch jde dovnitř. Dokonalé vakuum neexistuje.">
+	<title>Přetlak, podtlak, vakuum 1/1: Kolem nás</title>
+	<!-- Panel W59 (14. 10. 2026, OPRAVA 1). Opora: výklad stránky (odstavce Přetlak/Podtlak/Vakuum: „do místa s podtlakem se nasává okolní vzduch“, „v plicích, když po nádechu vydechujeme“) + PDF Tlak plynu v uzavřené nádobě s. 1, 5, 7. Děj: sprej (obsah jde ven), vysavač (vzduch s prachem jde dovnitř), přísavka (okolní vzduch ji tlačí ke zdi), plíce (nádech/výdech, cyklus 6 s). Brčko a vakuové balení se neanimují — to dělá obr-04 stránky. Bez animace = všechny šipky a obláčky vidět. -->
+	<style>
+		.sp1, .sp2, .sp3 { animation: ven 1.8s linear infinite; transform-box: view-box; transform-origin: 105px 386px; }
+		.sp2 { animation-delay: -0.6s } .sp3 { animation-delay: -1.2s }
+		@keyframes ven { 0% { transform: scale(0.15); opacity: 1 } 80% { opacity: 1 } 100% { transform: scale(1.25); opacity: 0 } }
+		.vs1, .vs2, .vs3 { animation: dovnitr 1.8s linear infinite; transform-box: view-box; transform-origin: 263px 431px; }
+		.vs2 { animation-delay: -0.6s } .vs3 { animation-delay: -1.2s }
+		@keyframes dovnitr { 0% { transform: scale(1.25); opacity: 0 } 20% { opacity: 1 } 100% { transform: scale(0.1); opacity: 1 } }
+		.tlaci { animation: tlaci 1.5s ease-in-out infinite; }
+		@keyframes tlaci { 0%, 100% { transform: translate(0px, 0px) } 50% { transform: translate(-6px, 0px) } }
+		.plice { animation: plice 6s ease-in-out infinite; transform-box: view-box; transform-origin: 80px 600px; }
+		@keyframes plice { 0%, 100% { transform: scale(1) } 45%, 50% { transform: scale(1.15) } }
+		.pin { animation: pin 6s linear infinite; }
+		@keyframes pin { 0% { opacity: 1; transform: translate(0px, -5px) } 45% { opacity: 1; transform: translate(0px, 5px) } 50%, 95% { opacity: 0; transform: translate(0px, 5px) } 100% { opacity: 1; transform: translate(0px, -5px) } }
+		.pout { animation: pout 6s linear infinite; }
+		@keyframes pout { 0%, 45% { opacity: 0; transform: translate(0px, 5px) } 50% { opacity: 1; transform: translate(0px, 5px) } 95% { opacity: 1; transform: translate(0px, -5px) } 100% { opacity: 0; transform: translate(0px, -5px) } }
+		.hin { animation: hin 6s linear infinite; }
+		@keyframes hin { 0%, 45% { opacity: 1 } 50%, 95% { opacity: 0 } 100% { opacity: 1 } }
+		.hout { animation: hout 6s linear infinite; }
+		@keyframes hout { 0%, 45% { opacity: 0 } 50%, 95% { opacity: 1 } 100% { opacity: 0 } }
+		@media (prefers-reduced-motion: reduce) {
+			.sp1, .sp2, .sp3, .vs1, .vs2, .vs3, .tlaci, .plice, .pin, .pout, .hin, .hout { animation: none; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="660" fill="#f8f9fa"/>
+	<rect x="26" y="16" width="420" height="640" rx="12" fill="#dee2e6"/><rect x="20" y="10" width="420" height="640" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/>
+	<text x="40" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Kolem nás</text>
+	<text x="40" y="86" font-size="18" fill="#2b2a26">Kde najdeme přetlak, podtlak a vakuum?</text>
+
+	<!-- sloupce -->
+	<rect x="30" y="102" width="122" height="460" rx="10" fill="#fff4e6"/>
+	<rect x="169" y="102" width="122" height="460" rx="10" fill="#e7f5ff"/>
+	<rect x="308" y="102" width="122" height="460" rx="10" fill="#f1f3f5"/>
+	<rect x="40" y="110" width="102" height="30" rx="15" fill="#e8590c"/><text x="91" y="131" font-size="17" font-weight="bold" text-anchor="middle" fill="#fff">přetlak</text>
+	<rect x="179" y="110" width="102" height="30" rx="15" fill="#1864ab"/><text x="230" y="131" font-size="17" font-weight="bold" text-anchor="middle" fill="#fff">podtlak</text>
+	<rect x="318" y="110" width="102" height="30" rx="15" fill="#495057"/><text x="369" y="131" font-size="17" font-weight="bold" text-anchor="middle" fill="#fff">vakuum</text>
+	<text x="91" y="157" font-size="13" text-anchor="middle" fill="#a63e0a">tlak uvnitř</text>
+	<text x="91" y="173" font-size="13" text-anchor="middle" fill="#a63e0a">větší než venku</text>
+	<text x="230" y="157" font-size="13" text-anchor="middle" fill="#1864ab">tlak uvnitř</text>
+	<text x="230" y="173" font-size="13" text-anchor="middle" fill="#1864ab">menší než venku</text>
+	<text x="369" y="157" font-size="13" text-anchor="middle" fill="#495057">skoro žádný</text>
+	<text x="369" y="173" font-size="13" text-anchor="middle" fill="#495057">vzduch</text>
+
+	<!-- PŘETLAK, x = 91 -->
+	<g>
+		<circle cx="91" cy="215" r="27" fill="#fff" stroke="#e8590c" stroke-width="3.5"/>
+		<path d="M65 206 Q91 197 117 206 M65 225 Q91 233 117 225" fill="none" stroke="#ffc078" stroke-width="2.5"/>
+		<text x="91" y="262" font-size="15" text-anchor="middle" fill="#2b2a26">míč</text>
+	</g>
+	<g>
+		<circle cx="91" cy="314" r="29" fill="#343a40"/>
+		<circle cx="91" cy="314" r="15" fill="#ced4da" stroke="#868e96" stroke-width="2"/>
+		<circle cx="91" cy="314" r="4" fill="#868e96"/>
+		<rect x="99" y="295" width="5" height="10" fill="#868e96" transform="rotate(30 101 300)"/>
+		<text x="91" y="362" font-size="15" text-anchor="middle" fill="#2b2a26">pneumatika</text>
+	</g>
+	<g>
+		<rect x="78" y="390" width="26" height="48" rx="5" fill="#74b816" stroke="#2b8a3e" stroke-width="2"/>
+		<rect x="82" y="381" width="18" height="10" rx="2" fill="#ced4da" stroke="#868e96" stroke-width="1.5"/>
+		<rect x="96" y="383" width="9" height="5" fill="#868e96"/>
+		<!-- obsah spreje letí ven z trysky (uvnitř přetlak) -->
+		<g fill="#e8590c">
+			<g class="sp1"><circle cx="119" cy="380" r="2.2"/><circle cx="125" cy="390" r="2.2"/><circle cx="131" cy="372" r="2.2"/></g>
+			<g class="sp2"><circle cx="122" cy="384" r="2.2"/><circle cx="130" cy="381" r="2.2"/><circle cx="127" cy="368" r="2.2"/></g>
+			<g class="sp3"><circle cx="116" cy="374" r="2.2"/><circle cx="134" cy="386" r="2.2"/><circle cx="124" cy="395" r="2.2"/></g>
+		</g>
+		<text x="91" y="462" font-size="15" text-anchor="middle" fill="#2b2a26">sprej</text>
+	</g>
+	<g>
+		<rect x="78" y="484" width="26" height="54" rx="12" fill="#fab005" stroke="#e67700" stroke-width="2"/>
+		<rect x="86" y="475" width="10" height="10" fill="#868e96"/>
+		<rect x="81" y="471" width="20" height="5" rx="2" fill="#495057"/>
+		<text x="91" y="556" font-size="15" text-anchor="middle" fill="#2b2a26">lahev potápěče</text>
+	</g>
+
+	<!-- PODTLAK, x = 230 -->
+	<g>
+		<path d="M208 206 L252 206 L248 242 L212 242 Z" fill="#fff" stroke="#495057" stroke-width="2.5"/>
+		<path d="M209.5 218 L250.5 218 L248 242 L212 242 Z" fill="#fab005"/>
+		<path d="M236 240 L236 190 L246 182" fill="none" stroke="#868e96" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+		<text x="230" y="262" font-size="15" text-anchor="middle" fill="#2b2a26">brčko</text>
+	</g>
+	<g>
+		<!-- zeď, gumová přísavka s háčkem; okolní vzduch ji tlačí ke zdi -->
+		<rect x="196" y="282" width="10" height="64" fill="#ced4da" stroke="#adb5bd" stroke-width="1"/>
+		<path d="M206 290 C220 292 228 304 228 314 C228 324 220 336 206 338 Z" fill="#a5d8ff" stroke="#1c7ed6" stroke-width="2"/>
+		<rect x="228" y="310" width="8" height="8" fill="#1c7ed6"/>
+		<path d="M236 314 L242 314 Q248 314 248 320 Q248 326 242 326" fill="none" stroke="#1c7ed6" stroke-width="3" stroke-linecap="round"/>
+		<g class="tlaci" fill="#1864ab" stroke="#1864ab" stroke-width="2.5" stroke-linecap="round">
+			<line x1="270" y1="298" x2="234" y2="298"/><path d="M226 298 L236 292 L236 304 Z" stroke="none"/>
+			<line x1="270" y1="334" x2="232" y2="334"/><path d="M224 334 L234 328 L234 340 Z" stroke="none"/>
+		</g>
+		<text x="230" y="362" font-size="15" text-anchor="middle" fill="#2b2a26">přísavka</text>
+	</g>
+	<g>
+		<!-- vysavač: hubice na podlaze nasává vzduch s prachem -->
+		<line x1="186" y1="438" x2="286" y2="438" stroke="#adb5bd" stroke-width="2"/>
+		<rect x="194" y="402" width="34" height="28" rx="10" fill="#e64980" stroke="#a61e4d" stroke-width="2"/>
+		<circle cx="201" cy="432" r="5" fill="#343a40"/><circle cx="221" cy="432" r="5" fill="#343a40"/>
+		<path d="M228 410 Q246 382 258 398 L262 426" fill="none" stroke="#495057" stroke-width="4" stroke-linecap="round"/>
+		<rect x="252" y="426" width="22" height="7" rx="2" fill="#495057"/>
+		<g fill="#868e96">
+			<g class="vs1"><circle cx="277" cy="425" r="2.2"/><circle cx="285" cy="431" r="2.2"/><circle cx="281" cy="417" r="2.2"/></g>
+			<g class="vs2"><circle cx="289" cy="423" r="2.2"/><circle cx="273" cy="419" r="2.2"/><circle cx="283" cy="435" r="2.2"/></g>
+			<g class="vs3"><circle cx="279" cy="411" r="2.2"/><circle cx="288" cy="415" r="2.2"/><circle cx="275" cy="433" r="2.2"/></g>
+		</g>
+		<text x="230" y="462" font-size="15" text-anchor="middle" fill="#2b2a26">vysavač</text>
+	</g>
+	<g>
+		<line x1="230" y1="472" x2="230" y2="510" stroke="#b08968" stroke-width="7" stroke-linecap="round"/>
+		<path d="M208 536 Q208 508 230 508 Q252 508 252 536 Z" fill="#e03131" stroke="#a51111" stroke-width="2"/>
+		<text x="230" y="556" font-size="15" text-anchor="middle" fill="#2b2a26">zvon na odpad</text>
+	</g>
+
+	<!-- VAKUUM, x = 369 -->
+	<g>
+		<circle cx="369" cy="206" r="22" fill="#fff9db" stroke="#868e96" stroke-width="2.5"/>
+		<path d="M361 222 L361 208 L365 202 L369 208 L373 202 L377 208 L377 222" fill="none" stroke="#e67700" stroke-width="2"/>
+		<rect x="360" y="226" width="18" height="14" rx="2" fill="#adb5bd" stroke="#868e96" stroke-width="1.5"/>
+		<text x="369" y="259" font-size="15" text-anchor="middle" fill="#2b2a26">žárovka</text>
+		<text x="369" y="275" font-size="13" text-anchor="middle" fill="#495057">s vláknem</text>
+	</g>
+	<g>
+		<rect x="330" y="290" width="78" height="44" rx="8" fill="#e7f5ff" stroke="#74c0fc" stroke-width="2"/>
+		<rect x="337" y="295" width="40" height="34" rx="9" fill="#c0603b"/>
+		<path d="M343 305 Q356 300 371 307 M343 318 Q357 313 370 320" fill="none" stroke="#f3d9c4" stroke-width="2"/>
+		<circle cx="390" cy="303" r="8" fill="#94d82d" stroke="#5c940d" stroke-width="1.5"/>
+		<circle cx="391" cy="322" r="8" fill="#94d82d" stroke="#5c940d" stroke-width="1.5"/>
+		<text x="369" y="356" font-size="15" text-anchor="middle" fill="#2b2a26">balení jídla</text>
+	</g>
+	<g>
+		<!-- průhledný vak s tričkem a ventilem -->
+		<rect x="331" y="386" width="76" height="48" rx="6" fill="#e7f5ff" stroke="#74c0fc" stroke-width="2"/>
+		<path d="M344 400 L354 394 L362 398 L370 398 L378 394 L388 400 L384 409 L379 406 L379 428 L353 428 L353 406 L348 409 Z" fill="#91a7ff" stroke="#4c6ef5" stroke-width="1.5" stroke-linejoin="round"/>
+		<path d="M362 398 Q366 403 370 398" fill="none" stroke="#4c6ef5" stroke-width="1.5"/>
+		<circle cx="398" cy="396" r="6" fill="#495057"/><circle cx="398" cy="396" r="2.5" fill="#e7f5ff"/>
+		<text x="369" y="456" font-size="15" text-anchor="middle" fill="#2b2a26">vak na oblečení</text>
+	</g>
+	<g>
+		<rect x="333" y="474" width="72" height="62" rx="8" fill="#1b1f3b"/>
+		<circle cx="384" cy="516" r="11" fill="#4dabf7"/>
+		<g fill="#fff"><circle cx="344" cy="484" r="1.6"/><circle cx="360" cy="498" r="1.6"/><circle cx="396" cy="484" r="1.6"/><circle cx="348" cy="522" r="1.6"/><circle cx="372" cy="480" r="1.6"/><circle cx="358" cy="528" r="1.6"/></g>
+		<text x="369" y="556" font-size="15" text-anchor="middle" fill="#2b2a26">vesmír</text>
+	</g>
+
+	<!-- PLÍCE: nádech (podtlak, vzduch dovnitř) 0–3 s, výdech (přetlak, vzduch ven) 3–6 s -->
+	<!-- vlastní rámeček plic vlevo (OPRAVA 2: plíce už neleží pod sloupcem vakuum) -->
+	<rect x="30" y="566" width="400" height="60" rx="10" fill="#fff" stroke="#ced4da" stroke-width="1.5"/>
+	<rect class="hout" x="126" y="573" width="210" height="22" rx="5" fill="#ffe8cc" opacity="0"/>
+	<rect class="hin" x="126" y="597" width="210" height="22" rx="5" fill="#d0ebff" opacity="0"/>
+	<text x="132" y="590" font-size="17" fill="#2b2a26">Plíce: při výdechu <tspan font-weight="bold" fill="#a63e0a">přetlak</tspan>,</text>
+	<text x="132" y="614" font-size="17" fill="#2b2a26">při nádechu <tspan font-weight="bold" fill="#1864ab">podtlak</tspan>.</text>
+	<text x="428" y="645" font-size="16" font-weight="bold" text-anchor="end" fill="#495057">Dokonalé vakuum neexistuje.</text>
+	<g class="plice">
+		<path d="M80 572 L80 587 M80 587 L72.5 593 M80 587 L87.5 593" fill="none" stroke="#c92a2a" stroke-width="3" stroke-linecap="round"/>
+		<path d="M75.5 590 C65 585.5 57.5 596 57.5 606.5 C57.5 615.5 65 620 77 617 Z" fill="#ffc9c9" stroke="#c92a2a" stroke-width="2"/>
+		<path d="M84.5 590 C95 585.5 102.5 596 102.5 606.5 C102.5 615.5 95 620 83 617 Z" fill="#ffc9c9" stroke="#c92a2a" stroke-width="2"/>
+	</g>
+	<g class="pin" fill="#1864ab" stroke="#1864ab" stroke-width="3" stroke-linecap="round">
+		<line x1="46" y1="576" x2="46" y2="588"/><path d="M40 587 L52 587 L46 596 Z" stroke="none"/>
+	</g>
+	<g class="pout" fill="#e8590c" stroke="#e8590c" stroke-width="3" stroke-linecap="round">
+		<line x1="114" y1="596" x2="114" y2="584"/><path d="M108 585 L120 585 L114 576 Z" stroke="none"/>
+	</g>
+</svg>

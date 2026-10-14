@@ -107,9 +107,9 @@
 			? `Vývěva odčerpala téměř všechen vzduch: tlak ~<strong>0 kPa</strong>, manometr ukazuje <strong>−100 kPa</strong> proti okolí.`
 			: `Stejné množství vzduchu v ${s.V} dílcích: tlak = 400 ÷ ${s.V} = <strong>${s.p} kPa</strong> → rozdíl proti okolí <strong>${s.rozdil > 0 ? '+' : ''}${s.rozdil} kPa</strong>.`;
 		const STAVY = {
-			pretlak: '🎈 PŘETLAK — uvnitř je VÍC než venku. Stejně je na tom nafouknutý míč, pneumatika (hustí se asi na 2,5 baru přetlaku), sprej nebo plíce po nádechu. Vyrábí ho hustilka či kompresor.',
+			pretlak: '🎈 PŘETLAK — uvnitř je VÍC než venku. Stejně je na tom nafouknutý míč, pneumatika (hustí se asi na 2,5 baru přetlaku), sprej nebo plíce při výdechu. Vyrábí ho hustilka či kompresor.',
 			vyrovnano: '⚖️ Tlaky jsou vyrovnané — uvnitř i venku 100 kPa (1 bar = 100 000 Pa). Manometr ukazuje nulu.',
-			podtlak: '🥤 PODTLAK — uvnitř je MÍŇ než venku, okolí se NASÁVÁ dovnitř (tlaky se chtějí vyrovnat). Tak funguje pití brčkem, vysavač, přísavka i plíce před nádechem.',
+			podtlak: '🥤 PODTLAK — uvnitř je MÍŇ než venku, okolí se NASÁVÁ dovnitř (tlaky se chtějí vyrovnat). Tak funguje pití brčkem, vysavač, přísavka i plíce při nádechu.',
 			vakuum: '🌌 VAKUUM — téměř žádný vzduch (odčerpala ho vývěva). Vakuum je v baňce žárovky, ve vakuově balených potravinách a ve vesmíru.',
 		};
 		g('pre-stav').textContent = STAVY[s.pasmo];
