@@ -15,12 +15,17 @@
 // takže čistá funkce nad krokem je jediná spolehlivá cesta).
 //
 // Fyzika: 1 štěpení v generaci 0 uvolní vždy stejný počet neutronů (3), ale kolik
-// z nich stihne rozštěpit DALŠÍ jádro, řídí moderátor/kontrolní tyče:
+// z nich rozštěpí DALŠÍ jádro, závisí na pohlcení neutronů (regulační tyče):
 //   řízená    → z každého štěpení pokračuje přesně 1 neutron → počet štěpení
 //               v každé generaci zůstává STEJNÝ (1, 1, 1, 1, …) — stálý výkon.
-//   neřízená  → pokračují 2 neutrony z každého štěpení → počet štěpení se
-//               KAŽDOU generací ZDVOJNÁSOBÍ (1, 2, 4, 8, 16, 32 — exponenciála).
-// Všechna čísla vycházejí celá (mocniny 2, resp. konstanta 1).
+//   neřízená  → pokračují všechny 3 neutrony z každého štěpení → počet štěpení
+//               se KAŽDOU generací ZTROJNÁSOBÍ (1, 3, 9, 27 — exponenciála).
+//               Opora: PDF učitele 19 s. 5–7 (²³⁵U + n → Kr + Ba + 3 n; „necháme
+//               všechny uvolněné neutrony reagovat“) a výklad temata.ts (1 → 3 → 9).
+// Posuvník má 4 generace (1, 3, 9, 27 = celkem 40), aby se všechny tečky vešly
+// do sloupce (27 teček = 7 řádků po 4) a nic se nemuselo zkracovat značkou.
+// Všechna čísla vycházejí celá (mocniny 3, resp. konstanta 1).
+// Neutron má barvu jako na obrázcích stránky (obr-02..05): šedý #adb5bd, obrys #212529.
 ---
 
 <section class="ramecek simulace">
@@ -31,11 +36,11 @@
 	<p>Klikej na tlačítko a sleduj, co se stane, když neutron zasáhne jádro uranu 235.</p>
 	<svg id="rr-a-svg" viewBox="0 0 620 260" role="img" aria-label="Neutron dopadá na jádro uranu, jádro se štěpí na dva fragmenty a nové neutrony">
 		<rect x="0" y="0" width="620" height="260" fill="#f8f9fa" />
-		<text x="310" y="24" text-anchor="middle" font-size="13" fill="#868e96">jádro uranu 235 (těžké, nestabilní po zásahu)</text>
-		<g id="rr-a-neutron-vstup" fill="#1971c2"></g>
+		<text x="310" y="24" text-anchor="middle" font-size="13" fill="#868e96">štěpení jádra uranu 235</text>
+		<g id="rr-a-neutron-vstup" fill="#adb5bd" stroke="#212529" stroke-width="2"></g>
 		<g id="rr-a-jadro" fill="#37b24d" stroke="#2b2a26" stroke-width="2"></g>
 		<g id="rr-a-fragmenty" stroke="#2b2a26" stroke-width="2"></g>
-		<g id="rr-a-neutrony-ven" fill="#1971c2"></g>
+		<g id="rr-a-neutrony-ven" fill="#adb5bd" stroke="#212529" stroke-width="2"></g>
 		<text id="rr-a-popis" x="310" y="230" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26"></text>
 		<text id="rr-a-energie" x="310" y="250" text-anchor="middle" font-size="12" fill="#e8590c"></text>
 	</svg>
@@ -45,7 +50,7 @@
 	</p>
 
 	<h3><span class="podtrh">💥 Krok 2: řízená, nebo neřízená?</span></h3>
-	<p>Každé štěpení uvolní <strong>3 neutrony</strong>. Kolik z nich smí rozštěpit další jádro, rozhoduje moderátor a kontrolní tyče. Posuň se generacemi a porovnej, jak roste počet štěpení.</p>
+	<p>Každé štěpení uvolní <strong>3 neutrony</strong>. Kolik z nich rozštěpí další jádro, záleží na tom, kolik neutronů se pohltí — v reaktoru přebytečné neutrony pohlcují regulační tyče. Posuň se generacemi a porovnej, jak roste počet štěpení.</p>
 	<svg id="rr-b-svg" viewBox="0 0 620 380" role="img" aria-label="Síť rozštěpených jader v jednotlivých generacích řetězové reakce">
 		<rect x="0" y="0" width="620" height="380" fill="#f8f9fa" />
 		<g id="rr-b-sloupce" font-size="11" fill="#868e96" text-anchor="middle"></g>
@@ -59,7 +64,7 @@
 	</p>
 	<label class="sim-posuvnik">
 		Kolikátá generace: <output id="rr-b-krok-out"></output>
-		<input type="range" id="rr-b-krok" min="1" max="6" step="1" value="1" />
+		<input type="range" id="rr-b-krok" min="1" max="4" step="1" value="1" />
 	</label>
 	<p class="rr-vzorec" id="rr-b-vzorec"></p>
 	<p class="rr-stav" id="rr-b-stav"></p>
@@ -81,7 +86,7 @@
 	const NEUTRONY_ZE_STEPENI = 3;
 	function stavStepeni(krok) {
 		// krok 0: neutron letí k jádru · 1: zásah, jádro nestabilní · 2: rozpad ·
-		// 3: hotovo — 2 fragmenty + 3 nové neutrony + teplo
+		// 3: hotovo — 2 fragmenty, 3 nové neutrony a teplo
 		const popisy = [
 			'Neutron letí k jádru uranu 235.',
 			'Neutron zasáhl jádro — je nestabilní.',
@@ -98,7 +103,7 @@
 		const s = stavStepeni(aKrok);
 		const jx = 310, jy = 130;
 		// neutron letící zleva (jen v kroku 0)
-		aNeutronVstup.innerHTML = aKrok === 0 ? `<circle cx="150" cy="${jy}" r="9" /><text x="150" y="${jy - 16}" text-anchor="middle" font-size="11" fill="#1971c2">neutron</text>` : '';
+		aNeutronVstup.innerHTML = aKrok === 0 ? `<circle cx="150" cy="${jy}" r="9" /><text x="150" y="${jy - 16}" text-anchor="middle" font-size="11" fill="#495057" stroke="none">neutron</text>` : '';
 		// jádro (kroky 0–1), rozpadá se v kroku 2, mizí v kroku 3
 		if (s.rozstepeno) {
 			aJadro.innerHTML = '';
@@ -106,19 +111,16 @@
 			aFragmenty.innerHTML = `
 				<circle cx="${jx - rozjezd}" cy="${jy}" r="26" fill="#ffa94d" />
 				<circle cx="${jx + rozjezd}" cy="${jy}" r="26" fill="#ff8787" />
-				<text x="${jx - rozjezd}" y="${jy + 5}" text-anchor="middle" font-size="11" fill="#2b2a26">Kr</text>
-				<text x="${jx + rozjezd}" y="${jy + 5}" text-anchor="middle" font-size="11" fill="#2b2a26">Ba</text>`;
+				<text x="${jx - rozjezd}" y="${jy + 5}" text-anchor="middle" font-size="11" fill="#2b2a26" stroke="none">Kr</text>
+				<text x="${jx + rozjezd}" y="${jy + 5}" text-anchor="middle" font-size="11" fill="#2b2a26" stroke="none">Ba</text>`;
 		} else {
 			aFragmenty.innerHTML = '';
-			aJadro.innerHTML = `<circle cx="${jx}" cy="${jy}" r="42" /><text x="${jx}" y="${jy + 5}" text-anchor="middle" font-size="13" fill="#fff" font-weight="bold">U-235</text>`;
+			aJadro.innerHTML = `<circle cx="${jx}" cy="${jy}" r="42" /><text x="${jx}" y="${jy + 5}" text-anchor="middle" font-size="13" fill="#fff" stroke="none" font-weight="bold">U-235</text>`;
 		}
 		// nové neutrony (jen finální krok)
-		if (s.neutronyVen > 0) {
-			const pozice = [[jx - 90, jy - 70], [jx + 90, jy - 70], [jx, jy - 95]];
-			aNeutronyVen.innerHTML = pozice.slice(0, s.neutronyVen).map(([x, y]) => `<circle cx="${x}" cy="${y}" r="7" />`).join('');
-		} else {
-			aNeutronyVen.innerHTML = '';
-		}
+		// (mimo poslední krok žádný neutron nevylétá → prázdný výřez, nic se nekreslí)
+		const pozice = [[jx - 90, jy - 70], [jx + 90, jy - 70], [jx, jy - 88]];
+		aNeutronyVen.innerHTML = pozice.slice(0, s.neutronyVen).map(([x, y]) => `<circle cx="${x}" cy="${y}" r="7" />`).join('');
 		aPopis.textContent = s.popis;
 		aEnergie.textContent = aKrok === 3 ? '🔥 uvolněná energie se projeví jako TEPLO' : '';
 	}
@@ -141,17 +143,17 @@
 
 	// === ČISTÁ ČÁST B (bez DOM — kontrolovatelná výpočtem) ===
 	function stavRetezovky(mode, kroku) {
-		const NASOBEK = mode === 'rizena' ? 1 : 2;
+		const NASOBEK = mode === 'rizena' ? 1 : NEUTRONY_ZE_STEPENI;
 		const pocty = [1];
 		for (let i = 1; i < kroku; i++) pocty.push(pocty[i - 1] * NASOBEK);
 		const celkem = pocty.reduce((a, b) => a + b, 0);
-		return { pocty, celkem, posledni: pocty[pocty.length - 1], rust: mode === 'rizena' ? 'stálý (lineární)' : 'lavinový (exponenciální)' };
+		return { pocty, celkem, posledni: pocty[pocty.length - 1], rust: mode === 'rizena' ? 'stálý' : 'lavinový' };
 	}
 	// === KONEC ČISTÉ ČÁSTI B ===
 	bSvg.__stavRetezovky = stavRetezovky;
 
 	let bMode = 'rizena';
-	const X0 = 75, XKROK = 95, Y0 = 90, RADEK = 20, SLOUPCU_TECEK = 4, MAX_KRESLENYCH = 32;
+	const X0 = 85, XKROK = 150, Y0 = 90, RADEK = 20, SLOUPCU_TECEK = 4;
 
 	function kresliB() {
 		const kroku = +bKrokSlider.value;
@@ -164,13 +166,13 @@
 		for (let i = 0; i < kroku; i++) {
 			const x = X0 + i * XKROK;
 			sloupceHtml += `<text x="${x}" y="${Y0 - 25}">${i + 1}. generace</text>`;
-			const n = Math.min(s.pocty[i], MAX_KRESLENYCH);
+			const n = s.pocty[i]; // nejvýš 27 (4. generace) — vejde se celé
 			for (let t = 0; t < n; t++) {
 				const tx = x - (SLOUPCU_TECEK - 1) * 9 + (t % SLOUPCU_TECEK) * 18;
 				const ty = Y0 + Math.floor(t / SLOUPCU_TECEK) * RADEK;
 				teckyHtml += `<circle cx="${tx}" cy="${ty}" r="6" />`;
 			}
-			cislaHtml += `<text x="${x}" y="330">${s.pocty[i]}${s.pocty[i] > MAX_KRESLENYCH ? '×' : ''}</text>`;
+			cislaHtml += `<text x="${x}" y="330">${s.pocty[i]}</text>`;
 		}
 		bSloupce.innerHTML = sloupceHtml;
 		bTecky.innerHTML = teckyHtml;
@@ -181,8 +183,8 @@
 		bTlNerizena.style.opacity = bMode === 'nerizena' ? '1' : '0.55';
 		bVzorec.innerHTML = `Počet štěpení v generacích: <strong>${s.pocty.join(' → ')}</strong>. Růst: <strong>${s.rust}</strong>.`;
 		bStav.textContent = bMode === 'rizena'
-			? `🎯 Řízená reakce: kontrolní tyče pohltí přebytečné neutrony, z každého štěpení pokračuje přesně 1. Počet štěpení zůstává stejný — to chce jaderný reaktor.`
-			: `🚨 Neřízená reakce: nic neutrony nebrzdí, z každého štěpení pokračují 2. Počet štěpení se každou generací ZDVOJNÁSOBÍ — po pár generacích jich jsou miliony. To je princip jaderné bomby.`;
+			? `🎯 Řízená reakce: regulační tyče pohltí přebytečné neutrony, z každého štěpení pokračuje přesně 1. Počet štěpení zůstává stejný — to chce jaderný reaktor.`
+			: `🚨 Neřízená reakce: žádné neutrony se nepohltí, z každého štěpení pokračují všechny 3. Počet štěpení se každou generací ZTROJNÁSOBÍ (1 → 3 → 9 → 27 …) a roste závratně rychle. To je princip jaderné bomby.`;
 	}
 	bKrokSlider.addEventListener('input', kresliB);
 	bTlRizena.addEventListener('click', () => { bMode = 'rizena'; kresliB(); });
