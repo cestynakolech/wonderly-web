@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 400" width="460" height="400" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Vzorec výkonu: P = W : t. P je výkon ve wattech (W), W je práce v joulech (J), t je čas v sekundách (s). Odtud W = P · t a t = W : P. Pozor: velké P je výkon, malé p je tlak.">
+	<title>Výkon 3/6: Vzorec výkonu</title>
+	<!-- Obsah podle Výkon.pdf s. 2 a 4 (P = W : t, jednotky, W = P · t, t = W : P, P × p). Blok nemá animaci. -->
+
+	<rect x="0" y="0" width="460" height="400" fill="#f8f9fa" />
+	<g id="vyk-vzorec">
+		<rect x="10" y="10" width="440" height="380" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+		<text x="26" y="44" font-size="25" font-weight="bold" fill="#2b2a26">Vzorec výkonu</text>
+		<text x="230" y="110" text-anchor="middle" font-size="46" font-weight="bold" fill="#2b2a26"><tspan fill="#1e7a34">P</tspan> = <tspan fill="#c92a2a">W</tspan> : <tspan fill="#1971c2">t</tspan></text>
+		<text x="230" y="142" text-anchor="middle" font-size="20" fill="#2b2a26">výkon = práce : čas</text>
+
+		<text x="40" y="186" font-size="21" fill="#2b2a26"><tspan font-weight="bold" fill="#1e7a34">P</tspan> — výkon ve wattech (W)</text>
+		<text x="40" y="216" font-size="21" fill="#2b2a26"><tspan font-weight="bold" fill="#c92a2a">W</tspan> — práce v joulech (J)</text>
+		<text x="40" y="246" font-size="21" fill="#2b2a26"><tspan font-weight="bold" fill="#1971c2">t</tspan> — čas v sekundách (s)</text>
+
+		<rect x="26" y="266" width="408" height="48" rx="8" fill="#f1f3f5" />
+		<text x="128" y="298" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2a26">W = P · t</text>
+		<text x="332" y="298" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2a26">t = W : P</text>
+
+		<text x="26" y="346" font-size="20" font-weight="bold" fill="#c92a2a">Pozor: velké P = výkon,</text>
+		<text x="26" y="372" font-size="20" font-weight="bold" fill="#c92a2a">malé p = tlak.</text>
+	</g>
+</svg>

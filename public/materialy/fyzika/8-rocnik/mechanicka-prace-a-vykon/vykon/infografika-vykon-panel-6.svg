@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 440" width="460" height="440" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Kilowatthodina. kWh je jednotka práce a energie, ne výkonu. 1 kWh = 1 kW · 1 h = 1 000 W · 3 600 s = 3 600 000 J. Elektromotor 9 kW běží 16 h: W = 9 · 16 = 144 kWh. V kWh se platí elektřina.">
+	<title>Výkon 6/6: Kilowatthodina</title>
+	<!-- Obsah podle Výkon.pdf s. 5–7 (kWh, 1 kWh = 3 600 000 J) a výkladu webu (elektromotor 9 kW · 16 h = 144 kWh).
+	     Animace: kotouček elektroměru se otáčí (rotace kolem středu, view-box). -->
+	<style>
+		.vyk-kotouc { animation: vyk-kotouc 2s linear infinite; transform-box: view-box; transform-origin: 380px 120px; }
+		@keyframes vyk-kotouc { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+		@media (prefers-reduced-motion: reduce) {
+			.vyk-kotouc { animation: none; }
+		}
+	</style>
+
+	<rect x="0" y="0" width="460" height="440" fill="#f8f9fa" />
+	<g id="vyk-kwh">
+		<rect x="10" y="10" width="440" height="420" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+		<text x="26" y="44" font-size="25" font-weight="bold" fill="#2b2a26">Kilowatthodina</text>
+		<text x="26" y="78" font-size="20" fill="#2b2a26">kWh je jednotka <tspan font-weight="bold">práce</tspan></text>
+		<text x="26" y="104" font-size="20" fill="#2b2a26">a energie, <tspan font-weight="bold" fill="#c92a2a">ne výkonu</tspan>.</text>
+
+		<!-- elektroměr -->
+		<rect x="336" y="60" width="88" height="116" rx="8" fill="#e9ecef" stroke="#495057" stroke-width="2" />
+		<rect x="348" y="70" width="64" height="20" rx="2" fill="#2b2a26" />
+		<text x="380" y="86" text-anchor="middle" font-size="14" font-weight="bold" fill="#8ce99a">0144</text>
+		<circle cx="380" cy="120" r="18" fill="#ffffff" stroke="#495057" stroke-width="2" />
+		<g class="vyk-kotouc">
+			<rect x="377" y="102" width="6" height="10" fill="#c92a2a" />
+		</g>
+		<text x="380" y="164" text-anchor="middle" font-size="16" font-weight="bold" fill="#2b2a26">kWh</text>
+
+		<rect x="26" y="192" width="408" height="96" rx="8" fill="#f1f3f5" />
+		<text x="44" y="226" font-size="22" font-weight="bold" fill="#2b2a26">1 kWh = 1 kW · 1 h</text>
+		<text x="44" y="254" font-size="20" fill="#2b2a26">= 1 000 W · 3 600 s</text>
+		<text x="44" y="280" font-size="20" fill="#2b2a26">= <tspan font-weight="bold" fill="#1971c2">3 600 000 J</tspan></text>
+
+		<text x="26" y="324" font-size="20" font-weight="bold" fill="#2b2a26">Elektromotor 9 kW běží 16 h:</text>
+		<text x="26" y="354" font-size="21" fill="#2b2a26">W = P · t = 9 · 16 = <tspan font-weight="bold" fill="#1e7a34">144 kWh</tspan></text>
+		<text x="26" y="388" font-size="19" fill="#2b2a26">Dosaď kW a hodiny → vyjde kWh.</text>
+		<text x="26" y="414" font-size="19" fill="#2b2a26">V kWh platíme elektřinu.</text>
+	</g>
+</svg>

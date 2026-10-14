@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 590" width="460" height="590" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Stejný čas, větší práce. Dva stavební výtahy zvednou cihly o 2 m za stejný čas 5 s. Výtah A veze 50 kg: F = 500 N, W = 500 N · 2 m = 1 000 J, P = 1 000 : 5 = 200 W. Výtah B veze 100 kg: F = 1 000 N, W = 1 000 N · 2 m = 2 000 J, P = 2 000 : 5 = 400 W. Za stejný čas větší práce znamená větší výkon.">
+	<title>Výkon 2/6: Stejný čas, větší práce</title>
+	<!-- Doplňuje simulaci na stránce (ta ukazuje stejnou práci za různý čas). Tady: stejný čas, různá práce.
+	     Animace: cyklus 8 s v reálném čase, oba výtahy jedou 1 s → 6 s (12,5 % → 75 %), tedy 5 s.
+	     Plošina jede o 150 px = 2 m. Lano k plošině se zkracuje scaleY s počátkem u navijáku
+	     (view-box, uživatelské souřadnice): A: délka 163 → 13 px, poměr 13 : 163 = 0,0798; B (lano končí na horní příčce rámu
+	     plošiny y = 280, nad cihlami): délka 156 → 6 px, poměr 6 : 156 = 0,0385.
+	     Reduced-motion: konečný stav (obě plošiny nahoře). -->
+	<style>
+		.vyk-plosina { animation: vyk-plosina 8s linear infinite; }
+		.vyk-lano-a { animation: vyk-lano 8s linear infinite; transform-box: view-box; transform-origin: 140px 124px; }
+		.vyk-lano-b { animation: vyk-lano-b 8s linear infinite; transform-box: view-box; transform-origin: 320px 124px; }
+		.vyk-ok { animation: vyk-ok 8s linear infinite; }
+		@keyframes vyk-plosina { 0%, 12.5% { transform: translateY(0); } 75%, 100% { transform: translateY(-150px); } }
+		@keyframes vyk-lano { 0%, 12.5% { transform: scaleY(1); } 75%, 100% { transform: scaleY(0.0798); } }
+		@keyframes vyk-lano-b { 0%, 12.5% { transform: scaleY(1); } 75%, 100% { transform: scaleY(0.0385); } }
+		@keyframes vyk-ok { 0%, 74.9% { opacity: 0; } 75%, 100% { opacity: 1; } }
+		@media (prefers-reduced-motion: reduce) {
+			.vyk-plosina, .vyk-lano-a, .vyk-lano-b, .vyk-ok { animation: none; }
+			.vyk-plosina { transform: translateY(-150px); }
+			.vyk-lano-a { transform: scaleY(0.0798); }
+			.vyk-lano-b { transform: scaleY(0.0385); }
+		}
+	</style>
+	<defs>
+		<marker id="vyk-mod2" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto-start-reverse"><path d="M0,0 L14,7 L0,14 z" fill="#1971c2" /></marker>
+		<g id="vyk-cihla"><rect width="16" height="8" fill="#c2410c" stroke="#7c2d12" stroke-width="1" /></g>
+	</defs>
+
+	<rect x="0" y="0" width="460" height="590" fill="#f8f9fa" />
+	<g id="vyk-vytahy">
+		<rect x="10" y="10" width="440" height="570" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+		<text x="26" y="44" font-size="25" font-weight="bold" fill="#2b2a26">Stejný čas, větší práce</text>
+		<text x="26" y="76" font-size="21" fill="#2b2a26">Oba výtahy zvednou cihly o 2 m za 5 s.</text>
+
+		<line x1="20" y1="330" x2="440" y2="330" stroke="#495057" stroke-width="3" />
+		<line x1="40" y1="180" x2="430" y2="180" stroke="#adb5bd" stroke-width="2" stroke-dasharray="6,5" />
+		<line x1="56" y1="328" x2="56" y2="182" stroke="#1971c2" stroke-width="3" marker-start="url(#vyk-mod2)" marker-end="url(#vyk-mod2)" />
+		<text x="48" y="262" text-anchor="end" font-size="21" font-weight="bold" fill="#1971c2">2 m</text>
+
+		<!-- VÝTAH A: stožár, naviják, lano, plošina se 2 vrstvami cihel (50 kg) -->
+		<rect x="186" y="104" width="10" height="226" fill="#868e96" stroke="#495057" stroke-width="1.5" />
+		<rect x="122" y="100" width="76" height="24" rx="4" fill="#495057" />
+		<text x="160" y="117" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">MOTOR</text>
+		<line class="vyk-lano-a" x1="140" y1="124" x2="140" y2="287" stroke="#343a40" stroke-width="3" />
+		<g class="vyk-plosina">
+			<line x1="140" y1="287" x2="100" y2="318" stroke="#343a40" stroke-width="2" />
+			<line x1="140" y1="287" x2="180" y2="318" stroke="#343a40" stroke-width="2" />
+			<rect x="98" y="318" width="86" height="10" fill="#495057" />
+			<use href="#vyk-cihla" x="101" y="310" />
+			<use href="#vyk-cihla" x="117" y="310" />
+			<use href="#vyk-cihla" x="133" y="310" />
+			<use href="#vyk-cihla" x="149" y="310" />
+			<use href="#vyk-cihla" x="165" y="310" />
+			<use href="#vyk-cihla" x="101" y="302" />
+			<use href="#vyk-cihla" x="117" y="302" />
+			<use href="#vyk-cihla" x="133" y="302" />
+			<use href="#vyk-cihla" x="149" y="302" />
+			<use href="#vyk-cihla" x="165" y="302" />
+		</g>
+
+		<!-- VÝTAH B: stožár, naviják, lano, plošina se 4 vrstvami cihel (100 kg) -->
+		<rect x="366" y="104" width="10" height="226" fill="#868e96" stroke="#495057" stroke-width="1.5" />
+		<rect x="302" y="100" width="76" height="24" rx="4" fill="#495057" />
+		<text x="340" y="117" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">MOTOR</text>
+		<line class="vyk-lano-b" x1="320" y1="124" x2="320" y2="280" stroke="#343a40" stroke-width="3" />
+		<g class="vyk-plosina">
+			<path d="M280,318 L280,280 L362,280 L362,318" fill="none" stroke="#343a40" stroke-width="2.5" />
+			<rect x="278" y="318" width="86" height="10" fill="#495057" />
+			<use href="#vyk-cihla" x="281" y="310" />
+			<use href="#vyk-cihla" x="297" y="310" />
+			<use href="#vyk-cihla" x="313" y="310" />
+			<use href="#vyk-cihla" x="329" y="310" />
+			<use href="#vyk-cihla" x="345" y="310" />
+			<use href="#vyk-cihla" x="281" y="302" />
+			<use href="#vyk-cihla" x="297" y="302" />
+			<use href="#vyk-cihla" x="313" y="302" />
+			<use href="#vyk-cihla" x="329" y="302" />
+			<use href="#vyk-cihla" x="345" y="302" />
+			<use href="#vyk-cihla" x="281" y="294" />
+			<use href="#vyk-cihla" x="297" y="294" />
+			<use href="#vyk-cihla" x="313" y="294" />
+			<use href="#vyk-cihla" x="329" y="294" />
+			<use href="#vyk-cihla" x="345" y="294" />
+			<use href="#vyk-cihla" x="281" y="286" />
+			<use href="#vyk-cihla" x="297" y="286" />
+			<use href="#vyk-cihla" x="313" y="286" />
+			<use href="#vyk-cihla" x="329" y="286" />
+			<use href="#vyk-cihla" x="345" y="286" />
+		</g>
+
+		<text class="vyk-ok" x="84" y="172" text-anchor="middle" font-size="24" font-weight="bold" fill="#1e7a34">✓</text>
+		<text class="vyk-ok" x="264" y="172" text-anchor="middle" font-size="24" font-weight="bold" fill="#1e7a34">✓</text>
+
+		<text x="140" y="360" text-anchor="middle" font-size="21" font-weight="bold" fill="#1971c2">A: cihly 50 kg</text>
+		<text x="320" y="360" text-anchor="middle" font-size="21" font-weight="bold" fill="#1e7a34">B: cihly 100 kg</text>
+		<text x="230" y="390" text-anchor="middle" font-size="20" fill="#2b2a26">oba za <tspan font-weight="bold">5 s</tspan></text>
+
+		<text x="26" y="424" font-size="20" fill="#c92a2a">F = m · 10 N/kg:  A 500 N,  B 1 000 N</text>
+		<text x="26" y="456" font-size="20" fill="#2b2a26">A: W = 500 N · 2 m = 1 000 J</text>
+		<text x="52" y="482" font-size="20" fill="#2b2a26">P = 1 000 : 5 = <tspan font-weight="bold" fill="#1971c2">200 W</tspan></text>
+		<text x="26" y="514" font-size="20" fill="#2b2a26">B: W = 1 000 N · 2 m = 2 000 J</text>
+		<text x="52" y="540" font-size="20" fill="#2b2a26">P = 2 000 : 5 = <tspan font-weight="bold" fill="#1e7a34">400 W</tspan></text>
+		<text x="26" y="568" font-size="21" font-weight="bold" fill="#1e7a34">stejný čas, větší práce → větší výkon</text>
+	</g>
+</svg>

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 560" width="460" height="560" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Výkony z praxe. Auto: tažná síla 1 200 N, rychlost 54 km/h = 15 m/s, P = F · v = 1 200 · 15 = 18 000 W = 18 kW. Jeřáb zvedne panel 6 t o 80 m za 60 s: F = 60 000 N, W = 60 000 · 80 = 4 800 000 J, P = 4 800 000 : 60 = 80 000 W = 80 kW. Od nejmenšího: dělník s lopatou 100 W, výtah s cihlami 400 W, auto 18 kW, bagr 24 kW, jeřáb 80 kW.">
+	<title>Výkon 5/6: Výkony z praxe</title>
+	<!-- Příklady podle Výkon.pdf s. 3 (jeřáb 80 kW) a s. 5 (auto P = F · v). Chyba PDF nepřenesena:
+	     PDF uvádí 90 km/h = 25 m/s a 30 kW při 54 km/h; správně 54 km/h = 15 m/s, P = 18 kW (jako výklad webu).
+	     Animace: kola auta se otáčejí (rotace kolem středu kola, view-box). -->
+	<style>
+		.vyk-kolo1 { animation: vyk-kolo 1s linear infinite; transform-box: view-box; transform-origin: 56px 150px; }
+		.vyk-kolo2 { animation: vyk-kolo 1s linear infinite; transform-box: view-box; transform-origin: 118px 150px; }
+		@keyframes vyk-kolo { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+		@media (prefers-reduced-motion: reduce) {
+			.vyk-kolo1, .vyk-kolo2 { animation: none; }
+		}
+	</style>
+
+	<rect x="0" y="0" width="460" height="560" fill="#f8f9fa" />
+	<g id="vyk-praxe">
+		<rect x="10" y="10" width="440" height="540" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+		<text x="26" y="44" font-size="25" font-weight="bold" fill="#2b2a26">Výkony z praxe</text>
+
+		<!-- AUTO -->
+		<path d="M30,148 L30,124 L54,120 L72,100 L112,100 L128,120 L146,124 L146,148 z" fill="#1971c2" stroke="#495057" stroke-width="2" />
+		<path d="M77,106 L92,106 L92,120 L64,120 z" fill="#d0ebff" />
+		<path d="M97,106 L110,106 L121,120 L97,120 z" fill="#d0ebff" />
+		<g class="vyk-kolo1">
+			<circle cx="56" cy="150" r="12" fill="#343a40" />
+			<line x1="56" y1="140" x2="56" y2="160" stroke="#adb5bd" stroke-width="3" />
+			<line x1="46" y1="150" x2="66" y2="150" stroke="#adb5bd" stroke-width="3" />
+		</g>
+		<g class="vyk-kolo2">
+			<circle cx="118" cy="150" r="12" fill="#343a40" />
+			<line x1="118" y1="140" x2="118" y2="160" stroke="#adb5bd" stroke-width="3" />
+			<line x1="108" y1="150" x2="128" y2="150" stroke="#adb5bd" stroke-width="3" />
+		</g>
+		<line x1="24" y1="163" x2="152" y2="163" stroke="#495057" stroke-width="2" />
+		<text x="166" y="86" font-size="20" font-weight="bold" fill="#2b2a26">Auto</text>
+		<text x="166" y="114" font-size="19" fill="#2b2a26">F = 1 200 N</text>
+		<text x="166" y="140" font-size="19" fill="#2b2a26">v = 54 km/h = 15 m/s</text>
+		<text x="166" y="166" font-size="19" fill="#2b2a26">P = F · v = 1 200 · 15</text>
+		<text x="166" y="192" font-size="19" fill="#2b2a26">= <tspan font-weight="bold" fill="#1e7a34">18 000 W = 18 kW</tspan></text>
+
+		<line x1="26" y1="212" x2="434" y2="212" stroke="#dee2e6" stroke-width="2" />
+
+		<!-- JEŘÁB -->
+		<rect x="70" y="236" width="10" height="150" fill="#f59f00" stroke="#495057" stroke-width="1.5" />
+		<line x1="34" y1="240" x2="150" y2="240" stroke="#f59f00" stroke-width="7" />
+		<rect x="30" y="242" width="18" height="16" fill="#868e96" />
+		<line x1="130" y1="243" x2="130" y2="286" stroke="#343a40" stroke-width="2" />
+		<rect x="110" y="286" width="40" height="16" fill="#adb5bd" stroke="#495057" stroke-width="1.5" />
+		<text x="130" y="299" text-anchor="middle" font-size="11" font-weight="bold" fill="#2b2a26">6 t</text>
+		<line x1="24" y1="386" x2="152" y2="386" stroke="#495057" stroke-width="2" />
+		<text x="166" y="250" font-size="20" font-weight="bold" fill="#2b2a26">Jeřáb</text>
+		<text x="166" y="278" font-size="19" fill="#2b2a26">panel 6 t, 80 m, 60 s</text>
+		<text x="166" y="304" font-size="19" fill="#2b2a26">F = 60 000 N</text>
+		<text x="166" y="330" font-size="19" fill="#2b2a26">W = 60 000 · 80</text>
+		<text x="166" y="356" font-size="19" fill="#2b2a26">= 4 800 000 J</text>
+		<text x="166" y="382" font-size="19" fill="#2b2a26">P = 4 800 000 : 60</text>
+		<text x="166" y="408" font-size="19" fill="#2b2a26">= <tspan font-weight="bold" fill="#1e7a34">80 000 W = 80 kW</tspan></text>
+
+		<line x1="26" y1="426" x2="434" y2="426" stroke="#dee2e6" stroke-width="2" />
+		<text x="26" y="456" font-size="20" font-weight="bold" fill="#2b2a26">Od nejmenšího výkonu:</text>
+		<text x="26" y="484" font-size="19" fill="#2b2a26">dělník s lopatou 100 W · výtah 400 W</text>
+		<text x="26" y="510" font-size="19" fill="#2b2a26">auto 18 kW · bagr 24 kW</text>
+		<text x="26" y="536" font-size="19" fill="#2b2a26">jeřáb <tspan font-weight="bold">80 kW</tspan></text>
+	</g>
+</svg>

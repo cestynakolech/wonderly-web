@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 540" width="460" height="540" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Stejná jáma, jiný čas. Dělník s lopatou a bagr vykopou stejně velkou jámu, vykonají stejnou práci W = 1 440 000 J. Dělník kope po kouscích 4 h = 14 400 s: P = 1 440 000 : 14 400 = 100 W. Bagr jedním záběrem za 1 min = 60 s: P = 1 440 000 : 60 = 24 000 W = 24 kW. Kratší čas znamená větší výkon.">
+	<title>Výkon 1/6: Stejná jáma, jiný čas</title>
+	<!-- Scéna podle věty Výkon.pdf s. 1 (bagr × dělník kopou jámu, PDF nemá obrázek) a přání učitele 14. 10. 2026:
+	     bagr jedním záběrem (jáma hotová najednou), dělník LOPATOU po kouscích. Pod terénem souvislá hnědá hlína,
+	     vykopaná jáma = tmavý otvor (roste shora dolů), čárkovaný obrys = plán jámy.
+	     Cyklus 8 s (časy v animaci nejsou v poměru 4 h : 1 min, skutečné časy jsou v popiscích):
+	     bagr spustí lžíci 12,5–18,75 %, jáma naráz 18,75 %, ✓ 25 %; dělníkova jáma roste v 6 krocích 12,5–87,5 %,
+	     lopata se kývá jen během kopání. Reduced-motion = konečný stav (obě jámy hotové, ✓, lžíce nahoře se zeminou). -->
+	<style>
+		.vyk-lopata { animation: vyk-lopata 8s ease-in-out infinite; transform-box: view-box; transform-origin: 70px 182px; }
+		.vyk-jama-d { animation: vyk-jama-d 8s infinite; transform-box: view-box; transform-origin: 140px 250px; }
+		.vyk-hromada { animation: vyk-hromada 8s infinite; transform-box: view-box; transform-origin: 198px 250px; }
+		.vyk-ok-d { animation: vyk-ok-d 8s infinite; }
+		.vyk-rameno { animation: vyk-rameno 8s ease-in-out infinite; transform-box: view-box; transform-origin: 300px 215px; }
+		.vyk-jama-b { animation: vyk-jama-b 8s infinite; transform-box: view-box; transform-origin: 385px 250px; }
+		.vyk-zemina-b { animation: vyk-zemina-b 8s infinite; }
+		.vyk-ok-b { animation: vyk-ok-b 8s infinite; }
+		@keyframes vyk-lopata {
+			0%, 12.5%, 18.75%, 25%, 31.25%, 37.5%, 43.75%, 50%, 56.25%, 62.5%, 68.75%, 75%, 81.25%, 87.5%, 100% { transform: rotate(0deg); }
+			15.6%, 28.1%, 40.6%, 53.1%, 65.6%, 78.1% { transform: rotate(-30deg); }
+		}
+		@keyframes vyk-jama-d { 0%, 12.5% { transform: scaleY(0); animation-timing-function: steps(6, end); } 87.5%, 100% { transform: scaleY(1); } }
+		@keyframes vyk-hromada { 0%, 12.5% { transform: scale(0); animation-timing-function: steps(6, end); } 87.5%, 100% { transform: scale(1); } }
+		@keyframes vyk-ok-d { 0%, 87.4% { opacity: 0; } 87.5%, 100% { opacity: 1; } }
+		@keyframes vyk-rameno { 0%, 12.5% { transform: rotate(-25deg); } 18.75% { transform: rotate(0deg); } 25%, 100% { transform: rotate(-25deg); } }
+		@keyframes vyk-jama-b { 0%, 18.7% { transform: scaleY(0); } 18.75%, 100% { transform: scaleY(1); } }
+		@keyframes vyk-zemina-b { 0%, 18.7% { opacity: 0; } 18.75%, 100% { opacity: 1; } }
+		@keyframes vyk-ok-b { 0%, 24.9% { opacity: 0; } 25%, 100% { opacity: 1; } }
+		@media (prefers-reduced-motion: reduce) {
+			.vyk-lopata, .vyk-jama-d, .vyk-hromada, .vyk-ok-d, .vyk-rameno, .vyk-jama-b, .vyk-zemina-b, .vyk-ok-b { animation: none; }
+			.vyk-rameno { transform: rotate(-25deg); }
+		}
+	</style>
+
+	<rect x="0" y="0" width="460" height="540" fill="#f8f9fa" />
+	<g id="vyk-jama">
+		<rect x="10" y="10" width="440" height="520" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+		<text x="26" y="44" font-size="25" font-weight="bold" fill="#2b2a26">Stejná jáma, jiný čas</text>
+		<text x="26" y="76" font-size="21" fill="#2b2a26">Oba vykopou stejnou jámu</text>
+		<text x="26" y="102" font-size="21" fill="#2b2a26">→ vykonají <tspan font-weight="bold">stejnou práci</tspan>.</text>
+
+		<!-- hlína pod terénem (nevykopaná zem) -->
+		<rect x="20" y="250" width="420" height="48" fill="#b08968" />
+		<line x1="229" y1="122" x2="229" y2="298" stroke="#dee2e6" stroke-width="2" />
+		<line x1="20" y1="250" x2="440" y2="250" stroke="#495057" stroke-width="3" />
+
+		<!-- DĚLNÍK s lopatou: jáma se prohlubuje po kouscích -->
+		<path class="vyk-jama-d" d="M115,250 L165,250 L160,285 L120,285 z" fill="#3d2b1f" />
+		<path d="M115,250 L165,250 L160,285 L120,285 z" fill="none" stroke="#f8f9fa" stroke-width="2" stroke-dasharray="5,4" />
+		<path class="vyk-hromada" d="M178,250 Q198,222 218,250 z" fill="#9c6b45" stroke="#495057" stroke-width="1.5" />
+		<circle cx="70" cy="160" r="11" fill="#ffd8a8" stroke="#495057" stroke-width="2" />
+		<line x1="70" y1="172" x2="70" y2="212" stroke="#1971c2" stroke-width="9" stroke-linecap="round" />
+		<line x1="70" y1="212" x2="60" y2="250" stroke="#343a40" stroke-width="6" stroke-linecap="round" />
+		<line x1="70" y1="212" x2="82" y2="250" stroke="#343a40" stroke-width="6" stroke-linecap="round" />
+		<g class="vyk-lopata">
+			<line x1="70" y1="182" x2="92" y2="200" stroke="#1971c2" stroke-width="5" stroke-linecap="round" />
+			<line x1="80" y1="186" x2="116" y2="238" stroke="#8d6e4a" stroke-width="4" stroke-linecap="round" />
+			<path d="M108,236 L126,240 L122,258 L106,254 z" fill="#868e96" stroke="#495057" stroke-width="2" />
+		</g>
+		<text class="vyk-ok-d" x="140" y="276" text-anchor="middle" font-size="22" font-weight="bold" fill="#ffffff">✓</text>
+
+		<!-- BAGR: jeden záběr, jáma hotová najednou; lžíce stejně široká jako jáma -->
+		<path class="vyk-jama-b" d="M360,250 L410,250 L405,285 L365,285 z" fill="#3d2b1f" />
+		<path d="M360,250 L410,250 L405,285 L365,285 z" fill="none" stroke="#f8f9fa" stroke-width="2" stroke-dasharray="5,4" />
+		<rect x="240" y="230" width="84" height="20" rx="10" fill="#495057" />
+		<circle cx="252" cy="240" r="5" fill="#adb5bd" />
+		<circle cx="312" cy="240" r="5" fill="#adb5bd" />
+		<rect x="244" y="196" width="80" height="34" rx="4" fill="#f59f00" stroke="#495057" stroke-width="2" />
+		<rect x="248" y="164" width="36" height="34" rx="4" fill="#f59f00" stroke="#495057" stroke-width="2" />
+		<rect x="254" y="170" width="24" height="18" rx="2" fill="#d0ebff" stroke="#495057" stroke-width="1.5" />
+		<g class="vyk-rameno">
+			<line x1="300" y1="215" x2="350" y2="160" stroke="#e67700" stroke-width="9" stroke-linecap="round" />
+			<line x1="350" y1="160" x2="385" y2="246" stroke="#e67700" stroke-width="7" stroke-linecap="round" />
+			<path d="M362,246 L408,246 L402,282 L368,282 z" fill="#868e96" stroke="#495057" stroke-width="2" />
+			<path class="vyk-zemina-b" d="M362,246 Q385,218 408,246 z" fill="#9c6b45" stroke="#495057" stroke-width="1.5" />
+		</g>
+		<text class="vyk-ok-b" x="385" y="276" text-anchor="middle" font-size="22" font-weight="bold" fill="#ffffff">✓</text>
+
+		<text x="120" y="324" text-anchor="middle" font-size="20" fill="#2b2a26">dělník: lopatou</text>
+		<text x="120" y="350" text-anchor="middle" font-size="20" font-weight="bold" fill="#c92a2a">4 h = 14 400 s</text>
+		<text x="340" y="324" text-anchor="middle" font-size="20" fill="#2b2a26">bagr: 1 záběr</text>
+		<text x="340" y="350" text-anchor="middle" font-size="20" font-weight="bold" fill="#1e7a34">1 min = 60 s</text>
+
+		<text x="26" y="392" font-size="20" fill="#2b2a26">Vykopat jámu: W = <tspan font-weight="bold">1 440 000 J</tspan> (oba)</text>
+		<text x="26" y="424" font-size="20" fill="#2b2a26">dělník: P = 1 440 000 : 14 400 = <tspan font-weight="bold" fill="#c92a2a">100 W</tspan></text>
+		<text x="26" y="454" font-size="20" fill="#2b2a26">bagr: P = 1 440 000 : 60</text>
+		<text x="80" y="480" font-size="20" fill="#2b2a26">= <tspan font-weight="bold" fill="#1e7a34">24 000 W = 24 kW</tspan></text>
+		<text x="26" y="512" font-size="21" font-weight="bold" fill="#1e7a34">kratší čas → větší výkon</text>
+	</g>
+</svg>
