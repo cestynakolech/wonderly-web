@@ -1,0 +1,156 @@
+<svg viewBox="0 0 460 706" width="460" height="706" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Vnímání barev v pohybu 2/3, Kniha odráží jen své barvy: ve tmě svítí svítilna na barevnou knihu a odražené světlo letí do oka. Bílé světlo na purpurovou knihu: kniha odrazí červenou a modrou, oko vidí purpurovou. Červené světlo na purpurovou knihu: kniha odrazí červenou, oko vidí červenou. Modré světlo na azurovou knihu: kniha odrazí modrou, oko vidí modrou. Kniha odráží jen barvy, ze kterých se skládá její barva. Ostatní pohltí." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Vnímání barev v pohybu 2/3: Kniha odráží jen své barvy</title>
+	<!-- W94 (15. 10. 2026). Předloha: PDF 29 Vnímání barev, s. 8 (oko vnímá barvu tělesa složením odražených barevných paprsků)
+	     a s. 9, 2. řada pokusů: purpurová kniha v bílém světle odrazí červenou a modrou („Oko vidí složenou růžovou barvu“),
+	     purpurová kniha v červeném světle odrazí červenou, azurová kniha v modrém světle odrazí modrou. Výklad temata.ts:
+	     § RGB „červená + modrá = purpurová“, § Barva těles „Oko vnímá barvu tělesa podle toho, které barvy těleso odráží“.
+	     Pojem purpurová (sytě růžová) a azurová podle výkladu. Žádný z těchto pokusů není v obr-03.
+	     Barvy světla = barvy spektra W90 (bílá #ffffff, červená #f03e3e, modrá #339af0) a jen pro světlo; knihy jinými odstíny
+	     s obrysem #adb5bd; pod paprsky tmavý lem #1b1e22 (kontrast hrotu na knize ≥ 3). Geometrie a časování stejné jako panel 1 (L = (110; 198),
+	     B = (230; 330), odraz pod −47,73°, 160 px; 9 s = 3 pokusy po 3 s, paprsek 0,8 s, odraz 0,8 s). Dva odražené
+	     paprsky (červený a modrý) jsou rovnoběžné, posunuté o ±3,5 px kolmo ke směru.
+	     OPRAVA 1 (W94-kontrola-1, nálezy 1, 2, 4): kniha se kreslí barvou, kterou OKO VIDÍ: purpurová v bílém světle purpurová
+	     (#e64980/#c2255c, stránky #ffffff), purpurová v červeném světle červená (#e03131/#a61e1e, stránky #ff8787), azurová
+	     v modrém světle modrá (#228be6/#1864ab, stránky #74c0fc — bílé stránky odrazí také jen modrou). Denní barva knihy jen
+	     v popisku pod knihou; přepnutí barvy současně se světlem (třídy f0–f2). Popisek u oka „oko vidí: …“ ve všech stavech,
+	     seznam jednotně „→ oko vidí …“. Nadpis a pravidlo zpřesněny: kniha odráží jen barvy, ze kterých se skládá její barva.
+	     Bez pohybu: scéna 1. pokusu hotová, seznam všech tří výsledků čitelný celý. -->
+	<style>
+		.f0 { animation: f0 9s step-end infinite; } @keyframes f0 { 0% { opacity: 1; } 33.333% { opacity: 0; } 100% { opacity: 0; } }
+		.f1 { animation: f1 9s step-end infinite; } @keyframes f1 { 0% { opacity: 0; } 33.333% { opacity: 1; } 66.667% { opacity: 0; } 100% { opacity: 0; } }
+		.f2 { animation: f2 9s step-end infinite; } @keyframes f2 { 0% { opacity: 0; } 66.667% { opacity: 1; } 100% { opacity: 1; } }
+		.i0 { animation: i0 9s linear infinite; } @keyframes i0 { 0% { transform: scaleX(0); } 8.889% { transform: scaleX(1); } 100% { transform: scaleX(1); } }
+		.r0 { animation: r0 9s linear infinite; } @keyframes r0 { 0% { transform: scaleX(0); } 8.889% { transform: scaleX(0); } 17.778% { transform: scaleX(1); } 100% { transform: scaleX(1); } }
+		.i1 { animation: i1 9s linear infinite; } @keyframes i1 { 0% { transform: scaleX(0); } 33.333% { transform: scaleX(0); } 42.222% { transform: scaleX(1); } 100% { transform: scaleX(1); } }
+		.r1 { animation: r1 9s linear infinite; } @keyframes r1 { 0% { transform: scaleX(0); } 42.222% { transform: scaleX(0); } 51.111% { transform: scaleX(1); } 100% { transform: scaleX(1); } }
+		.i2 { animation: i2 9s linear infinite; } @keyframes i2 { 0% { transform: scaleX(0); } 66.667% { transform: scaleX(0); } 75.556% { transform: scaleX(1); } 100% { transform: scaleX(1); } }
+		.r2 { animation: r2 9s linear infinite; } @keyframes r2 { 0% { transform: scaleX(0); } 75.556% { transform: scaleX(0); } 84.444% { transform: scaleX(1); } 100% { transform: scaleX(1); } }
+		.ai0 { animation: ai0 9s step-end infinite; } @keyframes ai0 { 0% { opacity: 0; } 8.889% { opacity: 1; } 100% { opacity: 1; } }
+		.ar0 { animation: ar0 9s step-end infinite; } @keyframes ar0 { 0% { opacity: 0; } 17.778% { opacity: 1; } 100% { opacity: 1; } }
+		.ai1 { animation: ai1 9s step-end infinite; } @keyframes ai1 { 0% { opacity: 0; } 42.222% { opacity: 1; } 100% { opacity: 1; } }
+		.ar1 { animation: ar1 9s step-end infinite; } @keyframes ar1 { 0% { opacity: 0; } 51.111% { opacity: 1; } 100% { opacity: 1; } }
+		.ai2 { animation: ai2 9s step-end infinite; } @keyframes ai2 { 0% { opacity: 0; } 75.556% { opacity: 1; } 100% { opacity: 1; } }
+		.ar2 { animation: ar2 9s step-end infinite; } @keyframes ar2 { 0% { opacity: 0; } 84.444% { opacity: 1; } 100% { opacity: 1; } }
+		@media (prefers-reduced-motion: reduce) {
+			.f0, .f1, .f2, .i0, .r0, .i1, .r1, .i2, .r2, .ai0, .ar0, .ai1, .ar1, .ai2, .ar2 { animation: none; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="706" fill="#f8f9fa" />
+	<g id="panel-2">
+		<rect x="26" y="22" width="420" height="674" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="674" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">2</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Kniha odráží jen své barvy</text>
+		<text x="40" y="96" font-size="20" fill="#2b2a26">Barevná kniha odrazí jen některé</text>
+		<text x="40" y="120" font-size="20" fill="#2b2a26">barvy světla.</text>
+
+		<!-- zatemněná místnost -->
+		<rect x="32" y="140" width="396" height="260" rx="8" fill="#1b1e22" />
+
+		<!-- knihy (barva tělesa) -->
+		<g class="f0">
+			<polygon points="140,344 295,344 295,359 140,359" fill="#c2255c" stroke="#adb5bd" stroke-width="2" />
+			<polygon points="295,344 320,312 320,327 295,359" fill="#ffffff" stroke="#adb5bd" stroke-width="2" />
+			<polygon points="165,312 320,312 295,344 140,344" fill="#e64980" stroke="#adb5bd" stroke-width="2" />
+			<text x="230" y="388" text-anchor="middle" font-size="20" font-weight="bold" fill="#f8f9fa">purpurová kniha</text>
+		</g>
+		<g class="f1" opacity="0">
+			<polygon points="140,344 295,344 295,359 140,359" fill="#a61e1e" stroke="#adb5bd" stroke-width="2" />
+			<polygon points="295,344 320,312 320,327 295,359" fill="#ff8787" stroke="#adb5bd" stroke-width="2" />
+			<polygon points="165,312 320,312 295,344 140,344" fill="#e03131" stroke="#adb5bd" stroke-width="2" />
+			<text x="230" y="388" text-anchor="middle" font-size="20" font-weight="bold" fill="#f8f9fa">purpurová kniha</text>
+		</g>
+		<g class="f2" opacity="0">
+			<polygon points="140,344 295,344 295,359 140,359" fill="#1864ab" stroke="#adb5bd" stroke-width="2" />
+			<polygon points="295,344 320,312 320,327 295,359" fill="#74c0fc" stroke="#adb5bd" stroke-width="2" />
+			<polygon points="165,312 320,312 295,344 140,344" fill="#228be6" stroke="#adb5bd" stroke-width="2" />
+			<text x="230" y="388" text-anchor="middle" font-size="20" font-weight="bold" fill="#f8f9fa">azurová kniha</text>
+		</g>
+		<g stroke="#adb5bd" stroke-width="1.5">
+			<path d="M301 340V349M307 332V341M313 324V333" />
+		</g>
+
+		<!-- svítilna -->
+		<g transform="translate(110,198) rotate(47.73)">
+			<rect x="-60" y="-8" width="44" height="16" rx="3" fill="#868e96" stroke="#dee2e6" stroke-width="2" />
+			<path d="M-16 -8L-2 -13V13L-16 8Z" fill="#495057" stroke="#dee2e6" stroke-width="2" stroke-linejoin="round" />
+		</g>
+
+		<!-- hlava s okem (překresleno z obr-03) -->
+		<g>
+			<circle cx="362" cy="196" r="25" fill="#ffd8a8" />
+			<path d="M340,186 Q352,162 376,170 Q392,180 386,206 Q376,190 366,188 Q354,182 340,186 Z" fill="#868e96" />
+			<ellipse cx="350" cy="198" rx="4.5" ry="3.5" fill="#212529" />
+			<path d="M337,202 L331,208 L338,210" fill="#ffd8a8" stroke="#ffd8a8" stroke-width="2" stroke-linejoin="round" />
+		</g>
+		<!-- co oko vidí (jednotný popisek ve všech stavech) -->
+	<text x="366" y="250" text-anchor="middle" font-size="20" font-weight="bold" fill="#f8f9fa">oko vidí:</text>
+	<text class="f0" x="366" y="274" text-anchor="middle" font-size="20" font-weight="bold" fill="#f8f9fa">purpurovou</text>
+	<text class="f1" opacity="0" x="366" y="274" text-anchor="middle" font-size="20" font-weight="bold" fill="#f8f9fa">červenou</text>
+	<text class="f2" opacity="0" x="366" y="274" text-anchor="middle" font-size="20" font-weight="bold" fill="#f8f9fa">modrou</text>
+
+		<!-- pokus 1: bílé světlo, purpurová kniha → odrazí červenou a modrou -->
+		<g class="f0">
+			<text x="150" y="168" font-size="20" font-weight="bold" fill="#f8f9fa">bílé světlo</text>
+			<g transform="translate(110,198) rotate(47.73)">
+				<rect x="-2" y="-13" width="4" height="26" fill="#ffffff" />
+				<g class="i0"><path d="M0 0H178.4" stroke="#1b1e22" stroke-width="8" /><path d="M0 0H178.4" stroke="#ffffff" stroke-width="4" /></g>
+				<path class="ai0" d="M178.4 0l-16 -8v16z" stroke="#1b1e22" stroke-width="2" stroke-linejoin="round" fill="#ffffff" />
+			</g>
+			<g transform="translate(230,330) rotate(-47.73)">
+				<g class="r0"><path d="M0 0H160" stroke="#1b1e22" stroke-width="14" /></g>
+			</g>
+			<g transform="translate(227.4,327.6) rotate(-47.73)">
+				<g class="r0"><path d="M0 0H160" stroke="#f03e3e" stroke-width="3.5" /></g>
+				<path class="ar0" d="M160 0l-13 -6.5v13z" fill="#f03e3e" />
+			</g>
+			<g transform="translate(232.6,332.4) rotate(-47.73)">
+				<g class="r0"><path d="M0 0H160" stroke="#339af0" stroke-width="3.5" /></g>
+				<path class="ar0" d="M160 0l-13 -6.5v13z" fill="#339af0" />
+			</g>
+		</g>
+		<!-- pokus 2: červené světlo, purpurová kniha → odrazí červenou -->
+		<g class="f1" opacity="0">
+			<text x="150" y="168" font-size="20" font-weight="bold" fill="#f8f9fa">červené světlo</text>
+			<g transform="translate(110,198) rotate(47.73)">
+				<rect x="-2" y="-13" width="4" height="26" fill="#f03e3e" />
+				<g class="i1"><path d="M0 0H178.4" stroke="#1b1e22" stroke-width="8" /><path d="M0 0H178.4" stroke="#f03e3e" stroke-width="4" /></g>
+				<path class="ai1" d="M178.4 0l-16 -8v16z" stroke="#1b1e22" stroke-width="2" stroke-linejoin="round" fill="#f03e3e" />
+			</g>
+			<g transform="translate(230,330) rotate(-47.73)">
+				<g class="r1"><path d="M0 0H160" stroke="#1b1e22" stroke-width="8" /><path d="M0 0H160" stroke="#f03e3e" stroke-width="4" /></g>
+				<path class="ar1" d="M160 0l-16 -8v16z" fill="#f03e3e" />
+			</g>
+		</g>
+		<!-- pokus 3: modré světlo, azurová kniha → odrazí modrou -->
+		<g class="f2" opacity="0">
+			<text x="150" y="168" font-size="20" font-weight="bold" fill="#f8f9fa">modré světlo</text>
+			<g transform="translate(110,198) rotate(47.73)">
+				<rect x="-2" y="-13" width="4" height="26" fill="#339af0" />
+				<g class="i2"><path d="M0 0H178.4" stroke="#1b1e22" stroke-width="8" /><path d="M0 0H178.4" stroke="#339af0" stroke-width="4" /></g>
+				<path class="ai2" d="M178.4 0l-16 -8v16z" stroke="#1b1e22" stroke-width="2" stroke-linejoin="round" fill="#339af0" />
+			</g>
+			<g transform="translate(230,330) rotate(-47.73)">
+				<g class="r2"><path d="M0 0H160" stroke="#1b1e22" stroke-width="8" /><path d="M0 0H160" stroke="#339af0" stroke-width="4" /></g>
+				<path class="ar2" d="M160 0l-16 -8v16z" fill="#339af0" />
+			</g>
+		</g>
+
+		<!-- seznam pokusů; zvýrazněný = právě běží -->
+		<rect class="f0" x="32" y="426" width="396" height="56" rx="8" fill="#fff3bf" stroke="#2b2a26" stroke-width="2" />
+		<rect class="f1" opacity="0" x="32" y="488" width="396" height="56" rx="8" fill="#fff3bf" stroke="#2b2a26" stroke-width="2" />
+		<rect class="f2" opacity="0" x="32" y="550" width="396" height="56" rx="8" fill="#fff3bf" stroke="#2b2a26" stroke-width="2" />
+		<g font-size="20" fill="#2b2a26">
+			<text x="44" y="448" font-weight="bold">bílé světlo, purpurová kniha</text>
+			<text x="44" y="472">červenou a modrou → oko vidí purpurovou</text>
+			<text x="44" y="510" font-weight="bold">červené světlo, purpurová kniha</text>
+			<text x="44" y="534">odrazí červenou → oko vidí červenou</text>
+			<text x="44" y="572" font-weight="bold">modré světlo, azurová kniha</text>
+			<text x="44" y="596">odrazí modrou → oko vidí modrou</text>
+		</g>
+
+		<text x="40" y="640" font-size="22" font-weight="bold" fill="#2b2a26">Kniha odráží jen barvy, ze kterých</text>
+		<text x="40" y="666" font-size="22" font-weight="bold" fill="#2b2a26">se skládá její barva. Ostatní pohltí.</text>
+	</g>
+</svg>

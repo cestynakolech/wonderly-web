@@ -1,0 +1,147 @@
+<svg viewBox="0 0 460 706" width="460" height="706" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Vnímání barev v pohybu 1/3, Bílá a černá kniha: ve tmě svítí svítilna na knihu a odražené světlo letí do oka. Bílé světlo na bílou knihu: kniha odrazí všechno, oko vidí bílou. Červené světlo na bílou knihu: kniha odrazí červenou, oko vidí červenou. Bílé světlo na černou knihu: kniha všechno pohltí, do oka nedoletí žádné světlo, oko vidí černou. Bílé těleso odráží všechno, černé všechno pohltí." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Vnímání barev v pohybu 1/3: Bílá a černá kniha</title>
+	<!-- W94 (15. 10. 2026). Předloha: PDF 29 Vnímání barev, skládání barevných světel, míchání barviv, s. 8 (bílé těleso odráží
+	     všechny barvy dopadajícího světla, černé všechno pohltí, do oka nepřichází žádný paprsek; barva tělesa závisí i na barvě
+	     dopadajícího světla) a s. 9 (pokusy svítilna – kniha – hlava: 1. řada bílá kniha v bílém a v červeném světle, černá kniha
+	     v bílém světle). Výklad temata.ts § Barva těles: „Bílé těleso odráží všechny barvy, černé je úplně pohltí.“
+	     Odlišení od obr-03 (4 pokusy vedle sebe, bílé světlo tam = tři paprsky R G B): zde děj v čase na jedné scéně a nový pokus
+	     bílá kniha v ČERVENÉM světle; bílé světlo = jeden bílý paprsek jako v PDF s. 9 a W90.
+	     Barvy světla = barvy spektra W90 (bílá #ffffff, červená #f03e3e) a jen pro světlo (paprsek + sklíčko svítilny);
+	     knihy s obrysem #adb5bd; zatemněná místnost #1b1e22 jako W90.
+	     OPRAVA 1 (W94-kontrola-1, nález 1): kniha se v každém pokusu kreslí barvou, kterou OKO VIDÍ v daném světle (jako obr-03):
+	     bílá kniha v bílém světle bílá (#f8f9fa/#dee2e6, stránky #ffffff), bílá kniha v červeném světle červená (#e03131/#a61e1e,
+	     stránky #ff8787 — bílé stránky odrazí také jen červenou), černá kniha v bílém světle černá (#000000). Denní barva knihy
+	     zůstává jen v popisku pod knihou. Barva knihy se přepíná současně se světlem (tytéž třídy f0–f2). Popisek u oka
+	     „oko vidí: …“ ve všech třech stavech.
+	     Hlava (oko) překreslená z obr-03. Geometrie: sklíčko L = (110; 198), dopad B = (230; 330) na horní desce knihy,
+	     oko E = (350; 198) symetricky (úhel dopadu = úhel odrazu), dopadající paprsek 178,4 px pod 47,73°, odražený pod −47,73°
+	     kreslen 160 px (obličej r 25 kolem (362; 196) začíná po 164,1 px).
+	     Časování 9 s = 3 pokusy po 3 s: 0–0,8 s dopadající paprsek, 0,8–1,6 s odražený do oka, pak stojí do konce pokusu;
+	     zvýrazněný řádek v seznamu = právě běžící pokus. Pohyb začíná v 0 s.
+	     Bez pohybu (prefers-reduced-motion): scéna 1. pokusu hotová, seznam všech tří výsledků čitelný celý. -->
+	<style>
+		.f0 { animation: f0 9s step-end infinite; } @keyframes f0 { 0% { opacity: 1; } 33.333% { opacity: 0; } 100% { opacity: 0; } }
+		.f1 { animation: f1 9s step-end infinite; } @keyframes f1 { 0% { opacity: 0; } 33.333% { opacity: 1; } 66.667% { opacity: 0; } 100% { opacity: 0; } }
+		.f2 { animation: f2 9s step-end infinite; } @keyframes f2 { 0% { opacity: 0; } 66.667% { opacity: 1; } 100% { opacity: 1; } }
+		.i0 { animation: i0 9s linear infinite; } @keyframes i0 { 0% { transform: scaleX(0); } 8.889% { transform: scaleX(1); } 100% { transform: scaleX(1); } }
+		.r0 { animation: r0 9s linear infinite; } @keyframes r0 { 0% { transform: scaleX(0); } 8.889% { transform: scaleX(0); } 17.778% { transform: scaleX(1); } 100% { transform: scaleX(1); } }
+		.i1 { animation: i1 9s linear infinite; } @keyframes i1 { 0% { transform: scaleX(0); } 33.333% { transform: scaleX(0); } 42.222% { transform: scaleX(1); } 100% { transform: scaleX(1); } }
+		.r1 { animation: r1 9s linear infinite; } @keyframes r1 { 0% { transform: scaleX(0); } 42.222% { transform: scaleX(0); } 51.111% { transform: scaleX(1); } 100% { transform: scaleX(1); } }
+		.i2 { animation: i2 9s linear infinite; } @keyframes i2 { 0% { transform: scaleX(0); } 66.667% { transform: scaleX(0); } 75.556% { transform: scaleX(1); } 100% { transform: scaleX(1); } }
+		.ai0 { animation: ai0 9s step-end infinite; } @keyframes ai0 { 0% { opacity: 0; } 8.889% { opacity: 1; } 100% { opacity: 1; } }
+		.ar0 { animation: ar0 9s step-end infinite; } @keyframes ar0 { 0% { opacity: 0; } 17.778% { opacity: 1; } 100% { opacity: 1; } }
+		.ai1 { animation: ai1 9s step-end infinite; } @keyframes ai1 { 0% { opacity: 0; } 42.222% { opacity: 1; } 100% { opacity: 1; } }
+		.ar1 { animation: ar1 9s step-end infinite; } @keyframes ar1 { 0% { opacity: 0; } 51.111% { opacity: 1; } 100% { opacity: 1; } }
+		.ai2 { animation: ai2 9s step-end infinite; } @keyframes ai2 { 0% { opacity: 0; } 75.556% { opacity: 1; } 100% { opacity: 1; } }
+		@media (prefers-reduced-motion: reduce) {
+			.f0, .f1, .f2, .i0, .r0, .i1, .r1, .i2, .ai0, .ar0, .ai1, .ar1, .ai2 { animation: none; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="706" fill="#f8f9fa" />
+	<g id="panel-1">
+		<rect x="26" y="22" width="420" height="674" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="674" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Bílá a černá kniha</text>
+		<text x="40" y="96" font-size="20" fill="#2b2a26">Svítilna svítí na knihu. Do oka</text>
+		<text x="40" y="120" font-size="20" fill="#2b2a26">doletí jen světlo, které se odrazí.</text>
+
+		<!-- zatemněná místnost -->
+		<rect x="32" y="140" width="396" height="260" rx="8" fill="#1b1e22" />
+
+		<!-- knihy (barva tělesa) -->
+		<g class="f0">
+			<polygon points="140,344 295,344 295,359 140,359" fill="#dee2e6" stroke="#adb5bd" stroke-width="2" />
+			<polygon points="295,344 320,312 320,327 295,359" fill="#ffffff" stroke="#adb5bd" stroke-width="2" />
+			<polygon points="165,312 320,312 295,344 140,344" fill="#f8f9fa" stroke="#adb5bd" stroke-width="2" />
+			<text x="230" y="388" text-anchor="middle" font-size="20" font-weight="bold" fill="#f8f9fa">bílá kniha</text>
+		</g>
+		<g class="f1" opacity="0">
+			<polygon points="140,344 295,344 295,359 140,359" fill="#a61e1e" stroke="#adb5bd" stroke-width="2" />
+			<polygon points="295,344 320,312 320,327 295,359" fill="#ff8787" stroke="#adb5bd" stroke-width="2" />
+			<polygon points="165,312 320,312 295,344 140,344" fill="#e03131" stroke="#adb5bd" stroke-width="2" />
+			<text x="230" y="388" text-anchor="middle" font-size="20" font-weight="bold" fill="#f8f9fa">bílá kniha</text>
+		</g>
+		<g class="f2" opacity="0">
+			<polygon points="140,344 295,344 295,359 140,359" fill="#000000" stroke="#adb5bd" stroke-width="2" />
+			<polygon points="295,344 320,312 320,327 295,359" fill="#ffffff" stroke="#adb5bd" stroke-width="2" />
+			<polygon points="165,312 320,312 295,344 140,344" fill="#000000" stroke="#adb5bd" stroke-width="2" />
+			<text x="230" y="388" text-anchor="middle" font-size="20" font-weight="bold" fill="#f8f9fa">černá kniha</text>
+		</g>
+		<g stroke="#adb5bd" stroke-width="1.5">
+			<path d="M301 340V349M307 332V341M313 324V333" />
+		</g>
+
+		<!-- svítilna -->
+		<g transform="translate(110,198) rotate(47.73)">
+			<rect x="-60" y="-8" width="44" height="16" rx="3" fill="#868e96" stroke="#dee2e6" stroke-width="2" />
+			<path d="M-16 -8L-2 -13V13L-16 8Z" fill="#495057" stroke="#dee2e6" stroke-width="2" stroke-linejoin="round" />
+		</g>
+
+		<!-- hlava s okem (překresleno z obr-03) -->
+		<g>
+			<circle cx="362" cy="196" r="25" fill="#ffd8a8" />
+			<path d="M340,186 Q352,162 376,170 Q392,180 386,206 Q376,190 366,188 Q354,182 340,186 Z" fill="#868e96" />
+			<ellipse cx="350" cy="198" rx="4.5" ry="3.5" fill="#212529" />
+			<path d="M337,202 L331,208 L338,210" fill="#ffd8a8" stroke="#ffd8a8" stroke-width="2" stroke-linejoin="round" />
+		</g>
+		<!-- co oko vidí (jednotný popisek ve všech stavech) -->
+	<text x="366" y="250" text-anchor="middle" font-size="20" font-weight="bold" fill="#f8f9fa">oko vidí:</text>
+	<text class="f0" x="366" y="274" text-anchor="middle" font-size="20" font-weight="bold" fill="#f8f9fa">bílou</text>
+	<text class="f1" opacity="0" x="366" y="274" text-anchor="middle" font-size="20" font-weight="bold" fill="#f8f9fa">červenou</text>
+	<text class="f2" opacity="0" x="366" y="274" text-anchor="middle" font-size="20" font-weight="bold" fill="#f8f9fa">černou</text>
+
+		<!-- pokus 1: bílé světlo, bílá kniha → odrazí vše -->
+		<g class="f0">
+			<text x="150" y="168" font-size="20" font-weight="bold" fill="#f8f9fa">bílé světlo</text>
+			<g transform="translate(110,198) rotate(47.73)">
+				<rect x="-2" y="-13" width="4" height="26" fill="#ffffff" />
+				<g class="i0"><path d="M0 0H178.4" stroke="#1b1e22" stroke-width="8" /><path d="M0 0H178.4" stroke="#ffffff" stroke-width="4" /></g>
+				<path class="ai0" d="M178.4 0l-16 -8v16z" stroke="#1b1e22" stroke-width="2" stroke-linejoin="round" fill="#ffffff" />
+			</g>
+			<g transform="translate(230,330) rotate(-47.73)">
+				<g class="r0"><path d="M0 0H160" stroke="#1b1e22" stroke-width="8" /><path d="M0 0H160" stroke="#ffffff" stroke-width="4" /></g>
+				<path class="ar0" d="M160 0l-16 -8v16z" fill="#ffffff" />
+			</g>
+		</g>
+		<!-- pokus 2: červené světlo, bílá kniha → odrazí červenou -->
+		<g class="f1" opacity="0">
+			<text x="150" y="168" font-size="20" font-weight="bold" fill="#f8f9fa">červené světlo</text>
+			<g transform="translate(110,198) rotate(47.73)">
+				<rect x="-2" y="-13" width="4" height="26" fill="#f03e3e" />
+				<g class="i1"><path d="M0 0H178.4" stroke="#1b1e22" stroke-width="8" /><path d="M0 0H178.4" stroke="#f03e3e" stroke-width="4" /></g>
+				<path class="ai1" d="M178.4 0l-16 -8v16z" stroke="#1b1e22" stroke-width="2" stroke-linejoin="round" fill="#f03e3e" />
+			</g>
+			<g transform="translate(230,330) rotate(-47.73)">
+				<g class="r1"><path d="M0 0H160" stroke="#1b1e22" stroke-width="8" /><path d="M0 0H160" stroke="#f03e3e" stroke-width="4" /></g>
+				<path class="ar1" d="M160 0l-16 -8v16z" fill="#f03e3e" />
+			</g>
+		</g>
+		<!-- pokus 3: bílé světlo, černá kniha → pohltí vše, do oka nic -->
+		<g class="f2" opacity="0">
+			<text x="150" y="168" font-size="20" font-weight="bold" fill="#f8f9fa">bílé světlo</text>
+			<g transform="translate(110,198) rotate(47.73)">
+				<rect x="-2" y="-13" width="4" height="26" fill="#ffffff" />
+				<g class="i2"><path d="M0 0H178.4" stroke="#1b1e22" stroke-width="8" /><path d="M0 0H178.4" stroke="#ffffff" stroke-width="4" /></g>
+				<path class="ai2" d="M178.4 0l-16 -8v16z" stroke="#1b1e22" stroke-width="2" stroke-linejoin="round" fill="#ffffff" />
+			</g>
+		</g>
+
+		<!-- seznam pokusů; zvýrazněný = právě běží -->
+		<rect class="f0" x="32" y="426" width="396" height="56" rx="8" fill="#fff3bf" stroke="#2b2a26" stroke-width="2" />
+		<rect class="f1" opacity="0" x="32" y="488" width="396" height="56" rx="8" fill="#fff3bf" stroke="#2b2a26" stroke-width="2" />
+		<rect class="f2" opacity="0" x="32" y="550" width="396" height="56" rx="8" fill="#fff3bf" stroke="#2b2a26" stroke-width="2" />
+		<g font-size="20" fill="#2b2a26">
+			<text x="44" y="448" font-weight="bold">bílé světlo, bílá kniha</text>
+			<text x="44" y="472">odrazí vše → oko vidí bílou</text>
+			<text x="44" y="510" font-weight="bold">červené světlo, bílá kniha</text>
+			<text x="44" y="534">odrazí červenou → oko vidí červenou</text>
+			<text x="44" y="572" font-weight="bold">bílé světlo, černá kniha</text>
+			<text x="44" y="596">pohltí vše → oko vidí černou</text>
+		</g>
+
+		<text x="40" y="640" font-size="22" font-weight="bold" fill="#2b2a26">Bílé těleso odráží všechno,</text>
+		<text x="40" y="666" font-size="22" font-weight="bold" fill="#2b2a26">černé všechno pohltí.</text>
+	</g>
+</svg>
