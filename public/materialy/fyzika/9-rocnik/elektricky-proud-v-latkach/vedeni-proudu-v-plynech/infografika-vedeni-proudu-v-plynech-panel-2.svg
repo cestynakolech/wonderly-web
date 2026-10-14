@@ -1,0 +1,24 @@
+<svg viewBox="0 830 460 580" width="460" height="580" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ionizace plynu: v horkém vzduchu se molekuly rychle pohybují a srážejí se. Při srážce se z jedné molekuly uvolní elektron a molekula se stane kladným iontem. Elektron se přidá k jiné molekule a vznikne záporný iont. Plyn ionizuje i kosmické záření, ve výšce 50 km vzduch dobře vede" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Vedení proudu v plynech 2/6: Ionizace plynu</title>
+	<style>
+		.sc { animation: sc 8s linear infinite; }
+		.ma { animation: ma 8s linear infinite; }
+		.mb { animation: mb 8s linear infinite; }
+		.ee { animation: ee 8s linear infinite; }
+		.fa { animation: fa 8s linear infinite; }
+		.za { animation: zn-a 8s linear infinite; }
+		.fc { animation: fc 8s linear infinite; }
+		.zc { animation: zn-c 8s linear infinite; }
+		@keyframes sc { 0% { opacity: 0; } 5% { opacity: 1; } 92% { opacity: 1; } 100% { opacity: 0; } }
+		@keyframes ma { 0% { transform: translate(-40px, 0); } 30% { transform: translate(78px, 0); } 55%, 100% { transform: translate(0, 0); } }
+		@keyframes mb { 0% { transform: translate(40px, 0); } 30% { transform: translate(-78px, 0); } 55%, 100% { transform: translate(0, 0); } }
+		@keyframes ee { 0% { transform: translate(-123px, -60px); } 30% { transform: translate(-5px, -60px); } 50%, 100% { transform: translate(0, 0); } }
+		@keyframes fa { 0%, 30% { fill: #adb5bd; } 36%, 100% { fill: #e03131; } }
+		@keyframes zn-a { 0%, 30% { opacity: 0; } 36%, 100% { opacity: 1; } }
+		@keyframes fc { 0%, 50% { fill: #adb5bd; } 56%, 100% { fill: #7048e8; } }
+		@keyframes zn-c { 0%, 50% { opacity: 0; } 56%, 100% { opacity: 1; } }
+		@media (prefers-reduced-motion: reduce) { .sc, .ma, .mb, .ee, .fa, .za, .fc, .zc { animation: none; } }
+	</style>
+	<rect x="0" y="830" width="460" height="580" fill="#f8f9fa"/>
+	<g id="panel-2"><rect x="26" y="846" width="420" height="560" rx="12" fill="#dee2e6"/><rect x="20" y="840" width="420" height="560" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/><circle cx="52" cy="874" r="17" fill="#2b2a26"/><text x="52" y="882" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">2</text><text x="80" y="883" font-size="25" font-weight="bold" fill="#2b2a26">Ionizace plynu</text><text x="34" y="922" font-size="21" fill="#2b2a26">V horkém vzduchu se molekuly</text><text x="34" y="950" font-size="21" fill="#2b2a26">rychle pohybují a srážejí se.</text><rect x="34" y="968" width="392" height="230" rx="8" fill="#ffffff" stroke="#ced4da" stroke-width="2"/><g class="sc"><g class="mc"><circle class="fc" cx="230" cy="1148" r="22" fill="#7048e8" stroke="#343a40" stroke-width="2"/><text class="zc" x="230" y="1156" font-size="25" font-weight="bold" fill="#fff" text-anchor="middle">−</text></g><g class="ma"><circle class="fa" cx="130" cy="1038" r="22" fill="#e03131" stroke="#343a40" stroke-width="2"/><text class="za" x="130" y="1046" font-size="25" font-weight="bold" fill="#fff" text-anchor="middle">+</text></g><g class="mb"><circle class="" cx="330" cy="1038" r="22" fill="#adb5bd" stroke="#343a40" stroke-width="2"/></g><g class="ee"><circle cx="213" cy="1126" r="10" fill="#1971c2"/><text x="213" y="1132" font-size="18" font-weight="bold" text-anchor="middle" fill="#fff">−</text></g></g><circle cx="52" cy="1227" r="12" fill="#adb5bd" stroke="#343a40" stroke-width="2"/><text x="72" y="1234" font-size="21" fill="#2b2a26">molekula</text><circle cx="250" cy="1227" r="10" fill="#1971c2"/><text x="250" y="1233" font-size="18" font-weight="bold" text-anchor="middle" fill="#fff">−</text><text x="268" y="1234" font-size="21" fill="#2b2a26">elektron</text><circle cx="52" cy="1263" r="14" fill="#e03131"/><text x="52" y="1270.5" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">+</text><text x="72" y="1270" font-size="21" fill="#2b2a26">kladný iont</text><circle cx="250" cy="1263" r="14" fill="#7048e8"/><text x="250" y="1270.5" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">−</text><text x="268" y="1270" font-size="21" fill="#2b2a26">záporný iont</text><text x="34" y="1314" font-size="21" fill="#2b2a26">Srážka uvolní elektron = <tspan font-weight="bold">ionizace</tspan>.</text><text x="34" y="1342" font-size="21" fill="#2b2a26">Plyn ionizuje i kosmické záření.</text><text x="34" y="1370" font-size="21" fill="#2b2a26">Ve výšce 50&#160;km vzduch dobře vede.</text></g>
+</svg>
