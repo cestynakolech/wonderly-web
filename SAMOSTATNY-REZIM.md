@@ -1,5 +1,7 @@
 ## ⚡ ČÍM ZAČÍT — aktualizováno 6. 10. 2026
 
+- **NOVÁ SESSION (14. 10. 2026): `~/Desktop/Omega/predavka/2026-10-14/PRIKAZ-NOVA-SESSION.md`** — jak se pracuje (vlny), zásady obsahu, hotové (NEPŘEDĚLÁVAT), rozpracované (dávka 10, W39, W40, W42–W44, elektromotor), dotazy učiteli, fronta. Číst jako první.
+
 - **AKTUÁLNÍ PŘEDÁVKA 6. 10. 2026: `~/Desktop/Omega/predavka/2026-10-06/PRIKAZ-NOVA-SESSION-OMEGA.md`** — KROK 0, stav (společná fronta renderů, video_pas, C fáze 1–2, Codex, 91 laborek), rozpracované díly, čeká na učitele, další kroky. Číst jako první. Souběžná předávka B (sjednocení souborů, přenos dat Intel → Book): `~/Desktop/Omega/predavka/2026-10-06/PRIKAZ-NOVA-SESSION-PRENOS-DAT.md`. Starší: `predavka/2026-10-05/PRIKAZ-NOVA-SESSION-4.md`.
 
 - **PRŮBĚŽNÁ PŘEDÁVKA 14. 10. 2026: `~/Desktop/Omega/predavka/2026-10-14/PREDAVKA-14-10.md`** — nasazeno do d8eeb62 (ověřeno curl), dávka 8 čeká na zápis, animace bez renderu, limit 5h okna (max 4 workeři). Číst jako první.
