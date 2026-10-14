@@ -1,0 +1,76 @@
+<svg viewBox="0 0 460 740" width="460" height="740" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Termistor jako teploměr: na špičce sondy teploměru je termistor. Sonda se ponoří do studené vody: termistor má velký odpor, prochází malý proud a ručička ukazuje nízkou teplotu. Pak se sonda přenese do horké vody: teplejší termistor má menší odpor, prochází větší proud a ručička ukáže vyšší teplotu" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Polovodiče v pohybu 2/4: Termistor jako teploměr</title>
+	<style>
+		.q2-sonda { animation: q2-sonda 10s ease-in-out infinite; }
+		.q2-rucicka { animation: q2-rucicka 10s linear infinite; }
+		.q2-studena { animation: q2-studena 10s linear infinite; }
+		.q2-horka { animation: q2-horka 10s linear infinite; }
+		.q2-vyssi { animation: q2-vyssi 10s linear infinite; }
+		.q2-nizsi { animation: q2-nizsi 10s linear infinite; }
+		.q2-para { animation: q2-para 2.4s linear infinite; }
+		.q2-para-b { animation-delay: -0.8s; }
+		.q2-para-c { animation-delay: -1.6s; }
+		@keyframes q2-sonda { 0%, 10% { transform: translate(0px, 0px); } 20% { transform: translate(0px, -66px); } 40% { transform: translate(210px, -66px); } 50%, 60% { transform: translate(210px, 0px); } 70% { transform: translate(210px, -66px); } 90% { transform: translate(0px, -66px); } 100% { transform: translate(0px, 0px); } }
+		@keyframes q2-rucicka { 0%, 46% { transform: rotate(-50deg); } 56%, 62% { transform: rotate(50deg); } 76%, 100% { transform: rotate(-50deg); } }
+		@keyframes q2-studena { 0%, 10% { opacity: 1; } 14%, 88% { opacity: 0.3; } 94%, 100% { opacity: 1; } }
+		@keyframes q2-horka { 0%, 48% { opacity: 0.3; } 54%, 62% { opacity: 1; } 66%, 100% { opacity: 0.3; } }
+		@keyframes q2-vyssi { 0%, 52% { opacity: 0; } 56%, 66% { opacity: 1; } 70%, 100% { opacity: 0; } }
+		@keyframes q2-nizsi { 0%, 10% { opacity: 1; } 13%, 92% { opacity: 0; } 96%, 100% { opacity: 1; } }
+		@keyframes q2-para { 0% { transform: translateY(0px); opacity: 0; } 30% { opacity: 0.8; } 100% { transform: translateY(-24px); opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) { .q2-sonda, .q2-rucicka, .q2-studena, .q2-horka, .q2-vyssi, .q2-nizsi, .q2-para { animation: none; } }
+	</style>
+	<rect x="0" y="0" width="460" height="740" fill="#f8f9fa"/>
+	<g id="pohyb-panel-2">
+		<rect x="26" y="16" width="420" height="710" rx="12" fill="#dee2e6"/>
+		<rect x="20" y="10" width="420" height="710" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/>
+		<circle cx="52" cy="44" r="17" fill="#2b2a26"/>
+		<text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">2</text>
+		<text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Termistor jako teploměr</text>
+		<text x="34" y="96" font-size="21" fill="#2b2a26">Na špičce sondy je termistor.</text>
+		<text x="34" y="124" font-size="21" fill="#2b2a26">Teplejší termistor má menší odpor.</text>
+
+		<rect x="34" y="146" width="392" height="414" rx="8" fill="#ffffff" stroke="#ced4da" stroke-width="2"/>
+		<!-- pára nad horkou vodou -->
+		<g fill="none" stroke="#adb5bd" stroke-width="3" stroke-linecap="round">
+			<path class="q2-para" opacity="0.6" d="M300,406 C292,396 308,388 300,376"/>
+			<path class="q2-para q2-para-b" opacity="0.6" d="M362,406 C354,396 370,388 362,376"/>
+			<path class="q2-para q2-para-c" opacity="0.6" d="M392,406 C384,396 400,388 392,376"/>
+		</g>
+		<!-- kádinky -->
+		<rect x="72" y="450" width="116" height="88" fill="#a5d8ff"/>
+		<rect x="272" y="450" width="116" height="88" fill="#ffc9c9"/>
+
+		<!-- sonda teploměru (s termistorem na špičce) -->
+		<g class="q2-sonda" transform="translate(210,0)">
+			<rect x="126" y="306" width="8" height="152" fill="#ced4da" stroke="#868e96" stroke-width="2"/>
+			<ellipse cx="130" cy="466" rx="8" ry="11" fill="#a0522d" stroke="#5c2d0f" stroke-width="2"/>
+			<rect x="80" y="214" width="100" height="94" rx="12" fill="#495057" stroke="#2b2a26" stroke-width="2"/>
+			<text x="130" y="238" font-size="20" font-weight="bold" text-anchor="middle" fill="#fff">teploměr</text>
+			<circle cx="130" cy="272" r="26" fill="#ffffff" stroke="#2b2a26" stroke-width="2"/>
+			<path d="M115.3,271.7 A18,18 0 0 1 144.7,271.7" fill="none" stroke="#495057" stroke-width="2"/>
+			<circle cx="113" cy="274" r="4" fill="#4dabf7"/>
+			<circle cx="147" cy="274" r="4" fill="#e03131"/>
+			<g transform="translate(130,282)"><line class="q2-rucicka" transform="rotate(50)" x1="0" y1="0" x2="0" y2="-17" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/></g>
+			<circle cx="130" cy="282" r="3" fill="#2b2a26"/>
+		</g>
+
+		<!-- stěny kádinek (před sondou, voda je za) -->
+		<path d="M64,416 L70,420 L70,540 L190,540 L190,420 L196,416" fill="none" stroke="#495057" stroke-width="3" stroke-linejoin="round"/>
+		<path d="M264,416 L270,420 L270,540 L390,540 L390,420 L396,416" fill="none" stroke="#495057" stroke-width="3" stroke-linejoin="round"/>
+		<line x1="72" y1="450" x2="188" y2="450" stroke="#4dabf7" stroke-width="2"/>
+		<line x1="272" y1="450" x2="388" y2="450" stroke="#fa5252" stroke-width="2"/>
+
+		<g class="q2-studena" opacity="1">
+			<text x="130" y="594" font-size="21" font-weight="bold" text-anchor="middle" fill="#1864ab">studená voda</text>
+			<text x="130" y="622" font-size="21" text-anchor="middle" fill="#2b2a26">velký odpor</text>
+			<text x="130" y="650" font-size="21" text-anchor="middle" fill="#2b2a26">malý proud</text>
+		</g>
+		<g class="q2-horka" opacity="1">
+			<text x="330" y="594" font-size="21" font-weight="bold" text-anchor="middle" fill="#c92a2a">horká voda</text>
+			<text x="330" y="622" font-size="21" text-anchor="middle" fill="#2b2a26">malý odpor</text>
+			<text x="330" y="650" font-size="21" text-anchor="middle" fill="#2b2a26">velký proud</text>
+		</g>
+		<text class="q2-nizsi" opacity="0" x="34" y="694" font-size="21" fill="#2b2a26">Ručička ukazuje nízkou teplotu.</text>
+		<text class="q2-vyssi" opacity="1" x="34" y="694" font-size="21" fill="#2b2a26">Ručička ukáže vyšší teplotu.</text>
+	</g>
+</svg>

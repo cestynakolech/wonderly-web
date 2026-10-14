@@ -1,0 +1,84 @@
+<svg viewBox="0 0 460 630" width="460" height="630" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Optická závora počítá bankovky: shora svítí světlo dolů na fotorezistor pod pásem. Po pásu jedou bankovky jedna za druhou. Když bankovka zastíní světlo, odpor fotorezistoru vzroste a počítadlo přičte jednu bankovku. Projedou tři bankovky a počítadlo ukáže 3, pak se vynuluje" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Polovodiče v pohybu 4/4: Optická závora počítá bankovky</title>
+	<style>
+		.q4-b0 { animation: q4-b0 12s linear infinite; }
+		.q4-b1 { animation: q4-b1 12s linear infinite; }
+		.q4-b2 { animation: q4-b2 12s linear infinite; }
+		.q4-paprsek { animation: q4-paprsek 12s linear infinite; }
+		.q4-stin { animation: q4-stin 12s linear infinite; }
+		.q4-c0 { animation: q4-c0 12s linear infinite; }
+		.q4-c1 { animation: q4-c1 12s linear infinite; }
+		.q4-c2 { animation: q4-c2 12s linear infinite; }
+		.q4-c3 { animation: q4-c3 12s linear infinite; }
+		@keyframes q4-b0 { 0% { transform: translateX(-110px); } 45.833%, 100% { transform: translateX(440px); } }
+		@keyframes q4-b1 { 0%, 25% { transform: translateX(-110px); } 70.833%, 100% { transform: translateX(440px); } }
+		@keyframes q4-b2 { 0%, 50% { transform: translateX(-110px); } 95.833%, 100% { transform: translateX(440px); } }
+		@keyframes q4-paprsek { 0%, 20.4% { opacity: 1; } 20.5%, 28.7% { opacity: 0; } 28.8%, 45.4% { opacity: 1; } 45.5%, 53.7% { opacity: 0; } 53.8%, 70.4% { opacity: 1; } 70.5%, 78.7% { opacity: 0; } 78.8%, 100% { opacity: 1; } }
+		@keyframes q4-stin { 0%, 20.4% { opacity: 0; } 20.5%, 28.7% { opacity: 1; } 28.8%, 45.4% { opacity: 0; } 45.5%, 53.7% { opacity: 1; } 53.8%, 70.4% { opacity: 0; } 70.5%, 78.7% { opacity: 1; } 78.8%, 100% { opacity: 0; } }
+		@keyframes q4-c0 { 0%, 20.4% { opacity: 1; } 20.5%, 95.8% { opacity: 0; } 95.9%, 100% { opacity: 1; } }
+		@keyframes q4-c1 { 0%, 20.4% { opacity: 0; } 20.5%, 45.4% { opacity: 1; } 45.5%, 100% { opacity: 0; } }
+		@keyframes q4-c2 { 0%, 45.4% { opacity: 0; } 45.5%, 70.4% { opacity: 1; } 70.5%, 100% { opacity: 0; } }
+		@keyframes q4-c3 { 0%, 70.4% { opacity: 0; } 70.5%, 95.8% { opacity: 1; } 95.9%, 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) { .q4-b0, .q4-b1, .q4-b2, .q4-paprsek, .q4-stin, .q4-c0, .q4-c1, .q4-c2, .q4-c3 { animation: none; } }
+	</style>
+	<defs>
+		<clipPath id="q4-orez"><rect x="35" y="147" width="390" height="338" rx="7"/></clipPath>
+		<g id="q4-bankovka">
+			<polygon points="0,382 90,382 102,364 12,364" fill="#ffd8a8" stroke="#d9480f" stroke-width="2" stroke-linejoin="round"/>
+			<ellipse cx="51" cy="373" rx="10" ry="5" fill="none" stroke="#d9480f" stroke-width="1.5"/>
+		</g>
+	</defs>
+	<rect x="0" y="0" width="460" height="630" fill="#f8f9fa"/>
+	<g id="pohyb-panel-4">
+		<rect x="26" y="16" width="420" height="590" rx="12" fill="#dee2e6"/>
+		<rect x="20" y="10" width="420" height="590" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/>
+		<circle cx="52" cy="44" r="17" fill="#2b2a26"/>
+		<text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">4</text>
+		<text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Optická závora</text>
+		<text x="34" y="96" font-size="21" fill="#2b2a26">Světlo svítí na fotorezistor.</text>
+		<text x="34" y="124" font-size="21" fill="#2b2a26">Bankovky jedou mezi nimi.</text>
+
+		<rect x="34" y="146" width="392" height="340" rx="8" fill="#ffffff" stroke="#ced4da" stroke-width="2"/>
+		<g clip-path="url(#q4-orez)">
+			<!-- počítadlo -->
+			<text x="300" y="203" font-size="21" text-anchor="end" fill="#2b2a26">počet:</text>
+			<rect x="312" y="164" width="96" height="60" rx="6" fill="#2b2a26"/>
+			<text class="q4-c0" opacity="0" x="360" y="210" font-size="40" font-weight="bold" text-anchor="middle" fill="#ffd43b">0</text>
+			<text class="q4-c1" opacity="1" x="360" y="210" font-size="40" font-weight="bold" text-anchor="middle" fill="#ffd43b">1</text>
+			<text class="q4-c2" opacity="0" x="360" y="210" font-size="40" font-weight="bold" text-anchor="middle" fill="#ffd43b">2</text>
+			<text class="q4-c3" opacity="0" x="360" y="210" font-size="40" font-weight="bold" text-anchor="middle" fill="#ffd43b">3</text>
+			<!-- zdroj světla -->
+			<polygon points="212,236 218,230 254,230 248,236" fill="#868e96" stroke="#2b2a26" stroke-width="1.5" stroke-linejoin="round"/>
+			<polygon points="248,236 254,230 254,256 248,262" fill="#343a40" stroke="#2b2a26" stroke-width="1.5" stroke-linejoin="round"/>
+			<rect x="212" y="236" width="36" height="26" rx="2" fill="#495057" stroke="#2b2a26" stroke-width="2"/>
+			<ellipse cx="230" cy="264" rx="10" ry="4" fill="#ffe066" stroke="#fab005" stroke-width="1.5"/>
+			<text x="204" y="256" font-size="20" text-anchor="end" fill="#2b2a26">světlo</text>
+			<rect x="225" y="266" width="10" height="116" fill="#ffe066" opacity="0.85"/>
+			<!-- pás -->
+			<polygon points="34,382 213,382 225,364 46,364" fill="#868e96" stroke="#495057" stroke-width="1.5" stroke-linejoin="round"/>
+			<polygon points="245,382 426,382 438,364 257,364" fill="#868e96" stroke="#495057" stroke-width="1.5" stroke-linejoin="round"/>
+			<rect x="34" y="382" width="179" height="14" fill="#495057"/>
+			<rect x="245" y="382" width="181" height="14" fill="#495057"/>
+			<circle cx="60" cy="389" r="7" fill="#868e96"/><circle cx="190" cy="389" r="7" fill="#868e96"/>
+			<circle cx="270" cy="389" r="7" fill="#868e96"/><circle cx="400" cy="389" r="7" fill="#868e96"/>
+			<!-- bankovky -->
+			<use class="q4-b0" href="#q4-bankovka" transform="translate(185,0)"/>
+			<use class="q4-b1" href="#q4-bankovka" transform="translate(-110,0)"/>
+			<use class="q4-b2" href="#q4-bankovka" transform="translate(-110,0)"/>
+			<!-- paprsek pod pásem a fotorezistor -->
+			<rect class="q4-paprsek" opacity="0" x="225" y="396" width="10" height="28" fill="#ffe066" fill-opacity="0.85"/>
+			<polygon points="212,424 218,418 254,418 248,424" fill="#dee2e6" stroke="#343a40" stroke-width="1.5" stroke-linejoin="round"/>
+			<polygon points="248,424 254,418 254,446 248,452" fill="#adb5bd" stroke="#343a40" stroke-width="1.5" stroke-linejoin="round"/>
+			<rect x="212" y="424" width="36" height="28" rx="2" fill="#ffffff" stroke="#343a40" stroke-width="2"/>
+			<circle cx="230" cy="438" r="10" fill="#e9c6c6" stroke="#868e96" stroke-width="1.5"/>
+			<path d="M223,432 L237,432 L223,436 L237,436 L223,440 L237,440 L223,444 L237,444" fill="none" stroke="#c92a2a" stroke-width="1.5"/>
+			<text x="262" y="444" font-size="20" fill="#2b2a26">fotorezistor</text>
+			<g class="q4-paprsek" opacity="0"><text x="262" y="472" font-size="20" fill="#2b2a26">malý odpor</text></g>
+			<g class="q4-stin" opacity="1"><text x="262" y="472" font-size="20" font-weight="bold" fill="#2b2a26">velký odpor</text></g>
+		</g>
+
+		<text x="34" y="522" font-size="21" fill="#2b2a26">Bankovka zastíní světlo.</text>
+		<text x="34" y="550" font-size="21" fill="#2b2a26">Odpor fotorezistoru vzroste</text>
+		<text x="34" y="578" font-size="21" fill="#2b2a26">a počítadlo přičte 1.</text>
+	</g>
+</svg>

@@ -1,0 +1,83 @@
+<svg viewBox="0 0 460 670" width="460" height="670" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Soumrakový spínač lampy: na sloupu pouliční lampy je fotorezistor a hlídá, kolik je světla. Ve dne na něj svítí slunce, má malý odpor a lampa nesvítí. Slunce zapadne a setmí se, fotorezistor má velký odpor, obvod to pozná a lampu sám zapne. Ráno se rozední a lampa zase sama zhasne" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Polovodiče v pohybu 3/4: Soumrakový spínač lampy</title>
+	<style>
+		.q3-noc { animation: q3-noc 12s linear infinite; }
+		.q3-slunce { animation: q3-slunce 12s ease-in-out infinite; }
+		.q3-hvezdy { animation: q3-hvezdy 12s linear infinite; }
+		.q3-svetlo { animation: q3-svetlo 12s linear infinite; }
+		.q3-text-den { animation: q3-text-den 12s linear infinite; }
+		.q3-text-noc { animation: q3-text-noc 12s linear infinite; }
+		@keyframes q3-noc { 0%, 15% { opacity: 0; } 45%, 75% { opacity: 0.8; } 90%, 100% { opacity: 0; } }
+		@keyframes q3-slunce { 0%, 15% { transform: translateY(0px); } 45%, 75% { transform: translateY(300px); } 90%, 100% { transform: translateY(0px); } }
+		@keyframes q3-hvezdy { 0%, 35% { opacity: 0; } 45%, 75% { opacity: 1; } 82%, 100% { opacity: 0; } }
+		@keyframes q3-svetlo { 0%, 40% { opacity: 0; } 42%, 78% { opacity: 1; } 80%, 100% { opacity: 0; } }
+		@keyframes q3-text-den { 0%, 38% { opacity: 1; } 42%, 78% { opacity: 0; } 82%, 100% { opacity: 1; } }
+		@keyframes q3-text-noc { 0%, 38% { opacity: 0; } 42%, 78% { opacity: 1; } 82%, 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) { .q3-noc, .q3-slunce, .q3-hvezdy, .q3-svetlo, .q3-text-den, .q3-text-noc { animation: none; } }
+	</style>
+	<defs>
+		<clipPath id="q3-orez"><rect x="35" y="147" width="390" height="358" rx="7"/></clipPath>
+	</defs>
+	<rect x="0" y="0" width="460" height="670" fill="#f8f9fa"/>
+	<g id="pohyb-panel-3">
+		<rect x="26" y="16" width="420" height="630" rx="12" fill="#dee2e6"/>
+		<rect x="20" y="10" width="420" height="630" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/>
+		<circle cx="52" cy="44" r="17" fill="#2b2a26"/>
+		<text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">3</text>
+		<text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Soumrakový spínač lampy</text>
+		<text x="34" y="96" font-size="21" fill="#2b2a26">Na sloupu lampy je fotorezistor.</text>
+		<text x="34" y="124" font-size="21" fill="#2b2a26">Hlídá, kolik je světla.</text>
+
+		<rect x="34" y="146" width="392" height="360" rx="8" fill="#ffffff" stroke="#ced4da" stroke-width="2"/>
+		<g clip-path="url(#q3-orez)">
+			<rect x="35" y="147" width="390" height="358" fill="#a5d8ff"/>
+			<g class="q3-slunce" transform="translate(0,300)">
+				<circle cx="110" cy="206" r="26" fill="#fab005" stroke="#f08c00" stroke-width="2"/>
+			</g>
+			<rect class="q3-noc" x="35" y="147" width="390" height="358" fill="#1c2541" opacity="0.8"/>
+			<g class="q3-hvezdy" opacity="1" fill="#fff">
+				<circle cx="70" cy="180" r="2.5"/><circle cx="150" cy="170" r="2"/><circle cx="196" cy="214" r="2.5"/>
+				<circle cx="360" cy="176" r="2.5"/><circle cx="404" cy="230" r="2"/><circle cx="96" cy="262" r="2"/>
+			</g>
+			<!-- kužel světla lampy -->
+			<polygon class="q3-svetlo" opacity="1" points="238,216 262,216 330,470 170,470" fill="#ffe066" fill-opacity="0.45"/>
+			<!-- zem -->
+			<rect x="35" y="456" width="390" height="16" fill="#a9c47f"/>
+			<rect x="35" y="472" width="390" height="34" fill="#adb5bd"/>
+			<line x1="60" y1="489" x2="100" y2="489" stroke="#fff" stroke-width="3"/>
+			<line x1="160" y1="489" x2="200" y2="489" stroke="#fff" stroke-width="3"/>
+			<line x1="260" y1="489" x2="300" y2="489" stroke="#fff" stroke-width="3"/>
+			<line x1="360" y1="489" x2="400" y2="489" stroke="#fff" stroke-width="3"/>
+			<rect class="q3-noc" x="35" y="456" width="390" height="50" fill="#1c2541" opacity="0.5"/>
+			<polygon class="q3-svetlo" opacity="1" points="170,456 330,456 334,470 166,470" fill="#ffe066" fill-opacity="0.45"/>
+			<!-- lampa -->
+			<rect x="296" y="226" width="8" height="238" fill="#495057"/>
+			<rect x="286" y="456" width="28" height="10" fill="#343a40"/>
+			<ellipse cx="300" cy="456" rx="14" ry="4" fill="#495057" stroke="#343a40" stroke-width="1.5"/>
+			<rect x="301" y="226" width="3" height="230" fill="#343a40"/>
+			<path d="M300,232 Q300,206 272,206 L252,206" fill="none" stroke="#495057" stroke-width="6" stroke-linecap="round"/>
+			<polygon points="228,198 272,198 266,212 234,212" fill="#343a40"/>
+			<ellipse cx="250" cy="198" rx="22" ry="6" fill="#868e96" stroke="#343a40" stroke-width="1.5"/>
+			<ellipse cx="250" cy="215" rx="13" ry="5" fill="#ced4da" stroke="#868e96" stroke-width="1.5"/>
+			<ellipse class="q3-svetlo" opacity="1" cx="250" cy="215" rx="13" ry="5" fill="#fff3bf" stroke="#fab005" stroke-width="2"/>
+			<!-- fotorezistor na sloupu -->
+			<polygon points="306,298 311,293 339,293 334,298" fill="#dee2e6" stroke="#343a40" stroke-width="1.5" stroke-linejoin="round"/>
+			<polygon points="334,298 339,293 339,321 334,326" fill="#adb5bd" stroke="#343a40" stroke-width="1.5" stroke-linejoin="round"/>
+			<rect x="306" y="298" width="28" height="28" rx="2" fill="#ffffff" stroke="#343a40" stroke-width="2"/>
+			<circle cx="320" cy="312" r="10" fill="#e9c6c6" stroke="#868e96" stroke-width="1.5"/>
+			<path d="M313,306 L327,306 L313,310 L327,310 L313,314 L327,314 L313,318 L327,318" fill="none" stroke="#c92a2a" stroke-width="1.5"/>
+			<rect x="304" y="338" width="118" height="30" rx="6" fill="#ffffff" stroke="#343a40" stroke-width="1.5"/>
+			<text x="363" y="359" font-size="20" text-anchor="middle" fill="#2b2a26">fotorezistor</text>
+		</g>
+
+		<g class="q3-text-den" opacity="0">
+			<text x="34" y="544" font-size="21" fill="#2b2a26"><tspan font-weight="bold">Světlo:</tspan> malý odpor.</text>
+			<text x="34" y="572" font-size="21" fill="#2b2a26">Lampa nesvítí.</text>
+		</g>
+		<g class="q3-text-noc" opacity="1">
+			<text x="34" y="544" font-size="21" fill="#2b2a26"><tspan font-weight="bold">Tma:</tspan> velký odpor.</text>
+			<text x="34" y="572" font-size="21" fill="#2b2a26">Obvod to pozná a lampu zapne.</text>
+		</g>
+		<text x="34" y="616" font-size="21" fill="#2b2a26">Ráno lampa zase sama zhasne.</text>
+	</g>
+</svg>
