@@ -3599,6 +3599,17 @@ export const temata: Record<string, Tema[]> = {
 					zapis: {"body":["typ N vede elektrony, typ P vede díry","styk typu N a P je přechod PN","v propustném směru dioda proud vede, v závěrném ne","dioda je usměrňovač, LED svítí","tranzistor je spínač nebo zesilovač"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Polovodiče — srdce elektroniky', cesta: 'uoLW-OHBDls' },
+						{
+							druh: 'infografika',
+							nazev: 'Polovodiče v pohybu: díra, LED, usměrňovač, fotodioda (panely pro tabuli)',
+							cesta: '/materialy/fyzika/9-rocnik/elektricky-proud-v-latkach/polovodice-typu-n-a-p-dioda/infografika-polovodice-typu-n-a-p-dioda-panel-1.svg',
+							panely: [
+								'/materialy/fyzika/9-rocnik/elektricky-proud-v-latkach/polovodice-typu-n-a-p-dioda/infografika-polovodice-typu-n-a-p-dioda-panel-1.svg',
+								'/materialy/fyzika/9-rocnik/elektricky-proud-v-latkach/polovodice-typu-n-a-p-dioda/infografika-polovodice-typu-n-a-p-dioda-panel-2.svg',
+								'/materialy/fyzika/9-rocnik/elektricky-proud-v-latkach/polovodice-typu-n-a-p-dioda/infografika-polovodice-typu-n-a-p-dioda-panel-3.svg',
+								'/materialy/fyzika/9-rocnik/elektricky-proud-v-latkach/polovodice-typu-n-a-p-dioda/infografika-polovodice-typu-n-a-p-dioda-panel-4.svg',
+							],
+						},
 					],
 					odkazy: [
 						{ nazev: 'TechMania — Polovodičové součástky (dioda)', url: 'http://edu.techmania.cz/cs/encyklopedie/fyzika/elektricky-proud/polovodice/polovodicove-soucastky' },
