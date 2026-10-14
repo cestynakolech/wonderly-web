@@ -3263,6 +3263,7 @@ export const temata: Record<string, Tema[]> = {
 							nazev: 'Video: Kmitání a vlnění',
 							cesta: 'oP6IJtosIp0',
 						},
+						{ druh: 'infografika', nazev: 'Kmitání v pohybu', cesta: '/materialy/fyzika/8-rocnik/zvuk/kmitani-a-vlneni/infografika-kmitani-a-vlneni-pohyb-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/zvuk/kmitani-a-vlneni/infografika-kmitani-a-vlneni-pohyb-panel-1.svg', '/materialy/fyzika/8-rocnik/zvuk/kmitani-a-vlneni/infografika-kmitani-a-vlneni-pohyb-panel-2.svg'] },
 					],
 				},
 				{

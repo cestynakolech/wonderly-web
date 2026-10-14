@@ -1,0 +1,89 @@
+<svg viewBox="0 0 460 640" width="460" height="640" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kmitání v pohybu 1/2, Frekvence: dvě kyvadla zavěšená vedle sebe, dlouhé a krátké. Stopky měří 4 sekundy a počítají kmity. Dlouhé kyvadlo udělá za 4 s 4 kmity, tedy 1 kmit za 1 s, frekvence f = 1 Hz. Krátké kyvadlo udělá za 4 s 8 kmitů, tedy 2 kmity za 1 s, frekvence f = 2 Hz. Frekvence je počet kmitů za 1 sekundu. Perioda T je doba jednoho kmitu, rychlejší kyvadlo má kratší periodu." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Kmitání v pohybu 1/2: Frekvence = kmity za 1 sekundu</title>
+	<!-- W85 (14. 10. 2026). Předloha: PDF 33 Kmitání a vlnění, s. 2 (kyvadlo: šrafovaný závěs, fialový závěs, žlutá kulička,
+	     tečkovaná svislá rovnovážná poloha, čárkovaný oblouk dráhy) a s. 3–4 (perioda = doba jednoho kmitu, frekvence = počet kmitů
+	     za 1 sekundu, jednotka Hz; příklad 2 kmity za sekundu → f = 2 Hz). Výklad: § Perioda a frekvence (stejné definice, f = 2 Hz).
+	     Kmit počítán podle PDF: z krajní výchylky přes rovnovážnou polohu do druhé krajní a zpět. Obě kulky startují v t = 0 v krajní
+	     výchylce, počítadlo přičte kmit vždy při návratu do výchozí krajní výchylky.
+	     Délky závěsů 200 px : 50 px = 4 : 1 odpovídají periodám 1 s : 0,5 s (T roste s odmocninou délky; v textu se netvrdí).
+	     Hodnota T = 0,5 s se nepíše (celá čísla); u rychlého kyvadla jen „2 kmity za 1 s“.
+	     Cyklus 6 s: 0–4 s stopky běží (stav po 0,5 s), 4–6 s stopky stojí na 4 s (4 a 8 kmitů), kyvadla kmitají dál.
+	     Kyvadla: průběh blízký sinusu (cubic-bezier .37,0,.63,1 mezi krajními výchylkami), úhel 22°.
+	     Bez pohybu: kulky v rovnovážné poloze, čárkované krajní výchylky, stopky ukazují konečný stav. -->
+	<style>
+		.ka { animation: ka 1s infinite; }
+		.kb { animation: ka 0.5s infinite; }
+		@keyframes ka { 0% { transform: rotate(22deg); animation-timing-function: cubic-bezier(.37,0,.63,1); } 50% { transform: rotate(-22deg); animation-timing-function: cubic-bezier(.37,0,.63,1); } 100% { transform: rotate(22deg); } }
+		.w { opacity: 0; animation: w 6s step-end infinite; }
+		@keyframes w { 0% { opacity: 1; } 8.333% { opacity: 0; } 100% { opacity: 0; } }
+		.wk { opacity: 0; animation: wk 6s step-end infinite; animation-delay: 4s; }
+		@keyframes wk { 0% { opacity: 1; } 33.333% { opacity: 0; } 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) {
+			.ka, .kb, .w, .wk { animation: none; }
+			.wk { opacity: 1; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="640" fill="#f8f9fa" />
+	<g id="panel-1">
+		<rect x="26" y="22" width="420" height="608" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="608" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Kolik kmitů za sekundu?</text>
+		<text x="40" y="96" font-size="20" fill="#2b2a26">Stopky měří 4 sekundy.</text>
+
+		<!-- závěs (šrafovaný strop jako v PDF) -->
+		<path d="M50 126H410" stroke="#2b2a26" stroke-width="3" />
+		<path d="M60 126l10 -10M84 126l10 -10M108 126l10 -10M132 126l10 -10M156 126l10 -10M180 126l10 -10M204 126l10 -10M228 126l10 -10M252 126l10 -10M276 126l10 -10M300 126l10 -10M324 126l10 -10M348 126l10 -10M372 126l10 -10M396 126l10 -10" stroke="#2b2a26" stroke-width="2" />
+
+		<!-- dlouhé kyvadlo: závěs 200 px, T = 1 s -->
+		<path d="M130 128V346" stroke="#495057" stroke-width="2" stroke-dasharray="2 5" />
+		<path d="M55.1 315.4A200 200 0 0 0 204.9 315.4" fill="none" stroke="#862e9c" stroke-width="2" stroke-dasharray="7 6" />
+		<circle cx="55.1" cy="315.4" r="14" fill="none" stroke="#495057" stroke-width="2" stroke-dasharray="4 4" />
+		<circle cx="204.9" cy="315.4" r="14" fill="none" stroke="#495057" stroke-width="2" stroke-dasharray="4 4" />
+		<g transform="translate(130,128)">
+			<g class="ka">
+				<path d="M0 0V200" stroke="#862e9c" stroke-width="3" />
+				<circle cx="0" cy="200" r="14" fill="#ffd43b" stroke="#2b2a26" stroke-width="2.5" />
+			</g>
+		</g>
+
+		<!-- krátké kyvadlo: závěs 50 px, T = 0,5 s -->
+		<path d="M330 128V196" stroke="#495057" stroke-width="2" stroke-dasharray="2 5" />
+		<path d="M311.3 174.4A50 50 0 0 0 348.7 174.4" fill="none" stroke="#862e9c" stroke-width="2" stroke-dasharray="7 6" />
+		<circle cx="311.3" cy="174.4" r="14" fill="none" stroke="#495057" stroke-width="2" stroke-dasharray="4 4" />
+		<circle cx="348.7" cy="174.4" r="14" fill="none" stroke="#495057" stroke-width="2" stroke-dasharray="4 4" />
+		<g transform="translate(330,128)">
+			<g class="kb">
+				<path d="M0 0V50" stroke="#862e9c" stroke-width="3" />
+				<circle cx="0" cy="50" r="14" fill="#ffd43b" stroke="#2b2a26" stroke-width="2.5" />
+			</g>
+		</g>
+
+		<text x="130" y="376" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">pomalé</text>
+		<text x="330" y="376" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">rychlé</text>
+
+		<!-- stopky a počítadla: stav po 0,5 s (čas, kmity pomalého, kmity rychlého) -->
+		<rect x="40" y="392" width="380" height="96" rx="10" fill="#f1f3f5" stroke="#ced4da" stroke-width="2" />
+		<text x="130" y="424" text-anchor="middle" font-size="20" fill="#2b2a26">kmitů</text>
+		<text x="230" y="424" text-anchor="middle" font-size="20" fill="#2b2a26">stopky</text>
+		<text x="330" y="424" text-anchor="middle" font-size="20" fill="#2b2a26">kmitů</text>
+		<g class="w" style="animation-delay:0s"><text x="230" y="474" text-anchor="middle" font-size="24" font-weight="bold" fill="#2b2a26">0 s</text><text x="130" y="474" text-anchor="middle" font-size="26" font-weight="bold" fill="#2b2a26">0</text><text x="330" y="474" text-anchor="middle" font-size="26" font-weight="bold" fill="#2b2a26">0</text></g>
+		<g class="w" style="animation-delay:0.5s"><text x="230" y="474" text-anchor="middle" font-size="24" font-weight="bold" fill="#2b2a26">0 s</text><text x="130" y="474" text-anchor="middle" font-size="26" font-weight="bold" fill="#2b2a26">0</text><text x="330" y="474" text-anchor="middle" font-size="26" font-weight="bold" fill="#2b2a26">1</text></g>
+		<g class="w" style="animation-delay:1s"><text x="230" y="474" text-anchor="middle" font-size="24" font-weight="bold" fill="#2b2a26">1 s</text><text x="130" y="474" text-anchor="middle" font-size="26" font-weight="bold" fill="#2b2a26">1</text><text x="330" y="474" text-anchor="middle" font-size="26" font-weight="bold" fill="#2b2a26">2</text></g>
+		<g class="w" style="animation-delay:1.5s"><text x="230" y="474" text-anchor="middle" font-size="24" font-weight="bold" fill="#2b2a26">1 s</text><text x="130" y="474" text-anchor="middle" font-size="26" font-weight="bold" fill="#2b2a26">1</text><text x="330" y="474" text-anchor="middle" font-size="26" font-weight="bold" fill="#2b2a26">3</text></g>
+		<g class="w" style="animation-delay:2s"><text x="230" y="474" text-anchor="middle" font-size="24" font-weight="bold" fill="#2b2a26">2 s</text><text x="130" y="474" text-anchor="middle" font-size="26" font-weight="bold" fill="#2b2a26">2</text><text x="330" y="474" text-anchor="middle" font-size="26" font-weight="bold" fill="#2b2a26">4</text></g>
+		<g class="w" style="animation-delay:2.5s"><text x="230" y="474" text-anchor="middle" font-size="24" font-weight="bold" fill="#2b2a26">2 s</text><text x="130" y="474" text-anchor="middle" font-size="26" font-weight="bold" fill="#2b2a26">2</text><text x="330" y="474" text-anchor="middle" font-size="26" font-weight="bold" fill="#2b2a26">5</text></g>
+		<g class="w" style="animation-delay:3s"><text x="230" y="474" text-anchor="middle" font-size="24" font-weight="bold" fill="#2b2a26">3 s</text><text x="130" y="474" text-anchor="middle" font-size="26" font-weight="bold" fill="#2b2a26">3</text><text x="330" y="474" text-anchor="middle" font-size="26" font-weight="bold" fill="#2b2a26">6</text></g>
+		<g class="w" style="animation-delay:3.5s"><text x="230" y="474" text-anchor="middle" font-size="24" font-weight="bold" fill="#2b2a26">3 s</text><text x="130" y="474" text-anchor="middle" font-size="26" font-weight="bold" fill="#2b2a26">3</text><text x="330" y="474" text-anchor="middle" font-size="26" font-weight="bold" fill="#2b2a26">7</text></g>
+		<g class="wk"><text x="230" y="474" text-anchor="middle" font-size="24" font-weight="bold" fill="#c92a2a">4 s</text><text x="130" y="474" text-anchor="middle" font-size="26" font-weight="bold" fill="#2b2a26">4</text><text x="330" y="474" text-anchor="middle" font-size="26" font-weight="bold" fill="#2b2a26">8</text></g>
+
+		<text x="130" y="522" text-anchor="middle" font-size="20" fill="#2b2a26">1 kmit za 1 s</text>
+		<text x="330" y="522" text-anchor="middle" font-size="20" fill="#2b2a26">2 kmity za 1 s</text>
+		<text x="130" y="552" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2a26">f = 1 Hz</text>
+		<text x="330" y="552" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2a26">f = 2 Hz</text>
+
+		<text x="40" y="586" font-size="20" fill="#2b2a26">Perioda T = doba 1 kmitu.</text>
+		<text x="40" y="612" font-size="20" fill="#2b2a26">Rychlé kyvadlo má kratší periodu.</text>
+	</g>
+</svg>
