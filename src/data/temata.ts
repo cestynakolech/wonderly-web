@@ -2100,6 +2100,7 @@ export const temata: Record<string, Tema[]> = {
 					zapis: {"vzorec":"Fg = m · g","jednotky":["Fg (N), m (kg), g = 10 N/kg"],"body":["gravitační síla je vždy přitažlivá, roste s hmotností a se vzdáleností slábne","míří svisle dolů, tíhovou sílu počítáme stejně","hmotnost je všude stejná, síla se mění místo od místa"]},
 					materialy: [
 						{ druh: 'infografika', nazev: 'Infografika: Gravitační síla v kostce', cesta: '/materialy/fyzika/7-rocnik/sily-kolem-nas/gravitacni-sila/infografika-gravitacni-sila.svg', panely: ['/materialy/fyzika/7-rocnik/sily-kolem-nas/gravitacni-sila/infografika-gravitacni-sila-panel-1.svg', '/materialy/fyzika/7-rocnik/sily-kolem-nas/gravitacni-sila/infografika-gravitacni-sila-panel-2.svg', '/materialy/fyzika/7-rocnik/sily-kolem-nas/gravitacni-sila/infografika-gravitacni-sila-panel-3.svg'] },
+						{ druh: 'infografika', nazev: 'Gravitační síla v pohybu', cesta: '/materialy/fyzika/7-rocnik/sily-kolem-nas/gravitacni-sila/infografika-gravitacni-sila-pohyb-panel-1.svg', panely: ['/materialy/fyzika/7-rocnik/sily-kolem-nas/gravitacni-sila/infografika-gravitacni-sila-pohyb-panel-1.svg', '/materialy/fyzika/7-rocnik/sily-kolem-nas/gravitacni-sila/infografika-gravitacni-sila-pohyb-panel-2.svg'] },
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Tajemství gravitace (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/7-rocnik/sily-kolem-nas/gravitacni-sila/notebooklm-gravitacni-sila.mp4' },
 					],
 				},

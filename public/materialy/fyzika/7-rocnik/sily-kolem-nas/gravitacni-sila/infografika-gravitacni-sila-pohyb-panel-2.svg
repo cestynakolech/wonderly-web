@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="712" viewBox="0 0 460 712" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Na Zemi a na Měsíci: na dva stejné siloměry se zavěsí stejné těleso o hmotnosti 6 kg. Na Zemi se pružina natáhne až na 60 N, gravitační síla Fg = 60 N. Na Měsíci siloměr ukáže jen 10 N, Fg = 10 N. Na Zemi je g = 10 N/kg, na Měsíci je g 6× menší. Hmotnost je stejná, síla je 6× menší.">
+	<title>Gravitační síla v pohybu 2/2: Na Zemi a na Měsíci</title>
+	<!-- W78 (14. 10. 2026), panel 2/2 (původně 3/3; původní panel 2 „Dolů = ke středu Země“ vyřazen OPRAVOU 1,
+	     opakoval obr-02 a animovaný infografika-gravitacni-sila-panel-2). Opora: výklad, oddíl „Pro zvídavé“: „Kdyby bylo těleso na Zemi
+	     přitahováno silou 60 N, na Měsíci by ho gravitace táhla dolů jen silou 10 N, protože 60 : 6 = 10.
+	     Hmotnost tělesa by přitom zůstala stejná.“; „g … Na povrchu Měsíce je 6× menší než na Zemi“; g = 10 N/kg;
+	     PDF s. 6–7 (g na Měsíci 6krát menší). Hmotnost 6 kg = 60 N : 10 N/kg (m = Fg : g ze vzorce ve výkladu)
+	     — přípustný prostý výpočet podle PDF s. 10 „m = Fg : g“, do výkladu se NIC nedoplňuje.
+	     Měřítko: stupnice 0–60 N, dílek 20 px = 10 N; šipka Fg 16 px = 10 N (Země 96 px, Měsíc 16 px).
+	     Táhlo siloměru je 150 px dlouhé, takže háček s tělesem je vždy pod pouzdrem (i při 0 N).
+	     Děj 8 s: prázdné siloměry → zavěsí se těleso 6 kg → pružiny se natáhnou (Země 60 N, Měsíc 10 N) → zpět.
+	     Šipka Fg jede s tělesem a je vidět, kdykoli je těleso zavěšené. Bez animace = konečný stav (60 N a 10 N).
+	     OPRAVA 1 (W78-kontrola nález 3): štítky „Fg = 60 N“ / „Fg = 10 N“ (třída g3-stitek) jsou vidět jen,
+	     když ukazatel stojí na 60 N / 10 N (25 %–95 % pohybu); objeví se 25→27,5 %, zmizí 88,75→90 %
+	     (před sundáním tělesa).
+     OPRAVA 2 (W78-kontrola-2): písmo nikde < 21 (index „g“ 21 → na 375 px, SVG ≈ 319 px: 21 · 319/460 = 14,6 px). -->
+	<style>
+		.g3-z { animation: g3-z 8s linear infinite; }
+		@keyframes g3-z {
+			0%, 11.25% { transform: translateY(-120px); animation-timing-function: ease-out; }
+			25%, 95% { transform: translateY(0px); animation-timing-function: ease-in-out; }
+			100% { transform: translateY(-120px); }
+		}
+		.g3-m { animation: g3-m 8s linear infinite; }
+		@keyframes g3-m {
+			0%, 11.25% { transform: translateY(-20px); animation-timing-function: ease-out; }
+			25%, 95% { transform: translateY(0px); animation-timing-function: ease-in-out; }
+			100% { transform: translateY(-20px); }
+		}
+		.g3-pz { transform-box: view-box; transform-origin: 118px 142px; animation: g3-pz 8s linear infinite; }
+		@keyframes g3-pz {
+			0%, 11.25% { transform: scaleY(0.0769); animation-timing-function: ease-out; }
+			25%, 95% { transform: scaleY(1); animation-timing-function: ease-in-out; }
+			100% { transform: scaleY(0.0769); }
+		}
+		.g3-pm { transform-box: view-box; transform-origin: 330px 142px; animation: g3-pm 8s linear infinite; }
+		@keyframes g3-pm {
+			0%, 11.25% { transform: scaleY(0.3333); animation-timing-function: ease-out; }
+			25%, 95% { transform: scaleY(1); animation-timing-function: ease-in-out; }
+			100% { transform: scaleY(0.3333); }
+		}
+		.g3-teleso { animation: g3-teleso 8s linear infinite; }
+		@keyframes g3-teleso { 0%, 6.25% { opacity: 0 } 11.25%, 90% { opacity: 1 } 95%, 100% { opacity: 0 } }
+		.g3-stitek { animation: g3-stitek 8s linear infinite; }
+		@keyframes g3-stitek { 0%, 25% { opacity: 0 } 27.5%, 88.75% { opacity: 1 } 90%, 100% { opacity: 0 } }
+		@media (prefers-reduced-motion: reduce) {
+			.g3-z, .g3-m, .g3-pz, .g3-pm, .g3-teleso, .g3-stitek { animation: none; }
+		}
+	</style>
+
+	<rect x="0" y="0" width="460" height="712" fill="#f8f9fa"/>
+	<rect x="26" y="16" width="420" height="690" rx="12" fill="#dee2e6"/><rect x="20" y="10" width="420" height="690" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/><circle cx="52" cy="44" r="17" fill="#2b2a26"/><text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">2</text><text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Na Zemi a na Měsíci</text>
+
+	<g font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">
+		<text x="124" y="100">Na Zemi</text>
+		<text x="334" y="100">Na Měsíci</text>
+	</g>
+	<line x1="228" y1="78" x2="228" y2="650" stroke="#adb5bd" stroke-width="2" stroke-dasharray="6 6"/>
+
+	<!-- povrch Země a Měsíce -->
+	<rect x="21" y="590" width="206" height="16" fill="#8ce99a" stroke="#2b8a3e" stroke-width="2"/>
+	<rect x="229" y="590" width="210" height="16" fill="#ced4da" stroke="#868e96" stroke-width="2"/>
+	<g fill="#adb5bd" stroke="#868e96" stroke-width="1.5">
+		<ellipse cx="250" cy="596" rx="12" ry="4"/><ellipse cx="300" cy="600" rx="9" ry="3"/>
+		<ellipse cx="388" cy="596" rx="14" ry="4"/><ellipse cx="420" cy="601" rx="7" ry="3"/>
+	</g>
+
+	<!-- ===== Země ===== -->
+	<rect x="50" y="112" width="8" height="478" fill="#adb5bd" stroke="#495057" stroke-width="2"/>
+	<rect x="50" y="112" width="80" height="8" fill="#adb5bd" stroke="#495057" stroke-width="2"/>
+	<line x1="118" y1="120" x2="118" y2="127" stroke="#495057" stroke-width="3"/>
+	<circle cx="118" cy="131" r="5" fill="none" stroke="#495057" stroke-width="3"/>
+	<rect x="104" y="138" width="28" height="144" rx="6" fill="#e9ecef" stroke="#495057" stroke-width="3"/>
+	<g stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round">
+		<line x1="105" y1="152" x2="115" y2="152"/><line x1="105" y1="172" x2="115" y2="172"/><line x1="105" y1="192" x2="115" y2="192"/>
+		<line x1="105" y1="212" x2="115" y2="212"/><line x1="105" y1="232" x2="115" y2="232"/><line x1="105" y1="252" x2="115" y2="252"/>
+		<line x1="105" y1="272" x2="115" y2="272"/>
+	</g>
+	<g font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="end">
+		<text x="98" y="159">0</text><text x="98" y="179">10</text><text x="98" y="199">20</text><text x="98" y="219">30</text>
+		<text x="98" y="239">40</text><text x="98" y="259">50</text><text x="98" y="279">60</text><text x="98" y="304">N</text>
+	</g>
+	<path class="g3-pz" d="M118,142 L110,148.5 L126,161.5 L110,174.5 L126,187.5 L110,200.5 L126,213.5 L110,226.5 L126,239.5 L110,252.5 L126,265.5 L118,272" fill="none" stroke="#495057" stroke-width="2.5" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+	<g class="g3-z">
+		<line x1="118" y1="272" x2="118" y2="422" stroke="#495057" stroke-width="4"/>
+		<line x1="104" y1="272" x2="132" y2="272" stroke="#2b2a26" stroke-width="3"/>
+		<polygon points="132,272 144,265 144,279" fill="#2b2a26"/>
+		<circle cx="118" cy="428" r="6" fill="none" stroke="#495057" stroke-width="3"/>
+		<g class="g3-teleso">
+			<rect x="84" y="436" width="68" height="44" rx="5" fill="#868e96" stroke="#495057" stroke-width="2"/>
+			<text x="118" y="466" font-size="22" font-weight="bold" text-anchor="middle" fill="#fff">6 kg</text>
+			<line x1="118" y1="480" x2="118" y2="563" stroke="#e03131" stroke-width="5"/>
+			<polygon points="118,576 110,561 126,561" fill="#e03131"/>
+			<text class="g3-stitek" x="127" y="524" font-size="22" font-weight="bold" fill="#e03131">F<tspan font-size="21" dy="5">g</tspan><tspan dy="-5"> =</tspan><tspan x="127" dy="26">60 N</tspan></text>
+		</g>
+	</g>
+
+	<!-- ===== Měsíc ===== -->
+	<rect x="262" y="112" width="8" height="478" fill="#adb5bd" stroke="#495057" stroke-width="2"/>
+	<rect x="262" y="112" width="80" height="8" fill="#adb5bd" stroke="#495057" stroke-width="2"/>
+	<line x1="330" y1="120" x2="330" y2="127" stroke="#495057" stroke-width="3"/>
+	<circle cx="330" cy="131" r="5" fill="none" stroke="#495057" stroke-width="3"/>
+	<rect x="316" y="138" width="28" height="144" rx="6" fill="#e9ecef" stroke="#495057" stroke-width="3"/>
+	<g stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round">
+		<line x1="317" y1="152" x2="327" y2="152"/><line x1="317" y1="172" x2="327" y2="172"/><line x1="317" y1="192" x2="327" y2="192"/>
+		<line x1="317" y1="212" x2="327" y2="212"/><line x1="317" y1="232" x2="327" y2="232"/><line x1="317" y1="252" x2="327" y2="252"/>
+		<line x1="317" y1="272" x2="327" y2="272"/>
+	</g>
+	<g font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="end">
+		<text x="310" y="159">0</text><text x="310" y="179">10</text><text x="310" y="199">20</text><text x="310" y="219">30</text>
+		<text x="310" y="239">40</text><text x="310" y="259">50</text><text x="310" y="279">60</text><text x="310" y="304">N</text>
+	</g>
+	<path class="g3-pm" d="M330,142 L322,146 L338,152 L322,158 L338,164 L322,170 L330,172" fill="none" stroke="#495057" stroke-width="2.5" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+	<g class="g3-m">
+		<line x1="330" y1="172" x2="330" y2="322" stroke="#495057" stroke-width="4"/>
+		<line x1="316" y1="172" x2="344" y2="172" stroke="#2b2a26" stroke-width="3"/>
+		<polygon points="344,172 356,165 356,179" fill="#2b2a26"/>
+		<circle cx="330" cy="328" r="6" fill="none" stroke="#495057" stroke-width="3"/>
+		<g class="g3-teleso">
+			<rect x="296" y="336" width="68" height="44" rx="5" fill="#868e96" stroke="#495057" stroke-width="2"/>
+			<text x="330" y="366" font-size="22" font-weight="bold" text-anchor="middle" fill="#fff">6 kg</text>
+			<line x1="330" y1="380" x2="330" y2="385" stroke="#e03131" stroke-width="5"/>
+			<polygon points="330,396 322,382 338,382" fill="#e03131"/>
+			<text class="g3-stitek" x="339" y="404" font-size="22" font-weight="bold" fill="#e03131">F<tspan font-size="21" dy="5">g</tspan><tspan dy="-5"> = 10 N</tspan></text>
+		</g>
+	</g>
+
+	<g font-size="21" fill="#2b2a26" text-anchor="middle">
+		<text x="124" y="636">g = <tspan font-weight="bold">10 N/kg</tspan></text>
+		<text x="334" y="636">g je <tspan font-weight="bold">6× menší</tspan></text>
+		<text x="230" y="678" font-weight="bold">stejná hmotnost, 6× menší síla</text>
+	</g>
+</svg>

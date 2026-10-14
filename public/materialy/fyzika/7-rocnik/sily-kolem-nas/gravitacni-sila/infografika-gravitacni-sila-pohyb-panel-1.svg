@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="560" viewBox="0 0 460 560" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Závaží na siloměru: na siloměr se postupně zavěsí jedno, dvě a tři závaží po 100 g. Pružina se natahuje a siloměr ukazuje 1 N, 2 N a 3 N, červená šipka gravitační síly Fg se prodlužuje o jeden dílek. 100 g odpovídá 1 N, 200 g 2 N, 300 g 3 N. Fg = m · g, g = 10 N/kg, 1 dílek = 1 N.">
+	<title>Gravitační síla v pohybu 1/2: Závaží na siloměru</title>
+	<!-- W78 (14. 10. 2026), panel 1/2 samostatné infografiky „Gravitační síla v pohybu“.
+	     Opora: výklad „Těleso o hmotnosti 100 g zavěšené na siloměru je přitahováno k Zemi silou 1 N“,
+	     „na každý 1 kg hmotnosti tělesa působí gravitační síla přibližně 10 N“, Fg = m · g, g = 10 N/kg;
+	     obr. gravitacni-sila-obr-06 (siloměr, 100 g → 1 N, 1 N = 1 dílek = délka šipky).
+	     200 g → 2 N a 300 g → 3 N jsou výpočty podle Fg = m · g (0,2 · 10, 0,3 · 10).
+	     Měřítko: 1 dílek stupnice = 30 px = 1 N = délka šipky Fg na 1 N.
+
+	     OPRAVA 4 (W78-kontrola-4): žádné prolínání. Scéna má 3 úplné STAVY (třídy g1-st1/st2/st3);
+	     každý stav obsahuje vlastní pružinu, ukazatel, závaží, šipku Fg, štítek a žlutý řádek tabulky,
+	     takže se nic z toho nemůže časově rozejít. Stavy se přepínají SKOKEM (step-end).
+
+	     JEDINÝ SEZNAM ČASŮ (cyklus 10 s), z něj jsou odvozené všechny keyframes níže:
+	       T0 = 0 s     (0 %)    → stav 1: 1 závaží (100 g), ukazatel 1 N, šipka 30 px, „Fg = 1 N“, řádek 100 g
+	       T1 = 3,5 s   (35 %)   → stav 2: 2 závaží (200 g), ukazatel 2 N, šipka 60 px, „Fg = 2 N“, řádek 200 g
+	       T2 = 7 s     (70 %)   → stav 3: 3 závaží (300 g), ukazatel 3 N, šipka 90 px, „Fg = 3 N“, řádek 300 g
+	       T3 = 10 s    (100 %)  → zpět stav 1 (nový cyklus)
+	     Bez animace (prefers-reduced-motion) = stav 1. -->
+	<style>
+		.g1-st1, .g1-st2, .g1-st3 { animation-duration: 10s; animation-iteration-count: infinite; animation-timing-function: step-end; }
+		.g1-st1 { animation-name: g1-st1; }
+		.g1-st2 { animation-name: g1-st2; }
+		.g1-st3 { animation-name: g1-st3; }
+		@keyframes g1-st1 { 0% { opacity: 1 } 35% { opacity: 0 } 100% { opacity: 0 } }
+		@keyframes g1-st2 { 0% { opacity: 0 } 35% { opacity: 1 } 70% { opacity: 0 } 100% { opacity: 0 } }
+		@keyframes g1-st3 { 0% { opacity: 0 } 70% { opacity: 1 } 100% { opacity: 1 } }
+		@media (prefers-reduced-motion: reduce) {
+			.g1-st1, .g1-st2, .g1-st3 { animation: none; }
+		}
+	</style>
+
+	<rect x="0" y="0" width="460" height="560" fill="#f8f9fa"/>
+	<rect x="26" y="16" width="420" height="540" rx="12" fill="#dee2e6"/><rect x="20" y="10" width="420" height="540" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/><circle cx="52" cy="44" r="17" fill="#2b2a26"/><text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">1</text><text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Závaží na siloměru</text>
+
+	<!-- stojan -->
+	<rect x="22" y="528" width="100" height="10" rx="3" fill="#868e96" stroke="#495057" stroke-width="2"/>
+	<rect x="38" y="82" width="8" height="448" fill="#adb5bd" stroke="#495057" stroke-width="2"/>
+	<rect x="38" y="82" width="92" height="8" fill="#adb5bd" stroke="#495057" stroke-width="2"/>
+	<line x1="110" y1="90" x2="110" y2="100" stroke="#495057" stroke-width="3"/>
+	<circle cx="110" cy="104" r="5" fill="none" stroke="#495057" stroke-width="3"/>
+
+	<!-- siloměr: pouzdro se stupnicí 0–3 N (dílek 30 px) -->
+	<rect x="96" y="108" width="28" height="134" rx="6" fill="#e9ecef" stroke="#495057" stroke-width="3"/>
+	<g stroke="#2b2a26" stroke-width="3" stroke-linecap="round">
+		<line x1="97" y1="124" x2="107" y2="124"/><line x1="97" y1="154" x2="107" y2="154"/>
+		<line x1="97" y1="184" x2="107" y2="184"/><line x1="97" y1="214" x2="107" y2="214"/>
+	</g>
+	<g font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="end">
+		<text x="90" y="131">0</text><text x="90" y="161">1</text><text x="90" y="191">2</text><text x="90" y="221">3</text>
+		<text x="90" y="251">N</text>
+	</g>
+
+	<!-- žlutý řádek tabulky (pod textem) -->
+	<rect class="g1-st1" x="222" y="182" width="200" height="34" rx="6" fill="#ffe066"/>
+	<rect class="g1-st2" opacity="0" x="222" y="232" width="200" height="34" rx="6" fill="#ffe066"/>
+	<rect class="g1-st3" opacity="0" x="222" y="282" width="200" height="34" rx="6" fill="#ffe066"/>
+
+	<!-- STAV 1: 1 závaží, pružina 42 px (konec 154 = 1 N), šipka 298→328 (30 px) -->
+	<g class="g1-st1" data-zavazi="1" data-n="1">
+		<path d="M110,112 L102,115.5 L118,122.5 L102,129.5 L118,136.5 L102,143.5 L118,150.5 L110,154" fill="none" stroke="#495057" stroke-width="2.5" stroke-linejoin="round"/>
+		<line x1="110" y1="154" x2="110" y2="260" stroke="#495057" stroke-width="4"/>
+		<line x1="96" y1="154" x2="124" y2="154" stroke="#2b2a26" stroke-width="3"/>
+		<polygon points="124,154 136,147 136,161" fill="#2b2a26"/>
+		<circle cx="110" cy="266" r="6" fill="none" stroke="#495057" stroke-width="3"/>
+		<rect class="zavazi" x="72" y="274" width="76" height="24" rx="4" fill="#868e96" stroke="#495057" stroke-width="2"/>
+		<text x="110" y="293" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">100 g</text>
+		<line class="sipka" x1="110" y1="298" x2="110" y2="314" stroke="#e03131" stroke-width="5"/>
+		<polygon class="hrot" points="110,328 102,313 118,313" fill="#e03131"/>
+		<text class="stitek" x="124" y="322" font-size="22" font-weight="bold" fill="#e03131">F<tspan font-size="21" dy="5">g</tspan><tspan dy="-5"> = 1 N</tspan></text>
+	</g>
+
+	<!-- STAV 2: 2 závaží, pružina 72 px (konec 184 = 2 N), vše posunuté o 30 px; šipka 362→422 (60 px) -->
+	<g class="g1-st2" opacity="0" data-zavazi="2" data-n="2">
+		<path d="M110,112 L102,118 L118,130 L102,142 L118,154 L102,166 L118,178 L110,184" fill="none" stroke="#495057" stroke-width="2.5" stroke-linejoin="round"/>
+		<g transform="translate(0 30)">
+			<line x1="110" y1="154" x2="110" y2="260" stroke="#495057" stroke-width="4"/>
+			<line x1="96" y1="154" x2="124" y2="154" stroke="#2b2a26" stroke-width="3"/>
+			<polygon points="124,154 136,147 136,161" fill="#2b2a26"/>
+			<circle cx="110" cy="266" r="6" fill="none" stroke="#495057" stroke-width="3"/>
+			<rect class="zavazi" x="72" y="274" width="76" height="24" rx="4" fill="#868e96" stroke="#495057" stroke-width="2"/>
+			<text x="110" y="293" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">100 g</text>
+			<circle cx="110" cy="303" r="4" fill="none" stroke="#495057" stroke-width="2.5"/>
+			<rect class="zavazi" x="72" y="308" width="76" height="24" rx="4" fill="#868e96" stroke="#495057" stroke-width="2"/>
+			<text x="110" y="327" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">100 g</text>
+			<line class="sipka" x1="110" y1="332" x2="110" y2="378" stroke="#e03131" stroke-width="5"/>
+			<polygon class="hrot" points="110,392 102,377 118,377" fill="#e03131"/>
+			<text class="stitek" x="124" y="370" font-size="22" font-weight="bold" fill="#e03131">F<tspan font-size="21" dy="5">g</tspan><tspan dy="-5"> = 2 N</tspan></text>
+		</g>
+	</g>
+
+	<!-- STAV 3: 3 závaží, pružina 102 px (konec 214 = 3 N), vše posunuté o 60 px; šipka 426→516 (90 px) -->
+	<g class="g1-st3" opacity="0" data-zavazi="3" data-n="3">
+		<path d="M110,112 L102,120.5 L118,137.5 L102,154.5 L118,171.5 L102,188.5 L118,205.5 L110,214" fill="none" stroke="#495057" stroke-width="2.5" stroke-linejoin="round"/>
+		<g transform="translate(0 60)">
+			<line x1="110" y1="154" x2="110" y2="260" stroke="#495057" stroke-width="4"/>
+			<line x1="96" y1="154" x2="124" y2="154" stroke="#2b2a26" stroke-width="3"/>
+			<polygon points="124,154 136,147 136,161" fill="#2b2a26"/>
+			<circle cx="110" cy="266" r="6" fill="none" stroke="#495057" stroke-width="3"/>
+			<rect class="zavazi" x="72" y="274" width="76" height="24" rx="4" fill="#868e96" stroke="#495057" stroke-width="2"/>
+			<text x="110" y="293" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">100 g</text>
+			<circle cx="110" cy="303" r="4" fill="none" stroke="#495057" stroke-width="2.5"/>
+			<rect class="zavazi" x="72" y="308" width="76" height="24" rx="4" fill="#868e96" stroke="#495057" stroke-width="2"/>
+			<text x="110" y="327" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">100 g</text>
+			<circle cx="110" cy="337" r="4" fill="none" stroke="#495057" stroke-width="2.5"/>
+			<rect class="zavazi" x="72" y="342" width="76" height="24" rx="4" fill="#868e96" stroke="#495057" stroke-width="2"/>
+			<text x="110" y="361" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">100 g</text>
+			<line class="sipka" x1="110" y1="366" x2="110" y2="442" stroke="#e03131" stroke-width="5"/>
+			<polygon class="hrot" points="110,456 102,441 118,441" fill="#e03131"/>
+			<text class="stitek" x="124" y="418" font-size="22" font-weight="bold" fill="#e03131">F<tspan font-size="21" dy="5">g</tspan><tspan dy="-5"> = 3 N</tspan></text>
+		</g>
+	</g>
+
+	<!-- pravý sloupec -->
+	<g font-size="21" fill="#2b2a26">
+		<text x="230" y="120">Každé závaží</text>
+		<text x="230" y="148">má <tspan font-weight="bold">100 g</tspan>.</text>
+	</g>
+	<g font-size="22" fill="#2b2a26">
+		<text x="232" y="206">100 g → <tspan font-weight="bold">1 N</tspan></text>
+		<text x="232" y="256">200 g → <tspan font-weight="bold">2 N</tspan></text>
+		<text x="232" y="306">300 g → <tspan font-weight="bold">3 N</tspan></text>
+	</g>
+	<g font-size="21" fill="#2b2a26">
+		<text x="230" y="380" font-size="22" font-weight="bold">F<tspan font-size="21" dy="5">g</tspan><tspan dy="-5"> = m · g</tspan></text>
+		<text x="230" y="412">g = <tspan font-weight="bold">10 N/kg</tspan></text>
+		<text x="230" y="444">1 dílek = 1 N</text>
+	</g>
+</svg>
