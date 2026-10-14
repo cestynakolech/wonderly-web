@@ -1,0 +1,85 @@
+<svg viewBox="0 0 460 528" width="460" height="528" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rovnováha na houpačce: prkno dlouhé 4 m je podepřené uprostřed v ose O. Na levém konci sedí Petr, 30 kg, tlačí silou F1 = 300 N na rameni a1 = 200 cm. Pavel, 48 kg, sedí nejdřív také na konci a houpačka se na jeho straně skloní k zemi. Pavel si přesedne blíž k ose, na rameno a2 = 125 cm, odrazí se nohama a vyvážená houpačka zůstane ve vodorovné poloze. Když se Pavel posune zpět na konec, houpačka se znovu nakloní. F1 · a1 = F2 · a2: 300 N · 200 cm = 480 N · 125 cm, 60 000 = 60 000. Těžší sedí blíž k ose." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Páka 4/6: Rovnováha na houpačce</title>
+	<!-- Panel 4/6 (W49, 14. 10. 2026); čísla = výklad, Příklad 4 (PDF Páka, s. 12, výsledek v cm místo 1,25 m). Bez animace = rovnováha. -->
+	<style>
+		.p4-prkno { transform-box: view-box; transform-origin: 230px 320px; animation: p4prkno 10s infinite; }
+		@keyframes p4prkno { 0%, 36% { transform: rotate(17.1deg); animation-timing-function: ease-out; } 50%, 86% { transform: none; animation-timing-function: ease-in; } 97%, 100% { transform: rotate(17.1deg); } }
+		.p4-odraz { animation: p4odraz 10s infinite; }
+		@keyframes p4odraz { 0%, 31% { opacity: 0; } 33%, 40% { opacity: 1; } 42%, 100% { opacity: 0; } }
+		.p4-noha { animation: p4noha 10s infinite; }
+		@keyframes p4noha { 0%, 31% { opacity: 1; } 33%, 40% { opacity: 0; } 42%, 100% { opacity: 1; } }
+		.p4-pavel { animation: p4pavel 10s infinite; }
+		@keyframes p4pavel { 0%, 10% { transform: translateX(63.75px); animation-timing-function: ease-in-out; } 30%, 86% { transform: none; animation-timing-function: ease-in-out; } 97%, 100% { transform: translateX(63.75px); } }
+		.p4-sily { animation: p4sily 10s infinite; }
+		@keyframes p4sily { 0%, 52% { opacity: 0; } 57%, 84% { opacity: 1; } 88%, 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) { .p4-prkno, .p4-pavel, .p4-sily, .p4-odraz, .p4-noha { animation: none; } }
+	</style>
+	<defs><clipPath id="ok4"><rect x="30" y="138" width="400" height="260" rx="8"/></clipPath></defs>
+	<rect x="0" y="0" width="460" height="528" fill="#f8f9fa"/>
+	<g id="panel-4">
+		<rect x="26" y="16" width="420" height="508" rx="12" fill="#dee2e6"/>
+		<rect x="20" y="10" width="420" height="508" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/>
+		<circle cx="52" cy="44" r="17" fill="#2b2a26"/><text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">4</text>
+		<text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Rovnováha na houpačce</text>
+		<text x="34" y="92" font-size="21" fill="#2b2a26">Petr 30 kg, Pavel 48 kg.</text>
+		<text x="34" y="120" font-size="21" fill="#2b2a26">Pavel přesedne a odrazí se nohama.</text>
+		<rect x="30" y="138" width="400" height="260" rx="8" fill="#ffffff"/>
+		<g clip-path="url(#ok4)">
+			<!-- tráva -->
+			<rect x="30" y="381" width="400" height="17" fill="#d3f9d8"/>
+			<line x1="30" y1="381" x2="430" y2="381" stroke="#69db7c" stroke-width="2"/>
+			<!-- podstavec houpačky -->
+			<path d="M214,381 L214,334 Q214,325 223,325 L237,325 Q246,325 246,334 L246,381 Z" fill="#868e96" stroke="#495057" stroke-width="2"/>
+			<g class="p4-prkno">
+				<!-- prkno 4 m -->
+				<rect x="56" y="315" width="348" height="10" rx="3" fill="#339af0" stroke="#1864ab" stroke-width="1.5"/>
+				<!-- Petr, 30 kg, na konci (a1 = 200 cm) -->
+				<g transform="translate(60 0)">
+					<line x1="-6" y1="322" x2="-9" y2="336" stroke="#343a40" stroke-width="6" stroke-linecap="round"/>
+					<rect x="-16" y="272" width="32" height="44" rx="9" fill="#fcc419" stroke="#e67700" stroke-width="1.5"/>
+					<text x="0" y="299" font-size="12" font-weight="bold" text-anchor="middle" fill="#2b2a26">30 kg</text>
+					<circle cx="0" cy="256" r="15" fill="#f1c9a5" stroke="#a0663d" stroke-width="1.5"/>
+					<path d="M-15,253 Q-14,238 0,239 Q14,238 15,253 Q8,245 0,246 Q-8,245 -15,253 Z" fill="#e8590c"/>
+					<circle cx="-5" cy="257" r="1.8" fill="#2b2a26"/><circle cx="5" cy="257" r="1.8" fill="#2b2a26"/>
+				</g>
+				<!-- Pavel, 48 kg -->
+				<g class="p4-pavel">
+					<g transform="translate(336.25 0)">
+						<line class="p4-noha" x1="6" y1="322" x2="9" y2="334" stroke="#343a40" stroke-width="7" stroke-linecap="round"/>
+						<!-- odraz nohou od země (jen v animaci) -->
+						<line class="p4-odraz" opacity="0" x1="6" y1="322" x2="13" y2="352" stroke="#343a40" stroke-width="7" stroke-linecap="round"/>
+						<rect x="-19" y="266" width="38" height="50" rx="10" fill="#e03131" stroke="#a61e1e" stroke-width="1.5"/>
+						<text x="0" y="296" font-size="12" font-weight="bold" text-anchor="middle" fill="#fff">48 kg</text>
+						<circle cx="0" cy="248" r="17" fill="#f1c9a5" stroke="#a0663d" stroke-width="1.5"/>
+						<path d="M-17,245 Q-16,229 0,230 Q16,229 17,245 Q9,237 0,238 Q-9,237 -17,245 Z" fill="#5c3d1e"/>
+						<circle cx="-6" cy="249" r="2" fill="#2b2a26"/><circle cx="6" cy="249" r="2" fill="#2b2a26"/>
+					</g>
+				</g>
+			</g>
+			<!-- osa O -->
+			<circle cx="230" cy="320" r="5" fill="#fff" stroke="#2b2a26" stroke-width="2.5"/>
+			<text x="230" y="306" font-size="21" font-weight="bold" text-anchor="middle" fill="#2b2a26">O</text>
+			<!-- síly a ramena v rovnováze -->
+			<g class="p4-sily">
+				<line x1="60" y1="345" x2="336.25" y2="345" stroke="#cc6a00" stroke-width="3"/>
+				<line x1="60" y1="337" x2="60" y2="353" stroke="#cc6a00" stroke-width="3"/>
+				<line x1="230" y1="337" x2="230" y2="353" stroke="#cc6a00" stroke-width="3"/>
+				<line x1="336.25" y1="337" x2="336.25" y2="353" stroke="#cc6a00" stroke-width="3"/>
+				<text x="150" y="370" font-size="19" font-weight="bold" text-anchor="middle" fill="#cc6a00"><tspan font-style="italic">a</tspan><tspan font-size="15" dy="4">1</tspan></text>
+				<text x="290" y="370" font-size="19" font-weight="bold" text-anchor="middle" fill="#cc6a00"><tspan font-style="italic">a</tspan><tspan font-size="15" dy="4">2</tspan></text>
+				<circle cx="60" cy="300" r="4" fill="#c92a2a"/>
+				<line x1="60" y1="300" x2="60" y2="362" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/>
+				<path d="M60,375 L52.5,362 L67.5,362 Z" fill="#c92a2a"/>
+				<text x="36" y="226" font-size="19" font-weight="bold" fill="#c92a2a"><tspan font-style="italic">F</tspan><tspan font-size="15" dy="4">1</tspan><tspan dy="-4"> = 300 N</tspan></text>
+				<circle cx="336.25" cy="300" r="4" fill="#c92a2a"/>
+				<line x1="336.25" y1="300" x2="336.25" y2="362" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/>
+				<path d="M336.25,375 L328.75,362 L343.75,362 Z" fill="#c92a2a"/>
+				<text x="336" y="220" font-size="19" font-weight="bold" text-anchor="middle" fill="#c92a2a"><tspan font-style="italic">F</tspan><tspan font-size="15" dy="4">2</tspan><tspan dy="-4"> = 480 N</tspan></text>
+			</g>
+		</g>
+		<rect x="30" y="138" width="400" height="260" rx="8" fill="none" stroke="#ced4da" stroke-width="2"/>
+		<text x="34" y="432" font-size="21" fill="#2b2a26">300 N · 200 cm = 480 N · 125 cm</text>
+		<text x="34" y="462" font-size="21" fill="#2b2a26">60 000 = 60 000 → <tspan font-weight="bold">rovnováha</tspan></text>
+		<text x="34" y="492" font-size="21" fill="#2b2a26">Těžší Pavel sedí blíž k ose.</text>
+	</g>
+</svg>

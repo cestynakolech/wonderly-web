@@ -1,0 +1,78 @@
+<svg viewBox="0 0 460 600" width="460" height="600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rovnováha na stavebním kolečku, jednozvratná páka. Osa otáčení O je v ose kola. Náklad 45 kg tlačí na páku silou F2 = 450 N ve vzdálenosti a2 = 40 cm od osy. Ruka zvedá držadla silou F1 ve vzdálenosti a1 = 120 cm. 120 cm : 40 cm = 3, ruka je třikrát dál od osy, proto stačí třikrát menší síla: 450 N : 3 = 150 N. Kontrola: 150 · 120 = 450 · 40." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Páka 5/6: Rovnováha na kolečku</title>
+	<!-- Panel 5/6 (W49, 14. 10. 2026); čísla = výklad, Příklad 3 (PDF Páka, s. 9 a 11). Bez animace = kolečko zvednuté. -->
+	<style>
+		.p5-kolecko { transform-box: view-box; transform-origin: 395px 360px; animation: p5kol 7s infinite; }
+		@keyframes p5kol { 0%, 15% { transform: rotate(-7.46deg); animation-timing-function: ease-in-out; } 45%, 80% { transform: none; animation-timing-function: ease-in-out; } 97%, 100% { transform: rotate(-7.46deg); } }
+		.p5-sily { animation: p5sily 7s infinite; }
+		@keyframes p5sily { 0%, 45% { opacity: 0; } 51%, 78% { opacity: 1; } 83%, 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) { .p5-kolecko, .p5-sily { animation: none; } }
+	</style>
+	<defs><clipPath id="ok5"><rect x="30" y="138" width="400" height="332" rx="8"/></clipPath></defs>
+	<rect x="0" y="0" width="460" height="600" fill="#f8f9fa"/>
+	<g id="panel-5">
+		<rect x="26" y="16" width="420" height="580" rx="12" fill="#dee2e6"/>
+		<rect x="20" y="10" width="420" height="580" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/>
+		<circle cx="52" cy="44" r="17" fill="#2b2a26"/><text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">5</text>
+		<text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Rovnováha na kolečku</text>
+		<text x="34" y="92" font-size="21" fill="#2b2a26">Náklad 45 kg tlačí silou 450 N.</text>
+		<text x="34" y="120" font-size="21" fill="#2b2a26">Osa otáčení je v ose kola.</text>
+		<rect x="30" y="138" width="400" height="332" rx="8" fill="#ffffff"/>
+		<g clip-path="url(#ok5)">
+			<!-- zem -->
+			<rect x="30" y="392" width="400" height="10" fill="#d3f9d8"/>
+			<line x1="30" y1="392" x2="430" y2="392" stroke="#69db7c" stroke-width="2"/>
+			<g class="p5-kolecko">
+				<!-- nožka -->
+				<line x1="235" y1="331" x2="240" y2="372" stroke="#495057" stroke-width="5" stroke-linecap="round"/>
+				<line x1="232" y1="372" x2="248" y2="372" stroke="#495057" stroke-width="5" stroke-linecap="round"/>
+				<!-- rám a držadla -->
+				<line x1="395" y1="360" x2="52" y2="298" stroke="#495057" stroke-width="7" stroke-linecap="round"/>
+				<!-- korba -->
+				<line x1="245" y1="334" x2="245" y2="333" stroke="#495057" stroke-width="4"/>
+				<line x1="345" y1="334" x2="345" y2="352" stroke="#495057" stroke-width="4"/>
+				<polygon points="200,268 378,268 350,336 240,336" fill="#74c0fc" stroke="#1864ab" stroke-width="2.5" stroke-linejoin="round"/>
+				<line x1="196" y1="268" x2="382" y2="268" stroke="#1864ab" stroke-width="5" stroke-linecap="round"/>
+				<!-- náklad (hlína) -->
+				<path d="M206,266 C222,246 250,234 285,232 C320,234 350,246 372,266 Z" fill="#8d6e4a" stroke="#5c4630" stroke-width="2"/>
+				<text x="285" y="259" font-size="16" font-weight="bold" text-anchor="middle" fill="#fff">45 kg</text>
+				<!-- ruka zvedá držadla -->
+				<line x1="57" y1="290" x2="26" y2="190" stroke="#4c6ef5" stroke-width="18" stroke-linecap="round"/>
+				<rect x="49" y="286" width="32" height="30" rx="10" fill="#f1c9a5" stroke="#a0663d" stroke-width="1.5"/>
+				<line x1="55" y1="296" x2="75" y2="296" stroke="#a0663d" stroke-width="1.5"/>
+				<line x1="55" y1="305" x2="75" y2="305" stroke="#a0663d" stroke-width="1.5"/>
+			</g>
+			<!-- kolo -->
+			<circle cx="395" cy="360" r="32" fill="#343a40"/>
+			<circle cx="395" cy="360" r="19" fill="#adb5bd" stroke="#868e96" stroke-width="2"/>
+			<circle cx="395" cy="360" r="5" fill="#fff" stroke="#2b2a26" stroke-width="2.5"/>
+			<text x="395" y="318" font-size="21" font-weight="bold" text-anchor="middle" fill="#2b2a26">O</text>
+			<!-- síly a ramena -->
+			<g class="p5-sily">
+				<circle cx="65" cy="290" r="4" fill="#c92a2a"/>
+				<line x1="65" y1="290" x2="65" y2="230" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/>
+				<path d="M65,217 L57.5,230 L72.5,230 Z" fill="#c92a2a"/>
+				<text x="78" y="234" font-size="19" font-weight="bold" fill="#c92a2a"><tspan font-style="italic">F</tspan><tspan font-size="15" dy="4">1</tspan><tspan dy="-4"> = 150 N</tspan></text>
+				<circle cx="285" cy="250" r="4" fill="#c92a2a"/>
+				<line x1="285" y1="250" x2="285" y2="318" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/>
+				<path d="M285,331 L277.5,318 L292.5,318 Z" fill="#c92a2a"/>
+				<text x="285" y="220" font-size="19" font-weight="bold" text-anchor="middle" fill="#c92a2a"><tspan font-style="italic">F</tspan><tspan font-size="15" dy="4">2</tspan><tspan dy="-4"> = 450 N</tspan></text>
+				<line x1="395" y1="396" x2="395" y2="466" stroke="#adb5bd" stroke-width="1.5" stroke-dasharray="5 4"/>
+				<line x1="285" y1="404" x2="285" y2="433" stroke="#adb5bd" stroke-width="1.5" stroke-dasharray="5 4"/>
+				<line x1="65" y1="404" x2="65" y2="466" stroke="#adb5bd" stroke-width="1.5" stroke-dasharray="5 4"/>
+				<line x1="285" y1="425" x2="395" y2="425" stroke="#cc6a00" stroke-width="3"/>
+				<line x1="285" y1="417" x2="285" y2="433" stroke="#cc6a00" stroke-width="3"/>
+				<line x1="395" y1="417" x2="395" y2="433" stroke="#cc6a00" stroke-width="3"/>
+				<text x="340" y="418" font-size="18" font-weight="bold" text-anchor="middle" fill="#cc6a00"><tspan font-style="italic">a</tspan><tspan font-size="14" dy="4">2</tspan><tspan dy="-4"> = 40 cm</tspan></text>
+				<line x1="65" y1="458" x2="395" y2="458" stroke="#cc6a00" stroke-width="3"/>
+				<line x1="65" y1="450" x2="65" y2="466" stroke="#cc6a00" stroke-width="3"/>
+				<line x1="395" y1="450" x2="395" y2="466" stroke="#cc6a00" stroke-width="3"/>
+				<text x="170" y="451" font-size="18" font-weight="bold" text-anchor="middle" fill="#cc6a00"><tspan font-style="italic">a</tspan><tspan font-size="14" dy="4">1</tspan><tspan dy="-4"> = 120 cm</tspan></text>
+			</g>
+		</g>
+		<rect x="30" y="138" width="400" height="332" rx="8" fill="none" stroke="#ced4da" stroke-width="2"/>
+		<text x="34" y="504" font-size="21" fill="#2b2a26">120 cm : 40 cm = 3 (ruka 3krát dál)</text>
+		<text x="34" y="534" font-size="21" fill="#2b2a26">Síla ruky: 450 N : 3 = <tspan font-weight="bold">150 N</tspan></text>
+		<text x="34" y="564" font-size="21" fill="#2b2a26">Kontrola: 150 · 120 = 450 · 40</text>
+	</g>
+</svg>

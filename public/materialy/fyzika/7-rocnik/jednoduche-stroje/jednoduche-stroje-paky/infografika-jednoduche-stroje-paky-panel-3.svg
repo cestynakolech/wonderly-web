@@ -1,0 +1,61 @@
+<svg viewBox="0 0 460 548" width="460" height="548" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Jednozvratná páka: osa otáčení O je na kraji tyče. Uprostřed tyče leží kámen, který tlačí na páku tíhou F2 dolů. Ruka zvedá druhý konec silou F1 nahoru. Obě síly působí na stejné straně osy a mají opačný směr. Kámen se zvedne. Příklady: stavební kolečko, otvírák na lahve." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Páka 3/6: Jednozvratná páka</title>
+	<!-- Panel 3/6 (W49, 14. 10. 2026), překresleno podle PDF Páka, s. 3; bez animace = páka zvednutá. -->
+	<style>
+		.p3-paka { transform-box: view-box; transform-origin: 400px 380px; animation: p3paka 7s infinite; }
+		@keyframes p3paka { 0%, 15% { transform: rotate(-15.6deg); animation-timing-function: ease-in-out; } 50%, 80% { transform: none; animation-timing-function: ease-in-out; } 97%, 100% { transform: rotate(-15.6deg); } }
+		.p3-sily { animation: p3sily 7s infinite; }
+		@keyframes p3sily { 0%, 50% { opacity: 0; } 56%, 78% { opacity: 1; } 83%, 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) { .p3-paka, .p3-sily { animation: none; } }
+	</style>
+	<defs><clipPath id="ok3"><rect x="30" y="138" width="400" height="280" rx="8"/></clipPath></defs>
+	<rect x="0" y="0" width="460" height="548" fill="#f8f9fa"/>
+	<g id="panel-3">
+		<rect x="26" y="16" width="420" height="528" rx="12" fill="#dee2e6"/>
+		<rect x="20" y="10" width="420" height="528" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/>
+		<circle cx="52" cy="44" r="17" fill="#2b2a26"/><text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">3</text>
+		<text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Jednozvratná páka</text>
+		<text x="34" y="92" font-size="21" fill="#2b2a26">Osa je na kraji páky.</text>
+		<text x="34" y="120" font-size="21" fill="#2b2a26">Ruka zvedá konec, kámen jde nahoru.</text>
+		<rect x="30" y="138" width="400" height="280" rx="8" fill="#ffffff"/>
+		<g clip-path="url(#ok3)">
+			<!-- tráva -->
+			<rect x="30" y="396" width="400" height="22" fill="#d3f9d8"/>
+			<line x1="30" y1="396" x2="430" y2="396" stroke="#69db7c" stroke-width="2"/>
+			<!-- podpěra osy na kraji -->
+			<path d="M400,380 L388,396 L412,396 Z" fill="#495057"/>
+			<g transform="rotate(14 400 380)">
+				<g class="p3-paka">
+					<!-- kámen uprostřed páky -->
+					<path d="M226,374 C222,354 234,330 258,324 C280,318 298,332 300,352 C301,366 296,374 290,374 Z" fill="#868e96" stroke="#495057" stroke-width="2"/>
+					<path d="M244,340 C252,334 262,332 270,334" fill="none" stroke="#adb5bd" stroke-width="2.5" stroke-linecap="round"/>
+					<!-- tyč -->
+					<rect x="40" y="374" width="368" height="12" rx="4" fill="#f08c00" stroke="#c46a00" stroke-width="1.5"/>
+					<!-- ruka zvedá konec -->
+					<line x1="70" y1="372" x2="34" y2="252" stroke="#4c6ef5" stroke-width="18" stroke-linecap="round"/>
+					<rect x="54" y="364" width="32" height="32" rx="10" fill="#f1c9a5" stroke="#a0663d" stroke-width="1.5"/>
+					<line x1="60" y1="374" x2="80" y2="374" stroke="#a0663d" stroke-width="1.5"/>
+					<line x1="60" y1="383" x2="80" y2="383" stroke="#a0663d" stroke-width="1.5"/>
+				</g>
+			</g>
+			<!-- osa O -->
+			<circle cx="400" cy="380" r="5" fill="#fff" stroke="#2b2a26" stroke-width="2.5"/>
+			<text x="412" y="366" font-size="23" font-weight="bold" text-anchor="middle" fill="#2b2a26">O</text>
+			<!-- síly ve zvednuté poloze -->
+			<g class="p3-sily">
+				<circle cx="96" cy="296" r="4" fill="#c92a2a"/>
+				<line x1="96" y1="296" x2="96" y2="246" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/>
+				<path d="M96,233 L88.5,246 L103.5,246 Z" fill="#c92a2a"/>
+				<text x="108" y="252" font-size="21" font-weight="bold" fill="#c92a2a"><tspan font-style="italic">F</tspan><tspan font-size="16" dy="5">1</tspan></text>
+				<circle cx="272" cy="315" r="4" fill="#c92a2a"/>
+				<line x1="272" y1="315" x2="272" y2="362" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/>
+				<path d="M272,375 L264.5,362 L279.5,362 Z" fill="#c92a2a"/>
+				<text x="260" y="378" font-size="21" font-weight="bold" text-anchor="end" fill="#c92a2a"><tspan font-style="italic">F</tspan><tspan font-size="16" dy="5">2</tspan></text>
+			</g>
+		</g>
+		<rect x="30" y="138" width="400" height="280" rx="8" fill="none" stroke="#ced4da" stroke-width="2"/>
+		<text x="34" y="452" font-size="21" fill="#2b2a26">Obě síly jsou na stejné straně osy.</text>
+		<text x="34" y="482" font-size="21" fill="#2b2a26">Mají opačný směr: nahoru a dolů.</text>
+		<text x="34" y="512" font-size="21" fill="#2b2a26">Např. kolečko, otvírák na lahve.</text>
+	</g>
+</svg>

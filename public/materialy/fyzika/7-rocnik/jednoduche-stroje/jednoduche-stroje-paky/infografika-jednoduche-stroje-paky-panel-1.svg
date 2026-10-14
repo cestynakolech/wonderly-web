@@ -1,0 +1,59 @@
+<svg viewBox="0 0 460 528" width="460" height="528" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Páka je tuhá tyč, která se otáčí kolem pevné osy O. Ruka tlačí na konec maticového klíče silou F a klíč se otočí kolem osy ve středu matice. Rameno síly a je vzdálenost osy od přímky, po které síla působí. Delší rameno dává větší otáčivý účinek. Moment síly M = F · a." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Páka 1/6: Osa otáčení a rameno</title>
+	<!-- Panel 1/6 (W49, 14. 10. 2026); bez animace = klíč v klidové poloze. -->
+	<style>
+		.p1-klic { transform-box: view-box; transform-origin: 120px 262px; animation: p1klic 7s infinite; }
+		@keyframes p1klic { 0%, 15% { transform: none; animation-timing-function: ease-in-out; } 50%, 75% { transform: rotate(12deg); animation-timing-function: ease-in-out; } 95%, 100% { transform: none; } }
+		@media (prefers-reduced-motion: reduce) { .p1-klic { animation: none; } }
+	</style>
+	<defs><clipPath id="ok1"><rect x="30" y="138" width="400" height="260" rx="8"/></clipPath></defs>
+	<rect x="0" y="0" width="460" height="528" fill="#f8f9fa"/>
+	<g id="panel-1">
+		<rect x="26" y="16" width="420" height="508" rx="12" fill="#dee2e6"/>
+		<rect x="20" y="10" width="420" height="508" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/>
+		<circle cx="52" cy="44" r="17" fill="#2b2a26"/><text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">1</text>
+		<text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Osa otáčení a rameno</text>
+		<text x="34" y="92" font-size="21" fill="#2b2a26">Páka je tuhá tyč, která se otáčí</text>
+		<text x="34" y="120" font-size="21" fill="#2b2a26">kolem pevné osy <tspan font-weight="bold">O</tspan>.</text>
+		<rect x="30" y="138" width="400" height="260" rx="8" fill="#ffffff"/>
+		<g clip-path="url(#ok1)">
+			<!-- matice se šroubem: osa otáčení -->
+			<polygon points="144,262 132,282.8 108,282.8 96,262 108,241.2 132,241.2" fill="#adb5bd" stroke="#495057" stroke-width="2"/>
+			<g class="p1-klic">
+				<!-- maticový klíč -->
+				<circle cx="120" cy="262" r="32" fill="none" stroke="#868e96" stroke-width="12"/>
+				<circle cx="120" cy="262" r="38" fill="none" stroke="#495057" stroke-width="1.5"/>
+				<circle cx="120" cy="262" r="26" fill="none" stroke="#495057" stroke-width="1.5"/>
+				<rect x="150" y="252" width="232" height="20" rx="9" fill="#868e96" stroke="#495057" stroke-width="2"/>
+				<!-- rameno síly -->
+				<line x1="120" y1="252" x2="120" y2="204" stroke="#adb5bd" stroke-width="1.5" stroke-dasharray="5 4"/>
+				<line x1="365" y1="240" x2="365" y2="204" stroke="#adb5bd" stroke-width="1.5" stroke-dasharray="5 4"/>
+				<line x1="120" y1="212" x2="365" y2="212" stroke="#cc6a00" stroke-width="3.5"/>
+				<line x1="120" y1="204" x2="120" y2="220" stroke="#cc6a00" stroke-width="3.5"/>
+				<line x1="365" y1="204" x2="365" y2="220" stroke="#cc6a00" stroke-width="3.5"/>
+				<text x="242" y="202" font-size="23" font-weight="bold" font-style="italic" text-anchor="middle" fill="#cc6a00">a</text>
+				<!-- ruka -->
+				<line x1="372" y1="246" x2="430" y2="146" stroke="#4c6ef5" stroke-width="18" stroke-linecap="round"/>
+				<rect x="348" y="242" width="34" height="38" rx="11" fill="#f1c9a5" stroke="#a0663d" stroke-width="1.5"/>
+				<line x1="355" y1="252" x2="375" y2="252" stroke="#a0663d" stroke-width="1.5"/>
+				<line x1="355" y1="261" x2="375" y2="261" stroke="#a0663d" stroke-width="1.5"/>
+				<line x1="355" y1="270" x2="375" y2="270" stroke="#a0663d" stroke-width="1.5"/>
+				<!-- síla F kolmo na klíč -->
+				<circle cx="365" cy="280" r="4" fill="#c92a2a"/>
+				<line x1="365" y1="280" x2="365" y2="326" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/>
+				<path d="M365,339 L357.5,326 L372.5,326 Z" fill="#c92a2a"/>
+				<text x="380" y="332" font-size="23" font-weight="bold" font-style="italic" fill="#c92a2a">F</text>
+			</g>
+			<!-- osa O -->
+			<circle cx="120" cy="262" r="9" fill="#495057"/>
+			<line x1="111" y1="262" x2="129" y2="262" stroke="#fff" stroke-width="2.5"/>
+			<line x1="120" y1="253" x2="120" y2="271" stroke="#fff" stroke-width="2.5"/>
+			<text x="64" y="320" font-size="23" font-weight="bold" fill="#2b2a26">O</text>
+			<text x="64" y="342" font-size="17" fill="#495057">osa</text>
+		</g>
+		<rect x="30" y="138" width="400" height="260" rx="8" fill="none" stroke="#ced4da" stroke-width="2"/>
+		<text x="34" y="432" font-size="21" fill="#2b2a26">Rameno <tspan font-style="italic">a</tspan>: od osy k přímce síly.</text>
+		<text x="34" y="462" font-size="21" fill="#2b2a26">Delší rameno = větší otáčivý účinek.</text>
+		<text x="34" y="492" font-size="21" fill="#2b2a26">Moment síly: <tspan font-weight="bold"><tspan font-style="italic">M</tspan> = <tspan font-style="italic">F</tspan> · <tspan font-style="italic">a</tspan></tspan></text>
+	</g>
+</svg>
