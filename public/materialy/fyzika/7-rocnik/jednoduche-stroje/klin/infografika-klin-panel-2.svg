@@ -1,0 +1,59 @@
+<svg viewBox="0 0 460 500" width="460" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Co se pohybuje: vlevo nakloněná rovina stojí na zemi a po její šikmé ploše jede bedna nahoru; vpravo je v řezu klín ze dvou nakloněných rovin zaražený ostřím do dřeva; šedá čárkovaná šipka dolů ukazuje, že se pohybuje sám klín, dvě šipky do stran, že se dřevo rozevírá" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Klín 2/4: Co se pohybuje</title>
+	<style>
+		.p2-b { transform-box: view-box; }
+		.p2-b { transform-origin: 0 0; transform: translate(140.8px, 327.8px) rotate(-23.2deg); animation: p2b 8s ease-in-out infinite; }
+		@keyframes p2b { 0%, 15% { transform: translate(62.4px, 361.4px) rotate(-23.2deg); } 55%, 85% { transform: translate(140.8px, 327.8px) rotate(-23.2deg); } 100% { transform: translate(62.4px, 361.4px) rotate(-23.2deg); } }
+		@media (prefers-reduced-motion: reduce) { .p2-b { animation: none; } }
+	</style>
+	<rect x="0" y="0" width="460" height="500" fill="#f8f9fa"/>
+	<g id="panel-2">
+		<rect x="26" y="16" width="420" height="476" rx="12" fill="#dee2e6"/>
+		<rect x="20" y="10" width="420" height="476" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/>
+		<circle cx="52" cy="44" r="17" fill="#2b2a26"/>
+		<text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">2</text>
+		<text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Co se pohybuje</text>
+		<text x="34" y="92" font-size="21" fill="#2b2a26">Nakloněná rovina, nebo klín?</text>
+		<rect x="30" y="110" width="196" height="290" rx="8" fill="#ffffff"/>
+		<rect x="234" y="110" width="196" height="290" rx="8" fill="#ffffff"/>
+		<text x="128" y="140" font-size="19" font-weight="bold" text-anchor="middle" fill="#2b2a26">nakloněná rovina</text>
+		<text x="332" y="140" font-size="19" font-weight="bold" text-anchor="middle" fill="#2b2a26">klín</text>
+		<rect x="30" y="370" width="196" height="30" fill="#e9ecef"/>
+		<line x1="30" y1="370" x2="226" y2="370" stroke="#868e96" stroke-width="2.5"/>
+		<rect x="234" y="370" width="196" height="30" fill="#e9ecef"/>
+		<line x1="234" y1="370" x2="430" y2="370" stroke="#868e96" stroke-width="2.5"/>
+		<!-- nakloněná rovina šikmo: stojí -->
+		<path d="M185,370 L203,360 L203,300 L185,310 Z" fill="#adb5bd" stroke="#868e96" stroke-width="2" stroke-linejoin="round"/>
+		<path d="M45,370 L185,310 L203,300 L63,360 Z" fill="#dee2e6" stroke="#868e96" stroke-width="2" stroke-linejoin="round"/>
+		<path d="M45,370 L185,370 L185,310 Z" fill="#ced4da" stroke="#868e96" stroke-width="2" stroke-linejoin="round"/>
+		<g class="p2-b">
+			<path d="M26,0 L34,-5 L34,-31 L26,-26 Z" fill="#b5793e" stroke="#6b3e16" stroke-width="2" stroke-linejoin="round"/>
+			<path d="M0,-26 L26,-26 L34,-31 L8,-31 Z" fill="#e3b07a" stroke="#6b3e16" stroke-width="2" stroke-linejoin="round"/>
+			<rect x="0" y="-26" width="26" height="26" fill="#d39a5c" stroke="#6b3e16" stroke-width="2.5"/>
+			<line x1="3" y1="-3" x2="23" y2="-23" stroke="#6b3e16" stroke-width="3" stroke-linecap="round"/>
+		</g>
+		<line x1="78" y1="300" x2="146" y2="270.7" stroke="#495057" stroke-width="3" stroke-dasharray="7 5"/>
+		<path d="M158,265.5 L148.4,276.2 L143.6,265.2 Z" fill="#495057"/>
+		<!-- klín v řezu: stojí v dřevě, šipky ukazují, co se pohybuje (bez animace – děj zarážení je v obr-01) -->
+	<path d="M262,282 L324,280 L332,330 L332,370 L270,370 Z" fill="#c8935a" stroke="#8a5a2b" stroke-width="2" stroke-linejoin="round"/>
+	<path d="M402,282 L340,280 L332,330 L332,370 L394,370 Z" fill="#c8935a" stroke="#8a5a2b" stroke-width="2" stroke-linejoin="round"/>
+	<path d="M284,288 Q281,328 288,364 M306,286 Q310,326 306,364 M380,288 Q383,328 376,364 M358,286 Q354,326 358,364" fill="none" stroke="#8a5a2b" stroke-width="1.5"/>
+	<line x1="332" y1="330" x2="332" y2="362" stroke="#3b2412" stroke-width="2.5"/>
+	<path d="M316,230 L332,230 L332,330 Z" fill="#ced4da"/>
+	<path d="M332,230 L348,230 L332,330 Z" fill="#adb5bd"/>
+	<path d="M316,230 L348,230 L332,330 Z" fill="none" stroke="#495057" stroke-width="2" stroke-linejoin="round"/>
+	<line x1="332" y1="230" x2="332" y2="330" stroke="#868e96" stroke-width="1.5"/>
+	<rect x="314" y="224" width="36" height="7" rx="2" fill="#343a40"/>
+	<!-- pohyb: klín dolů (šipka nad hřbetem), dřevo do stran (šipky na polovinách špalku od mezery ven) -->
+	<line x1="332" y1="160" x2="332" y2="206" stroke="#495057" stroke-width="3" stroke-dasharray="7 5"/>
+	<path d="M326,206 L338,206 L332,220 Z" fill="#495057"/>
+	<line x1="322" y1="302" x2="300" y2="302" stroke="#495057" stroke-width="3" stroke-dasharray="6 4"/>
+	<path d="M300,296 L300,308 L286,302 Z" fill="#495057"/>
+	<line x1="342" y1="302" x2="364" y2="302" stroke="#495057" stroke-width="3" stroke-dasharray="6 4"/>
+	<path d="M364,296 L364,308 L378,302 Z" fill="#495057"/>
+	<text x="128" y="428" font-size="18" text-anchor="middle" fill="#2b2a26">rovina stojí,</text>
+		<text x="128" y="452" font-size="18" text-anchor="middle" fill="#2b2a26">jede břemeno</text>
+		<text x="332" y="428" font-size="18" text-anchor="middle" fill="#2b2a26">klín jede do dřeva</text>
+		<text x="332" y="452" font-size="18" text-anchor="middle" fill="#2b2a26">a rozevírá ho</text>
+	</g>
+</svg>

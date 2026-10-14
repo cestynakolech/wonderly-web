@@ -1,0 +1,100 @@
+<svg viewBox="0 0 460 660" width="460" height="660" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Klín kolem nás: šest okének, v každém modře bliká část, která je klín – u sekery a nože je vedle nástroje nakreslen řez čepelí, který se k ostří zužuje: sekera štípe dřevo, nůž krájí a řeže, zkosený konec dláta vysekává drážky, hrot hřebíku se zaráží mezi vlákna dřeva, přední zuby řezáky (zepředu a z boku, horní přesahují přes dolní) ukusují; v posledním okénku tlustý klín štípe a tenký klín řeže" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Klín 3/4: Klín kolem nás</title>
+	<style>
+		.p3-h { opacity: 1; animation: p3h 6s ease-in-out infinite; }
+		@keyframes p3h { 0%, 100% { opacity: 0.25; } 15%, 35% { opacity: 1; } 55% { opacity: 0.25; } }
+		@media (prefers-reduced-motion: reduce) { .p3-h { animation: none; } }
+	</style>
+	<rect x="0" y="0" width="460" height="660" fill="#f8f9fa"/>
+	<g id="panel-3">
+		<rect x="26" y="16" width="420" height="636" rx="12" fill="#dee2e6"/>
+		<rect x="20" y="10" width="420" height="636" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/>
+		<circle cx="52" cy="44" r="17" fill="#2b2a26"/>
+		<text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">3</text>
+		<text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Klín kolem nás</text>
+		<text x="34" y="92" font-size="21" fill="#2b2a26">Modře je část, která je <tspan fill="#1971c2" font-weight="bold">klín</tspan>.</text>
+		<!-- sekera -->
+		<g transform="translate(30,110)">
+			<rect x="0" y="0" width="196" height="150" rx="8" fill="#ffffff"/>
+			<path d="M10,22 Q60,18 118,21 L118,31 Q60,30 10,33 Z" fill="#c58b4f" stroke="#8a5a2b" stroke-width="2" stroke-linejoin="round"/>
+			<path d="M90,12 L114,12 L114,40 Q113,58 124,82 Q105,92 84,84 Q94,60 92,40 Z" fill="#adb5bd" stroke="#495057" stroke-width="2" stroke-linejoin="round"/>
+			<path d="M86,79 Q105,87 122,77 L124,82 Q105,92 84,84 Z" fill="#e9ecef" stroke="#495057" stroke-width="1.5" stroke-linejoin="round"/>
+			<rect x="114" y="21" width="6" height="10" fill="#c58b4f" stroke="#8a5a2b" stroke-width="1.5"/>
+			<line x1="104" y1="40" x2="104" y2="88" stroke="#1971c2" stroke-width="2" stroke-dasharray="4 3"/>
+			<text x="160" y="22" font-size="14" text-anchor="middle" fill="#495057">řez</text>
+			<path d="M150,30 L170,30 L160,88 Z" fill="#adb5bd" stroke="#495057" stroke-width="2" stroke-linejoin="round"/>
+			<path class="p3-h" d="M150,30 L170,30 L160,88 Z" fill="#1971c2" fill-opacity="0.35" stroke="#1971c2" stroke-width="3" stroke-linejoin="round" style="animation-delay:0s"/>
+			<text x="98" y="122" font-size="19" font-weight="bold" text-anchor="middle" fill="#2b2a26">sekera</text>
+			<text x="98" y="143" font-size="17" text-anchor="middle" fill="#2b2a26">štípe dřevo</text>
+		</g>
+		<!-- nůž -->
+		<g transform="translate(234,110)">
+			<rect x="0" y="0" width="196" height="150" rx="8" fill="#ffffff"/>
+			<rect x="10" y="46" width="50" height="20" rx="9" fill="#343a40"/>
+			<circle cx="24" cy="56" r="3" fill="#adb5bd"/>
+			<circle cx="46" cy="56" r="3" fill="#adb5bd"/>
+			<path d="M60,44 L138,44 Q134,62 112,68 L60,68 Z" fill="#ced4da" stroke="#495057" stroke-width="2" stroke-linejoin="round"/>
+			<path d="M60,64 L112,64 Q128,60 136,50 Q134,62 112,68 L60,68 Z" fill="#e9ecef"/>
+			<line x1="92" y1="44" x2="92" y2="68" stroke="#1971c2" stroke-width="2" stroke-dasharray="4 3"/>
+			<text x="163" y="28" font-size="14" text-anchor="middle" fill="#495057">řez</text>
+			<path d="M158,36 L168,36 L163,84 Z" fill="#ced4da" stroke="#495057" stroke-width="2" stroke-linejoin="round"/>
+			<path class="p3-h" d="M158,36 L168,36 L163,84 Z" fill="#1971c2" fill-opacity="0.35" stroke="#1971c2" stroke-width="3" stroke-linejoin="round" style="animation-delay:-1s"/>
+			<text x="98" y="122" font-size="19" font-weight="bold" text-anchor="middle" fill="#2b2a26">nůž</text>
+			<text x="98" y="143" font-size="17" text-anchor="middle" fill="#2b2a26">krájí a řeže</text>
+		</g>
+		<!-- dláto -->
+		<g transform="translate(30,268)">
+			<rect x="0" y="0" width="196" height="150" rx="8" fill="#ffffff"/>
+			<rect x="18" y="44" width="68" height="24" rx="10" fill="#c58b4f" stroke="#8a5a2b" stroke-width="2"/>
+			<rect x="86" y="46" width="10" height="20" fill="#868e96" stroke="#495057" stroke-width="2"/>
+			<rect x="96" y="49" width="58" height="14" fill="#adb5bd" stroke="#495057" stroke-width="2"/>
+			<path d="M154,49 L180,63 L154,63 Z" fill="#adb5bd" stroke="#495057" stroke-width="2" stroke-linejoin="round"/>
+			<path class="p3-h" d="M154,49 L180,63 L154,63 Z" fill="#1971c2" fill-opacity="0.35" stroke="#1971c2" stroke-width="3" stroke-linejoin="round" style="animation-delay:-2s"/>
+			<text x="98" y="122" font-size="19" font-weight="bold" text-anchor="middle" fill="#2b2a26">dláto</text>
+			<text x="98" y="143" font-size="17" text-anchor="middle" fill="#2b2a26">vysekává drážky</text>
+		</g>
+		<!-- hřebík -->
+		<g transform="translate(234,268)">
+			<rect x="0" y="0" width="196" height="150" rx="8" fill="#ffffff"/>
+			<rect x="38" y="38" width="8" height="36" rx="2" fill="#868e96" stroke="#495057" stroke-width="2"/>
+			<rect x="46" y="51" width="104" height="10" fill="#adb5bd" stroke="#495057" stroke-width="2"/>
+			<path d="M150,51 L178,56 L150,61 Z" fill="#adb5bd" stroke="#495057" stroke-width="2" stroke-linejoin="round"/>
+			<path class="p3-h" d="M150,51 L178,56 L150,61 Z" fill="#1971c2" fill-opacity="0.35" stroke="#1971c2" stroke-width="3" stroke-linejoin="round" style="animation-delay:-3s"/>
+			<text x="98" y="122" font-size="19" font-weight="bold" text-anchor="middle" fill="#2b2a26">hřebík</text>
+			<text x="98" y="143" font-size="17" text-anchor="middle" fill="#2b2a26">hrot jde mezi vlákna</text>
+		</g>
+		<!-- zuby -->
+		<g transform="translate(30,426)">
+			<rect x="0" y="0" width="196" height="150" rx="8" fill="#ffffff"/>
+			<text x="52" y="14" font-size="14" text-anchor="middle" fill="#495057">zepředu</text>
+			<ellipse cx="52" cy="54" rx="42" ry="30" fill="#e599a6" stroke="#c2255c" stroke-width="2"/>
+			<ellipse cx="52" cy="54" rx="31" ry="19" fill="#5c1a2b"/>
+			<path d="M33,48 L71,48 L69,62 L35,62 Z" fill="#ffffff" stroke="#868e96" stroke-width="1.5" stroke-linejoin="round"/>
+			<path d="M42,48 L42,62 M52,48 L52,62 M62,48 L62,62" stroke="#868e96" stroke-width="1.5"/>
+			<path d="M24,40 Q52,30 80,40 L80,46 Q52,40 24,46 Z" fill="#e599a6"/>
+			<path d="M30,44 L74,44 L72,58 L32,58 Z" fill="#ffffff" stroke="#868e96" stroke-width="1.5" stroke-linejoin="round"/>
+			<path d="M41,44 L41,58 M52,44 L52,58 M63,44 L63,58" stroke="#868e96" stroke-width="1.5"/>
+			<text x="150" y="14" font-size="14" text-anchor="middle" fill="#495057">z boku</text>
+			<rect x="128" y="18" width="44" height="10" rx="5" fill="#e599a6" stroke="#c2255c" stroke-width="1.5"/>
+			<rect x="120" y="88" width="44" height="10" rx="5" fill="#e599a6" stroke="#c2255c" stroke-width="1.5"/>
+			<path d="M132,90 L150,90 L152,56 Z" fill="#ffffff" stroke="#868e96" stroke-width="2" stroke-linejoin="round"/>
+			<path d="M140,26 L162,26 L160,66 Z" fill="#ffffff" stroke="#868e96" stroke-width="2" stroke-linejoin="round"/>
+			<path class="p3-h" d="M132,90 L150,90 L152,56 Z M140,26 L162,26 L160,66 Z" fill="#1971c2" fill-opacity="0.35" stroke="#1971c2" stroke-width="3" stroke-linejoin="round" style="animation-delay:-4s"/>
+			<text x="98" y="122" font-size="19" font-weight="bold" text-anchor="middle" fill="#2b2a26">zuby (řezáky)</text>
+			<text x="98" y="143" font-size="17" text-anchor="middle" fill="#2b2a26">ukusují</text>
+		</g>
+		<!-- tlustý × tenký -->
+		<g transform="translate(234,426)">
+			<rect x="0" y="0" width="196" height="150" rx="8" fill="#ffffff"/>
+			<path d="M38,18 L90,18 L64,80 Z" fill="#adb5bd" stroke="#495057" stroke-width="2" stroke-linejoin="round"/>
+			<rect x="37" y="14" width="54" height="6" rx="2" fill="#343a40"/>
+			<path d="M124,18 L140,18 L132,96 Z" fill="#adb5bd" stroke="#495057" stroke-width="2" stroke-linejoin="round"/>
+			<rect x="123" y="14" width="18" height="6" rx="2" fill="#343a40"/>
+			<path class="p3-h" d="M38,18 L90,18 L64,80 Z M124,18 L140,18 L132,96 Z" fill="#1971c2" fill-opacity="0.35" stroke="#1971c2" stroke-width="3" stroke-linejoin="round" style="animation-delay:-5s"/>
+			<text x="98" y="122" font-size="19" font-weight="bold" text-anchor="middle" fill="#2b2a26">tlustý štípe,</text>
+			<text x="98" y="143" font-size="17" text-anchor="middle" fill="#2b2a26">tenký řeže a krájí</text>
+		</g>
+		<text x="230" y="606" font-size="19" text-anchor="middle" fill="#2b2a26">Klínem štípeme, řežeme</text>
+		<text x="230" y="630" font-size="19" text-anchor="middle" fill="#2b2a26">i propichujeme.</text>
+	</g>
+</svg>

@@ -1,0 +1,50 @@
+<svg viewBox="0 0 460 480" width="460" height="480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Z čeho je klín: dvě nakloněné roviny leží na zemi, zvednou se a přiloží se zády k sobě; vznikne klín, jehož šikmé plochy se sbíhají dole do ostří, nahoře je nejtlustší hřbet, do kterého tlučeme; potom se zase rozloží na dvě nakloněné roviny" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Klín 1/4: Z čeho je klín</title>
+	<style>
+		.p1-l, .p1-r { transform-box: view-box; transform-origin: 0 0; }
+		.p1-l { transform: translate(230px, 150px) rotate(0deg); animation: p1l 10s ease-in-out infinite; }
+		@keyframes p1l { 0%, 16% { transform: translate(210px, 360px) rotate(90deg); } 28% { transform: translate(210px, 250px) rotate(90deg); } 45%, 82% { transform: translate(230px, 150px) rotate(0deg); } 91% { transform: translate(210px, 250px) rotate(90deg); } 100% { transform: translate(210px, 360px) rotate(90deg); } }
+		.p1-r { transform: translate(230px, 150px) rotate(0deg); animation: p1r 10s ease-in-out infinite; }
+		@keyframes p1r { 0%, 16% { transform: translate(250px, 360px) rotate(-90deg); } 28% { transform: translate(250px, 250px) rotate(-90deg); } 45%, 82% { transform: translate(230px, 150px) rotate(0deg); } 91% { transform: translate(250px, 250px) rotate(-90deg); } 100% { transform: translate(250px, 360px) rotate(-90deg); } }
+		.p1-nr { opacity: 0; animation: p1nr 10s linear infinite; }
+		@keyframes p1nr { 0%, 16% { opacity: 1; } 22%, 94% { opacity: 0; } 99%, 100% { opacity: 1; } }
+		.p1-kl { opacity: 1; animation: p1kl 10s linear infinite; }
+		@keyframes p1kl { 0%, 46% { opacity: 0; } 52%, 80% { opacity: 1; } 84%, 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) { .p1-l, .p1-r, .p1-nr, .p1-kl { animation: none; } }
+	</style>
+	<rect x="0" y="0" width="460" height="480" fill="#f8f9fa"/>
+	<g id="panel-1">
+		<rect x="26" y="16" width="420" height="456" rx="12" fill="#dee2e6"/>
+		<rect x="20" y="10" width="420" height="456" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/>
+		<circle cx="52" cy="44" r="17" fill="#2b2a26"/>
+		<text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">1</text>
+		<text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Z čeho je klín</text>
+		<text x="34" y="92" font-size="21" fill="#2b2a26">Dvě nakloněné roviny zády k sobě.</text>
+		<rect x="30" y="110" width="400" height="280" rx="8" fill="#ffffff"/>
+		<rect x="30" y="360" width="400" height="30" fill="#e9ecef"/>
+		<line x1="30" y1="360" x2="430" y2="360" stroke="#868e96" stroke-width="2.5"/>
+		<g class="p1-nr">
+			<text x="128" y="318" font-size="18" text-anchor="middle" fill="#2b2a26">nakloněná rovina</text>
+			<text x="332" y="318" font-size="18" text-anchor="middle" fill="#2b2a26">nakloněná rovina</text>
+		</g>
+		<g class="p1-l">
+			<path d="M0,0 L-22,0 L0,160 Z" fill="#adb5bd" stroke="#495057" stroke-width="2" stroke-linejoin="round"/>
+			<line x1="-22" y1="0" x2="0" y2="0" stroke="#343a40" stroke-width="6" stroke-linecap="round"/>
+		</g>
+		<g class="p1-r">
+			<path d="M0,0 L22,0 L0,160 Z" fill="#dee2e6" stroke="#495057" stroke-width="2" stroke-linejoin="round"/>
+			<line x1="0" y1="0" x2="22" y2="0" stroke="#343a40" stroke-width="6" stroke-linecap="round"/>
+		</g>
+		<g class="p1-kl">
+			<line x1="230" y1="156" x2="230" y2="304" stroke="#2b2a26" stroke-width="2" stroke-dasharray="6 5"/>
+			<line x1="256" y1="150" x2="290" y2="150" stroke="#2b2a26" stroke-width="1.5"/>
+			<text x="296" y="157" font-size="20" font-weight="bold" fill="#2b2a26">hřbet</text>
+			<line x1="234" y1="306" x2="290" y2="306" stroke="#2b2a26" stroke-width="1.5"/>
+			<text x="296" y="313" font-size="20" font-weight="bold" fill="#2b2a26">ostří</text>
+			<text x="200" y="232" font-size="18" text-anchor="end" fill="#2b2a26">šikmá</text>
+			<text x="200" y="254" font-size="18" text-anchor="end" fill="#2b2a26">plocha</text>
+		</g>
+		<text x="230" y="422" font-size="19" text-anchor="middle" fill="#2b2a26">Šikmé plochy se sbíhají do ostří.</text>
+		<text x="230" y="448" font-size="19" text-anchor="middle" fill="#2b2a26">Do hřbetu tlučeme.</text>
+	</g>
+</svg>
