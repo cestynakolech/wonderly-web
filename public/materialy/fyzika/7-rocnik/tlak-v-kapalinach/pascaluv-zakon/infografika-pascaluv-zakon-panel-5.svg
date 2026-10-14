@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="720" viewBox="0 0 460 720" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Příklad: zubař tlačí na malý píst o obsahu 5 cm² silou 20 N, velký píst má 400 cm² a nese křeslo s pacientem, křeslo má hmotnost 30 kg. Malý píst sjede dolů o delší dráhu, velký píst s křeslem se zvedne jen o kratší dráhu. Velký píst je 400 : 5 = 80krát větší, síla na něj je F₂ = 80 · 20 N = 1 600 N. Ta uzvedne m = 1 600 : 10 = 160 kg (g = 10 N/kg). Pacient smí vážit 160 − 30 = 130 kg.">
+	<title>Pascalův zákon 5/6: Zubařské křeslo</title>
+	<!-- Panel 5/6 infografiky Pascalův zákon (W52, 14. 10. 2026); bez animace = koncový stav. -->
+	<style>
+		.p5-m { animation: p5-m 10s ease-in-out infinite; }
+		@keyframes p5-m { 0% { transform: translateY(-32px) } 8% { transform: translateY(-32px) } 25% { transform: translateY(0px) } 90% { transform: translateY(0px) } 97% { transform: translateY(-32px) } 100% { transform: translateY(-32px) } }
+		.p5-k { animation: p5-k 10s ease-in-out infinite; }
+		@keyframes p5-k { 0% { transform: translateY(16px) } 8% { transform: translateY(16px) } 25% { transform: translateY(0px) } 90% { transform: translateY(0px) } 97% { transform: translateY(16px) } 100% { transform: translateY(16px) } }
+		.p5-r0 { animation: p5-r0 10s linear infinite; }
+		@keyframes p5-r0 { 0% { opacity: 0 } 15% { opacity: 0 } 19% { opacity: 1 } 90% { opacity: 1 } 95% { opacity: 0 } 100% { opacity: 0 } }
+		.p5-r1 { animation: p5-r1 10s linear infinite; }
+		@keyframes p5-r1 { 0% { opacity: 0 } 32% { opacity: 0 } 36% { opacity: 1 } 90% { opacity: 1 } 95% { opacity: 0 } 100% { opacity: 0 } }
+		.p5-r2 { animation: p5-r2 10s linear infinite; }
+		@keyframes p5-r2 { 0% { opacity: 0 } 49% { opacity: 0 } 53% { opacity: 1 } 90% { opacity: 1 } 95% { opacity: 0 } 100% { opacity: 0 } }
+		.p5-r3 { animation: p5-r3 10s linear infinite; }
+		@keyframes p5-r3 { 0% { opacity: 0 } 66% { opacity: 0 } 70% { opacity: 1 } 90% { opacity: 1 } 95% { opacity: 0 } 100% { opacity: 0 } }
+		@media (prefers-reduced-motion: reduce) {
+			.p5-k, .p5-m, .p5-r0, .p5-r1, .p5-r2, .p5-r3 { animation: none; }
+		}
+	</style>
+	<defs><clipPath id="p5-cm"><rect x="70" y="250" width="20" height="62"/></clipPath><clipPath id="p5-cv"><rect x="232" y="250" width="96" height="120"/></clipPath></defs>
+	<rect x="0" y="0" width="460" height="720" fill="#f8f9fa"/>
+	<rect x="26" y="16" width="420" height="700" rx="12" fill="#dee2e6"/><rect x="20" y="10" width="420" height="700" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/><circle cx="52" cy="44" r="17" fill="#2b2a26"/><text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">5</text><text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Zubařské křeslo</text>
+	<text x="40" y="95" font-size="18" fill="#2b2a26">Zubař tlačí na malý píst silou 20 N.</text>
+	<text x="40" y="121" font-size="18" fill="#2b2a26">Malý píst 5 cm², velký 400 cm².</text>
+	<text x="40" y="147" font-size="18" font-weight="bold" fill="#2b2a26">Křeslo má 30 kg. Kolik smí vážit pacient?</text>
+	<path d="M70,262 L90,262 L90,350 L230,350 L230,310 L330,310 L330,370 L70,370 Z" fill="#f6c453"/>
+	<path d="M70,260 L70,370 L330,370 L330,280 M90,260 L90,350 L230,350 L230,280" fill="none" stroke="#2b2a26" stroke-width="4"/>
+	<g class="p5-m"><g clip-path="url(#p5-cm)"><rect x="66" y="100" width="28" height="200" fill="#fbfaf6"/></g><rect x="71" y="300" width="18" height="10" fill="#8d5a2b" stroke="#2b2a26" stroke-width="1.5"/><line x1="80.0" y1="248.0" x2="80.0" y2="284.0" stroke="#e03131" stroke-width="4" stroke-linecap="round"/><polygon points="80.0,296.0 73.4,284.0 86.6,284.0" fill="#e03131"/><text x="96" y="276" font-size="16" font-weight="bold" fill="#e03131">F₁ = 20 N</text></g>
+	<path d="M70,260 L70,310 M90,260 L90,310" stroke="#2b2a26" stroke-width="4"/>
+	<text x="80" y="394" font-size="16" font-weight="bold" text-anchor="middle" fill="#2b2a26">5 cm²</text>
+	<text x="280" y="394" font-size="16" font-weight="bold" text-anchor="middle" fill="#2b2a26">400 cm²</text>
+	<g class="p5-k"><g clip-path="url(#p5-cv)"><rect x="228" y="110" width="104" height="200" fill="#fbfaf6"/></g><rect x="232" y="300" width="96" height="10" fill="#8d5a2b" stroke="#2b2a26" stroke-width="1.5"/><rect x="272" y="240" width="16" height="60" fill="#adb5bd" stroke="#495057" stroke-width="2"/><path d="M232,240 L318,240 L318,226 L232,226 Z" fill="#20c997" stroke="#2b2a26" stroke-width="2"/><path d="M318,226 L356,188 L368,198 L330,236 Z" fill="#20c997" stroke="#2b2a26" stroke-width="2"/><path d="M232,226 L196,260 L186,252 L224,220 Z" fill="#20c997" stroke="#2b2a26" stroke-width="2"/><circle cx="368" cy="182" r="9" fill="#20c997" stroke="#2b2a26" stroke-width="2"/><path d="M298,216 L240,214 L204,244" fill="none" stroke="#364fc7" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/><path d="M298,216 L344,192" stroke="#f08c00" stroke-width="18" stroke-linecap="round"/><path d="M336,198 L314,212" stroke="#e8a46a" stroke-width="7" stroke-linecap="round"/><circle cx="358" cy="178" r="12" fill="#e8a46a" stroke="#2b2a26" stroke-width="1.5"/><path d="M198,240 L196,254" stroke="#2b2a26" stroke-width="7" stroke-linecap="round"/></g>
+	<path d="M230,280 L230,310 M330,280 L330,370" stroke="#2b2a26" stroke-width="4"/>
+	<g class="p5-r0"><text x="40" y="440" font-size="21" font-weight="bold" fill="#2b2a26">400 : 5 = 80</text><text x="40" y="464" font-size="16" fill="#6b6a60">velký píst je 80krát větší</text></g>
+	<g class="p5-r1"><text x="40" y="502" font-size="21" font-weight="bold" fill="#2b2a26">F₂ = 80 · 20 N = 1 600 N</text><text x="40" y="526" font-size="16" fill="#6b6a60">síla na velký píst</text></g>
+	<g class="p5-r2"><text x="40" y="564" font-size="21" font-weight="bold" fill="#2b2a26">m = 1 600 : 10 = 160 kg</text><text x="40" y="588" font-size="16" fill="#6b6a60">g = 10 N/kg</text></g>
+	<g class="p5-r3"><rect x="40" y="612" width="380" height="96" rx="10" fill="#fff4e6" stroke="#b8460b" stroke-width="2"/><text x="56" y="644" font-size="18" fill="#2b2a26">Křeslo 30 kg, zbývá pro pacienta:</text><text x="230" y="682" font-size="25" font-weight="bold" text-anchor="middle" fill="#b8460b">160 − 30 = 130 kg</text></g>
+</svg>

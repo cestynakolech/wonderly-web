@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="600" viewBox="0 0 460 600" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Kapaliny jsou téměř nestlačitelné, jejich částice jsou blízko u sebe a při stlačení se silně odpuzují. Dvě stříkačky s ucpaným koncem: ve stříkačce se vzduchem se po zatlačení částice nahustí a píst zajede hluboko. Ve stříkačce s vodou se píst skoro nepohne. Proto se tlak z pístu přenese do všech míst kapaliny.">
+	<title>Pascalův zákon 2/6: Proč zákon platí</title>
+	<!-- Panel 2/6 infografiky Pascalův zákon (W52, 14. 10. 2026); bez animace = koncový stav. -->
+	<style>
+		.p2-a0 { animation: p2-a0 7s ease-in-out infinite; }
+		@keyframes p2-a0 { 0% { transform: translateX(2.7px) } 15% { transform: translateX(2.7px) } 40% { transform: translateX(0px) } 85% { transform: translateX(0px) } 95% { transform: translateX(2.7px) } 100% { transform: translateX(2.7px) } }
+		.p2-a1 { animation: p2-a1 7s ease-in-out infinite; }
+		@keyframes p2-a1 { 0% { transform: translateX(17.1px) } 15% { transform: translateX(17.1px) } 40% { transform: translateX(0px) } 85% { transform: translateX(0px) } 95% { transform: translateX(17.1px) } 100% { transform: translateX(17.1px) } }
+		.p2-a2 { animation: p2-a2 7s ease-in-out infinite; }
+		@keyframes p2-a2 { 0% { transform: translateX(29.2px) } 15% { transform: translateX(29.2px) } 40% { transform: translateX(0px) } 85% { transform: translateX(0px) } 95% { transform: translateX(29.2px) } 100% { transform: translateX(29.2px) } }
+		.p2-a3 { animation: p2-a3 7s ease-in-out infinite; }
+		@keyframes p2-a3 { 0% { transform: translateX(43.3px) } 15% { transform: translateX(43.3px) } 40% { transform: translateX(0px) } 85% { transform: translateX(0px) } 95% { transform: translateX(43.3px) } 100% { transform: translateX(43.3px) } }
+		.p2-a4 { animation: p2-a4 7s ease-in-out infinite; }
+		@keyframes p2-a4 { 0% { transform: translateX(57.1px) } 15% { transform: translateX(57.1px) } 40% { transform: translateX(0px) } 85% { transform: translateX(0px) } 95% { transform: translateX(57.1px) } 100% { transform: translateX(57.1px) } }
+		.p2-a5 { animation: p2-a5 7s ease-in-out infinite; }
+		@keyframes p2-a5 { 0% { transform: translateX(71.9px) } 15% { transform: translateX(71.9px) } 40% { transform: translateX(0px) } 85% { transform: translateX(0px) } 95% { transform: translateX(71.9px) } 100% { transform: translateX(71.9px) } }
+		.p2-a6 { animation: p2-a6 7s ease-in-out infinite; }
+		@keyframes p2-a6 { 0% { transform: translateX(87.1px) } 15% { transform: translateX(87.1px) } 40% { transform: translateX(0px) } 85% { transform: translateX(0px) } 95% { transform: translateX(87.1px) } 100% { transform: translateX(87.1px) } }
+		.p2-a7 { animation: p2-a7 7s ease-in-out infinite; }
+		@keyframes p2-a7 { 0% { transform: translateX(99.9px) } 15% { transform: translateX(99.9px) } 40% { transform: translateX(0px) } 85% { transform: translateX(0px) } 95% { transform: translateX(99.9px) } 100% { transform: translateX(99.9px) } }
+		.p2-pa { animation: p2-pa 7s ease-in-out infinite; }
+		@keyframes p2-pa { 0% { transform: translateX(120px) } 15% { transform: translateX(120px) } 40% { transform: translateX(0px) } 85% { transform: translateX(0px) } 95% { transform: translateX(120px) } 100% { transform: translateX(120px) } }
+		.p2-pv { animation: p2-pv 7s ease-in-out infinite; }
+		@keyframes p2-pv { 0% { transform: translateX(4px) } 15% { transform: translateX(4px) } 40% { transform: translateX(0px) } 85% { transform: translateX(0px) } 95% { transform: translateX(4px) } 100% { transform: translateX(4px) } }
+		@media (prefers-reduced-motion: reduce) {
+			.p2-pa, .p2-pv, .p2-a0, .p2-a1, .p2-a2, .p2-a3, .p2-a4, .p2-a5, .p2-a6, .p2-a7 { animation: none; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="600" fill="#f8f9fa"/>
+	<rect x="26" y="16" width="420" height="580" rx="12" fill="#dee2e6"/><rect x="20" y="10" width="420" height="580" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/><circle cx="52" cy="44" r="17" fill="#2b2a26"/><text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">2</text><text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Proč zákon platí</text>
+	<text x="40" y="95" font-size="21" fill="#2b2a26">Kapaliny jsou téměř nestlačitelné.</text>
+	<text x="40" y="123" font-size="18" fill="#6b6a60">Jejich částice jsou blízko u sebe</text>
+	<text x="40" y="147" font-size="18" fill="#6b6a60">a při stlačení se silně odpuzují.</text>
+	<text x="40" y="191" font-size="18" font-weight="bold" fill="#2b2a26">Vzduch se stlačit dá:</text>
+	<rect x="52" y="219" width="20" height="12" fill="#2b2a26"/>
+	<path d="M330,203 L72,203 L72,247 L330,247" fill="none" stroke="#2b2a26" stroke-width="4"/>
+	<circle class="p2-a0" cx="75.1" cy="215" r="6" fill="#6b6a60"/>
+	<circle class="p2-a1" cx="91.7" cy="215" r="6" fill="#6b6a60"/>
+	<circle class="p2-a2" cx="105.6" cy="235" r="6" fill="#6b6a60"/>
+	<circle class="p2-a3" cx="121.8" cy="235" r="6" fill="#6b6a60"/>
+	<circle class="p2-a4" cx="137.6" cy="235" r="6" fill="#6b6a60"/>
+	<circle class="p2-a5" cx="154.7" cy="215" r="6" fill="#6b6a60"/>
+	<circle class="p2-a6" cx="172.1" cy="215" r="6" fill="#6b6a60"/>
+	<circle class="p2-a7" cx="186.9" cy="235" r="6" fill="#6b6a60"/>
+	<g class="p2-pa"><rect x="210" y="206" width="12" height="38" fill="#8d5a2b" stroke="#2b2a26" stroke-width="2"/><line x1="222" y1="225" x2="282" y2="225" stroke="#495057" stroke-width="6"/><rect x="280" y="205" width="10" height="40" rx="4" fill="#495057"/><line x1="286.0" y1="191.0" x2="248.0" y2="191.0" stroke="#e03131" stroke-width="4" stroke-linecap="round"/><polygon points="236.0,191.0 248.0,184.4 248.0,197.6" fill="#e03131"/><text x="261" y="183" font-size="18" font-weight="bold" text-anchor="middle" fill="#e03131">F</text></g>
+	<text x="40" y="280" font-size="18" fill="#6b6a60">Částice se nahustí, píst zajede hluboko.</text>
+	<text x="40" y="341" font-size="18" font-weight="bold" fill="#2b2a26">Voda se skoro nestlačí:</text>
+	<rect x="72" y="355" width="258" height="40" fill="#d0ebff"/>
+	<rect x="52" y="369" width="20" height="12" fill="#2b2a26"/>
+	<path d="M330,353 L72,353 L72,397 L330,397" fill="none" stroke="#2b2a26" stroke-width="4"/>
+	<circle cx="80.0" cy="363" r="6" fill="#1c7ed6"/>
+	<circle cx="80.0" cy="375" r="6" fill="#1c7ed6"/>
+	<circle cx="80.0" cy="387" r="6" fill="#1c7ed6"/>
+	<circle cx="92.1" cy="363" r="6" fill="#1c7ed6"/>
+	<circle cx="92.1" cy="375" r="6" fill="#1c7ed6"/>
+	<circle cx="92.1" cy="387" r="6" fill="#1c7ed6"/>
+	<circle cx="104.2" cy="363" r="6" fill="#1c7ed6"/>
+	<circle cx="104.2" cy="375" r="6" fill="#1c7ed6"/>
+	<circle cx="104.2" cy="387" r="6" fill="#1c7ed6"/>
+	<circle cx="116.3" cy="363" r="6" fill="#1c7ed6"/>
+	<circle cx="116.3" cy="375" r="6" fill="#1c7ed6"/>
+	<circle cx="116.3" cy="387" r="6" fill="#1c7ed6"/>
+	<circle cx="128.4" cy="363" r="6" fill="#1c7ed6"/>
+	<circle cx="128.4" cy="375" r="6" fill="#1c7ed6"/>
+	<circle cx="128.4" cy="387" r="6" fill="#1c7ed6"/>
+	<circle cx="140.5" cy="363" r="6" fill="#1c7ed6"/>
+	<circle cx="140.5" cy="375" r="6" fill="#1c7ed6"/>
+	<circle cx="140.5" cy="387" r="6" fill="#1c7ed6"/>
+	<circle cx="152.6" cy="363" r="6" fill="#1c7ed6"/>
+	<circle cx="152.6" cy="375" r="6" fill="#1c7ed6"/>
+	<circle cx="152.6" cy="387" r="6" fill="#1c7ed6"/>
+	<circle cx="164.7" cy="363" r="6" fill="#1c7ed6"/>
+	<circle cx="164.7" cy="375" r="6" fill="#1c7ed6"/>
+	<circle cx="164.7" cy="387" r="6" fill="#1c7ed6"/>
+	<circle cx="176.8" cy="363" r="6" fill="#1c7ed6"/>
+	<circle cx="176.8" cy="375" r="6" fill="#1c7ed6"/>
+	<circle cx="176.8" cy="387" r="6" fill="#1c7ed6"/>
+	<circle cx="188.9" cy="363" r="6" fill="#1c7ed6"/>
+	<circle cx="188.9" cy="375" r="6" fill="#1c7ed6"/>
+	<circle cx="188.9" cy="387" r="6" fill="#1c7ed6"/>
+	<circle cx="201.0" cy="363" r="6" fill="#1c7ed6"/>
+	<circle cx="201.0" cy="375" r="6" fill="#1c7ed6"/>
+	<circle cx="201.0" cy="387" r="6" fill="#1c7ed6"/>
+	<circle cx="213.1" cy="363" r="6" fill="#1c7ed6"/>
+	<circle cx="213.1" cy="375" r="6" fill="#1c7ed6"/>
+	<circle cx="213.1" cy="387" r="6" fill="#1c7ed6"/>
+	<circle cx="225.2" cy="363" r="6" fill="#1c7ed6"/>
+	<circle cx="225.2" cy="375" r="6" fill="#1c7ed6"/>
+	<circle cx="225.2" cy="387" r="6" fill="#1c7ed6"/>
+	<circle cx="237.3" cy="363" r="6" fill="#1c7ed6"/>
+	<circle cx="237.3" cy="375" r="6" fill="#1c7ed6"/>
+	<circle cx="237.3" cy="387" r="6" fill="#1c7ed6"/>
+	<circle cx="249.4" cy="363" r="6" fill="#1c7ed6"/>
+	<circle cx="249.4" cy="375" r="6" fill="#1c7ed6"/>
+	<circle cx="249.4" cy="387" r="6" fill="#1c7ed6"/>
+	<circle cx="261.5" cy="363" r="6" fill="#1c7ed6"/>
+	<circle cx="261.5" cy="375" r="6" fill="#1c7ed6"/>
+	<circle cx="261.5" cy="387" r="6" fill="#1c7ed6"/>
+	<circle cx="273.6" cy="363" r="6" fill="#1c7ed6"/>
+	<circle cx="273.6" cy="375" r="6" fill="#1c7ed6"/>
+	<circle cx="273.6" cy="387" r="6" fill="#1c7ed6"/>
+	<circle cx="285.7" cy="363" r="6" fill="#1c7ed6"/>
+	<circle cx="285.7" cy="375" r="6" fill="#1c7ed6"/>
+	<circle cx="285.7" cy="387" r="6" fill="#1c7ed6"/>
+	<circle cx="297.8" cy="363" r="6" fill="#1c7ed6"/>
+	<circle cx="297.8" cy="375" r="6" fill="#1c7ed6"/>
+	<circle cx="297.8" cy="387" r="6" fill="#1c7ed6"/>
+	<circle cx="309.9" cy="363" r="6" fill="#1c7ed6"/>
+	<circle cx="309.9" cy="375" r="6" fill="#1c7ed6"/>
+	<circle cx="309.9" cy="387" r="6" fill="#1c7ed6"/>
+	<circle cx="322.0" cy="363" r="6" fill="#1c7ed6"/>
+	<circle cx="322.0" cy="375" r="6" fill="#1c7ed6"/>
+	<circle cx="322.0" cy="387" r="6" fill="#1c7ed6"/>
+	<g class="p2-pv"><rect x="326" y="356" width="12" height="38" fill="#8d5a2b" stroke="#2b2a26" stroke-width="2"/><line x1="338" y1="375" x2="398" y2="375" stroke="#495057" stroke-width="6"/><rect x="396" y="355" width="10" height="40" rx="4" fill="#495057"/><line x1="402.0" y1="341.0" x2="364.0" y2="341.0" stroke="#e03131" stroke-width="4" stroke-linecap="round"/><polygon points="352.0,341.0 364.0,334.4 364.0,347.6" fill="#e03131"/><text x="377" y="333" font-size="18" font-weight="bold" text-anchor="middle" fill="#e03131">F</text></g>
+	<text x="40" y="430" font-size="18" fill="#6b6a60">Píst se skoro nepohne.</text>
+	<rect x="40" y="456" width="380" height="124" rx="10" fill="#fff4e6" stroke="#b8460b" stroke-width="2"/>
+	<text x="56" y="488" font-size="21" fill="#2b2a26">Voda se do menšího prostoru</text>
+	<text x="56" y="516" font-size="21" fill="#2b2a26">nevejde. Proto se tlak z pístu</text>
+	<text x="56" y="544" font-size="21" fill="#2b2a26">přenese do <tspan font-weight="bold" fill="#b8460b">všech míst</tspan></text>
+	<text x="56" y="570" font-size="21" fill="#2b2a26">kapaliny.</text>
+</svg>

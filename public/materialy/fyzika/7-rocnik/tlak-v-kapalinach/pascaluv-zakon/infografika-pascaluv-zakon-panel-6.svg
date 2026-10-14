@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="740" viewBox="0 0 460 740" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Hydraulika kolem nás. Zvedák v dílně: malou silou pumpujeme pákou malý píst, olej tlačí na velký píst a ten zvedne plošinu s autem. Brzdy auta: noha sešlápne pedál, ten tlačí na olej ve válci, olej v trubce přenese tlak ke kolu a přitlačí brzdovou destičku ke kotouči. Hydrauliku najdeš i v lisu, který stlačuje materiál, v zubařském křesle a ve výtahu, jehož kabina nevisí na lanech.">
+	<title>Pascalův zákon 6/6: Hydraulika kolem nás</title>
+	<!-- Panel 6/6 infografiky Pascalův zákon (W52, 14. 10. 2026); bez animace = koncový stav. -->
+	<style>
+		.p6-pumpa { animation: p6-pumpa 8s ease-in-out infinite; }
+		@keyframes p6-pumpa { 0% { transform: translateY(-8px) } 12% { transform: translateY(0px) } 24% { transform: translateY(-8px) } 36% { transform: translateY(0px) } 48% { transform: translateY(-8px) } 60% { transform: translateY(0px) } 100% { transform: translateY(0px) } }
+		.p6-auto { animation: p6-auto 8s ease-in-out infinite; }
+		@keyframes p6-auto { 0% { transform: translateY(30px) } 10% { transform: translateY(30px) } 60% { transform: translateY(0px) } 88% { transform: translateY(0px) } 97% { transform: translateY(30px) } 100% { transform: translateY(30px) } }
+		.p6-tyc { animation: p6-tyc 8s ease-in-out infinite; }
+		@keyframes p6-tyc { 0% { transform: translateX(-11px) } 15% { transform: translateX(-11px) } 35% { transform: translateX(0px) } 80% { transform: translateX(0px) } 95% { transform: translateX(-11px) } 100% { transform: translateX(-11px) } }
+		.p6-pedal { transform-origin: 70px 540px; transform-box: view-box; }
+		.p6-pedal { animation: p6-pedal 8s ease-in-out infinite; }
+		@keyframes p6-pedal { 0% { transform: rotate(-12deg) } 15% { transform: rotate(-12deg) } 35% { transform: rotate(0deg) } 80% { transform: rotate(0deg) } 95% { transform: rotate(-12deg) } 100% { transform: rotate(-12deg) } }
+		.p6-dest { animation: p6-dest 8s ease-in-out infinite; }
+		@keyframes p6-dest { 0% { transform: translateX(-6px) } 20% { transform: translateX(-6px) } 35% { transform: translateX(0px) } 80% { transform: translateX(0px) } 92% { transform: translateX(-6px) } 100% { transform: translateX(-6px) } }
+		@media (prefers-reduced-motion: reduce) {
+			.p6-auto, .p6-pumpa, .p6-pedal, .p6-dest, .p6-tyc { animation: none; }
+		}
+	</style>
+	<defs><clipPath id="p6-cv"><rect x="242" y="190" width="76" height="130"/></clipPath><clipPath id="p6-hv"><rect x="110" y="480" width="44" height="20"/></clipPath></defs>
+	<rect x="0" y="0" width="460" height="740" fill="#f8f9fa"/>
+	<rect x="26" y="16" width="420" height="720" rx="12" fill="#dee2e6"/><rect x="20" y="10" width="420" height="720" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/><circle cx="52" cy="44" r="17" fill="#2b2a26"/><text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">6</text><text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Hydraulika kolem nás</text>
+	<text x="40" y="92" font-size="21" font-weight="bold" fill="#2b2a26">Zvedák v dílně</text>
+	<text x="40" y="116" font-size="16" fill="#6b6a60">malá síla na páce zvedne auto</text>
+	<line x1="30" y1="322" x2="430" y2="322" stroke="#6b6a60" stroke-width="3"/>
+	<path d="M64,280 L76,280 L76,306 L240,306 L240,270 L320,270 L320,320 L64,320 Z" fill="#f6c453"/>
+	<path d="M64,260 L64,320 L320,320 L320,260 M76,260 L76,306 L240,306 L240,260" fill="none" stroke="#2b2a26" stroke-width="3"/>
+	<g class="p6-pumpa"><rect x="65" y="280" width="10" height="30" fill="#f6c453"/><rect x="65" y="270" width="10" height="10" fill="#8d5a2b"/><line x1="70" y1="270" x2="70" y2="244" stroke="#495057" stroke-width="4"/><line x1="40" y1="244" x2="110" y2="244" stroke="#495057" stroke-width="5" stroke-linecap="round"/></g>
+	<line x1="100.0" y1="208.0" x2="100.0" y2="226.0" stroke="#e03131" stroke-width="4" stroke-linecap="round"/><polygon points="100.0,238.0 93.4,226.0 106.6,226.0" fill="#e03131"/><text x="108" y="226" font-size="14" font-weight="bold" fill="#e03131">malá síla</text>
+	<g class="p6-auto"><g clip-path="url(#p6-cv)"><rect x="238" y="66" width="84" height="200" fill="#fbfaf6"/></g><rect x="242" y="266" width="76" height="8" fill="#8d5a2b"/><rect x="272" y="226" width="16" height="40" fill="#adb5bd" stroke="#495057" stroke-width="1.5"/><g transform="translate(0,-26)"><rect x="180" y="245" width="220" height="8" fill="#495057"/><path d="M192,206 L210,180 Q218,170 236,170 L300,170 Q316,170 328,182 L346,200 L380,206 Q392,210 392,220 L392,230 L184,230 L184,216 Q184,208 192,206 Z" fill="#e03131" stroke="#2b2a26" stroke-width="2"/><path d="M218,202 L230,180 L268,180 L268,202 Z M276,202 L276,180 L304,180 Q314,180 322,188 L334,202 Z" fill="#d0ebff" stroke="#2b2a26" stroke-width="1.5"/><circle cx="222" cy="232" r="13" fill="#2b2a26"/><circle cx="222" cy="232" r="5" fill="#adb5bd"/><circle cx="354" cy="232" r="13" fill="#2b2a26"/><circle cx="354" cy="232" r="5" fill="#adb5bd"/></g></g>
+	<path d="M240,260 L240,306 M320,260 L320,320" stroke="#2b2a26" stroke-width="3"/>
+	<text x="40" y="370" font-size="21" font-weight="bold" fill="#2b2a26">Brzdy auta</text>
+	<text x="40" y="394" font-size="16" fill="#6b6a60">pedál tlačí na olej, olej tlačí na kolo</text>
+	<path d="M150,490 L290,490 L290,460" fill="none" stroke="#2b2a26" stroke-width="10" stroke-linejoin="round"/><path d="M150,490 L290,490 L290,460" fill="none" stroke="#f6c453" stroke-width="5" stroke-linejoin="round"/>
+	<rect x="110" y="480" width="44" height="20" fill="#f6c453"/>
+	<g class="p6-tyc"><g clip-path="url(#p6-hv)"><rect x="96" y="478" width="26" height="24" fill="#fbfaf6"/></g><rect x="122" y="481" width="7" height="18" fill="#8d5a2b" stroke="#2b2a26" stroke-width="1.5"/><line x1="84" y1="490" x2="122" y2="490" stroke="#495057" stroke-width="4" stroke-linecap="round"/></g>
+	<rect x="110" y="480" width="44" height="20" fill="none" stroke="#2b2a26" stroke-width="2.5"/>
+	<g class="p6-pedal"><line x1="70" y1="540" x2="96" y2="450" stroke="#495057" stroke-width="6" stroke-linecap="round"/><rect x="82" y="434" width="30" height="12" rx="3" fill="#2b2a26" transform="rotate(16 97 440)"/></g>
+	<circle cx="70" cy="540" r="5" fill="#2b2a26"/>
+	<line x1="64.0" y1="426.0" x2="73.7" y2="431.8" stroke="#e03131" stroke-width="4" stroke-linecap="round"/><polygon points="84.0,438.0 70.3,437.5 77.1,426.2" fill="#e03131"/><text x="30" y="420" font-size="14" font-weight="bold" fill="#e03131">noha</text>
+	<circle cx="340" cy="460" r="48" fill="#2b2a26"/><circle cx="340" cy="460" r="30" fill="#adb5bd" stroke="#495057" stroke-width="3"/><circle cx="340" cy="460" r="7" fill="#495057"/>
+	<rect x="276" y="436" width="28" height="22" rx="3" fill="#f6c453" stroke="#2b2a26" stroke-width="2.5"/>
+	<g class="p6-dest"><rect x="304" y="438" width="8" height="18" fill="#b8460b" stroke="#2b2a26" stroke-width="1.5"/></g>
+	<text x="340" y="532" font-size="14" font-weight="bold" text-anchor="middle" fill="#2b2a26">kolo brzdí</text>
+	<rect x="40" y="570" width="380" height="150" rx="10" fill="#fff4e6" stroke="#b8460b" stroke-width="2"/>
+	<text x="56" y="600" font-size="18" font-weight="bold" fill="#b8460b">Hydrauliku najdeš i jinde:</text>
+	<text x="56" y="632" font-size="18" fill="#2b2a26">• <tspan font-weight="bold">lis</tspan> – stlačuje materiál</text>
+	<text x="56" y="662" font-size="18" fill="#2b2a26">• <tspan font-weight="bold">zubařské křeslo</tspan> – výška a poloha</text>
+	<text x="56" y="692" font-size="18" fill="#2b2a26">• <tspan font-weight="bold">výtah</tspan> – kabina nevisí na lanech</text>
+</svg>

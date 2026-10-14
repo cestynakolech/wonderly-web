@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="640" viewBox="0 0 460 640" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Hydraulické zařízení: dvě nádoby spojené olejem. Malý píst S₁ = 1 m² se závažím 100 g, síla F₁ = 1 N, tlak 1 Pa. Velký píst S₂ = 3 m² je rozdělený na tři čtverce, na každý působí tlak 1 Pa a síla 1 N, dohromady F₂ = 3 N; unese závaží 300 g. Tlak je v celé kapalině stejný: p = F₁ : S₁ = F₂ : S₂, 1 N : 1 m² = 3 N : 3 m² = 1 Pa. Kolikrát větší píst, tolikrát větší síla.">
+	<title>Pascalův zákon 3/6: Hydraulické zařízení</title>
+	<!-- Panel 3/6 infografiky Pascalův zákon (W52, 14. 10. 2026); bez animace = koncový stav. -->
+	<style>
+		.p3-f1 { animation: p3-f1 9s linear infinite; }
+		@keyframes p3-f1 { 0% { opacity: 0 } 3% { opacity: 0 } 7% { opacity: 1 } 88% { opacity: 1 } 93% { opacity: 0 } 100% { opacity: 0 } }
+		.p3-p { animation: p3-p 9s linear infinite; }
+		@keyframes p3-p { 0% { opacity: 0 } 16% { opacity: 0 } 20% { opacity: 1 } 88% { opacity: 1 } 93% { opacity: 0 } 100% { opacity: 0 } }
+		.p3-s0 { animation: p3-s0 9s linear infinite; }
+		@keyframes p3-s0 { 0% { opacity: 0 } 28% { opacity: 0 } 32% { opacity: 1 } 88% { opacity: 1 } 93% { opacity: 0 } 100% { opacity: 0 } }
+		.p3-s1 { animation: p3-s1 9s linear infinite; }
+		@keyframes p3-s1 { 0% { opacity: 0 } 38% { opacity: 0 } 42% { opacity: 1 } 88% { opacity: 1 } 93% { opacity: 0 } 100% { opacity: 0 } }
+		.p3-s2 { animation: p3-s2 9s linear infinite; }
+		@keyframes p3-s2 { 0% { opacity: 0 } 48% { opacity: 0 } 52% { opacity: 1 } 88% { opacity: 1 } 93% { opacity: 0 } 100% { opacity: 0 } }
+		.p3-f2 { animation: p3-f2 9s linear infinite; }
+		@keyframes p3-f2 { 0% { opacity: 0 } 62% { opacity: 0 } 66% { opacity: 1 } 88% { opacity: 1 } 93% { opacity: 0 } 100% { opacity: 0 } }
+		@media (prefers-reduced-motion: reduce) {
+			.p3-f1, .p3-p, .p3-s0, .p3-s1, .p3-s2, .p3-f2 { animation: none; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="640" fill="#f8f9fa"/>
+	<rect x="26" y="16" width="420" height="620" rx="12" fill="#dee2e6"/><rect x="20" y="10" width="420" height="620" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/><circle cx="52" cy="44" r="17" fill="#2b2a26"/><text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">3</text><text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Hydraulické zařízení</text>
+	<text x="40" y="95" font-size="21" fill="#2b2a26">Dvě nádoby spojené kapalinou (olej).</text>
+	<text x="40" y="123" font-size="18" fill="#6b6a60">Závaží 100 g na malém pístu udrží 300 g.</text>
+	<path d="M70,270 L120,270 L120,360 L240,360 L240,270 L390,270 L390,400 L70,400 Z" fill="#f6c453"/>
+	<path d="M70,210 L70,400 L390,400 L390,210 M120,210 L120,360 L240,360 L240,210" fill="none" stroke="#2b2a26" stroke-width="4"/>
+	<rect x="72" y="258" width="46" height="12" fill="#8d5a2b" stroke="#2b2a26" stroke-width="2"/>
+	<rect x="242" y="258" width="146" height="12" fill="#8d5a2b" stroke="#2b2a26" stroke-width="2"/>
+	<rect x="77" y="222" width="36" height="36" rx="4" fill="#495057"/><text x="95" y="246" font-size="13" font-weight="bold" text-anchor="middle" fill="#fff">100 g</text>
+	<rect x="265" y="214" width="100" height="44" rx="4" fill="#495057"/><text x="315" y="242" font-size="18" font-weight="bold" text-anchor="middle" fill="#fff">300 g</text>
+	<line x1="290" y1="270" x2="290" y2="330" stroke="#b07d12" stroke-width="2" stroke-dasharray="5 4"/>
+	<line x1="340" y1="270" x2="340" y2="330" stroke="#b07d12" stroke-width="2" stroke-dasharray="5 4"/>
+	<text x="95" y="160" font-size="18" font-weight="bold" text-anchor="middle" fill="#2b2a26">S₁ = 1 m²</text>
+	<text x="315" y="160" font-size="18" font-weight="bold" text-anchor="middle" fill="#2b2a26">S₂ = 3 m²</text>
+	<g class="p3-f1"><line x1="95.0" y1="172.0" x2="95.0" y2="206.0" stroke="#e03131" stroke-width="4" stroke-linecap="round"/><polygon points="95.0,218.0 88.4,206.0 101.6,206.0" fill="#e03131"/><text x="128" y="200" font-size="18" font-weight="bold" fill="#e03131">F₁ = 1 N</text><text x="95" y="340" font-size="18" font-weight="bold" text-anchor="middle" fill="#b8460b">1 Pa</text></g>
+	<g class="p3-p"><text x="180" y="385" font-size="18" font-weight="bold" text-anchor="middle" fill="#b8460b">1 Pa</text></g>
+	<g class="p3-s0"><line x1="265.0" y1="330.0" x2="265.0" y2="297.0" stroke="#e03131" stroke-width="4" stroke-linecap="round"/><polygon points="265.0,286.0 271.1,297.0 258.9,297.0" fill="#e03131"/><text x="265" y="352" font-size="16" font-weight="bold" text-anchor="middle" fill="#e03131">1 N</text><text x="265" y="374" font-size="16" font-weight="bold" text-anchor="middle" fill="#b8460b">1 Pa</text></g>
+	<g class="p3-s1"><line x1="315.0" y1="330.0" x2="315.0" y2="297.0" stroke="#e03131" stroke-width="4" stroke-linecap="round"/><polygon points="315.0,286.0 321.1,297.0 308.9,297.0" fill="#e03131"/><text x="315" y="352" font-size="16" font-weight="bold" text-anchor="middle" fill="#e03131">1 N</text><text x="315" y="374" font-size="16" font-weight="bold" text-anchor="middle" fill="#b8460b">1 Pa</text></g>
+	<g class="p3-s2"><line x1="365.0" y1="330.0" x2="365.0" y2="297.0" stroke="#e03131" stroke-width="4" stroke-linecap="round"/><polygon points="365.0,286.0 371.1,297.0 358.9,297.0" fill="#e03131"/><text x="365" y="352" font-size="16" font-weight="bold" text-anchor="middle" fill="#e03131">1 N</text><text x="365" y="374" font-size="16" font-weight="bold" text-anchor="middle" fill="#b8460b">1 Pa</text></g>
+	<g class="p3-f2"><text x="315" y="432" font-size="21" font-weight="bold" text-anchor="middle" fill="#e03131">F₂ = 3 · 1 N = 3 N</text></g>
+	<text x="230" y="462" font-size="18" text-anchor="middle" fill="#6b6a60">Tlak je v celé kapalině stejný.</text>
+	<rect x="40" y="478" width="380" height="142" rx="10" fill="#fff4e6" stroke="#b8460b" stroke-width="2"/>
+	<text x="230" y="514" font-size="25" font-weight="bold" text-anchor="middle" fill="#b8460b">p = F₁ : S₁ = F₂ : S₂</text>
+	<text x="230" y="544" font-size="18" text-anchor="middle" fill="#2b2a26">1 N : 1 m² = 3 N : 3 m² = 1 Pa</text>
+	<text x="230" y="578" font-size="21" font-weight="bold" text-anchor="middle" fill="#2b2a26">Kolikrát větší píst,</text>
+	<text x="230" y="604" font-size="21" font-weight="bold" text-anchor="middle" fill="#2b2a26">tolikrát větší síla.</text>
+</svg>
