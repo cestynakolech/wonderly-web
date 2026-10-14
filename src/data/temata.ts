@@ -3635,6 +3635,7 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'youtube', nazev: 'Video: Elektrická bezpečnost', cesta: 'VfCqvZDHUWQ' },
 						{ druh: 'youtube', nazev: 'Video: Domovní elektroinstalace', cesta: 'jhqpxSjUCMk' },
 						{ druh: 'video', nazev: 'Píseň: Účinky proudu a bezpečnost 🎵', cesta: '/materialy/fyzika/9-rocnik/elektricka-energie-a-bezpecnost/ucinky-proudu-bezpecnost/pisen-ucinky-proudu.m4a' },
+						{ druh: 'infografika', nazev: 'Infografika: Proud a tělo, první pomoc', cesta: '/materialy/fyzika/9-rocnik/elektricka-energie-a-bezpecnost/ucinky-proudu-bezpecnost/infografika-ucinky-proudu-bezpecnost-panel-1.svg', panely: ['/materialy/fyzika/9-rocnik/elektricka-energie-a-bezpecnost/ucinky-proudu-bezpecnost/infografika-ucinky-proudu-bezpecnost-panel-1.svg', '/materialy/fyzika/9-rocnik/elektricka-energie-a-bezpecnost/ucinky-proudu-bezpecnost/infografika-ucinky-proudu-bezpecnost-panel-2.svg', '/materialy/fyzika/9-rocnik/elektricka-energie-a-bezpecnost/ucinky-proudu-bezpecnost/infografika-ucinky-proudu-bezpecnost-panel-3.svg'] },
 					],
 					odkazy: [
 						{ nazev: 'Bezpečně s elektřinou (ČEZ Distribuce)', url: 'https://www.cezdistribuce.cz/cs/bezpecnost/bezpecnost-a-ochrana-zdravi/bezpecne-s-elektrinou' },

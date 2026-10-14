@@ -1,0 +1,44 @@
+<svg viewBox="0 0 460 610" width="460" height="610" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Postava stojí čelem k nám a svou levou rukou (na obrázku vpravo) se dotkne drátu, proud teče přes levou ruku a srdce do nohou a do země: to je nejnebezpečnější cesta. Pak se drát dotkne hlavy a proud teče přes mozek: i to je nebezpečná cesta" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Účinky proudu 2/3: Kudy proud prochází</title>
+	<style>
+		.fa { animation: fa 10s linear infinite; } .fb { animation: fb 10s linear infinite; }
+		.tk { animation-name: fa, tk; animation-duration: 10s, 0.6s; animation-timing-function: linear; animation-iteration-count: infinite; }
+		.fb.tk { animation-name: fb, tk; }
+		.sr { transform-box: view-box; transform-origin: 246px 250px; animation: sr 10s linear infinite; }
+		.mz { animation: mz 10s linear infinite; }
+		@keyframes fa { 0% { opacity: 1; } 46% { opacity: 1; } 50% { opacity: 0; } 96% { opacity: 0; } 100% { opacity: 1; } }
+		@keyframes fb { 0% { opacity: 0; } 50% { opacity: 0; } 54% { opacity: 1; } 96% { opacity: 1; } 100% { opacity: 0; } }
+		@keyframes tk { 0% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -18; } }
+		@keyframes sr { 0% { transform: scale(1); } 5% { transform: scale(1.35); } 10% { transform: scale(1); } 15% { transform: scale(1.35); } 20% { transform: scale(1); } 25% { transform: scale(1.35); } 30% { transform: scale(1); } 35% { transform: scale(1.35); } 40% { transform: scale(1); } 100% { transform: scale(1); } }
+		@keyframes mz { 0% { opacity: 0; } 50% { opacity: 0; } 56% { opacity: 1; } 94% { opacity: 1; } 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) { .fa, .fb, .tk, .sr, .mz { animation: none; } .fb, .mz, .rm { opacity: 1; } .fbr, .fat, .fbt { opacity: 0; } }
+	</style>
+	<rect x="0" y="0" width="460" height="610" fill="#f8f9fa"/>
+	<g id="panel-2"><rect x="26" y="16" width="420" height="590" rx="12" fill="#dee2e6"/><rect x="20" y="10" width="420" height="590" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/><circle cx="52" cy="44" r="17" fill="#2b2a26"/><text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">2</text><text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Kudy proud prochází</text>
+<text x="34" y="92" font-size="21" fill="#2b2a26">Záleží i na tom, kudy proud</text>
+<text x="34" y="120" font-size="21" fill="#2b2a26">tělem prochází.</text>
+<rect x="34" y="138" width="392" height="362" rx="8" fill="#ffffff" stroke="#ced4da" stroke-width="2"/>
+<rect x="44" y="478" width="372" height="12" fill="#ced4da"/>
+<path d="M216,320 L208,474 M244,320 L252,474" fill="none" stroke="#adb5bd" stroke-width="20" stroke-linecap="round"/>
+<ellipse cx="202" cy="476" rx="16" ry="6" fill="#495057"/><ellipse cx="258" cy="476" rx="16" ry="6" fill="#495057"/>
+<path d="M206,226 L176,318" fill="none" stroke="#adb5bd" stroke-width="16" stroke-linecap="round"/><circle cx="175" cy="324" r="9" fill="#f1c27d"/>
+<g class="fa"><path d="M254,226 L314,196" fill="none" stroke="#adb5bd" stroke-width="16" stroke-linecap="round"/><circle cx="322" cy="192" r="9" fill="#f1c27d"/></g>
+<g class="fb fbr" opacity="0"><path d="M254,226 L284,318" fill="none" stroke="#adb5bd" stroke-width="16" stroke-linecap="round"/><circle cx="285" cy="324" r="9" fill="#f1c27d"/></g>
+<rect x="200" y="212" width="60" height="114" rx="16" fill="#adb5bd" stroke="#868e96" stroke-width="2"/>
+<rect x="223" y="198" width="14" height="16" fill="#f1c27d"/><circle cx="230" cy="180" r="24" fill="#f1c27d" stroke="#c9a06a" stroke-width="2"/>
+<circle cx="222" cy="184" r="2.5" fill="#2b2a26"/><circle cx="238" cy="184" r="2.5" fill="#2b2a26"/><path d="M224,195 L236,195" fill="none" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<ellipse class="mz" cx="230" cy="168" rx="14" ry="8" fill="#f783ac" opacity="0"/>
+<path class="sr" d="M246,262 C236,254 232,244 240,240 C244,238 246,242 246,244 C246,242 248,238 252,240 C260,244 256,254 246,262 Z" fill="#e03131"/>
+<g class="fa"><path d="M416,150 L332,186" fill="none" stroke="#343a40" stroke-width="5" stroke-linecap="round"/><path d="M330,176 L322,186 L330,186 L322,198" fill="none" stroke="#f08c00" stroke-width="3" stroke-linejoin="round"/></g>
+<g class="fb" opacity="0"><path d="M416,150 L260,176" fill="none" stroke="#343a40" stroke-width="5" stroke-linecap="round"/><path d="M266,166 L256,176 L264,178 L254,188" fill="none" stroke="#f08c00" stroke-width="3" stroke-linejoin="round"/></g>
+<path class="fa tk" d="M322,192 L260,224 L246,252 L240,320 L252,472" fill="none" stroke="#f08c00" stroke-width="8" stroke-linecap="round" stroke-dasharray="0 18"/>
+<path class="fb tk" opacity="0" d="M254,172 L231,168 L231,250 L222,320 L208,472" fill="none" stroke="#f08c00" stroke-width="8" stroke-linecap="round" stroke-dasharray="0 18"/>
+<g class="fa"><text x="322" y="228" font-size="21" font-weight="bold" fill="#2b2a26">levá ruka</text><line x1="330" y1="211" x2="324" y2="202" stroke="#2b2a26" stroke-width="2"/></g>
+<g class="fa"><text x="330" y="270" font-size="21" font-weight="bold" fill="#2b2a26">srdce</text><line x1="326" y1="263" x2="262" y2="252" stroke="#2b2a26" stroke-width="2"/></g>
+<g class="fb" opacity="0"><text x="110" y="184" font-size="21" font-weight="bold" fill="#2b2a26">mozek</text><line x1="178" y1="178" x2="216" y2="168" stroke="#2b2a26" stroke-width="2"/></g>
+<circle cx="330" cy="440" r="5" fill="#f08c00"/><circle cx="346" cy="440" r="5" fill="#f08c00"/><text x="358" y="447" font-size="21" font-weight="bold" fill="#2b2a26">proud</text>
+<g class="fa fat"><text x="34" y="536" font-size="21" font-weight="bold" fill="#2b2a26">Levá ruka → srdce:</text><text x="34" y="564" font-size="21" fill="#2b2a26">nejnebezpečnější cesta.</text></g>
+<g class="fb fbt" opacity="0"><text x="34" y="536" font-size="21" font-weight="bold" fill="#2b2a26">Hlava → mozek:</text><text x="34" y="564" font-size="21" fill="#2b2a26">i to je nebezpečná cesta.</text></g>
+<g class="rm" opacity="0"><text x="34" y="536" font-size="21" fill="#2b2a26"><tspan font-weight="bold">Levá ruka → srdce:</tspan> nejnebezpečnější,</text><text x="34" y="564" font-size="21" fill="#2b2a26"><tspan font-weight="bold">hlava → mozek:</tspan> i ta je nebezpečná.</text></g>
+	</g>
+</svg>
