@@ -1065,6 +1065,7 @@ export const temata: Record<string, Tema[]> = {
 						<figure><a href="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/hustota/hustota-obr-11.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/hustota/hustota-obr-11.svg" alt="Z nakloněné zkumavky kape stříbrná rtuť do skleněné misky, kde tvoří kuličky. Rtuť 13 500 kg/m³, voda jen 1 000 kg/m³." loading="lazy" /></a><figcaption>Rtuť je kapalina s největší hustotou: 13 500 kg/m³.</figcaption></figure>
 					`,
 					materialy: [
+						{ druh: 'infografika', nazev: 'Hustota v pohybu', cesta: '/materialy/fyzika/6-rocnik/fyzikalni-veliciny/hustota/infografika-hustota-pohyb-panel-1.svg', panely: ['/materialy/fyzika/6-rocnik/fyzikalni-veliciny/hustota/infografika-hustota-pohyb-panel-1.svg', '/materialy/fyzika/6-rocnik/fyzikalni-veliciny/hustota/infografika-hustota-pohyb-panel-2.svg', '/materialy/fyzika/6-rocnik/fyzikalni-veliciny/hustota/infografika-hustota-pohyb-panel-3.svg', '/materialy/fyzika/6-rocnik/fyzikalni-veliciny/hustota/infografika-hustota-pohyb-panel-4.svg'] },
 						{
 							druh: 'video',
 							nazev: 'Polemika: Co je těžší — kilo peří, nebo kilo železa? 🎬',

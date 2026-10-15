@@ -1,0 +1,72 @@
+<svg viewBox="0 0 460 700" width="460" height="700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hustota v pohybu, Studený vzduch klesá: řez místností. Otevřeným oknem proudí čerstvý studený vzduch (modré kuličky), klesá podél stěny k podlaze a teče po podlaze k nohám dítěte, je zima od nohou. Nad topením stoupá teplý vzduch (oranžové kuličky) ke stropu. Studený vzduch má větší hustotu, proto klesá k podlaze. Teplý vzduch má menší hustotu, proto stoupá vzhůru." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Hustota v pohybu 4/4: Studený vzduch klesá</title>
+	<!-- W101. Předloha: PDF 6/03 Fyzikální veličiny/ 9.  Hustota, s. 10 (těleso s větší hustotou klesá – studený vzduch je hustší než teplý ⇨ v místnosti čerstvý studený vzduch klesá k podlaze a je zima od noh; těleso s menší hustotou stoupá – teplý vzduch má menší hustotu než studený ⇨ stoupá jako vzdušný proud vzhůru); výklad temata.ts (větší hustota než okolí ⇨ klesá – studený vzduch u podlahy; menší hustota ⇨ stoupá – teplý vzduch). PDF k ději nemá kresbu, scéna = řez místností podle textu; topení je zdroj teplého vzduchu (v textu jen „teplý vzduch“). Kuličky: modrá = studený vzduch, oranžová = teplý vzduch (voda se v panelu nevyskytuje). Dráha studeného 505 px (okno → stěna → podlaha), teplého 475 px (topení → strop); 4 kuličky na dráze, posun fáze 1 s, cyklus 4 s. Klid (reduced motion): kuličky stojí rozložené po drahách. -->
+	<style>
+		.p4s { animation: p4s 4s linear infinite; }
+		@keyframes p4s { 0% { transform: translate(30px,228px); opacity: 0; } 4% { opacity: 1; } 14% { transform: translate(100px,236px); } 23% { transform: translate(112px,280px); } 56.3% { transform: translate(112px,448px); } 64.3% { transform: translate(150px,462px); } 92% { opacity: 1; } 100% { transform: translate(330px,462px); opacity: 0; } }
+		.p4t { animation: p4t 4s linear infinite; }
+		@keyframes p4t { 0% { transform: translate(382px,372px); opacity: 0; } 4% { opacity: 1; } 50.5% { transform: translate(382px,132px); } 57.5% { transform: translate(352px,118px); } 92% { opacity: 1; } 100% { transform: translate(150px,118px); opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) {
+			.p4s, .p4t { animation: none; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="700" fill="#f8f9fa" />
+	<g id="panel-4">
+		<rect x="26" y="22" width="420" height="668" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="668" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">4</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Studený vzduch klesá</text>
+		<!-- místnost v řezu: strop, stěny s oknem, podlaha -->
+		<rect x="44" y="94" width="372" height="12" fill="#868e96" stroke="#495057" stroke-width="2" />
+		<rect x="44" y="106" width="12" height="64" fill="#868e96" stroke="#495057" stroke-width="2" />
+		<rect x="44" y="290" width="12" height="188" fill="#868e96" stroke="#495057" stroke-width="2" />
+		<rect x="404" y="106" width="12" height="372" fill="#868e96" stroke="#495057" stroke-width="2" />
+		<rect x="44" y="478" width="372" height="12" fill="#c9a26b" stroke="#7a5c12" stroke-width="2" />
+		<!-- otevřené okno: rám a parapet -->
+		<path d="M44 170H62M44 290H62" stroke="#495057" stroke-width="3" />
+		<rect x="38" y="290" width="34" height="8" rx="2" fill="#dee2e6" stroke="#495057" stroke-width="2" />
+		<text x="66" y="150" font-size="20" fill="#2b2a26">otevřené okno</text>
+		<!-- topení u pravé stěny -->
+		<rect x="362" y="380" width="40" height="80" rx="4" fill="#dee2e6" stroke="#495057" stroke-width="2.5" />
+		<path d="M372 386V454M382 386V454M392 386V454" stroke="#495057" stroke-width="2" />
+		<text x="352" y="428" font-size="20" text-anchor="end" fill="#2b2a26">topení</text>
+		<!-- dítě -->
+		<rect x="224" y="400" width="10" height="74" rx="3" fill="#495057" />
+		<rect x="238" y="400" width="10" height="74" rx="3" fill="#495057" />
+		<path d="M218 478Q218 470 229 470H234V478ZM254 478Q254 470 243 470H238V478Z" fill="#2b2a26" />
+		<path d="M224 348L208 392M248 348L264 392" stroke="#f3d2b3" stroke-width="7" stroke-linecap="round" />
+		<rect x="220" y="338" width="32" height="66" rx="9" fill="#2f9e44" stroke="#2b2a26" stroke-width="2" />
+		<circle cx="236" cy="318" r="18" fill="#f3d2b3" stroke="#2b2a26" stroke-width="2" />
+		<!-- dráhy proudění -->
+		<path d="M30 228L100 236L112 280V448L150 462H330" fill="none" stroke="#1864ab" stroke-width="2" stroke-dasharray="4 8" />
+		<path d="M322 454L336 462L322 470" fill="none" stroke="#1864ab" stroke-width="3" stroke-linejoin="round" />
+		<path d="M382 372V132L352 118H150" fill="none" stroke="#e8590c" stroke-width="2" stroke-dasharray="4 8" />
+		<path d="M160 110L146 118L160 126" fill="none" stroke="#e8590c" stroke-width="3" stroke-linejoin="round" />
+		<!-- kuličky vzduchu -->
+		<g fill="#1864ab" stroke="#fbfaf6" stroke-width="2">
+			<circle class="p4s" r="7" transform="translate(30,228)" />
+			<circle class="p4s" r="7" transform="translate(112,290)" style="animation-delay: -1s" />
+			<circle class="p4s" r="7" transform="translate(112,416)" style="animation-delay: -2s" />
+			<circle class="p4s" r="7" transform="translate(204,462)" style="animation-delay: -3s" />
+		</g>
+		<g fill="#e8590c">
+			<circle class="p4t" r="7" transform="translate(382,372)" />
+			<circle class="p4t" r="7" transform="translate(382,253)" style="animation-delay: -1s" />
+			<circle class="p4t" r="7" transform="translate(382,134)" style="animation-delay: -2s" />
+			<circle class="p4t" r="7" transform="translate(269,118)" style="animation-delay: -3s" />
+		</g>
+		<g font-size="20" fill="#2b2a26">
+			<text x="132" y="214">studený vzduch</text>
+			<text x="132" y="238">z okna</text>
+			<text x="364" y="250" text-anchor="end">teplý vzduch</text>
+			<text x="236" y="518" text-anchor="middle" font-weight="bold" fill="#1864ab">zima od nohou</text>
+		</g>
+		<g font-size="20" fill="#2b2a26">
+			<text x="40" y="566">Studený vzduch má větší hustotu,</text>
+			<text x="40" y="594">proto klesá k podlaze.</text>
+			<text x="40" y="634">Teplý vzduch má menší hustotu,</text>
+			<text x="40" y="662">proto stoupá vzhůru.</text>
+		</g>
+	</g>
+</svg>

@@ -1,0 +1,62 @@
+<svg viewBox="0 0 460 710" width="460" height="710" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hustota v pohybu, Vypočítáme hmotnost: voda má hustotu 1 000 kg/m³, m = ρ · V. Do nádrže teče voda po krychlích 1 m³. Při 1 m³ je hmotnost vody 1 000 kg, při 2 m³ 2 000 kg, při 3 m³ 3 000 kg. m = 1 000 kg/m³ · 3 m³ = 3 000 kg." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Hustota v pohybu 3/4: Vypočítáme hmotnost</title>
+	<!-- W101. Předloha: PDF 6/03 Fyzikální veličiny/ 9.  Hustota, s. 1 (hustota vody 1 000 kg/m³; 1 300 kg/m³ = 1 m³ váží 1 300 kg), s. 3 (Počítání s hustotou: ze známé hustoty vypočítáme hmotnost); výklad temata.ts (m = ρ · V; hustota vody = 1 000 kg/m³). Nádrž 1 m × 1 m × 3 m, 100 px na 1 m, vnitřek x 180–280, dno y 470, značky 1/2/3 m³ v y 370/270/170. Cyklus 10 s: plnění 0–1,5 s, 2,5–4 s, 5–6,5 s (proud teče jen při plnění), řádky 1/2/3 m³ při dosažení značky (1,5 s / 4 s / 6,5 s), výpočet od 7,2 s, 9,6 s návrat. Klid: plná nádrž 3 m³, všechny řádky. -->
+	<style>
+		.p3vo { animation: p3vo 10s linear infinite; }
+		@keyframes p3vo { 0% { transform: translate(180px,470px) scale(1,0.001); } 15% { transform: translate(180px,470px) scale(1,0.3333); } 25% { transform: translate(180px,470px) scale(1,0.3333); } 40% { transform: translate(180px,470px) scale(1,0.6667); } 50% { transform: translate(180px,470px) scale(1,0.6667); } 65% { transform: translate(180px,470px) scale(1,1); } 96% { transform: translate(180px,470px) scale(1,1); } 99% { transform: translate(180px,470px) scale(1,0.001); } 100% { transform: translate(180px,470px) scale(1,0.001); } }
+		.p3pr { animation: p3pr 10s step-end infinite; }
+		@keyframes p3pr { 0% { opacity: 1; } 15% { opacity: 0; } 25% { opacity: 1; } 40% { opacity: 0; } 50% { opacity: 1; } 65% { opacity: 0; } 100% { opacity: 0; } }
+		.p3a { animation: p3a 10s step-end infinite; }
+		@keyframes p3a { 0% { opacity: 0; } 15% { opacity: 1; } 96% { opacity: 0; } 100% { opacity: 0; } }
+		.p3b { animation: p3b 10s step-end infinite; }
+		@keyframes p3b { 0% { opacity: 0; } 40% { opacity: 1; } 96% { opacity: 0; } 100% { opacity: 0; } }
+		.p3c { animation: p3c 10s step-end infinite; }
+		@keyframes p3c { 0% { opacity: 0; } 65% { opacity: 1; } 96% { opacity: 0; } 100% { opacity: 0; } }
+		.p3d { animation: p3d 10s step-end infinite; }
+		@keyframes p3d { 0% { opacity: 0; } 72% { opacity: 1; } 96% { opacity: 0; } 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) {
+			.p3vo, .p3pr, .p3a, .p3b, .p3c, .p3d { animation: none; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="710" fill="#f8f9fa" />
+	<g id="panel-3">
+		<rect x="26" y="22" width="420" height="678" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="678" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">3</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Vypočítáme hmotnost</text>
+		<text x="40" y="98" font-size="20" fill="#2b2a26">voda: ρ = 1 000 kg/m³</text>
+		<text x="290" y="98" font-size="22" font-weight="bold" fill="#2b2a26">m = ρ · V</text>
+		<!-- proud vody z trubky (jen při plnění) -->
+		<rect class="p3pr" x="226" y="170" width="8" height="300" fill="#228be6" opacity="0" />
+		<!-- voda v nádrži -->
+		<g class="p3vo" transform="translate(180,470) scale(1,1)"><rect x="0" y="-300" width="100" height="300" fill="#228be6" /></g>
+		<!-- hranice krychlí 1 m³ -->
+		<path d="M180 370H280M180 270H280" stroke="#2b2a26" stroke-width="2" stroke-dasharray="8 6" />
+		<!-- nádrž -->
+		<path d="M178 160V472H282V160" fill="none" stroke="#495057" stroke-width="4" stroke-linejoin="round" />
+		<rect x="166" y="472" width="128" height="12" rx="3" fill="#868e96" stroke="#495057" stroke-width="2.5" />
+		<path d="M60 486H400" stroke="#495057" stroke-width="3" />
+		<path d="M282 370H296M282 270H296M282 170H296" stroke="#2b2a26" stroke-width="2.5" />
+		<g font-size="20" fill="#2b2a26">
+			<text x="302" y="377">1 m³</text>
+			<text x="302" y="277">2 m³</text>
+			<text x="302" y="177">3 m³</text>
+		</g>
+		<!-- trubka s kohoutem -->
+		<rect x="40" y="146" width="198" height="14" rx="3" fill="#868e96" stroke="#495057" stroke-width="2.5" />
+		<rect x="222" y="146" width="16" height="26" rx="3" fill="#868e96" stroke="#495057" stroke-width="2.5" />
+		<rect x="102" y="140" width="24" height="26" rx="4" fill="#adb5bd" stroke="#495057" stroke-width="2.5" />
+		<path d="M114 140V130M104 130H124" stroke="#495057" stroke-width="3" stroke-linecap="round" />
+		<!-- počítadlo hmotnosti -->
+		<g font-size="20" fill="#2b2a26">
+			<text class="p3a" x="40" y="526">1 m³ vody → m = 1 000 kg</text>
+			<text class="p3b" x="40" y="558">2 m³ vody → m = 2 000 kg</text>
+			<text class="p3c" x="40" y="590">3 m³ vody → m = 3 000 kg</text>
+		</g>
+		<g class="p3d" font-size="24" font-weight="bold" fill="#c92a2a">
+			<text x="40" y="636">m = 1 000 kg/m³ · 3 m³</text>
+			<text x="40" y="670">m = 3 000 kg</text>
+		</g>
+	</g>
+</svg>

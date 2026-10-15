@@ -1,0 +1,76 @@
+<svg viewBox="0 0 460 640" width="460" height="640" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hustota v pohybu, Vypočítáme hustotu: změřené hodnoty m = 27 g a V = 10 cm³ se přesunou do vztahu ρ = m : V. ρ = 27 g : 10 cm³ = 2,7 g/cm³ = 2 700 kg/m³. Pak hledáme v tabulce hustot: zlato 19 300, měď 8 900, železo 7 800, hliník 2 700 kg/m³. Zvýraznění sjede až k hliníku. Kostka je z hliníku." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Hustota v pohybu 2/4: Vypočítáme hustotu</title>
+	<!-- W101. Předloha: PDF 6/03 Fyzikální veličiny/ 9.  Hustota, s. 13 (1. VÝPOČTEM: ρ = m : V), s. 4 (postup: zadané hodnoty, hustotu najdeme v tabulkách; pokud máme určit, o jakou látku se jedná, vyhledáme ji podle vypočtené hustoty z tabulek), s. 6 (1 g/cm³ = 1 000 kg/m³), s. 2 (zlato 19 300, železo 7 800, hliník 2 700, měď 8 900 kg); výklad temata.ts (ρ = m : V; 1 g/cm³ = 1 000 kg/m³; hustoty zlato, železo, měď, hliník). Hodnoty m a V z panelu 1. Cyklus 8 s: čísla letí do vztahu 0,16–1 s mimo řádek „ρ = m : V“ (27 g: vpravo dolů vedle vzorce x 180–236, dolů na řádek dosazení, pak vlevo; 10 cm³: svisle dolů u x 296, pak vlevo po řádku dosazení), 2,7 g/cm³ od 2 s, 2 700 kg/m³ od 3 s, zvýraznění řádků 3,5–4,7 s (zlato → měď → železo → hliník), závěr od 5,1 s, 7,7 s návrat. Klid: vše vyplněné, zvýrazněn hliník. -->
+	<style>
+		.p2fa { animation: p2fa 8s linear infinite; }
+		@keyframes p2fa { 0% { transform: translate(0px,0px); opacity: 1; } 2% { transform: translate(0px,0px); } 6% { transform: translate(76px,30px); } 9.5% { transform: translate(76px,107px); } 12.5% { transform: translate(-12px,107px); } 95% { opacity: 1; } 96% { opacity: 0; } 100% { transform: translate(-12px,107px); opacity: 0; } }
+		.p2fb { animation: p2fb 8s linear infinite; }
+		@keyframes p2fb { 0% { transform: translate(0px,0px); opacity: 1; } 2% { transform: translate(0px,0px); } 8% { transform: translate(0px,107px); } 12.5% { transform: translate(-116px,107px); } 95% { opacity: 1; } 96% { opacity: 0; } 100% { transform: translate(-116px,107px); opacity: 0; } }
+		.p2op { animation: p2op 8s step-end infinite; }
+		@keyframes p2op { 0% { opacity: 0; } 12.5% { opacity: 1; } 96% { opacity: 0; } 100% { opacity: 0; } }
+		.p2r1 { animation: p2r1 8s step-end infinite; }
+		@keyframes p2r1 { 0% { opacity: 0; } 25% { opacity: 1; } 96% { opacity: 0; } 100% { opacity: 0; } }
+		.p2r2 { animation: p2r2 8s step-end infinite; }
+		@keyframes p2r2 { 0% { opacity: 0; } 37.5% { opacity: 1; } 96% { opacity: 0; } 100% { opacity: 0; } }
+		.p2hl { animation: p2hl 8s linear infinite; }
+		@keyframes p2hl { 0% { transform: translate(0px,0px); opacity: 0; } 44% { transform: translate(0px,0px); opacity: 0; } 44.5% { opacity: 1; } 47% { transform: translate(0px,0px); } 49% { transform: translate(0px,44px); } 52% { transform: translate(0px,44px); } 54% { transform: translate(0px,88px); } 57% { transform: translate(0px,88px); } 59% { transform: translate(0px,132px); } 95% { transform: translate(0px,132px); opacity: 1; } 96% { opacity: 0; } 100% { transform: translate(0px,132px); opacity: 0; } }
+		.p2v { animation: p2v 8s step-end infinite; }
+		@keyframes p2v { 0% { opacity: 0; } 64% { opacity: 1; } 96% { opacity: 0; } 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) {
+			.p2fa, .p2fb, .p2op, .p2r1, .p2r2, .p2hl, .p2v { animation: none; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="640" fill="#f8f9fa" />
+	<g id="panel-2">
+		<rect x="26" y="22" width="420" height="608" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="608" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">2</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Vypočítáme hustotu</text>
+		<!-- změřené hodnoty z panelu 1 -->
+		<rect x="40" y="82" width="130" height="38" rx="8" fill="#fbfaf6" stroke="#495057" stroke-width="2" />
+		<rect x="230" y="82" width="160" height="38" rx="8" fill="#fbfaf6" stroke="#495057" stroke-width="2" />
+		<g font-size="24" fill="#2b2a26">
+			<text x="56" y="109">m =</text>
+			<text x="104" y="109" font-weight="bold" fill="#b8460b">27 g</text>
+			<text x="246" y="109">V =</text>
+			<text x="296" y="109" font-weight="bold" fill="#b8460b">10 cm³</text>
+		</g>
+		<text x="40" y="168" font-size="26" font-weight="bold" fill="#2b2a26">ρ = m : V</text>
+		<!-- dosazení: čísla přiletí z rámečků -->
+		<g font-size="24" fill="#2b2a26">
+			<text class="p2op" x="40" y="216">ρ =</text>
+			<text class="p2op" x="152" y="216">:</text>
+		</g>
+		<g font-size="24" font-weight="bold" fill="#b8460b">
+			<text class="p2fa" x="104" y="109" transform="translate(-12,107)">27 g</text>
+			<text class="p2fb" x="296" y="109" transform="translate(-116,107)">10 cm³</text>
+		</g>
+		<text class="p2r1" x="40" y="262" font-size="24" fill="#2b2a26">ρ = 2,7 g/cm³</text>
+		<g class="p2r2">
+			<text x="40" y="306" font-size="24" font-weight="bold" fill="#c92a2a">ρ = 2 700 kg/m³</text>
+			<text x="250" y="306" font-size="20" fill="#2b2a26">(2,7 · 1 000)</text>
+		</g>
+		<!-- tabulka hustot -->
+		<rect x="40" y="330" width="380" height="34" fill="#e9ecef" />
+		<rect class="p2hl" x="42" y="366" width="376" height="40" rx="4" fill="#ffe066" stroke="#b8460b" stroke-width="2.5" transform="translate(0,132)" />
+		<rect x="40" y="330" width="380" height="210" fill="none" stroke="#495057" stroke-width="2.5" />
+		<path d="M40 364H420M40 408H420M40 452H420M40 496H420M200 330V540" stroke="#495057" stroke-width="2" />
+		<g font-size="20" fill="#2b2a26">
+			<text x="56" y="354" font-weight="bold">látka</text>
+			<text x="216" y="354" font-weight="bold">hustota</text>
+			<text x="56" y="393">zlato</text>
+			<text x="216" y="393">19 300 kg/m³</text>
+			<text x="56" y="437">měď</text>
+			<text x="216" y="437">8 900 kg/m³</text>
+			<text x="56" y="481">železo</text>
+			<text x="216" y="481">7 800 kg/m³</text>
+			<text x="56" y="525">hliník</text>
+			<text x="216" y="525">2 700 kg/m³</text>
+		</g>
+		<g class="p2v">
+			<text x="40" y="580" font-size="24" font-weight="bold" fill="#237032">Kostka je z hliníku.</text>
+			<text x="40" y="608" font-size="20" fill="#2b2a26">Hustotu látky najdeme v tabulkách.</text>
+		</g>
+	</g>
+</svg>

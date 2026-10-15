@@ -1,0 +1,87 @@
+<svg viewBox="0 0 460 790" width="460" height="790" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hustota v pohybu, Změříme m a V: neznámá kovová kostka dopadne na digitální váhu, displej ukáže 27 g, zapíšeme m = 27 g. Pak kostku zvedneme na provázku a spustíme do odměrného válce s vodou, klesne na dno. Hladina stoupne ze 100 ml na 110 ml. Objem kostky V = 110 ml − 100 ml = 10 ml = 10 cm³." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Hustota v pohybu 1/4: Změříme m a V</title>
+	<!-- W101. Předloha: PDF 6/03 Fyzikální veličiny/ 9.  Hustota, s. 13 (Určování hustoty těles 1. VÝPOČTEM: pomocí změřené hmotnosti a objemu, ρ = m : V); výklad temata.ts (Určování hustoty – výpočtem ze změřené hmotnosti a objemu). Kresba váhy a válce převzata z W98/W99 (válec 250 ml, dílek 5 ml, 1,4 px/ml; digitální váha s displejem). Válec posunut o +110 px vpravo a +40 px dolů: 0 ml y=600, 100 ml y=460, 110 ml y=446. Měřítko W98: válec Ø 4 cm = 70 px → 17,5 px/cm; kostka 10 cm³ má hranu ∛10 = 2,154 cm = 37,7 px → 38×38 px. Cyklus 10 s: dopad na váhu 0–0,4 s, displej 27 g 0,5–2,7 s, zápis m od 0,8 s; ruka uchopí provázek 2,5 s, zvednutí 2,7–3,5 s (kostka nad okraj válce), přesun 3,5–4,5 s, spouštění 4,5–6,1 s (ruka stojí nad válcem, provázek se prodlužuje; u hladiny zpomaleno 5,2–5,8 s), kostka dosedne na dno 6,1 s (hliník 2 700 > voda 1 000 kg/m³ → klesá, nevznáší se). Hladina stoupá 5,394–5,606 s SOUČASNĚ s ponořováním: od dotyku spodní stěny kostky s hladinou (horní stěna y 422) do úplného ponoření (horní stěna y 446 = nová hladina), lineárně. Zápis V od 6,2 s; 9,6 s návrat. Klid (reduced motion): kostka na dně válce, ruka drží provázek nad válcem, 110 ml, oba zápisy. -->
+	<style>
+		.p1ku { animation: p1ku 10s linear infinite; }
+		@keyframes p1ku { 0% { transform: translate(150px,456px); opacity: 0; } 1% { opacity: 1; } 4% { transform: translate(150px,516px); } 27% { transform: translate(150px,516px); } 35% { transform: translate(150px,170px); } 45% { transform: translate(345px,170px); } 52% { transform: translate(345px,400px); } 58% { transform: translate(345px,468px); } 61% { transform: translate(345px,562px); } 95% { transform: translate(345px,562px); opacity: 1; } 96% { opacity: 0; } 100% { transform: translate(345px,562px); opacity: 0; } }
+		.p1ru { animation: p1ru 10s linear infinite; }
+		@keyframes p1ru { 0% { transform: translate(150px,466px); opacity: 0; } 24.5% { opacity: 0; } 25% { opacity: 1; } 27% { transform: translate(150px,466px); } 35% { transform: translate(150px,120px); } 45% { transform: translate(345px,120px); } 95% { transform: translate(345px,120px); opacity: 1; } 96% { opacity: 0; } 100% { transform: translate(345px,120px); opacity: 0; } }
+		.p1pr { animation: p1pr 10s linear infinite; }
+		@keyframes p1pr { 0% { transform: translate(150px,466px) scale(1,50); opacity: 0; } 24.5% { opacity: 0; } 25% { opacity: 1; } 27% { transform: translate(150px,466px) scale(1,50); } 35% { transform: translate(150px,120px) scale(1,50); } 45% { transform: translate(345px,120px) scale(1,50); } 52% { transform: translate(345px,120px) scale(1,280); } 58% { transform: translate(345px,120px) scale(1,348); } 61% { transform: translate(345px,120px) scale(1,442); } 95% { transform: translate(345px,120px) scale(1,442); opacity: 1; } 96% { opacity: 0; } 100% { transform: translate(345px,120px) scale(1,442); opacity: 0; } }
+		.p1d0 { animation: p1d0 10s step-end infinite; }
+		@keyframes p1d0 { 0% { opacity: 1; } 5% { opacity: 0; } 27% { opacity: 1; } 100% { opacity: 1; } }
+		.p1d1 { animation: p1d1 10s step-end infinite; }
+		@keyframes p1d1 { 0% { opacity: 0; } 5% { opacity: 1; } 27% { opacity: 0; } 100% { opacity: 0; } }
+		.p1vo { animation: p1vo 10s linear infinite; }
+		@keyframes p1vo { 0% { transform: translate(310px,460px) scale(1,0.001); } 53.94% { transform: translate(310px,460px) scale(1,0.001); } 56.06% { transform: translate(310px,460px) scale(1,1); } 96% { transform: translate(310px,460px) scale(1,1); } 99% { transform: translate(310px,460px) scale(1,0.001); } 100% { transform: translate(310px,460px) scale(1,0.001); } }
+		.p1me { animation: p1me 10s linear infinite; }
+		@keyframes p1me { 0% { transform: translate(0px,460px); } 53.94% { transform: translate(0px,460px); } 56.06% { transform: translate(0px,446px); } 96% { transform: translate(0px,446px); } 99% { transform: translate(0px,460px); } 100% { transform: translate(0px,460px); } }
+		.p1t1 { animation: p1t1 10s step-end infinite; }
+		@keyframes p1t1 { 0% { opacity: 0; } 8% { opacity: 1; } 96% { opacity: 0; } 100% { opacity: 0; } }
+		.p1t2 { animation: p1t2 10s step-end infinite; }
+		@keyframes p1t2 { 0% { opacity: 0; } 62% { opacity: 1; } 96% { opacity: 0; } 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) {
+			.p1ku, .p1ru, .p1pr, .p1d0, .p1d1, .p1vo, .p1me, .p1t1, .p1t2 { animation: none; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="790" fill="#f8f9fa" />
+	<g id="panel-1">
+		<rect x="26" y="22" width="420" height="758" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="758" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Změříme m a V</text>
+		<text x="40" y="98" font-size="20" fill="#2b2a26">Z jaké látky je kostka? Změříme ji.</text>
+		<!-- voda ve válci: 100 ml (V₁) -->
+		<rect x="310" y="460" width="70" height="140" fill="#228be6" />
+		<!-- přírůstek 10 ml při ponoření -->
+		<g class="p1vo" transform="translate(310,460) scale(1,1)"><rect x="0" y="-14" width="70" height="14" fill="#228be6" /></g>
+		<g class="p1me" transform="translate(0,446)">
+			<path d="M310 -6Q345 6 380 -6V0H310Z" fill="#228be6" />
+			<path d="M310 -6Q345 6 380 -6" fill="none" stroke="#0b3d6e" stroke-width="2.5" />
+		</g>
+		<!-- digitální váha -->
+		<rect x="80" y="566" width="140" height="50" rx="8" fill="#343a40" stroke="#2b2a26" stroke-width="2.5" />
+		<rect x="104" y="574" width="92" height="34" rx="5" fill="#d3f9d8" stroke="#8ce99a" stroke-width="2.5" />
+		<g font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">
+			<text class="p1d0" x="150" y="599">0 g</text>
+			<text class="p1d1" x="150" y="599" opacity="0">27 g</text>
+		</g>
+		<rect x="145" y="562" width="10" height="6" fill="#495057" />
+		<rect x="70" y="554" width="160" height="10" rx="4" fill="#dee2e6" stroke="#495057" stroke-width="2.5" />
+		<!-- kostka 38×38 px (= 10 cm³), provázek z ruky ke kostce; kostka nakonec leží na dně, ruka drží provázek nad válcem -->
+		<path class="p1pr" d="M0 0V1" transform="translate(345,120) scale(1,442)" stroke="#2b2a26" stroke-width="2" />
+		<g class="p1ku" transform="translate(345,562)">
+			<rect x="-19" y="0" width="38" height="38" rx="2" fill="#adb5bd" stroke="#2b2a26" stroke-width="2.5" />
+			<path d="M-13 7H9" stroke="#f1f3f5" stroke-width="3" stroke-linecap="round" />
+		</g>
+		<g class="p1ru" transform="translate(345,120)">
+			<path d="M8 2L52 10" stroke="#2b2a26" stroke-width="13" stroke-linecap="round" />
+			<path d="M8 2L52 10" stroke="#f3d2b3" stroke-width="9" stroke-linecap="round" />
+			<circle cx="0" cy="0" r="11" fill="#f3d2b3" stroke="#2b2a26" stroke-width="2" />
+		</g>
+		<!-- válec, stupnice, podstavec -->
+		<path d="M300 226Q308 226 308 234V602H382V230" fill="none" stroke="#495057" stroke-width="3" stroke-linejoin="round" />
+		<path d="M380 593H370M380 586H370M380 579H370M380 572H370M380 565H362M380 558H370M380 551H370M380 544H370M380 537H370M380 530H354M380 523H370M380 516H370M380 509H370M380 502H370M380 495H362M380 488H370M380 481H370M380 474H370M380 467H370M380 460H354M380 453H370M380 446H370M380 439H370M380 432H370M380 425H362M380 418H370M380 411H370M380 404H370M380 397H370M380 390H354M380 383H370M380 376H370M380 369H370M380 362H370M380 355H362M380 348H370M380 341H370M380 334H370M380 327H370M380 320H354M380 313H370M380 306H370M380 299H370M380 292H370M380 285H362M380 278H370M380 271H370M380 264H370M380 257H370M380 250H354" stroke="#2b2a26" stroke-width="2" />
+		<g font-size="20" fill="#2b2a26">
+			<text x="392" y="257">250</text>
+			<text x="392" y="327">200</text>
+			<text x="392" y="397">150</text>
+			<text x="392" y="467">100</text>
+			<text x="392" y="537">50</text>
+			<text x="392" y="228">ml</text>
+		</g>
+		<rect x="278" y="602" width="134" height="14" rx="3" fill="#868e96" stroke="#495057" stroke-width="2.5" />
+		<path d="M40 618H420" stroke="#495057" stroke-width="3" />
+		<g font-size="20" fill="#2b2a26" text-anchor="middle">
+			<text x="150" y="646">váha</text>
+			<text x="345" y="646">odměrný válec</text>
+		</g>
+		<!-- zápisy (až po ději) -->
+		<text class="p1t1" x="40" y="686" font-size="22" font-weight="bold" fill="#2b2a26">zvážíme: m = 27 g</text>
+		<g class="p1t2">
+			<text x="40" y="718" font-size="20" fill="#2b2a26">ponoříme: V = 110 ml − 100 ml</text>
+			<text x="40" y="752" font-size="24" font-weight="bold" fill="#c92a2a">V = 10 ml = 10 cm³</text>
+		</g>
+	</g>
+</svg>
