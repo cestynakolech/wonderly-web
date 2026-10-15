@@ -1003,6 +1003,7 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/objem/objem-dialog.mp4',
 							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
 						},
+						{ druh: 'infografika', nazev: 'Objem v pohybu', cesta: '/materialy/fyzika/6-rocnik/fyzikalni-veliciny/objem/infografika-objem-pohyb-panel-1.svg', panely: ['/materialy/fyzika/6-rocnik/fyzikalni-veliciny/objem/infografika-objem-pohyb-panel-1.svg'] },
 					],
 				},
 				{
