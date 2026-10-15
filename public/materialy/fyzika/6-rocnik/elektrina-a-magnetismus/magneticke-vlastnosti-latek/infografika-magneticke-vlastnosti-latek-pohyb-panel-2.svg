@@ -1,0 +1,63 @@
+<svg viewBox="0 0 460 720" width="460" height="720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Magnetické vlastnosti látek v pohybu, Dočasný a trvalý magnet: dvě ocelové tyče drží s přiloženým magnetem hřebíky. Magnety oddálíme. Z tyče z měkké oceli hřebíky odpadnou, je to dočasný magnet. Na tyči z tvrdé oceli hřebíky zůstanou, je to trvalý magnet. Odmagnetování: třením opačným pólem magnetu, cívkou se střídavým proudem nebo zahřátím." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Magnetické vlastnosti látek v pohybu 2/2: Dočasný a trvalý magnet</title>
+	<!-- W102. Předloha: PDF 6/08/15. Magnetické vlastnosti látek, s. 9 (Dočasný magnet – po odstranění magnetu hřebíky opět odpadnou, magneticky měkká ocel; Trvalý magnet – hřebíky neodpadnou, magneticky tvrdá ocel; Odmagnetování – třením opačným pólem, cívkou se střídavým proudem, zahřátím), výklad temata.ts (Chování těles v magnetickém poli). Cyklus 8 s: magnety odjedou 0,4–1,2 s; hřebíky vlevo padají 1,2–1,6 s; popisky dočasný/trvalý od 1,6 s; magnety se vrací 6,8–7,6 s, hřebíky vyskočí 7,6–8,0 s. Klid (reduced motion): magnety pryč, vlevo hřebíky na stole. -->
+	<style>
+		.a2mg { animation: a2mg 8s infinite; }
+		@keyframes a2mg { 0%, 5% { transform: translateY(0px); opacity: 1; animation-timing-function: ease-in; } 15%, 85% { transform: translateY(-30px); opacity: 0; animation-timing-function: ease-out; } 95%, 100% { transform: translateY(0px); opacity: 1; } }
+		.a2n1 { animation: a2n1 8s infinite; }
+		@keyframes a2n1 { 0%, 15% { transform: translate(0px, 0px) rotate(0deg); animation-timing-function: ease-in; } 20%, 95% { transform: translate(-53px, 40px) rotate(-90deg); animation-timing-function: ease-out; } 100% { transform: translate(0px, 0px) rotate(0deg); } }
+		.a2n2 { animation: a2n2 8s infinite; }
+		@keyframes a2n2 { 0%, 15% { transform: translate(0px, 0px) rotate(0deg); animation-timing-function: ease-in; } 20%, 95% { transform: translate(-20px, 40px) rotate(-90deg); animation-timing-function: ease-out; } 100% { transform: translate(0px, 0px) rotate(0deg); } }
+		.a2n3 { animation: a2n3 8s infinite; }
+		@keyframes a2n3 { 0%, 15% { transform: translate(0px, 0px) rotate(0deg); animation-timing-function: ease-in; } 20%, 95% { transform: translate(13px, 40px) rotate(-90deg); animation-timing-function: ease-out; } 100% { transform: translate(0px, 0px) rotate(0deg); } }
+		.a2lb { animation: a2lb 8s step-end infinite; }
+		@keyframes a2lb { 0% { opacity: 0; } 20% { opacity: 1; } 85% { opacity: 0; } 100% { opacity: 0; } }
+		.a2s0 { animation: a2s0 8s step-end infinite; }
+		@keyframes a2s0 { 0% { opacity: 1; } 15% { opacity: 0; } 95% { opacity: 1; } 100% { opacity: 1; } }
+		.a2s1 { animation: a2s1 8s step-end infinite; }
+		@keyframes a2s1 { 0% { opacity: 0; } 15% { opacity: 1; } 85% { opacity: 0; } 100% { opacity: 0; } }
+		.a2s2 { animation: a2s2 8s step-end infinite; }
+		@keyframes a2s2 { 0% { opacity: 0; } 85% { opacity: 1; } 95% { opacity: 0; } 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) {
+			.a2mg, .a2n1, .a2n2, .a2n3, .a2lb, .a2s0, .a2s1, .a2s2 { animation: none; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="720" fill="#f8f9fa" />
+	<g id="panel-2">
+		<rect x="26" y="22" width="420" height="686" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="686" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">2</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Dočasný a trvalý magnet</text>
+		<text x="40" y="96" font-size="20" fill="#2b2a26">Dvě tyče, každá z jiné oceli.</text>
+		<g class="a2s0" opacity="0"><text x="40" y="124" font-size="22" font-weight="bold" fill="#2b2a26">Magnety jsou přiložené.</text></g>
+		<g class="a2s1"><text x="40" y="124" font-size="22" font-weight="bold" fill="#2b2a26">Magnety jsme oddálili.</text></g>
+		<g class="a2s2" opacity="0"><text x="40" y="124" font-size="22" font-weight="bold" fill="#2b2a26">Magnety přikládáme zpět.</text></g>
+		<rect x="40" y="470" width="380" height="14" rx="3" fill="#c9a26b" stroke="#7a5c12" stroke-width="2.5" />
+		<g class="a2mg" opacity="0"><rect x="105.0" y="154" width="36" height="90" rx="4" fill="#000000" opacity="0.13" /><rect x="102.0" y="150" width="36" height="45.0" fill="#236bbb" /><rect x="102.0" y="195.0" width="36" height="45.0" fill="#d93645" /><rect x="102.0" y="150" width="36" height="90" rx="4" fill="none" stroke="#2b2a26" stroke-width="2.5" /><text x="120" y="180.5" text-anchor="middle" font-size="23" font-weight="bold" fill="#ffffff">S</text><text x="120" y="225.5" text-anchor="middle" font-size="23" font-weight="bold" fill="#ffffff">N</text></g>
+		<rect x="105.0" y="240" width="30" height="180" rx="3" fill="#ced4da" stroke="#2b2a26" stroke-width="2.5" /><rect x="109.0" y="245" width="6" height="170" rx="3" fill="#ffffff" opacity="0.6" /><path d="M160 304 L212 310 L212 362 L160 370 Z" fill="#f1c9a5" stroke="#a8743c" stroke-width="2.5" stroke-linejoin="round" /><rect x="124" y="298" width="56" height="76" rx="22" fill="#f1c9a5" stroke="#a8743c" stroke-width="2.5" /><rect x="96" y="300" width="58" height="17" rx="8" fill="#f1c9a5" stroke="#a8743c" stroke-width="2" /><ellipse cx="103" cy="308.5" rx="4" ry="5" fill="#f8e1cf" stroke="#a8743c" stroke-width="1.2" /><rect x="96" y="317" width="56" height="17" rx="8" fill="#f1c9a5" stroke="#a8743c" stroke-width="2" /><ellipse cx="103" cy="325.5" rx="4" ry="5" fill="#f8e1cf" stroke="#a8743c" stroke-width="1.2" /><rect x="96" y="334" width="54" height="17" rx="8" fill="#f1c9a5" stroke="#a8743c" stroke-width="2" /><ellipse cx="103" cy="342.5" rx="4" ry="5" fill="#f8e1cf" stroke="#a8743c" stroke-width="1.2" /><rect x="96" y="351" width="52" height="17" rx="8" fill="#f1c9a5" stroke="#a8743c" stroke-width="2" /><ellipse cx="103" cy="359.5" rx="4" ry="5" fill="#f8e1cf" stroke="#a8743c" stroke-width="1.2" />
+		<g transform="translate(109,422)"><g class="a2n1" transform="translate(-53,40) rotate(-90)"><line x1="0" y1="0" x2="0" y2="27" stroke="#495057" stroke-width="4.5" /><path d="M-2.25 27 L0 33 L2.25 27 Z" fill="#495057" /><rect x="-7" y="-5" width="14" height="5" rx="1" fill="#495057" /></g></g>
+		<g transform="translate(120,422)"><g class="a2n2" transform="translate(-20,40) rotate(-90)"><line x1="0" y1="0" x2="0" y2="27" stroke="#495057" stroke-width="4.5" /><path d="M-2.25 27 L0 33 L2.25 27 Z" fill="#495057" /><rect x="-7" y="-5" width="14" height="5" rx="1" fill="#495057" /></g></g>
+		<g transform="translate(131,422)"><g class="a2n3" transform="translate(13,40) rotate(-90)"><line x1="0" y1="0" x2="0" y2="27" stroke="#495057" stroke-width="4.5" /><path d="M-2.25 27 L0 33 L2.25 27 Z" fill="#495057" /><rect x="-7" y="-5" width="14" height="5" rx="1" fill="#495057" /></g></g>
+		<text x="120" y="505" text-anchor="middle" font-size="20" fill="#2b2a26">měkká ocel</text>
+		<g class="a2lb">
+			<text x="120" y="533" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">dočasný magnet</text>
+			<text x="120" y="559" text-anchor="middle" font-size="20" fill="#2b2a26">hřebíky odpadly</text>
+		</g>
+		<g class="a2mg" opacity="0"><rect x="305.0" y="154" width="36" height="90" rx="4" fill="#000000" opacity="0.13" /><rect x="302.0" y="150" width="36" height="45.0" fill="#236bbb" /><rect x="302.0" y="195.0" width="36" height="45.0" fill="#d93645" /><rect x="302.0" y="150" width="36" height="90" rx="4" fill="none" stroke="#2b2a26" stroke-width="2.5" /><text x="320" y="180.5" text-anchor="middle" font-size="23" font-weight="bold" fill="#ffffff">S</text><text x="320" y="225.5" text-anchor="middle" font-size="23" font-weight="bold" fill="#ffffff">N</text></g>
+		<rect x="305.0" y="240" width="30" height="180" rx="3" fill="#ced4da" stroke="#2b2a26" stroke-width="2.5" /><rect x="309.0" y="245" width="6" height="170" rx="3" fill="#ffffff" opacity="0.6" /><path d="M360 304 L412 310 L412 362 L360 370 Z" fill="#f1c9a5" stroke="#a8743c" stroke-width="2.5" stroke-linejoin="round" /><rect x="324" y="298" width="56" height="76" rx="22" fill="#f1c9a5" stroke="#a8743c" stroke-width="2.5" /><rect x="296" y="300" width="58" height="17" rx="8" fill="#f1c9a5" stroke="#a8743c" stroke-width="2" /><ellipse cx="303" cy="308.5" rx="4" ry="5" fill="#f8e1cf" stroke="#a8743c" stroke-width="1.2" /><rect x="296" y="317" width="56" height="17" rx="8" fill="#f1c9a5" stroke="#a8743c" stroke-width="2" /><ellipse cx="303" cy="325.5" rx="4" ry="5" fill="#f8e1cf" stroke="#a8743c" stroke-width="1.2" /><rect x="296" y="334" width="54" height="17" rx="8" fill="#f1c9a5" stroke="#a8743c" stroke-width="2" /><ellipse cx="303" cy="342.5" rx="4" ry="5" fill="#f8e1cf" stroke="#a8743c" stroke-width="1.2" /><rect x="296" y="351" width="52" height="17" rx="8" fill="#f1c9a5" stroke="#a8743c" stroke-width="2" /><ellipse cx="303" cy="359.5" rx="4" ry="5" fill="#f8e1cf" stroke="#a8743c" stroke-width="1.2" />
+		<g transform="translate(309,422)"><line x1="0" y1="0" x2="0" y2="27" stroke="#495057" stroke-width="4.5" /><path d="M-2.25 27 L0 33 L2.25 27 Z" fill="#495057" /><rect x="-7" y="-5" width="14" height="5" rx="1" fill="#495057" /></g>
+		<g transform="translate(320,422)"><line x1="0" y1="0" x2="0" y2="27" stroke="#495057" stroke-width="4.5" /><path d="M-2.25 27 L0 33 L2.25 27 Z" fill="#495057" /><rect x="-7" y="-5" width="14" height="5" rx="1" fill="#495057" /></g>
+		<g transform="translate(331,422)"><line x1="0" y1="0" x2="0" y2="27" stroke="#495057" stroke-width="4.5" /><path d="M-2.25 27 L0 33 L2.25 27 Z" fill="#495057" /><rect x="-7" y="-5" width="14" height="5" rx="1" fill="#495057" /></g>
+		<text x="320" y="505" text-anchor="middle" font-size="20" fill="#2b2a26">tvrdá ocel</text>
+		<g class="a2lb">
+			<text x="320" y="533" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">trvalý magnet</text>
+			<text x="320" y="559" text-anchor="middle" font-size="20" fill="#2b2a26">hřebíky drží</text>
+		</g>
+		<rect x="40" y="580" width="380" height="118" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+		<text x="56" y="608" font-size="21" font-weight="bold" fill="#2b2a26">Odmagnetování:</text>
+		<text x="56" y="634" font-size="20" fill="#2b2a26">třením opačným pólem magnetu,</text>
+		<text x="56" y="660" font-size="20" fill="#2b2a26">cívkou se střídavým proudem</text>
+		<text x="56" y="686" font-size="20" fill="#2b2a26">nebo zahřátím.</text>
+	</g>
+</svg>

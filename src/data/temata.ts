@@ -1552,6 +1552,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>🌟 Vyzkoušej: <a href="https://phet.colorado.edu/sims/html/magnet-and-compass/latest/magnet-and-compass_all.html?locale=cs" target="_blank" rel="noopener">simulace Magnet a kompas</a> — pohybuj kompasem kolem magnetu, pak si zvol Zemi.</p>
 					`,
 					materialy: [
+						{ druh: 'infografika', nazev: 'Magnetické vlastnosti v pohybu', cesta: '/materialy/fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek/infografika-magneticke-vlastnosti-latek-pohyb-panel-1.svg', panely: ['/materialy/fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek/infografika-magneticke-vlastnosti-latek-pohyb-panel-1.svg', '/materialy/fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek/infografika-magneticke-vlastnosti-latek-pohyb-panel-2.svg'] },
 						{
 							druh: 'video',
 							nazev: 'Polemika: Magnetické vlastnosti látek a magnetické pole 🎬',
