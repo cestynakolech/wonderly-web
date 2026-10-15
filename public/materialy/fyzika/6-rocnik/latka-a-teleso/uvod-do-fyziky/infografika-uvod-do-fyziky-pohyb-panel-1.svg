@@ -1,0 +1,92 @@
+<svg viewBox="0 0 460 690" width="460" height="690" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Úvod do fyziky v pohybu, Fyzika umí předvídat: pohled shora na silnici se zatáčkou doleva, prší a silnice je mokrá. Nejdřív jede auto pomalu a zatáčku bezpečně projede. Potom jede auto rychle, dostane smyk a vyjede ze silnice do trávy. Fyzika to umí předpovědět, proto v dešti jezdíme pomalu." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Úvod do fyziky v pohybu: Fyzika umí předvídat</title>
+	<!-- W105. Předloha: PDF 6/01 Látka/01 Úvod do fyziky - Co je Fyzika?, s. 5 „umíme předvídat, co se stane, když … (např. když auto vjede v dešti rychle do zatáčky)“ a „jak dělat věci bezpečně“; výklad temata.ts (tentýž příklad). PDF k tomu obrázek nemá, scéna kreslena podle textu (pohled shora). Dráha auta: střed zatáčky C = (150, 380), jízdní pruh r = 190 (silnice r 100–220). Auto = translate(C) rotate(φ) translate(r, d): rovný nájezd d 120→0, oblouk φ 0→−90°, výjezd d 0→−160. Pomalu 120 px/s (0,5–5,33 s), rychle 300 px/s nájezd 5,8–6,2 s, pak smyk 6,2–7,0 s ven z pruhu (r 190→290, φ 0→−35°) se zpomalením, zastaví v trávě. Déšť: vzor kapek 40×32 px posun (−8, 32) za 0,4 s – bezešvá smyčka. Klid (reduced motion): auto po smyku v trávě, popisky rychlé jízdy. -->
+	<style>
+		.a1d { animation: a1d 0.4s linear infinite; }
+		@keyframes a1d { 0% { transform: translate(0px, 0px); } 100% { transform: translate(-8px, 32px); } }
+		.a1r { animation: a1r 10s linear infinite; }
+		@keyframes a1r { 0%, 15% { transform: rotate(0deg); } 40%, 53.3% { transform: rotate(-90deg); } 54%, 62% { transform: rotate(0deg); } 64% { transform: rotate(-14deg); } 66% { transform: rotate(-24deg); } 68% { transform: rotate(-31deg); } 70%, 97.5% { transform: rotate(-35deg); } 98.5%, 100% { transform: rotate(0deg); } }
+		.a1t { animation: a1t 10s linear infinite; }
+		@keyframes a1t { 0%, 5% { transform: translate(190px, 120px); } 15%, 40% { transform: translate(190px, 0px); } 53.3% { transform: translate(190px, -160px); } 54%, 58% { transform: translate(190px, 120px); } 62% { transform: translate(190px, 0px); } 64% { transform: translate(215px, 0px); } 66% { transform: translate(245px, 0px); } 68% { transform: translate(270px, 0px); } 70%, 97.5% { transform: translate(290px, 0px); } 98.5%, 100% { transform: translate(190px, 120px); } }
+		.a1y { animation: a1y 10s linear infinite; }
+		@keyframes a1y { 0%, 62% { transform: rotate(0deg); } 66% { transform: rotate(-12deg); } 70%, 97.5% { transform: rotate(-20deg); } 98.5%, 100% { transform: rotate(0deg); } }
+		.a1o { animation: a1o 10s linear infinite; }
+		@keyframes a1o { 0%, 53.1% { opacity: 1; } 53.3%, 57.4% { opacity: 0; } 57.6%, 97% { opacity: 1; } 97.4%, 99.6% { opacity: 0; } 100% { opacity: 1; } }
+		.a1x1 { animation: a1x1 10s linear infinite; }
+		@keyframes a1x1 { 0%, 4.9% { opacity: 0; } 5%, 53.2% { opacity: 1; } 53.3%, 100% { opacity: 0; } }
+		.a1x2 { animation: a1x2 10s linear infinite; }
+		@keyframes a1x2 { 0%, 39.9% { opacity: 0; } 40%, 53.2% { opacity: 1; } 53.3%, 100% { opacity: 0; } }
+		.a1x3 { animation: a1x3 10s linear infinite; }
+		@keyframes a1x3 { 0%, 57.9% { opacity: 0; } 58%, 97.2% { opacity: 1; } 97.3%, 100% { opacity: 0; } }
+		.a1x4 { animation: a1x4 10s linear infinite; }
+		@keyframes a1x4 { 0%, 63.9% { opacity: 0; } 64%, 97.2% { opacity: 1; } 97.3%, 100% { opacity: 0; } }
+		.a1x5 { animation: a1x5 10s linear infinite; }
+		@keyframes a1x5 { 0%, 71.9% { opacity: 0; } 72%, 97.2% { opacity: 1; } 97.3%, 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) {
+			.a1d, .a1r, .a1t, .a1y, .a1o, .a1x1, .a1x2, .a1x3, .a1x4, .a1x5 { animation: none; }
+		}
+	</style>
+	<defs>
+		<path id="u1kap" d="M6 76l-3 12M46 76l-3 12M86 76l-3 12M126 76l-3 12M166 76l-3 12M206 76l-3 12M246 76l-3 12M286 76l-3 12M326 76l-3 12M366 76l-3 12M406 76l-3 12M446 76l-3 12M-2 108l-3 12M38 108l-3 12M78 108l-3 12M118 108l-3 12M158 108l-3 12M198 108l-3 12M238 108l-3 12M278 108l-3 12M318 108l-3 12M358 108l-3 12M398 108l-3 12M438 108l-3 12M478 108l-3 12M-10 140l-3 12M30 140l-3 12M70 140l-3 12M110 140l-3 12M150 140l-3 12M190 140l-3 12M230 140l-3 12M270 140l-3 12M310 140l-3 12M350 140l-3 12M390 140l-3 12M430 140l-3 12M470 140l-3 12M-18 172l-3 12M22 172l-3 12M62 172l-3 12M102 172l-3 12M142 172l-3 12M182 172l-3 12M222 172l-3 12M262 172l-3 12M302 172l-3 12M342 172l-3 12M382 172l-3 12M422 172l-3 12M462 172l-3 12M14 204l-3 12M54 204l-3 12M94 204l-3 12M134 204l-3 12M174 204l-3 12M214 204l-3 12M254 204l-3 12M294 204l-3 12M334 204l-3 12M374 204l-3 12M414 204l-3 12M454 204l-3 12M6 236l-3 12M46 236l-3 12M86 236l-3 12M126 236l-3 12M166 236l-3 12M206 236l-3 12M246 236l-3 12M286 236l-3 12M326 236l-3 12M366 236l-3 12M406 236l-3 12M446 236l-3 12M-2 268l-3 12M38 268l-3 12M78 268l-3 12M118 268l-3 12M158 268l-3 12M198 268l-3 12M238 268l-3 12M278 268l-3 12M318 268l-3 12M358 268l-3 12M398 268l-3 12M438 268l-3 12M478 268l-3 12M-10 300l-3 12M30 300l-3 12M70 300l-3 12M110 300l-3 12M150 300l-3 12M190 300l-3 12M230 300l-3 12M270 300l-3 12M310 300l-3 12M350 300l-3 12M390 300l-3 12M430 300l-3 12M470 300l-3 12M-18 332l-3 12M22 332l-3 12M62 332l-3 12M102 332l-3 12M142 332l-3 12M182 332l-3 12M222 332l-3 12M262 332l-3 12M302 332l-3 12M342 332l-3 12M382 332l-3 12M422 332l-3 12M462 332l-3 12M14 364l-3 12M54 364l-3 12M94 364l-3 12M134 364l-3 12M174 364l-3 12M214 364l-3 12M254 364l-3 12M294 364l-3 12M334 364l-3 12M374 364l-3 12M414 364l-3 12M454 364l-3 12M6 396l-3 12M46 396l-3 12M86 396l-3 12M126 396l-3 12M166 396l-3 12M206 396l-3 12M246 396l-3 12M286 396l-3 12M326 396l-3 12M366 396l-3 12M406 396l-3 12M446 396l-3 12M-2 428l-3 12M38 428l-3 12M78 428l-3 12M118 428l-3 12M158 428l-3 12M198 428l-3 12M238 428l-3 12M278 428l-3 12M318 428l-3 12M358 428l-3 12M398 428l-3 12M438 428l-3 12M478 428l-3 12M-10 460l-3 12M30 460l-3 12M70 460l-3 12M110 460l-3 12M150 460l-3 12M190 460l-3 12M230 460l-3 12M270 460l-3 12M310 460l-3 12M350 460l-3 12M390 460l-3 12M430 460l-3 12M470 460l-3 12M-18 492l-3 12M22 492l-3 12M62 492l-3 12M102 492l-3 12M142 492l-3 12M182 492l-3 12M222 492l-3 12M262 492l-3 12M302 492l-3 12M342 492l-3 12M382 492l-3 12M422 492l-3 12M462 492l-3 12M14 524l-3 12M54 524l-3 12M94 524l-3 12M134 524l-3 12M174 524l-3 12M214 524l-3 12M254 524l-3 12M294 524l-3 12M334 524l-3 12M374 524l-3 12M414 524l-3 12M454 524l-3 12" fill="none" stroke-linecap="round" />
+		<clipPath id="u1sc"><rect x="22" y="140" width="416" height="380" /></clipPath>
+	</defs>
+	<rect x="0" y="0" width="460" height="690" fill="#f8f9fa" />
+	<g id="panel-1">
+		<rect x="26" y="22" width="420" height="652" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="652" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Fyzika umí předvídat</text>
+		<text x="40" y="96" font-size="20" fill="#2b2a26">Prší a silnice je mokrá. Co se stane,</text>
+		<text x="40" y="122" font-size="20" fill="#2b2a26">když auto vjede rychle do zatáčky?</text>
+		<!-- scéna shora -->
+		<g clip-path="url(#u1sc)">
+			<rect x="22" y="140" width="416" height="380" fill="#b2f2bb" />
+			<!-- silnice: zatáčka doleva, střed (150, 380), poloměr 100–220 -->
+			<path d="M370 520L370 380A220 220 0 0 0 150 160L22 160L22 280L150 280A100 100 0 0 1 250 380L250 520Z" fill="#495057" stroke="#2b2a26" stroke-width="2" />
+			<!-- mokrá silnice: kaluže (#74c0fc na silnici #495057 = 4,16:1) -->
+			<ellipse cx="335" cy="470" rx="16" ry="6" fill="#74c0fc" />
+			<ellipse cx="266" cy="232" rx="18" ry="6" fill="#74c0fc" transform="rotate(-40 266 232)" />
+			<ellipse cx="80" cy="250" rx="18" ry="6" fill="#74c0fc" />
+			<ellipse cx="290" cy="330" rx="12" ry="5" fill="#74c0fc" transform="rotate(-80 290 330)" />
+			<!-- přerušovaná čára uprostřed silnice -->
+			<path d="M310 520L310 380A160 160 0 0 0 150 220L22 220" fill="none" stroke="#f8f9fa" stroke-width="3" stroke-dasharray="14 12" />
+			<!-- auto (shora, předek nahoru); v klidu stav po smyku -->
+			<g class="a1o">
+				<g transform="translate(150 380)">
+					<g class="a1r" transform="rotate(-35)">
+						<g class="a1t" transform="translate(290 0)">
+							<g class="a1y" transform="rotate(-20)">
+								<g transform="scale(1.2)">
+								<rect x="-15" y="-17" width="5" height="10" rx="1.5" fill="#212529" />
+								<rect x="10" y="-17" width="5" height="10" rx="1.5" fill="#212529" />
+								<rect x="-15" y="8" width="5" height="10" rx="1.5" fill="#212529" />
+								<rect x="10" y="8" width="5" height="10" rx="1.5" fill="#212529" />
+								<rect x="-12" y="-23" width="24" height="46" rx="7" fill="#f08c00" stroke="#2b2a26" stroke-width="1.8" />
+								<path d="M-9 -10L9 -10L7 -3L-7 -3Z" fill="#d0ebff" stroke="#2b2a26" stroke-width="1" />
+								<path d="M-7 12L7 12L8 17L-8 17Z" fill="#d0ebff" stroke="#2b2a26" stroke-width="1" />
+								<circle cx="-7" cy="-20" r="2.5" fill="#fff3bf" stroke="#2b2a26" stroke-width="0.8" />
+								<circle cx="7" cy="-20" r="2.5" fill="#fff3bf" stroke="#2b2a26" stroke-width="0.8" />
+								</g>
+							</g>
+						</g>
+					</g>
+				</g>
+			</g>
+			<!-- déšť -->
+			<g class="a1d">
+				<!-- kapky dvoubarevné: tmavý okraj #1864ab je vidět na trávě (4,73:1), světlé jádro #d0ebff na silnici (6,62:1) -->
+				<use href="#u1kap" stroke="#1864ab" stroke-width="3.5" />
+				<use href="#u1kap" stroke="#d0ebff" stroke-width="1.5" />
+			</g>
+		</g>
+		<rect x="22" y="140" width="416" height="380" fill="none" stroke="#2b2a26" stroke-width="1.5" />
+		<!-- popisky podle děje -->
+		<text class="a1x1" opacity="0" x="40" y="556" font-size="20" font-weight="bold" fill="#2b2a26">Auto jede pomalu.</text>
+		<text class="a1x2" opacity="0" x="40" y="584" font-size="20" fill="#237032">Zatáčku bezpečně projede.</text>
+		<text class="a1x3" x="40" y="556" font-size="20" font-weight="bold" fill="#2b2a26">Auto jede rychle.</text>
+		<text class="a1x4" x="40" y="584" font-size="20" fill="#c92a2a">Dostane smyk a vyjede ze silnice.</text>
+		<text class="a1x5" x="40" y="624" font-size="20" fill="#2b2a26">Fyzika to umí předpovědět.</text>
+		<text class="a1x5" x="40" y="650" font-size="20" font-weight="bold" fill="#2b2a26">Proto v dešti jezdíme pomalu.</text>
+	</g>
+</svg>

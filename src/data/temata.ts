@@ -122,6 +122,12 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 					`,
 					materialy: [
+						{
+							druh: 'infografika',
+							nazev: 'Úvod do fyziky v pohybu',
+							cesta: '/materialy/fyzika/6-rocnik/latka-a-teleso/uvod-do-fyziky/infografika-uvod-do-fyziky-pohyb-panel-1.svg',
+							panely: ['/materialy/fyzika/6-rocnik/latka-a-teleso/uvod-do-fyziky/infografika-uvod-do-fyziky-pohyb-panel-1.svg'],
+						},
 						// Hlasy z OpenAI TTS — obsah je náš, atribuci uvádět nemusíme
 						// (na rozdíl od dílů o gravitaci z bezplatného tarifu ElevenLabs,
 						// které „elevenlabs.io" v názvu mít musí).
