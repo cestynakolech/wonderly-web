@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="620" viewBox="0 0 460 620" role="img" aria-label="Před měřením neznámého proudu zvolíme největší vhodný rozsah ampérmetru. Schéma volby rozsahu bez číselných hodnot.">
+<title>Elektrický proud a jeho měření 1/1: Volba rozsahu</title>
+<style>
+text{font-family:Arial,sans-serif;font-size:20px;fill:#212529;text-anchor:middle}
+.volic{transform-box:view-box;transform-origin:230px 350px;transform:rotate(-135deg);animation:volba 7s ease-in-out infinite}
+@keyframes volba{0%,6%{transform:rotate(0deg)}26%,85%{transform:rotate(-135deg)}98%,100%{transform:rotate(0deg)}}
+.pred{animation:pred 7s step-end infinite}.po{opacity:0;animation:po 7s step-end infinite}
+@keyframes pred{0%{opacity:1}26%{opacity:0}85%{opacity:1}}
+@keyframes po{0%{opacity:0}26%{opacity:1}85%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.volic,.pred,.po{animation:none}.volic{transform:rotate(-135deg)}.pred{opacity:0}.po{opacity:1}}
+</style>
+<rect width="460" height="620" fill="#f8f9fa"/>
+<rect x="10" y="10" width="440" height="600" rx="12" fill="#fff" stroke="#ced4da" stroke-width="2"/>
+<text x="230" y="49" style="font-size:25px;font-weight:bold">Volba rozsahu</text>
+<text x="230" y="87">Velikost proudu neznáme.</text>
+<text x="230" y="116">Rozsah nastavíme odhadem.</text>
+<rect x="35" y="143" width="390" height="310" rx="12" fill="#e9ecef" stroke="#495057" stroke-width="2"/>
+<text x="230" y="177" style="font-weight:bold">AMPÉRMETR</text>
+<text x="230" y="207">schéma volby rozsahu</text>
+<text x="113" y="252">menší</text>
+<text x="343" y="247" style="font-weight:bold">největší</text>
+<text x="343" y="273" style="font-weight:bold">vhodný</text>
+<path d="M145 279L165 299 M295 299L315 279" fill="none" stroke="#495057" stroke-width="5"/>
+<circle cx="230" cy="350" r="58" fill="#fff" stroke="#495057" stroke-width="3"/>
+<g class="volic"><circle cx="230" cy="350" r="49" fill="#495057" stroke="#212529" stroke-width="3"/><path d="M230 370L230 390" stroke="#fff" stroke-width="9" stroke-linecap="round"/></g>
+<text class="pred" x="230" y="435">Zvolíme rozsah.</text>
+<text class="po" x="230" y="435" style="font-weight:bold;fill:#212529">Začneme největším vhodným.</text>
+<text x="230" y="496">Případné snížení rozsahu:</text>
+<text x="230" y="526" style="font-weight:bold">podle návodu přístroje.</text>
+<path d="M55 550H405" stroke="#ced4da"/>
+<text x="230" y="580">Nastavíme také druh proudu.</text>
+</svg>
