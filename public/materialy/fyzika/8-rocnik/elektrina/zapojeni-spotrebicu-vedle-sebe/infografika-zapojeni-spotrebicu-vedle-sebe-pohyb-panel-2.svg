@@ -1,0 +1,82 @@
+<svg viewBox="0 0 460 630" width="460" height="630" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zapojení vedle sebe v pohybu, Jeden rezistor místo dvou: zdroj 12 voltů, ze zdroje teče proud 6 ampérů. Dva rezistory vedle sebe, 6 ohmů a 3 ohmy, se nahradí jedním rezistorem R. Výpočet: 1 : R = 1 : 6 + 1 : 3 = 3 : 6 = 1 : 2, tedy R = 2 Ω. Zkouška: 12 V : 6 A = 2 Ω. 2 Ω je méně než 6 Ω i 3 Ω." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Zapojení vedle sebe v pohybu 2/2: Jeden rezistor místo dvou</title>
+	<!-- W108. Předloha schématu: PDF 8/5 Elektřina/29, s. 2 a 4 (značky jako obr-02). Opora: PDF s. 5 „rezistory zapojené vedle se chovají
+	     jako jeden rezistor s menším odporem“, „1/R = 1/R₁ + 1/R₂“, „výsledná hodnota odporu je vždy menší než odpor jednotlivých rezistorů“;
+	     výklad § 4 „Paralelní dvojici můžeme nahradit jediným rezistorem … R = U : I“; zvídavé „1 : R = 1 : 6 + 1 : 3 = 3 : 6 = 1 : 2 vyjde R = 2 Ω.
+	     Zkouška: 12 : 6 = 2 Ω.“ (v panelu s jednotkami: 12 V : 6 A = 2 Ω, kontrola W108-1). Protějšek panelu „Náhrada v témže obvodu“ u zapojení za sebou.
+	     Cyklus 12 s: 0–4,0 s dvě větve; 4,0–4,6 s dvojice zeslábne, 4,0–4,6 s současně vystoupí rámeček jednoho rezistoru (větev nikdy není bez rezistoru), popisek „R = ?“ až od 4,6 s (nepřekrývá „R₂ = 3 Ω“); 5,3 s vzorec; 6,0 s „R = 2 Ω“ (i v rezistoru);
+	     7,0 s zkouška; 8,5 s „2 Ω je méně než 6 Ω i 3 Ω.“; 11,0–11,6 s návrat ke dvěma větvím. Šipky proudu I ze zdroje se nemění.
+	     Klid (reduced motion): jeden rezistor R = 2 Ω a všechny řádky výpočtu. -->
+	<style>
+		.dve { opacity: 0; animation: dve 12s linear infinite; }
+		@keyframes dve { 0%, 33.333% { opacity: 1; } 38.333% { opacity: 0; } 91.667% { opacity: 0; } 96.667%, 100% { opacity: 1; } }
+		.jeden { opacity: 1; animation: jeden 12s linear infinite; }
+		@keyframes jeden { 0%, 33.333% { opacity: 0; } 38.333% { opacity: 1; } 91.667% { opacity: 1; } 95%, 100% { opacity: 0; } }
+		.rq { opacity: 0; animation: rq 12s step-end infinite; }
+		@keyframes rq { 0% { opacity: 0; } 38.333% { opacity: 1; } 50% { opacity: 0; } }
+		.r2 { opacity: 1; animation: r2 12s step-end infinite; }
+		@keyframes r2 { 0% { opacity: 0; } 50% { opacity: 1; } 91.667% { opacity: 0; } }
+		.a1 { opacity: 0; animation: a1 12s step-end infinite; }
+		@keyframes a1 { 0% { opacity: 1; } 33.333% { opacity: 0; } }
+		.b1 { opacity: 1; animation: b1 12s step-end infinite; }
+		@keyframes b1 { 0% { opacity: 0; } 33.333% { opacity: 1; } 91.667% { opacity: 0; } }
+		.b2 { opacity: 1; animation: b2 12s step-end infinite; }
+		@keyframes b2 { 0% { opacity: 0; } 44.167% { opacity: 1; } 91.667% { opacity: 0; } }
+		.b3 { opacity: 1; animation: b3 12s step-end infinite; }
+		@keyframes b3 { 0% { opacity: 0; } 50% { opacity: 1; } 91.667% { opacity: 0; } }
+		.b4 { opacity: 1; animation: b4 12s step-end infinite; }
+		@keyframes b4 { 0% { opacity: 0; } 58.333% { opacity: 1; } 91.667% { opacity: 0; } }
+		.b5 { opacity: 1; animation: b5 12s step-end infinite; }
+		@keyframes b5 { 0% { opacity: 0; } 70.833% { opacity: 1; } 91.667% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) {
+			.dve, .jeden, .rq, .r2, .a1, .b1, .b2, .b3, .b4, .b5 { animation: none; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="630" fill="#f8f9fa" />
+	<rect x="20" y="16" width="420" height="598" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">2</text>
+	<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Jeden rezistor místo dvou</text>
+	<text x="40" y="96" font-size="20" fill="#2b2a26">Zdroj má napětí 12 V.</text>
+	<text x="40" y="124" font-size="20" fill="#2b2a26">Ze zdroje teče proud 6 A.</text>
+
+	<!-- společná část obvodu (zdroj, spínač, hlavní vedení) -->
+	<path d="M70 270V380H160M176 380H276M340 380H390V270M70 270H390" fill="none" stroke="#212529" stroke-width="4" stroke-linecap="square" />
+	<path d="M160 346V414" stroke="#212529" stroke-width="4" />
+	<path d="M176 362V398" stroke="#212529" stroke-width="9" />
+	<path d="M129 350H147M138 341V359" stroke="#c92a2a" stroke-width="4" stroke-linecap="round" />
+	<path d="M186 350H204" stroke="#1864ab" stroke-width="4" stroke-linecap="round" />
+	<circle cx="276" cy="380" r="6" fill="#fff" stroke="#212529" stroke-width="3" />
+	<circle cx="334" cy="380" r="6" fill="#fff" stroke="#212529" stroke-width="3" />
+	<path d="M282 378L336 374" stroke="#212529" stroke-width="4" stroke-linecap="round" />
+	<text x="168" y="440" text-anchor="middle" font-size="22" font-weight="bold" fill="#0b7285">U = 12 V</text>
+	<g transform="translate(44 330) rotate(-90)"><path d="M-35 5H11V13L35 0L11 -13V-5H-35Z" fill="#e8590c" stroke="#a63d07" stroke-width="2" stroke-linejoin="round" /></g>
+	<g transform="translate(416 330) rotate(90)"><path d="M-35 5H11V13L35 0L11 -13V-5H-35Z" fill="#e8590c" stroke="#a63d07" stroke-width="2" stroke-linejoin="round" /></g>
+	<text x="44" y="278" text-anchor="middle" font-size="22" font-weight="bold" fill="#a63d07">I</text>
+	<text x="416" y="278" text-anchor="middle" font-size="22" font-weight="bold" fill="#a63d07">I</text>
+
+	<!-- dvě větve vedle sebe -->
+	<g class="dve">
+		<path d="M70 270V180H390V270" fill="none" stroke="#212529" stroke-width="4" stroke-linecap="square" />
+		<rect x="175" y="162" width="110" height="36" fill="#fff" stroke="#212529" stroke-width="4" />
+		<text x="230" y="188" text-anchor="middle" font-size="20" font-weight="bold" fill="#212529">R₁ = 6 Ω</text>
+		<rect x="175" y="252" width="110" height="36" fill="#fff" stroke="#212529" stroke-width="4" />
+		<text x="230" y="278" text-anchor="middle" font-size="20" font-weight="bold" fill="#212529">R₂ = 3 Ω</text>
+		<circle cx="70" cy="270" r="7" fill="#212529" />
+		<circle cx="390" cy="270" r="7" fill="#212529" />
+	</g>
+	<!-- jeden náhradní rezistor -->
+	<g class="jeden">
+		<rect x="175" y="252" width="110" height="36" fill="#fff" stroke="#212529" stroke-width="4" />
+		<text class="rq" x="230" y="278" text-anchor="middle" font-size="20" font-weight="bold" fill="#212529">R = ?</text>
+		<text class="r2" x="230" y="278" text-anchor="middle" font-size="20" font-weight="bold" fill="#212529">R = 2 Ω</text>
+	</g>
+
+	<!-- texty -->
+	<text class="a1" x="40" y="490" font-size="21" fill="#2b2a26">Jaký jeden rezistor je nahradí?</text>
+	<text class="b1" x="40" y="490" font-size="21" fill="#2b2a26">Nahradíme je jedním rezistorem R.</text>
+	<text class="b2" x="40" y="526" font-size="20" fill="#2b2a26">1 : R = 1 : 6 + 1 : 3 = 3 : 6 = 1 : 2</text>
+	<text class="b3" x="40" y="562" font-size="22" font-weight="bold" fill="#2b2a26">R = 2 Ω</text>
+	<text class="b4" x="150" y="562" font-size="20" fill="#2b2a26">Zkouška: 12 V : 6 A = 2 Ω</text>
+	<text class="b5" x="40" y="604" font-size="20" font-weight="bold" fill="#237032">2 Ω je méně než 6 Ω i 3 Ω.</text>
+</svg>

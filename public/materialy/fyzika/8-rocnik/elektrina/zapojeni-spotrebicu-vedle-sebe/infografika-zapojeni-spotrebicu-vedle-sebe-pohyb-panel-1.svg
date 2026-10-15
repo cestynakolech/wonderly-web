@@ -1,0 +1,121 @@
+<svg viewBox="0 0 460 570" width="460" height="570" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zapojení vedle sebe v pohybu, Zásuvky v domácnosti: lampa, rychlovarná konvice a počítač jsou zapojené do tří zásuvek. Ruka stiskne vypínač lampy a lampa zhasne. Konvice dál vaří a kouří se z ní, počítač dál pracuje. Každý spotřebič má vlastní větev. Pak ruka lampu zase rozsvítí." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Zapojení vedle sebe v pohybu 1/2: Zásuvky v domácnosti</title>
+	<!-- W108. Opora: PDF 8/5 Elektřina/29, s. 1 (spotřebiče žárovka, rychlovarná konvice, PC; zapojení vedle sebe = paralelně);
+	     výklad temata.ts: úvod „Když doma zhasneš lampu, ostatní mohou svítit dál. Každá má vlastní cestu, kterou může procházet proud.“,
+	     zvídavé „Zásuvky v domácnosti jsou zapojené paralelně. … ostatní větve mohou dál fungovat.“, § 6 „paralelní větve“.
+	     Cyklus 10 s: 0,5–1,2 s ruka přijede zleva k vypínači lampy, 1,3 s stiskne → lampa zhasne; 1,5–2,3 s ruka odjede.
+	     2,4 s „Konvice i počítač pracují dál.“, 3,6 s „Každý spotřebič má vlastní větev.“ 6,8–7,5 s ruka zpět, 7,6 s stisk → lampa svítí, 7,8–8,6 s odjede.
+	     Pára z konvice a kurzor počítače běží celou dobu (spotřebiče pracují). Klid (reduced motion): lampa zhasnutá, texty prostřední fáze. -->
+	<style>
+		.ruka { transform: translate(-70px, 300px); animation: ruka 10s ease-in-out infinite; }
+		@keyframes ruka { 0%, 5% { transform: translate(-70px, 300px); } 12% { transform: translate(70px, 333px); } 13% { transform: translate(70px, 336px); } 15% { transform: translate(70px, 333px); } 23%, 68% { transform: translate(-70px, 300px); } 75% { transform: translate(70px, 333px); } 76% { transform: translate(70px, 336px); } 78% { transform: translate(70px, 333px); } 86%, 100% { transform: translate(-70px, 300px); } }
+		.tlac { animation: tlac 10s ease-in-out infinite; }
+		@keyframes tlac { 0%, 12% { transform: translateY(0); } 13%, 14% { transform: translateY(3px); } 15%, 75% { transform: translateY(0); } 76%, 77% { transform: translateY(3px); } 78%, 100% { transform: translateY(0); } }
+		.sviti { opacity: 0; animation: sviti 10s step-end infinite; }
+		@keyframes sviti { 0% { opacity: 1; } 13% { opacity: 0; } 76% { opacity: 1; } }
+		.t0 { opacity: 0; animation: t0 10s step-end infinite; }
+		@keyframes t0 { 0% { opacity: 1; } 13% { opacity: 0; } }
+		.t1 { opacity: 1; animation: t1 10s step-end infinite; }
+		@keyframes t1 { 0% { opacity: 0; } 13% { opacity: 1; } 76% { opacity: 0; } }
+		.t2 { opacity: 0; animation: t2 10s step-end infinite; }
+		@keyframes t2 { 0% { opacity: 0; } 76% { opacity: 1; } }
+		.t3 { opacity: 1; animation: t3 10s step-end infinite; }
+		@keyframes t3 { 0% { opacity: 0; } 24% { opacity: 1; } 76% { opacity: 0; } }
+		.t4 { opacity: 1; animation: t4 10s step-end infinite; }
+		@keyframes t4 { 0% { opacity: 0; } 36% { opacity: 1; } 76% { opacity: 0; } }
+		.p1 { animation: p1 2s linear infinite; }
+		@keyframes p1 { 0% { transform: translate(0, 0); opacity: 0; } 15% { transform: translate(-1.2px, -6.6px); opacity: 0.9; } 100% { transform: translate(-8px, -44px); opacity: 0; } }
+		.p2 { animation: p2 2s linear infinite; }
+		@keyframes p2 { 0% { transform: translate(-2.67px, -14.67px); opacity: 0.71; } 66.6% { transform: translate(-8px, -44px); opacity: 0; } 66.7% { transform: translate(0, 0); opacity: 0; } 81.7% { transform: translate(-1.2px, -6.6px); opacity: 0.9; } 100% { transform: translate(-2.67px, -14.67px); opacity: 0.71; } }
+		.p3 { animation: p3 2s linear infinite; }
+		@keyframes p3 { 0% { transform: translate(-5.33px, -29.33px); opacity: 0.35; } 33.3% { transform: translate(-8px, -44px); opacity: 0; } 33.4% { transform: translate(0, 0); opacity: 0; } 48.3% { transform: translate(-1.2px, -6.6px); opacity: 0.9; } 100% { transform: translate(-5.33px, -29.33px); opacity: 0.35; } }
+		.kurzor { animation: kurzor 1s step-end infinite; }
+		@keyframes kurzor { 0% { opacity: 1; } 50% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) {
+			.ruka, .tlac, .sviti, .t0, .t1, .t2, .t3, .t4, .p1, .p2, .p3, .kurzor { animation: none; }
+		}
+	</style>
+	<defs>
+		<clipPath id="w108p1orez"><rect x="22" y="18" width="416" height="534" rx="9" /></clipPath>
+	</defs>
+	<rect x="0" y="0" width="460" height="570" fill="#f8f9fa" />
+	<rect x="20" y="16" width="420" height="538" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+	<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Zásuvky v domácnosti</text>
+	<text x="40" y="96" font-size="20" fill="#2b2a26">Zásuvky doma jsou zapojené vedle sebe.</text>
+
+	<!-- kuchyň: zeď, pracovní deska, skříňka -->
+	<rect x="22" y="112" width="416" height="248" fill="#f3efe6" />
+	<rect x="22" y="360" width="416" height="14" fill="#c9a27a" stroke="#8a5a2b" stroke-width="2" />
+	<rect x="22" y="374" width="416" height="40" fill="#e9e2d3" />
+	<path d="M22 414H438" stroke="#8a5a2b" stroke-width="2" />
+	<text x="95" y="402" text-anchor="middle" font-size="20" fill="#2b2a26">lampa</text>
+	<text x="230" y="402" text-anchor="middle" font-size="20" fill="#2b2a26">konvice</text>
+	<text x="365" y="402" text-anchor="middle" font-size="20" fill="#2b2a26">počítač</text>
+
+	<!-- tři zásuvky se zasunutými zástrčkami -->
+	<g id="zasuvky">
+		<g transform="translate(95 160)"><rect x="-24" y="-24" width="48" height="48" rx="8" fill="#fff" stroke="#868e96" stroke-width="2" /><circle r="17" fill="#f1f3f5" stroke="#adb5bd" stroke-width="2" /><circle r="12" fill="#343a40" /><rect x="-4" y="10" width="8" height="6" fill="#343a40" /></g>
+		<g transform="translate(230 160)"><rect x="-24" y="-24" width="48" height="48" rx="8" fill="#fff" stroke="#868e96" stroke-width="2" /><circle r="17" fill="#f1f3f5" stroke="#adb5bd" stroke-width="2" /><circle r="12" fill="#343a40" /><rect x="-4" y="10" width="8" height="6" fill="#343a40" /></g>
+		<g transform="translate(365 160)"><rect x="-24" y="-24" width="48" height="48" rx="8" fill="#fff" stroke="#868e96" stroke-width="2" /><circle r="17" fill="#f1f3f5" stroke="#adb5bd" stroke-width="2" /><circle r="12" fill="#343a40" /><rect x="-4" y="10" width="8" height="6" fill="#343a40" /></g>
+	</g>
+	<!-- šňůry: každý spotřebič vede do své zásuvky -->
+	<g fill="none" stroke="#343a40" stroke-width="4" stroke-linecap="round">
+		<path d="M95 176C95 200 46 196 46 236L46 340Q46 354 60 354" />
+		<path d="M230 176C230 205 292 200 292 240L292 348Q292 357 266 357" />
+		<path d="M365 176C365 200 424 200 424 240L424 350Q424 358 390 358" />
+	</g>
+
+	<!-- lampa -->
+	<g class="sviti"><circle cx="95" cy="282" r="46" fill="#ffe066" opacity="0.55" /></g>
+	<rect x="91" y="266" width="8" height="82" fill="#495057" />
+	<rect x="60" y="347" width="70" height="13" rx="5" fill="#495057" />
+	<g class="tlac"><rect x="64" y="341" width="12" height="7" rx="2" fill="#c92a2a" /></g>
+	<circle cx="95" cy="274" r="9" fill="#dee2e6" stroke="#868e96" stroke-width="2" />
+	<g class="sviti"><circle cx="95" cy="274" r="9" fill="#ffd43b" stroke="#e67700" stroke-width="2" /></g>
+	<path d="M64 268L126 268L114 226L76 226Z" fill="#e9ecef" stroke="#495057" stroke-width="2" stroke-linejoin="round" />
+	<g class="sviti"><path d="M64 268L126 268L114 226L76 226Z" fill="#ffec99" stroke="#495057" stroke-width="2" stroke-linejoin="round" /></g>
+
+	<!-- rychlovarná konvice na podstavci, vaří → pára -->
+	<rect x="194" y="352" width="72" height="8" rx="2" fill="#495057" />
+	<circle cx="230" cy="356" r="2.5" fill="#69db7c" />
+	<path d="M258 300C282 300 282 345 258 345" fill="none" stroke="#495057" stroke-width="7" stroke-linecap="round" />
+	<path d="M206 300L186 286L190 298L204 312Z" fill="#dee2e6" stroke="#495057" stroke-width="2" stroke-linejoin="round" />
+	<path d="M200 352L205 294Q230 284 255 294L260 352Z" fill="#e9ecef" stroke="#495057" stroke-width="2.5" stroke-linejoin="round" />
+	<rect x="222" y="305" width="16" height="40" rx="3" fill="#a5d8ff" stroke="#495057" stroke-width="1.5" />
+	<ellipse cx="230" cy="290" rx="22" ry="5" fill="#ced4da" stroke="#495057" stroke-width="2" />
+	<rect x="224" y="281" width="12" height="6" rx="2" fill="#495057" />
+	<g transform="translate(186 280)" fill="#fff" stroke="#6c757d" stroke-width="1.5">
+		<g class="p1"><circle r="7" /></g>
+		<g class="p2"><circle r="8" /></g>
+		<g class="p3"><circle r="9" /></g>
+	</g>
+
+	<!-- počítač (monitor), pracuje → bliká kurzor -->
+	<rect x="361" y="330" width="8" height="24" fill="#495057" />
+	<rect x="340" y="354" width="50" height="6" rx="2" fill="#495057" />
+	<rect x="316" y="262" width="98" height="68" rx="6" fill="#343a40" />
+	<rect x="322" y="268" width="86" height="56" fill="#4dabf7" />
+	<rect x="330" y="278" width="50" height="5" fill="#fff" />
+	<rect x="330" y="290" width="64" height="5" fill="#fff" />
+	<rect x="330" y="302" width="38" height="5" fill="#fff" />
+	<g class="kurzor"><rect x="372" y="299" width="5" height="11" fill="#fff" /></g>
+
+	<!-- ruka (převzata z panelů W104), přijíždí zleva k vypínači lampy -->
+	<g clip-path="url(#w108p1orez)">
+		<g class="ruka">
+			<rect x="0" y="-14" width="640" height="28" fill="#1971c2" stroke="#0b4f8a" stroke-width="2" transform="translate(-8 -19) rotate(190)" />
+			<rect x="-18" y="-34" width="36" height="30" rx="11" fill="#f1c9a5" stroke="#8a5a2b" stroke-width="2" />
+			<path d="M-10 -4V4M0 -4V5M10 -4V4" stroke="#8a5a2b" stroke-width="5" stroke-linecap="round" />
+			<path d="M-10 -4V4M0 -4V5M10 -4V4" stroke="#f1c9a5" stroke-width="2.5" stroke-linecap="round" />
+		</g>
+	</g>
+
+	<!-- texty po fázích děje -->
+	<text class="t0" x="40" y="452" font-size="21" font-weight="bold" fill="#2b2a26">Všechny spotřebiče pracují.</text>
+	<text class="t1" x="40" y="452" font-size="21" font-weight="bold" fill="#2b2a26">Lampu zhasneš vypínačem.</text>
+	<text class="t2" x="40" y="452" font-size="21" font-weight="bold" fill="#2b2a26">Lampu zase rozsvítíš.</text>
+	<text class="t3" x="40" y="490" font-size="20" fill="#2b2a26">Konvice i počítač pracují dál.</text>
+	<text class="t4" x="40" y="528" font-size="20" font-weight="bold" fill="#237032">Každý spotřebič má vlastní větev.</text>
+</svg>
