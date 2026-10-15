@@ -1,0 +1,70 @@
+<svg viewBox="0 0 460 640" width="460" height="640" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Teplotní roztažnost v pohybu, Zahřátí a ochlazení: tři tělesa ze tří skupenství – kovová tyč (pevná), voda v baňce s trubičkou (kapalná) a vzduch v baňce s balónkem (plynná). Při zahřátí do nich jde teplo, teploměr stoupá, tyč se prodlouží, voda v trubičce vystoupá a balónek se nafoukne. Při ochlazení teplo odchází a vše se zase zmenší. Čárkovaně je velikost před zahřátím. Změny jsou nakreslené zvětšené, ve skutečnosti jsou malé." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Teplotní roztažnost v pohybu:Zahřátí a ochlazení</title>
+	<!-- W97. Předloha: PDF 6/06Teplota/ 11. Teplotní roztažnost, s. 1 („Látky všech skupenství při změně teploty mění svůj objem a své rozměry: ZAHŘÁTÍ ⇨ zvětšení, OCHLAZENÍ ⇨ zmenšení“), výklad temata.ts. Cyklus 8 s: ohřev 0–3 s, drží, ochlazení 4–7 s. Tyč 75→90 px (1,2×), sloupec 40→100 px, balónek 0,6×→1×, teploměr 50→150 px. Bez čísel teploty (opora chybí). Klid (reduced motion): zahřátý stav. -->
+	<defs>
+		<marker id="sip1" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#e03131" /></marker>
+	</defs>
+	<style>
+		.a1za { animation: a1za 8s step-end infinite; }
+		@keyframes a1za { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 0; } }
+		.a1oc { animation: a1oc 8s step-end infinite; }
+		@keyframes a1oc { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 1; } }
+		.a1si { animation: a1si 8s step-end infinite; }
+		@keyframes a1si { 0% { opacity: 1; } 37.5% { opacity: 0; } 100% { opacity: 0; } }
+		.a1so { animation: a1so 8s step-end infinite; }
+		@keyframes a1so { 0% { opacity: 0; } 50% { opacity: 1; } 87.5% { opacity: 0; } 100% { opacity: 0; } }
+		.a1ty { animation: a1ty 8s linear infinite; }
+		@keyframes a1ty { 0% { transform: translate(44px,330px) scale(1,1); } 37.5% { transform: translate(44px,330px) scale(1.2,1); } 50% { transform: translate(44px,330px) scale(1.2,1); } 87.5% { transform: translate(44px,330px) scale(1,1); } 100% { transform: translate(44px,330px) scale(1,1); } }
+		.a1sl { animation: a1sl 8s linear infinite; }
+		@keyframes a1sl { 0% { transform: translate(205px,292px) scale(1,1); } 37.5% { transform: translate(205px,292px) scale(1,2.5); } 50% { transform: translate(205px,292px) scale(1,2.5); } 87.5% { transform: translate(205px,292px) scale(1,1); } 100% { transform: translate(205px,292px) scale(1,1); } }
+		.a1ba { animation: a1ba 8s linear infinite; }
+		@keyframes a1ba { 0% { transform: translate(330px,290px) scale(0.6); } 37.5% { transform: translate(330px,290px) scale(1); } 50% { transform: translate(330px,290px) scale(1); } 87.5% { transform: translate(330px,290px) scale(0.6); } 100% { transform: translate(330px,290px) scale(0.6); } }
+		.a1tm { animation: a1tm 8s linear infinite; }
+		@keyframes a1tm { 0% { transform: translate(412px,364px) scale(1,1); } 37.5% { transform: translate(412px,364px) scale(1,3); } 50% { transform: translate(412px,364px) scale(1,3); } 87.5% { transform: translate(412px,364px) scale(1,1); } 100% { transform: translate(412px,364px) scale(1,1); } }
+		@media (prefers-reduced-motion: reduce) {
+			.a1za, .a1oc, .a1si, .a1so, .a1ty, .a1sl, .a1ba, .a1tm { animation: none; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="640" fill="#f8f9fa" />
+	<g id="panel-1">
+		<rect x="26" y="22" width="420" height="608" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="608" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Zahřátí a ochlazení</text>
+		<text x="40" y="96" font-size="20" fill="#2b2a26">Látky všech skupenství mění objem.</text>
+		<text class="a1za" x="40" y="138" font-size="24" font-weight="bold" fill="#2b2a26">ZAHŘÁTÍ ⇨ zvětšení</text>
+		<text class="a1oc" x="40" y="138" font-size="24" font-weight="bold" fill="#2b2a26" opacity="0">OCHLAZENÍ ⇨ zmenšení</text>
+		<rect x="32" y="300" width="12" height="62" fill="#868e96" stroke="#495057" stroke-width="2.5" />
+		<path d="M62 362L72 346L82 362Z M100 362L110 346L120 362Z" fill="#868e96" stroke="#495057" stroke-width="2" />
+		<path d="M119 316V362" stroke="#2b2a26" stroke-width="2.5" stroke-dasharray="6 5" />
+		<g class="a1ty" transform="translate(44,330) scale(1.2,1)"><rect x="0" y="0" width="75" height="16" fill="#adb5bd" stroke="#495057" stroke-width="2.5" vector-effect="non-scaling-stroke" /></g>
+		<rect x="199" y="176" width="12" height="122" fill="#ffffff" stroke="#495057" stroke-width="2.5" />
+		<g class="a1sl" transform="translate(205,292) scale(1,2.5)"><rect x="-4" y="-40" width="8" height="42" fill="#1c7ed6" /></g>
+		<path d="M189 252H221" stroke="#2b2a26" stroke-width="2.5" stroke-dasharray="5 4" />
+		<path d="M193 292V306A38 38 0 1 0 217 306V292Z" fill="#a5d8ff" stroke="#495057" stroke-width="2.5" />
+		<path d="M198 294H212" stroke="#a5d8ff" stroke-width="4" />
+		<rect x="201" y="288" width="8" height="12" fill="#1c7ed6" />
+		<path d="M318 292V306A38 38 0 1 0 342 306V292Z" fill="#ffffff" stroke="#495057" stroke-width="2.5" />
+		<g class="a1ba" transform="translate(330,290)"><path d="M0 0C-6 -4 -8 -8 -4 -12C-30 -22 -32 -72 0 -74C32 -72 30 -22 4 -12C8 -8 6 -4 0 0Z" fill="#69db7c" stroke="#2b8a3e" stroke-width="2.5" vector-effect="non-scaling-stroke" /></g>
+		<g transform="translate(330,290) scale(0.6)"><path d="M0 -12C-30 -22 -32 -72 0 -74C32 -72 30 -22 0 -12Z" fill="none" stroke="#2b2a26" stroke-width="2.5" stroke-dasharray="6 5" vector-effect="non-scaling-stroke" /></g>
+		<rect x="316" y="288" width="28" height="8" rx="3" fill="#2b8a3e" />
+		<g fill="none" stroke="#e03131" stroke-width="4" stroke-linecap="round">
+			<g class="a1si" marker-end="url(#sip1)"><path d="M66 410V386" /><path d="M116 410V386" /><path d="M185 410V386" /><path d="M225 410V386" /><path d="M310 410V386" /><path d="M350 410V386" /></g>
+			<g class="a1so" opacity="0" marker-end="url(#sip1)"><path d="M66 380V404" /><path d="M116 380V404" /><path d="M185 380V404" /><path d="M225 380V404" /><path d="M310 380V404" /><path d="M350 380V404" /></g>
+		</g>
+		<rect x="403" y="150" width="18" height="222" rx="9" fill="#ffffff" stroke="#495057" stroke-width="2.5" />
+		<g class="a1tm" transform="translate(412,364) scale(1,3)"><rect x="-4" y="-50" width="8" height="52" fill="#e03131" /></g>
+		<circle cx="412" cy="372" r="14" fill="#e03131" stroke="#495057" stroke-width="2.5" />
+		<text x="80" y="448" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">pevná</text>
+		<text x="80" y="474" text-anchor="middle" font-size="20" fill="#2b2a26">kovová tyč</text>
+		<text x="205" y="448" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">kapalná</text>
+		<text x="205" y="474" text-anchor="middle" font-size="20" fill="#2b2a26">voda</text>
+		<text x="330" y="448" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2a26">plynná</text>
+		<text x="330" y="474" text-anchor="middle" font-size="20" fill="#2b2a26">vzduch</text>
+		<text x="40" y="514" font-size="20" fill="#2b2a26">Čárkovaně: velikost před zahřátím.</text>
+		<text x="40" y="542" font-size="20" fill="#2b2a26">Šipky ukazují, kam jde teplo.</text>
+		<text x="40" y="578" font-size="20" fill="#2b2a26">Změny jsou nakreslené zvětšené,</text>
+		<text x="40" y="602" font-size="20" fill="#2b2a26">ve skutečnosti jsou malé.</text>
+	</g>
+</svg>

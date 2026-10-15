@@ -1447,6 +1447,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>📌 Shrnutí: s rostoucí teplotou se objem tělesa <strong>zvětšuje</strong> a hustota <strong>zmenšuje</strong>; s klesající teplotou naopak.</p>
 					`,
 					materialy: [
+						{ druh: 'infografika', nazev: 'Teplotní roztažnost v pohybu', cesta: '/materialy/fyzika/6-rocnik/teplota/teplotni-roztaznost/infografika-teplotni-roztaznost-pohyb-panel-1.svg', panely: ['/materialy/fyzika/6-rocnik/teplota/teplotni-roztaznost/infografika-teplotni-roztaznost-pohyb-panel-1.svg'] },
 						{
 							druh: 'video',
 							nazev: 'Polemika 1: Zahřátí a ochlazení mění rozměry 🎬',
