@@ -1,0 +1,75 @@
+<svg viewBox="0 0 460 520" width="460" height="520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tělesa a látky v pohybu, Dá se to spočítat?: ruka přináší a pokládá na stůl jeden hřebík po druhém a nad každým se objeví číslo 1, 2, 3. Tři hřebíky – hřebík je těleso. Z čeho je hřebík? Ze železa. Železo spočítat nejde – je to látka." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Tělesa a látky v pohybu 2/2: Dá se to spočítat?</title>
+	<!-- W104 (oprava po kontrole 1). Předloha: PDF 6/01 Látka/2. Tělesa a látky, s. 2 (těleso: „hřebík (ze železa)“; látka: železo); výklad temata.ts („Dá se to spočítat? Tělesa ano — dvě sklenice, tři hřebíky. U látky to nedává smysl“; „Jde se toho zeptat ‚z čeho je to?‘ U tělesa ano“). Hřebík převzat z obr-04 (měřítko 0.75, náklon 6.84° — hlavička i hrot leží na desce). Ruka nese hřebík zprava, paže vychází z pravého okraje panelu, hřebík je mimo ruku jen ležící na stole. Cyklus 10 s: hřebík 1/2/3 přinesen 0,3–0,75 / 1,8–2,25 / 3,3–3,75 s, položen do 0,95 / 2,45 / 3,95 s, ruka se zvedne a odejde zprava do 1,5 / 3,0 / 4,5 s, teprve pak číslo 1/2/3; 4,7 s „Tři hřebíky. Hřebík je těleso.“; 6,5 s štítek „látka: železo“ a otázka „Z čeho je hřebík?“. Klid: tři hřebíky, čísla, vše vysvětleno, ruka mimo panel. -->
+	<style>
+		.p2ru { transform: translate(482.8px, 238.2px); animation: p2ru 10s ease-in-out infinite; }
+		@keyframes p2ru { 0% { transform: translate(482.8px, 238.2px); } 3% { transform: translate(482.8px, 238.2px); } 7.5% { transform: translate(62.8px, 238.2px); } 9.5%, 10.5% { transform: translate(62.8px, 278.2px); } 11.5% { transform: translate(62.8px, 238.2px); } 15% { transform: translate(482.8px, 238.2px); } 18% { transform: translate(482.8px, 238.2px); } 22.5% { transform: translate(192.8px, 238.2px); } 24.5%, 25.5% { transform: translate(192.8px, 278.2px); } 26.5% { transform: translate(192.8px, 238.2px); } 30% { transform: translate(482.8px, 238.2px); } 33% { transform: translate(482.8px, 238.2px); } 37.5% { transform: translate(322.8px, 238.2px); } 39.5%, 40.5% { transform: translate(322.8px, 278.2px); } 41.5% { transform: translate(322.8px, 238.2px); } 45% { transform: translate(482.8px, 238.2px); } 100% { transform: translate(482.8px, 238.2px); } }
+		.p2h0 { transform: translate(100.0px, 282.7px); animation: p2h0 10s ease-in-out infinite; }
+		@keyframes p2h0 { 0%, 3% { transform: translate(520.0px, 242.7px); } 7.5% { transform: translate(100.0px, 242.7px); } 9.5%, 96.9% { transform: translate(100.0px, 282.7px); } 97%, 100% { transform: translate(520.0px, 242.7px); } }
+		.p2n0 { opacity: 1; animation: p2n0 10s step-end infinite; }
+		@keyframes p2n0 { 0% { opacity: 0; } 15% { opacity: 1; } 97% { opacity: 0; } 100% { opacity: 0; } }
+		.p2h1 { transform: translate(230.0px, 282.7px); animation: p2h1 10s ease-in-out infinite; }
+		@keyframes p2h1 { 0%, 18% { transform: translate(520.0px, 242.7px); } 22.5% { transform: translate(230.0px, 242.7px); } 24.5%, 96.9% { transform: translate(230.0px, 282.7px); } 97%, 100% { transform: translate(520.0px, 242.7px); } }
+		.p2n1 { opacity: 1; animation: p2n1 10s step-end infinite; }
+		@keyframes p2n1 { 0% { opacity: 0; } 30% { opacity: 1; } 97% { opacity: 0; } 100% { opacity: 0; } }
+		.p2h2 { transform: translate(360.0px, 282.7px); animation: p2h2 10s ease-in-out infinite; }
+		@keyframes p2h2 { 0%, 33% { transform: translate(520.0px, 242.7px); } 37.5% { transform: translate(360.0px, 242.7px); } 39.5%, 96.9% { transform: translate(360.0px, 282.7px); } 97%, 100% { transform: translate(520.0px, 242.7px); } }
+		.p2n2 { opacity: 1; animation: p2n2 10s step-end infinite; }
+		@keyframes p2n2 { 0% { opacity: 0; } 45% { opacity: 1; } 97% { opacity: 0; } 100% { opacity: 0; } }
+		.p2sl { opacity: 1; animation: p2sl 10s step-end infinite; }
+		@keyframes p2sl { 0% { opacity: 0; } 65% { opacity: 1; } 97% { opacity: 0; } 100% { opacity: 0; } }
+		.p2c0 { opacity: 0; animation: p2c0 10s step-end infinite; }
+		@keyframes p2c0 { 0% { opacity: 1; } 47% { opacity: 0; } 97% { opacity: 1; } 100% { opacity: 0; } }
+		.p2c1 { opacity: 1; animation: p2c1 10s step-end infinite; }
+		@keyframes p2c1 { 0% { opacity: 0; } 47% { opacity: 1; } 97% { opacity: 0; } 100% { opacity: 0; } }
+		.p2c2 { opacity: 1; animation: p2c2 10s step-end infinite; }
+		@keyframes p2c2 { 0% { opacity: 0; } 65% { opacity: 1; } 97% { opacity: 0; } 100% { opacity: 0; } }
+		.p2sc { opacity: 1; animation: p2sc 10s linear infinite; }
+		@keyframes p2sc { 0%, 95.5% { opacity: 1; } 96.5%, 98% { opacity: 0; } 99%, 100% { opacity: 1; } }
+		@media (prefers-reduced-motion: reduce) {
+			.p2ru, .p2h0, .p2n0, .p2h1, .p2n1, .p2h2, .p2n2, .p2sl, .p2c0, .p2c1, .p2c2, .p2sc { animation: none; }
+		}
+	</style>
+	<defs>
+		<clipPath id="r2"><rect x="22" y="110" width="416" height="200" /></clipPath>
+		<linearGradient id="dr2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2ad72"/><stop offset="1" stop-color="#9c6431"/></linearGradient>
+		<linearGradient id="kov2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9ecef"/><stop offset="0.5" stop-color="#adb5bd"/><stop offset="1" stop-color="#495057"/></linearGradient>
+		<radialGradient id="bal2" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#ffc078"/><stop offset="0.5" stop-color="#f76707"/><stop offset="1" stop-color="#c2410c"/></radialGradient>
+	</defs>
+	<rect x="0" y="0" width="460" height="520" fill="#f8f9fa" />
+	<g id="panel-2">
+		<rect x="26" y="22" width="420" height="486" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="486" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">2</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Dá se to spočítat?</text>
+		<g class="p2sc">
+		<text x="40" y="96" font-size="20" fill="#2b2a26">Pokládáme hřebíky na stůl a počítáme.</text>
+		<rect x="22" y="290" width="416" height="14" fill="url(#dr2)" stroke="#6b3f17" stroke-width="2" />
+		<g clip-path="url(#r2)">
+			<g class="p2h0"><g transform="rotate(6.84) scale(0.75)"><path d="M-62 -5L58 -5L82 0L58 5L-62 5Z" fill="url(#kov2)" stroke="#343a40" stroke-width="2"/><rect x="-74" y="-18" width="12" height="36" rx="3" fill="url(#kov2)" stroke="#343a40" stroke-width="2"/><path d="M-56 -2H50" stroke="#fff" stroke-width="2" opacity="0.7"/></g></g>
+			<g class="p2h1"><g transform="rotate(6.84) scale(0.75)"><path d="M-62 -5L58 -5L82 0L58 5L-62 5Z" fill="url(#kov2)" stroke="#343a40" stroke-width="2"/><rect x="-74" y="-18" width="12" height="36" rx="3" fill="url(#kov2)" stroke="#343a40" stroke-width="2"/><path d="M-56 -2H50" stroke="#fff" stroke-width="2" opacity="0.7"/></g></g>
+			<g class="p2h2"><g transform="rotate(6.84) scale(0.75)"><path d="M-62 -5L58 -5L82 0L58 5L-62 5Z" fill="url(#kov2)" stroke="#343a40" stroke-width="2"/><rect x="-74" y="-18" width="12" height="36" rx="3" fill="url(#kov2)" stroke="#343a40" stroke-width="2"/><path d="M-56 -2H50" stroke="#fff" stroke-width="2" opacity="0.7"/></g></g>
+			<!-- ruka: paže vychází z pravého okraje panelu, prsty svírají dřík hřebíku u hlavičky -->
+			<g class="p2ru">
+				<rect x="0" y="-14" width="640" height="28" fill="#1971c2" stroke="#0b4f8a" stroke-width="2" transform="translate(4 -30) rotate(-10)" />
+				<rect x="-18" y="-34" width="36" height="30" rx="11" fill="#f1c9a5" stroke="#8a5a2b" stroke-width="2" />
+				<path d="M-10 -4V4M0 -4V5M10 -4V4" stroke="#8a5a2b" stroke-width="5" stroke-linecap="round" />
+				<path d="M-10 -4V4M0 -4V5M10 -4V4" stroke="#f1c9a5" stroke-width="2.5" stroke-linecap="round" />
+			</g>
+		</g>
+		<g class="p2n0"><circle cx="100" cy="244" r="18" fill="#fff" stroke="#b8460b" stroke-width="2.5" /><text x="100" y="252" text-anchor="middle" font-size="22" font-weight="bold" fill="#b8460b">1</text></g>
+		<g class="p2n1"><circle cx="230" cy="244" r="18" fill="#fff" stroke="#b8460b" stroke-width="2.5" /><text x="230" y="252" text-anchor="middle" font-size="22" font-weight="bold" fill="#b8460b">2</text></g>
+		<g class="p2n2"><circle cx="360" cy="244" r="18" fill="#fff" stroke="#b8460b" stroke-width="2.5" /><text x="360" y="252" text-anchor="middle" font-size="22" font-weight="bold" fill="#b8460b">3</text></g>
+		<g class="p2sl">
+			<line x1="330" y1="184" x2="322" y2="278" stroke="#2b2a26" stroke-width="2" /><circle cx="322" cy="278" r="4" fill="#2b2a26" />
+			<rect x="270" y="150" width="150" height="34" rx="8" fill="#fff" stroke="#6c757d" stroke-width="2" /><text x="282" y="174" font-size="20" fill="#2b2a26"><tspan font-weight="bold">látka:</tspan> železo</text>
+		</g>
+		<g font-size="22" font-weight="bold" fill="#2b2a26">
+			<g class="p2c0" opacity="0"><text x="40" y="352">Kolik je tu hřebíků?</text></g>
+			<g class="p2c1"><text x="40" y="352">Tři hřebíky.</text><text x="40" y="382" fill="#237032">Hřebík je těleso.</text></g>
+			<g class="p2c2"><text x="40" y="422">Z čeho je hřebík? Ze železa.</text><text x="40" y="452" fill="#237032">Železo spočítat nejde –</text><text x="40" y="482" fill="#237032">je to látka.</text></g>
+		</g>
+		</g>
+	</g>
+</svg>

@@ -211,6 +211,7 @@ export const temata: Record<string, Tema[]> = {
 						<figure><a href="/obrazky/fyzika/6-rocnik/latka-a-teleso/telesa-a-latky/telesa-a-latky-obr-06.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/latka-a-teleso/telesa-a-latky/telesa-a-latky-obr-06.svg" alt="Stůl se šipkami délka a výška, kniha na váze – hmotnost, mléko v lahvi – objem." loading="lazy" /></a><figcaption>Co na tělese změříme (délka, výška, hmotnost, objem…), jsou fyzikální veličiny.</figcaption></figure>
 					`,
 					materialy: [
+						{ druh: 'infografika', nazev: 'Tělesa a látky v pohybu', cesta: '/materialy/fyzika/6-rocnik/latka-a-teleso/telesa-a-latky/infografika-telesa-a-latky-pohyb-panel-1.svg', panely: ['/materialy/fyzika/6-rocnik/latka-a-teleso/telesa-a-latky/infografika-telesa-a-latky-pohyb-panel-1.svg', '/materialy/fyzika/6-rocnik/latka-a-teleso/telesa-a-latky/infografika-telesa-a-latky-pohyb-panel-2.svg'] },
 						// Hlasy z OpenAI TTS — atribuci uvádět nemusíme.
 						{
 							druh: 'video',
