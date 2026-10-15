@@ -3198,6 +3198,7 @@ export const temata: Record<string, Tema[]> = {
 							{ nazev: 'Ohmův zákon pro část obvodu — 8. ročník (Umíme fakta)', url: 'https://www.umimefakta.cz/cviceni-ohmuv-zakon-pro-cast-obvodu-8-trida' },
 						],
 						materialy: [
+							{ druh: 'infografika', nazev: 'Ohmův zákon v pohybu', cesta: '/materialy/fyzika/8-rocnik/elektrina/ohmuv-zakon/infografika-ohmuv-zakon-pohyb-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/elektrina/ohmuv-zakon/infografika-ohmuv-zakon-pohyb-panel-1.svg', '/materialy/fyzika/8-rocnik/elektrina/ohmuv-zakon/infografika-ohmuv-zakon-pohyb-panel-2.svg', '/materialy/fyzika/8-rocnik/elektrina/ohmuv-zakon/infografika-ohmuv-zakon-pohyb-panel-3.svg'] },
 							{ druh: 'video', nazev: 'Píseň: U děleno R 🎵', cesta: '/materialy/fyzika/8-rocnik/elektrina/ohmuv-zakon/pisen-u-deleno-r.m4a' },
 						],
 					},
