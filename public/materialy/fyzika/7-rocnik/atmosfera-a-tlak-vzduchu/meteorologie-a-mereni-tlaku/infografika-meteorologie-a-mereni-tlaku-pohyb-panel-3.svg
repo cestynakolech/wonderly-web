@@ -1,0 +1,172 @@
+<svg viewBox="0 0 460 640" width="460" height="640" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Meteorologie a měření tlaku v pohybu, Sníh ve srážkoměru: venku sněží a sníh se zachytí v nálevce srážkoměru. Ruka přenese srážkoměr do tepla, sníh roztaje a voda steče do odměrné nádoby. Výšku vody odečteme na stupnici v milimetrech vodního sloupce." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Meteorologie a měření tlaku v pohybu 3/3: Sníh ve srážkoměru</title>
+	<!-- W112. Opora: PDF 7/3/18 Meteorologická pozorování s. 5 (nádoba zachytává vodu a nálevkou ji odvádí do odměrné nádoby se stupnicí; srážky v mm vodního sloupce; u sněhových srážek měří množství vody vzniklé roztátím sněhu) a výklad temata.ts („Sníh se v něm nechá roztát a změří se jako voda“). Srážkoměr převzat z obr-04 stránky (skříň #e9ecef, nálevka, odměrná nádoba se stupnicí, voda #66d9e8). Přenesení do tepla = způsob, jak sníh roztát (pro kontrolora). Bez čísel. Cyklus 12 s: 0,3–3,9 s sněží, sníh v nálevce roste; 4,2–5 s ruka z pravého okraje uchopí srážkoměr, 5–6,6 s ho přenese dveřmi do tepla, 6,6–7,3 s odejde; 7,4–9,6 s sníh taje, kapky stékají, 7,6–9,8 s voda v odměrné nádobě stoupá; od 10 s šipka ke stupnici. Klid: srážkoměr v teple, voda v nádobě, šipka. -->
+	<style>
+		.q3sc { opacity: 1; animation: q3sc 12s linear infinite; }
+		@keyframes q3sc { 0% { opacity: 1; } 96.667% { opacity: 1; } 97.5% { opacity: 0; } 98.5% { opacity: 0; } 99.5% { opacity: 1; } 100% { opacity: 1; } }
+		.q3ga { transform: translate(320px, 440px); animation: q3ga 12s linear infinite; }
+		@keyframes q3ga { 0% { transform: translate(120px, 440px); } 41.667% { transform: translate(120px, 440px); } 55% { transform: translate(320px, 440px); } 97.917% { transform: translate(320px, 440px); } 98% { transform: translate(120px, 440px); } 100% { transform: translate(120px, 440px); } }
+		.q3ar { transform: translateX(330px); animation: q3ar 12s linear infinite; }
+		@keyframes q3ar { 0% { transform: translateX(330px); } 35% { transform: translateX(330px); } 41.667% { transform: translateX(0px); } 55% { transform: translateX(0px); } 60.833% { transform: translateX(330px); } 97.917% { transform: translateX(330px); } 98% { transform: translateX(330px); } 100% { transform: translateX(330px); } }
+		.q3sn { transform: scaleY(0.001); animation: q3sn 12s linear infinite; }
+		@keyframes q3sn { 0% { transform: scaleY(0.001); } 4.167% { transform: scaleY(0.001); } 32.5% { transform: scaleY(1); } 61.667% { transform: scaleY(1); } 80% { transform: scaleY(0.001); } 97.917% { transform: scaleY(0.001); } 98% { transform: scaleY(0.001); } 100% { transform: scaleY(0.001); } }
+		.q3wa { transform: scaleY(1); animation: q3wa 12s linear infinite; }
+		@keyframes q3wa { 0% { transform: scaleY(0.001); } 63.333% { transform: scaleY(0.001); } 81.667% { transform: scaleY(1); } 97.917% { transform: scaleY(1); } 98% { transform: scaleY(0.001); } 100% { transform: scaleY(0.001); } }
+		.q3st { opacity: 1; animation: q3st 12s step-end infinite; }
+		@keyframes q3st { 0% { opacity: 0; } 83.333% { opacity: 1; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q3c0 { opacity: 0; animation: q3c0 12s step-end infinite; }
+		@keyframes q3c0 { 0% { opacity: 1; } 35% { opacity: 0; } 98% { opacity: 1; } 100% { opacity: 1; } }
+		.q3c1 { opacity: 0; animation: q3c1 12s step-end infinite; }
+		@keyframes q3c1 { 0% { opacity: 0; } 35% { opacity: 1; } 61.667% { opacity: 0; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q3c2 { opacity: 0; animation: q3c2 12s step-end infinite; }
+		@keyframes q3c2 { 0% { opacity: 0; } 61.667% { opacity: 1; } 83.333% { opacity: 0; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q3c3 { opacity: 1; animation: q3c3 12s step-end infinite; }
+		@keyframes q3c3 { 0% { opacity: 0; } 83.333% { opacity: 1; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q3v0 { transform: translateY(112px); animation: q3v0 12s linear infinite; }
+		@keyframes q3v0 { 0% { transform: translateY(112px); } 2.5% { transform: translateY(112px); } 13.333% { transform: translateY(436px); } 97.917% { transform: translateY(436px); } 98% { transform: translateY(112px); } 100% { transform: translateY(112px); } }
+		.q3o0 { opacity: 0; animation: q3o0 12s step-end infinite; }
+		@keyframes q3o0 { 0% { opacity: 0; } 2.5% { opacity: 1; } 13.333% { opacity: 0; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q3v1 { transform: translateY(112px); animation: q3v1 12s linear infinite; }
+		@keyframes q3v1 { 0% { transform: translateY(112px); } 3.75% { transform: translateY(112px); } 14.583% { transform: translateY(436px); } 97.917% { transform: translateY(436px); } 98% { transform: translateY(112px); } 100% { transform: translateY(112px); } }
+		.q3o1 { opacity: 0; animation: q3o1 12s step-end infinite; }
+		@keyframes q3o1 { 0% { opacity: 0; } 3.75% { opacity: 1; } 14.583% { opacity: 0; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q3v2 { transform: translateY(112px); animation: q3v2 12s linear infinite; }
+		@keyframes q3v2 { 0% { transform: translateY(112px); } 5% { transform: translateY(112px); } 11.283% { transform: translateY(300px); } 97.917% { transform: translateY(300px); } 98% { transform: translateY(112px); } 100% { transform: translateY(112px); } }
+		.q3o2 { opacity: 0; animation: q3o2 12s step-end infinite; }
+		@keyframes q3o2 { 0% { opacity: 0; } 5% { opacity: 1; } 11.283% { opacity: 0; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q3v3 { transform: translateY(112px); animation: q3v3 12s linear infinite; }
+		@keyframes q3v3 { 0% { transform: translateY(112px); } 6.667% { transform: translateY(112px); } 17.5% { transform: translateY(436px); } 97.917% { transform: translateY(436px); } 98% { transform: translateY(112px); } 100% { transform: translateY(112px); } }
+		.q3o3 { opacity: 0; animation: q3o3 12s step-end infinite; }
+		@keyframes q3o3 { 0% { opacity: 0; } 6.667% { opacity: 1; } 17.5% { opacity: 0; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q3v4 { transform: translateY(112px); animation: q3v4 12s linear infinite; }
+		@keyframes q3v4 { 0% { transform: translateY(112px); } 8.333% { transform: translateY(112px); } 19.167% { transform: translateY(436px); } 97.917% { transform: translateY(436px); } 98% { transform: translateY(112px); } 100% { transform: translateY(112px); } }
+		.q3o4 { opacity: 0; animation: q3o4 12s step-end infinite; }
+		@keyframes q3o4 { 0% { opacity: 0; } 8.333% { opacity: 1; } 19.167% { opacity: 0; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q3v5 { transform: translateY(112px); animation: q3v5 12s linear infinite; }
+		@keyframes q3v5 { 0% { transform: translateY(112px); } 9.583% { transform: translateY(112px); } 15.867% { transform: translateY(300px); } 97.917% { transform: translateY(300px); } 98% { transform: translateY(112px); } 100% { transform: translateY(112px); } }
+		.q3o5 { opacity: 0; animation: q3o5 12s step-end infinite; }
+		@keyframes q3o5 { 0% { opacity: 0; } 9.583% { opacity: 1; } 15.867% { opacity: 0; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q3v6 { transform: translateY(112px); animation: q3v6 12s linear infinite; }
+		@keyframes q3v6 { 0% { transform: translateY(112px); } 10.833% { transform: translateY(112px); } 21.667% { transform: translateY(436px); } 97.917% { transform: translateY(436px); } 98% { transform: translateY(112px); } 100% { transform: translateY(112px); } }
+		.q3o6 { opacity: 0; animation: q3o6 12s step-end infinite; }
+		@keyframes q3o6 { 0% { opacity: 0; } 10.833% { opacity: 1; } 21.667% { opacity: 0; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q3v7 { transform: translateY(112px); animation: q3v7 12s linear infinite; }
+		@keyframes q3v7 { 0% { transform: translateY(112px); } 12.5% { transform: translateY(112px); } 23.333% { transform: translateY(436px); } 97.917% { transform: translateY(436px); } 98% { transform: translateY(112px); } 100% { transform: translateY(112px); } }
+		.q3o7 { opacity: 0; animation: q3o7 12s step-end infinite; }
+		@keyframes q3o7 { 0% { opacity: 0; } 12.5% { opacity: 1; } 23.333% { opacity: 0; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q3v8 { transform: translateY(112px); animation: q3v8 12s linear infinite; }
+		@keyframes q3v8 { 0% { transform: translateY(112px); } 13.75% { transform: translateY(112px); } 20.033% { transform: translateY(300px); } 97.917% { transform: translateY(300px); } 98% { transform: translateY(112px); } 100% { transform: translateY(112px); } }
+		.q3o8 { opacity: 0; animation: q3o8 12s step-end infinite; }
+		@keyframes q3o8 { 0% { opacity: 0; } 13.75% { opacity: 1; } 20.033% { opacity: 0; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q3v9 { transform: translateY(112px); animation: q3v9 12s linear infinite; }
+		@keyframes q3v9 { 0% { transform: translateY(112px); } 15% { transform: translateY(112px); } 25.833% { transform: translateY(436px); } 97.917% { transform: translateY(436px); } 98% { transform: translateY(112px); } 100% { transform: translateY(112px); } }
+		.q3o9 { opacity: 0; animation: q3o9 12s step-end infinite; }
+		@keyframes q3o9 { 0% { opacity: 0; } 15% { opacity: 1; } 25.833% { opacity: 0; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q3v10 { transform: translateY(112px); animation: q3v10 12s linear infinite; }
+		@keyframes q3v10 { 0% { transform: translateY(112px); } 16.667% { transform: translateY(112px); } 27.5% { transform: translateY(436px); } 97.917% { transform: translateY(436px); } 98% { transform: translateY(112px); } 100% { transform: translateY(112px); } }
+		.q3o10 { opacity: 0; animation: q3o10 12s step-end infinite; }
+		@keyframes q3o10 { 0% { opacity: 0; } 16.667% { opacity: 1; } 27.5% { opacity: 0; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q3v11 { transform: translateY(112px); animation: q3v11 12s linear infinite; }
+		@keyframes q3v11 { 0% { transform: translateY(112px); } 17.917% { transform: translateY(112px); } 24.2% { transform: translateY(300px); } 97.917% { transform: translateY(300px); } 98% { transform: translateY(112px); } 100% { transform: translateY(112px); } }
+		.q3o11 { opacity: 0; animation: q3o11 12s step-end infinite; }
+		@keyframes q3o11 { 0% { opacity: 0; } 17.917% { opacity: 1; } 24.2% { opacity: 0; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q3v12 { transform: translateY(112px); animation: q3v12 12s linear infinite; }
+		@keyframes q3v12 { 0% { transform: translateY(112px); } 19.167% { transform: translateY(112px); } 30% { transform: translateY(436px); } 97.917% { transform: translateY(436px); } 98% { transform: translateY(112px); } 100% { transform: translateY(112px); } }
+		.q3o12 { opacity: 0; animation: q3o12 12s step-end infinite; }
+		@keyframes q3o12 { 0% { opacity: 0; } 19.167% { opacity: 1; } 30% { opacity: 0; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q3v13 { transform: translateY(112px); animation: q3v13 12s linear infinite; }
+		@keyframes q3v13 { 0% { transform: translateY(112px); } 20.417% { transform: translateY(112px); } 31.25% { transform: translateY(436px); } 97.917% { transform: translateY(436px); } 98% { transform: translateY(112px); } 100% { transform: translateY(112px); } }
+		.q3o13 { opacity: 0; animation: q3o13 12s step-end infinite; }
+		@keyframes q3o13 { 0% { opacity: 0; } 20.417% { opacity: 1; } 31.25% { opacity: 0; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q3v14 { transform: translateY(112px); animation: q3v14 12s linear infinite; }
+		@keyframes q3v14 { 0% { transform: translateY(112px); } 21.667% { transform: translateY(112px); } 27.95% { transform: translateY(300px); } 97.917% { transform: translateY(300px); } 98% { transform: translateY(112px); } 100% { transform: translateY(112px); } }
+		.q3o14 { opacity: 0; animation: q3o14 12s step-end infinite; }
+		@keyframes q3o14 { 0% { opacity: 0; } 21.667% { opacity: 1; } 27.95% { opacity: 0; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q3k0 { transform: translateY(-100px); animation: q3k0 12s linear infinite; }
+		@keyframes q3k0 { 0% { transform: translateY(-100px); } 64.167% { transform: translateY(-100px); } 67.083% { transform: translateY(-24px); } 97.917% { transform: translateY(-24px); } 98% { transform: translateY(-100px); } 100% { transform: translateY(-100px); } }
+		.q3p0 { opacity: 0; animation: q3p0 12s step-end infinite; }
+		@keyframes q3p0 { 0% { opacity: 0; } 64.167% { opacity: 1; } 67.083% { opacity: 0; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q3k1 { transform: translateY(-100px); animation: q3k1 12s linear infinite; }
+		@keyframes q3k1 { 0% { transform: translateY(-100px); } 67.5% { transform: translateY(-100px); } 70.417% { transform: translateY(-24px); } 97.917% { transform: translateY(-24px); } 98% { transform: translateY(-100px); } 100% { transform: translateY(-100px); } }
+		.q3p1 { opacity: 0; animation: q3p1 12s step-end infinite; }
+		@keyframes q3p1 { 0% { opacity: 0; } 67.5% { opacity: 1; } 70.417% { opacity: 0; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q3k2 { transform: translateY(-100px); animation: q3k2 12s linear infinite; }
+		@keyframes q3k2 { 0% { transform: translateY(-100px); } 70.833% { transform: translateY(-100px); } 73.75% { transform: translateY(-24px); } 97.917% { transform: translateY(-24px); } 98% { transform: translateY(-100px); } 100% { transform: translateY(-100px); } }
+		.q3p2 { opacity: 0; animation: q3p2 12s step-end infinite; }
+		@keyframes q3p2 { 0% { opacity: 0; } 70.833% { opacity: 1; } 73.75% { opacity: 0; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q3k3 { transform: translateY(-100px); animation: q3k3 12s linear infinite; }
+		@keyframes q3k3 { 0% { transform: translateY(-100px); } 74.167% { transform: translateY(-100px); } 77.083% { transform: translateY(-24px); } 97.917% { transform: translateY(-24px); } 98% { transform: translateY(-100px); } 100% { transform: translateY(-100px); } }
+		.q3p3 { opacity: 0; animation: q3p3 12s step-end infinite; }
+		@keyframes q3p3 { 0% { opacity: 0; } 74.167% { opacity: 1; } 77.083% { opacity: 0; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q3k4 { transform: translateY(-100px); animation: q3k4 12s linear infinite; }
+		@keyframes q3k4 { 0% { transform: translateY(-100px); } 77.5% { transform: translateY(-100px); } 80.417% { transform: translateY(-24px); } 97.917% { transform: translateY(-24px); } 98% { transform: translateY(-100px); } 100% { transform: translateY(-100px); } }
+		.q3p4 { opacity: 0; animation: q3p4 12s step-end infinite; }
+		@keyframes q3p4 { 0% { opacity: 0; } 77.5% { opacity: 1; } 80.417% { opacity: 0; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) {
+			.q3sc, .q3ga, .q3ar, .q3sn, .q3wa, .q3st, .q3c0, .q3c1, .q3c2, .q3c3, .q3v0, .q3o0, .q3v1, .q3o1, .q3v2, .q3o2, .q3v3, .q3o3, .q3v4, .q3o4, .q3v5, .q3o5, .q3v6, .q3o6, .q3v7, .q3o7, .q3v8, .q3o8, .q3v9, .q3o9, .q3v10, .q3o10, .q3v11, .q3o11, .q3v12, .q3o12, .q3v13, .q3o13, .q3v14, .q3o14, .q3k0, .q3p0, .q3k1, .q3p1, .q3k2, .q3p2, .q3k3, .q3p3, .q3k4, .q3p4 { animation: none; }
+		}
+	</style>
+	<defs><clipPath id="q3cl"><rect x="22" y="110" width="416" height="360" /></clipPath></defs>
+	<g id="panel-3">
+	<rect x="0" y="0" width="460" height="640" fill="#f8f9fa" />
+	<rect x="26" y="22" width="420" height="608" rx="10" fill="#2b2a26" />
+	<rect x="20" y="16" width="420" height="608" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">3</text>
+	<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Sníh ve srážkoměru</text>
+	<text x="40" y="96" font-size="20" fill="#2b2a26">Sníh se změří jako voda.</text>
+	<g class="q3sc">
+		<g clip-path="url(#q3cl)">
+		<rect x="22" y="110" width="208" height="360" fill="#e7f5ff" />
+		<rect x="230" y="110" width="208" height="360" fill="#fff4e6" />
+		<rect x="22" y="440" width="208" height="30" fill="#fff" /><line x1="22" y1="440" x2="230" y2="440" stroke="#6c757d" stroke-width="2.5" />
+		<rect x="230" y="440" width="208" height="30" fill="#d9a066" /><line x1="230" y1="440" x2="438" y2="440" stroke="#6b3f17" stroke-width="2.5" />
+		<rect x="222" y="110" width="16" height="110" fill="#ced4da" stroke="#495057" stroke-width="2" />
+		<line x1="223" y1="220" x2="223" y2="440" stroke="#6b3f17" stroke-width="3" /><line x1="237" y1="220" x2="237" y2="440" stroke="#6b3f17" stroke-width="3" />
+		<text x="34" y="138" font-size="20" font-weight="bold" fill="#2b2a26">venku</text>
+		<text x="250" y="138" font-size="20" font-weight="bold" fill="#2b2a26">v teple</text>
+		<g stroke="#495057" stroke-width="2"><rect x="372" y="378" width="56" height="50" rx="4" fill="#f1f3f5" /><line x1="382" y1="383" x2="382" y2="423" /><line x1="392" y1="383" x2="392" y2="423" /><line x1="402" y1="383" x2="402" y2="423" /><line x1="412" y1="383" x2="412" y2="423" /><line x1="420" y1="383" x2="420" y2="423" /><line x1="380" y1="428" x2="380" y2="440" /><line x1="420" y1="428" x2="420" y2="440" /></g>
+		<text x="400" y="330" text-anchor="middle" font-size="20" fill="#2b2a26">topení</text>
+		<line x1="400" y1="336" x2="400" y2="374" stroke="#495057" stroke-width="1.5" />
+		<g class="q3o0" opacity="0"><g transform="translate(48 0)"><g class="q3v0"><g fill="#fff" stroke="#6c757d" stroke-width="1.5"><circle cx="0" cy="0" r="6" /></g></g></g></g>
+		<g class="q3o1" opacity="0"><g transform="translate(150 0)"><g class="q3v1"><g fill="#fff" stroke="#6c757d" stroke-width="1.5"><circle cx="0" cy="0" r="6" /></g></g></g></g>
+		<g class="q3o2" opacity="0"><g transform="translate(100 0)"><g class="q3v2"><g fill="#fff" stroke="#6c757d" stroke-width="1.5"><circle cx="0" cy="0" r="6" /></g></g></g></g>
+		<g class="q3o3" opacity="0"><g transform="translate(200 0)"><g class="q3v3"><g fill="#fff" stroke="#6c757d" stroke-width="1.5"><circle cx="0" cy="0" r="6" /></g></g></g></g>
+		<g class="q3o4" opacity="0"><g transform="translate(70 0)"><g class="q3v4"><g fill="#fff" stroke="#6c757d" stroke-width="1.5"><circle cx="0" cy="0" r="6" /></g></g></g></g>
+		<g class="q3o5" opacity="0"><g transform="translate(126 0)"><g class="q3v5"><g fill="#fff" stroke="#6c757d" stroke-width="1.5"><circle cx="0" cy="0" r="6" /></g></g></g></g>
+		<g class="q3o6" opacity="0"><g transform="translate(176 0)"><g class="q3v6"><g fill="#fff" stroke="#6c757d" stroke-width="1.5"><circle cx="0" cy="0" r="6" /></g></g></g></g>
+		<g class="q3o7" opacity="0"><g transform="translate(40 0)"><g class="q3v7"><g fill="#fff" stroke="#6c757d" stroke-width="1.5"><circle cx="0" cy="0" r="6" /></g></g></g></g>
+		<g class="q3o8" opacity="0"><g transform="translate(110 0)"><g class="q3v8"><g fill="#fff" stroke="#6c757d" stroke-width="1.5"><circle cx="0" cy="0" r="6" /></g></g></g></g>
+		<g class="q3o9" opacity="0"><g transform="translate(210 0)"><g class="q3v9"><g fill="#fff" stroke="#6c757d" stroke-width="1.5"><circle cx="0" cy="0" r="6" /></g></g></g></g>
+		<g class="q3o10" opacity="0"><g transform="translate(90 0)"><g class="q3v10"><g fill="#fff" stroke="#6c757d" stroke-width="1.5"><circle cx="0" cy="0" r="6" /></g></g></g></g>
+		<g class="q3o11" opacity="0"><g transform="translate(140 0)"><g class="q3v11"><g fill="#fff" stroke="#6c757d" stroke-width="1.5"><circle cx="0" cy="0" r="6" /></g></g></g></g>
+		<g class="q3o12" opacity="0"><g transform="translate(60 0)"><g class="q3v12"><g fill="#fff" stroke="#6c757d" stroke-width="1.5"><circle cx="0" cy="0" r="6" /></g></g></g></g>
+		<g class="q3o13" opacity="0"><g transform="translate(186 0)"><g class="q3v13"><g fill="#fff" stroke="#6c757d" stroke-width="1.5"><circle cx="0" cy="0" r="6" /></g></g></g></g>
+		<g class="q3o14" opacity="0"><g transform="translate(118 0)"><g class="q3v14"><g fill="#fff" stroke="#6c757d" stroke-width="1.5"><circle cx="0" cy="0" r="6" /></g></g></g></g>
+		</g>
+		<g class="q3ga">
+			<text x="0" y="54" text-anchor="middle" font-size="20" fill="#2b2a26">srážkoměr</text>
+			<rect x="-25" y="-120" width="50" height="120" fill="#e9ecef" stroke="#495057" stroke-width="3" />
+			<rect x="-15" y="-104" width="30" height="98" fill="#fff" stroke="#495057" stroke-width="2" />
+			<g transform="translate(0 -8)"><g class="q3wa"><rect x="-12" y="-16" width="24" height="16" fill="#66d9e8" /><line x1="-12" y1="-16" x2="12" y2="-16" stroke="#0b7285" stroke-width="2" /></g></g>
+			<g stroke="#212529" stroke-width="2"><line x1="8" y1="-16" x2="15" y2="-16" /><line x1="11" y1="-26" x2="15" y2="-26" /><line x1="8" y1="-36" x2="15" y2="-36" /><line x1="11" y1="-46" x2="15" y2="-46" /><line x1="8" y1="-56" x2="15" y2="-56" /><line x1="11" y1="-66" x2="15" y2="-66" /><line x1="8" y1="-76" x2="15" y2="-76" /><line x1="11" y1="-86" x2="15" y2="-86" /><line x1="8" y1="-96" x2="15" y2="-96" /></g>
+			<g class="q3p0" opacity="0"><g class="q3k0"><circle cx="0" cy="0" r="3" fill="#66d9e8" stroke="#0b7285" stroke-width="1.5" /></g></g>
+			<g class="q3p1" opacity="0"><g class="q3k1"><circle cx="0" cy="0" r="3" fill="#66d9e8" stroke="#0b7285" stroke-width="1.5" /></g></g>
+			<g class="q3p2" opacity="0"><g class="q3k2"><circle cx="0" cy="0" r="3" fill="#66d9e8" stroke="#0b7285" stroke-width="1.5" /></g></g>
+			<g class="q3p3" opacity="0"><g class="q3k3"><circle cx="0" cy="0" r="3" fill="#66d9e8" stroke="#0b7285" stroke-width="1.5" /></g></g>
+			<g class="q3p4" opacity="0"><g class="q3k4"><circle cx="0" cy="0" r="3" fill="#66d9e8" stroke="#0b7285" stroke-width="1.5" /></g></g>
+			<line x1="0" y1="-114" x2="0" y2="-102" stroke="#495057" stroke-width="3" />
+			<polygon points="-32,-140 32,-140 7,-114 -7,-114" fill="#ced4da" stroke="#495057" stroke-width="3" stroke-linejoin="round" />
+			<g transform="translate(0 -116)"><g class="q3sn"><g fill="#fff" stroke="#6c757d" stroke-width="1.5"><polygon points="-27,-22 27,-22 6,-1 -6,-1" stroke="none" /><path d="M-31,-24 Q0,-56 31,-24 Z" /></g></g></g>
+			<g class="q3st"><line x1="-74" y1="-24" x2="-22" y2="-24" stroke="#c92a2a" stroke-width="3.5" /><polygon points="-14,-24 -26,-31 -26,-17" fill="#c92a2a" /></g>
+		</g>
+		<g clip-path="url(#q3cl)"><g class="q3ga"><g class="q3ar"><rect x="28" y="-86" width="330" height="14" fill="#1971c2" stroke="#0b4f8a" stroke-width="2" /><rect x="20" y="-94" width="16" height="30" rx="6" fill="#f2c094" stroke="#8a5a2b" stroke-width="2" /></g></g></g>
+		<g font-size="22" font-weight="bold" fill="#2b2a26">
+			<g class="q3c0" opacity="0"><text x="40" y="540">Venku sněží do srážkoměru.</text></g>
+			<g class="q3c1" opacity="0"><text x="40" y="540">Srážkoměr se sněhem</text><text x="40" y="570">přeneseme do tepla.</text></g>
+			<g class="q3c2" opacity="0"><text x="40" y="540">Sníh roztaje a voda steče</text><text x="40" y="570">do odměrné nádoby.</text></g>
+			<g class="q3c3"><text x="40" y="540">Výšku vody odečteme na stupnici</text><text x="40" y="570">v milimetrech vodního sloupce.</text></g>
+		</g>
+	</g>
+	</g>
+</svg>

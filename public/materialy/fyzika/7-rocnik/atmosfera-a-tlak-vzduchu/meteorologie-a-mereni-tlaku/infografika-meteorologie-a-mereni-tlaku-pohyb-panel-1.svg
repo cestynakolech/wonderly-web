@@ -1,0 +1,115 @@
+<svg viewBox="0 0 460 720" width="460" height="720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Meteorologie a měření tlaku v pohybu, Barometr cestou k chatě: turista nese barometr od moře k chatě 400 m nad mořem. Jak stoupá, ručička barometru klesá: 0 m 1 020 hPa, 80 m 1 010 hPa, 160 m 1 000 hPa, 240 m 990 hPa, 320 m 980 hPa, 400 m 970 hPa. Každých 8 m výš ubude 1 hPa: 400 : 8 = 50 hPa, 1 020 − 50 = 970 hPa." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Meteorologie a měření tlaku v pohybu 1/3: Barometr cestou k chatě</title>
+	<!-- W112. Opora: výklad temata.ts (1 hPa na 8 m u hladiny moře; chata 400 m, u moře 1 020 hPa, 400 : 8 = 50 hPa, 1 020 − 50 = 970 hPa) a PDF 7/3/18 Meteorologická pozorování s. 5–6 (barometr měří tlak, aneroid posouvá ručičkou na stupnici). Ciferník převzat z obr-03 stránky (obruba, krémový ciferník, černá ručička; 1 hPa = 3°, 1 000 hPa nahoře, nižší tlak vlevo). Cyklus 12 s: 0–1 s turista u moře; 1–8,5 s rovnoměrně stoupá k chatě (lineárně spolu s ručičkou 60° → −90° a značkou na pravítku); hodnoty v rámečku se přepnou v 2,5/4/5,5/7/8,5 s, když turista mine značku 80/160/240/320/400 m; od 8,5 s výpočet. 11,6–11,94 s zhasnutí a návrat. Klid: turista u chaty, 400 m, 970 hPa, výpočet. -->
+	<style>
+		.q1sc { opacity: 1; animation: q1sc 12s linear infinite; }
+		@keyframes q1sc { 0% { opacity: 1; } 96.667% { opacity: 1; } 97.5% { opacity: 0; } 98.5% { opacity: 0; } 99.5% { opacity: 1; } 100% { opacity: 1; } }
+		.q1tu { transform: translate(300px, 175px); animation: q1tu 12s linear infinite; }
+		@keyframes q1tu { 0% { transform: translate(82px, 340px); } 8.333% { transform: translate(82px, 340px); } 70.833% { transform: translate(300px, 175px); } 97.917% { transform: translate(300px, 175px); } 98% { transform: translate(82px, 340px); } 100% { transform: translate(82px, 340px); } }
+		.q1ma { transform: translate(432px, 175px); animation: q1ma 12s linear infinite; }
+		@keyframes q1ma { 0% { transform: translate(432px, 340px); } 8.333% { transform: translate(432px, 340px); } 70.833% { transform: translate(432px, 175px); } 97.917% { transform: translate(432px, 175px); } 98% { transform: translate(432px, 340px); } 100% { transform: translate(432px, 340px); } }
+		.q1ru { transform: rotate(-90deg); animation: q1ru 12s linear infinite; }
+		@keyframes q1ru { 0% { transform: rotate(60deg); } 8.333% { transform: rotate(60deg); } 70.833% { transform: rotate(-90deg); } 97.917% { transform: rotate(-90deg); } 98% { transform: rotate(60deg); } 100% { transform: rotate(60deg); } }
+		.q1la { opacity: 1; animation: q1la 12s step-end infinite; }
+		@keyframes q1la { 0% { opacity: 1; } 8.333% { opacity: 1; } 10.417% { opacity: 0; } 12.5% { opacity: 1; } 14.583% { opacity: 0; } 16.667% { opacity: 1; } 18.75% { opacity: 0; } 20.833% { opacity: 1; } 22.917% { opacity: 0; } 25% { opacity: 1; } 27.083% { opacity: 0; } 29.167% { opacity: 1; } 31.25% { opacity: 0; } 33.333% { opacity: 1; } 35.417% { opacity: 0; } 37.5% { opacity: 1; } 39.583% { opacity: 0; } 41.667% { opacity: 1; } 43.75% { opacity: 0; } 45.833% { opacity: 1; } 47.917% { opacity: 0; } 50% { opacity: 1; } 52.083% { opacity: 0; } 54.167% { opacity: 1; } 56.25% { opacity: 0; } 58.333% { opacity: 1; } 60.417% { opacity: 0; } 62.5% { opacity: 1; } 64.583% { opacity: 0; } 66.667% { opacity: 1; } 68.75% { opacity: 0; } 70.833% { opacity: 1; } 98% { opacity: 1; } 100% { opacity: 1; } }
+		.q1lb { opacity: 0; animation: q1lb 12s step-end infinite; }
+		@keyframes q1lb { 0% { opacity: 0; } 10.417% { opacity: 1; } 12.5% { opacity: 0; } 14.583% { opacity: 1; } 16.667% { opacity: 0; } 18.75% { opacity: 1; } 20.833% { opacity: 0; } 22.917% { opacity: 1; } 25% { opacity: 0; } 27.083% { opacity: 1; } 29.167% { opacity: 0; } 31.25% { opacity: 1; } 33.333% { opacity: 0; } 35.417% { opacity: 1; } 37.5% { opacity: 0; } 39.583% { opacity: 1; } 41.667% { opacity: 0; } 43.75% { opacity: 1; } 45.833% { opacity: 0; } 47.917% { opacity: 1; } 50% { opacity: 0; } 52.083% { opacity: 1; } 54.167% { opacity: 0; } 56.25% { opacity: 1; } 58.333% { opacity: 0; } 60.417% { opacity: 1; } 62.5% { opacity: 0; } 64.583% { opacity: 1; } 66.667% { opacity: 0; } 68.75% { opacity: 1; } 70.833% { opacity: 0; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q1h0 { opacity: 0; animation: q1h0 12s step-end infinite; }
+		@keyframes q1h0 { 0% { opacity: 1; } 20.833% { opacity: 0; } 98% { opacity: 1; } 100% { opacity: 1; } }
+		.q1h1 { opacity: 0; animation: q1h1 12s step-end infinite; }
+		@keyframes q1h1 { 0% { opacity: 0; } 20.833% { opacity: 1; } 33.333% { opacity: 0; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q1h2 { opacity: 0; animation: q1h2 12s step-end infinite; }
+		@keyframes q1h2 { 0% { opacity: 0; } 33.333% { opacity: 1; } 45.833% { opacity: 0; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q1h3 { opacity: 0; animation: q1h3 12s step-end infinite; }
+		@keyframes q1h3 { 0% { opacity: 0; } 45.833% { opacity: 1; } 58.333% { opacity: 0; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q1h4 { opacity: 0; animation: q1h4 12s step-end infinite; }
+		@keyframes q1h4 { 0% { opacity: 0; } 58.333% { opacity: 1; } 70.833% { opacity: 0; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q1h5 { opacity: 1; animation: q1h5 12s step-end infinite; }
+		@keyframes q1h5 { 0% { opacity: 0; } 70.833% { opacity: 1; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q1c0 { opacity: 0; animation: q1c0 12s step-end infinite; }
+		@keyframes q1c0 { 0% { opacity: 1; } 8.333% { opacity: 0; } 98% { opacity: 1; } 100% { opacity: 1; } }
+		.q1c1 { opacity: 0; animation: q1c1 12s step-end infinite; }
+		@keyframes q1c1 { 0% { opacity: 0; } 8.333% { opacity: 1; } 70.833% { opacity: 0; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q1c2 { opacity: 1; animation: q1c2 12s step-end infinite; }
+		@keyframes q1c2 { 0% { opacity: 0; } 70.833% { opacity: 1; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) {
+			.q1sc, .q1tu, .q1ma, .q1ru, .q1la, .q1lb, .q1h0, .q1h1, .q1h2, .q1h3, .q1h4, .q1h5, .q1c0, .q1c1, .q1c2 { animation: none; }
+		}
+	</style>
+	<g id="panel-1">
+	<rect x="0" y="0" width="460" height="720" fill="#f8f9fa" />
+	<rect x="26" y="22" width="420" height="688" rx="10" fill="#2b2a26" />
+	<rect x="20" y="16" width="420" height="688" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+	<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Barometr cestou k chatě</text>
+	<text x="40" y="96" font-size="20" fill="#2b2a26">Turista nese barometr od moře k chatě.</text>
+	<g class="q1sc">
+		<rect x="22" y="110" width="416" height="262" fill="#e7f5ff" />
+		<rect x="22" y="340" width="60" height="32" fill="#1864ab" />
+		<text x="24" y="364" font-size="20" font-weight="bold" fill="#fff">moře</text>
+		<polygon points="82,340 300,175 360,175 364,372 82,372" fill="#8ce99a" stroke="#2b8a3e" stroke-width="2.5" stroke-linejoin="round" />
+		<line x1="22" y1="372" x2="438" y2="372" stroke="#2b8a3e" stroke-width="2.5" />
+		<rect x="322" y="149" width="34" height="26" fill="#d9a066" stroke="#6b3f17" stroke-width="2" />
+		<rect x="334" y="161" width="10" height="14" fill="#6b3f17" />
+		<polygon points="316,151 339,130 362,151" fill="#c92a2a" stroke="#7a1c1c" stroke-width="2" stroke-linejoin="round" />
+		<text x="339" y="123" text-anchor="middle" font-size="20" fill="#2b2a26">chata</text>
+		<line x1="432" y1="175" x2="432" y2="340" stroke="#495057" stroke-width="2.5" />
+		<line x1="427" y1="340" x2="437" y2="340" stroke="#495057" stroke-width="2.5" />
+		<text x="420" y="347" text-anchor="end" font-size="20" fill="#2b2a26">0 m</text>
+		<line x1="427" y1="307" x2="437" y2="307" stroke="#495057" stroke-width="2.5" />
+		<text x="420" y="314" text-anchor="end" font-size="20" fill="#2b2a26">80 m</text>
+		<line x1="427" y1="274" x2="437" y2="274" stroke="#495057" stroke-width="2.5" />
+		<text x="420" y="281" text-anchor="end" font-size="20" fill="#2b2a26">160 m</text>
+		<line x1="427" y1="241" x2="437" y2="241" stroke="#495057" stroke-width="2.5" />
+		<text x="420" y="248" text-anchor="end" font-size="20" fill="#2b2a26">240 m</text>
+		<line x1="427" y1="208" x2="437" y2="208" stroke="#495057" stroke-width="2.5" />
+		<text x="420" y="215" text-anchor="end" font-size="20" fill="#2b2a26">320 m</text>
+		<line x1="427" y1="175" x2="437" y2="175" stroke="#495057" stroke-width="2.5" />
+		<text x="420" y="182" text-anchor="end" font-size="20" fill="#2b2a26">400 m</text>
+		<g class="q1ma"><circle cx="0" cy="0" r="6" fill="#e03131" stroke="#7a1c1c" stroke-width="2" /></g>
+		<g class="q1tu">
+			<g class="q1la" stroke="#343a40" stroke-width="4" stroke-linecap="round"><line x1="0" y1="-18" x2="-6" y2="-1" /><line x1="0" y1="-18" x2="6" y2="-6" /></g>
+			<g class="q1lb" stroke="#343a40" stroke-width="4" stroke-linecap="round"><line x1="0" y1="-18" x2="-2" y2="-1" /><line x1="0" y1="-18" x2="3" y2="-4" /></g>
+			<rect x="-13" y="-36" width="9" height="15" rx="2" fill="#e8590c" stroke="#a63a07" stroke-width="1.5" />
+			<rect x="-5" y="-36" width="10" height="20" rx="3" fill="#1971c2" stroke="#0b4f8a" stroke-width="1.5" />
+			<line x1="2" y1="-31" x2="10" y2="-24" stroke="#1971c2" stroke-width="4" stroke-linecap="round" />
+			<circle cx="13" cy="-24" r="5" fill="#fff9db" stroke="#495057" stroke-width="2" />
+			<circle cx="0" cy="-43" r="6.5" fill="#f2c094" stroke="#8a5a2b" stroke-width="1.5" />
+		</g>
+		<circle cx="130" cy="480" r="88" fill="#e9ecef" stroke="#495057" stroke-width="4" />
+		<circle cx="130" cy="480" r="81" fill="#fff9db" stroke="#adb5bd" stroke-width="2" />
+		<g stroke="#212529" stroke-width="3">
+		<line x1="65.9" y1="517.0" x2="74.6" y2="512.0" />
+		<line x1="56.0" y1="480.0" x2="72.0" y2="480.0" stroke-width="4.5" />
+		<line x1="65.9" y1="443.0" x2="74.6" y2="448.0" />
+		<line x1="93.0" y1="415.9" x2="98.0" y2="424.6" />
+		<line x1="130.0" y1="406.0" x2="130.0" y2="422.0" stroke-width="4.5" />
+		<line x1="167.0" y1="415.9" x2="162.0" y2="424.6" />
+		<line x1="194.1" y1="443.0" x2="180.2" y2="451.0" stroke-width="4.5" />
+		<line x1="204.0" y1="480.0" x2="194.0" y2="480.0" />
+		<line x1="194.1" y1="517.0" x2="185.4" y2="512.0" />
+		</g>
+		<text x="96" y="510" text-anchor="middle" font-size="20" fill="#495057">nižší</text>
+		<text x="164" y="510" text-anchor="middle" font-size="20" fill="#495057">vyšší</text>
+		<text x="130" y="538" text-anchor="middle" font-size="20" fill="#495057">hPa</text>
+		<g transform="translate(130 480)"><g class="q1ru"><polygon points="0,-70.0 -6.0,0 6.0,0" fill="#212529" /></g></g>
+		<circle cx="130" cy="480" r="8" fill="#495057" />
+		<text x="130" y="596" text-anchor="middle" font-size="20" fill="#2b2a26">barometr v ruce turisty</text>
+		<rect x="242" y="405" width="186" height="150" rx="8" fill="#fff" stroke="#6c757d" stroke-width="2" />
+		<text x="256" y="434" font-size="20" fill="#495057">výška:</text>
+		<text x="256" y="502" font-size="20" fill="#495057">tlak:</text>
+		<g class="q1h0" opacity="0"><text x="256" y="466" font-size="26" font-weight="bold" fill="#2b2a26">0 m</text><text x="256" y="536" font-size="26" font-weight="bold" fill="#1864ab">1 020 hPa</text></g>
+		<g class="q1h1" opacity="0"><text x="256" y="466" font-size="26" font-weight="bold" fill="#2b2a26">80 m</text><text x="256" y="536" font-size="26" font-weight="bold" fill="#1864ab">1 010 hPa</text></g>
+		<g class="q1h2" opacity="0"><text x="256" y="466" font-size="26" font-weight="bold" fill="#2b2a26">160 m</text><text x="256" y="536" font-size="26" font-weight="bold" fill="#1864ab">1 000 hPa</text></g>
+		<g class="q1h3" opacity="0"><text x="256" y="466" font-size="26" font-weight="bold" fill="#2b2a26">240 m</text><text x="256" y="536" font-size="26" font-weight="bold" fill="#1864ab">990 hPa</text></g>
+		<g class="q1h4" opacity="0"><text x="256" y="466" font-size="26" font-weight="bold" fill="#2b2a26">320 m</text><text x="256" y="536" font-size="26" font-weight="bold" fill="#1864ab">980 hPa</text></g>
+		<g class="q1h5"><text x="256" y="466" font-size="26" font-weight="bold" fill="#2b2a26">400 m</text><text x="256" y="536" font-size="26" font-weight="bold" fill="#1864ab">970 hPa</text></g>
+		<g font-size="22" font-weight="bold" fill="#2b2a26">
+			<g class="q1c0" opacity="0"><text x="40" y="640">U moře ukazuje 1 020 hPa.</text></g>
+			<g class="q1c1" opacity="0"><text x="40" y="640">Turista stoupá, ručička klesá.</text></g>
+			<g class="q1c2"><text x="40" y="632">Každých 8 m výš ubude 1 hPa.</text><text x="40" y="662">400 : 8 = 50 hPa</text><text x="40" y="692" fill="#237032">1 020 − 50 = 970 hPa</text></g>
+		</g>
+	</g>
+	</g>
+</svg>

@@ -1,0 +1,100 @@
+<svg viewBox="0 0 460 700" width="460" height="700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Meteorologie a měření tlaku v pohybu, Přepočet na hladinu moře: stanice u moře naměří 1 020 hPa, chata 400 m nad mořem 970 hPa. Bez přepočtu by na mapě v horách vycházela věčná níže N. Po přepočtu 400 : 8 = 50 hPa a 970 + 50 = 1 020 hPa mají obě stanice stejný tlak a jde je poctivě porovnat." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Meteorologie a měření tlaku v pohybu 2/3: Přepočet na hladinu moře</title>
+	<!-- W112. Opora: výklad temata.ts (naměřené hodnoty se přepočítávají na hladinu moře; bez toho by horská stanice hlásila nízký tlak pořád a na mapě by v horách vycházela věčná níže; po přepočtu jde poctivě porovnat stanice; čísla chata 400 m, 1 020 hPa, 970 hPa, 400 : 8 = 50; N = tlaková níže modře jako obr-02). Cyklus 12 s: 1–2 s údaje putují na mapu; 2 s hodnoty na mapě; 2,6–6,5 s věčná níže N; 5 s výpočet 400 : 8; 6,5 s 970 → 1 020, N zmizí. Klid: obě stanice 1 020 hPa na mapě, výpočet. -->
+	<style>
+		.q2sc { opacity: 1; animation: q2sc 12s linear infinite; }
+		@keyframes q2sc { 0% { opacity: 1; } 96.667% { opacity: 1; } 97.5% { opacity: 0; } 98.5% { opacity: 0; } 99.5% { opacity: 1; } 100% { opacity: 1; } }
+		.q2d1 { transform: translateY(0px); animation: q2d1 12s linear infinite; }
+		@keyframes q2d1 { 0% { transform: translateY(0px); } 8.333% { transform: translateY(0px); } 16.667% { transform: translateY(118px); } 97.917% { transform: translateY(118px); } 98% { transform: translateY(0px); } 100% { transform: translateY(0px); } }
+		.q2dv { opacity: 0; animation: q2dv 12s step-end infinite; }
+		@keyframes q2dv { 0% { opacity: 0; } 8.333% { opacity: 1; } 16.667% { opacity: 0; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q2mv { opacity: 1; animation: q2mv 12s step-end infinite; }
+		@keyframes q2mv { 0% { opacity: 0; } 16.667% { opacity: 1; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q2m9 { opacity: 0; animation: q2m9 12s step-end infinite; }
+		@keyframes q2m9 { 0% { opacity: 0; } 16.667% { opacity: 1; } 54.167% { opacity: 0; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q2mx { opacity: 1; animation: q2mx 12s step-end infinite; }
+		@keyframes q2mx { 0% { opacity: 0; } 54.167% { opacity: 1; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q2nn { opacity: 0; animation: q2nn 12s step-end infinite; }
+		@keyframes q2nn { 0% { opacity: 0; } 21.667% { opacity: 1; } 54.167% { opacity: 0; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q2c0 { opacity: 0; animation: q2c0 12s step-end infinite; }
+		@keyframes q2c0 { 0% { opacity: 1; } 21.667% { opacity: 0; } 98% { opacity: 1; } 100% { opacity: 1; } }
+		.q2c1 { opacity: 0; animation: q2c1 12s step-end infinite; }
+		@keyframes q2c1 { 0% { opacity: 0; } 21.667% { opacity: 1; } 41.667% { opacity: 0; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q2c2 { opacity: 0; animation: q2c2 12s step-end infinite; }
+		@keyframes q2c2 { 0% { opacity: 0; } 41.667% { opacity: 1; } 54.167% { opacity: 0; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		.q2c3 { opacity: 1; animation: q2c3 12s step-end infinite; }
+		@keyframes q2c3 { 0% { opacity: 0; } 54.167% { opacity: 1; } 98% { opacity: 0; } 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) {
+			.q2sc, .q2d1, .q2dv, .q2mv, .q2m9, .q2mx, .q2nn, .q2c0, .q2c1, .q2c2, .q2c3 { animation: none; }
+		}
+	</style>
+	<g id="panel-2">
+	<rect x="0" y="0" width="460" height="700" fill="#f8f9fa" />
+	<rect x="26" y="22" width="420" height="668" rx="10" fill="#2b2a26" />
+	<rect x="20" y="16" width="420" height="668" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">2</text>
+	<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Přepočet na hladinu moře</text>
+	<text x="40" y="96" font-size="20" fill="#2b2a26">Dvě stanice změří tlak barometrem.</text>
+	<g class="q2sc">
+		<rect x="30" y="112" width="195" height="246" rx="10" fill="#fff" stroke="#6c757d" stroke-width="2" />
+		<text x="127.5" y="140" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">u moře · 0 m</text>
+		<rect x="67.5" y="172" width="120" height="20" fill="#1864ab" /><path d="M67.5,172 q10,-8 20,0 t20,0 t20,0 t20,0 t20,0 t20,0" fill="none" stroke="#1864ab" stroke-width="3" />
+		<circle cx="127.5" cy="262" r="56" fill="#e9ecef" stroke="#495057" stroke-width="4" />
+		<circle cx="127.5" cy="262" r="51.5455" fill="#fff9db" stroke="#adb5bd" stroke-width="2" />
+		<g stroke="#212529" stroke-width="2">
+		<line x1="86.7" y1="285.5" x2="92.2" y2="282.4" />
+		<line x1="80.4" y1="262.0" x2="90.6" y2="262.0" stroke-width="3" />
+		<line x1="86.7" y1="238.5" x2="92.2" y2="241.6" />
+		<line x1="104.0" y1="221.2" x2="107.1" y2="226.7" />
+		<line x1="127.5" y1="214.9" x2="127.5" y2="225.1" stroke-width="3" />
+		<line x1="151.0" y1="221.2" x2="147.9" y2="226.7" />
+		<line x1="168.3" y1="238.5" x2="159.5" y2="243.5" stroke-width="3" />
+		<line x1="174.6" y1="262.0" x2="168.2" y2="262.0" />
+		<line x1="168.3" y1="285.5" x2="162.8" y2="282.4" />
+		</g>
+		<g transform="translate(127.5 262) rotate(60)"><polygon points="0,-44.5 -3.8,0 3.8,0" fill="#212529" /></g>
+		<circle cx="127.5" cy="262" r="5.09091" fill="#495057" />
+		<text x="127.5" y="344" text-anchor="middle" font-size="24" font-weight="bold" fill="#1864ab">1 020 hPa</text>
+		<line x1="127.5" y1="362" x2="127.5" y2="452" stroke="#6c757d" stroke-width="2" stroke-dasharray="5 5" />
+		<rect x="235" y="112" width="195" height="246" rx="10" fill="#fff" stroke="#6c757d" stroke-width="2" />
+		<text x="332.5" y="140" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">chata · 400 m</text>
+		<polygon points="272.5,194 307.5,174 357.5,174 392.5,194" fill="#8ce99a" stroke="#2b8a3e" stroke-width="2" /><rect x="321.5" y="160" width="22" height="15" fill="#d9a066" stroke="#6b3f17" stroke-width="1.5" /><polygon points="317.5,162 332.5,149 347.5,162" fill="#c92a2a" stroke="#7a1c1c" stroke-width="1.5" />
+		<circle cx="332.5" cy="262" r="56" fill="#e9ecef" stroke="#495057" stroke-width="4" />
+		<circle cx="332.5" cy="262" r="51.5455" fill="#fff9db" stroke="#adb5bd" stroke-width="2" />
+		<g stroke="#212529" stroke-width="2">
+		<line x1="291.7" y1="285.5" x2="297.2" y2="282.4" />
+		<line x1="285.4" y1="262.0" x2="295.6" y2="262.0" stroke-width="3" />
+		<line x1="291.7" y1="238.5" x2="297.2" y2="241.6" />
+		<line x1="309.0" y1="221.2" x2="312.1" y2="226.7" />
+		<line x1="332.5" y1="214.9" x2="332.5" y2="225.1" stroke-width="3" />
+		<line x1="356.0" y1="221.2" x2="352.9" y2="226.7" />
+		<line x1="373.3" y1="238.5" x2="364.5" y2="243.5" stroke-width="3" />
+		<line x1="379.6" y1="262.0" x2="373.2" y2="262.0" />
+		<line x1="373.3" y1="285.5" x2="367.8" y2="282.4" />
+		</g>
+		<g transform="translate(332.5 262) rotate(-90)"><polygon points="0,-44.5 -3.8,0 3.8,0" fill="#212529" /></g>
+		<circle cx="332.5" cy="262" r="5.09091" fill="#495057" />
+		<text x="332.5" y="344" text-anchor="middle" font-size="24" font-weight="bold" fill="#1864ab">970 hPa</text>
+		<line x1="332.5" y1="362" x2="332.5" y2="452" stroke="#6c757d" stroke-width="2" stroke-dasharray="5 5" />
+		<rect x="30" y="382" width="400" height="190" rx="10" fill="#ebfbee" stroke="#6c757d" stroke-width="2" />
+		<text x="230" y="410" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">mapa počasí</text>
+		<circle cx="127.5" cy="470" r="6" fill="#2b2a26" />
+		<circle cx="332.5" cy="470" r="6" fill="#2b2a26" />
+		<g class="q2dv" opacity="0"><g class="q2d1"><circle cx="127.5" cy="352" r="7" fill="#e8590c" stroke="#a63a07" stroke-width="2" /></g></g>
+		<g class="q2dv" opacity="0"><g class="q2d1"><circle cx="332.5" cy="352" r="7" fill="#e8590c" stroke="#a63a07" stroke-width="2" /></g></g>
+		<path d="M87.5,540 q10,-8 20,0 t20,0 t20,0 t20,0" fill="none" stroke="#1864ab" stroke-width="3" />
+		<polygon points="292.5,556 332.5,516 372.5,556" fill="#8ce99a" stroke="#2b8a3e" stroke-width="2" />
+		<g class="q2mv" opacity="0"><text x="127.5" y="504" text-anchor="middle" font-size="24" font-weight="bold" fill="#2b2a26">1 020</text></g>
+		<g class="q2m9" opacity="0"><text x="332.5" y="504" text-anchor="middle" font-size="24" font-weight="bold" fill="#2b2a26">970</text></g>
+		<g class="q2mx"><text x="332.5" y="504" text-anchor="middle" font-size="24" font-weight="bold" fill="#237032">1 020</text></g>
+		<g class="q2nn" opacity="0"><circle cx="395" cy="463" r="19" fill="#fff" stroke="#1971c2" stroke-width="2.5" /><text x="395" y="471" text-anchor="middle" font-size="22" font-weight="bold" fill="#1971c2">N</text></g>
+		<g font-size="22" font-weight="bold" fill="#2b2a26">
+			<g class="q2c0" opacity="0"><text x="40" y="610">Obě stanice pošlou tlak na mapu.</text></g>
+			<g class="q2c1" opacity="0"><text x="40" y="610">Bez přepočtu by v horách</text><text x="40" y="640">vycházela věčná níže <tspan fill="#1971c2">N</tspan>.</text></g>
+			<g class="q2c2" opacity="0"><text x="40" y="610">Chata je 400 m nad mořem:</text><text x="40" y="640">400 : 8 = 50 hPa</text></g>
+			<g class="q2c3"><text x="40" y="610">400 : 8 = 50 hPa</text><text x="40" y="640" fill="#237032">970 + 50 = 1 020 hPa</text><text x="40" y="670">Teď jde stanice poctivě porovnat.</text></g>
+		</g>
+	</g>
+	</g>
+</svg>
