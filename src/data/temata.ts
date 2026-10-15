@@ -2593,6 +2593,7 @@ export const temata: Record<string, Tema[]> = {
 					materialy: [
 						{ druh: 'infografika', nazev: 'Oko jako optická soustava', cesta: '/materialy/fyzika/7-rocnik/zrcadla-a-cocky/oko-vady-oka/infografika-oko.jpg' },
 						{ druh: 'infografika', nazev: 'Historie brýlí (nad rámec RVP)', cesta: '/materialy/fyzika/7-rocnik/zrcadla-a-cocky/oko-vady-oka/infografika-historie-bryli.jpg' },
+						{ druh: 'infografika', nazev: 'Oko v pohybu', cesta: '/materialy/fyzika/7-rocnik/zrcadla-a-cocky/oko-vady-oka/infografika-oko-vady-oka-pohyb-panel-1.svg', panely: ['/materialy/fyzika/7-rocnik/zrcadla-a-cocky/oko-vady-oka/infografika-oko-vady-oka-pohyb-panel-1.svg'] },
 					],
 				},
 				{
