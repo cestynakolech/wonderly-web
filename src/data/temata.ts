@@ -2562,6 +2562,7 @@ export const temata: Record<string, Tema[]> = {
 					zapis: {"vzorec":"f = r/2","jednotky":["poloměr křivosti r, ohnisková vzdálenost f (m)"],"vzorecSlovy":"ohnisková vzdálenost = polovina poloměru křivosti","body":["duté zrcadlo odráží vnitřní stranou a paprsky rovnoběžné s osou sbírá do ohniska","duté zrcadlo: předmět blíž než f dává obraz zdánlivý a zvětšený, dál než f skutečný a převrácený","vypuklé zrcadlo: obraz je vždy zdánlivý, vzpřímený a zmenšený"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Fyzika kulových zrcadel', cesta: 'xkCEjfT11L8' },
+						{ druh: 'infografika', nazev: 'Kulová zrcadla v pohybu', cesta: '/materialy/fyzika/7-rocnik/zrcadla-a-cocky/kulova-zrcadla-dute-zrcadlo/infografika-kulova-zrcadla-dute-zrcadlo-pohyb-panel-1.svg', panely: ['/materialy/fyzika/7-rocnik/zrcadla-a-cocky/kulova-zrcadla-dute-zrcadlo/infografika-kulova-zrcadla-dute-zrcadlo-pohyb-panel-1.svg', '/materialy/fyzika/7-rocnik/zrcadla-a-cocky/kulova-zrcadla-dute-zrcadlo/infografika-kulova-zrcadla-dute-zrcadlo-pohyb-panel-2.svg', '/materialy/fyzika/7-rocnik/zrcadla-a-cocky/kulova-zrcadla-dute-zrcadlo/infografika-kulova-zrcadla-dute-zrcadlo-pohyb-panel-3.svg'] },
 					],
 				},
 				{

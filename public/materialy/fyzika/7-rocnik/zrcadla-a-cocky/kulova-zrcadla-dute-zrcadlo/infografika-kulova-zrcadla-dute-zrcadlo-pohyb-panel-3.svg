@@ -1,0 +1,86 @@
+<svg viewBox="0 0 460 640" width="460" height="640" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kulová zrcadla v pohybu 3/3, Kolik řidič uvidí: pohled shora na nepřehlednou křižovatku. Řidič vyjíždí z ulice mezi domy, naproti stojí zrcadlo. Zleva přijíždí auto, které řidiči celou dobu zakrývá dům, přímo ho nevidí. S rovinným zrcadlem vidí řidič jen úzký kousek silnice před sebou a auto nevidí ani v zrcadle. S vypuklým zrcadlem vidí mnohem větší část silnice, i přijíždějící auto. Světlo od auta se odrazí od zrcadla do oka řidiče." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Kulová zrcadla v pohybu 3/3: Kolik řidič uvidí?</title>
+	<!-- W89 (OPRAVA 1). Předloha: PDF 23, s. 16 („ve vypuklém zrcadle vidíme mnohem větší část prostoru než v rovinném zrcadle;
+	     dopravní zrcadlo v nepřehledných křižovatkách“) a s. 17 (fotografie dopravního zrcadla u silnice; tady pohled shora).
+	     Pohled shora. Oko E = (230, 420), zrcadlo šířky 60 se středem (230, 152); vypuklé = oblouk r = 60, střed (230, 92).
+	     Okrajové paprsky spočítané odrazem podle kolmice k ploše zrcadla v bodě dopadu (úhel dopadu = úhel odrazu).
+	     Rovinné: silnice (y = 228) vidět jen x ≈ 191.5–268.5; vypuklé: od okraje k okraji obrázku.
+	     Auto jede z x -26–30 do 70–126 (vyjíždí zpoza levého okraje, výřez kartou): přímka oko → kterýkoli roh auta
+	     protne dům (x 36–162, y 262), řidič auto přímo NEVIDÍ v žádné poloze (nejblíž rohu domu x = 149.8).
+	     Paprsek auto → zrcadlo → oko: auto (120, 228), bod dopadu (208, 147.8).
+	     Cyklus 10 s: 0–5 s rovinné, 5–10 s vypuklé; auto jede 0–4 s a 5–9 s; paprsek od auta 9,1–10 s.
+	     Bez pohybu: rovinné zrcadlo, auto vlevo (mimo výhled). -->
+	<defs><marker id="kz3-sip" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#c2410c" /></marker>
+		<clipPath id="kz3-karta"><rect x="22" y="18" width="416" height="604" /></clipPath></defs>
+	<style>
+		.au { animation: au 10s linear infinite; }
+		@keyframes au { 0% { transform: translateX(-60px); } 40% { transform: translateX(36px); } 50% { transform: translateX(36px); } 50.01% { transform: translateX(-60px); } 90% { transform: translateX(36px); } 100% { transform: translateX(36px); } }
+		.ro { animation: ro 10s step-end infinite; }
+		@keyframes ro { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 0; } }
+		.vy { animation: vy 10s step-end infinite; }
+		@keyframes vy { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 1; } }
+		.pa { animation: pa 10s linear infinite; }
+		@keyframes pa { 0% { opacity: 0; } 90% { opacity: 0; } 91% { opacity: 1; } 100% { opacity: 1; } }
+		@media (prefers-reduced-motion: reduce) {
+			.au, .ro, .vy, .pa { animation: none; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="640" fill="#f8f9fa" />
+	<g id="panel-3">
+		<rect x="26" y="22" width="420" height="608" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="608" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">3</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Kolik řidič uvidí?</text>
+		<text x="40" y="96" font-size="20" fill="#2b2a26">Zleva jede auto, zakrývá ho dům.</text>
+		<rect x="22" y="132" width="416" height="44" fill="#e9ecef" />
+		<rect x="22" y="176" width="416" height="70" fill="#868e96" />
+		<path d="M22 211H438" stroke="#f8f9fa" stroke-width="3" stroke-dasharray="18 14" />
+		<rect x="176" y="246" width="108" height="236" fill="#868e96" />
+		<rect x="22" y="246" width="154" height="236" fill="#e9ecef" />
+		<rect x="284" y="246" width="154" height="236" fill="#e9ecef" />
+		<rect x="36" y="262" width="126" height="110" fill="#c92a2a" stroke="#2b2a26" stroke-width="2.5" />
+		<path d="M36 317H162" stroke="#2b2a26" stroke-width="2" />
+		<text x="99" y="406" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">dům</text>
+		<rect x="298" y="262" width="126" height="110" fill="#c92a2a" stroke="#2b2a26" stroke-width="2.5" />
+		<path d="M298 317H424" stroke="#2b2a26" stroke-width="2" />
+		<text x="361" y="406" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">dům</text>
+		<circle cx="230" cy="140" r="5" fill="#2b2a26" />
+		<g class="ro">
+			<path d="M200 152L191.5 228L268.5 228L260 152z" fill="#ffd8a8" />
+			<path d="M200 147H260" stroke="#adb5bd" stroke-width="7" />
+			<path d="M200 152H260" stroke="#2b2a26" stroke-width="4" />
+			<path d="M191.5 228L200 152L230 406" fill="none" stroke="#fbfaf6" stroke-width="7" stroke-linejoin="round" />
+			<path d="M191.5 228L200 152L230 406" fill="none" stroke="#c2410c" stroke-width="3" marker-end="url(#kz3-sip)" />
+			<path d="M268.5 228L260 152L230 406" fill="none" stroke="#fbfaf6" stroke-width="7" stroke-linejoin="round" />
+			<path d="M268.5 228L260 152L230 406" fill="none" stroke="#c2410c" stroke-width="3" marker-end="url(#kz3-sip)" />
+			<text x="40" y="530" font-size="22" font-weight="bold" fill="#2b2a26">Rovinné zrcadlo: řidič</text>
+			<text x="40" y="558" font-size="22" font-weight="bold" fill="#2b2a26">vidí jen kousek silnice.</text>
+		</g>
+		<g class="vy" opacity="0">
+			<path d="M200 144L24 221.6L24 246L436 246L436 221.6L260 144A60 60 0 0 0 200 144z" fill="#ffd8a8" />
+			<path d="M200 139A60 60 0 0 0 260 139" fill="none" stroke="#adb5bd" stroke-width="7" />
+			<path d="M200 144A60 60 0 0 0 260 144" fill="none" stroke="#2b2a26" stroke-width="4" />
+			<path d="M24 221.6L200 144L230 406" fill="none" stroke="#fbfaf6" stroke-width="7" stroke-linejoin="round" />
+			<path d="M24 221.6L200 144L230 406" fill="none" stroke="#c2410c" stroke-width="3" marker-end="url(#kz3-sip)" />
+			<path d="M436 221.6L260 144L230 406" fill="none" stroke="#fbfaf6" stroke-width="7" stroke-linejoin="round" />
+			<path d="M436 221.6L260 144L230 406" fill="none" stroke="#c2410c" stroke-width="3" marker-end="url(#kz3-sip)" />
+			<text x="40" y="530" font-size="22" font-weight="bold" fill="#2b2a26">Vypuklé zrcadlo: řidič</text>
+			<text x="40" y="558" font-size="22" font-weight="bold" fill="#2b2a26">vidí i auto zleva.</text>
+		</g>
+		<g clip-path="url(#kz3-karta)"><g class="au">
+			<rect x="34" y="215" width="56" height="26" rx="6" fill="#1971c2" stroke="#2b2a26" stroke-width="2" />
+			<rect x="68" y="218" width="12" height="20" rx="2" fill="#d0ebff" />
+		</g></g>
+		<g class="pa" opacity="0"><path d="M120 228L208 147.8L230 406" fill="none" stroke="#fbfaf6" stroke-width="8" stroke-linejoin="round" />
+		<path d="M120 228L208 147.8L230 406" fill="none" stroke="#c2410c" stroke-width="4" marker-end="url(#kz3-sip)" /></g>
+		<rect x="206" y="404" width="48" height="70" rx="8" fill="#495057" stroke="#2b2a26" stroke-width="2" />
+		<rect x="211" y="412" width="38" height="14" rx="3" fill="#d0ebff" />
+		<ellipse cx="230" cy="420" rx="11" ry="7" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+		<circle cx="230" cy="420" r="4" fill="#2b2a26" />
+		<text x="290" y="460" font-size="20" font-weight="bold" fill="#2b2a26">řidič</text>
+		<text x="250" y="128" font-size="20" font-weight="bold" fill="#2b2a26">zrcadlo</text>
+		<text x="40" y="592" font-size="20" fill="#2b2a26">Oranžově: co je v zrcadle vidět.</text>
+		<text x="40" y="616" font-size="20" fill="#2b2a26">Vypuklé ukáže větší část prostoru.</text>
+	</g>
+</svg>
