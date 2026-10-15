@@ -1,0 +1,130 @@
+<svg viewBox="0 0 460 570" width="460" height="570" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Délka v pohybu, Svinovací metr na prkně: na stole leží prkno. Háček svinovacího metru zachytí levou hranu prkna, tam je nula stupnice. Pouzdro odjíždí doprava a z něj se vytahuje žlutý pásek s centimetry až za konec prkna. U konce prkna čteme zblízka na milimetry, nejmenší dílek je 1 mm: l = 846 mm = 84 cm 6 mm." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Délka v pohybu 2/3: Svinovací metr na prkně</title>
+	<!-- W100. Předloha: PDF 6/03 Fyzikální veličiny/ 6.  Délka, s. 4 (svinovací metr: přesnost na milimetry, rovné vzdálenosti, až několik metrů), s. 8 (nula na začátku tělesa, těsně přiléhá, odečet na nejbližším dílku, zápis s jednotkou), s. 9 (kombinace jednotek 532 cm = 5 m 32 cm); tvar a barvy přístroje podle obr-02 stránky (žlutý pásek s háčkem, pouzdro, dílek 1 mm). Pohled shora na stůl. Měřítko: prkno x 46–356 = 846 mm, 0,3664 px/mm; zblízka 10 px/mm, x = 230 + 10·(mm − 845). Cyklus 8 s: háček se zachytí 0–0,6 s, vytahování 0,6–3,6 s (levý okraj pouzdra = konec pásku, x = 52 + 310·(p − 7,5)/37,5), úseky stupnice se odkrývají pod pouzdrem, odečet zblízka od 4 s. Klid (reduced motion): vytažený pásek, odečet a výsledek. -->
+	<style>
+		.s2h { animation: s2h 8s linear infinite; }
+		@keyframes s2h { 0% { transform: translateX(-14px); } 7.5% { transform: translateX(0px); } 100% { transform: translateX(0px); } }
+		.s2c { animation: s2c 8s linear infinite; }
+		@keyframes s2c { 0% { transform: translateX(-14px); } 7.5% { transform: translateX(0px); } 45% { transform: translateX(310px); } 100% { transform: translateX(310px); } }
+		.s2p { animation: s2p 8s linear infinite; }
+		@keyframes s2p { 0% { transform: translate(46px,0px) scale(0.019,1); opacity: 0; } 7.4% { transform: translate(46px,0px) scale(0.019,1); opacity: 0; } 7.5% { transform: translate(46px,0px) scale(0.019,1); opacity: 1; } 45% { transform: translate(46px,0px) scale(1,1); opacity: 1; } 100% { transform: translate(46px,0px) scale(1,1); opacity: 1; } }
+		.s2u0 { animation: s2u0 8s step-end infinite; }
+		@keyframes s2u0 { 0% { opacity: 0; } 7.5% { opacity: 1; } 100% { opacity: 1; } }
+		.s2u1 { animation: s2u1 8s step-end infinite; }
+		@keyframes s2u1 { 0% { opacity: 0; } 9.51% { opacity: 1; } 100% { opacity: 1; } }
+		.s2u2 { animation: s2u2 8s step-end infinite; }
+		@keyframes s2u2 { 0% { opacity: 0; } 13.95% { opacity: 1; } 100% { opacity: 1; } }
+		.s2u3 { animation: s2u3 8s step-end infinite; }
+		@keyframes s2u3 { 0% { opacity: 0; } 18.38% { opacity: 1; } 100% { opacity: 1; } }
+		.s2u4 { animation: s2u4 8s step-end infinite; }
+		@keyframes s2u4 { 0% { opacity: 0; } 22.81% { opacity: 1; } 100% { opacity: 1; } }
+		.s2u5 { animation: s2u5 8s step-end infinite; }
+		@keyframes s2u5 { 0% { opacity: 0; } 27.24% { opacity: 1; } 100% { opacity: 1; } }
+		.s2u6 { animation: s2u6 8s step-end infinite; }
+		@keyframes s2u6 { 0% { opacity: 0; } 31.68% { opacity: 1; } 100% { opacity: 1; } }
+		.s2u7 { animation: s2u7 8s step-end infinite; }
+		@keyframes s2u7 { 0% { opacity: 0; } 36.11% { opacity: 1; } 100% { opacity: 1; } }
+		.s2u8 { animation: s2u8 8s step-end infinite; }
+		@keyframes s2u8 { 0% { opacity: 0; } 40.54% { opacity: 1; } 100% { opacity: 1; } }
+		.s2t1 { animation: s2t1 8s step-end infinite; }
+		@keyframes s2t1 { 0% { opacity: 1; } 10% { opacity: 0; } 100% { opacity: 0; } }
+		.s2t2 { animation: s2t2 8s step-end infinite; }
+		@keyframes s2t2 { 0% { opacity: 0; } 10% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 0; } }
+		.s2t3 { animation: s2t3 8s step-end infinite; }
+		@keyframes s2t3 { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 1; } }
+		@media (prefers-reduced-motion: reduce) {
+			.s2h, .s2c, .s2p, .s2u0, .s2u1, .s2u2, .s2u3, .s2u4, .s2u5, .s2u6, .s2u7, .s2u8, .s2t1, .s2t2, .s2t3 { animation: none; }
+		}
+	</style>
+	<defs>
+		<clipPath id="s2okno"><rect x="80" y="330" width="300" height="120" rx="8" /></clipPath>
+	</defs>
+	<rect x="0" y="0" width="460" height="570" fill="#f8f9fa" />
+	<g id="panel-2">
+		<rect x="26" y="22" width="420" height="528" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="528" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">2</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Svinovací metr na prkně</text>
+		<!-- stůl a prkno (pohled shora) -->
+		<rect x="30" y="122" width="400" height="168" rx="6" fill="#efe4d0" stroke="#8c6d3f" stroke-width="2" />
+		<rect x="46" y="175" width="310" height="80" fill="#d9a066" stroke="#7a4a1c" stroke-width="2.5" />
+		<path d="M60 222Q140 214 220 224T350 220M56 240Q150 232 250 242T352 238M120 230Q170 226 210 232" fill="none" stroke="#b07a3e" stroke-width="2" />
+		<!-- pásek (tělo se natahuje od háčku k pouzdru) -->
+		<g class="s2p" transform="translate(46,0) scale(1,1)">
+			<rect x="0" y="180" width="316" height="32" fill="#ffd43b" />
+			<path d="M0 180H316M0 212H316" stroke="#4d3b06" stroke-width="1.5" />
+		</g>
+		<!-- stupnice pásku po úsecích po 10 cm -->
+		<g stroke="#212529" stroke-width="2">
+			<g class="s2u0"><path d="M64.3 180V184" /></g>
+			<g class="s2u1"><path d="M82.6 180V185M101 180V184" /></g>
+			<g class="s2u2"><path d="M119.3 180V185M137.6 180V184" /></g>
+			<g class="s2u3"><path d="M155.9 180V185M174.3 180V184" /></g>
+			<g class="s2u4"><path d="M192.6 180V185M210.9 180V184" /></g>
+			<g class="s2u5"><path d="M229.2 180V185M247.5 180V184" /></g>
+			<g class="s2u6"><path d="M265.9 180V185M284.2 180V184" /></g>
+			<g class="s2u7"><path d="M302.5 180V185M320.8 180V184" /></g>
+			<g class="s2u8"><path d="M339.1 180V185M357.5 180V184" /></g>
+		</g>
+		<g font-size="20" fill="#2b2a26" text-anchor="middle">
+			<g class="s2u1"><text x="82.6" y="206">10</text></g>
+			<g class="s2u2"><text x="119.3" y="206">20</text></g>
+			<g class="s2u3"><text x="155.9" y="206">30</text></g>
+			<g class="s2u4"><text x="192.6" y="206">40</text></g>
+			<g class="s2u5"><text x="229.2" y="206">50</text></g>
+			<g class="s2u6"><text x="265.9" y="206">60</text></g>
+			<g class="s2u7"><text x="302.5" y="206">70</text></g>
+			<g class="s2u8"><text x="339.1" y="206">80</text></g>
+		</g>
+		<!-- háček zachycený za levou hranu prkna (nula) -->
+		<g class="s2h">
+			<rect x="39" y="176" width="8" height="36" rx="2" fill="#495057" stroke="#212529" stroke-width="1.5" />
+			<circle cx="43" cy="186" r="2" fill="#dee2e6" />
+			<circle cx="43" cy="202" r="2" fill="#dee2e6" />
+		</g>
+		<text x="34" y="108" font-size="20" fill="#2b2a26">háček = nula</text>
+		<path d="M48 114L43 172" stroke="#2b2a26" stroke-width="2" />
+		<!-- pouzdro svinovacího metru -->
+		<g class="s2c" transform="translate(310,0)">
+			<rect x="52" y="164" width="60" height="60" rx="12" fill="#f2b705" stroke="#7a5c12" stroke-width="2.5" />
+			<rect x="72" y="156" width="20" height="10" rx="3" fill="#495057" />
+			<circle cx="82" cy="194" r="20" fill="#343a40" />
+			<circle cx="82" cy="194" r="6" fill="#adb5bd" />
+		</g>
+		<!-- zblízka u konce prkna -->
+		<g class="s2t3">
+			<path d="M356 256L330 330" stroke="#2b2a26" stroke-width="2" stroke-dasharray="5 4" />
+			<text x="80" y="320" font-size="20" fill="#2b2a26">zblízka, dílek 1 mm</text>
+			<g clip-path="url(#s2okno)">
+				<rect x="80" y="330" width="300" height="120" fill="#efe4d0" />
+				<!-- OPRAVA 1: jako v hlavním pohledu leží pásek NA prkně (horní okraj prkna těsně nad páskem, prkno pokračuje pod ním); za koncem prkna leží pásek nad stolem -->
+				<rect x="70" y="336" width="170" height="124" fill="#d9a066" stroke="#7a4a1c" stroke-width="2.5" />
+				<path d="M80 424Q140 416 200 426T236 422" fill="none" stroke="#b07a3e" stroke-width="2" />
+				<rect x="70" y="344" width="320" height="50" fill="#ffd43b" />
+				<path d="M70 344H390M70 394H390" stroke="#4d3b06" stroke-width="1.5" />
+				<path d="M80 344V368M90 344V354M100 344V354M110 344V354M120 344V354M130 344V360M140 344V354M150 344V354M160 344V354M170 344V354M180 344V368M190 344V354M200 344V354M210 344V354M220 344V354M230 344V360M240 344V354M250 344V354M260 344V354M270 344V354M280 344V368M290 344V354M300 344V354M310 344V354M320 344V354M330 344V360M340 344V354M350 344V354M360 344V354M370 344V354M380 344V368" stroke="#212529" stroke-width="2" />
+				<g font-size="20" fill="#2b2a26" text-anchor="middle">
+					<text x="180" y="388">84</text>
+					<text x="280" y="388">85</text>
+				</g>
+				<path d="M240 330V450" stroke="#fbfaf6" stroke-width="7" />
+				<path d="M240 330V450" stroke="#c92a2a" stroke-width="3" />
+			</g>
+			<rect x="80" y="330" width="300" height="120" rx="8" fill="none" stroke="#495057" stroke-width="2.5" />
+			<rect x="246" y="418" width="128" height="28" rx="4" fill="#fbfaf6" />
+			<text x="250" y="439" font-size="20" font-weight="bold" fill="#c92a2a">konec prkna</text>
+		</g>
+		<!-- texty podle fáze děje -->
+		<g class="s2t1" opacity="0">
+			<text x="40" y="490" font-size="20" fill="#2b2a26">Háček zachytí hranu prkna.</text>
+		</g>
+		<g class="s2t2" opacity="0">
+			<text x="40" y="490" font-size="20" fill="#2b2a26">Pásek vytahujeme až za konec prkna.</text>
+		</g>
+		<g class="s2t3">
+			<text x="40" y="490" font-size="20" fill="#2b2a26">U konce prkna čteme na milimetry:</text>
+			<text x="40" y="524" font-size="24" font-weight="bold" fill="#c92a2a">l = 846 mm = 84 cm 6 mm</text>
+		</g>
+	</g>
+</svg>

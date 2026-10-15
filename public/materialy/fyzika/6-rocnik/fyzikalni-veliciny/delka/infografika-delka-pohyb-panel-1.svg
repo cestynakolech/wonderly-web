@@ -1,0 +1,115 @@
+<svg viewBox="0 0 460 620" width="460" height="620" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Délka v pohybu, Mikrometr sevře vlas: zavřený mikrometr ukazuje 0. Otáčením bubínku se šroub (vřeteno) otevře, mezi pevný dotek a šroub vložíme vlas a šroub zavřeme, až se vlasu dotkne. Na stupnici bubínku čteme 6 setin milimetru, tloušťka vlasu d = 0,06 mm. Mikrometr měří na setiny milimetru." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Délka v pohybu 1/3: Mikrometr sevře vlas</title>
+	<!-- W100. Předloha: PDF 6/03 Fyzikální veličiny/ 6.  Délka, s. 5–6 (mikrometr: rám podkova, pevný dotek, vřeteno, pouzdro se stupnicí, bubínek 30–40–50, řehtačka; přesnost na setiny milimetru, tloušťka vlasu) a obr-04 stránky (tvar a barvy přístroje). Výklad temata.ts: mikrometr na setiny mm, tloušťka vlasu; nula se kontroluje. Měřítko (zvětšeno): 1 setina mm = 0,6 px mezery i posunu šroubu; vlas 6 setin = 3,6 px; otevřeno 40 setin = 24 px. Stupnice bubínku zblízka: 12 px na setinu. Cyklus 10 s: zavřeno 0 do 1,2 s, otevírání 1,2–3,2 s, vlas 3,2–4,2 s, zavírání 4,2–6 s, odečet od 6 s. Klid (reduced motion): sevřený vlas, odečet 6 setin a výsledek. -->
+	<style>
+		.m1s { animation: m1s 10s linear infinite; }
+		@keyframes m1s { 0% { transform: translateX(-3.6px); } 12% { transform: translateX(-3.6px); } 32% { transform: translateX(20.4px); } 42% { transform: translateX(20.4px); } 60% { transform: translateX(0px); } 100% { transform: translateX(0px); } }
+		.m1p { animation: m1p 10s linear infinite; }
+		@keyframes m1p { 0% { transform: translateY(0px); } 12% { transform: translateY(0px); } 32% { transform: translateY(480px); } 42% { transform: translateY(480px); } 60% { transform: translateY(72px); } 100% { transform: translateY(72px); } }
+		.m1h { animation: m1h 10s linear infinite; }
+		@keyframes m1h { 0% { transform: translateY(-90px); opacity: 0; } 32% { transform: translateY(-90px); opacity: 0; } 33% { transform: translateY(-90px); opacity: 1; } 42% { transform: translateY(0px); opacity: 1; } 100% { transform: translateY(0px); opacity: 1; } }
+		.m1t1 { animation: m1t1 10s step-end infinite; }
+		@keyframes m1t1 { 0% { opacity: 1; } 12% { opacity: 0; } 100% { opacity: 0; } }
+		.m1t2 { animation: m1t2 10s step-end infinite; }
+		@keyframes m1t2 { 0% { opacity: 0; } 12% { opacity: 1; } 32% { opacity: 0; } 100% { opacity: 0; } }
+		.m1t3 { animation: m1t3 10s step-end infinite; }
+		@keyframes m1t3 { 0% { opacity: 0; } 32% { opacity: 1; } 42% { opacity: 0; } 100% { opacity: 0; } }
+		.m1t4 { animation: m1t4 10s step-end infinite; }
+		@keyframes m1t4 { 0% { opacity: 0; } 42% { opacity: 1; } 60% { opacity: 0; } 100% { opacity: 0; } }
+		.m1t5 { animation: m1t5 10s step-end infinite; }
+		@keyframes m1t5 { 0% { opacity: 0; } 60% { opacity: 1; } 100% { opacity: 1; } }
+		@media (prefers-reduced-motion: reduce) {
+			.m1s, .m1p, .m1h, .m1t1, .m1t2, .m1t3, .m1t4, .m1t5 { animation: none; }
+		}
+	</style>
+	<defs>
+		<clipPath id="m1okno"><rect x="130" y="352" width="200" height="180" rx="8" /></clipPath>
+	</defs>
+	<rect x="0" y="0" width="460" height="620" fill="#f8f9fa" />
+	<g id="panel-1">
+		<rect x="26" y="22" width="420" height="588" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="588" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Mikrometr sevře vlas</text>
+		<!-- mikrometr (osa y = 250) -->
+		<g transform="translate(0,40)">
+			<!-- vřeteno (šroub): čelo v klidu x = 106,6 (vlas 3,6 px od doteku) -->
+			<g class="m1s">
+				<rect x="106.6" y="202" width="160" height="16" fill="#dee2e6" stroke="#495057" stroke-width="2" />
+			</g>
+			<!-- vlas -->
+			<g class="m1h">
+				<path d="M107 150Q103 175 104.8 200V220Q106 245 101 282" fill="none" stroke="#5c3d1e" stroke-width="3.6" stroke-linecap="round" />
+			</g>
+			<!-- rám ve tvaru podkovy -->
+			<path d="M66 262V170A75 75 0 0 1 216 170V226" fill="none" stroke="#495057" stroke-width="34" />
+			<path d="M66 260.5V170A75 75 0 0 1 216 170V224.5" fill="none" stroke="#ced4da" stroke-width="28" />
+			<path d="M78 168A63 63 0 0 1 132 108" fill="none" stroke="#f1f3f5" stroke-width="4" stroke-linecap="round" />
+			<!-- pevný dotek -->
+			<rect x="83" y="200" width="20" height="20" fill="#dee2e6" stroke="#495057" stroke-width="2" />
+			<!-- pouzdro se stupnicí milimetrů -->
+			<rect x="233" y="198" width="120" height="24" fill="#e9ecef" stroke="#495057" stroke-width="2" />
+			<path d="M233 210H353" stroke="#212529" stroke-width="2" />
+			<path d="M262 198V210M292 210V222" stroke="#212529" stroke-width="2" />
+			<text x="262" y="190" text-anchor="middle" font-size="20" fill="#2b2a26">0</text>
+			<!-- bubínek a řehtačka (jedou se šroubem) -->
+			<g class="m1s">
+				<path d="M265.6 198L277.6 188V232L265.6 222Z" fill="#dee2e6" stroke="#495057" stroke-width="2" stroke-linejoin="round" />
+				<path d="M268.6 204H275M268.6 210H277M268.6 216H275" stroke="#212529" stroke-width="1.5" />
+				<rect x="277.6" y="188" width="60" height="44" fill="#ced4da" stroke="#495057" stroke-width="2" />
+				<path d="M283.6 188L301.6 232M295.6 188L313.6 232M307.6 188L325.6 232M319.6 188L337.6 232M277.6 202L289.6 232M331.6 188L337.6 202M301.6 188L283.6 232M313.6 188L295.6 232M325.6 188L307.6 232M337.6 188L319.6 232M289.6 188L277.6 218M337.6 218L331.6 232" stroke="#868e96" stroke-width="1.5" />
+				<rect x="337.6" y="198" width="24" height="24" rx="3" fill="#dee2e6" stroke="#495057" stroke-width="2" />
+				<path d="M343.6 198V222M349.6 198V222M355.6 198V222" stroke="#868e96" stroke-width="1.5" />
+			</g>
+		</g>
+		<text x="104" y="342" text-anchor="middle" font-size="20" fill="#2b2a26">vlas</text>
+		<!-- stupnice bubínku zblízka -->
+		<text x="235" y="342" text-anchor="middle" font-size="20" fill="#2b2a26">bubínek zblízka</text>
+		<!-- OPRAVA 1: čísla rostou NAHORU jako na fotce PDF s. 6 a obr-04 (50 nahoře, 40, 30 pod ním). Ryska hodnoty v (setiny) leží na y = 442 − 12·v při posunu 0; pás se při otevírání posouvá DOLŮ (+12 px na setinu): 0 → +480 (40 setin) → +72 (6 setin). Okno ±90 px kolem čáry odečtu, aby čísla v klidových polohách nebyla useknutá. -->
+		<g clip-path="url(#m1okno)">
+			<rect x="130" y="352" width="105" height="180" fill="#e9ecef" />
+			<rect x="235" y="352" width="95" height="180" fill="#ced4da" />
+			<g class="m1p" transform="translate(0,72)">
+				<path d="M235 562H257M235 550H249M235 538H249M235 526H249M235 514H249M235 502H257M235 490H249M235 478H249M235 466H249M235 454H249M235 442H257M235 430H249M235 418H249M235 406H249M235 394H249M235 382H257M235 370H249M235 358H249M235 346H249M235 334H249M235 322H257M235 310H249M235 298H249M235 286H249M235 274H249M235 262H257M235 250H249M235 238H249M235 226H249M235 214H249M235 202H257M235 190H249M235 178H249M235 166H249M235 154H249M235 142H257M235 130H249M235 118H249M235 106H249M235 94H249M235 82H257M235 70H249M235 58H249M235 46H249M235 34H249M235 22H257M235 10H249M235 -2H249M235 -14H249M235 -26H249M235 -38H257M235 -50H249M235 -62H249M235 -74H249M235 -86H249M235 -98H257M235 -110H249M235 -122H249M235 -134H249M235 -146H249M235 -158H257" stroke="#212529" stroke-width="2" />
+				<g font-size="20" fill="#2b2a26" text-anchor="middle">
+					<text x="290" y="569">40</text>
+					<text x="290" y="509">45</text>
+					<text x="290" y="449">0</text>
+					<text x="290" y="389">5</text>
+					<text x="290" y="329">10</text>
+					<text x="290" y="269">15</text>
+					<text x="290" y="209">20</text>
+					<text x="290" y="149">25</text>
+					<text x="290" y="89">30</text>
+					<text x="290" y="29">35</text>
+					<text x="290" y="-31">40</text>
+					<text x="290" y="-91">45</text>
+					<text x="290" y="-151">0</text>
+				</g>
+			</g>
+			<path d="M130 442H262" stroke="#c92a2a" stroke-width="3" />
+		</g>
+		<rect x="130" y="352" width="200" height="180" rx="8" fill="none" stroke="#495057" stroke-width="2.5" />
+		<g class="m1t5">
+			<text x="340" y="449" font-size="20" font-weight="bold" fill="#c92a2a">6 setin</text>
+		</g>
+		<!-- texty podle fáze děje -->
+		<g class="m1t1" opacity="0">
+			<text x="40" y="556" font-size="20" fill="#2b2a26">Zavřený mikrometr ukazuje 0.</text>
+		</g>
+		<g class="m1t2" opacity="0">
+			<text x="40" y="556" font-size="20" fill="#2b2a26">Točíme bubínkem, šroub se otevírá.</text>
+		</g>
+		<g class="m1t3" opacity="0">
+			<text x="40" y="556" font-size="20" fill="#2b2a26">Mezi dotek a šroub vložíme vlas.</text>
+		</g>
+		<g class="m1t4" opacity="0">
+			<text x="40" y="556" font-size="20" fill="#2b2a26">Zavíráme, až se šroub dotkne vlasu.</text>
+		</g>
+		<g class="m1t5">
+			<text x="40" y="556" font-size="20" fill="#2b2a26">Tloušťka vlasu: 6 setin milimetru</text>
+			<text x="40" y="590" font-size="24" font-weight="bold" fill="#c92a2a">d = 0,06 mm</text>
+		</g>
+	</g>
+</svg>

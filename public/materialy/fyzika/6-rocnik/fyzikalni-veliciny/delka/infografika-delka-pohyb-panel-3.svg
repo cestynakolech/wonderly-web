@@ -1,0 +1,71 @@
+<svg viewBox="0 0 460 550" width="460" height="550" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Délka v pohybu, Odchylka měření: tentýž hřebík měříme dvěma pravítky. Na pravítku s dílkem 1 cm končí hřebík mezi 4 a 5 cm, blíž k 5, zapíšeme nejbližší dílek l = 5 cm. Odchylka je polovina dílku, tedy 5 mm, skutečná délka leží ve fialovém pásmu. Na pravítku s dílkem 1 mm zapíšeme l = 47 mm, odchylka je půl milimetru a pásmo je úzké. Čím menší dílek, tím přesnější měření." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Délka v pohybu 3/3: Odchylka měření</title>
+	<!-- W100. Předloha: PDF 6/03 Fyzikální veličiny/ 6.  Délka, s. 10 (Odchylka měření: délka mezi dvěma dílky → zapíšeme nejbližší, hodnota je „zaokrouhlená“; čím menší dílek, tím přesnější měření; odchylka = polovina nejmenšího dílku), s. 8 (nula na začátku tělesa, zápis s jednotkou); pravítko tvarem a barvou podle obr-07 stránky. Výklad temata.ts „Odchylka měření“. Měřítko 6 px/mm, nula x = 50; hřebík 47 mm (hrot x = 332). Pásmo = nejbližší dílek ± půl dílku: 45–55 mm (x 320–380), 46,5–47,5 mm (x 329–335). Cyklus 10 s: hřebík 1 přijede 0–1 s, pásmo a zápis od 1,5 s; hřebík 2 přijede 4–5 s, pásmo a zápis od 5,5 s; závěr od 6,5 s. Klid (reduced motion): oba hřebíky, obě pásma, všechny zápisy. -->
+	<style>
+		.o3n1 { animation: o3n1 10s linear infinite; }
+		@keyframes o3n1 { 0% { transform: translateX(-260px); opacity: 0; } 3% { transform: translateX(-182px); opacity: 1; } 10% { transform: translateX(0px); opacity: 1; } 100% { transform: translateX(0px); opacity: 1; } }
+		.o3n2 { animation: o3n2 10s linear infinite; }
+		@keyframes o3n2 { 0% { transform: translateX(-260px); opacity: 0; } 40% { transform: translateX(-260px); opacity: 0; } 43% { transform: translateX(-182px); opacity: 1; } 50% { transform: translateX(0px); opacity: 1; } 100% { transform: translateX(0px); opacity: 1; } }
+		.o3a { animation: o3a 10s step-end infinite; }
+		@keyframes o3a { 0% { opacity: 0; } 15% { opacity: 1; } 100% { opacity: 1; } }
+		.o3b { animation: o3b 10s step-end infinite; }
+		@keyframes o3b { 0% { opacity: 0; } 55% { opacity: 1; } 100% { opacity: 1; } }
+		.o3z { animation: o3z 10s step-end infinite; }
+		@keyframes o3z { 0% { opacity: 0; } 65% { opacity: 1; } 100% { opacity: 1; } }
+		@media (prefers-reduced-motion: reduce) {
+			.o3n1, .o3n2, .o3a, .o3b, .o3z { animation: none; }
+		}
+	</style>
+	<defs>
+		<clipPath id="o3ram"><rect x="22" y="18" width="416" height="504" rx="9" /></clipPath>
+	</defs>
+	<rect x="0" y="0" width="460" height="550" fill="#f8f9fa" />
+	<g id="panel-3">
+		<rect x="26" y="22" width="420" height="508" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="508" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">3</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Odchylka měření</text>
+		<!-- A: pravítko s dílkem 1 cm -->
+		<text x="40" y="102" font-size="20" font-weight="bold" fill="#2b2a26">dílek 1 cm</text>
+		<rect x="36" y="150" width="388" height="50" rx="6" fill="#e7f5ff" stroke="#1864ab" stroke-width="2.5" />
+		<path d="M50 150V168M110 150V168M170 150V168M230 150V168M290 150V168M350 150V168M410 150V168" stroke="#212529" stroke-width="2" />
+		<g font-size="20" fill="#2b2a26" text-anchor="middle">
+			<text x="50" y="192">0</text><text x="110" y="192">1</text><text x="170" y="192">2</text><text x="230" y="192">3</text><text x="290" y="192">4</text><text x="350" y="192">5</text><text x="410" y="192">6</text>
+		</g>
+		<g class="o3a">
+			<rect x="320" y="112" width="60" height="92" fill="#7048e8" fill-opacity="0.14" stroke="#5f3dc4" stroke-width="2.5" stroke-dasharray="6 4" />
+			<path d="M350 112V168" stroke="#c92a2a" stroke-width="3" />
+		</g>
+		<g clip-path="url(#o3ram)"><g class="o3n1">
+			<rect x="50" y="118" width="7" height="28" rx="1.5" fill="#adb5bd" stroke="#495057" stroke-width="2" />
+			<path d="M57 127H314L332 132L314 137H57Z" fill="#ced4da" stroke="#495057" stroke-width="2" stroke-linejoin="round" />
+		</g></g>
+		<g class="o3a">
+			<text x="40" y="232" font-size="20" fill="#2b2a26">nejbližší dílek: <tspan font-weight="bold" fill="#c92a2a">l = 5 cm</tspan></text>
+			<text x="40" y="260" font-size="20" font-weight="bold" fill="#5f3dc4">odchylka = půl dílku = 5 mm</text>
+		</g>
+		<!-- B: pravítko s dílkem 1 mm -->
+		<text x="40" y="292" font-size="20" font-weight="bold" fill="#2b2a26">dílek 1 mm</text>
+		<rect x="36" y="340" width="388" height="50" rx="6" fill="#e7f5ff" stroke="#1864ab" stroke-width="2.5" />
+		<path d="M50 340V358M56 340V348M62 340V348M68 340V348M74 340V348M80 340V352M86 340V348M92 340V348M98 340V348M104 340V348M110 340V358M116 340V348M122 340V348M128 340V348M134 340V348M140 340V352M146 340V348M152 340V348M158 340V348M164 340V348M170 340V358M176 340V348M182 340V348M188 340V348M194 340V348M200 340V352M206 340V348M212 340V348M218 340V348M224 340V348M230 340V358M236 340V348M242 340V348M248 340V348M254 340V348M260 340V352M266 340V348M272 340V348M278 340V348M284 340V348M290 340V358M296 340V348M302 340V348M308 340V348M314 340V348M320 340V352M326 340V348M332 340V348M338 340V348M344 340V348M350 340V358M356 340V348M362 340V348M368 340V348M374 340V348M380 340V352M386 340V348M392 340V348M398 340V348M404 340V348M410 340V358" stroke="#212529" stroke-width="1.5" />
+		<g font-size="20" fill="#2b2a26" text-anchor="middle">
+			<text x="50" y="382">0</text><text x="110" y="382">1</text><text x="170" y="382">2</text><text x="230" y="382">3</text><text x="290" y="382">4</text><text x="350" y="382">5</text><text x="410" y="382">6</text>
+		</g>
+		<g class="o3b">
+			<rect x="329" y="302" width="6" height="92" fill="#7048e8" fill-opacity="0.14" stroke="#5f3dc4" stroke-width="2.5" stroke-dasharray="6 4" />
+			<path d="M332 302V352" stroke="#c92a2a" stroke-width="3" />
+		</g>
+		<g clip-path="url(#o3ram)"><g class="o3n2">
+			<rect x="50" y="308" width="7" height="28" rx="1.5" fill="#adb5bd" stroke="#495057" stroke-width="2" />
+			<path d="M57 317H314L332 322L314 327H57Z" fill="#ced4da" stroke="#495057" stroke-width="2" stroke-linejoin="round" />
+		</g></g>
+		<g class="o3b">
+			<text x="40" y="422" font-size="20" fill="#2b2a26">nejbližší dílek: <tspan font-weight="bold" fill="#c92a2a">l = 47 mm</tspan></text>
+			<text x="40" y="450" font-size="20" font-weight="bold" fill="#5f3dc4">odchylka = půl dílku = půl milimetru</text>
+		</g>
+		<g class="o3z">
+			<text x="40" y="496" font-size="22" font-weight="bold" fill="#2b2a26">Čím menší dílek, tím přesnější měření.</text>
+		</g>
+	</g>
+</svg>

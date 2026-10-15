@@ -803,6 +803,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>Naměřená hodnota je „zaokrouhlená" na nejbližší dílek. <strong>Odchylka = polovina nejmenšího dílku stupnice.</strong> Čím menší dílek, tím přesnější měření.</p>
 					`,
 					materialy: [
+						{ druh: 'infografika', nazev: 'Délka v pohybu', cesta: '/materialy/fyzika/6-rocnik/fyzikalni-veliciny/delka/infografika-delka-pohyb-panel-1.svg', panely: ['/materialy/fyzika/6-rocnik/fyzikalni-veliciny/delka/infografika-delka-pohyb-panel-1.svg', '/materialy/fyzika/6-rocnik/fyzikalni-veliciny/delka/infografika-delka-pohyb-panel-2.svg', '/materialy/fyzika/6-rocnik/fyzikalni-veliciny/delka/infografika-delka-pohyb-panel-3.svg'] },
 						{
 							druh: 'video',
 							nazev: 'Polemika 1/3: Proč se všude měří v metrech? 🎬',
