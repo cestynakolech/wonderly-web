@@ -3314,6 +3314,7 @@ export const temata: Record<string, Tema[]> = {
 							nazev: 'Video: Jak slyšíme a chráníme sluch',
 							cesta: '109chWMF7RI',
 						},
+						{ druh: 'infografika', nazev: 'Sluch v pohybu', cesta: '/materialy/fyzika/8-rocnik/zvuk/vnimani-zvuku-a-hlasitost/infografika-vnimani-zvuku-a-hlasitost-pohyb-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/zvuk/vnimani-zvuku-a-hlasitost/infografika-vnimani-zvuku-a-hlasitost-pohyb-panel-1.svg', '/materialy/fyzika/8-rocnik/zvuk/vnimani-zvuku-a-hlasitost/infografika-vnimani-zvuku-a-hlasitost-pohyb-panel-2.svg'] },
 					],
 				},
 			],

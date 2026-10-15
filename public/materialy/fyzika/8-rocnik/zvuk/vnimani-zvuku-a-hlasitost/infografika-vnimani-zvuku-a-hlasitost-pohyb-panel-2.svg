@@ -1,0 +1,161 @@
+<svg viewBox="0 0 460 712" width="460" height="712" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Vnímání zvuku v pohybu 2/2, Chraň si sluch: dlouhodobý hluk nad 90 dB trvale poškozuje sluch. Ochranné pomůcky: u hlučné sekačky má bubínek velkou výchylku, když si člověk nasadí protihluková sluchátka, je výchylka bubínku menší. Bezpečná vzdálenost: blízko letadla má bubínek velkou výchylku, když člověk odchází, výchylka se zmenšuje, a daleko od zdroje hluku je malá, protože hluk s dálkou slábne." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Vnímání zvuku v pohybu 2/2: Chraň si sluch</title>
+	<!-- W95 OPRAVA 1 (15. 10. 2026; dříve panel 3/3), OPRAVA 2 (15. 10.): sluchátka sjíždějí jen z −30 px (oblouk nepřejede
+	     nadpis), letadlo je výš na nebi a přelétává (posun −12 → +20 px za 3 s, na koncích zprůhlední). Předloha: PDF 35, s. 6 („Rizika … přesahuje hodnotu 90 dB …
+	     trvalému poškození“, „Ochrana před hlukem: … Ochranné pomůcky: protihluková sluchátka, špunty do uší“, „zákaz
+	     práce s motorovými sekačkami“, „Bezpečná vzdálenost od zdroje zvuku, např. na přehlídce tryskových letadel“)
+	     a s. 5 (silnější zvuk = větší výchylka bubínku). Strana 6 je bez obrázku — sekačka a sluchátka jsou zjednodušená
+	     kresba podle textu; tryskové letadlo má tvar z obr-05 (stejné cesty, zmenšeno 0,6×, bez plamene).
+	     Výklad: § Ochrana sluchu, § Rizika nadměrného hluku. Obr-05 ukazuje tytéž pomůcky vedle sebe; zde se sluchátka
+	     nasadí a člověk odejde a vedle se ukazuje výchylka jeho bubínku (oranžový bubínek, větší výchylka = silnější zvuk).
+	     Šedé oblouky = zvuk/hluk (W86).
+	     A) cyklus 6 s. Sluchátka: 0–2,46 s skrytá (30 px výš), 2,46–3 s dolů na uši, 3–5,5 s nasazená, 5,5–5,94 s nahoru.
+	        Štítek „se sluchátky“ + výchylka ±2 px JEN 3–5,5 s (sluchátka celá na uších); jinak „bez sluchátek“ ±12 px.
+	     B) cyklus 8 s, chůze lineární. Člověk 0–1,5 s stojí u letadla (posun 0), 1,5–3 s odchází (0 → 120 px),
+	        3–6,5 s stojí daleko (120 px), 6,5–8 s se vrací (120 → 0). Štítek a bubínek podle polohy:
+	        „blízko“ ±12 px jen 0–1,5 s (posun 0), „odchází“ / „vrací se“ ±6 px během chůze, „daleko“ ±2 px jen 3–6,5 s
+	        (posun 120). Hluk od letadla slábne s dálkou (oblouky průhlední po 150 px za 2 s).
+	     Výchylky jsou jen pořadí, ne měřítko. Pohyb od t = 0 (oblouky, bubínky).
+	     Bez pohybu: sluchátka nasazená, člověk daleko, oba bubínky s malou výchylkou. -->
+	<style>
+		.vz { animation: vz 1s linear infinite; }
+		@keyframes vz { 0% { transform: translateX(-18px); opacity: 0; } 20%, 80% { opacity: 1; } 100% { transform: translateX(18px); opacity: 0; } }
+		.vd { animation: vd 2s linear infinite; }
+		@keyframes vd { 0% { transform: translateX(0px); opacity: 1; } 100% { transform: translateX(150px); opacity: 0; } }
+		.velk { animation: velk 0.3s ease-in-out infinite alternate; }
+		@keyframes velk { 0% { transform: translateX(-12px); } 100% { transform: translateX(12px); } }
+		.str { animation: str 0.3s ease-in-out infinite alternate; }
+		@keyframes str { 0% { transform: translateX(-6px); } 100% { transform: translateX(6px); } }
+		.mal { animation: mal 0.3s ease-in-out infinite alternate; }
+		@keyframes mal { 0% { transform: translateX(-2px); } 100% { transform: translateX(2px); } }
+		.sl { animation: sl 6s linear infinite; }
+		@keyframes sl { 0%, 40% { transform: translateY(-30px); opacity: 0; } 41% { transform: translateY(-30px); opacity: 1; } 50%, 91.7% { transform: translateY(0px); opacity: 1; } 99% { transform: translateY(-30px); opacity: 1; } 100% { transform: translateY(-30px); opacity: 0; } }
+		.a1 { animation: a1 6s linear infinite; }
+		@keyframes a1 { 0%, 49.9% { opacity: 1; } 50%, 91.6% { opacity: 0; } 91.7%, 100% { opacity: 1; } }
+		.a2 { animation: a2 6s linear infinite; }
+		@keyframes a2 { 0%, 49.9% { opacity: 0; } 50%, 91.6% { opacity: 1; } 91.7%, 100% { opacity: 0; } }
+		.le { animation: le 3s linear infinite; }
+		@keyframes le { 0% { transform: translateX(-12px); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateX(20px); opacity: 0; } }
+		.ch { animation: ch 8s linear infinite; }
+		@keyframes ch { 0%, 18.75% { transform: translateX(0px); } 37.5%, 81.25% { transform: translateX(120px); } 100% { transform: translateX(0px); } }
+		.b1 { animation: b1 8s linear infinite; }
+		@keyframes b1 { 0%, 18.7% { opacity: 1; } 18.75%, 100% { opacity: 0; } }
+		.bm { animation: bm 8s linear infinite; }
+		@keyframes bm { 0%, 18.7% { opacity: 0; } 18.75%, 37.45% { opacity: 1; } 37.5%, 81.2% { opacity: 0; } 81.25%, 100% { opacity: 1; } }
+		.b2 { animation: b2 8s linear infinite; }
+		@keyframes b2 { 0%, 37.45% { opacity: 0; } 37.5%, 81.2% { opacity: 1; } 81.25%, 100% { opacity: 0; } }
+		.o1 { animation: o1 8s linear infinite; }
+		@keyframes o1 { 0%, 18.7% { opacity: 0; } 18.75%, 37.45% { opacity: 1; } 37.5%, 100% { opacity: 0; } }
+		.o2 { animation: o2 8s linear infinite; }
+		@keyframes o2 { 0%, 81.2% { opacity: 0; } 81.25%, 100% { opacity: 1; } }
+		@media (prefers-reduced-motion: reduce) {
+			.vz, .vd, .velk, .str, .mal, .sl, .le, .a1, .a2, .ch, .b1, .bm, .b2, .o1, .o2 { animation: none; }
+			.ch { transform: translateX(120px); }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="712" fill="#f8f9fa" />
+	<g id="panel-2">
+		<rect x="26" y="22" width="420" height="680" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="680" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">2</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Chraň si sluch</text>
+		<text x="40" y="96" font-size="20" fill="#2b2a26">Dlouhodobý hluk nad <tspan font-weight="bold">90 dB</tspan></text>
+		<text x="40" y="124" font-size="20" fill="#2b2a26">trvale poškozuje sluch.</text>
+
+		<!-- A) ochranné pomůcky: sekačka a protihluková sluchátka -->
+		<rect x="34" y="144" width="392" height="220" rx="8" fill="#f1f3f5" stroke="#ced4da" stroke-width="1.5" />
+		<text x="46" y="172" font-size="20" font-weight="bold" fill="#2b2a26">ochranné pomůcky</text>
+		<text class="a1" x="414" y="172" text-anchor="end" font-size="20" fill="#495057" opacity="0">bez sluchátek</text>
+		<text class="a2" x="414" y="172" text-anchor="end" font-size="20" fill="#495057">se sluchátky</text>
+		<!-- sekačka -->
+		<path d="M112 282L140 236M134 236H148" stroke="#495057" stroke-width="5" stroke-linecap="round" />
+		<path d="M48 302H124L114 280H60Z" fill="#ffd43b" stroke="#495057" stroke-width="2.5" stroke-linejoin="round" />
+		<circle cx="62" cy="308" r="10" fill="#343a40" />
+		<circle cx="110" cy="308" r="10" fill="#343a40" />
+		<text x="86" y="346" text-anchor="middle" font-size="20" fill="#495057">sekačka</text>
+		<!-- hluk -->
+		<path class="vz" d="M178 248Q190 270 178 292" fill="none" stroke="#495057" stroke-width="3.5" stroke-linecap="round" />
+		<path class="vz" style="animation-delay:-0.33s" d="M178 248Q190 270 178 292" fill="none" stroke="#495057" stroke-width="3.5" stroke-linecap="round" />
+		<path class="vz" style="animation-delay:-0.67s" d="M178 248Q190 270 178 292" fill="none" stroke="#495057" stroke-width="3.5" stroke-linecap="round" />
+		<!-- člověk -->
+		<path d="M216 362Q216 322 254 322Q292 322 292 362Z" fill="#868e96" stroke="#495057" stroke-width="2" />
+		<ellipse cx="220" cy="274" rx="6" ry="10" fill="#f4c7a1" stroke="#495057" stroke-width="2" />
+		<ellipse cx="288" cy="274" rx="6" ry="10" fill="#f4c7a1" stroke="#495057" stroke-width="2" />
+		<circle cx="254" cy="272" r="34" fill="#f4c7a1" stroke="#495057" stroke-width="2.5" />
+		<path d="M221 264Q224 236 254 236Q284 236 287 264Q270 248 254 252Q236 248 221 264Z" fill="#6b4400" />
+		<circle cx="242" cy="274" r="3" fill="#2b2a26" />
+		<circle cx="266" cy="274" r="3" fill="#2b2a26" />
+		<path d="M244 290Q254 296 264 290" fill="none" stroke="#2b2a26" stroke-width="2" stroke-linecap="round" />
+		<!-- protihluková sluchátka -->
+		<g class="sl">
+			<path d="M216 264Q216 222 254 222Q292 222 292 264" fill="none" stroke="#343a40" stroke-width="7" stroke-linecap="round" />
+			<rect x="206" y="254" width="18" height="38" rx="7" fill="#343a40" />
+			<rect x="284" y="254" width="18" height="38" rx="7" fill="#343a40" />
+		</g>
+		<!-- bubínek tohoto člověka -->
+		<rect x="330" y="196" width="86" height="156" rx="8" fill="#fbfaf6" stroke="#ced4da" stroke-width="1.5" />
+		<g class="a1" opacity="0">
+			<ellipse cx="361" cy="262" rx="5" ry="28" fill="none" stroke="#495057" stroke-width="1.5" stroke-dasharray="4 4" />
+			<ellipse cx="385" cy="262" rx="5" ry="28" fill="none" stroke="#495057" stroke-width="1.5" stroke-dasharray="4 4" />
+			<g class="velk"><ellipse cx="373" cy="262" rx="5" ry="28" fill="#e8590c" stroke="#2b2a26" stroke-width="2.5" /></g>
+		</g>
+		<g class="a2">
+			<ellipse cx="371" cy="262" rx="5" ry="28" fill="none" stroke="#495057" stroke-width="1.5" stroke-dasharray="4 4" />
+			<ellipse cx="375" cy="262" rx="5" ry="28" fill="none" stroke="#495057" stroke-width="1.5" stroke-dasharray="4 4" />
+			<g class="mal"><ellipse cx="373" cy="262" rx="5" ry="28" fill="#e8590c" stroke="#2b2a26" stroke-width="2.5" /></g>
+		</g>
+		<text x="373" y="338" text-anchor="middle" font-size="20" fill="#2b2a26">bubínek</text>
+
+		<!-- B) bezpečná vzdálenost: letadlo a člověk, který odejde -->
+		<rect x="34" y="380" width="392" height="220" rx="8" fill="#f1f3f5" stroke="#ced4da" stroke-width="1.5" />
+		<text x="46" y="408" font-size="20" font-weight="bold" fill="#2b2a26">bezpečná vzdálenost</text>
+		<text class="b1" x="414" y="408" text-anchor="end" font-size="20" fill="#495057" opacity="0">blízko</text>
+		<text class="o1" x="414" y="408" text-anchor="end" font-size="20" fill="#495057" opacity="0">odchází</text>
+		<text class="b2" x="414" y="408" text-anchor="end" font-size="20" fill="#495057">daleko</text>
+		<text class="o2" x="414" y="408" text-anchor="end" font-size="20" fill="#495057" opacity="0">vrací se</text>
+		<path d="M34 560H326" stroke="#495057" stroke-width="2.5" />
+		<!-- tryskové letadlo (tvar z obr-05, zmenšeno 0,6×) letí na nebi nad přehlídkou -->
+		<g class="le"><g transform="translate(-157.6 329.4) scale(0.6)" stroke="#343a40" stroke-width="3.5" stroke-linejoin="round">
+			<path d="M352 196L370 192L380 160L392 160L394 190L446 186Q470 188 474 192Q470 196 446 198L394 196L392 222L380 222L370 200L352 198Z" fill="#adb5bd" />
+			<path d="M404 186L430 160L442 160L428 187Z" fill="#868e96" />
+			<path d="M404 197L430 222L442 222L428 196Z" fill="#868e96" />
+			<path d="M448 188Q458 186 462 191Q456 193 448 193Z" fill="#74c0fc" />
+		</g></g>
+		<text x="86" y="494" text-anchor="middle" font-size="20" fill="#495057">letadlo</text>
+		<!-- hluk slábne s dálkou -->
+		<path class="vd" d="M136 438Q150 464 136 490" fill="none" stroke="#495057" stroke-width="3.5" stroke-linecap="round" />
+		<path class="vd" style="animation-delay:-0.67s" d="M136 438Q150 464 136 490" fill="none" stroke="#495057" stroke-width="3.5" stroke-linecap="round" />
+		<path class="vd" style="animation-delay:-1.33s" d="M136 438Q150 464 136 490" fill="none" stroke="#495057" stroke-width="3.5" stroke-linecap="round" />
+		<!-- člověk odchází a vrací se -->
+		<g class="ch">
+			<path d="M164 534L160 558M176 534L180 558" stroke="#495057" stroke-width="5" stroke-linecap="round" />
+			<rect x="158" y="500" width="24" height="36" rx="6" fill="#868e96" stroke="#495057" stroke-width="2" />
+			<circle cx="170" cy="486" r="13" fill="#f4c7a1" stroke="#495057" stroke-width="2.5" />
+		</g>
+		<!-- bubínek tohoto člověka -->
+		<rect x="330" y="432" width="86" height="156" rx="8" fill="#fbfaf6" stroke="#ced4da" stroke-width="1.5" />
+		<g class="b1" opacity="0">
+			<ellipse cx="361" cy="498" rx="5" ry="28" fill="none" stroke="#495057" stroke-width="1.5" stroke-dasharray="4 4" />
+			<ellipse cx="385" cy="498" rx="5" ry="28" fill="none" stroke="#495057" stroke-width="1.5" stroke-dasharray="4 4" />
+			<g class="velk"><ellipse cx="373" cy="498" rx="5" ry="28" fill="#e8590c" stroke="#2b2a26" stroke-width="2.5" /></g>
+		</g>
+		<g class="bm" opacity="0">
+			<ellipse cx="367" cy="498" rx="5" ry="28" fill="none" stroke="#495057" stroke-width="1.5" stroke-dasharray="4 4" />
+			<ellipse cx="379" cy="498" rx="5" ry="28" fill="none" stroke="#495057" stroke-width="1.5" stroke-dasharray="4 4" />
+			<g class="str"><ellipse cx="373" cy="498" rx="5" ry="28" fill="#e8590c" stroke="#2b2a26" stroke-width="2.5" /></g>
+		</g>
+		<g class="b2">
+			<ellipse cx="371" cy="498" rx="5" ry="28" fill="none" stroke="#495057" stroke-width="1.5" stroke-dasharray="4 4" />
+			<ellipse cx="375" cy="498" rx="5" ry="28" fill="none" stroke="#495057" stroke-width="1.5" stroke-dasharray="4 4" />
+			<g class="mal"><ellipse cx="373" cy="498" rx="5" ry="28" fill="#e8590c" stroke="#2b2a26" stroke-width="2.5" /></g>
+		</g>
+		<text x="373" y="574" text-anchor="middle" font-size="20" fill="#2b2a26">bubínek</text>
+
+		<!-- legenda -->
+		<ellipse cx="56" cy="634" rx="5" ry="16" fill="#e8590c" stroke="#2b2a26" stroke-width="2.5" />
+		<text x="84" y="641" font-size="20" fill="#2b2a26">kmitající bubínek</text>
+		<path d="M44 656Q52 666 44 676M54 652Q64 666 54 680M64 648Q76 666 64 684" fill="none" stroke="#495057" stroke-width="3" stroke-linecap="round" />
+		<text x="84" y="673" font-size="20" fill="#2b2a26">hluk (zvuk)</text>
+	</g>
+</svg>

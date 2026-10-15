@@ -1,0 +1,215 @@
+<svg viewBox="0 0 460 770" width="460" height="770" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Vnímání zvuku v pohybu 1/2, Štafeta v uchu: řez uchem se zvukovodem, bubínkem, kůstkami kladívkem, kovadlinkou a třmínkem, hlemýžděm, nervem a mozkem. Kmit si části ucha předávají jedna po druhé jako štafetu. Krok 1: zvuková vlna projde zvukovodem, kmitá vzduch, akustická energie. Krok 2: vlna rozkmitá bubínek, mechanická energie. Krok 3: bubínek rozhoupe kladívko, kovadlinku a třmínek, kůstky předají kmit dál, mechanická energie. Krok 4: třmínek rozvlní kapalinu v hlemýždi, hydraulická energie. Krok 5: vláskové buňky vyšlou elektrický signál a nerv ho donese do mozku. Vždy se pohybuje jen ta část, na kterou právě došla řada, a zvýrazní se spolu s řádkem pod obrázkem. Do mozku se zvuk nedostane přímo, ale až po několika přeměnách." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Vnímání zvuku v pohybu 1/2: Štafeta v uchu</title>
+	<!-- W95 OPRAVA 2 (15. 10. 2026). KRESBA UCHA PŘEVZATA z živého obr-01 téže stránky
+	     (public/obrazky/fyzika/8-rocnik/zvuk/vnimani-zvuku-a-hlasitost/vnimani-zvuku-a-hlasitost-obr-01.svg, ř. 34–78:
+	     hlava, spánková kost, zvukovod, bubínková dutina, polokruhové kanálky, předsíň, hlemýžď, nerv, mozek, bubínek,
+	     kůstky, pružné okénko) — cesty beze změny v souřadnicích obr-01, výřez x 322–882, y 88–499, měřítko 0,7
+	     (bod obr-01 (x, y) → panel (0,7·x − 191,4; 0,7·y + 76,4)). Boltec je mimo výřez (štafeta začíná
+	     ve zvukovodu). Předloha obr-01 = PDF 35 s. 1 (řez uchem). Výklad: § Ucho jako přeměňovač energie
+	     (vzduch = akustická, bubínek a kůstky = mechanická, kapalina = hydraulická, vláskové buňky → elektrický signál).
+	     Rozdíl od obr-01 (tam vše kmitá naráz): zde jde o DĚJ — pohybuje se jen ta část, na kterou došla řada.
+	     Bubínek je oranžový (oranžová = kmitající těleso, jako v panelu 2), modré oblouky = zvuková vlna (jako v obr-01).
+	     Model, cyklus 8 s, krok i (1–5) v [1,6·(i−1); 1,6·i) s:
+	       1) 0–1,6 s vlna (3 oblouky) projde zvukovodem: posun 48 jednotek obr-01 (= 33,6 px; poslední oblouk dojde k bubínku x 434) za 1,6 s;
+	       2) 1,6–4,8 s bubínek kmitá ±5 j. (±3,5 px), perioda 0,6 s (trvá i v kroku 3, protože kůstky pohání);
+	       3) 3,2–6,4 s kůstky se kývají ±4° kolem kloubu kladívko–kovadlinka (478, 262) ve fázi s bubínkem
+	          (rukojeť kladívka ~83 j. pod kloubem → posun ±5,8 j.), pružné okénko ±4 j.; trvá i v kroku 4 (třmínek tlačí okénko);
+	       4) 4,8–6,4 s kapalina v hlemýždi proudí: 3 snímky čárkování posunuté o 6 j. po 0,2 s (30 j./s jako obr-01);
+	       5) 6,4–8 s signál: tečka po nervu 0–1,2 s (9 bodů Bézierovy křivky nervu z obr-01), záblesk mozku 7,6–8 s.
+	     Kmitání je zpomalené. Bez pohybu (reduced-motion): vlna ve zvukovodu, vše v klidu, nic zvýrazněno.
+	     Animace jen CSS transform a opacity; otáčení kůstek přes vnořené translate (počátek 0 0), bez transform-origin. -->
+	<style>
+		.hl { opacity: 0; animation: hl 8s linear infinite; }
+		@keyframes hl { 0%, 19.9% { opacity: 1; } 20%, 100% { opacity: 0; } }
+		.vl { animation: vl 8s linear infinite; }
+		@keyframes vl { 0% { transform: translateX(0px); opacity: 0; } 2% { opacity: 1; } 18% { opacity: 1; } 20% { transform: translateX(48px); opacity: 0; } 100% { transform: translateX(48px); opacity: 0; } }
+		.bu-p { opacity: 0; animation: bu-p 8s linear infinite; }
+		@keyframes bu-p { 0%, 19.9% { opacity: 0; } 20%, 59.9% { opacity: 1; } 60%, 100% { opacity: 0; } }
+		.bu-k { animation: bu-k 8s linear infinite; }
+		@keyframes bu-k { 0%, 19.9% { opacity: 1; } 20%, 59.9% { opacity: 0; } 60%, 100% { opacity: 1; } }
+		.ku-p { opacity: 0; animation: ku-p 8s linear infinite; }
+		@keyframes ku-p { 0%, 39.9% { opacity: 0; } 40%, 79.9% { opacity: 1; } 80%, 100% { opacity: 0; } }
+		.ku-k { animation: ku-k 8s linear infinite; }
+		@keyframes ku-k { 0%, 39.9% { opacity: 1; } 40%, 79.9% { opacity: 0; } 80%, 100% { opacity: 1; } }
+		.ka-p { opacity: 0; animation: ka-p 8s linear infinite; }
+		@keyframes ka-p { 0%, 59.9% { opacity: 0; } 60%, 79.9% { opacity: 1; } 80%, 100% { opacity: 0; } }
+		.ka-k { animation: ka-k 8s linear infinite; }
+		@keyframes ka-k { 0%, 59.9% { opacity: 1; } 60%, 79.9% { opacity: 0; } 80%, 100% { opacity: 1; } }
+		.kmb { animation: kmb 0.3s ease-in-out infinite alternate; }
+		@keyframes kmb { 0% { transform: translateX(-5px); } 100% { transform: translateX(5px); } }
+		.kmo { animation: kmo 0.3s ease-in-out infinite alternate; }
+		@keyframes kmo { 0% { transform: translateX(-4px); } 100% { transform: translateX(4px); } }
+		.rot { animation: rot 0.3s ease-in-out infinite alternate; }
+		@keyframes rot { 0% { transform: rotate(4deg); } 100% { transform: rotate(-4deg); } }
+		.f { opacity: 0; animation: f 0.6s linear infinite; }
+		@keyframes f { 0%, 33.3% { opacity: 1; } 33.31%, 100% { opacity: 0; } }
+		.sg { opacity: 0; animation: sg 8s linear infinite; }
+		@keyframes sg {
+			0%, 79.9% { transform: translate(0px, 0px); opacity: 0; }
+			80% { transform: translate(0px, 0px); opacity: 1; }
+			81.875% { transform: translate(34.75px, -16.84px); }
+			83.75% { transform: translate(62px, -37.25px); }
+			85.625% { transform: translate(83.25px, -61.03px); }
+			87.5% { transform: translate(100px, -88px); }
+			89.375% { transform: translate(109.78px, -109px); }
+			91.25% { transform: translate(118.25px, -130px); }
+			93.125% { transform: translate(125.6px, -151px); }
+			95% { transform: translate(132px, -172px); opacity: 1; }
+			95.1%, 100% { transform: translate(132px, -172px); opacity: 0; }
+		}
+		.mz { opacity: 0; animation: mz 8s linear infinite; }
+		@keyframes mz { 0%, 94.9% { opacity: 0; } 95%, 100% { opacity: 1; } }
+		@media (prefers-reduced-motion: reduce) {
+			.hl, .vl, .bu-p, .bu-k, .ku-p, .ku-k, .ka-p, .ka-k, .kmb, .kmo, .rot, .f, .sg, .mz { animation: none; }
+		}
+	</style>
+	<defs>
+		<pattern id="p1kost" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#f1e8d6" /><circle cx="6" cy="7" r="2.5" fill="#e3d5b8" /><circle cx="16" cy="17" r="2" fill="#e3d5b8" /></pattern>
+		<radialGradient id="p1mozek" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#ffe3e3" /><stop offset="1" stop-color="#ffa8a8" /></radialGradient>
+		<clipPath id="p1orez"><rect x="34" y="138" width="392" height="288" rx="8" /></clipPath>
+		<!-- kapalina: střed spirály z obr-01 ř. 60 -->
+		<path id="p1kap" d="M598 380 L601 364 L608 350 L618 338 L631 329 L645 325 L660 324 L675 327 L688 333 L698 343 L706 354 L710 367 L711 381 L708 393 L702 405 L693 414 L683 421 L671 425 L659 425 L648 422 L638 417 L630 409 L624 400 L621 390 L621 379 L623 369 L628 360 L635 354 L643 349 L652 346 L661 346 L669 349 L677 353 L682 359 L686 366 L688 373" />
+		<!-- kůstky z obr-01 ř. 70–77 (jedna definice pro klidnou i kývající kopii) -->
+		<g id="p1kustky" fill="#fffdf7" stroke="#6b5a3e" stroke-width="2.5" stroke-linejoin="round">
+			<path d="M436 346L444 344L462 282L452 278Z" />
+			<circle cx="458" cy="272" r="13" />
+			<path d="M472 264Q486 252 498 262Q504 276 494 284L500 320L490 322L482 286Q470 280 472 264Z" />
+			<path d="M496 316C510 302 528 308 536 316V344C528 352 510 356 496 342Z" fill="none" stroke-width="6" stroke="#6b5a3e" />
+			<path d="M496 316C510 302 528 308 536 316V344C528 352 510 356 496 342Z" fill="none" stroke-width="2.5" stroke="#fffdf7" />
+			<path d="M538 312V348" stroke-width="5" />
+		</g>
+	</defs>
+	<rect x="0" y="0" width="460" height="770" fill="#f8f9fa" />
+	<g id="panel-1">
+		<rect x="26" y="22" width="420" height="740" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="740" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Štafeta v uchu</text>
+		<text x="40" y="96" font-size="20" fill="#2b2a26">Části ucha si předávají kmit jako</text>
+		<text x="40" y="124" font-size="20" fill="#2b2a26">štafetu. Energie se cestou mění.</text>
+
+		<!-- ===== řez uchem: kresba převzatá z obr-01 ===== -->
+		<rect x="34" y="138" width="392" height="288" rx="8" fill="#f8f9fa" />
+		<g clip-path="url(#p1orez)">
+			<g transform="translate(-191.4 76.4) scale(0.7)">
+				<!-- hlava: kůže a spánková kost (obr-01 ř. 34–35) -->
+				<path d="M196 124C240 112 296 114 340 136V566C296 588 238 588 196 572Z" fill="#f8d5c2" />
+				<path d="M330 150Q330 132 348 132H760Q780 132 780 152V552Q780 570 760 570H348Q330 570 330 552Z" fill="url(#p1kost)" stroke="#d6c4a1" stroke-width="2" />
+				<!-- zvukovod (ř. 42) -->
+				<path d="M180 304C250 300 340 296 432 292V370C340 364 250 360 180 358Z" fill="#e7f5ff" stroke="#9c4221" stroke-width="3" />
+				<!-- bubínková dutina (ř. 44) -->
+				<path d="M438 286C440 252 470 240 500 244C530 240 552 254 554 280L556 330C556 370 548 404 520 412C494 420 470 414 452 400C440 388 436 366 438 340Z" fill="#fff5f5" stroke="#c9a3a3" stroke-width="2" />
+				<!-- polokruhové kanálky (bez popisku) a předsíň (ř. 46–56) -->
+				<g fill="none">
+					<ellipse cx="566" cy="238" rx="22" ry="42" stroke="#5f3dc4" stroke-width="10" />
+					<ellipse cx="566" cy="238" rx="22" ry="42" stroke="#d0ebff" stroke-width="4" />
+					<ellipse cx="612" cy="250" rx="38" ry="22" stroke="#5f3dc4" stroke-width="10" />
+					<ellipse cx="612" cy="250" rx="38" ry="22" stroke="#d0ebff" stroke-width="4" />
+					<ellipse cx="596" cy="222" rx="16" ry="30" transform="rotate(35 596 222)" stroke="#5f3dc4" stroke-width="10" />
+					<ellipse cx="596" cy="222" rx="16" ry="30" transform="rotate(35 596 222)" stroke="#d0ebff" stroke-width="4" />
+				</g>
+				<path d="M588 330C594 350 596 362 598 380" stroke="#5f3dc4" stroke-width="22" fill="none" />
+				<ellipse cx="578" cy="316" rx="28" ry="26" fill="#d0ebff" stroke="#5f3dc4" stroke-width="4" />
+				<path d="M588 330C594 350 596 362 598 380" stroke="#a5d8ff" stroke-width="12" fill="none" />
+				<!-- hlemýžď: spirála s kapalinou (ř. 58–59) -->
+				<path d="M598 380 L601 364 L608 350 L618 338 L631 329 L645 325 L660 324 L675 327 L688 333 L698 343 L706 354 L710 367 L711 381 L708 393 L702 405 L693 414 L683 421 L671 425 L659 425 L648 422 L638 417 L630 409 L624 400 L621 390 L621 379 L623 369 L628 360 L635 354 L643 349 L652 346 L661 346 L669 349 L677 353 L682 359 L686 366 L688 373 L688 381 L686 388 L682 394 L677 398 L671 401 L665 403 L659 402 L654 400 L649 397 L646 393 L644 389 L643 384 L643 379 L645 375 L648 372 L651 370 L654 369 L658 368 L661 369 L663 370" fill="none" stroke="#5f3dc4" stroke-width="20" stroke-linejoin="round" stroke-linecap="round" />
+				<path d="M598 380 L601 364 L608 350 L618 338 L631 329 L645 325 L660 324 L675 327 L688 333 L698 343 L706 354 L710 367 L711 381 L708 393 L702 405 L693 414 L683 421 L671 425 L659 425 L648 422 L638 417 L630 409 L624 400 L621 390 L621 379 L623 369 L628 360 L635 354 L643 349 L652 346 L661 346 L669 349 L677 353 L682 359 L686 366 L688 373 L688 381 L686 388 L682 394 L677 398 L671 401 L665 403 L659 402 L654 400 L649 397 L646 393 L644 389 L643 384 L643 379 L645 375 L648 372 L651 370 L654 369 L658 368 L661 369 L663 370" fill="none" stroke="#a5d8ff" stroke-width="12" stroke-linejoin="round" stroke-linecap="round" />
+				<!-- kapalina (čárkování z ř. 60): v klidu jedna poloha, v kroku 4 tři posunuté snímky po 0,2 s -->
+				<g fill="none" stroke="#1864ab" stroke-width="3" stroke-linecap="round" stroke-dasharray="5 13">
+					<use class="ka-k" href="#p1kap" />
+					<g class="ka-p">
+						<use href="#p1kap" class="f" stroke-dashoffset="0" />
+						<use href="#p1kap" class="f" style="animation-delay:-0.4s" stroke-dashoffset="-6" />
+						<use href="#p1kap" class="f" style="animation-delay:-0.2s" stroke-dashoffset="-12" />
+					</g>
+				</g>
+				<!-- sluchový nerv a mozek (ř. 62–67); tmavý lem nervu a mozku = zvýraznění kroku 5 -->
+				<path class="hl" style="animation-delay:-1.6s" d="M668 372C720 352 748 322 768 284C782 256 792 228 800 200" fill="none" stroke="#2b2a26" stroke-width="30" stroke-linecap="round" />
+				<path d="M668 372C720 352 748 322 768 284C782 256 792 228 800 200" fill="none" stroke="#e8a317" stroke-width="16" stroke-linecap="round" />
+				<path d="M668 372C720 352 748 322 768 284C782 256 792 228 800 200" fill="none" stroke="#ffe066" stroke-width="8" stroke-linecap="round" />
+				<path d="M792 196Q796 210 808 214Q818 206 816 192Z" fill="#f783ac" stroke="#a61e4d" stroke-width="2" />
+				<path class="hl" style="animation-delay:-1.6s" d="M752 160C744 128 770 104 800 106C822 96 852 104 858 128C870 142 866 172 846 184C832 198 804 198 790 188C768 192 752 180 752 160Z" fill="none" stroke="#2b2a26" stroke-width="16" stroke-linejoin="round" />
+				<path d="M752 160C744 128 770 104 800 106C822 96 852 104 858 128C870 142 866 172 846 184C832 198 804 198 790 188C768 192 752 180 752 160Z" fill="url(#p1mozek)" stroke="#a61e4d" stroke-width="3" />
+				<path d="M800 108C796 130 806 150 802 186M770 128C784 134 790 148 782 162M824 116C816 130 826 142 842 140M780 176C792 168 808 172 816 162M832 160C840 168 852 166 858 156M768 150C760 152 758 160 760 168" fill="none" stroke="#c2255c" stroke-width="2.5" stroke-linecap="round" />
+				<path class="mz" d="M752 160C744 128 770 104 800 106C822 96 852 104 858 128C870 142 866 172 846 184C832 198 804 198 790 188C768 192 752 180 752 160Z" fill="#ff8787" fill-opacity="0.45" stroke="#a61e4d" stroke-width="6" />
+				<!-- signál běží nervem (krok 5) -->
+				<circle class="sg" cx="668" cy="372" r="9" fill="#c92a2a" stroke="#ffffff" stroke-width="3" />
+				<!-- bubínek (ř. 69): klidný / kmitající -->
+				<ellipse class="bu-k" cx="434" cy="331" rx="7" ry="40" transform="rotate(-10 434 331)" fill="#e8590c" stroke="#2b2a26" stroke-width="3" />
+				<g class="bu-p"><g class="kmb"><ellipse cx="434" cy="331" rx="7" ry="40" transform="rotate(-10 434 331)" fill="#e8590c" stroke="#2b2a26" stroke-width="3" /></g></g>
+				<!-- kůstky: klidné / kývající se kolem kloubu (478, 262) -->
+				<use class="ku-k" href="#p1kustky" />
+				<g class="ku-p"><g transform="translate(478 262)"><g class="rot"><g transform="translate(-478 -262)"><use href="#p1kustky" /></g></g></g></g>
+				<!-- pružné okénko (ř. 78): klidné / kmitající s třmínkem -->
+				<ellipse class="ku-k" cx="546" cy="330" rx="4" ry="16" fill="#b197fc" stroke="#5f3dc4" stroke-width="2.5" />
+				<g class="ku-p"><g class="kmo"><ellipse cx="546" cy="330" rx="4" ry="16" fill="#b197fc" stroke="#5f3dc4" stroke-width="2.5" /></g></g>
+				<!-- zvuková vlna ve zvukovodu (krok 1; tvar oblouků z ř. 80–81, posunuto do výřezu) -->
+				<g class="vl" fill="none" stroke="#1864ab" stroke-width="5" stroke-linecap="round">
+					<path d="M330 306Q346 331 330 356" /><path d="M350 306Q366 331 350 356" /><path d="M370 306Q386 331 370 356" />
+				</g>
+			</g>
+		</g>
+		<rect x="34" y="138" width="392" height="288" rx="8" fill="none" stroke="#ced4da" stroke-width="1.5" />
+
+		<!-- popisky (panelové souřadnice) -->
+		<g stroke="#495057" stroke-width="1.5">
+			<path d="M112 220L125 258" />
+			<path d="M146 196V251" />
+			<path d="M100 270L106 281" />
+			<path d="M170 346V328" />
+			<path d="M267 398V384" />
+		</g>
+		<g font-size="20" fill="#2b2a26">
+			<text x="118" y="214" text-anchor="end">kladívko</text>
+			<text x="128" y="190">kovadlinka</text>
+			<text x="320" y="186" text-anchor="end">mozek</text>
+			<text x="344" y="318">nerv</text>
+			<text x="40" y="264">bubínek</text>
+			<text x="40" y="362">zvukovod</text>
+			<text x="170" y="366" text-anchor="middle">třmínek</text>
+			<text x="267" y="416" text-anchor="middle">hlemýžď</text>
+		</g>
+
+		<!-- ===== řádky štafety: krok a druh energie ===== -->
+		<rect x="34" y="444" width="392" height="40" rx="8" fill="#d0ebff" stroke="#1864ab" stroke-width="2" />
+		<text x="46" y="471" font-size="20" font-weight="bold" fill="#2b2a26">1 vlna ve zvukovodu</text>
+		<text x="414" y="471" text-anchor="end" font-size="20" fill="#1864ab">akustická</text>
+		<rect x="34" y="490" width="392" height="40" rx="8" fill="#fff3bf" stroke="#b07d00" stroke-width="2" />
+		<text x="46" y="517" font-size="20" font-weight="bold" fill="#2b2a26">2 bubínek kmitá</text>
+		<text x="414" y="517" text-anchor="end" font-size="20" fill="#6b4400">mechanická</text>
+		<rect x="34" y="536" width="392" height="40" rx="8" fill="#fff3bf" stroke="#b07d00" stroke-width="2" />
+		<text x="46" y="563" font-size="20" font-weight="bold" fill="#2b2a26">3 kůstky předají kmit</text>
+		<text x="414" y="563" text-anchor="end" font-size="20" fill="#6b4400">mechanická</text>
+		<rect x="34" y="582" width="392" height="40" rx="8" fill="#e5dbff" stroke="#5f3dc4" stroke-width="2" />
+		<text x="46" y="609" font-size="20" font-weight="bold" fill="#2b2a26">4 kapalina v hlemýždi</text>
+		<text x="414" y="609" text-anchor="end" font-size="20" fill="#5f3dc4">hydraulická</text>
+		<rect x="34" y="628" width="392" height="40" rx="8" fill="#ffe3e3" stroke="#c92a2a" stroke-width="2" />
+		<text x="46" y="655" font-size="20" font-weight="bold" fill="#2b2a26">5 nerv → mozek</text>
+		<text x="414" y="655" text-anchor="end" font-size="20" fill="#a51d1d">elektrický signál</text>
+
+		<!-- postupné zvýraznění: část ucha + řádek současně (krok i v čase 1,6·(i−1) až 1,6·i s) -->
+		<g class="hl" fill="none" stroke="#2b2a26" stroke-width="5">
+			<rect x="38" y="278" width="58" height="60" rx="8" />
+			<rect x="34" y="444" width="392" height="40" rx="8" />
+		</g>
+		<g class="hl" style="animation-delay:-6.4s" fill="none" stroke="#2b2a26" stroke-width="5">
+			<rect x="98" y="272" width="28" height="72" rx="10" />
+			<rect x="34" y="490" width="392" height="40" rx="8" />
+		</g>
+		<g class="hl" style="animation-delay:-4.8s" fill="none" stroke="#2b2a26" stroke-width="5">
+			<rect x="121" y="244" width="73" height="88" rx="10" />
+			<rect x="34" y="536" width="392" height="40" rx="8" />
+		</g>
+		<g class="hl" style="animation-delay:-3.2s" fill="none" stroke="#2b2a26" stroke-width="5">
+			<circle cx="267" cy="338" r="49" />
+			<rect x="34" y="582" width="392" height="40" rx="8" />
+		</g>
+		<g class="hl" style="animation-delay:-1.6s" fill="none" stroke="#2b2a26" stroke-width="5"><!-- část ucha: lem nervu a mozku výše -->
+			<rect x="34" y="628" width="392" height="40" rx="8" />
+		</g>
+
+		<text x="40" y="704" font-size="20" fill="#2b2a26">Do mozku se zvuk nedostane přímo,</text>
+		<text x="40" y="732" font-size="20" fill="#2b2a26">ale až po několika přeměnách.</text>
+	</g>
+</svg>
