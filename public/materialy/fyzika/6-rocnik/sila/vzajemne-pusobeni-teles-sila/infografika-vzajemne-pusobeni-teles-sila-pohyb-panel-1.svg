@@ -1,0 +1,122 @@
+<svg viewBox="0 0 460 660" width="460" height="660" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Vzájemné působení těles v pohybu, Skok bungee: skokan stojí na kraji mostu, za kotníky je uvázaný k pružnému lanu. Skočí a padá, lano je zatím volné. Pak skokan lano natahuje, lano se prodlužuje, brzdí ho a táhne zpátky nahoru. Skokan se několikrát zhoupne a zůstane viset nad řekou. Dvě stejně dlouhé červené šipky: skokan táhne lano dolů, lano drží skokana nahoru, aby nespadl. Působí na sebe navzájem." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Vzájemné působení těles v pohybu 1/2: Skok bungee</title>
+	<!-- W103. Předloha: PDF 6/02 Síla/13. Vzájemné působení těles, síla, s. 1 („skokan bungee při seskoku natahuje lano a lano ho drží, aby nespadl“); PDF k tomu obrázek nemá, scéna kreslena podle textu. Šipky sil červené #e03131 s černou tečkou v působišti jako na webu (obr-02 téže stránky, 7. r. sila-pohyb). Cyklus 10 s: 0–0,5 s stojí; 0,5–1,3 s volný pád (lano volné); 1,3–2,1 s lano se natahuje (2,1 s nejníž, posun 214, omezeno vodou); tlumené zhoupnutí od klidu 150: +64 (2,1 s), −30 (3,1 s), +15 (4,0 s), −8 (4,8 s), 0 (5,6 s); volné lano = prověšený oblouk; od 5,6 s visí v klidu – teprve tehdy šipky a popisky; 9,3 s skokan i text přepnou zároveň zpět na most. Délka lana = posun skokana (scaleY = posun : 100). Klid (reduced motion): skokan visí, šipky viditelné. -->
+	<style>
+		.b1sk { animation: b1sk 10s infinite; }
+		@keyframes b1sk { 0% { transform: translateY(0px); } 5% { transform: translateY(0px); animation-timing-function: ease-in; } 13% { transform: translateY(110px); animation-timing-function: ease-out; } 21% { transform: translateY(214px); animation-timing-function: ease-in-out; } 31% { transform: translateY(120px); animation-timing-function: ease-in-out; } 40% { transform: translateY(165px); animation-timing-function: ease-in-out; } 48% { transform: translateY(142px); animation-timing-function: ease-in-out; } 56%, 93% { transform: translateY(150px); } 94%, 100% { transform: translateY(0px); } }
+		.b1la { animation: b1la 10s infinite; }
+		@keyframes b1la { 0% { transform: scaleY(0); } 5% { transform: scaleY(0); animation-timing-function: ease-in; } 13% { transform: scaleY(1.1); animation-timing-function: ease-out; } 21% { transform: scaleY(2.14); animation-timing-function: ease-in-out; } 31% { transform: scaleY(1.2); animation-timing-function: ease-in-out; } 40% { transform: scaleY(1.65); animation-timing-function: ease-in-out; } 48% { transform: scaleY(1.42); animation-timing-function: ease-in-out; } 56%, 93% { transform: scaleY(1.5); } 94%, 100% { transform: scaleY(0); } }
+		.b1st { animation: b1st 10s step-end infinite; }
+		@keyframes b1st { 0% { opacity: 1; } 5% { opacity: 0; } 93% { opacity: 1; } 100% { opacity: 1; } }
+		.b1dl { animation: b1dl 10s step-end infinite; }
+		@keyframes b1dl { 0% { opacity: 0; } 5% { opacity: 1; } 93% { opacity: 0; } 100% { opacity: 0; } }
+		.b1vo { animation: b1vo 10s step-end infinite; }
+		@keyframes b1vo { 0% { opacity: 0; } 5% { opacity: 1; } 13% { opacity: 0; } 100% { opacity: 0; } }
+		.b1na { animation: b1na 10s step-end infinite; }
+		@keyframes b1na { 0% { opacity: 0; } 13% { opacity: 1; } 93% { opacity: 0; } 100% { opacity: 0; } }
+		.b1si { animation: b1si 10s infinite; }
+		@keyframes b1si { 0%, 56% { opacity: 0; } 59%, 91% { opacity: 1; } 93%, 100% { opacity: 0; } }
+		.b1c0 { animation: b1c0 10s step-end infinite; }
+		@keyframes b1c0 { 0% { opacity: 1; } 5% { opacity: 0; } 93% { opacity: 1; } 100% { opacity: 1; } }
+		.b1c1 { animation: b1c1 10s step-end infinite; }
+		@keyframes b1c1 { 0% { opacity: 0; } 5% { opacity: 1; } 13% { opacity: 0; } 100% { opacity: 0; } }
+		.b1c2 { animation: b1c2 10s step-end infinite; }
+		@keyframes b1c2 { 0% { opacity: 0; } 13% { opacity: 1; } 56% { opacity: 0; } 100% { opacity: 0; } }
+		.b1c3 { animation: b1c3 10s step-end infinite; }
+		@keyframes b1c3 { 0% { opacity: 0; } 56% { opacity: 1; } 93% { opacity: 0; } 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) {
+			.b1sk, .b1la, .b1st, .b1dl, .b1vo, .b1na, .b1si, .b1c0, .b1c1, .b1c2, .b1c3 { animation: none; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="660" fill="#f8f9fa" />
+	<g id="panel-1">
+		<rect x="26" y="22" width="420" height="626" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="626" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Skok bungee</text>
+		<text x="40" y="96" font-size="20" fill="#2b2a26">Skokan je za kotníky uvázaný</text>
+		<text x="40" y="122" font-size="20" fill="#2b2a26">k pružnému lanu.</text>
+		<!-- scéna posunutá o 40 px dolů pod úvodní text -->
+		<g transform="translate(0 40)">
+		<!-- řeka -->
+		<rect x="22" y="466" width="416" height="42" fill="#a5d8ff" />
+		<path d="M30 478q12 -7 24 0t24 0t24 0t24 0t24 0t24 0t24 0t24 0t24 0t24 0t24 0t24 0t24 0t24 0t24 0t24 0t24 0" fill="none" stroke="#1971c2" stroke-width="2.5" />
+		<!-- most: pilíř, mostovka, zábradlí, rameno s úchytem lana -->
+		<rect x="60" y="166" width="36" height="300" fill="#adb5bd" stroke="#495057" stroke-width="2.5" />
+		<rect x="22" y="150" width="228" height="16" fill="#ced4da" stroke="#495057" stroke-width="2.5" />
+		<path d="M30 150V126M70 150V126M110 150V126M150 150V126M190 150V126M26 126H196" fill="none" stroke="#495057" stroke-width="3" stroke-linecap="round" />
+		<rect x="236" y="144" width="34" height="9" rx="2" fill="#495057" />
+		<circle cx="262" cy="153" r="4" fill="#2b2a26" />
+		<!-- skokan stojí na kraji mostu, lano volně svěšené -->
+		<g class="b1st" opacity="0">
+			<path d="M262 153Q252 172 234 148" fill="none" stroke="#2f9e44" stroke-width="4" stroke-linecap="round" />
+			<g transform="translate(232 150)">
+				<line x1="-4" y1="0" x2="-4" y2="-30" stroke="#343a40" stroke-width="9" stroke-linecap="round" />
+				<line x1="4" y1="0" x2="4" y2="-30" stroke="#343a40" stroke-width="9" stroke-linecap="round" />
+				<rect x="-8" y="-6" width="16" height="6" rx="2" fill="#2b2a26" />
+				<rect x="-10" y="-60" width="20" height="32" rx="6" fill="#e8590c" stroke="#2b2a26" stroke-width="1.5" />
+				<line x1="-8" y1="-54" x2="-16" y2="-34" stroke="#f1c9a5" stroke-width="6" stroke-linecap="round" />
+				<line x1="8" y1="-54" x2="16" y2="-34" stroke="#f1c9a5" stroke-width="6" stroke-linecap="round" />
+				<circle cx="0" cy="-70" r="10" fill="#f1c9a5" stroke="#b07a52" stroke-width="1.5" />
+				<path d="M-10 -72C-10 -84 10 -84 10 -72C4 -77 -4 -77 -10 -72Z" fill="#6b4423" />
+			</g>
+		</g>
+		<!-- lano: délka = posun skokana (úchyt 262,153) -->
+		<g transform="translate(262 153)">
+			<g class="b1vo" opacity="0">
+				<path class="b1la" d="M0 0C34 22 34 78 0 100" fill="none" stroke="#2f9e44" stroke-width="4" stroke-linecap="round" transform="scale(1 1.5)" />
+			</g>
+			<g class="b1na">
+				<line class="b1la" x1="0" y1="0" x2="0" y2="100" stroke="#2f9e44" stroke-width="4" transform="scale(1 1.5)" />
+			</g>
+		</g>
+		<!-- skokan hlavou dolů; kotníky v úchytu lana -->
+		<g transform="translate(262 153)">
+			<g class="b1dl">
+				<g class="b1sk" transform="translate(0 150)">
+					<line x1="-4" y1="2" x2="-5" y2="32" stroke="#343a40" stroke-width="9" stroke-linecap="round" />
+					<line x1="4" y1="2" x2="5" y2="32" stroke="#343a40" stroke-width="9" stroke-linecap="round" />
+					<rect x="-9" y="-3" width="18" height="7" rx="2" fill="#2b2a26" />
+					<rect x="-10" y="30" width="20" height="32" rx="6" fill="#e8590c" stroke="#2b2a26" stroke-width="1.5" />
+					<line x1="-8" y1="58" x2="-15" y2="86" stroke="#f1c9a5" stroke-width="6" stroke-linecap="round" />
+					<line x1="8" y1="58" x2="15" y2="86" stroke="#f1c9a5" stroke-width="6" stroke-linecap="round" />
+					<circle cx="0" cy="72" r="10" fill="#f1c9a5" stroke="#b07a52" stroke-width="1.5" />
+					<path d="M-10 74C-10 86 10 86 10 74C4 79 -4 79 -10 74Z" fill="#6b4423" />
+				</g>
+			</g>
+		</g>
+		<!-- síly v klidu (kotníky na 262,303): stejně dlouhé, opačné -->
+		<g class="b1si"><g transform="translate(0 -40)">
+			<g transform="translate(250 343) rotate(90)">
+				<line x1="0" y1="0" x2="38" y2="0" stroke="#ffffff" stroke-width="11" stroke-linecap="round" />
+				<polygon points="52,0 38,-7 38,7" fill="#ffffff" stroke="#ffffff" stroke-width="5" stroke-linejoin="round" />
+				<line x1="0" y1="0" x2="38" y2="0" stroke="#e03131" stroke-width="5" />
+				<polygon points="52,0 38,-7 38,7" fill="#e03131" />
+				<circle cx="0" cy="0" r="5" fill="#2b2a26" />
+			</g>
+			<g transform="translate(274 343) rotate(-90)">
+				<line x1="0" y1="0" x2="38" y2="0" stroke="#ffffff" stroke-width="11" stroke-linecap="round" />
+				<polygon points="52,0 38,-7 38,7" fill="#ffffff" stroke="#ffffff" stroke-width="5" stroke-linejoin="round" />
+				<line x1="0" y1="0" x2="38" y2="0" stroke="#e03131" stroke-width="5" />
+				<polygon points="52,0 38,-7 38,7" fill="#e03131" />
+				<circle cx="0" cy="0" r="5" fill="#2b2a26" />
+			</g>
+			<g font-size="20" font-weight="bold" fill="#c92a2a">
+				<text x="238" y="380" text-anchor="end">skokan táhne</text>
+				<text x="238" y="404" text-anchor="end">lano dolů</text>
+				<text x="292" y="300">lano drží</text>
+				<text x="292" y="324">skokana</text>
+				<text x="292" y="348">nahoru</text>
+			</g>
+		</g></g>
+		</g>
+		<!-- popisky dějů -->
+		<g font-size="22" font-weight="bold" fill="#2b2a26">
+			<g class="b1c0" opacity="0"><text x="40" y="586">Skokan stojí na kraji mostu.</text></g>
+			<g class="b1c1" opacity="0"><text x="40" y="586">Padá – lano je zatím volné.</text></g>
+			<g class="b1c2" opacity="0"><text x="40" y="586">Skokan natahuje lano.</text><text x="40" y="616">Lano ho brzdí a táhne zpátky.</text></g>
+			<g class="b1c3"><text x="40" y="586">Lano drží skokana, aby nespadl.</text><text x="40" y="616" fill="#237032">Působí na sebe navzájem.</text></g>
+		</g>
+	</g>
+</svg>

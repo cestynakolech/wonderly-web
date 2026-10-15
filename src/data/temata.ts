@@ -597,6 +597,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>💡 Síla 1 N odpovídá přibližně síle, kterou Země přitahuje těleso o hmotnosti 100 g. Na tomto principu fungují pružinové váhy.</p>
 					`,
 					materialy: [
+						{ druh: 'infografika', nazev: 'Vzájemné působení těles v pohybu', cesta: '/materialy/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/infografika-vzajemne-pusobeni-teles-sila-pohyb-panel-1.svg', panely: ['/materialy/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/infografika-vzajemne-pusobeni-teles-sila-pohyb-panel-1.svg', '/materialy/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/infografika-vzajemne-pusobeni-teles-sila-pohyb-panel-2.svg'] },
 						{ druh: 'youtube', nazev: 'Video: Síla', cesta: 'Y340hJrbpU8' },
 						{
 							druh: 'video',
