@@ -1,0 +1,93 @@
+<svg viewBox="0 0 460 700" width="460" height="700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Teplota a její měření v pohybu 2/2, Graf teplot a průměr: sedm dní měříme teplotu vzduchu a do grafu přibývá bod po bodu: pondělí 18 °C, úterý 21 °C, středa 24 °C, čtvrtek 19 °C, pátek 22 °C, sobota 20 °C, neděle 16 °C. Až je graf hotový, sečteme hodnoty: součet je 140 °C, průměr 140 : 7 = 20 °C, v grafu čárkovaná čára. Průměr leží mezi nejmenší hodnotou 16 °C a největší 24 °C." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Teplota a její měření v pohybu 2/2: Graf teplot a průměr</title>
+	<!-- W96. Předloha: PDF 10 Teplota s. 11 („změny teplot zaznamenáváme do tabulek či grafů“), prezentace snímek 18
+	     (graf teplot: osa x den, osa y teplota °C, body spojené čarou), výklad „Průměrná teplota“, Příklad 1 — letní týden:
+	     18, 21, 24, 19, 22, 20, 16 °C, součet 140 °C, průměr 140 : 7 = 20 °C; průměr mezi nejmenší a největší hodnotou.
+	     Graf: x = 110 + 50·i (i = 0…6), y = 420 − 10·t (0 °C na y 420, 25 °C na y 170).
+	     Cyklus 12 s: bod i se objeví v čase (5 + 8·i) % = 0,6 s, 1,56 s, … 6,36 s; nahoře údaj dne; graf hotový v 7,44 s.
+	     Teprve potom výpočet: od 62 % (7,44 s) řádek součtu (.sm), od 72 % (8,64 s) výsledek průměru, čárkovaná čára
+	     na 20 °C, legenda čáry, údaj nahoře a věta „mezi nejmenší a největší“ (.pr). Bez pohybu: vše viditelné.
+	     Barvy: body a čára teplot červené #e03131 (teplota, jako sloupec teploměru), průměr tmavá čárkovaná #2b2a26. -->
+	<style>
+		.b0 { animation: b0 12s step-end infinite; } @keyframes b0 { 0% { opacity: 0; } 5% { opacity: 1; } 100% { opacity: 1; } }
+		.b1 { animation: b1 12s step-end infinite; } @keyframes b1 { 0% { opacity: 0; } 13% { opacity: 1; } 100% { opacity: 1; } }
+		.b2 { animation: b2 12s step-end infinite; } @keyframes b2 { 0% { opacity: 0; } 21% { opacity: 1; } 100% { opacity: 1; } }
+		.b3 { animation: b3 12s step-end infinite; } @keyframes b3 { 0% { opacity: 0; } 29% { opacity: 1; } 100% { opacity: 1; } }
+		.b4 { animation: b4 12s step-end infinite; } @keyframes b4 { 0% { opacity: 0; } 37% { opacity: 1; } 100% { opacity: 1; } }
+		.b5 { animation: b5 12s step-end infinite; } @keyframes b5 { 0% { opacity: 0; } 45% { opacity: 1; } 100% { opacity: 1; } }
+		.b6 { animation: b6 12s step-end infinite; } @keyframes b6 { 0% { opacity: 0; } 53% { opacity: 1; } 100% { opacity: 1; } }
+		.sm { animation: sm 12s step-end infinite; } @keyframes sm { 0% { opacity: 0; } 62% { opacity: 1; } 100% { opacity: 1; } }
+		.pr { animation: pr 12s step-end infinite; } @keyframes pr { 0% { opacity: 0; } 72% { opacity: 1; } 100% { opacity: 1; } }
+		.u0 { animation: u0 12s step-end infinite; } @keyframes u0 { 0% { opacity: 0; } 5% { opacity: 1; } 13% { opacity: 0; } 100% { opacity: 0; } }
+		.u1 { animation: u1 12s step-end infinite; } @keyframes u1 { 0% { opacity: 0; } 13% { opacity: 1; } 21% { opacity: 0; } 100% { opacity: 0; } }
+		.u2 { animation: u2 12s step-end infinite; } @keyframes u2 { 0% { opacity: 0; } 21% { opacity: 1; } 29% { opacity: 0; } 100% { opacity: 0; } }
+		.u3 { animation: u3 12s step-end infinite; } @keyframes u3 { 0% { opacity: 0; } 29% { opacity: 1; } 37% { opacity: 0; } 100% { opacity: 0; } }
+		.u4 { animation: u4 12s step-end infinite; } @keyframes u4 { 0% { opacity: 0; } 37% { opacity: 1; } 45% { opacity: 0; } 100% { opacity: 0; } }
+		.u5 { animation: u5 12s step-end infinite; } @keyframes u5 { 0% { opacity: 0; } 45% { opacity: 1; } 53% { opacity: 0; } 100% { opacity: 0; } }
+		.u6 { animation: u6 12s step-end infinite; } @keyframes u6 { 0% { opacity: 0; } 53% { opacity: 1; } 72% { opacity: 0; } 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) {
+			.b0, .b1, .b2, .b3, .b4, .b5, .b6, .sm, .pr, .u0, .u1, .u2, .u3, .u4, .u5, .u6 { animation: none; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="700" fill="#f8f9fa" />
+	<g id="panel-2">
+		<rect x="26" y="22" width="420" height="668" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="668" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">2</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Graf teplot a průměr</text>
+		<text x="40" y="96" font-size="20" fill="#2b2a26">Sedm dní měříme teplotu vzduchu.</text>
+		<!-- údaj dne -->
+		<g font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">
+			<text class="u0" x="230" y="136" opacity="0">pondělí: 18 °C</text>
+			<text class="u1" x="230" y="136" opacity="0">úterý: 21 °C</text>
+			<text class="u2" x="230" y="136" opacity="0">středa: 24 °C</text>
+			<text class="u3" x="230" y="136" opacity="0">čtvrtek: 19 °C</text>
+			<text class="u4" x="230" y="136" opacity="0">pátek: 22 °C</text>
+			<text class="u5" x="230" y="136" opacity="0">sobota: 20 °C</text>
+			<text class="u6" x="230" y="136" opacity="0">neděle: 16 °C</text>
+			<text class="pr" x="230" y="136">průměr: 20 °C</text>
+		</g>
+		<!-- osy a mřížka -->
+		<path d="M90 370H428M90 320H428M90 270H428M90 220H428M90 170H428" stroke="#dee2e6" stroke-width="1.5" />
+		<path d="M90 160V420H430" fill="none" stroke="#2b2a26" stroke-width="2.5" />
+		<g font-size="20" fill="#2b2a26" text-anchor="end">
+			<text x="82" y="427">0</text><text x="82" y="377">5</text><text x="82" y="327">10</text>
+			<text x="82" y="277">15</text><text x="82" y="227">20</text><text x="82" y="177">25</text>
+		</g>
+		<text x="40" y="150" font-size="20" fill="#2b2a26">°C</text>
+		<g font-size="20" fill="#2b2a26" text-anchor="middle">
+			<text x="110" y="448">Po</text><text x="160" y="448">Út</text><text x="210" y="448">St</text><text x="260" y="448">Čt</text>
+			<text x="310" y="448">Pá</text><text x="360" y="448">So</text><text x="410" y="448">Ne</text>
+		</g>
+		<!-- čára průměru -->
+		<path class="pr" d="M92 220H428" stroke="#2b2a26" stroke-width="3" stroke-dasharray="10 7" />
+		<!-- body teplot -->
+		<g stroke="#e03131" stroke-width="3.5" fill="#e03131">
+			<g class="b0"><circle cx="110" cy="240" r="7" /></g>
+			<g class="b1"><path d="M110 240L160 210" /><circle cx="160" cy="210" r="7" /></g>
+			<g class="b2"><path d="M160 210L210 180" /><circle cx="210" cy="180" r="7" /></g>
+			<g class="b3"><path d="M210 180L260 230" /><circle cx="260" cy="230" r="7" /></g>
+			<g class="b4"><path d="M260 230L310 200" /><circle cx="310" cy="200" r="7" /></g>
+			<g class="b5"><path d="M310 200L360 220" /><circle cx="360" cy="220" r="7" /></g>
+			<g class="b6"><path d="M360 220L410 260" /><circle cx="410" cy="260" r="7" /></g>
+		</g>
+		<g font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#fbfaf6" stroke-width="5" stroke-linejoin="round" paint-order="stroke">
+			<text class="b0" x="110" y="268">18</text><text class="b1" x="160" y="196">21</text><text class="b2" x="210" y="166">24</text>
+			<text class="b3" x="260" y="258">19</text><text class="b4" x="310" y="186">22</text><text class="b5" x="360" y="206">20</text>
+			<text class="b6" x="410" y="291">16</text>
+		</g>
+		<!-- výpočet až po hotovém grafu -->
+		<g class="sm">
+			<text x="40" y="492" font-size="20" fill="#2b2a26">18 + 21 + 24 + 19 + 22 + 20 + 16</text>
+			<text x="40" y="520" font-size="20" fill="#2b2a26">součet = 140 °C</text>
+		</g>
+		<g class="pr">
+			<text x="40" y="554" font-size="22" font-weight="bold" fill="#2b2a26">průměr = 140 : 7 = 20 °C</text>
+			<path d="M42 584H92" stroke="#2b2a26" stroke-width="3" stroke-dasharray="10 7" />
+			<text x="104" y="591" font-size="20" fill="#2b2a26">čára průměru</text>
+			<text x="40" y="628" font-size="20" fill="#2b2a26">Průměr je mezi nejmenší (16 °C)</text>
+			<text x="40" y="654" font-size="20" fill="#2b2a26">a největší (24 °C) hodnotou.</text>
+		</g>
+	</g>
+</svg>

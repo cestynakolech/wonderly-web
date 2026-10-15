@@ -1,0 +1,82 @@
+<svg viewBox="0 0 460 712" width="460" height="712" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Teplota a její měření v pohybu 1/2, Ruka teplotu nepozná: tři kádinky s vodou, studená, vlažná a horká. Levá ruka se ponoří do studené, pravá do horké. Pak obě ruce přejdou do vlažné vody: levá ji cítí jako teplou, pravá jako studenou, a přitom je to tatáž voda. Smysly klamou, proto teplotu měříme teploměrem." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Teplota a její měření v pohybu 1/2: Ruka teplotu nepozná</title>
+	<!-- W96. Předloha: prezentace TEPLOTA.pptx snímek 4–5 (tři kádinky studená/vlažná/horká, prsty ponořené,
+	     bubliny „voda se mi zdá…“) a výklad stránky „Pokus: dá se teplota změřit rukou?“ (asi 5 / 25 / 45 °C;
+	     levá ze studené cítí vlažnou jako teplou, pravá z horké jako studenou; teplotu měří teploměr).
+	     Čísla: žádná (teploměr v kádinkách nese živý obr-03, nezdvojuje se). Kádinky: studená x 30–125, vlažná 150–310,
+	     horká 335–430, dno y 470. Voda barvou podle teploty jako živý obr-03: studená #74c0fc, vlažná #d0ebff,
+	     horká #ffc078 (opacity 0,55). Cyklus 10 s: 0–0,8 s ruce dolů do krajních kádinek, do 3 s čekají, 3–4,8 s přesun
+	     do vlažné, 5–7,6 s bubliny, 7,6–7,8 s ruce zmizí na místě (y 300, rukáv nad podnadpis nevyjede), od 7,8 s rámeček
+	     závěru „Smysly klamou, proto měříme teploměrem.“ (opora výkladu: tělesný pocit… teplotu měří teploměrem).
+	     Bez pohybu: ruce ve vlažné vodě s bublinami; závěr nese tučný řádek dole. -->
+	<style>
+		.hl { animation: hl 10s linear infinite; }
+		@keyframes hl { 0% { transform: translate(78px,300px); opacity: 1; } 8% { transform: translate(78px,425px); } 30% { transform: translate(78px,425px); } 36% { transform: translate(78px,300px); } 42% { transform: translate(185px,300px); } 48% { transform: translate(185px,425px); } 72% { transform: translate(185px,425px); } 76% { transform: translate(185px,300px); opacity: 1; } 78% { transform: translate(185px,300px); opacity: 0; } 99% { transform: translate(78px,300px); opacity: 0; } 100% { transform: translate(78px,300px); opacity: 1; } }
+		.hr { animation: hr 10s linear infinite; }
+		@keyframes hr { 0% { transform: translate(382px,300px); opacity: 1; } 8% { transform: translate(382px,425px); } 30% { transform: translate(382px,425px); } 36% { transform: translate(382px,300px); } 42% { transform: translate(235px,300px); } 48% { transform: translate(235px,425px); } 72% { transform: translate(235px,425px); } 76% { transform: translate(235px,300px); opacity: 1; } 78% { transform: translate(235px,300px); opacity: 0; } 99% { transform: translate(382px,300px); opacity: 0; } 100% { transform: translate(382px,300px); opacity: 1; } }
+		.bu { animation: bu 10s step-end infinite; }
+		@keyframes bu { 0% { opacity: 0; } 50% { opacity: 1; } 76% { opacity: 0; } 100% { opacity: 0; } }
+		.tm { animation: tm 10s step-end infinite; }
+		@keyframes tm { 0% { opacity: 0; } 78% { opacity: 1; } 100% { opacity: 1; } }
+		@media (prefers-reduced-motion: reduce) {
+			.hl, .hr, .bu, .tm { animation: none; }
+		}
+	</style>
+	<defs>
+		<g id="ruka">
+			<rect x="-18" y="-180" width="36" height="102" rx="6" fill="#ced4da" stroke="#495057" stroke-width="2" />
+			<rect x="-14" y="-84" width="28" height="30" fill="#f3c9a5" stroke="#9c5b2e" stroke-width="2" />
+			<rect x="14" y="-62" width="9" height="28" rx="4.5" fill="#f3c9a5" stroke="#9c5b2e" stroke-width="2" transform="rotate(-25 18 -62)" />
+			<rect x="-18" y="-36" width="8.5" height="36" rx="4.2" fill="#f3c9a5" stroke="#9c5b2e" stroke-width="2" />
+			<rect x="-9" y="-36" width="8.5" height="36" rx="4.2" fill="#f3c9a5" stroke="#9c5b2e" stroke-width="2" />
+			<rect x="0" y="-36" width="8.5" height="36" rx="4.2" fill="#f3c9a5" stroke="#9c5b2e" stroke-width="2" />
+			<rect x="9" y="-36" width="8.5" height="36" rx="4.2" fill="#f3c9a5" stroke="#9c5b2e" stroke-width="2" />
+			<rect x="-19" y="-62" width="38" height="34" rx="11" fill="#f3c9a5" stroke="#9c5b2e" stroke-width="2" />
+		</g>
+	</defs>
+	<rect x="0" y="0" width="460" height="712" fill="#f8f9fa" />
+	<g id="panel-1">
+		<rect x="26" y="22" width="420" height="680" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="680" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Ruka teplotu nepozná</text>
+		<text x="40" y="96" font-size="20" fill="#2b2a26">Tatáž voda, a každá ruka cítí jinak.</text>
+		<!-- voda v kádinkách -->
+		<!-- barva vody podle teploty jako živý obr-03 -->
+		<rect x="33" y="360" width="89" height="107" fill="#74c0fc" opacity="0.55" />
+		<rect x="153" y="360" width="154" height="107" fill="#d0ebff" opacity="0.55" />
+		<rect x="338" y="360" width="89" height="107" fill="#ffc078" opacity="0.55" />
+		<path d="M33 360H122M153 360H307M338 360H427" stroke="#1c7ed6" stroke-width="2.5" />
+		<!-- ruce -->
+		<g class="hl" transform="translate(185,425)"><use href="#ruka" transform="scale(-1,1)" /></g>
+		<g class="hr" transform="translate(235,425)"><use href="#ruka" /></g>
+		<!-- sklo kádinek (přes ruce, aby prsty byly ve vodě) -->
+		<path d="M26 330H30V470H125V330H129" fill="none" stroke="#495057" stroke-width="3" stroke-linejoin="round" />
+		<path d="M146 330H150V470H310V330H314" fill="none" stroke="#495057" stroke-width="3" stroke-linejoin="round" />
+		<path d="M331 330H335V470H430V330H434" fill="none" stroke="#495057" stroke-width="3" stroke-linejoin="round" />
+		<!-- bubliny pocitu -->
+		<g class="bu">
+			<path d="M34 140H150Q156 140 156 146V190Q156 196 150 196H140L180 242L118 196H40Q34 196 34 190V146Q34 140 40 140Z" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+			<text x="95" y="166" text-anchor="middle" font-size="20" fill="#2b2a26">levá:</text>
+			<text x="95" y="189" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">teplá!</text>
+			<path d="M310 140H426Q432 140 432 146V190Q432 196 426 196H336L240 242L314 196H310Q304 196 304 190V146Q304 140 310 140Z" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+			<text x="368" y="166" text-anchor="middle" font-size="20" fill="#2b2a26">pravá:</text>
+			<text x="368" y="189" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">studená!</text>
+		</g>
+		<text x="78" y="498" text-anchor="middle" font-size="20" fill="#2b2a26">studená</text>
+		<text x="230" y="498" text-anchor="middle" font-size="20" fill="#2b2a26">vlažná</text>
+		<text x="382" y="498" text-anchor="middle" font-size="20" fill="#2b2a26">horká</text>
+		<text x="40" y="542" font-size="20" fill="#2b2a26">1. Levá do studené, pravá do horké.</text>
+		<text x="40" y="574" font-size="20" fill="#2b2a26">2. Pak obě ruce do vlažné vody:</text>
+		<text x="62" y="600" font-size="20" fill="#2b2a26">levá cítí teplo, pravá chlad.</text>
+		<text x="40" y="632" font-size="20" fill="#2b2a26">3. Ruka se splete, smysly klamou.</text>
+		<text x="40" y="672" font-size="22" font-weight="bold" fill="#2b2a26">Proto měříme teploměrem.</text>
+		<!-- závěr pokusu (od 7,8 s, ruce už zmizely) -->
+		<g class="tm" opacity="0">
+			<rect x="44" y="140" width="372" height="98" rx="10" fill="#ffffff" stroke="#2b2a26" stroke-width="2.5" />
+			<text x="230" y="180" text-anchor="middle" font-size="26" font-weight="bold" fill="#2b2a26">Smysly klamou,</text>
+			<text x="230" y="218" text-anchor="middle" font-size="22" fill="#2b2a26">proto měříme teploměrem.</text>
+		</g>
+	</g>
+</svg>

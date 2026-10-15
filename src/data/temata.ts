@@ -1386,6 +1386,7 @@ export const temata: Record<string, Tema[]> = {
 							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata kreslí program podle zadaných hodnot.',
 						},
 						{ druh: 'video', nazev: 'Píseň: Teploměr nelže 🎵', cesta: '/materialy/fyzika/6-rocnik/teplota/teplota-a-jeji-mereni/pisen-teplomer-nelze.m4a' },
+						{ druh: 'infografika', nazev: 'Teplota v pohybu', cesta: '/materialy/fyzika/6-rocnik/teplota/teplota-a-jeji-mereni/infografika-teplota-a-jeji-mereni-pohyb-panel-1.svg', panely: ['/materialy/fyzika/6-rocnik/teplota/teplota-a-jeji-mereni/infografika-teplota-a-jeji-mereni-pohyb-panel-1.svg', '/materialy/fyzika/6-rocnik/teplota/teplota-a-jeji-mereni/infografika-teplota-a-jeji-mereni-pohyb-panel-2.svg'] },
 						{
 							druh: 'video',
 							nazev: 'Podkást POLEMIKA: Teplota a její měření (díl 1 ze 2) — 1. díl',
