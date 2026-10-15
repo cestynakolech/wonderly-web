@@ -1,0 +1,231 @@
+<svg viewBox="0 0 460 712" width="460" height="712" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Souhrnné opakování veličin v pohybu, Značka t dvakrát: ruka ponoří lihový teploměr do kádinky s vodou a drží ho nad dnem, sloupec klesá a ustálí se na 20 °C. Stopky měří, jak dlouho se teploměr ustaluje: běží (zrychleně) od ponoření a zastaví se spolu s ustálením na 20 s. Pod teploměrem t = 20 °C, teplota, pod stopkami t = 20 s, čas. Obě veličiny mají značku t, rozliší je až jednotka, proto se jednotka nikdy nevynechává." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Souhrnné opakování veličin v pohybu: Značka t dvakrát</title>
+	<!-- W106. Opora: výklad „Značka t znamená dvě různé věci … t = 20 °C je teplota, t = 20 s je čas. Proto se jednotka nikdy nevynechává“; PDF 18. Souhrnné opakování s. 5–6 (teplota značka t, °C; čas značka t, sekunda, měřidlo hodiny, stopky). Kresba teploměru podle živého obr-03 teploty (lihový, 0–50 °C, dílek 1 °C), stopky podle obr-08 času. Cyklus 10 s: 0,5–1,3 s ruka ponoří teploměr; 1,3–4 s sloupec klesne z pokojové teploty (bez čísla) na 20 °C a stopky současně 0 → 20 s (měří ustalování); 4 s popisek t = 20 °C + „Teploměr se ustálil, stopky stojí.“, 4,6 s t = 20 s; 5,8 s kroužky kolem t; 7,2 s kroužky kolem jednotek + závěr. Teploměr visí v ruce nad dnem (spodek pouzdra 478, dno 500). 9,55–9,65 s zhasnutí, 9,7 s návrat, 9,8–9,9 s rozsvícení. Bez pohybu: konečný stav. -->
+	<style>
+		.th { animation: th 10s linear infinite; }
+		@keyframes th { 0% { transform: translate(0px,150px); } 5% { transform: translate(0px,150px); } 13% { transform: translate(0px,216px); } 96.9% { transform: translate(0px,216px); } 97% { transform: translate(0px,150px); } 100% { transform: translate(0px,150px); } }
+		.co { animation: co 10s linear infinite; }
+		@keyframes co { 0% { transform: scale(1,0.48); } 13% { transform: scale(1,0.48); } 40% { transform: scale(1,0.4); } 96.9% { transform: scale(1,0.4); } 97% { transform: scale(1,0.48); } 100% { transform: scale(1,0.48); } }
+		.ru { animation: ru 10s linear infinite; }
+		@keyframes ru { 0% { transform: translate(330px,320px) rotate(0deg); } 13% { transform: translate(330px,320px) rotate(0deg); } 40% { transform: translate(330px,320px) rotate(120deg); } 96.9% { transform: translate(330px,320px) rotate(120deg); } 97% { transform: translate(330px,320px) rotate(0deg); } 100% { transform: translate(330px,320px) rotate(0deg); } }
+		.c1 { animation: c1 10s step-end infinite; }
+		@keyframes c1 { 0% { opacity: 1; } 13% { opacity: 0; } 97% { opacity: 1; } 100% { opacity: 1; } }
+		.c2 { animation: c2 10s step-end infinite; }
+		@keyframes c2 { 0% { opacity: 0; } 13% { opacity: 1; } 40% { opacity: 0; } 100% { opacity: 0; } }
+		.c3 { animation: c3 10s step-end infinite; }
+		@keyframes c3 { 0% { opacity: 0; } 40% { opacity: 1; } 58% { opacity: 0; } 100% { opacity: 0; } }
+		.la { animation: la 10s step-end infinite; }
+		@keyframes la { 0% { opacity: 0; } 40% { opacity: 1; } 97% { opacity: 0; } 100% { opacity: 0; } }
+		.lb { animation: lb 10s step-end infinite; }
+		@keyframes lb { 0% { opacity: 0; } 46% { opacity: 1; } 97% { opacity: 0; } 100% { opacity: 0; } }
+		.ht { animation: ht 10s step-end infinite; }
+		@keyframes ht { 0% { opacity: 0; } 58% { opacity: 1; } 97% { opacity: 0; } 100% { opacity: 0; } }
+		.hj { animation: hj 10s step-end infinite; }
+		@keyframes hj { 0% { opacity: 0; } 72% { opacity: 1; } 97% { opacity: 0; } 100% { opacity: 0; } }
+		.cy { animation: cy 10s linear infinite; }
+		@keyframes cy { 0% { opacity: 1; } 95.5% { opacity: 1; } 96.5% { opacity: 0; } 98% { opacity: 0; } 99% { opacity: 1; } 100% { opacity: 1; } }
+		@media (prefers-reduced-motion: reduce) {
+			.th, .co, .ru, .c1, .c2, .c3, .la, .lb, .ht, .hj, .cy { animation: none; }
+		}
+	</style>
+	<defs>
+		<g id="ruka">
+			<rect x="-18" y="-180" width="36" height="102" rx="6" fill="#ced4da" stroke="#495057" stroke-width="2" />
+			<rect x="-14" y="-84" width="28" height="30" fill="#f3c9a5" stroke="#9c5b2e" stroke-width="2" />
+			<rect x="14" y="-62" width="9" height="28" rx="4.5" fill="#f3c9a5" stroke="#9c5b2e" stroke-width="2" transform="rotate(-25 18 -62)" />
+			<rect x="-18" y="-36" width="8.5" height="36" rx="4.2" fill="#f3c9a5" stroke="#9c5b2e" stroke-width="2" />
+			<rect x="-9" y="-36" width="8.5" height="36" rx="4.2" fill="#f3c9a5" stroke="#9c5b2e" stroke-width="2" />
+			<rect x="0" y="-36" width="8.5" height="36" rx="4.2" fill="#f3c9a5" stroke="#9c5b2e" stroke-width="2" />
+			<rect x="9" y="-36" width="8.5" height="36" rx="4.2" fill="#f3c9a5" stroke="#9c5b2e" stroke-width="2" />
+			<rect x="-19" y="-62" width="38" height="34" rx="11" fill="#f3c9a5" stroke="#9c5b2e" stroke-width="2" />
+		</g>
+		<clipPath id="o1"><rect x="20" y="108" width="420" height="600" /></clipPath>
+	</defs>
+	<rect x="0" y="0" width="460" height="712" fill="#f8f9fa" />
+	<rect x="26" y="22" width="420" height="680" rx="10" fill="#2b2a26" />
+	<rect x="20" y="16" width="420" height="680" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+	<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Značka t dvakrát</text>
+	<text x="40" y="96" font-size="20" fill="#2b2a26">Měříme teplotu vody a čas ustálení.</text>
+	<g class="cy">
+		<rect x="43" y="420" width="144" height="78" fill="#d0ebff" />
+		<g clip-path="url(#o1)">
+			<g class="th" transform="translate(0,216)">
+				<g transform="translate(115,0)">
+					<rect x="-18" y="0" width="64" height="262" rx="12" fill="#f1f3f5" stroke="#495057" stroke-width="2" />
+					<text x="43" y="258" text-anchor="end" font-size="20" font-weight="bold" fill="#2b2a26">°C</text>
+					<rect x="-4" y="26" width="8" height="210" rx="4" fill="#ffffff" stroke="#868e96" stroke-width="1.5" />
+					<line x1="6" y1="220.0" x2="16" y2="220.0" stroke="#2b2a26" stroke-width="1.8" />
+					<text x="44" y="227.0" text-anchor="end" font-size="20" font-weight="bold" fill="#2b2a26">0</text>
+					<line x1="6" y1="216.4" x2="10" y2="216.4" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="212.8" x2="10" y2="212.8" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="209.2" x2="10" y2="209.2" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="205.6" x2="10" y2="205.6" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="202.0" x2="13" y2="202.0" stroke="#2b2a26" stroke-width="1.8" />
+					<line x1="6" y1="198.4" x2="10" y2="198.4" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="194.8" x2="10" y2="194.8" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="191.2" x2="10" y2="191.2" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="187.6" x2="10" y2="187.6" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="184.0" x2="16" y2="184.0" stroke="#2b2a26" stroke-width="1.8" />
+					<text x="44" y="191.0" text-anchor="end" font-size="20" font-weight="bold" fill="#2b2a26">10</text>
+					<line x1="6" y1="180.4" x2="10" y2="180.4" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="176.8" x2="10" y2="176.8" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="173.2" x2="10" y2="173.2" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="169.6" x2="10" y2="169.6" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="166.0" x2="13" y2="166.0" stroke="#2b2a26" stroke-width="1.8" />
+					<line x1="6" y1="162.4" x2="10" y2="162.4" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="158.8" x2="10" y2="158.8" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="155.2" x2="10" y2="155.2" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="151.6" x2="10" y2="151.6" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="148.0" x2="16" y2="148.0" stroke="#2b2a26" stroke-width="1.8" />
+					<text x="44" y="155.0" text-anchor="end" font-size="20" font-weight="bold" fill="#2b2a26">20</text>
+					<line x1="6" y1="144.4" x2="10" y2="144.4" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="140.8" x2="10" y2="140.8" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="137.2" x2="10" y2="137.2" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="133.6" x2="10" y2="133.6" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="130.0" x2="13" y2="130.0" stroke="#2b2a26" stroke-width="1.8" />
+					<line x1="6" y1="126.4" x2="10" y2="126.4" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="122.8" x2="10" y2="122.8" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="119.2" x2="10" y2="119.2" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="115.6" x2="10" y2="115.6" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="112.0" x2="16" y2="112.0" stroke="#2b2a26" stroke-width="1.8" />
+					<text x="44" y="119.0" text-anchor="end" font-size="20" font-weight="bold" fill="#2b2a26">30</text>
+					<line x1="6" y1="108.4" x2="10" y2="108.4" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="104.8" x2="10" y2="104.8" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="101.2" x2="10" y2="101.2" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="97.6" x2="10" y2="97.6" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="94.0" x2="13" y2="94.0" stroke="#2b2a26" stroke-width="1.8" />
+					<line x1="6" y1="90.4" x2="10" y2="90.4" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="86.8" x2="10" y2="86.8" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="83.2" x2="10" y2="83.2" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="79.6" x2="10" y2="79.6" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="76.0" x2="16" y2="76.0" stroke="#2b2a26" stroke-width="1.8" />
+					<text x="44" y="83.0" text-anchor="end" font-size="20" font-weight="bold" fill="#2b2a26">40</text>
+					<line x1="6" y1="72.4" x2="10" y2="72.4" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="68.8" x2="10" y2="68.8" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="65.2" x2="10" y2="65.2" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="61.6" x2="10" y2="61.6" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="58.0" x2="13" y2="58.0" stroke="#2b2a26" stroke-width="1.8" />
+					<line x1="6" y1="54.4" x2="10" y2="54.4" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="50.8" x2="10" y2="50.8" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="47.2" x2="10" y2="47.2" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="43.6" x2="10" y2="43.6" stroke="#2b2a26" stroke-width="1" />
+					<line x1="6" y1="40.0" x2="16" y2="40.0" stroke="#2b2a26" stroke-width="1.8" />
+					<text x="44" y="47.0" text-anchor="end" font-size="20" font-weight="bold" fill="#2b2a26">50</text>
+					<rect x="-3" y="218" width="6" height="22" fill="#c92a2a" />
+					<g transform="translate(0,220)"><rect class="co" x="-3" y="-180" width="6" height="181" fill="#c92a2a" transform="scale(1,0.4)" /></g>
+					<circle cx="0" cy="244" r="11" fill="#c92a2a" stroke="#a61e1e" stroke-width="1.5" />
+					<use href="#ruka" transform="translate(11,20)" />
+				</g>
+			</g>
+		</g>
+		<rect x="43" y="420" width="144" height="78" fill="#74c0fc" opacity="0.3" />
+		<path d="M43 420H187" stroke="#1c7ed6" stroke-width="2.5" />
+		<path d="M36 380H40V500H190V380H194" fill="none" stroke="#495057" stroke-width="3" stroke-linejoin="round" />
+		<circle cx="330" cy="212" r="11" fill="none" stroke="#6c757d" stroke-width="5" />
+		<rect x="319" y="221" width="22" height="16" rx="3" fill="#ced4da" stroke="#495057" stroke-width="2" />
+		<rect x="380.6" y="238.6" width="12" height="14" rx="3" fill="#ced4da" stroke="#495057" stroke-width="2" transform="rotate(40 386.6 252.6)" />
+		<circle cx="330" cy="320" r="88" fill="#ced4da" stroke="#495057" stroke-width="3" />
+		<circle cx="330" cy="320" r="76" fill="#ffffff" stroke="#868e96" stroke-width="2" />
+		<line x1="330.0" y1="256.0" x2="330.0" y2="245.0" stroke="#2b2a26" stroke-width="2.5" />
+		<line x1="337.3" y1="250.4" x2="337.8" y2="245.4" stroke="#2b2a26" stroke-width="1" />
+		<line x1="344.6" y1="251.5" x2="345.6" y2="246.6" stroke="#2b2a26" stroke-width="1" />
+		<line x1="351.6" y1="253.4" x2="353.2" y2="248.7" stroke="#2b2a26" stroke-width="1" />
+		<line x1="358.5" y1="256.1" x2="360.5" y2="251.5" stroke="#2b2a26" stroke-width="1" />
+		<line x1="362.0" y1="264.6" x2="367.5" y2="255.0" stroke="#2b2a26" stroke-width="2.5" />
+		<line x1="371.1" y1="263.4" x2="374.1" y2="259.3" stroke="#2b2a26" stroke-width="1" />
+		<line x1="376.8" y1="268.0" x2="380.2" y2="264.3" stroke="#2b2a26" stroke-width="1" />
+		<line x1="382.0" y1="273.2" x2="385.7" y2="269.8" stroke="#2b2a26" stroke-width="1" />
+		<line x1="386.6" y1="278.9" x2="390.7" y2="275.9" stroke="#2b2a26" stroke-width="1" />
+		<line x1="385.4" y1="288.0" x2="395.0" y2="282.5" stroke="#2b2a26" stroke-width="2.5" />
+		<line x1="393.9" y1="291.5" x2="398.5" y2="289.5" stroke="#2b2a26" stroke-width="1" />
+		<line x1="396.6" y1="298.4" x2="401.3" y2="296.8" stroke="#2b2a26" stroke-width="1" />
+		<line x1="398.5" y1="305.4" x2="403.4" y2="304.4" stroke="#2b2a26" stroke-width="1" />
+		<line x1="399.6" y1="312.7" x2="404.6" y2="312.2" stroke="#2b2a26" stroke-width="1" />
+		<line x1="394.0" y1="320.0" x2="405.0" y2="320.0" stroke="#2b2a26" stroke-width="2.5" />
+		<line x1="399.6" y1="327.3" x2="404.6" y2="327.8" stroke="#2b2a26" stroke-width="1" />
+		<line x1="398.5" y1="334.6" x2="403.4" y2="335.6" stroke="#2b2a26" stroke-width="1" />
+		<line x1="396.6" y1="341.6" x2="401.3" y2="343.2" stroke="#2b2a26" stroke-width="1" />
+		<line x1="393.9" y1="348.5" x2="398.5" y2="350.5" stroke="#2b2a26" stroke-width="1" />
+		<line x1="385.4" y1="352.0" x2="395.0" y2="357.5" stroke="#2b2a26" stroke-width="2.5" />
+		<line x1="386.6" y1="361.1" x2="390.7" y2="364.1" stroke="#2b2a26" stroke-width="1" />
+		<line x1="382.0" y1="366.8" x2="385.7" y2="370.2" stroke="#2b2a26" stroke-width="1" />
+		<line x1="376.8" y1="372.0" x2="380.2" y2="375.7" stroke="#2b2a26" stroke-width="1" />
+		<line x1="371.1" y1="376.6" x2="374.1" y2="380.7" stroke="#2b2a26" stroke-width="1" />
+		<line x1="362.0" y1="375.4" x2="367.5" y2="385.0" stroke="#2b2a26" stroke-width="2.5" />
+		<line x1="358.5" y1="383.9" x2="360.5" y2="388.5" stroke="#2b2a26" stroke-width="1" />
+		<line x1="351.6" y1="386.6" x2="353.2" y2="391.3" stroke="#2b2a26" stroke-width="1" />
+		<line x1="344.6" y1="388.5" x2="345.6" y2="393.4" stroke="#2b2a26" stroke-width="1" />
+		<line x1="337.3" y1="389.6" x2="337.8" y2="394.6" stroke="#2b2a26" stroke-width="1" />
+		<line x1="330.0" y1="384.0" x2="330.0" y2="395.0" stroke="#2b2a26" stroke-width="2.5" />
+		<line x1="322.7" y1="389.6" x2="322.2" y2="394.6" stroke="#2b2a26" stroke-width="1" />
+		<line x1="315.4" y1="388.5" x2="314.4" y2="393.4" stroke="#2b2a26" stroke-width="1" />
+		<line x1="308.4" y1="386.6" x2="306.8" y2="391.3" stroke="#2b2a26" stroke-width="1" />
+		<line x1="301.5" y1="383.9" x2="299.5" y2="388.5" stroke="#2b2a26" stroke-width="1" />
+		<line x1="298.0" y1="375.4" x2="292.5" y2="385.0" stroke="#2b2a26" stroke-width="2.5" />
+		<line x1="288.9" y1="376.6" x2="285.9" y2="380.7" stroke="#2b2a26" stroke-width="1" />
+		<line x1="283.2" y1="372.0" x2="279.8" y2="375.7" stroke="#2b2a26" stroke-width="1" />
+		<line x1="278.0" y1="366.8" x2="274.3" y2="370.2" stroke="#2b2a26" stroke-width="1" />
+		<line x1="273.4" y1="361.1" x2="269.3" y2="364.1" stroke="#2b2a26" stroke-width="1" />
+		<line x1="274.6" y1="352.0" x2="265.0" y2="357.5" stroke="#2b2a26" stroke-width="2.5" />
+		<line x1="266.1" y1="348.5" x2="261.5" y2="350.5" stroke="#2b2a26" stroke-width="1" />
+		<line x1="263.4" y1="341.6" x2="258.7" y2="343.2" stroke="#2b2a26" stroke-width="1" />
+		<line x1="261.5" y1="334.6" x2="256.6" y2="335.6" stroke="#2b2a26" stroke-width="1" />
+		<line x1="260.4" y1="327.3" x2="255.4" y2="327.8" stroke="#2b2a26" stroke-width="1" />
+		<line x1="266.0" y1="320.0" x2="255.0" y2="320.0" stroke="#2b2a26" stroke-width="2.5" />
+		<line x1="260.4" y1="312.7" x2="255.4" y2="312.2" stroke="#2b2a26" stroke-width="1" />
+		<line x1="261.5" y1="305.4" x2="256.6" y2="304.4" stroke="#2b2a26" stroke-width="1" />
+		<line x1="263.4" y1="298.4" x2="258.7" y2="296.8" stroke="#2b2a26" stroke-width="1" />
+		<line x1="266.1" y1="291.5" x2="261.5" y2="289.5" stroke="#2b2a26" stroke-width="1" />
+		<line x1="274.6" y1="288.0" x2="265.0" y2="282.5" stroke="#2b2a26" stroke-width="2.5" />
+		<line x1="273.4" y1="278.9" x2="269.3" y2="275.9" stroke="#2b2a26" stroke-width="1" />
+		<line x1="278.0" y1="273.2" x2="274.3" y2="269.8" stroke="#2b2a26" stroke-width="1" />
+		<line x1="283.2" y1="268.0" x2="279.8" y2="264.3" stroke="#2b2a26" stroke-width="1" />
+		<line x1="288.9" y1="263.4" x2="285.9" y2="259.3" stroke="#2b2a26" stroke-width="1" />
+		<line x1="298.0" y1="264.6" x2="292.5" y2="255.0" stroke="#2b2a26" stroke-width="2.5" />
+		<line x1="301.5" y1="256.1" x2="299.5" y2="251.5" stroke="#2b2a26" stroke-width="1" />
+		<line x1="308.4" y1="253.4" x2="306.8" y2="248.7" stroke="#2b2a26" stroke-width="1" />
+		<line x1="315.4" y1="251.5" x2="314.4" y2="246.6" stroke="#2b2a26" stroke-width="1" />
+		<line x1="322.7" y1="250.4" x2="322.2" y2="245.4" stroke="#2b2a26" stroke-width="1" />
+		<g class="ru" transform="translate(330 320) rotate(120)"><line x1="0" y1="10" x2="0" y2="-28" stroke="#c92a2a" stroke-width="4" stroke-linecap="round" /><circle r="6" fill="#c92a2a" /></g>
+		<text x="330.0" y="281.0" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">60</text>
+		<text x="369.8" y="304.0" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">10</text>
+		<text x="369.8" y="350.0" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">20</text>
+		<text x="330.0" y="373.0" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">30</text>
+		<text x="290.2" y="350.0" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">40</text>
+		<text x="290.2" y="304.0" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">50</text>
+		<text x="330" y="354" text-anchor="middle" font-size="20" fill="#2b2a26">s</text>
+		<g class="la">
+			<text x="56" y="548" font-size="26" font-weight="bold" font-style="italic" fill="#b8460b">t</text>
+			<text x="86" y="548" font-size="26" font-weight="bold" fill="#2b2a26">= 20</text>
+			<text x="162" y="548" font-size="26" font-weight="bold" fill="#237032">°C</text>
+			<text x="115" y="578" text-anchor="middle" font-size="20" fill="#2b2a26">teplota</text>
+		</g>
+		<g class="lb">
+			<text x="282" y="548" font-size="26" font-weight="bold" font-style="italic" fill="#b8460b">t</text>
+			<text x="312" y="548" font-size="26" font-weight="bold" fill="#2b2a26">= 20</text>
+			<text x="388" y="548" font-size="26" font-weight="bold" fill="#237032">s</text>
+			<text x="330" y="578" text-anchor="middle" font-size="20" fill="#2b2a26">čas</text>
+		</g>
+		<g class="ht" fill="none" stroke="#b8460b" stroke-width="3">
+			<circle cx="62" cy="539" r="18" />
+			<circle cx="288" cy="539" r="18" />
+		</g>
+		<g class="hj" fill="none" stroke="#237032" stroke-width="3">
+			<ellipse cx="180" cy="539" rx="26" ry="19" />
+			<circle cx="395" cy="539" r="18" />
+		</g>
+		<text class="c1" x="40" y="612" font-size="20" fill="#2b2a26" opacity="0">Teploměr ponoříme do vody.</text>
+		<text class="c3" x="40" y="612" font-size="20" fill="#2b2a26" opacity="0">Teploměr se ustálil, stopky stojí.</text>
+		<g class="c2" opacity="0">
+			<text x="40" y="612" font-size="20" fill="#2b2a26">Stopky měří, jak dlouho</text>
+			<text x="40" y="644" font-size="20" fill="#2b2a26">se teploměr ustaluje (zrychleně).</text>
+		</g>
+		<text class="ht" x="40" y="612" font-size="20" font-weight="bold" fill="#2b2a26">Obě veličiny mají značku <tspan font-style="italic" fill="#b8460b">t</tspan>.</text>
+		<g class="hj">
+			<text x="40" y="644" font-size="20" fill="#2b2a26">Rozliší je až jednotka: °C, nebo s.</text>
+			<text x="40" y="676" font-size="20" font-weight="bold" fill="#237032">Jednotku nikdy nevynecháváme.</text>
+		</g>
+	</g>
+</svg>

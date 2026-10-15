@@ -1165,6 +1165,7 @@ export const temata: Record<string, Tema[]> = {
 						„8" samo o sobě neříká vůbec nic.</p>
 					`,
 					materialy: [
+						{ druh: 'infografika', nazev: 'Souhrnné opakování veličin v pohybu', cesta: '/materialy/fyzika/6-rocnik/fyzikalni-veliciny/souhrnne-opakovani-velicin/infografika-souhrnne-opakovani-velicin-pohyb-panel-1.svg', panely: ['/materialy/fyzika/6-rocnik/fyzikalni-veliciny/souhrnne-opakovani-velicin/infografika-souhrnne-opakovani-velicin-pohyb-panel-1.svg'] },
 						{
 							druh: 'video',
 							nazev: 'Polemika 1: Délka, hmotnost, objem a hustota 🎬',
