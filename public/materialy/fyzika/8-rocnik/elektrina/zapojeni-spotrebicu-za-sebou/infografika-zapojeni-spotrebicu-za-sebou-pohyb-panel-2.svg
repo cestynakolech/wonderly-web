@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="600" viewBox="0 0 460 600" role="img" aria-label="V jednom obvodu nahradíme dva sériové rezistory 4 a 6 ohmů jediným rezistorem 10 ohmů. Zdroj má stále 20 voltů a ampérmetr stále ukazuje 2 ampéry.">
+<title>Zapojení za sebou 2/2: Náhrada v témže obvodu</title>
+<style>text{font-family:Arial,sans-serif;font-size:22px;fill:#212529;text-anchor:middle}.title{font-size:25px;font-weight:bold}.small{font-size:20px}.old{animation:old 6s steps(1,end) infinite}.new{animation:new 6s steps(1,end) infinite}@keyframes old{0%{opacity:1}30%{opacity:0}95%,100%{opacity:1}}@keyframes new{0%{opacity:0}30%{opacity:1}95%,100%{opacity:0}}@media(prefers-reduced-motion:reduce){.old{animation:none;opacity:0}.new{animation:none;opacity:1;transform:none}}</style>
+<rect width="460" height="600" fill="#f8f9fa"/><rect x="10" y="10" width="440" height="580" rx="12" fill="#fff" stroke="#ced4da"/>
+<text class="title" x="230" y="48">Náhrada v témže obvodu</text>
+<text class="small" x="230" y="82">Dva rezistory nahradíme jedním.</text>
+<path d="M70 180H40V460H211M229 460H420V378M420 322V180H390" fill="none" stroke="#343a40" stroke-width="4"/>
+<g class="old"><text x="230" y="126">Dva rezistory: 4 Ω a 6 Ω</text><path d="M170 180H260" stroke="#343a40" stroke-width="4"/>
+<rect x="70" y="155" width="100" height="50" fill="#fff" stroke="#343a40" stroke-width="3"/><rect x="260" y="155" width="130" height="50" fill="#fff" stroke="#343a40" stroke-width="3"/><text x="120" y="188">4 Ω</text><text x="325" y="188">6 Ω</text></g>
+<g class="new"><text x="230" y="126">Jeden náhradní rezistor</text><path d="M70 180H100M360 180H390" stroke="#343a40" stroke-width="4"/><rect x="100" y="155" width="260" height="50" fill="#fff" stroke="#343a40" stroke-width="3"/><text x="230" y="188">10 Ω</text></g>
+<text class="small" x="230" y="275">Při náhradě se proud nezmění.</text>
+<circle cx="420" cy="350" r="28" fill="#fff" stroke="#343a40" stroke-width="3"/><text x="420" y="358">A</text>
+<text x="230" y="350" style="fill:#c2410c">Ampérmetr: I = 2 A</text>
+<text class="small" x="230" y="388">před náhradou i po ní</text>
+<path d="M211 433V487" stroke="#343a40" stroke-width="4"/><path d="M229 444V476" stroke="#343a40" stroke-width="9"/><text x="186" y="450" style="fill:#c92a2a">+</text><text x="251" y="450" style="fill:#1864ab">−</text>
+<text class="small" x="230" y="420" style="fill:#0b7285">Zdroj: U = 20 V</text>
+<text x="230" y="522">R = 4 Ω + 6 Ω = 10 Ω</text>
+<text class="small" x="230" y="560">Zdroj zůstává stejný: 20 V.</text>
+</svg>

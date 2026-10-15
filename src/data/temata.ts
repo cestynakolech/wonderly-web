@@ -3189,6 +3189,9 @@ export const temata: Record<string, Tema[]> = {
 						uvod: "Představ si žárovky spojené do jediné cesty za sebou. Proud musí projít postupně každou z nich. Když se cesta přeruší, přestanou svítit všechny.",
 						zvidave: "<p><strong>Přerušení a výpočty.</strong> Přerušením jediné proudové cesty zhasnou všechny sériové žárovky. Tak se může zachovat jednoduchý starý vánoční řetěz bez dalších cest; nejde o vlastnost všech dnešních řetězů.</p><p>Tři stejné žárovky v početním modelu mají každá odpor 2 Ω. Při napětí 12 V je celkový odpor 2 + 2 + 2 = 6 Ω a proud 12 : 6 = 2 A. Na každé je napětí 2 · 2 = 4 V. Součet 4 + 4 + 4 = 12 V odpovídá zdroji. Odpory bereme jako zadané pro tento výpočet.</p>",
 						zapis: {"vzorec":"R = R₁ + R₂","jednotky":["U (V), I (A), R (Ω)"],"body":["sériově: spotřebiče jsou za sebou, obvod nemá větve","proud je všude stejný: I = I₁ = I₂","napětí se sčítá: U = U₁ + U₂"]},
+						materialy: [
+							{ druh: 'infografika', nazev: 'Zapojení za sebou v pohybu', cesta: '/materialy/fyzika/8-rocnik/elektrina/zapojeni-spotrebicu-za-sebou/infografika-zapojeni-spotrebicu-za-sebou-pohyb-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/elektrina/zapojeni-spotrebicu-za-sebou/infografika-zapojeni-spotrebicu-za-sebou-pohyb-panel-1.svg', '/materialy/fyzika/8-rocnik/elektrina/zapojeni-spotrebicu-za-sebou/infografika-zapojeni-spotrebicu-za-sebou-pohyb-panel-2.svg'] },
+						],
 						odkazy: [
 							{ nazev: 'Sériové a paralelní zapojení — výklad (E-manuel.cz)', url: 'https://e-manuel.cz/kapitoly/elektricke-obvody/vyklad/seriove-a-paralelni-zapojeni/' },
 							{ nazev: 'Sériové a paralelní zapojení v obvodu — test (testi.cz)', url: 'https://testi.cz/testy/fyzika/seriove-a-paralelni-zapojeni-v-obvodu/' },

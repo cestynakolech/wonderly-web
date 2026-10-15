@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="600" viewBox="0 0 460 600" role="img" aria-label="Napětí zdroje 20 voltů se rozdělí na 8 voltů na odporu 4 ohmy a 12 voltů na odporu 6 ohmů. Proud je všude 2 ampéry.">
+<title>Zapojení za sebou 1/2: Napětí se rozdělí</title>
+<style>text{font-family:Arial,sans-serif;font-size:22px;fill:#212529;text-anchor:middle}.title{font-size:25px;font-weight:bold}.small{font-size:20px}.blue{fill:#0b7285}.moveA{animation:a 6s infinite}.moveB{animation:b 6s infinite}@keyframes a{0%,5%{transform:translate(0,0)}30%,75%{transform:translate(-10px,95px)}95%,100%{transform:translate(0,0)}}@keyframes b{0%,5%{transform:translate(0,0)}30%,75%{transform:translate(10px,95px)}95%,100%{transform:translate(0,0)}}@media(prefers-reduced-motion:reduce){.moveA{animation:none;transform:translate(-10px,95px)}.moveB{animation:none;transform:translate(10px,95px)}}</style>
+<rect width="460" height="600" fill="#f8f9fa"/><rect x="10" y="10" width="440" height="580" rx="12" fill="#fff" stroke="#ced4da"/>
+<text class="title" x="230" y="48">Napětí se rozdělí</text>
+<text class="small" x="230" y="82">Napětí zdroje se dělí mezi rezistory.</text>
+<text class="blue" x="230" y="116">U = 20 V</text>
+<rect x="50" y="140" width="360" height="36" rx="4" fill="#e6f4f5" stroke="#0b7285" stroke-dasharray="5 4"/>
+<g class="moveA"><rect x="50" y="140" width="144" height="36" rx="4" fill="#0b7285"/><text x="122" y="165" style="fill:white">8 V</text></g>
+<g class="moveB"><rect x="194" y="140" width="216" height="36" rx="4" fill="#087f8c"/><text x="302" y="165" style="fill:white">12 V</text></g>
+<text class="small blue" x="112" y="302">U₁ = 8 V</text><text class="small blue" x="312" y="302">U₂ = 12 V</text>
+<path d="M70 350H40V460H211M229 460H420V350H386M154 350H260" fill="none" stroke="#343a40" stroke-width="4"/>
+<rect x="70" y="328" width="84" height="44" fill="#fff" stroke="#343a40" stroke-width="3"/>
+<rect x="260" y="328" width="126" height="44" fill="#fff" stroke="#343a40" stroke-width="3"/>
+<text x="112" y="358">4 Ω</text><text x="323" y="358">6 Ω</text>
+<path d="M211 433V487" stroke="#343a40" stroke-width="4"/><path d="M229 444V476" stroke="#343a40" stroke-width="9"/><text x="186" y="450" style="fill:#c92a2a">+</text><text x="251" y="450" style="fill:#1864ab">−</text>
+<text class="small" x="230" y="412">Větší odpor → větší napětí.</text>
+<text class="blue" x="230" y="522">8 V + 12 V = 20 V</text>
+<text class="small" x="230" y="560">Proud je všude stejný: I = 2 A.</text>
+</svg>
