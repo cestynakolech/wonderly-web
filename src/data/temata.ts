@@ -901,6 +901,7 @@ export const temata: Record<string, Tema[]> = {
 						<figure><a href="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/hmotnost/hmotnost-obr-09.svg" target="_blank" rel="noopener"><img src="/obrazky/fyzika/6-rocnik/fyzikalni-veliciny/hmotnost/hmotnost-obr-09.svg" alt="Vážení velmi malých těles. Vlevo jedna malá kulička z ložiska na digitální váze s nejmenším dílkem 10 g, displej ukazuje 0 g: kulička je tak lehká, že ji váha nepozná. Vpravo miska se 100 kuličkami (nakresleno je jen část ze 100 kuliček) na stejné váze; miska je vynulovaná (tára), takže displej ukazuje 300 g jen za kuličky. Dole výpočet: 1 kulička = 300 g : 100 = 3 g." loading="lazy" /></a><figcaption>Velmi malé těleso: zvážíme jich hodně a hmotnost jednoho kusu dopočítáme dělením. Miska je vynulovaná (tára) a nakresleno je jen část ze 100 kuliček. Příklad: 100 kuliček má 300 g, jedna kulička má 300 g : 100 = 3 g.</figcaption></figure>
 					`,
 					materialy: [
+						{ druh: 'infografika', nazev: 'Hmotnost v pohybu', cesta: '/materialy/fyzika/6-rocnik/fyzikalni-veliciny/hmotnost/infografika-hmotnost-pohyb-panel-1.svg', panely: ['/materialy/fyzika/6-rocnik/fyzikalni-veliciny/hmotnost/infografika-hmotnost-pohyb-panel-1.svg', '/materialy/fyzika/6-rocnik/fyzikalni-veliciny/hmotnost/infografika-hmotnost-pohyb-panel-2.svg'] },
 						{
 							druh: 'video',
 							nazev: 'Polemika: Je váha totéž co hmotnost? 🎬',

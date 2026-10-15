@@ -1,0 +1,86 @@
+<svg viewBox="0 0 460 580" width="460" height="580" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hmotnost v pohybu, Digitální váha: prázdná váha ukazuje 0 g. Jablko dopadne doprostřed misky, miska se zhoupne a údaj na displeji chvíli skáče. Po ustálení displej ukazuje 130 g a zapíšeme m = 130 g, tedy číslo i jednotku. Váha stojí na vodorovném stole, na štítku je rozsah max 5 kg." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Hmotnost v pohybu 1/2: Digitální váha</title>
+	<!-- W99. Předloha: PDF 6/03 Fyzikální veličiny/7. Hmotnost, s. 10 (DIGITÁLNÍ VÁHA – elektronická s displejem; pravidla 4.–7.: vodorovný povrch, předmět doprostřed misky, počkáme, až se hodnota ustálí, zapíšeme s jednotkou), výklad temata.ts (Pravidla pro měření hmotnosti). Cyklus 8 s: jablko padá 0–0,5 s; displej 0 → 162 → 118 → 141 → 126 → 133 g (přechodné kolísání po 0,4 s) → 130 g od 2,5 s do 7,6 s; jablko mizí 7,5–7,6 s, teprve pak displej 0 g (OPRAVA 1: text sedí s dějem i na konci smyčky). OPRAVA 2: váha nakreslena jako obr-07 téže stránky (skleněná deska v perspektivě, štítek „max 5 kg“, displej, 2 tlačítka). Klid (reduced motion): ustáleno 130 g. -->
+	<style>
+		.a2mi { animation: a2mi 8s infinite; }
+		@keyframes a2mi { 0%, 6.25% { transform: translateY(0px); } 9% { transform: translateY(6px); } 13% { transform: translateY(-2px); } 17% { transform: translateY(2px); } 21%, 100% { transform: translateY(0px); } }
+		.a2jb { animation: a2jb 8s infinite; }
+		@keyframes a2jb { 0% { transform: translateY(-70px); opacity: 0; animation-timing-function: ease-in; } 6.25%, 93.75% { transform: translateY(0px); opacity: 1; } 95%, 100% { transform: translateY(0px); opacity: 0; } }
+		.a2d0 { animation: a2d0 8s step-end infinite; }
+		@keyframes a2d0 { 0% { opacity: 1; } 6.25% { opacity: 0; } 95% { opacity: 1; } 100% { opacity: 1; } }
+		.a2d1 { animation: a2d1 8s step-end infinite; }
+		@keyframes a2d1 { 0% { opacity: 0; } 6.25% { opacity: 1; } 11.25% { opacity: 0; } 100% { opacity: 0; } }
+		.a2d2 { animation: a2d2 8s step-end infinite; }
+		@keyframes a2d2 { 0% { opacity: 0; } 11.25% { opacity: 1; } 16.25% { opacity: 0; } 100% { opacity: 0; } }
+		.a2d3 { animation: a2d3 8s step-end infinite; }
+		@keyframes a2d3 { 0% { opacity: 0; } 16.25% { opacity: 1; } 21.25% { opacity: 0; } 100% { opacity: 0; } }
+		.a2d4 { animation: a2d4 8s step-end infinite; }
+		@keyframes a2d4 { 0% { opacity: 0; } 21.25% { opacity: 1; } 26.25% { opacity: 0; } 100% { opacity: 0; } }
+		.a2d5 { animation: a2d5 8s step-end infinite; }
+		@keyframes a2d5 { 0% { opacity: 0; } 26.25% { opacity: 1; } 31.25% { opacity: 0; } 100% { opacity: 0; } }
+		.a2d6 { animation: a2d6 8s step-end infinite; }
+		@keyframes a2d6 { 0% { opacity: 0; } 31.25% { opacity: 1; } 95% { opacity: 0; } 100% { opacity: 0; } }
+		.a2s0 { animation: a2s0 8s step-end infinite; }
+		@keyframes a2s0 { 0% { opacity: 1; } 6.25% { opacity: 0; } 95% { opacity: 1; } 100% { opacity: 1; } }
+		.a2s1 { animation: a2s1 8s step-end infinite; }
+		@keyframes a2s1 { 0% { opacity: 0; } 6.25% { opacity: 1; } 31.25% { opacity: 0; } 100% { opacity: 0; } }
+		.a2s2 { animation: a2s2 8s step-end infinite; }
+		@keyframes a2s2 { 0% { opacity: 0; } 31.25% { opacity: 1; } 95% { opacity: 0; } 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) {
+			.a2mi, .a2jb, .a2d0, .a2d1, .a2d2, .a2d3, .a2d4, .a2d5, .a2d6, .a2s0, .a2s1, .a2s2 { animation: none; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="580" fill="#f8f9fa" />
+	<g id="panel-1">
+		<rect x="26" y="22" width="420" height="546" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="546" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Digitální váha</text>
+		<text x="40" y="96" font-size="20" fill="#2b2a26">Jablko dáme doprostřed misky.</text>
+		<text x="40" y="122" font-size="20" fill="#2b2a26">Údaj chvíli skáče, pak se ustálí.</text>
+		<!-- stůl -->
+		<rect x="40" y="372" width="380" height="14" rx="3" fill="#c9a26b" stroke="#7a5c12" stroke-width="2.5" />
+		<!-- tělo váhy s displejem (podle obr-07: štítek rozsahu, displej, 2 tlačítka) -->
+		<path d="M70 326H390V364Q390 372 382 372H78Q70 372 70 364Z" fill="#343a40" stroke="#2b2a26" stroke-width="2.5" />
+		<rect x="80" y="335" width="102" height="28" rx="4" fill="#f8f9fa" />
+		<text x="131" y="356" text-anchor="middle" font-size="20" font-weight="bold" fill="#212529">max 5 kg</text>
+		<rect x="192" y="332" width="128" height="34" rx="5" fill="#d3f9d8" stroke="#8ce99a" stroke-width="2.5" />
+		<g font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">
+			<text class="a2d0" x="256" y="358" opacity="0">0 g</text>
+			<text class="a2d1" x="256" y="358" opacity="0">162 g</text>
+			<text class="a2d2" x="256" y="358" opacity="0">118 g</text>
+			<text class="a2d3" x="256" y="358" opacity="0">141 g</text>
+			<text class="a2d4" x="256" y="358" opacity="0">126 g</text>
+			<text class="a2d5" x="256" y="358" opacity="0">133 g</text>
+			<text class="a2d6" x="256" y="358">130 g</text>
+		</g>
+		<circle cx="346" cy="349" r="11" fill="#adb5bd" stroke="#f8f9fa" stroke-width="2" />
+		<circle cx="372" cy="349" r="8" fill="#adb5bd" stroke="#f8f9fa" stroke-width="2" />
+		<!-- skleněná deska v perspektivě s jablkem (zhoupne se při dopadu) -->
+		<g class="a2mi">
+			<path d="M70 326H390L414 296H94Z" fill="#e7f5ff" stroke="#495057" stroke-width="2.5" />
+			<path d="M112 300H176L164 320H102" fill="none" stroke="#ffffff" stroke-width="4" />
+			<g class="a2jb">
+				<g transform="translate(137,14)">
+				<path d="M105 246Q107 236 113 230" fill="none" stroke="#5c3d1e" stroke-width="3" stroke-linecap="round" />
+				<path d="M110 240Q122 228 132 236Q120 246 110 240Z" fill="#40c057" stroke="#2b8a3e" stroke-width="2" />
+				<path d="M105 248C88 238 74 248 76 270C78 290 92 302 105 298C118 302 132 290 134 270C136 248 122 238 105 248Z" fill="#e03131" stroke="#a51111" stroke-width="2.5" />
+				</g>
+			</g>
+		</g>
+		<text x="256" y="416" text-anchor="middle" font-size="20" fill="#2b2a26">displej ukazuje hmotnost</text>
+		<!-- stav -->
+		<g class="a2s0" opacity="0">
+			<text x="40" y="460" font-size="22" font-weight="bold" fill="#2b2a26">prázdná váha: 0 g</text>
+		</g>
+		<g class="a2s1" opacity="0">
+			<text x="40" y="460" font-size="22" font-weight="bold" fill="#2b2a26">údaj se ještě mění – čekáme</text>
+		</g>
+		<g class="a2s2">
+			<text x="40" y="460" font-size="22" font-weight="bold" fill="#237032">ustáleno: m = 130 g</text>
+		</g>
+		<text x="40" y="502" font-size="20" fill="#2b2a26">Váha stojí na vodorovném stole.</text>
+		<text x="40" y="530" font-size="20" fill="#2b2a26">Zapíšeme číslo i jednotku: 130 g.</text>
+	</g>
+</svg>
