@@ -94,12 +94,14 @@ Kroky standardního rozkladu a model, na kterém mají běžet:
 | simulace (kód komponenty) | Claude — kód |
 | kód/dávkové skripty lokálně | qwen3.8:27b-mlx `[ověřeno 21. 9. 2026]` |
 | zápis do souborů | Claude |
-| kontrolor | Claude — musí chytat faktické chyby |
+| kontrolor | Claude (opus) — musí chytat faktické chyby |
 
 Každý nový model se před zařazením do tabulky pustí na úkoly v `Omega/ODLOZENE.md`;
 výsledek se zapíše do METRIKY-KOL.md.
 
 ### Cloudové modely subagentů (od 21. 9. 2026)
+
+**Rozhodnutí učitele 15. 10. 2026 (platné):** hlavní session a exekutor běží na **Sonnetu**; worker-simulace a kontrolor zůstávají na **opus** (beze změny, neměnit). Tabulka níže je s tím v souladu.
 
 | role | model | důvod |
 |---|---|---|
