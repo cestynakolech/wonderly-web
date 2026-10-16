@@ -95,6 +95,14 @@ git push origin main                  # nasadí návrat
 Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `fyzika-7-hotova`), návrat `git revert` nebo `git checkout <tag> -- .`.
 **Milníky značíme tagem** po dokončení většího celku: `git tag -a <nazev> -m "popis" && git push origin <nazev>`.
 
+## Historie — 16. 10. 2026: skrytý oddíl /suplovani/ (přírodopis – nervová soustava)
+
+Jediný list `src/pages/suplovani/prirodopis-nervova-soustava.astro` (6 karet 3×2 pro tabuli 1920×1080
+bez posouvání, na mobilu pod sebou). Dle upřesnění učitele bez rozcestníku /suplovani/, bez QR a odkazů.
+`<meta name="robots" content="noindex, nofollow">` (nový prop `noindex` v `SkolaLayout.astro`);
+není v menu ani navigaci, web nemá sitemapu. Adresa: https://wonderly.cz/suplovani/prirodopis-nervova-soustava/
+(na lab. subdoméně to Worker nepřesměruje — jen kořenová doména). Build prošel i s bránami.
+
 ## Historie — 1. 10. 2026: téma 4 vlna 1–2 nasazena
 
 Commit 1cb56ef, živě 7/7: F9 Elektrická energie, F7 Pascalův zákon, Hydrostatický tlak, Tlak, F8 Teplo a přeměny skupenství, Tání, Tuhnutí (48 obrázků, 7 kvízů po 21, 2 kola kontroly Claude + Codex). CI build spadl, nasazeno `wrangler deploy` (viz Omega `prace/ci-selhani.md`). Mobil dávka 1 (8 simulací) 8537ea4, měřidlo `testy/mobil-citelnost.mjs`. Zbytek fronty: `SAMOSTATNY-REZIM.md`.

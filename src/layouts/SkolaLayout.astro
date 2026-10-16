@@ -14,12 +14,15 @@ interface Props {
 	drobky?: Drobek[];
 	/** Popis stránky pro vyhledávače */
 	popis?: string;
+	/** Skrytá stránka: nechce se ve vyhledávačích (meta robots noindex, nofollow) */
+	noindex?: boolean;
 }
 
 const {
 	titulek,
 	drobky = [],
 	popis = 'Školní web 2. stupně — výklad, interaktivní simulace, kvízy a testy pro fyziku, informatiku a pracovní činnosti.',
+	noindex = false,
 } = Astro.props;
 // vyhledávání je na každé stránce; odkazy vede od kořene školy (drobeček „2. stupeň")
 const korenSkoly = drobky[0]?.href ?? '';
@@ -33,6 +36,7 @@ const korenSkoly = drobky[0]?.href ?? '';
 		<meta name="description" content={popis} />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="google-site-verification" content="ZEylrReeuR3ugh0Twk47nDX7VbeXBb7nKaNOdKxj5qA" />
+		{noindex && <meta name="robots" content="noindex, nofollow" />}
 		<title>{titulek}</title>
 	</head>
 	<body>

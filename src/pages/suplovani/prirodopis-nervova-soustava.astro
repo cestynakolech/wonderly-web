@@ -1,0 +1,194 @@
+---
+import SkolaLayout from '../../layouts/SkolaLayout.astro';
+
+// Skrytá stránka pro suplování (promítání na tabuli, 1920×1080 bez posouvání)
+const karty = [
+	{
+		n: 1,
+		barva: 'modra',
+		nazev: 'Stavba',
+		otazky: ['Co je neuron? Nakresli ho a popiš jeho části.', 'Na jaké části dělíme nervovou soustavu?'],
+	},
+	{
+		n: 2,
+		barva: 'modra',
+		nazev: 'Podnět',
+		otazky: ['Co je podnět? Uveď tři příklady.', 'Co jsou receptory a kde je máme?'],
+	},
+	{
+		n: 3,
+		barva: 'modra',
+		nazev: 'Nervový vzruch',
+		otazky: ['Co je nervový vzruch?', 'Kudy putuje od receptoru k výkonnému orgánu?'],
+	},
+	{
+		n: 4,
+		barva: 'oranzova',
+		nazev: 'Nepodmíněný reflex',
+		otazky: ['Co je reflex? Uveď tři nepodmíněné reflexy.', 'Nakresli reflexní oblouk.'],
+	},
+	{
+		n: 5,
+		barva: 'oranzova',
+		nazev: 'Nemoci',
+		otazky: ['Najdi dvě nemoci nervové soustavy.', 'Jak se můžeme chránit?'],
+	},
+	{
+		n: 6,
+		barva: 'oranzova',
+		nazev: 'Zajímavosti',
+		otazky: ['Najdi dvě zajímavosti o mozku nebo nervech.', 'Co tě nejvíc překvapilo?'],
+	},
+];
+---
+
+<!-- Skrytá stránka: mimo menu, noindex+nofollow, web nemá sitemapu -->
+<SkolaLayout
+	titulek="Nervová soustava – najdi v učebnici"
+	popis="Podklady pro suplování."
+	noindex={true}
+>
+	<div class="supl">
+		<header class="supl-hlava">
+			<div>
+				<h1><span class="podtrh">Nervová soustava – najdi v učebnici</span></h1>
+				<p class="supl-podnadpis">U každé odpovědi zapiš stranu.</p>
+			</div>
+		</header>
+		<ol class="supl-mrizka">
+			{
+				karty.map((k) => (
+					<li class={`supl-karta ${k.barva}`}>
+						<h2>
+							<span class="supl-cislo">{k.n}</span>
+							{k.nazev}
+						</h2>
+						<ul>
+							{k.otazky.map((o) => (
+								<li>{o}</li>
+							))}
+						</ul>
+					</li>
+				))
+			}
+		</ol>
+	</div>
+</SkolaLayout>
+
+<style is:global>
+	/* široká plocha pro tabuli — jen na této stránce */
+	main:has(.supl) {
+		max-width: none;
+		padding: 1rem 2rem 1rem;
+	}
+	.supl {
+		--modra: #1c64b8;
+		--modra-svetla: #cfe2f7;
+		--oranzova-svetla2: #fde1c8;
+	}
+	.supl-hlava {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: 120px;
+	}
+	.supl-hlava h1 {
+		font-size: 3.6rem;
+		margin: 0;
+	}
+	.supl-podnadpis {
+		text-align: center;
+		font-size: 1.8rem;
+		margin: 0.2rem 0 0.8rem;
+	}
+	.supl-mrizka {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+		gap: 1.4rem;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		/* 100vh − hlavička; na 1920×1080 se vše vejde bez posouvání */
+		height: calc(100vh - 245px);
+		min-height: 24rem;
+	}
+	.supl-karta {
+		display: flex;
+		flex-direction: column;
+		padding: 1.2rem 1.6rem;
+		border: 3px solid var(--inkoust);
+		border-radius: 255px 18px 225px 18px / 18px 225px 18px 255px;
+		box-shadow: 2px 3px 0 rgba(43, 42, 38, 0.14);
+		background: rgba(255, 255, 255, 0.6);
+	}
+	.supl-karta.modra {
+		border-color: var(--modra);
+		background: var(--modra-svetla);
+	}
+	.supl-karta.oranzova {
+		border-color: var(--oranzova);
+		background: var(--oranzova-svetla2);
+	}
+	.supl-karta h2 {
+		display: flex;
+		align-items: center;
+		gap: 0.7rem;
+		margin: 0 0 0.6rem;
+		font-size: 2.6rem;
+	}
+	.supl-karta.modra h2 {
+		color: var(--modra);
+	}
+	.supl-karta.oranzova h2 {
+		color: var(--oranzova);
+	}
+	.supl-cislo {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 2.6rem;
+		height: 2.6rem;
+		flex: none;
+		border: 3px solid currentColor;
+		border-radius: 50% 45% 55% 48% / 48% 55% 45% 52%;
+		font-size: 1.7rem;
+	}
+	.supl-karta ul {
+		margin: 0;
+		padding-left: 1.4rem;
+		font-size: 1.85rem;
+		line-height: 1.35;
+	}
+	.supl-karta ul li {
+		margin-bottom: 0.7rem;
+	}
+	@media (max-width: 900px) {
+		main:has(.supl) {
+			padding: 1.2rem 1rem 2rem;
+		}
+		.supl-hlava {
+			flex-direction: column;
+			min-height: 0;
+		}
+		.supl-hlava h1 {
+			font-size: 2.3rem;
+		}
+		.supl-podnadpis {
+			font-size: 1.3rem;
+		}
+		.supl-mrizka {
+			grid-template-columns: 1fr;
+			grid-template-rows: none;
+			height: auto;
+			min-height: 0;
+		}
+		.supl-karta h2 {
+			font-size: 2rem;
+		}
+		.supl-karta ul {
+			font-size: 1.3rem;
+		}
+	}
+</style>
