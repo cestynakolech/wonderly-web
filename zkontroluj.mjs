@@ -505,6 +505,16 @@ console.log(zavislosti.souhrn);
 chyby.push(...zavislosti.chyby);
 varovani.push(...zavislosti.varovani);
 
+// Y) Panely infografik: písmo ≥ 14 a kontrast změněných SVG (audit 18. 10. 2026, T5 + T6).
+{
+	const { zkontrolujPismoAKontrast } = await import('./testy/nastroje/panely-pismo-kontrast.mjs');
+	zkontrolujPismoAKontrast({ chyby, varovani });
+	const { spawnSync } = await import('node:child_process');
+	const ob = spawnSync('node', [join(koren, 'testy/nastroje/panely-pismo-kontrast-obousmerne.mjs')], { encoding: 'utf8' });
+	if (/PŘESKOČENO/.test(ob.stdout || '')) varovani.push(`panely-pismo-kontrast-obousmerne: ${(ob.stdout.match(/PŘESKOČENO[^\n]*/) || [''])[0]}`);
+	if (ob.status !== 0) chyby.push(`obousměrné ověření panely-pismo-kontrast selhalo:\n${(ob.stdout || '') + (ob.stderr || '')}`);
+}
+
 for (const v of varovani) console.log(`⚠️  ${v}`);
 
 // Zápis laťky až tady a JEN na výslovný pokyn — a jen když je jinak vše v pořádku.
