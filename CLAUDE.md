@@ -35,10 +35,7 @@ Statický web na doméně **wonderly.cz** (Cloudflare, zdarma). Tři sekce na su
 - **Cloudflare R2** — úložiště `wonderly-media` pro plnokvalitní fotky deníku (binding MEDIA).
 - Fonty: `@fontsource/patrick-hand` + `caveat` (kreslený „whiteboard" styl, latin-ext = česká diakritika).
 - `worker.js`, `wrangler.jsonc` — routing subdomén + R2. **NEMĚNIT bez důvodu.**
-- **Hermes Agent** — jen záložní pracant na mechanickou práci při docházejících
-  tokenech, plné znění a volací syntaxe v paměti `feedback-hermes-zalozni-pracant`.
-  Delegace kvalitní/obsahové práce (průzkumník, subagent) na Hermese je ZAMÍTNUTÁ
-  učitelem 21. 9. 2026 („pracuje nekvalitně") — netýká se mechanického fallbacku výše.
+- **Hermes** odstraněn 14. 10. 2026 ([[projekt-hermes-orchestrator-mini]]); staré zmínky v paměti jsou překonané.
 
 ## Kde co je (společná kostra)
 Každá sekce má soubory ve TŘECH podstromech — stránky, komponenty, data:
@@ -61,7 +58,7 @@ Do tohoto souboru jen to, co platí pro všechny sekce; specifika sekce jen do j
 # média: public/materialy/fyzika/<rocnik>/<tema>/<podtema>/
 #        infografiky zmenšit na ~1200px jpg q82 (PIL), písničky WAV→m4a/mp3 (ffmpeg)
 npm run build                 # ověří, že se web sestaví (prebuild = zkontroluj.mjs + testy simulací + obousmerne.mjs)
-git add -A src public/materialy testy   # testy: nová komponenta bez zapsaného testy/simulace/*.mjs a
+git add <vlastní cesty v src public/materialy testy>   # nikdy -A (Codex na stejném disku); testy: nová komponenta bez zapsaného testy/simulace/*.mjs a
                                          # doloženého testy/obousmerne.json by na Cloudflare spadla na prebuildu
 git commit -m "..."           # commit = jedno téma, nepřibalovat nesouvisející soubory
 git push origin main          # Cloudflare nasadí sám do ~1 min — VŠECHNY sekce naráz
