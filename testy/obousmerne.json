@@ -4,6 +4,13 @@
 	"_spusteni": "node testy/obousmerne.mjs — vypíše stav a spustí všechny registrované testy.",
 	"bezDokladu": 0,
 	"meridla": {
+		"pojistka-hotove.mjs": {
+		  "test": "testy/pojistka-hotove.mjs",
+		  "podvrh": "Nasazený SVG, staged změna, změna materiálového objektu, síťová chyba a neplatná výjimka musí být odmítnuty.",
+		  "zdravy": "Nový soubor s HTTP 404, výjimka s citací a nesouvisející externí odkaz projdou.",
+		  "regrese": "Změna ai a přidání panely se kontrolují; sousední hotové objekty se nepřebírají. --live dokládá živý W103 proti HEAD.",
+		  "overeno": "2026-10-19"
+		},
 		"inventura-podtematu.mjs": {
 			"test": "testy/inventura-podtematu.mjs",
 			"podvrh": "Na dočasné kopii skriptu v kořeni repozitáře byla odstraněna podmínka, která z videí vylučuje písničky. Regresní test skončil kódem 1: u opticka-cocka použil pisen-opticka-jizda.mp4 jako důkaz videa. Dočasná kopie byla po běhu odstraněna; originál zůstal beze změny.",

@@ -6,12 +6,13 @@
     "node": ">=22.12.0"
   },
   "scripts": {
+    "instaluj-pojistku": "node skripty/instaluj-pojistku.mjs",
     "dev": "astro dev",
     "prebuild": "node zkontroluj.mjs && node testy/vsechny-simulace.mjs && node testy/obousmerne.mjs && node testy/uniky-laborek.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "test": "node zkontroluj.mjs && node testy/vsechny-simulace.mjs && node testy/obousmerne.mjs && node testy/uniky-laborek.mjs && node testy/liga-tabule.mjs && node testy/tabule-telefon.mjs",
+    "test": "node skripty/pojistka_hotove.mjs && node testy/pojistka-hotove.mjs && node zkontroluj.mjs && node testy/vsechny-simulace.mjs && node testy/obousmerne.mjs && node testy/uniky-laborek.mjs && node testy/liga-tabule.mjs && node testy/tabule-telefon.mjs",
     "prijmi-latku": "node zkontroluj.mjs --prijmi-latku",
     "check": "node zkontroluj.mjs"
   },
