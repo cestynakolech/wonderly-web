@@ -2059,6 +2059,7 @@ export const temata: Record<string, Tema[]> = {
 						},
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Rychlost, dráha, čas (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/7-rocnik/pohyb-a-rychlost/rychlost-draha-cas/notebooklm-rychlost-draha-cas.mp4' },
 							{ druh: 'video', nazev: 'Dialog: rychlost, dráha a čas (1. díl)', cesta: '/media/fyzika/7-rocnik/pohyb-a-rychlost/rychlost-draha-cas/rychlost-draha-cas-dialog1.mp4' },
+							{ druh: 'video', nazev: 'Dialog: rychlost, dráha a čas (2. díl)', cesta: '/media/fyzika/7-rocnik/pohyb-a-rychlost/rychlost-draha-cas/rychlost-draha-cas-dialog2.mp4' },
 					],
 				},
 				{
