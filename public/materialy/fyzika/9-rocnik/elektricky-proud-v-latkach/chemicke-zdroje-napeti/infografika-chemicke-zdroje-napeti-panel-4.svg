@@ -1,0 +1,47 @@
+<svg viewBox="0 0 460 610" width="460" height="610" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dvě stejné žárovky, jednu napájí tužková baterie, druhou buřtová. Obě mají napětí 1,5 V, proto žárovky svítí stejně. Zásoba energie tužkové baterie dojde dřív a její žárovka zhasne, buřtová svítí déle. Napětí článku nezávisí na jeho velikosti, větší článek jen vydrží déle" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Chemické zdroje napětí 4/4: Větší článek vydrží déle</title>
+	<style>
+		.za { transform-box: view-box; transform-origin: 70px 449px; animation: za 12s linear infinite; } .zd { transform-box: view-box; transform-origin: 270px 449px; animation: zd 12s linear infinite; }
+		.ga { animation: ga 12s linear infinite; } .gd { animation: gd 12s linear infinite; }
+		.ba { animation: ba 12s linear infinite; } .bd { animation: bd 12s linear infinite; }
+		.stejne { animation: stejne 12s steps(1, end) infinite; }
+		@keyframes stejne { 0% { opacity: 1; } 38%,40%,88%,90%,97% { opacity: 0; } 100% { opacity: 1; } }
+		@keyframes za { 0% { transform: scaleX(1); } 40% { transform: scaleX(0); } 97% { transform: scaleX(0); } 100% { transform: scaleX(1); } }
+		@keyframes zd { 0% { transform: scaleX(1); } 90% { transform: scaleX(0); } 97% { transform: scaleX(0); } 100% { transform: scaleX(1); } }
+		@keyframes ga { 0% { opacity: 0.45; } 38% { opacity: 0.45; } 40% { opacity: 0; } 97% { opacity: 0; } 100% { opacity: 0.45; } }
+		@keyframes gd { 0% { opacity: 0.45; } 88% { opacity: 0.45; } 90% { opacity: 0; } 97% { opacity: 0; } 100% { opacity: 0.45; } }
+		@keyframes ba { 0% { fill: #fff9db; } 38% { fill: #fff9db; } 40% { fill: #e9ecef; } 97% { fill: #e9ecef; } 100% { fill: #fff9db; } }
+		@keyframes bd { 0% { fill: #fff9db; } 88% { fill: #fff9db; } 90% { fill: #e9ecef; } 97% { fill: #e9ecef; } 100% { fill: #fff9db; } }
+		@media (prefers-reduced-motion: reduce) { .za, .zd, .ga, .gd, .ba, .bd, .stejne { animation: none; } }
+	</style>
+	<rect x="0" y="0" width="460" height="610" fill="#f8f9fa"/>
+	<g id="panel-4"><rect x="26" y="16" width="420" height="590" rx="12" fill="#dee2e6"/><rect x="20" y="10" width="420" height="590" rx="12" fill="#fbfaf6" stroke="#ced4da" stroke-width="2"/><circle cx="52" cy="44" r="17" fill="#2b2a26"/><text x="52" y="52" font-size="21" font-weight="bold" text-anchor="middle" fill="#fff">4</text><text x="80" y="53" font-size="25" font-weight="bold" fill="#2b2a26">Větší článek vydrží déle</text>
+<text x="34" y="92" font-size="21" fill="#2b2a26">Tužková i buřtová: 1,5 V.</text>
+<text class="stejne" x="34" y="120" font-size="21" fill="#2b2a26">Žárovky svítí stejně.</text>
+<rect x="34" y="138" width="392" height="352" rx="8" fill="#ffffff" stroke="#ced4da" stroke-width="2"/>
+<path d="M130,230 L130,300" fill="none" stroke="#343a40" stroke-width="4" stroke-linejoin="round"/>
+<path d="M146,222 L182,222 L182,398 L130,398 L130,386" fill="none" stroke="#343a40" stroke-width="4" stroke-linejoin="round"/>
+<circle class="ga" cx="130" cy="190" r="38" fill="#ffd43b" opacity="0.45"/><circle class="ba" cx="130" cy="190" r="22" fill="#fff9db" stroke="#495057" stroke-width="2"/><path d="M120,206 L122,188 L126,194 L130,186 L134,194 L138,188 L140,206" fill="none" stroke="#865000" stroke-width="2.5" stroke-linejoin="round"/><rect x="114" y="210" width="32" height="20" rx="3" fill="#495057" stroke="#343a40" stroke-width="2"/>
+<rect x="124" y="300" width="12" height="8" rx="2" fill="#adb5bd" stroke="#343a40" stroke-width="2"/>
+<rect x="118.0" y="308" width="24" height="78" rx="4" fill="#495057" stroke="#343a40" stroke-width="2"/>
+<rect x="118.0" y="308" width="24" height="23" rx="4" fill="#c92a2a" stroke="#343a40" stroke-width="2"/>
+<text x="112" y="355.0" font-size="21" font-weight="bold" text-anchor="end" fill="#2b2a26">1,5 V</text>
+<text x="130" y="424" font-size="21" text-anchor="middle" fill="#2b2a26">tužková</text>
+<rect x="68" y="438" width="124" height="22" rx="4" fill="#e9ecef" stroke="#343a40" stroke-width="2"/>
+<rect class="za" x="70" y="440" width="120" height="18" rx="3" fill="#19692c"/>
+<path d="M330,230 L330,284" fill="none" stroke="#343a40" stroke-width="4" stroke-linejoin="round"/>
+<path d="M346,222 L382,222 L382,398 L330,398 L330,386" fill="none" stroke="#343a40" stroke-width="4" stroke-linejoin="round"/>
+<circle class="gd" cx="330" cy="190" r="38" fill="#ffd43b" opacity="0.45"/><circle class="bd" cx="330" cy="190" r="22" fill="#fff9db" stroke="#495057" stroke-width="2"/><path d="M320,206 L322,188 L326,194 L330,186 L334,194 L338,188 L340,206" fill="none" stroke="#865000" stroke-width="2.5" stroke-linejoin="round"/><rect x="314" y="210" width="32" height="20" rx="3" fill="#495057" stroke="#343a40" stroke-width="2"/>
+<rect x="324" y="284" width="12" height="8" rx="2" fill="#adb5bd" stroke="#343a40" stroke-width="2"/>
+<rect x="303.0" y="292" width="54" height="94" rx="4" fill="#495057" stroke="#343a40" stroke-width="2"/>
+<rect x="303.0" y="292" width="54" height="28" rx="4" fill="#c92a2a" stroke="#343a40" stroke-width="2"/>
+<text x="294" y="347.0" font-size="21" font-weight="bold" text-anchor="end" fill="#2b2a26">1,5 V</text>
+<text x="330" y="424" font-size="21" text-anchor="middle" fill="#2b2a26">buřtová</text>
+<rect x="268" y="438" width="124" height="22" rx="4" fill="#e9ecef" stroke="#343a40" stroke-width="2"/>
+<rect class="zd" x="270" y="440" width="120" height="18" rx="3" fill="#19692c"/>
+<text x="230" y="482" font-size="21" text-anchor="middle" fill="#2b2a26">zásoba energie</text>
+<text x="34" y="528" font-size="21" font-weight="bold" fill="#2b2a26">Tužková se vybije dřív a zhasne.</text>
+<text x="34" y="560" font-size="21" fill="#2b2a26">Větší článek jen vydrží déle,</text>
+<text x="34" y="588" font-size="21" fill="#2b2a26">napětí má stejné.</text>
+	</g>
+</svg>
