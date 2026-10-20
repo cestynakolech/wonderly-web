@@ -3126,6 +3126,7 @@ export const temata: Record<string, Tema[]> = {
 						uvod: "Když stiskneš vypínač baterky, žárovka se rozsvítí. Uvnitř se tím spojí cesta, kterou může procházet elektrický proud. Když cestu přerušíš, žárovka zhasne.",
 						zvidave: "<p>V elektronických přístrojích jsou obvody mnohem složitější. Přístroj může obsahovat desítky, stovky či tisíce součástek. Uvnitř některých součástek jsou další stovky, tisíce až miliony prvků. V různých částech se kombinuje sériové i paralelní zapojení.</p>",
 						zapis: {"body":["obvod tvoří zdroj napětí, vodiče a spotřebič","proud prochází jen uzavřenou vodivou cestou","spotřebiče zapojujeme sériově nebo paralelně","zkrat způsobí velký proud, pojistka obvod přeruší","obvod sestavíme bez zdroje, zkontrolujeme a teprve pak připojíme"]},
+						materialy: [{ druh: 'infografika', nazev: 'Infografika: Elektrické obvody v kostce', cesta: '/materialy/fyzika/8-rocnik/elektrina/elektricke-obvody/infografika-elektricke-obvody-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/elektrina/elektricke-obvody/infografika-elektricke-obvody-panel-1.svg', '/materialy/fyzika/8-rocnik/elektrina/elektricke-obvody/infografika-elektricke-obvody-panel-2.svg'] }, ],
 						odkazy: [
 							{ nazev: 'Pokus: Elektrické obvody (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/3427-pokus-elektricke-obvody' },
 							{ nazev: 'Pokus: Elektrický zkrat (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/6931-pokus-elektricky-zkrat' },

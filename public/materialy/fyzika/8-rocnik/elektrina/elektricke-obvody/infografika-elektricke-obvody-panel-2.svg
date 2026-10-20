@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="780" viewBox="0 0 760 780" role="img" aria-labelledby="title desc">
+<title id="title">Elektrické obvody 2/2: Tavná pojistka přeruší cestu</title>
+<desc id="desc">Nahoře tenký vodič v tavné pojistce před roztavením. Dole detail děje: při nadměrném proudu se vodič roztaví a vznikne mezera, která přeruší obvod. Šedá znamená vodič, oranžová místo tavení. Bez pohybu je dole zobrazen přerušený vodič.</desc>
+<!-- Opora: výklad https://lab.wonderly.cz/skola2/fyzika/8-rocnik/elektrina/elektricke-obvody/: Tavná pojistka obsahuje tenký vodič, který se při nadměrném proudu roztaví a přeruší obvod. Zobrazen je pouze detail vodiče, ne návod k vytvoření nadměrného proudu. Žádné částice proudu. -->
+<style>
+text{font-family:Arial,sans-serif;font-size:23px;fill:#212529}.head{font-size:28px;font-weight:bold}.bold{font-weight:bold}.note{font-size:21px}.bridge{animation:melt 10s steps(1,end) infinite}.before{animation:before 10s steps(1,end) infinite;opacity:0}.after{animation:after 10s steps(1,end) infinite;opacity:0}@keyframes melt{0%{opacity:1;stroke:#495057}25%{opacity:1;stroke:#a63a07}45%,100%{opacity:0;stroke:#a63a07}}@keyframes before{0%{opacity:0}25%{opacity:1}45%,100%{opacity:0}}@keyframes after{0%{opacity:0}45%,100%{opacity:1}}@media(prefers-reduced-motion:reduce){.bridge,.before{animation:none;opacity:0}.after{animation:none;opacity:1}}
+</style>
+<rect width="760" height="780" fill="#f8f9fa"/>
+<rect x="12" y="12" width="736" height="756" rx="16" fill="#ffffff" stroke="#ced4da"/>
+<text x="32" y="55" class="head">2/2: Tavná pojistka přeruší cestu</text>
+<rect x="30" y="79" width="700" height="77" rx="10" fill="#f8f9fa"/>
+<path d="M48 104H90" stroke="#495057" stroke-width="6"/><text x="106" y="112" class="note">Šedá = tenký vodič.</text>
+<path d="M48 135H90" stroke="#a63a07" stroke-width="6"/><text x="106" y="143" class="note">Oranžová = místo tavení.</text>
+<rect x="30" y="179" width="700" height="174" rx="12" fill="#f8f9fa" stroke="#ced4da"/>
+<text x="50" y="213" class="bold">Před roztavením</text>
+<text x="50" y="247" class="note">Detail tenkého vodiče v pojistce</text>
+<path d="M80 292H680" stroke="#495057" stroke-width="6"/>
+<rect x="80" y="272" width="70" height="40" rx="5" fill="#adb5bd" stroke="#343a40" stroke-width="3"/>
+<rect x="610" y="272" width="70" height="40" rx="5" fill="#adb5bd" stroke="#343a40" stroke-width="3"/>
+<text x="380" y="337" text-anchor="middle" class="note">Vodič tvoří souvislou cestu.</text>
+<path d="M380 368V395M367 383L380 396 393 383" fill="none" stroke="#a63a07" stroke-width="4"/>
+<text x="380" y="433" text-anchor="middle" class="bold">Při nadměrném proudu</text>
+<rect x="30" y="454" width="700" height="184" rx="12" fill="#f8f9fa" stroke="#ced4da"/>
+<text x="50" y="489" class="bold">Roztavení vodiče → přerušení</text>
+<path d="M80 541H354M406 541H680" stroke="#495057" stroke-width="6"/>
+<rect x="80" y="521" width="70" height="40" rx="5" fill="#adb5bd" stroke="#343a40" stroke-width="3"/>
+<rect x="610" y="521" width="70" height="40" rx="5" fill="#adb5bd" stroke="#343a40" stroke-width="3"/>
+<path d="M354 541H406" class="bridge" stroke="#495057" stroke-width="6"/>
+<g class="after"><path d="M342 541H354M406 541H418" stroke="#a63a07" stroke-width="6"/><path d="M356 572H404M356 566V578M404 566V578" stroke="#a63a07" stroke-width="2"/></g>
+<g class="before"><text x="380" y="612" text-anchor="middle">Tenký vodič se roztavuje.</text></g>
+<g class="after"><text x="380" y="612" text-anchor="middle">Vznikla mezera: obvod je přerušen.</text></g>
+<rect x="30" y="660" width="700" height="80" rx="12" fill="#f8f9fa"/>
+<text x="50" y="692">Nadměrný proud roztaví tenký vodič.</text>
+<text x="50" y="723" class="bold">Tavná pojistka tím přeruší obvod.</text>
+</svg>

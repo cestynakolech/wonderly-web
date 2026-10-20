@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="780" viewBox="0 0 760 780" role="img" aria-labelledby="title desc">
+<title id="title">Elektrické obvody 1/2: Uvnitř klasické žárovky</title>
+<desc id="desc">Řez žárovkou: jeden konec wolframového vlákna je spojen se závitem patice, druhý se spodním kontaktem. Skleněná baňka brání styku vlákna se vzduchem. Oranžové zvýraznění postupně ukazuje součásti, nikoli proud.</desc>
+<!-- Opora: výklad https://lab.wonderly.cz/skola2/fyzika/8-rocnik/elektrina/elektricke-obvody/, oddíl Žárovka. Kresba podle nasazeného ohmuv-zakon/infografika-ohmuv-zakon-pohyb-panel-1.svg (baňka #f1f3f5, obrys #343a40, patice #adb5bd, kontakt #868e96). Animuje se pouze pozornost, nikoli proud nebo rozsvícení. -->
+<style>
+text{font-family:Arial,sans-serif;font-size:23px;fill:#212529}.head{font-size:28px;font-weight:bold}.bold{font-weight:bold}.note{font-size:21px}.one{animation:one 12s infinite}.two{animation:two 12s infinite}.three{animation:three 12s infinite}@keyframes one{0%,30%{opacity:1}34%,96%{opacity:0}100%{opacity:1}}@keyframes two{0%,30%{opacity:0}34%,63%{opacity:1}67%,100%{opacity:0}}@keyframes three{0%,63%{opacity:0}67%,96%{opacity:1}100%{opacity:0}}@media(prefers-reduced-motion:reduce){.one,.two,.three{animation:none;opacity:1}}
+</style>
+<rect width="760" height="780" fill="#f8f9fa"/>
+<rect x="12" y="12" width="736" height="756" rx="16" fill="#ffffff" stroke="#ced4da"/>
+<text x="32" y="55" class="head">1/2: Uvnitř klasické žárovky</text>
+<rect x="30" y="79" width="700" height="77" rx="10" fill="#f8f9fa"/>
+<path d="M48 105H90" stroke="#a63a07" stroke-width="7"/>
+<text x="106" y="113" class="note">Oranžová = zvýrazněná součást.</text>
+<text x="48" y="142" class="note">Postupné zvýraznění neznázorňuje proud.</text>
+<!-- Zvětšená anatomie stejného typu žárovky jako v nasazeném vzoru. -->
+<circle cx="380" cy="323" r="119" fill="#f1f3f5" stroke="#343a40" stroke-width="5"/>
+<path d="M328 428V445H432V428" fill="#f1f3f5" stroke="#343a40" stroke-width="5"/>
+<rect x="324" y="445" width="112" height="77" rx="8" fill="#adb5bd" stroke="#343a40" stroke-width="5"/>
+<path d="M324 465H436M324 485H436M324 505H436" stroke="#343a40" stroke-width="4"/>
+<!-- Izolant odděluje kovový plášť patice od spodního kontaktu. -->
+<path d="M348 524H412L394 534H366Z" fill="#f1f3f5" stroke="#343a40" stroke-width="3"/>
+<rect x="366" y="534" width="28" height="16" rx="4" fill="#868e96" stroke="#343a40" stroke-width="4"/>
+<!-- Průhledné okno v řezu: dva přívody se nikde nespojují mimo vlákno. -->
+<path d="M324 456H350V320M414 320V493L380 535" fill="none" stroke="#ffffff" stroke-width="13"/>
+<path d="M324 456H350V320M414 320V493L380 535" fill="none" stroke="#495057" stroke-width="6" stroke-linejoin="round"/>
+<path d="M350 320l8 -20 8 20 8 -20 8 20 8 -20 8 20 8 -20 8 20" fill="none" stroke="#6c757d" stroke-width="6" stroke-linejoin="round"/>
+<path class="one" d="M324 456H350V320" fill="none" stroke="#a63a07" stroke-width="8"/>
+<path class="two" d="M350 320l8 -20 8 20 8 -20 8 20 8 -20 8 20 8 -20 8 20" fill="none" stroke="#a63a07" stroke-width="8" stroke-linejoin="round"/>
+<path class="three" d="M414 320V493L380 535" fill="none" stroke="#a63a07" stroke-width="8"/>
+<path d="M159 241H237L279 261M161 465H310M414 311H521M402 539H515" fill="none" stroke="#495057" stroke-width="2"/>
+<text x="42" y="220">skleněná</text><text x="42" y="248">baňka</text>
+<text x="43" y="443">závit</text><text x="43" y="471">patice</text>
+<text x="534" y="274">wolframové</text><text x="534" y="302">vlákno</text>
+<text x="527" y="531">spodní</text><text x="527" y="559">kontakt</text>
+<rect x="30" y="588" width="700" height="152" rx="12" fill="#f8f9fa"/>
+<text x="48" y="621" class="bold">Dva konce vlákna, dvě připojení:</text>
+<text x="48" y="656">jeden k závitu, druhý ke spodnímu kontaktu.</text>
+<text x="48" y="698">Baňka brání styku vlákna se vzduchem.</text>
+</svg>
