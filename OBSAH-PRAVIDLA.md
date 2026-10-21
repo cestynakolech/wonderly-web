@@ -423,7 +423,7 @@ Pravidla kap. 3 (úvod „Jednoduše řečeno“, rozsah = PDF + prezentace + zj
 
 1. **Pilot na 2 podtématech** — výsledek ukáže učiteli; **bez jeho schválení se dál nejde**.
 2. Po schválení **téma po tématu napříč ročníky 7/8/9** (pokyn učitele 29. 9. 2026, večer): nejdřív
-   1. téma F7 + 1. téma F8 + 1. téma F9 KOMPLETNĚ (úvod, výklad v rozsahu PDF, zápis, všechny obrázky
+   1. téma F7 + 1. téma F8 + 1. téma F9 KOMPLETNĚ (úvod, výklad v rozsahu PDF + prezentace + zjednodušeně ŠVP, zápis, všechny obrázky
    z PDF překreslené, kvíz, písnička, video), teprve pak 2. téma všech tří ročníků atd. — v pořadí
    témat, jak se učí. **6. ročník až po 7–9.** Přehled: `Omega/dokumenty/PORADI-TEMAT-7-9.md`.
 3. Obrázky (kap. 3, „OBRÁZKY ZE ZDROJE“) se zavádějí stejně: pilot → po schválení téma po tématu napříč 7/8/9.
