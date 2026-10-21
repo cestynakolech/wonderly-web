@@ -26,7 +26,7 @@ byli dělány podle podkladů PDF na sdílené složce a původním prezentacím
 u pdf učebnic"*
 
 ```
-PDF učebnice + původní prezentace (/Users/Shared/Škola)
+PDF učebnice + původní prezentace (/Users/Shared/Škola) + ŠVP (zjednodušeně)
         ↓
 TEXT VÝKLADU na webu (src/data/temata.ts)
         ↓
@@ -105,7 +105,7 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
 
 ## 3. VÝKLAD (temata.ts)
 
-- Vzniká **z PDF + z popisu prezentace** k témuž podtématu. Jiný zdroj se používá jen na ověření, ne jako předloha.
+- Vzniká **z PDF + z popisu prezentace** k témuž podtématu. Jiný zdroj se používá jen na ověření, ne jako předloha – výjimka: co požaduje ŠVP a v předloze chybí, se doplní zjednodušeně na úrovni 1. stupně (kap. 1, bod 1).
 - **PREZENTACE JSOU ROVNOCENNÝ ZDROJ S PDF** (rozhodnutí učitele 19. 8. 2026 — bod B), ne podřízený.
   Dřívější formulace „určující je vždy PDF" **NEPLATÍ** a je z `src/pages/skola2/_CLAUDE.md` odstraněna.
   Výklad musí pokrýt látku z OBOU zdrojů. Když se PDF a prezentace liší, není to důvod dát automaticky
@@ -113,12 +113,13 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
   `~/Desktop/Omega/dokumenty/kontrola-podkladu-*.md` — tiché rozhodnutí ve prospěch jednoho zdroje
   je zakázané stejně jako tichá oprava podkladu (zákaz 7).
 - Pokrývá celé podtéma z podkladů — a nepřidává látku navíc (řetěz, bod 1 a 2).
-- **Rozsah výkladu = učitelovo PDF + prezentace** (pokyn učitele 29. 9. 2026: texty jsou
-  „příliš odborné, obsahují více, než je v PDF“). Co ve výkladu je a v PDF ani v prezentaci
-  není, se **přesune do sbalené části „Pro zvídavé“** (nadstavba k rozkliknutí, viz
-  `feedback-obsah-pro-zakladni-skolu`) — **NEMAŽE se**. Kvíz dál zkouší jen hlavní výklad;
+- **Rozsah výkladu = učitelovo PDF + prezentace + zjednodušeně, co požaduje ŠVP** (pokyn učitele 29. 9. 2026: texty jsou
+  „příliš odborné, obsahují více, než je v PDF“). Co v **HOTOVÝCH** výkladech je a v PDF,
+  prezentaci ani ŠVP není, **zůstává ve sbalené části „Pro zvídavé“** (viz
+  `feedback-obsah-pro-zakladni-skolu`) — **NEMAŽE se** (zásada 3 – hotové se nepředělává).
+  V **NOVÝCH** výkladech se látka bez opory v PDF/prezentaci/ŠVP nepíše vůbec (zásada 1) a nové
+  „Pro zvídavé“ se od 21. 10. 2026 nepřidávají. Kvíz zkouší jen hlavní výklad;
   „Pro zvídavé“ se nezkouší. Tím řetěz (kap. 1, bod 1 a 2) platí beze změny.
-  **Od 21. 10. 2026 se nové „Pro zvídavé“ nepřidávají** (zásada 1); existující na webu zůstávají (zásada 3 – hotové se nepředělává).
 - **Jazyk pro žáka ZŠ daného ročníku:** krátké věty, cizí slovo vždy vysvětlit, jeden pojem =
   jedna myšlenka. Rozsah 3–6 odstavců + shrnutí.
 - **ÚVOD „Jednoduše řečeno“ na začátku každého PODTÉMATU** (pokyn učitele 29. 9. 2026;
@@ -418,7 +419,7 @@ užší definici v `SAMOSTATNY-REZIM.md`, bod E (ii); tam zůstává jen odkaz s
 
 ## 13. ZAVÁDĚNÍ úvodu, rozsahu a zápisu (pokyn učitele 29. 9. 2026)
 
-Pravidla kap. 3 (úvod „Jednoduše řečeno“, rozsah = PDF, zápis – limit viz kap. 3) se zavádějí takto:
+Pravidla kap. 3 (úvod „Jednoduše řečeno“, rozsah = PDF + prezentace + zjednodušeně ŠVP, zápis – limit viz kap. 3) se zavádějí takto:
 
 1. **Pilot na 2 podtématech** — výsledek ukáže učiteli; **bez jeho schválení se dál nejde**.
 2. Po schválení **téma po tématu napříč ročníky 7/8/9** (pokyn učitele 29. 9. 2026, večer): nejdřív
@@ -427,8 +428,8 @@ Pravidla kap. 3 (úvod „Jednoduše řečeno“, rozsah = PDF, zápis – limit
    témat, jak se učí. **6. ročník až po 7–9.** Přehled: `Omega/dokumenty/PORADI-TEMAT-7-9.md`.
 3. Obrázky (kap. 3, „OBRÁZKY ZE ZDROJE“) se zavádějí stejně: pilot → po schválení téma po tématu napříč 7/8/9.
 4. Každé upravené podtéma projde **nezávislým kontrolorem** (čerstvý kontext): věcná správnost
-   zjednodušení, pokrytí PDF a prezentace, nic nevypadlo (přebytek přesunut do „Pro zvídavé“,
-   ne smazán) a kvíz dál pokrývá výklad.
+   zjednodušení, pokrytí PDF a prezentace, nic nevypadlo (přebytek: u hotových ponechán v „Pro zvídavé“,
+   v novém obsahu se nepíše) a kvíz dál pokrývá výklad.
 
 **Pilot schválen učitelem 29. 9. 2026 (Klid a pohyb 7, Výkon 8).**
 
