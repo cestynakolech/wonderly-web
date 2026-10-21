@@ -1,5 +1,7 @@
 export type Otazka = {
 	text: string;
+	/** Existující obrázek téhož podtématu; popis ani cesta neprozrazují správnou odpověď. */
+	obrazek?: { src: string; alt: string };
 	/** Správná odpověď je VŽDY první — na stránce se pořadí zamíchá */
 	odpovedi: [string, string, string];
 	/** Krátké vysvětlení správné odpovědi (ukáže se při špatné odpovědi) */

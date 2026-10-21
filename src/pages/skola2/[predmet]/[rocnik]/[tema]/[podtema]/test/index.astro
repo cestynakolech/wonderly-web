@@ -78,13 +78,14 @@ const POCET_V_TESTU = 7;
 		</script>
 		<section class="ovladani">
 			<h1>🖨️ Tisknutelný test: {podtema.nazev}</h1>
-			<p>
+			<p id="ctvrtinovy-tisk-info">
 				Z {otazky.length} procvičovacích otázek je náhodně vybráno {POCET_V_TESTU}. Na jednu A4 se
 				vejdou <strong>4 testy</strong> — <strong>horní dva jsou skupina A, dolní dva skupina B</strong>
 				(stejné otázky, ale navzájem zamíchané, aby sousedé neopisovali). Po vytištění list rozstříhej
 				na čtvrtiny. Přední strana má hlavičku a otázky 1–4, zadní strana otázky 5–7.
 			</p>
-			<p>
+			<p id="obrazkovy-tisk-info" hidden>Vybraný test obsahuje obrázky. Při tisku dostane každá ze čtyř kopií vlastní stránky s většími obrázky; testy se nestříhají na čtvrtiny. Dlouhý test může pokračovat na další stránce. Pro tento tisk zvol jednostranný tisk, měřítko 100 % a okraje „žádné“.</p>
+			<p id="ctvrtinovy-tisk-nastaveni">
 				<strong>Nastavení tisku:</strong> oboustranně, <em>otáčet po dlouhé straně</em>, měřítko
 				100 % (bez přizpůsobení stránce), okraje „žádné".
 			</p>
@@ -93,6 +94,13 @@ const POCET_V_TESTU = 7;
 				<label><input type="checkbox" id="tisk-klice" checked /> vytisknout i list s klíčem správných odpovědí</label>
 				<button id="tisk">🖨️ Vytisknout</button>
 			</p>
+			<p>
+				<label for="vymena-cislo">Vyměň otázku č.</label>
+				<input id="vymena-cislo" type="number" min="1" max={Math.min(POCET_V_TESTU, otazky.length)} value="1" />
+				<button id="vymenit">Vyměnit</button>
+				<span id="vymena-stav" role="status" aria-live="polite"></span>
+			</p>
+			<p>Číslo otázky je její pořadí ve verzi A. Tlačítko ↻ v kterékoli verzi vymění tutéž otázku v A i B.</p>
 			<p><a href="../">&larr; Zpět na {podtema.nazev}</a></p>
 			<hr />
 			<p class="napoveda">Náhled — takto vyjdou stránky z tiskárny:</p>
@@ -132,10 +140,12 @@ const POCET_V_TESTU = 7;
 			</p>
 		</section>
 
-		<p class="oznaceni-archu">1. stránka (přední strany testů)</p>
+		<p class="oznaceni-archu" id="oznaceni-predni">1. stránka (přední strany testů)</p>
 		<div class="arch" id="arch-predni"></div>
-		<p class="oznaceni-archu">2. stránka (zadní strany testů)</p>
+		<p class="oznaceni-archu" id="oznaceni-zadni">2. stránka (zadní strany testů)</p>
 		<div class="arch" id="arch-zadni"></div>
+		<p class="oznaceni-archu" id="oznaceni-obrazku" hidden>Čtyři úplné kopie testu — každá při tisku začíná na nové stránce.</p>
+		<div id="arch-obrazky"></div>
 		<p class="oznaceni-archu" id="oznaceni-klice">3. stránka (klíč pro učitele)</p>
 		<div class="arch arch-klic" id="arch-klic"></div>
 
@@ -151,18 +161,23 @@ const POCET_V_TESTU = 7;
 
 			const pismena = ['a', 'b', 'c'];
 
+			const escapuj = (text) => String(text).replace(/[&<>"']/g, (znak) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[znak]));
+			let vybrane = [];
+			let verzeA = [];
+			let verzeB = [];
+			let zbytekPoolu = [];
+
 			const otazkaHtml = (otazka, i) =>
-				`<div class="otazka"><p class="zneni">${i + 1}) ${otazka.text}</p><p class="moznosti">${otazka.odpovedi
-					.map((o, j) => `<span>${pismena[j]}) ${o}</span>`)
+				`<div class="otazka"><p class="zneni">${i + 1}) ${escapuj(otazka.text)} <button type="button" class="no-print vymena-otazky" data-vymenit="${otazka.id}" aria-label="Vyměnit otázku ${i + 1}">↻</button></p>${otazka.obrazek ? `<img class="test-obrazek" src="${escapuj(otazka.obrazek.src)}" alt="${escapuj(otazka.obrazek.alt)}" />` : ''}<p class="moznosti">${otazka.odpovedi
+					.map((o, j) => `<span>${pismena[j]}) ${escapuj(o)}</span>`)
 					.join(' ')}</p></div>`;
 
-			// z vybraných otázek vyrobí jednu verzi testu: zamíchá pořadí otázek i odpovědí
-			const pripravVerzi = (vybrane) =>
-				zamichej(vybrane).map((otazka) => {
-					const spravna = otazka.odpovedi[0];
-					const odpovedi = zamichej(otazka.odpovedi);
-					return { text: otazka.text, odpovedi, spravne: pismena[odpovedi.indexOf(spravna)] };
-				});
+			const pripravOtazku = (id) => {
+				const otazka = otazky[id];
+				const odpovedi = zamichej(otazka.odpovedi);
+				return { ...otazka, id, odpovedi, spravne: pismena[odpovedi.indexOf(otazka.odpovedi[0])] };
+			};
+			const pripravVerzi = (vybrane) => zamichej(vybrane).map(pripravOtazku);
 
 			const listekPredni = (testove, skupina) =>
 				`<div class="listek"><div class="hlavicka">
@@ -174,7 +189,7 @@ const POCET_V_TESTU = 7;
 			const listekZadni = (testove, skupina) =>
 				`<div class="listek"><div class="hlavicka zadni-hlavicka"><strong>${nazevTestu} — skupina ${skupina} (pokračování)</strong></div>
 					${testove.slice(4).map((otazka, i) => otazkaHtml(otazka, i + 4)).join('')}
-					<p class="pocet-bodu">Počet bodů: ______ / ${POCET_V_TESTU}</p></div>`;
+					<p class="pocet-bodu">Počet bodů: ______ / ${vybrane.length}</p></div>`;
 
 			// Otázka, jejíž SPRÁVNÁ odpověď je nejdelší, jde uhodnout bez znalosti látky.
 			// Na webu je takových 67 % (nález nezávislého auditu 31. 7. 2026), takže
@@ -187,14 +202,57 @@ const POCET_V_TESTU = 7;
 				return delky[0] >= nejdelsiZeSpatnych;
 			}
 
-			function vygeneruj() {
-				// vylosujeme 7 otázek a z NICH uděláme dvě navzájem zamíchané verze
-				const bezNapovedy = zamichej(otazky.filter((o) => !maDelkovouNapovedu(o)));
-				const sNapovedou = zamichej(otazky.filter(maDelkovouNapovedu));
-				const vybrane = bezNapovedy.concat(sNapovedou).slice(0, POCET_V_TESTU);
-				const verzeA = pripravVerzi(vybrane);
-				const verzeB = pripravVerzi(vybrane);
+			function seradPool(ids) {
+				return zamichej(ids.filter((id) => !maDelkovouNapovedu(otazky[id])))
+					.concat(zamichej(ids.filter((id) => maDelkovouNapovedu(otazky[id]))));
+			}
 
+			function vygeneruj() {
+				const pool = seradPool(otazky.map((_, id) => id));
+				vybrane = pool.slice(0, POCET_V_TESTU);
+				zbytekPoolu = pool.slice(POCET_V_TESTU);
+				verzeA = pripravVerzi(vybrane);
+				verzeB = pripravVerzi(vybrane);
+				document.getElementById('vymena-stav').textContent = '';
+				vykresli();
+			}
+
+			function vymenOtazku(id) {
+				if (!vybrane.includes(id)) return;
+				if (!zbytekPoolu.length) {
+					document.getElementById('vymena-stav').textContent = 'Žádná další otázka k výměně';
+					return;
+				}
+				zbytekPoolu = seradPool(zbytekPoolu);
+				const novyId = zbytekPoolu.shift();
+				// Vyřazenou otázku nevracíme: v tomto losování už byla použita.
+				vybrane = vybrane.map((staryId) => staryId === id ? novyId : staryId);
+				verzeA = verzeA.map((o) => o.id === id ? pripravOtazku(novyId) : o);
+				verzeB = verzeB.map((o) => o.id === id ? pripravOtazku(novyId) : o);
+				document.getElementById('vymena-stav').textContent = 'Otázka vyměněna v obou verzích.';
+				vykresli();
+			}
+
+			const listekObrazkovy = (testove, skupina) =>
+				`<section class="obrazkovy-test"><div class="hlavicka">
+					<strong>Test: ${escapuj(nazevTestu)} — skupina ${skupina}</strong>
+					<span>Příjmení: ______________________</span><span>Datum: ____________</span>
+				</div>${testove.map(otazkaHtml).join('')}<p class="pocet-bodu">Počet bodů: ______ / ${testove.length}</p></section>`;
+
+			function vykresli() {
+				const maObrazky = vybrane.some((id) => Boolean(otazky[id].obrazek));
+				document.body.classList.toggle('test-s-obrazky', maObrazky);
+				document.getElementById('obrazkovy-tisk-info').hidden = !maObrazky;
+				document.getElementById('ctvrtinovy-tisk-info').hidden = maObrazky;
+				document.getElementById('ctvrtinovy-tisk-nastaveni').hidden = maObrazky;
+				document.getElementById('oznaceni-predni').hidden = maObrazky;
+				document.getElementById('oznaceni-zadni').hidden = maObrazky;
+				document.getElementById('oznaceni-obrazku').hidden = !maObrazky;
+				document.getElementById('oznaceni-klice').textContent = maObrazky ? 'Klíč pro učitele — následuje po všech kopiích testu' : '3. stránka (klíč pro učitele)';
+				// Větší obrázky se tisknou s přirozenou paginací, nikoli do pevné čtvrtiny A4.
+				document.getElementById('arch-obrazky').innerHTML = maObrazky
+					? listekObrazkovy(verzeA, 'A') + listekObrazkovy(verzeA, 'A') + listekObrazkovy(verzeB, 'B') + listekObrazkovy(verzeB, 'B')
+					: '';
 				// horní řada lístků = skupina A, dolní řada = skupina B (na líci i rubu)
 				document.getElementById('arch-predni').innerHTML =
 					listekPredni(verzeA, 'A') + listekPredni(verzeA, 'A') + listekPredni(verzeB, 'B') + listekPredni(verzeB, 'B');
@@ -211,6 +269,20 @@ const POCET_V_TESTU = 7;
 				</div>`;
 			}
 
+			document.getElementById('vymenit').addEventListener('click', () => {
+				const cislo = Number(document.getElementById('vymena-cislo').value);
+				if (!Number.isInteger(cislo) || cislo < 1 || cislo > verzeA.length) {
+					document.getElementById('vymena-stav').textContent = `Zadej číslo otázky od 1 do ${verzeA.length}.`;
+					return;
+				}
+				vymenOtazku(verzeA[cislo - 1].id);
+			});
+			for (const id of ['arch-predni', 'arch-zadni', 'arch-obrazky']) {
+				document.getElementById(id).addEventListener('click', (udalost) => {
+					const tlacitko = udalost.target.closest('[data-vymenit]');
+					if (tlacitko) vymenOtazku(Number(tlacitko.dataset.vymenit));
+				});
+			}
 			document.getElementById('prehazet').addEventListener('click', vygeneruj);
 			document.getElementById('tisk').addEventListener('click', () => window.print());
 			document.getElementById('tisk-klice').addEventListener('change', (udalost) => {
@@ -417,6 +489,17 @@ const POCET_V_TESTU = 7;
 			.zadni-hlavicka {
 				border-bottom: 1px solid #999;
 			}
+			.test-obrazek {
+				display: block;
+				max-width: 100%;
+				width: auto;
+				height: auto;
+				max-height: 24mm;
+				object-fit: contain;
+				margin: 1mm 0;
+			}
+			.vymena-otazky { cursor: pointer; }
+			#vymena-cislo { width: 3rem; font-size: 1rem; }
 			.otazka {
 				margin-bottom: 3mm;
 			}
@@ -452,10 +535,36 @@ const POCET_V_TESTU = 7;
 			body.bez-klice #oznaceni-klice {
 				display: none;
 			}
+			#arch-obrazky { display: none; }
+			body.test-s-obrazky #arch-predni,
+			body.test-s-obrazky #arch-zadni { display: none; }
+			body.test-s-obrazky #arch-obrazky {
+				display: block;
+				width: auto;
+				height: auto;
+			}
+			body.zamceno #arch-obrazky { display: none; }
+			.obrazkovy-test {
+				box-sizing: border-box;
+				padding: 12mm;
+				font-size: 11pt;
+				line-height: 1.4;
+				break-before: page;
+			}
+			.obrazkovy-test .otazka { break-inside: avoid; }
+			.obrazkovy-test .test-obrazek { max-height: 70mm; }
+			body.test-s-obrazky .arch-klic { height: auto; min-height: 297mm; }
+			@media screen {
+				body.test-s-obrazky #arch-obrazky { max-width: 210mm; margin: 0 auto; }
+				.obrazkovy-test { background: #fff; margin-bottom: 1.5rem; }
+				body.test-s-obrazky .arch-klic { transform: none; margin-bottom: 1.5rem; max-width: 100%; }
+			}
+
 			@media print {
 				body {
 					background: #fff;
 				}
+				.no-print,
 				.ovladani,
 				.propustka,
 				.zamek,
@@ -474,6 +583,7 @@ const POCET_V_TESTU = 7;
 				.arch:first-of-type {
 					page-break-before: auto;
 				}
+
 				@page {
 					size: A4 portrait;
 					margin: 0;
@@ -486,6 +596,20 @@ const POCET_V_TESTU = 7;
 					transform-origin: top center;
 					margin-bottom: calc(-297mm * 0.55 + 1.5rem);
 				}
+			}
+			@media screen and (max-width: 600px) {
+				.arch {
+					width: calc(100% - 1rem);
+					height: auto;
+					grid-template-columns: minmax(0, 1fr);
+					grid-template-rows: auto;
+					transform: none;
+					margin-bottom: 1.5rem;
+				}
+				.listek { padding: 1rem; font-size: 1rem; }
+				.test-obrazek { max-height: 24rem; }
+				.klic { padding: 1rem; }
+				.obrazkovy-test { padding: 1rem; font-size: 1rem; }
 			}
 		</style>
 	</body>

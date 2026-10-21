@@ -12,7 +12,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "test": "node skripty/pojistka_hotove.mjs && node testy/pojistka-hotove.mjs && node zkontroluj.mjs && node testy/vsechny-simulace.mjs && node testy/obousmerne.mjs && node testy/uniky-laborek.mjs && node testy/liga-tabule.mjs && node testy/tabule-telefon.mjs",
+    "test": "node skripty/pojistka_hotove.mjs && node testy/pojistka-hotove.mjs && node zkontroluj.mjs && node testy/vsechny-simulace.mjs && node testy/obousmerne.mjs && node testy/uniky-laborek.mjs && node testy/liga-tabule.mjs && node testy/tabule-telefon.mjs && node testy/kviz-obrazky.mjs && node testy/kviz-vymena.mjs",
     "prijmi-latku": "node zkontroluj.mjs --prijmi-latku",
     "check": "node zkontroluj.mjs"
   },
@@ -24,6 +24,9 @@
   },
   "devDependencies": {
     "@babel/parser": "7.29.7",
-    "esbuild": "0.27.7"
+    "css-tree": "3.2.1",
+    "esbuild": "0.27.7",
+    "parse5": "7.3.0",
+    "postcss": "8.5.15"
   }
 }

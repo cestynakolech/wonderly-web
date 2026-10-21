@@ -174,6 +174,7 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
 ## 4. KVÍZ (kvizy.ts)
 
 - **Zkouší JEN to, co je ve výkladu na stránce** — a naopak pokrývá celý výklad (řetěz, bod 3).
+- **Obrázky v otázkách:** nepovinné `obrazek: { src, alt }`; `src` je místní cesta od `/` do `public`, soubor musí existovat. Použít lze pouze již existující `obr-*` nebo panel z výkladu či materiálů **téhož podtématu**. `alt` musí být neprázdný; ani `alt`, ani `src` nesmí obsahovat text správné odpovědi. Obrázek se zobrazuje při procvičování i v tisknutelném testu, čitelně také na telefonu 375 px. Všechna ostatní pravidla otázek včetně délkové nápovědy a opory ve výkladu platí dál. Ověřuje `testy/kviz-obrazky.mjs`.
 - Správná odpověď je v datech **VŽDY první** (web míchá pořadí), 3 odpovědi, právě jedna správná.
 - Vyplněné pole `vysvetleni` (ukáže se jen při špatné odpovědi — viz „platí všude").
 - Otázka nesmí být kruhová; distraktor musí být věrohodný (nesmyslná možnost je nápověda).
@@ -372,7 +373,7 @@ Téma je HOTOVÉ, teprve když má VŠECH těchto devět složek:
 5. české odkazy,
 6. **video-polemiku s ANIMACÍ toho, o čem se v ní mluví** — ne statické obrázky,
    ne jen audiostopa,
-7. infografiku (statickou, bez interakce — odlišnou od bodu 4),
+7. panelovou infografiku (statickou nebo animované SVG se SMIL/CSS, bez JS a bez interakce — odlišnou od bodu 4); u dějů má animace přednost,
 8. laboratorní práci,
 9. **hru pro skupinu** — SAMOSTATNÁ hra vázaná na konkrétní podtéma (plná varianta),
    NE pouhé rozšíření Fyzikální ligy o výběr podtématu (rozhodnutí učitele 23. 9. 2026).
@@ -438,5 +439,6 @@ Učitel doslova: „Klid a pohyb tělesa je dobře udělaná stránka a mohla by
 - **Měřítko (naměřeno 3. 10. 2026):** výklad 413 slov · 7 obrázků ve výkladu (5 SVG kreseb + 2 jpg; plus 1 infografika v materiálech) · 1 interaktivní simulace · 1 video → zhruba **60 slov na obrázek**, každý oddíl s vlastním obrázkem. **Rozsah (učitel 13. 10. 2026): ~650 slov je přibližné MAXIMUM, ne cíl; rozmezí zhruba od vzoru (~413 slov + 7 obrázků) do ~650.** Měřítko, ne přesný limit: nový výklad nemá být textovější (ani se stejným rozsahem jen ozdobený) než předloha.
 - **Platí jen pro NOVÉ a dosud nepředělané stránky.** Hotové (předělané) stránky se kvůli tomuto pravidlu NEpředělávají.
 - **Obrázky podle předlohového PDF:** počet a téma obrázků vychází ze stran PDF; obrázek se z PDF PŘEKRESLUJE (ne kopie), viz kap. 3 a `feedback-obrazek-prekreslit-z-pdf`.
+- **Panelová infografika může být i animace**, není jen statickým obrázkem. U dějů má přednost animované SVG (SMIL/CSS, bez JS). Platí `PANELY-NAVOD.md`, sekce Animace: pohyb musí ukazovat příčinu a průběh děje, smyčka 4–8 s, srozumitelný koncový stav, `prefers-reduced-motion` s úplným nejvýmluvnějším snímkem a T11 (čísla rovnou správná, bez mezistavů).
 - **Děje** (pohyb, ohřev, změny skupenství apod.) vyjádřit animací/simulací (kap. 7), je-li co ukázat; statický jev stačí obrázkem.
 - Šablona zadání workerů `Omega/predavka/2026-10-01/SABLONY-ZADANI.md` odkazuje na tuto kapitolu; rozsah výkladu je jednoznačně: ~650 slov = přibližné maximum, ne cíl (viz měřítko výše; šablona to přebírá, rozpor už není).

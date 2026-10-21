@@ -18,6 +18,7 @@ const { otazky } = Astro.props;
 	<div id="kviz-telo" hidden>
 		<p class="kviz-postup"><span id="kviz-cislo"></span> <span id="kviz-skore-prubezne"></span></p>
 		<p class="kviz-otazka" id="kviz-otazka"></p>
+		<img id="kviz-obrazek" class="kviz-obrazek" alt="" hidden />
 		<div class="kviz-odpovedi" id="kviz-odpovedi"></div>
 		<div class="kviz-vedec" id="kviz-vedec" hidden>
 			<video class="kviz-video" id="kviz-video-tanci" src="/video/profesor/tanci.mp4" muted loop playsinline preload="auto" data-video-type="success" aria-label="Profesor tančí — správná odpověď" hidden></video>
@@ -95,6 +96,15 @@ const { otazky } = Astro.props;
 		el('kviz-cislo').textContent = `Otázka ${aktualni + 1} z ${poradi.length}`;
 		el('kviz-skore-prubezne').textContent = aktualni > 0 ? `· zatím ${spravne} správně` : '';
 		el('kviz-otazka').textContent = otazka.text;
+		const obrazek = el('kviz-obrazek');
+		obrazek.hidden = !otazka.obrazek;
+		if (otazka.obrazek) {
+			obrazek.src = otazka.obrazek.src;
+			obrazek.alt = otazka.obrazek.alt;
+		} else {
+			obrazek.removeAttribute('src');
+			obrazek.alt = '';
+		}
 		const spravnaOdpoved = otazka.odpovedi[0];
 		const odpovedi = zamichej(otazka.odpovedi);
 		const kontejner = el('kviz-odpovedi');
@@ -188,6 +198,13 @@ const { otazky } = Astro.props;
 </script>
 
 <style is:global>
+	.kviz-obrazek {
+		max-width: 100%;
+		width: auto;
+		height: auto;
+		max-height: 24rem;
+		object-fit: contain;
+	}
 	.kviz-uvod {
 		margin-top: 0;
 	}

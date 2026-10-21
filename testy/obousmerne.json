@@ -677,6 +677,18 @@
 			"podvrh": "Tři skutečné úniky z dnešních kontrol laborek (texty z gitu): tip „Energii nelze vytvořit ani zničit“ × otázka 3 (1e81f77), tip rovinného zrcadla o vlastnostech obrazu × otázky 3 a 4 (fb7a1d4), tip Dlouhých strání × otázka 4 (cfec995) se najdou i v jiném pádu a velkými písmeny; opis otázky v cíli a v kroku (≥ 6 slov) se najde. Brána spuštěná na dočasném souboru s únikem skončí kódem 1.",
 			"zdravy": "Šest tipů (vč. dvouslovné shody rozvodné síti), které prošly kontrolou dávek (kosmetická zrcadla, kulová zrcadla, rychlost světla, Newton 1671, joule), mlčí; krok jen s názvy veličin a parafráze bez shodných slov také (dokumentovaná mez). Brána na zdravém dočasném souboru skončí kódem 0; nad skutečnými daty webu (65 laborek) hlásí jen 1 ručně posouzený planý poplach evidovaný v testy/uniky-laborek-zname.json (otisk textu).",
 			"regrese": "První verze (každý ≥3slovný úsek v cíli i krocích, bez ohledu na téma) vracela 11 poplachů nad skutečnými daty, všechny plané (cíl pojmenovávající měřenou veličinu, shoda čísel u transformátoru). Proto: cíl a kroky jen od 6 slov, úsek aspoň s jedním slovem mimo název laborky, tip od 3 slov. \\b se nepoužívá, slova se dělí přes \\p{L}\\p{N}."
+		},
+		"kviz-obrazky.mjs": {
+			"test": "testy/kviz-obrazky.mjs",
+			"podvrh": "Prázdný alt, odpověď v alt/src, cizí stránka, cesta mimo public, externí URL, jiný druh obrázku, neplatný objekt a chybějící soubor jsou odmítnuty.",
+			"zdravy": "Skutečně importované otázky webu; otázka bez obrázku i existující obr-* a panel stejné skutečné stránky projdou.",
+			"overeno": "2026-10-21"
+		},
+		"kviz-vymena.mjs": {
+			"test": "testy/kviz-vymena.mjs",
+			"podvrh": "Mutace vynechávající výměnu B, míchající nezměněné otázky A a neodebírající náhradu z poolu musejí selhat. Mutace přiřazení klíče z = na ||= zamrazí první vykreslení a je odmítnuta porovnáním skutečného HTML klíče s aktuálními otázkami A/B po výměně. Šest CSS mutací: skryté obrázky (!important), skrytý obrazovkový arch, pevná čtvrtina s ořezem, chybějící nová stránka kopie, mobilní nulová výška a neviditelný předek jsou odmítnuty vyhodnocením kaskády.",
+			"zdravy": "Skutečný inline skript v Node VM nad importovaným blokem F8: výměna pouze jedné identity A/B, zachování ostatních otázek a odpovědí, přepočet skutečně vykresleného HTML klíče pro A/B při každé výměně i po resetu (správné písmeno odvozeno z původních importovaných odpovědí), preference poolu, vyčerpání, reset, obě ovládání a obrazové HTML. Obrázkový tisk: 4 úplné kopie se všemi 7 obrázky, samostatné stránky, přirozená paginace bez pevné výšky, obrázky do 70 mm; textové archy zachovány. PostCSS vyhodnocuje kaskádu a viditelnost všech předků pro screen 375/1280 a print, ovládání ↻ je prověřeno i v novém obrázkovém archu. Bez prohlížeče; neměří pixelové zalomení.",
+			"overeno": "2026-10-21"
 		}
 	}
 }
