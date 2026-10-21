@@ -37,7 +37,7 @@ Tři pravidla řetězu — platí na KAŽDÝ článek zvlášť:
 
 1. **Nic navíc.** Článek smí obsahovat jen to, co je v článku předchozím.
    Kvíz nesmí zkoušet nic, co není ve výkladu. Výklad nesmí přidávat látku,
-   která není v PDF ani v prezentaci.
+   která není v PDF, v prezentaci ani v ŠVP. **Co ŠVP požaduje a v PDF ani prezentaci chybí, se MUSÍ doplnit – zjednodušeně, na úrovni 1. stupně** (učitel 21. 10. 2026).
 2. **Nic nesmí vypadnout.** Článek musí pokrýt všechno z předchozího.
    Výklad pokrývá celé PDF + prezentaci; kvíz pokrývá celý výklad;
    video (polemika) pokrývá všechny kvízové otázky tématu.
@@ -118,6 +118,7 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
   není, se **přesune do sbalené části „Pro zvídavé“** (nadstavba k rozkliknutí, viz
   `feedback-obsah-pro-zakladni-skolu`) — **NEMAŽE se**. Kvíz dál zkouší jen hlavní výklad;
   „Pro zvídavé“ se nezkouší. Tím řetěz (kap. 1, bod 1 a 2) platí beze změny.
+  **Od 21. 10. 2026 se nové „Pro zvídavé“ nepřidávají** (zásada 1); existující na webu zůstávají (zásada 3 – hotové se nepředělává).
 - **Jazyk pro žáka ZŠ daného ročníku:** krátké věty, cizí slovo vždy vysvětlit, jeden pojem =
   jedna myšlenka. Rozsah 3–6 odstavců + shrnutí.
 - **ÚVOD „Jednoduše řečeno“ na začátku každého PODTÉMATU** (pokyn učitele 29. 9. 2026;
@@ -127,7 +128,7 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
 - **ZÁPIS DO SEŠITU = jen pár řádků, ne celá A4** (pravidlo učitele 4. 10. 2026: „děti by to
   nestihly opsat ani se naučit. Krátce a všeobecně, žádná přesná data; nejvýš 1 klíčové číslo“;
   nahrazuje dřívější limit 8 řádků / ~70 slov). **KOTVA: max ~5 bodů, každý jedna krátká věta**
-  (limit auditu: >5 bodů nebo >60 slov = nad limitem). Co je navíc, patří do výkladu, ne do zápisu.
+  (limit auditu: >5 bodů nebo >60 slov = nad limitem). Co je navíc, patří do výkladu, ne do zápisu. Vzorec, zákon a řádky jednotek se do 5 bodů NEpočítají, do 60 slov ANO (učitel 21. 10. 2026).
   Zápis vysvětluje látku tématu na úrovni 1. stupně (pravidlo učitele 12. 10. 2026): srozumitelný malému dítěti, odborný termín jen s jednoduchým vysvětlením, jinak vynechat (ρ, Brownův pohyb, protony bez vysvětlení ne).
   Vzorec slovy jako 6. řádek zůstává (je krátký, do limitu bodů se nepočítá; rozhodnutí orchestrátora 5. 10. 2026).
   Vzor (vesmír): rozpíná se; počátek = velký třesk; stáří ~14 mld. let; tvoří ho galaxie;
@@ -159,7 +160,7 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
   **Doplnění učitele 1. 10. 2026:** „Můžeš kreslit i něco navíc, ale obrázky z PDF by tam měly
   zůstat – jeden dobře nakreslený obrázek dá víc než celá stránka textu.“ → každý obrázek z PDF
   tématu má na webu překreslený protějšek (pokrytí 100 %, kontroluje se soupisem obrázek PDF →
-  náš obrázek); vlastní obrázky navíc jsou povoleny.
+  náš obrázek); vlastní obrázky navíc jsou povoleny – jen jako názornost k látce předlohy (PDF, prezentace, ŠVP), bez nových tvrzení (učitel 21. 10. 2026).
   **Why:** zadání se od předlohy vzdalovalo, obrázky vycházely moc jednoduché, kdežto animace
   pohybu (konkrétní předměty) učitel hodnotil jako lepší. Paměť `feedback-obrazek-prekreslit-z-pdf`.
 - **PDF je vodítko a vzor, neopravuje se (pokyn učitele 3. 10. 2026):** „pdf opravovat nemusíme důležité je aby se dělalo vše správně na webu pdf je vodítko a vzor ale pokud je tam něco špatně neopravuj to ale dej to na web správně“. Chybu v PDF NEopravovat ani nenavrhovat výměnu; na web dát správně, chybu PDF jen poznamenat v protokolu workera. Paměť `feedback-pdf-vzor-neopravovat`.
@@ -417,7 +418,7 @@ užší definici v `SAMOSTATNY-REZIM.md`, bod E (ii); tam zůstává jen odkaz s
 
 ## 13. ZAVÁDĚNÍ úvodu, rozsahu a zápisu (pokyn učitele 29. 9. 2026)
 
-Pravidla kap. 3 (úvod „Jednoduše řečeno“, rozsah = PDF, zápis ≤ 8 řádků) se zavádějí takto:
+Pravidla kap. 3 (úvod „Jednoduše řečeno“, rozsah = PDF, zápis – limit viz kap. 3) se zavádějí takto:
 
 1. **Pilot na 2 podtématech** — výsledek ukáže učiteli; **bez jeho schválení se dál nejde**.
 2. Po schválení **téma po tématu napříč ročníky 7/8/9** (pokyn učitele 29. 9. 2026, večer): nejdřív
