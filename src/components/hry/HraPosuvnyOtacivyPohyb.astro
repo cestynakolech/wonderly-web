@@ -1,0 +1,616 @@
+---
+/**
+ * Hra pro skupinu „Jak se to pohybuje?“ — podtéma Posuvný a otáčivý pohyb (fyzika 7).
+ * Samostatná hra vázaná na podtéma (OBSAH-PRAVIDLA.md kap. 12 bod 9), stejná technika a vzhled
+ * jako hra „Vůči čemu?“ (klid-a-pohyb-telesa): týmy zvedají kartu A/B, odpočet, odhalení, body.
+ * Vše je v tomto jediném souboru (data karet, kreslené scény, skript, styl); stránka
+ * jen vloží <HraPosuvnyOtacivyPohyb /> do SkolaLayout.
+ *
+ * Každá karta nese `opora` = DOSLOVNÝ úryvek výkladu podtématu posuvny-otacivy-pohyb
+ * (temata.ts). Nic mimo výklad se nezkouší. Hra nemá žádná desetinná čísla.
+ */
+type Odpoved = 'A' | 'B';
+type Moznost = { popis: string; doplnek: string };
+type Karta = {
+	id: string;
+	scena: string;
+	otazka: string;
+	spravne: Odpoved;
+	proc: string;
+	opora: string;
+	/** přepsání možností A/B jen pro tuto kartu */
+	moznosti?: Record<Odpoved, Moznost>;
+	/** bonus „Kde je osa otáčení?“ — jen když to výklad výslovně uvádí */
+	naopak?: { odpoved: string; opora: string };
+};
+type Kolo = {
+	cislo: number; nazev: string; pravidlo: string; opora: string;
+	moznosti: Record<Odpoved, Moznost>; body: number; karty: Karta[];
+};
+
+const KOLA: Kolo[] = [
+	{
+		cislo: 1,
+		nazev: 'Posuvný, nebo otáčivý?',
+		pravidlo: 'Posuvný pohyb: každý bod tělesa jde stejným směrem a stejnou rychlostí. Otáčivý pohyb: všechny body jdou po kružnicích kolem osy otáčení.',
+		opora: 'každý bod tělesa pohybuje stejným směrem a stejnou rychlostí',
+		moznosti: {
+			A: { popis: 'POSUVNÝ', doplnek: 'všechny body stejným směrem' },
+			B: { popis: 'OTÁČIVÝ', doplnek: 'body po kružnicích kolem osy' },
+		},
+		body: 1,
+		karty: [
+			{ id: 'k1-houpacka', scena: 'houpacka', otazka: 'Dítě se houpá na houpačce. Jaký je to pohyb?', spravne: 'B',
+				proc: 'Houpačka je příklad otáčivého pohybu — body se pohybují po kružnicích.',
+				opora: 'Příklady: houpačka, hodinové ručičky' },
+			{ id: 'k1-vlak', scena: 'vlak', otazka: 'Vlak jede po rovné trati. Jaký je to pohyb?', spravne: 'A',
+				proc: 'Všechny body vlaku jdou stejným směrem — posuvný pohyb (přímočarý, trať je rovná).',
+				opora: 'vlak jedoucí po rovné trati' },
+			{ id: 'k1-pas', scena: 'pas', otazka: 'Zboží klouže po pokladním pásu. Jaký je to pohyb?', spravne: 'A',
+				proc: 'Krabice jede rovně, všechny její body stejným směrem — posuvný pohyb.',
+				opora: 'zboží klouzající po pokladním pásu' },
+			{ id: 'k1-objezd', scena: 'objezd', otazka: 'Auto jede po kruhovém objezdu. Jaký je to pohyb?', spravne: 'B',
+				proc: 'Auto jede po kruhovém objezdu — body se pohybují po kružnicích kolem osy.',
+				opora: 'auto na kruhovém objezdu',
+				naopak: { odpoved: 'osa otáčení je MIMO těleso', opora: 'Nebo může být mimo těleso, třeba u auta na kruhovém objezdu.' } },
+			{ id: 'k1-pirueta', scena: 'pirueta', otazka: 'Krasobruslařka dělá piruetu. Jaký je to pohyb?', spravne: 'B',
+				proc: 'Body těla se pohybují po kružnicích kolem osy otáčení — otáčivý pohyb.',
+				opora: 'krasobruslařka při piruetě',
+				naopak: { odpoved: 'osa otáčení je UVNITŘ tělesa (prochází tělem)', opora: 'Osa otáčení může být uvnitř tělesa, třeba u krasobruslařky při piruetě.' } },
+		],
+	},
+	{
+		cislo: 2,
+		nazev: 'Blízko osy, nebo daleko od osy?',
+		pravidlo: 'Čím dál je bod od osy otáčení, tím větší kružnici opisuje a tím rychleji se pohybuje.',
+		opora: 'Čím dál je bod od osy otáčení, tím větší kružnici opisuje a tím rychleji se pohybuje.',
+		moznosti: {
+			A: { popis: 'BLÍŽ k ose', doplnek: 'u osy' },
+			B: { popis: 'DÁL od osy', doplnek: 'daleko od osy' },
+		},
+		body: 1,
+		karty: [
+			{ id: 'k2-sukne', scena: 'pirueta-kruhy', otazka: 'Krasobruslařka v piruetě (pohled shora). Rameno opisuje MENŠÍ kružnici než okraj sukně. Leží rameno BLÍŽ k ose, nebo DÁL od osy?', spravne: 'A',
+				proc: 'Okraj sukně je dál od osy než rameno, proto opisuje větší kružnici. Menší kružnici opisuje rameno, které je blíž k ose.',
+				opora: 'Okraj sukně je dál od osy než rameno, proto opisuje větší kružnici.' },
+			{ id: 'k2-rucicka', scena: 'hodiny-kruhy', otazka: 'Hodinová ručička se otáčí. Žlutý konec se pohybuje rychleji než zelený střed. Leží žlutý konec BLÍŽ k ose, nebo DÁL od osy?', spravne: 'B',
+				proc: 'Konec ručičky je dál od osy než její střed, proto je rychlejší.',
+				opora: 'Proto je konec hodinové ručičky rychlejší než její střed.' },
+			{ id: 'k2-hodiny', scena: 'hodiny2', otazka: 'Velké hodiny a malý budík. Konec minutové ručičky velkých hodin se pohybuje rychleji než konec minutové ručičky budíku. Leží konec ručičky velkých hodin BLÍŽ k ose, nebo DÁL od osy?', spravne: 'B',
+				proc: 'Konec ručičky velkých hodin je dál od osy, opisuje větší kružnici, za stejný čas urazí větší dráhu, a proto se pohybuje rychleji.',
+				opora: 'za stejný čas urazí větší dráhu, a proto se pohybuje rychleji' },
+			{ id: 'k2-houpacka', scena: 'houpacka-body', otazka: 'Dítě se houpe. Zelený bod na laně se pohybuje POMALEJI než oranžové sedátko. Leží zelený bod BLÍŽ k ose, nebo DÁL od osy?', spravne: 'A',
+				proc: 'Zelený bod na laně je blíž k ose než sedátko, proto opisuje menší kružnici a pohybuje se pomaleji.',
+				opora: 'Čím dál je bod od osy otáčení, tím větší kružnici opisuje a tím rychleji se pohybuje.' },
+			{ id: 'k2-auto', scena: 'objezd-kruhy', otazka: 'Auto na kruhovém objezdu (pohled shora). Oranžový bod opisuje VĚTŠÍ kružnici než zelený. Leží oranžový bod BLÍŽ k ose, nebo DÁL od osy?', spravne: 'B',
+				proc: 'Oranžový bod je od osy dál než zelený, proto opisuje větší kružnici.',
+				opora: 'Čím dál je bod od osy otáčení, tím větší kružnici opisuje' },
+		],
+	},
+	{
+		cislo: 3,
+		nazev: 'FINÁLE: Jednoduchý, nebo složený pohyb?',
+		pravidlo: 'Jednoduchý pohyb je jen posuvný, nebo jen otáčivý. Složený pohyb vzniká z více jednoduchých pohybů.',
+		opora: 'Složený pohyb vzniká z více jednoduchých pohybů.',
+		moznosti: {
+			A: { popis: 'JEDNODUCHÝ', doplnek: 'jen posuvný, nebo jen otáčivý' },
+			B: { popis: 'SLOŽENÝ', doplnek: 'z více pohybů dohromady' },
+		},
+		body: 2,
+		karty: [
+			{ id: 'k3-kolo', scena: 'kolo', otazka: 'Kolo se valí po zemi. Jaký je to pohyb?', spravne: 'B',
+				proc: 'Osa kola se posouvá rovně a kolo se kolem ní zároveň otáčí — složený pohyb.',
+				opora: 'Valící se kolo koná složený pohyb' },
+			{ id: 'k3-sroub', scena: 'sroub', otazka: 'Šroub se zavrtává do dřeva. Jaký je to pohyb?', spravne: 'B',
+				proc: 'Šroub se otáčí a přitom se posouvá do dřeva — jeho dráha je šroubovice.',
+				opora: 'otáčí se a přitom se posouvá do dřeva' },
+			{ id: 'k3-letadlo', scena: 'letadlo', otazka: 'Letadlo je na dálkovém letu. Jaký je to pohyb?', spravne: 'A',
+				proc: 'Letadlo se jen posouvá — jednoduchý posuvný pohyb.',
+				opora: 'letadlo při dálkovém letu' },
+			{ id: 'k3-zeme', scena: 'zeme', otazka: 'Země se pohybuje. Jaký je to pohyb?', spravne: 'B',
+				proc: 'Země má dva otáčivé pohyby: kolem vlastní osy a kolem Slunce.',
+				opora: 'dva otáčivé pohyby: kolem vlastní osy a kolem Slunce' },
+			{ id: 'k3-rucicky', scena: 'hodiny3', otazka: 'Hodinové ručičky ukazují čas. Jaký je to pohyb?', spravne: 'A',
+				proc: 'Ručičky se pohybují jen po kružnicích kolem osy — jednoduchý otáčivý pohyb.',
+				opora: 'Příklady: houpačka, hodinové ručičky' },
+		],
+	},
+];
+
+const karty = KOLA.flatMap((k) => k.karty);
+
+/** Nápis ukázaný po odhalení odpovědi (prostý popis správné odpovědi). */
+const NAPIS: Record<string, string> = {
+	'k1-vlak': 'POSUVNÝ pohyb', 'k1-houpacka': 'OTÁČIVÝ pohyb', 'k1-pas': 'POSUVNÝ pohyb',
+	'k1-pirueta': 'OTÁČIVÝ pohyb', 'k1-objezd': 'OTÁČIVÝ pohyb',
+	'k2-rucicka': 'konec ručičky: dál od osy', 'k2-sukne': 'rameno: blíž k ose',
+	'k2-hodiny': 'velké hodiny: dál od osy', 'k2-houpacka': 'bod na laně: blíž k ose',
+	'k2-auto': 'oranžový bod: dál od osy',
+	'k3-sroub': 'SLOŽENÝ pohyb', 'k3-letadlo': 'JEDNODUCHÝ (posuvný)', 'k3-kolo': 'SLOŽENÝ pohyb',
+	'k3-zeme': 'SLOŽENÝ pohyb', 'k3-rucicky': 'JEDNODUCHÝ (otáčivý)',
+};
+
+const ZEM = '<rect x="0" y="320" width="640" height="80" fill="#e9ecef"/>';
+const nebe = '<rect width="640" height="400" fill="#e7f5ff"/>';
+const otoc = (cx: number, cy: number, dur: number, od = 0, do_ = 360) =>
+	`<animateTransform attributeName="transform" type="rotate" from="${od} ${cx} ${cy}" to="${do_} ${cx} ${cy}" dur="${dur}s" repeatCount="indefinite"/>`;
+const posun = (od: string, do_: string, dur: number) =>
+	`<animateTransform attributeName="transform" type="translate" from="${od}" to="${do_}" dur="${dur}s" repeatCount="indefinite"/>`;
+const kruh = (cx: number, cy: number, r: number, barva: string) =>
+	`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${barva}" stroke-width="5" stroke-dasharray="12 8"/>`;
+const auto = () =>
+	`<rect x="288" y="62" width="64" height="36" rx="10" fill="#e03131" stroke="#333" stroke-width="3"/><rect x="322" y="67" width="14" height="26" rx="3" fill="#a5d8ff" stroke="#333" stroke-width="1.5"/>`;
+const malyBod = (x: number, y: number, barva: string) =>
+	`<circle cx="${x}" cy="${y}" r="6" fill="${barva}" stroke="#333" stroke-width="2"/>`;
+const bod = (x: number, y: number, barva: string) =>
+	`<circle cx="${x}" cy="${y}" r="9" fill="${barva}" stroke="#333" stroke-width="2"/>`;
+/** Červený bod osy + popisek „osa“ (výchozí pod osou; tx/ty/kotva = jiná poloha popisku). */
+const osaBod = (x: number, y: number, tx = x, ty = y + 40, kotva = 'middle', atr = 'data-odhal', carka = '') =>
+	`<g ${atr}="1" opacity="0">${carka}<circle cx="${x}" cy="${y}" r="7" fill="#e03131" stroke="#333" stroke-width="2"/><text x="${tx}" y="${ty}" text-anchor="${kotva}" font-size="22" font-weight="700" fill="#e03131">osa</text></g>`;
+
+function hodinovaFace(cx: number, cy: number, r: number) {
+	let t = '';
+	for (let i = 0; i < 12; i++) {
+		const a = (i * 30 * Math.PI) / 180;
+		t += `<line x1="${cx + Math.sin(a) * (r - 6)}" y1="${cy - Math.cos(a) * (r - 6)}" x2="${cx + Math.sin(a) * (r - 16)}" y2="${cy - Math.cos(a) * (r - 16)}" stroke="#333" stroke-width="3"/>`;
+	}
+	return `<circle cx="${cx}" cy="${cy}" r="${r}" fill="#fff" stroke="#333" stroke-width="5"/>${t}`;
+}
+function rucicka(cx: number, cy: number, d: number, dur: number, tl = 8, stred = false) {
+	return `<g><line x1="${cx}" y1="${cy}" x2="${cx}" y2="${cy - d}" stroke="#1864ab" stroke-width="${tl}" stroke-linecap="round"/>${bod(cx, cy - d, '#fab005')}${stred ? bod(cx, cy - d / 2, '#2b8a3e') : ''}${otoc(cx, cy, dur)}</g>`;
+}
+
+function scenaSvg(s: string): string {
+	switch (s) {
+		case 'vlak':
+			return `${nebe}${ZEM}<line x1="0" y1="300" x2="640" y2="300" stroke="#495057" stroke-width="6"/>
+<g>${posun('0 0', '700 0', 4.5)}<rect x="0" y="210" width="220" height="80" rx="10" fill="#c2410c" stroke="#333" stroke-width="3"/>
+<rect x="20" y="228" width="40" height="32" fill="#a5d8ff"/><rect x="80" y="228" width="40" height="32" fill="#a5d8ff"/><rect x="140" y="228" width="40" height="32" fill="#a5d8ff"/>
+<circle cx="45" cy="292" r="14" fill="#343a40"/><circle cx="110" cy="292" r="14" fill="#343a40"/><circle cx="175" cy="292" r="14" fill="#343a40"/></g>`;
+		case 'pas':
+			return `<rect width="640" height="400" fill="#fff9db"/><rect x="40" y="270" width="560" height="30" rx="15" fill="#495057"/>
+<circle cx="55" cy="285" r="22" fill="#868e96" stroke="#333" stroke-width="3"/><circle cx="585" cy="285" r="22" fill="#868e96" stroke="#333" stroke-width="3"/>
+<g>${posun('60 0', '420 0', 4)}<rect x="0" y="205" width="110" height="65" fill="#e8a65c" stroke="#333" stroke-width="3"/><line x1="55" y1="205" x2="55" y2="270" stroke="#8d5524" stroke-width="4"/></g>`;
+		case 'letadlo':
+			return `${nebe}<g>${posun('30 0', '730 0', 4.5)}<ellipse cx="110" cy="170" rx="100" ry="22" fill="#f1f3f5" stroke="#333" stroke-width="3"/>
+<polygon points="90,170 130,170 90,235 60,235" fill="#adb5bd" stroke="#333" stroke-width="3"/><polygon points="10,160 -20,115 20,115 40,160" fill="#adb5bd" stroke="#333" stroke-width="3"/>
+<circle cx="150" cy="165" r="6" fill="#74c0fc"/><circle cx="125" cy="165" r="6" fill="#74c0fc"/><circle cx="100" cy="165" r="6" fill="#74c0fc"/></g>`;
+		case 'houpacka': case 'houpacka-body': {
+			const b = s === 'houpacka-body';
+			const body = b ? `${bod(320, 120, '#2b8a3e')}${bod(320, 276, '#c2410c')}` : '';
+			const oblouky = b ? `<g data-odhal="1" opacity="0" fill="none" stroke-width="5" stroke-dasharray="12 8"><path d="M290,112 A60 60 0 0 0 350,112" stroke="#2b8a3e"/><path d="M212,247 A216 216 0 0 0 428,247" stroke="#c2410c"/></g>` : '';
+			return `${nebe}${ZEM}<line x1="200" y1="320" x2="320" y2="60" stroke="#8d5524" stroke-width="10"/><line x1="440" y1="320" x2="320" y2="60" stroke="#8d5524" stroke-width="10"/>
+<g><line x1="320" y1="60" x2="320" y2="270" stroke="#333" stroke-width="4"/><rect x="280" y="270" width="80" height="12" fill="#c2410c" stroke="#333" stroke-width="2"/>
+<circle cx="320" cy="232" r="16" fill="#ffd8a8" stroke="#333" stroke-width="2"/><rect x="305" y="248" width="30" height="24" rx="7" fill="#1971c2"/>${body}
+<animateTransform attributeName="transform" type="rotate" values="-30 320 60;30 320 60;-30 320 60" dur="3s" repeatCount="indefinite"/></g>${oblouky}${osaBod(320, 60, 336, 64, 'start')}`;
+		}
+		case 'pirueta': case 'pirueta-kruhy': {
+			const k = s === 'pirueta-kruhy' ? `<g data-odhal="1" opacity="0">${kruh(320, 200, 48, '#2b8a3e')}${kruh(320, 200, 130, '#c2410c')}</g>` : '';
+			return `<circle cx="320" cy="200" r="160" fill="#d0ebff" stroke="#74c0fc" stroke-width="4"/>
+<g><circle cx="320" cy="200" r="130" fill="#ffc9c9" stroke="#333" stroke-width="3"/><circle cx="320" cy="200" r="48" fill="#a5d8ff" stroke="#333" stroke-width="3"/>
+<line x1="272" y1="200" x2="368" y2="200" stroke="#c2410c" stroke-width="12" stroke-linecap="round"/><circle cx="320" cy="200" r="22" fill="#ffd8a8" stroke="#333" stroke-width="2"/><path d="M298,198 q22,-30 44,0" fill="#5c3d2e"/>${bod(320, 70, '#c2410c')}${bod(368, 200, '#2b8a3e')}${otoc(320, 200, 3)}</g>${k}${osaBod(320, 200, 340, 268, 'start', s === 'pirueta' ? 'data-bonus' : 'data-odhal', '<line x1="323" y1="206" x2="342" y2="254" stroke="#e03131" stroke-width="3"/>')}
+<text x="20" y="380" font-size="20" fill="#495057">pohled shora</text>
+${bod(450, 330, '#c2410c')}<text x="468" y="337" font-size="20" fill="#333">okraj sukně</text>${bod(450, 366, '#2b8a3e')}<text x="468" y="373" font-size="20" fill="#333">rameno</text>`;
+		}
+		case 'objezd':
+			return `<rect width="640" height="400" fill="#d8f5a2"/><circle cx="320" cy="200" r="150" fill="#868e96"/><circle cx="320" cy="200" r="90" fill="#69db7c" stroke="#2b8a3e" stroke-width="4"/>
+<g>${auto()}${otoc(320, 200, 5)}</g>${osaBod(320, 200, 320, 240, 'middle', 'data-bonus')}
+<text x="20" y="380" font-size="20" fill="#495057">pohled shora</text>`;
+		case 'objezd-kruhy':
+			return `<rect width="640" height="400" fill="#d8f5a2"/><circle cx="320" cy="200" r="150" fill="#868e96"/><circle cx="320" cy="200" r="90" fill="#69db7c" stroke="#2b8a3e" stroke-width="4"/>
+<g>${auto()}${malyBod(320, 92, '#2b8a3e')}${malyBod(320, 68, '#c2410c')}${otoc(320, 200, 5)}</g>${osaBod(320, 200)}
+<g data-odhal="1" opacity="0">${kruh(320, 200, 108, '#2b8a3e')}${kruh(320, 200, 132, '#c2410c')}</g>
+<text x="20" y="380" font-size="20" fill="#495057">pohled shora</text>`;
+		case 'hodiny': case 'hodiny-kruhy': {
+			const k = s === 'hodiny-kruhy' ? `<g data-odhal="1" opacity="0">${kruh(320, 200, 60, '#2b8a3e')}${kruh(320, 200, 120, '#c2410c')}</g>` : '';
+			return `<rect width="640" height="400" fill="#fff9db"/>${hodinovaFace(320, 200, 160)}${rucicka(320, 200, 120, 6, 8, true)}<circle cx="320" cy="200" r="9" fill="#333"/>${k}${osaBod(320, 200)}`;
+		}
+		case 'hodiny3':
+			return `<rect width="640" height="400" fill="#f1f3f5"/>${hodinovaFace(320, 200, 160)}
+<line x1="320" y1="200" x2="320" y2="95" stroke="#1864ab" stroke-width="8" stroke-linecap="round">${otoc(320, 200, 6)}</line>
+<line x1="320" y1="200" x2="320" y2="130" stroke="#333" stroke-width="12" stroke-linecap="round">${otoc(320, 200, 72)}</line><circle cx="320" cy="200" r="9" fill="#333"/>${osaBod(320, 200)}`;
+		case 'hodiny2': case 'hodiny2z': {
+			const z = s === 'hodiny2z';
+			const [vx, vy, bx, by] = z ? [430, 200, 140, 270] : [210, 200, 500, 270];
+			return `<rect width="640" height="400" fill="#fff9db"/>${hodinovaFace(vx, vy, 150)}${rucicka(vx, vy, 112, 6)}<circle cx="${vx}" cy="${vy}" r="8" fill="#333"/>
+${hodinovaFace(bx, by, 70)}${rucicka(bx, by, 50, 6, 6)}<circle cx="${bx}" cy="${by}" r="6" fill="#333"/>
+<text x="${vx}" y="385" text-anchor="middle" font-size="22" font-weight="700">velké hodiny</text><text x="${bx}" y="385" text-anchor="middle" font-size="22" font-weight="700">budík</text>
+<g data-odhal="1" opacity="0">${kruh(vx, vy, 112, '#c2410c')}${kruh(bx, by, 50, '#2b8a3e')}</g>`;
+		}
+		case 'sroub':
+			return `${nebe}<g>${posun('0 0', '0 100', 4)}<rect x="270" y="60" width="100" height="22" rx="6" fill="#868e96" stroke="#333" stroke-width="3"/>
+<rect x="305" y="82" width="30" height="120" fill="#adb5bd" stroke="#333" stroke-width="3"/>
+<g stroke="#495057" stroke-width="4" stroke-dasharray="10 10"><line x1="305" y1="92" x2="335" y2="112"/><line x1="305" y1="122" x2="335" y2="142"/><line x1="305" y1="152" x2="335" y2="172"/><line x1="305" y1="182" x2="335" y2="202"/>
+<animate attributeName="stroke-dashoffset" from="0" to="20" dur="0.6s" repeatCount="indefinite"/></g>
+<polygon points="305,202 335,202 320,226" fill="#adb5bd" stroke="#333" stroke-width="3"/>
+<path d="M285,40 a35,12 0 1 1 70,0" fill="none" stroke="#e03131" stroke-width="5"/><polygon points="355,40 343,32 347,48" fill="#e03131"/></g>
+<rect x="0" y="260" width="640" height="140" fill="#c68642"/><rect x="0" y="260" width="640" height="10" fill="#8d5524"/>`;
+		case 'kolo':
+			return `${nebe}${ZEM}<line x1="0" y1="320" x2="640" y2="320" stroke="#495057" stroke-width="4"/>
+<g>${posun('80 0', '920 0', 6)}<circle cx="0" cy="250" r="70" fill="#fff" stroke="#333" stroke-width="8"/>
+<g><line x1="-70" y1="250" x2="70" y2="250" stroke="#333" stroke-width="4"/><line x1="0" y1="180" x2="0" y2="320" stroke="#333" stroke-width="4"/>${bod(0, 205, '#c2410c')}
+<animateTransform attributeName="transform" type="rotate" from="0 0 250" to="688 0 250" dur="6s" repeatCount="indefinite"/></g><circle cx="0" cy="250" r="7" fill="#e03131"/></g>`;
+		case 'zeme':
+			return `<rect width="640" height="400" fill="#212529"/><circle cx="320" cy="200" r="140" fill="none" stroke="#868e96" stroke-width="2" stroke-dasharray="8 8"/><circle cx="320" cy="200" r="45" fill="#fcc419"/>
+<g><circle cx="460" cy="200" r="28" fill="#4dabf7" stroke="#fff" stroke-width="2"/><path d="M447,192 q9,-11 20,0 q5,11 -7,16 q-11,-2 -13,-16z" fill="#51cf66"/>
+<g><circle cx="460" cy="172" r="6" fill="#fff"/>${otoc(460, 200, 1.5)}</g>${otoc(320, 200, 12)}</g>
+<text x="320" y="285" text-anchor="middle" font-size="22" fill="#fff" font-weight="700">Slunce</text>`;
+		default:
+			return '';
+	}
+}
+
+/** Poloha rámečku s nápisem (x, šířka); u šroubu a Země stranou, aby nezakryl šipku otáčení a Zemi na oběžné dráze. */
+const RAMECEK: Record<string, [number, number]> = { sroub: [390, 244], zeme: [6, 230] };
+const scenyHtml: Record<string, string> = {};
+for (const c of karty) {
+	const [rx, rw] = RAMECEK[c.scena] ?? [100, 440];
+	scenyHtml[c.id] = `<svg viewBox="0 0 640 400" role="img" aria-label="${c.otazka}" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+${scenaSvg(c.scena)}
+<g data-odhal="1" opacity="0"><rect x="${rx}" y="2" width="${rw}" height="36" rx="12" fill="#fff" stroke="#2b8a3e" stroke-width="4"/>
+<text x="${rx + rw / 2}" y="29" text-anchor="middle" font-size="24" font-weight="800" fill="#1b4d2a">${NAPIS[c.id]}</text></g></svg>`;
+}
+const maxBodu = KOLA.reduce((s, k) => s + k.karty.length * k.body, 0);
+---
+
+<div id="hra-pohyb" data-kola={JSON.stringify(KOLA)}>
+	<section id="nastaveni">
+		<h1><span class="podtrh">🌀 Jak se to pohybuje?</span></h1>
+		<p class="podnadpis">Hra pro třídu · Posuvný a otáčivý pohyb · 7. ročník · asi 12 minut</p>
+		<ol class="pravidla">
+			<li><b>3 kola (5 + 5 + 5 karet):</b> Posuvný, nebo otáčivý? · Blízko osy, nebo daleko od osy? · Jednoduchý, nebo složený pohyb?</li>
+			<li>Na každé kartě je obrázek a otázka. Týmy se poradí a po odpočtu <b>zvednou kartu A, nebo B</b>.</li>
+			<li>Za správnou odpověď 1 bod, ve <b>FINÁLE 2 body</b>. V 1. kole jde navíc získat
+				<b>⭐ bonus</b>: kde je osa otáčení?</li>
+		</ol>
+		<p class="pozn">Karty A/B: <a href="/hry/karty" target="_blank">vytisknout</a> (C se nepoužije),
+			nebo stačí papír s velkým A a B. Max. {maxBodu} bodů + bonusy.</p>
+		<div class="volby">
+			<label>Počet týmů
+				<select id="pocet-tymu">{[2, 3, 4, 5, 6].map((n) => <option value={n} selected={n === 4}>{n}</option>)}</select>
+			</label>
+			<label>Čas na kartu
+				<select id="cas-karty"><option value="10">10 s</option><option value="15" selected>15 s</option><option value="20">20 s</option></select>
+			</label>
+		</div>
+		<div id="jmena-tymu"></div>
+		<button id="start" class="velke-tlacitko">Začít hru ▶</button>
+	</section>
+
+	<section id="uvod-kola" hidden>
+		<p class="cislo-kola" id="uvod-cislo"></p>
+		<h1 id="uvod-nazev"></h1>
+		<p class="pravidlo" id="uvod-pravidlo"></p>
+		<div class="moznosti uvod-moznosti">
+			<div class="moznost moznost-A"><b>A</b><span><span class="m-popis" id="uvod-A"></span><small id="uvod-A2"></small></span></div>
+			<div class="moznost moznost-B"><b>B</b><span><span class="m-popis" id="uvod-B"></span><small id="uvod-B2"></small></span></div>
+		</div>
+		<p class="za-body" id="uvod-body"></p>
+		<button id="hrajeme" class="velke-tlacitko">Hrajeme ▶</button>
+	</section>
+
+	<section id="karta" hidden>
+		<header class="lista">
+			<span id="lista-kolo"></span>
+			<span id="lista-body" class="lista-body"></span>
+			<span id="odpocet-cislo" class="odpocet-cislo"></span>
+			<button id="cela-obrazovka" class="male-tlacitko" title="Celá obrazovka (na projektor)">⛶</button>
+		</header>
+		<div id="odpocet-pruh"><div id="odpocet-vypln"></div></div>
+		<div class="plocha">
+			<div class="leva">
+				<div class="scena-obal">
+					{karty.map((k) => <div class="scena skryta" data-karta={k.id} set:html={scenyHtml[k.id]} />)}
+				</div>
+				<div id="odhaleni" hidden>
+					<p id="proc" class="proc"></p>
+					<p id="bonus" class="bonus">⭐ Bonus +1: Kde je osa otáčení?
+						<button id="ukaz-bonus" class="ukaz">ukázat</button><b id="bonus-odpoved" hidden></b></p>
+					<p class="pokyn">Klepni na týmy, které zvedly správnou kartu ↓</p>
+				</div>
+			</div>
+			<div class="prava">
+				<h2 id="otazka"></h2>
+				<div class="moznosti">
+					<div class="moznost moznost-A" data-m="A"><b>A</b><span><span class="m-popis"></span><small></small></span></div>
+					<div class="moznost moznost-B" data-m="B"><b>B</b><span><span class="m-popis"></span><small></small></span></div>
+				</div>
+				<div class="ovladani">
+					<button id="odhalit" class="velke-tlacitko">Odhalit odpověď ✔</button>
+					<button id="dalsi" class="velke-tlacitko" hidden>Další karta ▶</button>
+				</div>
+			</div>
+		</div>
+		<div id="tymy" class="tymy"></div>
+	</section>
+
+	<section id="vysledky" hidden>
+		<h1><span class="podtrh">🎉 Konečné pořadí</span></h1>
+		<ol id="podium"></ol>
+		<p class="shrnuti">Pamatuj: <b>posuvný pohyb = všechny body stejným směrem, otáčivý = body po kružnicích kolem osy.</b>
+			Čím dál od osy, tím větší kružnice a rychlejší pohyb.</p>
+		<button id="znovu" class="velke-tlacitko">Nová hra 🔄</button>
+	</section>
+</div>
+
+<script>
+	type Odp = 'A' | 'B';
+	type Mozn = { popis: string; doplnek: string };
+	type K = { id: string; otazka: string; spravne: Odp; proc: string; moznosti?: Record<Odp, Mozn>; naopak?: { odpoved: string } };
+	type Kolo = { cislo: number; nazev: string; pravidlo: string; moznosti: Record<Odp, Mozn>; body: number; karty: K[] };
+	type Tym = { jmeno: string; body: number };
+
+	const $ = (id: string) => document.getElementById(id)!;
+	const KOLA: Kolo[] = JSON.parse($('hra-pohyb').dataset.kola!);
+	const BONUS_OSA = 1;
+	let tymy: Tym[] = [];
+	let iKolo = 0;
+	let iKarta = 0;
+	let casNaKartu = 15;
+	let odpocetId: ReturnType<typeof setInterval> | undefined;
+	let odhaleno = false;
+
+	const kolo = () => KOLA[iKolo];
+	const karta = () => kolo().karty[iKarta];
+
+	/** Pořadí: sestupně podle bodů, shoda bodů sdílí místo (1., 1., 3.). */
+	function poradi(t: Tym[]) {
+		const s = t.map((x, i) => ({ ...x, i })).sort((a, b) => b.body - a.body || a.i - b.i);
+		return s.map((x) => ({ jmeno: x.jmeno, body: x.body, misto: s.findIndex((u) => u.body === x.body) + 1 }));
+	}
+
+	function ukaz(sekce: string) {
+		for (const id of ['nastaveni', 'uvod-kola', 'karta', 'vysledky']) $(id).hidden = id !== sekce;
+		$('hra-pohyb').scrollIntoView({ block: 'start' });
+	}
+
+	function vykresliJmena() {
+		const n = +($('pocet-tymu') as HTMLSelectElement).value;
+		const barvy = ['Červení', 'Modří', 'Zelení', 'Žlutí', 'Fialoví', 'Oranžoví'];
+		$('jmena-tymu').innerHTML = Array.from({ length: n }, (_, i) =>
+			`<input class="jmeno-tymu" value="${barvy[i]}" maxlength="16">`).join('');
+	}
+	$('pocet-tymu').addEventListener('change', vykresliJmena);
+	vykresliJmena();
+
+	$('start').addEventListener('click', () => {
+		tymy = [...document.querySelectorAll<HTMLInputElement>('.jmeno-tymu')]
+			.map((el, i) => ({ jmeno: el.value.trim() || `Tým ${i + 1}`, body: 0 }));
+		casNaKartu = +($('cas-karty') as HTMLSelectElement).value;
+		iKolo = 0;
+		uvodKola();
+	});
+
+	function uvodKola() {
+		const k = kolo();
+		$('uvod-cislo').textContent = `Kolo ${k.cislo} ze ${KOLA.length}`;
+		$('uvod-nazev').textContent = k.nazev;
+		$('uvod-pravidlo').textContent = k.pravidlo;
+		$('uvod-A').textContent = k.moznosti.A.popis;
+		$('uvod-A2').textContent = k.moznosti.A.doplnek;
+		$('uvod-B').textContent = k.moznosti.B.popis;
+		$('uvod-B2').textContent = k.moznosti.B.doplnek;
+		$('uvod-body').textContent = k.body === 1 ? 'Za každou správnou kartu 1 bod.' : `Za každou správnou kartu ${k.body} body!`;
+		ukaz('uvod-kola');
+	}
+
+	$('hrajeme').addEventListener('click', () => {
+		iKarta = 0;
+		ukaz('karta');
+		zobrazKartu();
+	});
+
+	function zobrazKartu() {
+		const k = kolo();
+		const c = karta();
+		odhaleno = false;
+		$('lista-kolo').textContent = `Kolo ${k.cislo}/${KOLA.length} · karta ${iKarta + 1}/${k.karty.length}`;
+		$('lista-body').textContent = k.body === 1 ? 'za 1 bod' : `⭐ FINÁLE · za ${k.body} body`;
+		document.querySelectorAll<HTMLElement>('.scena').forEach((s) => s.classList.toggle('skryta', s.dataset.karta !== c.id));
+		const sv = document.querySelector<SVGSVGElement>('.scena[data-karta="' + c.id + '"] svg');
+		if (sv) { sv.unpauseAnimations?.(); sv.setCurrentTime?.(0); }
+		document.querySelectorAll(`.scena[data-karta="${c.id}"] [data-odhal], .scena[data-karta="${c.id}"] [data-bonus]`).forEach((el) => el.setAttribute('opacity', '0'));
+		$('otazka').textContent = c.otazka;
+		const mz = c.moznosti ?? k.moznosti;
+		document.querySelectorAll<HTMLElement>('#karta .moznost').forEach((el) => {
+			const m = el.dataset.m as Odp;
+			el.querySelector('.m-popis')!.textContent = mz[m].popis;
+			el.querySelector('small')!.textContent = mz[m].doplnek;
+			el.classList.remove('spravna', 'spatna');
+		});
+		$('odhaleni').hidden = true;
+		$('odhalit').hidden = false;
+		$('dalsi').hidden = true;
+		vykresliTymy();
+		spustOdpocet();
+	}
+
+	function spustOdpocet() {
+		let zbyva = casNaKartu;
+		const vypln = $('odpocet-vypln');
+		$('odpocet-cislo').textContent = `${zbyva} s`;
+		vypln.style.transition = 'none';
+		vypln.style.width = '100%';
+		requestAnimationFrame(() => requestAnimationFrame(() => {
+			vypln.style.transition = `width ${casNaKartu}s linear`;
+			vypln.style.width = '0%';
+		}));
+		clearInterval(odpocetId);
+		odpocetId = setInterval(() => {
+			zbyva--;
+			$('odpocet-cislo').textContent = `${Math.max(zbyva, 0)} s`;
+			if (zbyva <= 3 && zbyva > 0) pipni(600);
+			if (zbyva <= 0) {
+				clearInterval(odpocetId);
+				pipni(880, 0.4);
+				$('odpocet-cislo').textContent = 'Zvedněte karty!';
+			}
+		}, 1000);
+	}
+
+	function pipni(frekvence: number, delka = 0.12) {
+		try {
+			const w = window as unknown as { _ctxHry?: AudioContext };
+			const ctx = (w._ctxHry ??= new AudioContext());
+			const osc = ctx.createOscillator();
+			const gain = ctx.createGain();
+			osc.frequency.value = frekvence;
+			gain.gain.value = 0.15;
+			osc.connect(gain).connect(ctx.destination);
+			osc.start();
+			osc.stop(ctx.currentTime + delka);
+		} catch { /* bez zvuku */ }
+	}
+
+	$('odhalit').addEventListener('click', () => {
+		clearInterval(odpocetId);
+		const c = karta();
+		odhaleno = true;
+		$('odpocet-cislo').textContent = '';
+		$('odpocet-vypln').style.transition = 'none';
+		$('odpocet-vypln').style.width = '0%';
+		document.querySelectorAll<HTMLElement>('#karta .moznost').forEach((el) => {
+			el.classList.toggle('spravna', el.dataset.m === c.spravne);
+			el.classList.toggle('spatna', el.dataset.m !== c.spravne);
+		});
+		document.querySelectorAll(`.scena[data-karta="${c.id}"] [data-odhal]`).forEach((el) => el.setAttribute('opacity', '1'));
+		$('proc').textContent = `✔ ${c.proc}`;
+		$('bonus').hidden = !c.naopak;
+		$('ukaz-bonus').hidden = false;
+		$('bonus-odpoved').hidden = true;
+		$('bonus-odpoved').textContent = c.naopak ? `→ ${c.naopak.odpoved}` : '';
+		$('odhaleni').hidden = false;
+		$('odhalit').hidden = true;
+		$('dalsi').hidden = false;
+		vykresliTymy();
+	});
+
+	function vykresliTymy() {
+		const c = karta();
+		const sBonusem = odhaleno && !!c.naopak;
+		$('tymy').innerHTML = tymy.map((t, i) => `
+			<div class="tym-obal">
+				<button class="tym" data-i="${i}" ${odhaleno ? '' : 'disabled'}>
+					<span class="tym-jmeno">${t.jmeno}</span><b class="tym-body">${t.body}</b>
+				</button>
+				${sBonusem ? `<button class="tym-bonus" data-i="${i}">⭐ +${BONUS_OSA}</button>` : ''}
+			</div>`).join('');
+		document.querySelectorAll<HTMLButtonElement>('.tym, .tym-bonus').forEach((b) =>
+			b.addEventListener('click', () => b.classList.toggle('oznaceny')));
+	}
+
+	$('dalsi').addEventListener('click', () => {
+		const body = kolo().body;
+		document.querySelectorAll<HTMLElement>('.tym.oznaceny').forEach((b) => (tymy[+b.dataset.i!].body += body));
+		document.querySelectorAll<HTMLElement>('.tym-bonus.oznaceny').forEach((b) => (tymy[+b.dataset.i!].body += BONUS_OSA));
+		iKarta++;
+		if (iKarta < kolo().karty.length) return zobrazKartu();
+		iKolo++;
+		if (iKolo < KOLA.length) return uvodKola();
+		konec();
+	});
+
+	function konec() {
+		clearInterval(odpocetId);
+		ukaz('vysledky');
+		const medaile = ['🥇', '🥈', '🥉'];
+		$('podium').innerHTML = poradi(tymy)
+			.map((t) => `<li class="podium-radek">${medaile[t.misto - 1] ?? '🏅'} ${t.misto}. <b>${t.jmeno}</b> — ${t.body} b.</li>`)
+			.join('');
+		for (let i = 0; i < 40; i++) {
+			const k = document.createElement('span');
+			k.className = 'konfeta';
+			k.textContent = ['🎉', '⭐', '🎊', '🌀'][i % 4];
+			k.style.left = Math.random() * 100 + 'vw';
+			k.style.animationDelay = Math.random() * 2 + 's';
+			document.body.appendChild(k);
+		}
+	}
+
+	$('ukaz-bonus').addEventListener('click', () => {
+		$('ukaz-bonus').hidden = true;
+		$('bonus-odpoved').hidden = false;
+		document.querySelectorAll(`.scena[data-karta="${karta().id}"] [data-bonus]`).forEach((el) => el.setAttribute('opacity', '1'));
+	});
+	$('znovu').addEventListener('click', () => location.reload());
+	$('cela-obrazovka').addEventListener('click', () => {
+		if (document.fullscreenElement) document.exitFullscreen();
+		else $('hra-pohyb').requestFullscreen?.();
+	});
+</script>
+
+<style>
+	#hra-pohyb { max-width: 1200px; margin: 0 auto; background: var(--papir); }
+	#hra-pohyb:fullscreen { max-width: none; padding: 1rem 2rem; overflow: auto; }
+	.podnadpis { font-size: 1.3rem; color: #495057; margin-top: -0.6rem; }
+	.pravidla li { margin: 0.3rem 0; }
+	.pozn { color: #5c5f66; font-size: 1.1rem; }
+	.volby { display: flex; gap: 1.5rem; flex-wrap: wrap; margin: 1rem 0; }
+	.volby label { display: flex; flex-direction: column; font-weight: 700; gap: 0.3rem; }
+	.volby select { font-size: 1.2rem; padding: 0.3rem; }
+	#jmena-tymu { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1rem; }
+	#jmena-tymu :global(.jmeno-tymu) { font-size: 1.3rem; padding: 0.4rem; border: 2px solid #333; border-radius: 8px; width: 9rem; font-family: inherit; }
+	.velke-tlacitko { font-size: 1.5rem; padding: 0.6rem 2rem; border-radius: 12px; border: 3px solid #333;
+		background: #ffe066; cursor: pointer; font-weight: 800; font-family: inherit; }
+	.velke-tlacitko:hover { transform: scale(1.04); }
+	.male-tlacitko { font-size: 1rem; padding: 0.4rem 0.8rem; border-radius: 10px; border: 2px solid #888;
+		background: #fff; cursor: pointer; font-family: inherit; margin-left: auto; }
+	#uvod-kola { text-align: center; padding-top: 1rem; }
+	.cislo-kola { font-size: 1.6rem; font-weight: 800; color: #c2410c; margin: 0; }
+	#uvod-nazev { font-size: 2.9rem; margin: 0.1rem 0 0.4rem; line-height: 1.15; }
+	.pravidlo { font-size: 1.6rem; line-height: 1.35; max-width: 46rem; margin: 0 auto 1rem; }
+	.uvod-moznosti { max-width: 46rem; margin: 0 auto; text-align: left; }
+	.za-body { font-size: 1.6rem; font-weight: 800; }
+	.lista { display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+		font-size: 1.4rem; font-weight: 800; line-height: 1.2; }
+	.lista-body { color: #c2410c; flex: 1; text-align: center; }
+	.odpocet-cislo { min-width: 5rem; text-align: right; color: #c92a2a; }
+	#odpocet-pruh { height: 12px; background: #e9ecef; border-radius: 6px; overflow: hidden; margin: 0.3rem 0 0.6rem; }
+	#odpocet-vypln { height: 100%; width: 100%; background: linear-gradient(90deg, #40c057, #ffd43b, #fa5252); }
+	.plocha { display: grid; grid-template-columns: 3fr 2fr; gap: 1.2rem; align-items: start; }
+	.scena-obal { position: relative; }
+	.scena.skryta { visibility: hidden; position: absolute; top: 0; left: 0; width: 100%; pointer-events: none; }
+	.scena-obal :global(svg) { display: block; width: 100%; height: auto; border: 3px solid #333; border-radius: 14px; background: #fff; }
+	#otazka { font-size: 1.85rem; line-height: 1.2; margin: 0 0 0.8rem; }
+	.moznosti { display: grid; gap: 0.7rem; }
+	.moznost { display: flex; align-items: center; gap: 0.9rem; padding: 0.45rem 1rem; border: 4px solid #333;
+		border-radius: 14px; background: #fff; transition: opacity 0.3s; }
+	.moznost > b { flex: none; width: 3rem; height: 3rem; border-radius: 50%; color: #fff; font-size: 2rem;
+		display: flex; align-items: center; justify-content: center; }
+	.moznost-A > b { background: #e03131; }
+	.moznost-B > b { background: #1971c2; }
+	.m-popis { display: block; font-size: 2rem; font-weight: 800; line-height: 1.1; }
+	.moznost small { display: block; font-size: 1.1rem; color: #495057; line-height: 1.2; }
+	.moznost.spravna { background: #d3f9d8; border-color: #2b8a3e; box-shadow: 0 0 0 5px #8ce99a; }
+	.moznost.spatna { opacity: 0.35; }
+	.proc { font-size: 1.5rem; font-weight: 700; color: #1b4d2a; margin: 0.5rem 0 0.1rem; line-height: 1.25; }
+	.bonus { font-size: 1.3rem; margin: 0.2rem 0; line-height: 1.25; font-weight: 700; color: #a61e4d; }
+	.bonus .ukaz { font-size: 1rem; font-family: inherit; border: 2px solid #a61e4d; border-radius: 8px;
+		background: #fff; color: #a61e4d; cursor: pointer; padding: 0 0.5rem; }
+	.bonus b { color: var(--inkoust); }
+	.pokyn { font-weight: 700; margin: 0.2rem 0 0; font-size: 1.15rem; color: #495057; }
+	.tymy { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: flex-start; margin-top: 0.7rem; }
+	.tymy :global(.tym-obal) { display: flex; gap: 0.25rem; align-items: stretch; }
+	.tymy :global(.tym) { display: flex; align-items: center; gap: 0.6rem; font-size: 1.3rem; font-family: inherit;
+		padding: 0.3rem 0.8rem; border-radius: 12px; border: 3px solid #333; background: #fff; cursor: pointer; color: inherit; }
+	.tymy :global(.tym:disabled) { cursor: default; opacity: 1; }
+	.tymy :global(.tym-body) { font-size: 1.8rem; min-width: 2rem; text-align: center; }
+	.tymy :global(.tym.oznaceny) { background: #d3f9d8; border-color: #2b8a3e; }
+	.tymy :global(.tym.oznaceny .tym-body::after) { content: ' ✔'; color: #2b8a3e; }
+	.tymy :global(.tym-bonus) { font-size: 1.05rem; font-family: inherit; border: 2px dashed #a61e4d; border-radius: 10px;
+		background: #fff; cursor: pointer; padding: 0.15rem 0.5rem; color: #a61e4d; }
+	.tymy :global(.tym-bonus.oznaceny) { background: #ffdeeb; border-style: solid; }
+	.ovladani { display: flex; justify-content: flex-end; margin-top: 0.9rem; }
+	#podium { padding: 0; list-style: none; }
+	#podium :global(.podium-radek) { font-size: 2rem; margin: 0.5rem 0; }
+	.shrnuti { font-size: 1.4rem; }
+	:global(.konfeta) { position: fixed; top: -3rem; font-size: 1.8rem; animation: pad 3.2s linear infinite; z-index: 99; }
+	@keyframes pad { to { transform: translateY(110vh) rotate(360deg); } }
+	@media (max-width: 900px) {
+		.plocha { grid-template-columns: 1fr; }
+		#otazka { font-size: 1.5rem; }
+		.lista { font-size: 1.05rem; flex-wrap: wrap; gap: 0.3rem 0.6rem; }
+		.lista-body { white-space: nowrap; flex: none; }
+		.m-popis { font-size: 1.6rem; }
+	}
+</style>

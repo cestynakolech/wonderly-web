@@ -169,9 +169,12 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
   obrázků animace“. U děje/pohybu animované SVG (CSS keyframes, smyčka, bez JS, `prefers-reduced-motion`
   = koncový stav); statický obrázek jen pro stav/popis. Paměť `feedback-animace-misto-obrazku`.
 - Každý výpočet a údaj z podkladů **PŘEPOČÍTAT** (v podkladech už chyby byly).
-- Odkazy uvnitř webu **relativní**; externí odkazy **jen české** — když český zdroj není, napíše se vlastní česká stránka.
+- Odkazy uvnitř webu **relativní**.
+- **ŽÁDNÉ EXTERNÍ ODKAZY (rozhodnutí učitele 22. 10. 2026 — JEDINÝ DOMOV tohoto pravidla, jinde jen odkaz sem; nahrazuje dřívější „externí odkazy jen české“):** učitel doslova: „ty nemáš vkládat žádné odkazy ty máš vyrábět vlastní videa animace“.
+  „Na web lab.wonderly.cz se NEVKLÁDAJÍ ŽÁDNÉ externí odkazy (ani české stránky, ani Wordwall a jiné externí kvízy/hry). Místo odkazů se vyrábějí VLASTNÍ videa a animace (polemiky, animace scén, panely, simulace). Už nasazené odkazy zůstávají (zásada 3 – hotové se nepředělává), dokud nerozhodne učitel. Odkazy uvnitř webu (relativní) jsou v pořádku.“
+  Agent `worker-media` je pro web vyřazen (nespouští se). Paměť `feedback-odkazy-jen-cesky` je tímto překonána.
 - Zdroj pravidel: `src/pages/skola2/_CLAUDE.md`, agent `worker-vyklad`, paměti
-  `feedback-kontrolovat-spravnost-textu`, `feedback-odkazy-jen-cesky`.
+  `feedback-kontrolovat-spravnost-textu`, `feedback-odkazy-jen-cesky` (překonáno pravidlem „žádné externí odkazy“ výše).
 
 ## 4. KVÍZ (kvizy.ts)
 
@@ -212,7 +215,7 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
 ## 5. HRY
 
 - Hry na webu (Fyzikální liga, stanoviště) **neberou otázky odjinud než z `kvizy.ts`** — dědí tím celý řetěz.
-- **Externí hry a kvízy (Wordwall) jen jako ODKAZ** a jen po kontrole otázka po otázce,
+- **Externí hry a kvízy (Wordwall) se od 22. 10. 2026 NEVKLÁDAJÍ** (viz kap. 3, „Žádné externí odkazy“; už nasazené zůstávají do rozhodnutí učitele). Dřívější pravidlo — jen jako ODKAZ a jen po kontrole otázka po otázce,
   že testují pouze probrané učivo (podklady + výklad). Aktivity generované AI Wordwallu obsahovaly chyby → vyřadit.
   Kvízy manželky (účet „Kamí") patří na fox.wonderly.cz, ne sem.
 - **VÝCHOZÍ NASTAVENÍ HRY NABÍZÍ JEN PROBRANÉ UČIVO** podle časového plánu daného ročníku
@@ -311,7 +314,7 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
 3. **Testovat, co není ve výkladu** — kvízem, hrou, externí aktivitou ani tisknutelným testem.
 4. **Přidávat do výkladu látku, která není v podkladech** (PDF + prezentace) ani v ŠVP.
 5. **Desetinná čísla mimo učivo** v příkladech pro děti.
-6. **Anglické externí odkazy** — když český zdroj není, napíše se vlastní česká stránka.
+6. **Jakékoli externí odkazy** (české i anglické; Wordwall i jiné) — od 22. 10. 2026 se nevkládají, místo nich vlastní video/animace (kap. 3, „Žádné externí odkazy“).
 7. **Tiché opravy chyb v podkladech učitele** — hlásí se a zapisují.
 8. **Číst .pptx po snímcích v session** — používá se hotový popis, jinak se vyrobí automatem.
 9. **Mazat nebo přesouvat cokoli v `/Users/Shared/Škola`** — jediné zdrojové podklady učitele.
@@ -372,7 +375,7 @@ Téma je HOTOVÉ, teprve když má VŠECH těchto devět složek:
 4. **simulace (= interaktivní infografika)** — klikací/odkrývací schéma i simulace
    s posuvníkem/parametry se počítají jako TOTÉŽ, jedna složka, ne dvě
    (rozhodnutí učitele 23. 9. 2026, varianta B z `docs/archiv/NAVRH-CHYBEJICI-KATEGORIE.md`),
-5. české odkazy,
+5. ~~české odkazy~~ — **ZRUŠENO 22. 10. 2026** (žádné externí odkazy, viz kap. 3; už nasazené zůstávají),
 6. **video-polemiku s ANIMACÍ toho, o čem se v ní mluví** — ne statické obrázky,
    ne jen audiostopa,
 7. panelovou infografiku (statickou nebo animované SVG se SMIL/CSS, bez JS a bez interakce — odlišnou od bodu 4); u dějů má animace přednost,
