@@ -1,0 +1,89 @@
+<svg viewBox="0 0 460 640" width="460" height="640" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Odraz světla v pohybu 1/2: Část světla se odrazí, část projde. Záblesk dopadá kolmo na okenní tabuli. Část se vrací po stejné dráze a část pokračuje skrz tabuli rovně dál." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Odraz světla v pohybu 1/2: Část světla se odrazí, část projde</title>
+	<style>
+		.dej1 { animation: dej1 6s linear infinite; }
+		.dopad { stroke-dasharray: 100; animation: dopad 6s linear infinite; }
+		.odraz { stroke-dasharray: 100; animation: odraz 6s linear infinite; }
+		.pruchod { stroke-dasharray: 100; animation: pruchod 6s linear infinite; }
+		.sipka-dopad { animation: sipkaDopad 6s step-end infinite; }
+		.sipka-vysledek { animation: sipkaVysledek 6s step-end infinite; }
+		.zablesk-dopad { animation: zableskDopad 6s linear infinite; }
+		.zablesk-odraz { animation: zableskOdraz 6s linear infinite; }
+		.zablesk-pruchod { animation: zableskPruchod 6s linear infinite; }
+		@keyframes dej1 {
+			0%, 92% { opacity: 1; }
+			100% { opacity: 0; }
+		}
+		@keyframes dopad {
+			0% { stroke-dashoffset: 100; }
+			30%, 100% { stroke-dashoffset: 0; }
+		}
+		@keyframes odraz {
+			0%, 30% { stroke-dashoffset: 100; }
+			60%, 100% { stroke-dashoffset: 0; }
+		}
+		@keyframes pruchod {
+			0%, 30% { stroke-dashoffset: 100; }
+			60%, 100% { stroke-dashoffset: 0; }
+		}
+		@keyframes sipkaDopad {
+			0%, 26% { opacity: 0; }
+			27%, 100% { opacity: 1; }
+		}
+		@keyframes sipkaVysledek {
+			0%, 57% { opacity: 0; }
+			58%, 100% { opacity: 1; }
+		}
+		@keyframes zableskDopad {
+			0% { opacity: 1; transform: translateX(-140px); }
+			30% { opacity: 1; transform: translateX(0px); }
+			30.01%, 100% { opacity: 0; transform: translateX(0px); }
+		}
+		@keyframes zableskOdraz {
+			0%, 29.99% { opacity: 0; transform: translateX(140px); }
+			30% { opacity: 1; transform: translateX(140px); }
+			60% { opacity: 1; transform: translateX(0px); }
+			60.01%, 100% { opacity: 0; transform: translateX(0px); }
+		}
+		@keyframes zableskPruchod {
+			0%, 29.99% { opacity: 0; transform: translateX(-160px); }
+			30% { opacity: 1; transform: translateX(-160px); }
+			60% { opacity: 1; transform: translateX(0px); }
+			60.01%, 100% { opacity: 0; transform: translateX(0px); }
+		}
+		@media (prefers-reduced-motion: reduce) {
+			.dej1, .dopad, .odraz, .pruchod, .sipka-dopad, .sipka-vysledek,
+			.zablesk-dopad, .zablesk-odraz, .zablesk-pruchod { animation: none; }
+			.zablesk-dopad, .zablesk-odraz, .zablesk-pruchod { display: none; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="640" fill="#f8f9fa" />
+	<g id="panel-1">
+		<rect x="26" y="22" width="420" height="608" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="608" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">1</text>
+		<text x="80" y="49" font-size="26" font-weight="bold" fill="#2b2a26">Část světla se odrazí,</text>
+		<text x="80" y="78" font-size="26" font-weight="bold" fill="#2b2a26">část projde</text>
+		<text x="40" y="116" font-size="20" fill="#2b2a26">Okenní tabule:</text>
+		<text x="40" y="142" font-size="20" fill="#2b2a26">část světla se odrazí a část projde dál.</text>
+
+		<!-- Okenní tabule; paprsek dopadá kolmo, proto za tabulí pokračuje rovně. -->
+		<rect x="221" y="184" width="18" height="342" rx="3" fill="#d0ebff" fill-opacity="0.72" stroke="#1864ab" stroke-width="3" />
+		<path d="M213 184H247 M213 526H247" stroke="#343a40" stroke-width="7" stroke-linecap="round" />
+
+		<g class="dej1">
+			<!-- Dopadající a odražená část jsou odlišeny svislým posunem. -->
+			<path class="dopad" pathLength="100" d="M80 355H221" fill="none" stroke="#c2410c" stroke-width="5" stroke-linecap="round" />
+			<polygon class="sipka-dopad" points="214,355 197,346 197,364" fill="#c2410c" />
+			<path class="odraz" pathLength="100" d="M221 369H90" fill="none" stroke="#c2410c" stroke-width="5" stroke-linecap="round" />
+			<polygon class="sipka-vysledek" points="88,369 105,360 105,378" fill="#c2410c" />
+			<!-- Obě části mají stejnou tloušťku paprsku. -->
+			<path class="pruchod" pathLength="100" d="M239 355H399" fill="none" stroke="#c2410c" stroke-width="5" stroke-linecap="round" />
+			<polygon class="sipka-vysledek" points="399,355 383,347 383,363" fill="#c2410c" />
+			<circle class="zablesk-dopad" cx="220" cy="355" r="9" fill="#ffd43b" stroke="#2b2a26" stroke-width="2.5" />
+			<circle class="zablesk-odraz" cx="80" cy="369" r="9" fill="#ffd43b" stroke="#2b2a26" stroke-width="2.5" />
+			<circle class="zablesk-pruchod" cx="399" cy="355" r="9" fill="#ffd43b" stroke="#2b2a26" stroke-width="2.5" />
+		</g>
+	</g>
+</svg>

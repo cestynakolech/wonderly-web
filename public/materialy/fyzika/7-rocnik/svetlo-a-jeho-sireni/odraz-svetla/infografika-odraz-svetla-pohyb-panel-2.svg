@@ -1,0 +1,80 @@
+<svg viewBox="0 0 460 660" width="460" height="660" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Odraz světla v pohybu 2/2: Kolmice u kulové plochy. Bod dopadu se pohybuje po kulové ploše a spojnice středu s bodem dopadu se natáčí spolu s ním. Jediný paprsek se odráží souměrně podle této kolmice, takže úhel odrazu je roven úhlu dopadu." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Odraz světla v pohybu 2/2: Kolmice u kulové plochy</title>
+	<defs>
+		<marker id="sipka" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="12" markerHeight="12" orient="auto" markerUnits="userSpaceOnUse">
+			<path d="M0 0L10 5L0 10Z" fill="#c2410c" />
+		</marker>
+	</defs>
+	<style>
+		.pohyb-bodu {
+			transform-origin: 230px 430px;
+			transform-box: view-box;
+			animation: pohybBodu 6s ease-in-out infinite;
+		}
+		@keyframes pohybBodu {
+			0%, 100% { transform: rotate(-48deg); }
+			25%, 75% { transform: rotate(-36deg); }
+			50% { transform: rotate(-24deg); }
+		}
+		.klidova-konstrukce { display: none; }
+		@media (prefers-reduced-motion: reduce) {
+			.pohyb-bodu { animation: none; transform: rotate(-24deg); }
+			.animovana-konstrukce { display: none; }
+			.klidova-konstrukce { display: inline; }
+		}
+	</style>
+	<rect x="0" y="0" width="460" height="660" fill="#f8f9fa" />
+	<g id="panel-2">
+		<rect x="26" y="22" width="420" height="628" rx="10" fill="#2b2a26" />
+		<rect x="20" y="16" width="420" height="628" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+		<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+		<text x="52" y="57" text-anchor="middle" font-size="21" font-weight="bold" fill="#b8460b">2</text>
+		<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Kolmice u kulové plochy</text>
+		<text x="40" y="99" font-size="20" fill="#2b2a26">U koule je kolmice spojnice středu</text>
+		<text x="40" y="125" font-size="20" fill="#2b2a26">s bodem dopadu.</text>
+		<text x="40" y="158" font-size="20" fill="#2b2a26">Úhel odrazu je roven úhlu dopadu.</text>
+
+		<!-- Kulová plocha, odraz z vnější strany. -->
+		<circle cx="230" cy="430" r="150" fill="#e9ecef" stroke="#343a40" stroke-width="5" />
+		<circle cx="230" cy="430" r="7" fill="#343a40" />
+
+		<!-- Dopadající paprsek zůstává vodorovný; ostatní prvky sledují bod na oblouku. -->
+		<g class="animovana-konstrukce">
+			<path d="M45 292.97H168.99" fill="none" stroke="#c2410c" stroke-width="5" stroke-linecap="round">
+				<animate attributeName="d" dur="6s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.25;0.5;0.75;1" keySplines="0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1" values="M45 329.63H118.53;M45 308.65H141.83;M45 292.97H168.99;M45 308.65H141.83;M45 329.63H118.53" />
+			</path>
+			<path d="M230 430L144.59 238.16" stroke="#495057" stroke-width="2.5" stroke-dasharray="7 6">
+				<animate attributeName="d" dur="6s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.25;0.5;0.75;1" keySplines="0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1" values="M230 430L73.94 289.48;M230 430L106.57 260.11;M230 430L144.59 238.16;M230 430L106.57 260.11;M230 430L73.94 289.48" />
+			</path>
+			<path d="M168.99 292.97L269.36 181.50" fill="none" stroke="#c2410c" stroke-width="5" stroke-linecap="round" marker-end="url(#sipka)">
+				<animate attributeName="d" dur="6s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.25;0.5;0.75;1" keySplines="0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1" values="M118.53 329.63L102.85 180.45;M141.83 308.65L188.18 165.99;M168.99 292.97L269.36 181.50;M141.83 308.65L188.18 165.99;M118.53 329.63L102.85 180.45" />
+			</path>
+			<path d="M168.99 292.97L108.99 292.97A60 60 0 0 1 144.59 238.16Z" fill="#d0ebff" stroke="#1864ab" stroke-width="2">
+				<animate attributeName="d" dur="6s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.25;0.5;0.75;1" keySplines="0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1" values="M118.53 329.63L58.53 329.63A60 60 0 0 1 73.94 289.48Z;M141.83 308.65L81.83 308.65A60 60 0 0 1 106.57 260.11Z;M168.99 292.97L108.99 292.97A60 60 0 0 1 144.59 238.16Z;M141.83 308.65L81.83 308.65A60 60 0 0 1 106.57 260.11Z;M118.53 329.63L58.53 329.63A60 60 0 0 1 73.94 289.48Z" />
+			</path>
+			<path d="M168.99 292.97L144.59 238.16A60 60 0 0 1 209.14 248.38Z" fill="#d0ebff" stroke="#1864ab" stroke-width="2">
+				<animate attributeName="d" dur="6s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.25;0.5;0.75;1" keySplines="0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1" values="M118.53 329.63L73.94 289.48A60 60 0 0 1 112.26 269.96Z;M141.83 308.65L106.57 260.11A60 60 0 0 1 160.37 251.58Z;M168.99 292.97L144.59 238.16A60 60 0 0 1 209.14 248.38Z;M141.83 308.65L106.57 260.11A60 60 0 0 1 160.37 251.58Z;M118.53 329.63L73.94 289.48A60 60 0 0 1 112.26 269.96Z" />
+			</path>
+			<path d="M86.99 292.97H106.99" fill="none" stroke="#c2410c" stroke-width="5" marker-end="url(#sipka)">
+				<animate attributeName="d" dur="6s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.25;0.5;0.75;1" keySplines="0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1" values="M61.76 329.63H81.76;M73.42 308.65H93.42;M86.99 292.97H106.99;M73.42 308.65H93.42;M61.76 329.63H81.76" />
+			</path>
+			<text x="139.64" y="273.91" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">α<animate attributeName="x" dur="6s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.25;0.5;0.75;1" keySplines="0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1" values="85.85;110.65;139.64;110.65;85.85" /><animate attributeName="y" dur="6s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.25;0.5;0.75;1" keySplines="0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1" values="317.09;292.76;273.91;292.76;317.09" /></text>
+			<text x="174.46" y="258.40" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">α′<animate attributeName="x" dur="6s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.25;0.5;0.75;1" keySplines="0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1" values="102.64;136.36;174.46;136.36;102.64" /><animate attributeName="y" dur="6s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.25;0.5;0.75;1" keySplines="0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1" values="298.45;274.08;258.40;274.08;298.45" /></text>
+		</g>
+
+		<g class="klidova-konstrukce">
+			<path d="M45 292.97H168.99" fill="none" stroke="#c2410c" stroke-width="5" stroke-linecap="round" />
+			<path d="M86.99 292.97H106.99" fill="none" stroke="#c2410c" stroke-width="5" marker-end="url(#sipka)" />
+			<path d="M230 430L144.59 238.16" stroke="#495057" stroke-width="2.5" stroke-dasharray="7 6" />
+			<path d="M168.99 292.97L269.36 181.50" fill="none" stroke="#c2410c" stroke-width="5" stroke-linecap="round" marker-end="url(#sipka)" />
+			<path d="M168.99 292.97L108.99 292.97A60 60 0 0 1 144.59 238.16Z" fill="#d0ebff" stroke="#1864ab" stroke-width="2" />
+			<path d="M168.99 292.97L144.59 238.16A60 60 0 0 1 209.14 248.38Z" fill="#d0ebff" stroke="#1864ab" stroke-width="2" />
+			<text x="139.64" y="273.91" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">α</text>
+			<text x="174.46" y="258.40" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">α′</text>
+		</g>
+
+		<g class="pohyb-bodu">
+			<circle cx="230" cy="280" r="8" fill="#ffd43b" stroke="#2b2a26" stroke-width="2.5" />
+		</g>
+	</g>
+</svg>
