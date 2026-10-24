@@ -9,9 +9,11 @@ import { nactiData } from './data.mjs';
 const koren = join(dirname(fileURLToPath(import.meta.url)), '..');
 const cestaKomponenty = process.env.HRA_KOMPONENTA || join(koren, 'src/components/hry/HraPrikladyNaVypocetRychlosti.astro');
 const cestaPdf = '/tmp/codex-hry/pdf-text/7-04-rovnomerny-pohyb-vypocty.txt';
-const cestaZdroju = '/tmp/codex-hry/priklady/zdroj.json';
+// Citace zdroje (15 krátkých úryvků z PDF 7) jsou v repu; celý text PDF se nezveřejňuje.
+const cestaZdroju = join(koren, 'testy/zdroje/priklady-zdroj.json');
 const zdroj = readFileSync(cestaKomponenty, 'utf8');
-const pdf = readFileSync(cestaPdf, 'utf8');
+let pdf = null;
+try { pdf = readFileSync(cestaPdf, 'utf8'); } catch { /* PDF text mimo repo nemusí být k dispozici (Cloudflare) */ }
 const zdrojeKaret = JSON.parse(readFileSync(cestaZdroju, 'utf8'));
 
 let kontrol = 0;
@@ -54,7 +56,7 @@ const veVykladu = (s) => textVykladu.includes(s.replace(/\s+/g, ' '));
 ok(opory.length === 18, `18 opor: 3 kola a 15 karet (je ${opory.length})`);
 for (const opora of opory) ok(opora.length >= 12 && veVykladu(opora), `opora doslova ve výkladu („${opora.slice(0, 55)}“)`);
 
-const cislaPovolena = new Set(`${textVykladu} ${pdf}`.match(/\d+/g) ?? []);
+const cislaPovolena = new Set(`${textVykladu} ${zdrojeKaret.map((z) => z.zdroj_uryvek).join(' ')}`.match(/\d+/g) ?? []);
 for (const karta of karty) {
 	const odvozena = new Set(karta.id === 'k3-10s' ? ['10', '50'] : karta.id === 'k3-4min' ? ['240'] : karta.id === 'k3-draha-minuta' ? ['60'] : []);
 	for (const n of `${karta.otazka} ${karta.proc}`.match(/\d+/g) ?? []) ok(cislaPovolena.has(n) || odvozena.has(n), `${karta.id}: číslo ${n} je ve výkladu, PDF nebo přímo odvozeném výpočtu`);
@@ -130,7 +132,7 @@ for (const karta of karty) {
 	ok(normalizujVysledek(karta.proc).includes(normalizujVysledek(detail)), `${karta.id}: vysvětlení obsahuje výsledek nápisu „${detail.trim()}“`);
 }
 
-const strany = new Map([...pdf.matchAll(/=== STRANA (\d+) ===([\s\S]*?)(?==== STRANA|$)/g)].map((m) => [Number(m[1]), m[2]]));
+const strany = new Map([...(pdf ?? '').matchAll(/=== STRANA (\d+) ===([\s\S]*?)(?==== STRANA|$)/g)].map((m) => [Number(m[1]), m[2]]));
 ok(zdrojeKaret.length === 15, `zdrojový záznam má 15 položek (má ${zdrojeKaret.length})`);
 for (const karta of karty) {
 	const zaznam = zdrojeKaret.find((z) => z.id === karta.id);
@@ -138,8 +140,10 @@ for (const karta of karty) {
 	ok(Boolean(karta.zdroj) && Number.isInteger(n), `${karta.id}: neprázdný zdroj ve tvaru s. N`);
 	ok(Boolean(zaznam) && zaznam.otazka === karta.otazka && zaznam.spravne === karta.spravne, `${karta.id}: zdrojový záznam odpovídá kartě`);
 	ok(zaznam?.zdroj_strana === n, `${karta.id}: strana ve zdrojovém záznamu souhlasí`);
-	ok(typeof zaznam?.zdroj_uryvek === 'string' && zaznam.zdroj_uryvek.length >= 12 && strany.get(n)?.includes(zaznam.zdroj_uryvek), `${karta.id}: doslovný úryvek je na uvedené straně PDF`);
+	ok(typeof zaznam?.zdroj_uryvek === 'string' && zaznam.zdroj_uryvek.length >= 12, `${karta.id}: citace zdroje má úryvek aspoň 12 znaků`);
+	if (pdf) ok(strany.get(n)?.includes(zaznam?.zdroj_uryvek), `${karta.id}: doslovný úryvek je na uvedené straně PDF`);
 }
+if (!pdf) console.log('PŘESKOČENO: PDF text není k dispozici (kontrola úryvků proti straně PDF; hlavní kontrola citací z testy/zdroje/ proběhla)');
 
 const sceny = new Set([...zdroj.matchAll(/case '([^']+)'/g)].map((m) => m[1]));
 for (const karta of karty) ok(sceny.has(karta.scena), `${karta.id}: scéna „${karta.scena}“ existuje`);

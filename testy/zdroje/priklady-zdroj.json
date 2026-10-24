@@ -1,0 +1,17 @@
+[
+  {"id":"k1-rychlost","otazka":"Znáš dráhu s a čas t. Chceš vypočítat rychlost v. Kterou operaci použiješ?","spravne":"A","zdroj_strana":1,"zdroj_uryvek":"v   =   s   :   t"},
+  {"id":"k1-draha","otazka":"Znáš rychlost v a čas t. Chceš vypočítat dráhu s. Kterou operaci použiješ?","spravne":"B","zdroj_strana":5,"zdroj_uryvek":"s    =      v ⋅ t"},
+  {"id":"k1-cas","otazka":"Znáš dráhu s a rychlost v. Chceš vypočítat čas t. Kterou operaci použiješ?","spravne":"A","zdroj_strana":7,"zdroj_uryvek":"čas určíme jako podíl"},
+  {"id":"k1-tvrzeni-rychlost","otazka":"Mění se při rovnoměrném pohybu velikost rychlosti?","spravne":"B","zdroj_strana":1,"zdroj_uryvek":"Velikost rychlosti se během celého pohybu nemění"},
+  {"id":"k1-tvrzeni-useky","otazka":"Urazí těleso při rovnoměrném pohybu za stejně dlouhé časové úseky vždy stejně velkou dráhu?","spravne":"A","zdroj_strana":2,"zdroj_uryvek":"Za stejně dlouhé časové úseky těleso urazí vždy stejně velkou dráhu"},
+  {"id":"k2-kmh","otazka":"Počítáš s rychlostí v km/h a časem v hodinách. Vyjde dráha v kilometrech?","spravne":"A","zdroj_strana":5,"zdroj_uryvek":"rychlost v km/h ⇨ dráha v kilometrech ⇨ čas v hodinách"},
+  {"id":"k2-ms","otazka":"Počítáš s rychlostí v m/s a časem v sekundách. Vyjde dráha v metrech?","spravne":"A","zdroj_strana":5,"zdroj_uryvek":"rychlost v m/s ⇨ dráha v metrech ⇨ čas v sekundách"},
+  {"id":"k2-graf-v","otazka":"Je graf rychlosti rovnoměrného pohybu vodorovná přímka?","spravne":"A","zdroj_strana":1,"zdroj_uryvek":"Graf rychlosti rovnoměrného pohybu\n           - vodorovná přímka"},
+  {"id":"k2-osa-casu","otazka":"Je časová osa v grafu vždy svislá?","spravne":"B","zdroj_strana":5,"zdroj_uryvek":"Časová osa je vždy vodorovná."},
+  {"id":"k2-graf-s","otazka":"Je graf dráhy rovnoměrného pohybu vodorovná přímka?","spravne":"B","zdroj_strana":3,"zdroj_uryvek":"Velikost dráhy roste spolu s rostoucím časem\n           - Grafem dráhy je přímka"},
+  {"id":"k3-draha-minuta","otazka":"Tomáš se pohybuje rychlostí 5 m/s. Jakou dráhu urazí za 1 min?","spravne":"A","zdroj_strana":3,"zdroj_uryvek":"za 1\n             minutu urazí polovinu (300 m)"},
+  {"id":"k3-4min","otazka":"Tomáš se pohybuje rychlostí 5 m/s. Jakou dráhu urazí za 4 min?","spravne":"B","zdroj_strana":3,"zdroj_uryvek":"za 4 minuty urazí 4krát větší dráhu (1200 m)"},
+  {"id":"k3-6min","otazka":"Tomáš se pohybuje rychlostí 5 m/s. Jakou dráhu urazí za 6 min?","spravne":"A","zdroj_strana":3,"zdroj_uryvek":"za 6 minut urazí 6krát větší dráhu (1800 m)"},
+  {"id":"k3-rychlost","otazka":"Tomáš urazí 600 m za 2 min. Jaká je jeho rychlost?","spravne":"B","zdroj_strana":3,"zdroj_uryvek":"Tomáš při svižné chůzi rychlostí 5 m/s urazí každou sekundu dráhu 5 m,"},
+  {"id":"k3-10s","otazka":"Tomáš se pohybuje rychlostí 5 m/s. Jakou dráhu urazí za 10 s?","spravne":"A","zdroj_strana":3,"zdroj_uryvek":"dá se lehce určit, jakou dráhu urazí za libovolný počet sekund"}
+]

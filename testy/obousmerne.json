@@ -684,7 +684,7 @@
 		},
 		"hra-priklady-na-vypocet-rychlosti.mjs": {
 			"test": "testy/hra-priklady-na-vypocet-rychlosti.mjs",
-			"podvrh": "Kopie komponenty v /tmp/wonderly-workery/podvrh-hra-priklady/ se změněnou první oporou a správnou odpovědí první karty, podvržená přes HRA_KOMPONENTA, skončila kódem 1 a test ukázal obě chyby.",
+			"podvrh": "Kopie komponenty (vytvořená za běhu v dočasné složce) se změněnou první oporou a správnou odpovědí první karty, podvržená přes HRA_KOMPONENTA, skončila kódem 1 a test ukázal obě chyby.",
 			"zdravy": "Nad nezměněnou komponentou projde test kódem 0."
 		},
 		"uniky-laborek.mjs": {
