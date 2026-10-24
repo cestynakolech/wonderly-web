@@ -1,0 +1,17 @@
+[
+  {"id":"k1-srovnani-1","otazka":"Dělník a bagr vykonají stejnou práci. Bagr ji dokončí za kratší čas. Kdo z dvojice má větší výkon?","spravne":"B","zdroj_strana":1,"zdroj_uryvek":"práci vykoná bagr i dělník stejně velkou, ale bagr ji udělá rychleji"},
+  {"id":"k1-srovnani-2","otazka":"Dva stroje vykonají stejnou práci. První ji dokončí za delší čas. Který má větší výkon?","spravne":"B","zdroj_strana":2,"zdroj_uryvek":"práce vykonaná za kratší čas → větší výkon, práce vykonaná za delší čas →"},
+  {"id":"k1-srovnani-3","otazka":"Dva stroje pracují stejně dlouho. První vykoná větší práci. Který má větší výkon?","spravne":"A","zdroj_strana":1,"zdroj_uryvek":"vykonání větší práce za určitý čas → větší výkon, vykonání menší práce za"},
+  {"id":"k1-srovnani-4","otazka":"Dva lidé vykonají stejnou práci. Druhý ji dokončí za delší čas. Který má větší výkon?","spravne":"A","zdroj_strana":2,"zdroj_uryvek":"práce vykonaná za kratší čas → větší výkon, práce vykonaná za delší čas →"},
+  {"id":"k1-srovnani-5","otazka":"Dva stroje pracují stejně dlouho. První vykoná menší práci než druhý. Který má větší výkon?","spravne":"B","zdroj_strana":1,"zdroj_uryvek":"určitý čas → menší výkon"},
+  {"id":"k2-vykon","otazka":"Znáš práci W a čas t. Jakou operací vypočítáš výkon P?","spravne":"B","zdroj_strana":2,"zdroj_uryvek":"velikost výkonu vypočítáme tak, že vykonanou práci W dělíme časem t, za který"},
+  {"id":"k2-prace","otazka":"Znáš výkon P a čas t. Jakou operací vypočítáš práci W?","spravne":"A","zdroj_strana":4,"zdroj_uryvek":"W      =        P ⋅ t"},
+  {"id":"k2-cas","otazka":"Znáš práci W a výkon P. Jakou operací vypočítáš čas t?","spravne":"B","zdroj_strana":4,"zdroj_uryvek":"Vztah pro výpočet času:\n                                               W\n                                t    =\n                                               P"},
+  {"id":"k2-sila-rychlost","otazka":"Znáš sílu F a rychlost v. Jakou operací vypočítáš výkon P?","spravne":"A","zdroj_strana":4,"zdroj_uryvek":"platí přímá úměrnost mezi výkonem a rychlostí\n\n                     P      =        F ⋅ v"},
+  {"id":"k2-rychlost","otazka":"Znáš výkon P a sílu F. Jakou operací vypočítáš rychlost v?","spravne":"B","zdroj_strana":4,"zdroj_uryvek":"Vztahy pro výpočet rychlosti a síly:"},
+  {"id":"k3-jeden-watt","otazka":"Výrok: Když těleso vykoná práci 1 J za 1 s, má výkon 1 W.","spravne":"A","zdroj_strana":3,"zdroj_uryvek":"Pokud nějaké těleso pracuje s výkonem 1 W, znamená to, že za dobu 1 s vykoná"},
+  {"id":"k3-dva-kilowatty","otazka":"Výrok: Výkon 2 kW znamená práci 2 kJ vykonanou za 1 s.","spravne":"A","zdroj_strana":3,"zdroj_uryvek":"Pokud má výkon 2 kW, tak to znamená, že za dobu 1 s vykoná práci 2 kJ"},
+  {"id":"k3-kilowatt","otazka":"Výrok: 1 kW se rovná 1 000 000 W.","spravne":"B","zdroj_strana":2,"zdroj_uryvek":"1 kW = 1 000 W"},
+  {"id":"k3-megawatt","otazka":"Výrok: 1 MW se rovná 1 000 000 W.","spravne":"A","zdroj_strana":2,"zdroj_uryvek":"1 MW = 1 000 000 W"},
+  {"id":"k3-kilowatthodina","otazka":"Výrok: 1 kWh je výkon stroje o výkonu 1 kW za 1 hodinu.","spravne":"B","zdroj_strana":6,"zdroj_uryvek":"kilowatthodina udává množství práce vykonané strojem o výkonu 1 kW za 1 hodinu"}
+]

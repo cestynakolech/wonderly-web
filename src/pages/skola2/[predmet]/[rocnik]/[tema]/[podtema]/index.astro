@@ -624,6 +624,13 @@ const maPanely = mat.some((m) => m.druh === 'infografika' && (m.panely?.length ?
 			<a class="kviz-tlacitko laborka-odkaz" href="/hry/mechanicka-prace">Otevřít hru 🎮</a>
 		</section>
 	)}
+	{klicKvizu === 'fyzika/8-rocnik/mechanicka-prace-a-vykon/vykon' && (
+		<section class="ramecek laborka-pozvanka" id="hra">
+			<h2><span class="podtrh">🎮 Hra pro třídu</span></h2>
+			<p>Procvičování výkonu, vztahů, jednotek a jednoduchých výpočtů ve třídě, po týmech (stránka je určená učiteli).</p>
+			<a class="kviz-tlacitko laborka-odkaz" href="/hry/vykon">Otevřít hru 🎮</a>
+		</section>
+	)}
 	{otazky && <Kviz otazky={otazky} />}
 	{(predchozi || dalsi) && (
 		<nav class="sousedni-podtemata">
