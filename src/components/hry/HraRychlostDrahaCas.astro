@@ -1,0 +1,556 @@
+---
+/**
+ * Hra pro skupinu „Jak rychle?“ — Rychlost, dráha, čas (fyzika 7).
+ * Každá opora je doslovný úryvek výkladu podtématu rychlost-draha-cas.
+ * Scény jsou vlastní inline SVG se SMIL animacemi, bez vnějších souborů.
+ */
+type Odpoved = 'A' | 'B';
+type Moznost = { popis: string; doplnek: string };
+type Karta = {
+	id: string;
+	scena: string;
+	otazka: string;
+	spravne: Odpoved;
+	proc: string;
+	opora: string;
+	moznosti?: Record<Odpoved, Moznost>;
+};
+type Kolo = {
+	cislo: number; nazev: string; pravidlo: string; opora: string;
+	moznosti: Record<Odpoved, Moznost>; body: number; karty: Karta[];
+};
+
+const KOLA: Kolo[] = [
+	{
+		cislo: 1,
+		nazev: 'Rovnoměrný, nebo nerovnoměrný?',
+		pravidlo: 'Rovnoměrný pohyb má stálou rychlost. Při nerovnoměrném pohybu se rychlost mění.',
+		opora: 'Rovnoměrný pohyb má stálou rychlost, u nerovnoměrného se rychlost mění.',
+		moznosti: {
+			A: { popis: 'ROVNOMĚRNÝ', doplnek: 'rychlost se nemění' },
+			B: { popis: 'NEROVNOMĚRNÝ', doplnek: 'rychlost se mění' },
+		},
+		body: 1,
+		karty: [
+			{ id: 'k1-eskalator', scena: 'eskalator', otazka: 'Eskalátor veze lidi do patra. Jaký je to pohyb?', spravne: 'A',
+				proc: 'Rychlost eskalátoru se nemění, proto jde o rovnoměrný pohyb.',
+				opora: 'Tak se pohybuje eskalátor (jezdící schody), hodinová ručička nebo auto na úseku dálnice.' },
+			{ id: 'k1-rucicka', scena: 'hodinova-rucicka', otazka: 'Hodinová ručička obíhá ciferník. Jaký je to pohyb?', spravne: 'A',
+				proc: 'Rychlost hodinové ručičky se nemění, proto jde o rovnoměrný pohyb.',
+				opora: 'Tak se pohybuje eskalátor (jezdící schody), hodinová ručička nebo auto na úseku dálnice.' },
+			{ id: 'k1-dalnice', scena: 'auto-dalnice', otazka: 'Auto jede po úseku dálnice. Jaký je to pohyb?', spravne: 'A',
+				proc: 'Rychlost auta se nemění, proto jde o rovnoměrný pohyb.',
+				opora: 'Tak se pohybuje eskalátor (jezdící schody), hodinová ručička nebo auto na úseku dálnice.' },
+			{ id: 'k1-vlak', scena: 'vlak-ostrava-praha', otazka: 'Vlak jede z Ostravy do Prahy. Jaký je to pohyb?', spravne: 'B',
+				proc: 'Během jízdy se rychlost vlaku mění, proto jde o nerovnoměrný pohyb.',
+				opora: 'třeba jízda vlaku z Ostravy do Prahy, kola do kopce a z kopce nebo auta městem přes křižovatky.' },
+			{ id: 'k1-mesto', scena: 'auto-mesto', otazka: 'Auto jede městem přes křižovatky. Jaký je to pohyb?', spravne: 'B',
+				proc: 'Ve městě auto mění rychlost a zastavuje, proto jde o nerovnoměrný pohyb.',
+				opora: 'třeba jízda vlaku z Ostravy do Prahy, kola do kopce a z kopce nebo auta městem přes křižovatky.' },
+		],
+	},
+	{
+		cislo: 2,
+		nazev: 'Zrychlený, nebo zpomalený?',
+		pravidlo: 'Při zrychleném pohybu se rychlost zvětšuje, při zpomaleném se zmenšuje.',
+		opora: 'Nerovnoměrný pohyb je zrychlený, když se rychlost postupně zvětšuje',
+		moznosti: {
+			A: { popis: 'ZRYCHLENÝ', doplnek: 'rychlost se zvětšuje' },
+			B: { popis: 'ZPOMALENÝ', doplnek: 'rychlost se zmenšuje' },
+		},
+		body: 1,
+		karty: [
+			{ id: 'k2-autobus', scena: 'autobus-rozjezd', otazka: 'Autobus se rozjíždí ze zastávky. Jaký je to pohyb?', spravne: 'A',
+				proc: 'Při rozjíždění se rychlost autobusu zvětšuje, proto jde o zrychlený pohyb.',
+				opora: 'když se rychlost postupně zvětšuje (rozjíždění autobusu, start rakety, volný pád).' },
+			{ id: 'k2-raketa', scena: 'start-rakety', otazka: 'Raketa právě startuje. Jaký je to pohyb?', spravne: 'A',
+				proc: 'Při startu se rychlost rakety zvětšuje, proto jde o zrychlený pohyb.',
+				opora: 'když se rychlost postupně zvětšuje (rozjíždění autobusu, start rakety, volný pád).' },
+			{ id: 'k2-pad', scena: 'volny-pad', otazka: 'Těleso volně padá. Jaký je to pohyb?', spravne: 'A',
+				proc: 'Při volném pádu se rychlost zvětšuje, proto jde o zrychlený pohyb.',
+				opora: 'když se rychlost postupně zvětšuje (rozjíždění autobusu, start rakety, volný pád).' },
+			{ id: 'k2-brzdeni', scena: 'vlak-brzdi', otazka: 'Vlak brzdí před nádražím. Jaký je to pohyb?', spravne: 'B',
+				proc: 'Při brzdění se rychlost vlaku zmenšuje, proto jde o zpomalený pohyb.',
+				opora: 'Je zpomalený, když se rychlost postupně zmenšuje (brzdění vlaku).' },
+			{ id: 'k2-graf', scena: 'graf-klesajici', otazka: 'Čára v grafu rychlosti a času klesá. Jaký pohyb ukazuje?', spravne: 'B',
+				proc: 'Klesající čára v grafu rychlosti a času ukazuje zpomalený pohyb.',
+				opora: 'stoupající čára zrychlený a klesající čára zpomalený.' },
+		],
+	},
+	{
+		cislo: 3,
+		nazev: 'FINÁLE: Násobit, nebo dělit číslem 3,6?',
+		pravidlo: 'Podle zadaného směru převodu vyber správnou početní operaci.',
+		opora: 'Mezi jednotkami se proto násobí nebo dělí číslem 3,6',
+		moznosti: {
+			A: { popis: 'NÁSOBIT 3,6', doplnek: 'vyber tuto operaci' },
+			B: { popis: 'DĚLIT 3,6', doplnek: 'vyber tuto operaci' },
+		},
+		body: 2,
+		karty: [
+			{ id: 'k3-10ms', scena: 'prevod-10ms', otazka: 'Převádíš 10 m/s na km/h. Co uděláš?', spravne: 'A',
+				proc: 'Z m/s na km/h násobíme číslem 3,6: 10 m/s = 36 km/h.',
+				opora: 'Z m/s na km/h: násob 3,6 (10 m/s = 36 km/h)' },
+			{ id: 'k3-20ms', scena: 'prevod-20ms', otazka: 'Převádíš 20 m/s na km/h. Co uděláš?', spravne: 'A',
+				proc: 'Z m/s na km/h se násobí číslem 3,6.',
+				opora: 'Z m/s na km/h: násob 3,6 (10 m/s = 36 km/h)' },
+			{ id: 'k3-36kmh', scena: 'prevod-36kmh', otazka: 'Převádíš 36 km/h na m/s. Co uděláš?', spravne: 'B',
+				proc: 'Z km/h na m/s se dělí číslem 3,6.',
+				opora: 'Z km/h na m/s: děl 3,6 (36 km/h = 10 m/s)' },
+			{ id: 'k3-3-6kmh', scena: 'prevod-3-6kmh', otazka: 'Převádíš 3,6 km/h na m/s. Co uděláš?', spravne: 'B',
+				proc: 'Z km/h na m/s se dělí číslem 3,6.',
+				opora: '1 m/s = 3,6 km/h' },
+			{ id: 'k3-90kmh', scena: 'prevod-90kmh', otazka: 'Převádíš 90 km/h na m/s. Co uděláš?', spravne: 'B',
+				proc: 'Z km/h na m/s se dělí číslem 3,6.',
+				opora: 'Z km/h na m/s: děl 3,6 (36 km/h = 10 m/s)' },
+		],
+	},
+];
+
+const karty = KOLA.flatMap((k) => k.karty);
+
+/** Nápis ukázaný po odhalení odpovědi (prostý popis správné odpovědi). */
+const NAPIS: Record<string, string> = {
+	'k1-eskalator': 'ROVNOMĚRNÝ pohyb', 'k1-rucicka': 'ROVNOMĚRNÝ pohyb',
+	'k1-dalnice': 'ROVNOMĚRNÝ pohyb', 'k1-vlak': 'NEROVNOMĚRNÝ pohyb', 'k1-mesto': 'NEROVNOMĚRNÝ pohyb',
+	'k2-autobus': 'ZRYCHLENÝ pohyb', 'k2-raketa': 'ZRYCHLENÝ pohyb', 'k2-pad': 'ZRYCHLENÝ pohyb',
+	'k2-brzdeni': 'ZPOMALENÝ pohyb', 'k2-graf': 'ZPOMALENÝ pohyb',
+	'k3-10ms': 'NÁSOBIT 3,6', 'k3-20ms': 'NÁSOBIT 3,6',
+	'k3-36kmh': 'DĚLIT 3,6', 'k3-3-6kmh': 'DĚLIT 3,6', 'k3-90kmh': 'DĚLIT 3,6',
+};
+
+const znacky = (pozice: number[], y = 292) => pozice.map((x) =>
+	`<line x1="${x}" y1="${y - 18}" x2="${x}" y2="${y + 18}" stroke="#495057" stroke-width="4"/><circle cx="${x}" cy="${y}" r="5" fill="#fff" stroke="#495057" stroke-width="2"/>`,
+).join('');
+
+/** Polohy jsou měřené po stejných časových krocích; rozestupy proto přímo ukazují změnu rychlosti. */
+const draha = (pozice: number[], barva: string, symbol: string, popis: string, kulisy = '') => {
+	const hodnoty = pozice.map((x) => `${x} 0`).join(';');
+	return `<rect width="640" height="400" fill="#e7f5ff"/><rect y="245" width="640" height="110" fill="#dee2e6"/>
+${kulisy}<line x1="45" y1="292" x2="595" y2="292" stroke="#868e96" stroke-width="6"/>${znacky([...new Set(pozice)])}
+<g><rect x="-34" y="250" width="68" height="38" rx="10" fill="${barva}" stroke="#212529" stroke-width="3"/>
+<text x="0" y="278" text-anchor="middle" font-size="25">${symbol}</text>
+<animateTransform attributeName="transform" type="translate" values="${hodnoty}" dur="5s" repeatCount="indefinite"/></g>
+<text x="320" y="372" text-anchor="middle" font-size="22" font-weight="700" fill="#343a40">${popis}</text>`;
+};
+
+const eskalator = () => `<rect width="640" height="400" fill="#e7f5ff"/>
+<path d="M55 350 L590 103" stroke="#495057" stroke-width="10"/>
+<path d="M55 332 ${Array.from({ length: 26 }, (_, i) => `H${75 + i * 20} V${323 - i * 9.15}`).join(' ')}" fill="none" stroke="#868e96" stroke-width="6"/>
+<path d="M55 285 L555 54" fill="none" stroke="#1971c2" stroke-width="6"/>
+<g><circle cx="0" cy="-25" r="12" fill="#ffd8a8" stroke="#333" stroke-width="2"/><path d="M0 -13 V20 M0 0 L-18 12 M0 0 L17 12 M0 20 L-16 42 M0 20 L17 42" stroke="#333" stroke-width="7" stroke-linecap="round"/>
+<animateTransform attributeName="transform" type="translate" values="80 278;200 223;320 168;440 113;560 58" dur="5s" repeatCount="indefinite"/></g>
+<text x="320" y="382" text-anchor="middle" font-size="22" font-weight="700" fill="#343a40">jezdící schody</text>`;
+
+const raketa = () => `<rect width="640" height="400" fill="#d0ebff"/><line x1="320" y1="70" x2="320" y2="350" stroke="#868e96" stroke-width="5"/>
+	${[330, 300, 245, 165, 60].map((y) => `<line x1="300" y1="${y}" x2="340" y2="${y}" stroke="#495057" stroke-width="4"/>`).join('')}
+<g><path d="M320 -34 C302 -18 301 12 306 35 H334 C339 12 338 -18 320 -34Z" fill="#f8f9fa" stroke="#212529" stroke-width="3"/>
+<circle cx="320" cy="4" r="8" fill="#74c0fc" stroke="#212529" stroke-width="2"/><path d="M307 24 L294 41 L308 38 M333 24 L346 41 L332 38" fill="#e03131" stroke="#212529" stroke-width="2"/>
+<path d="M312 35 L320 58 L328 35" fill="#ff922b" stroke="#e8590c" stroke-width="2"/>
+<animateTransform attributeName="transform" type="translate" values="0 330;0 300;0 245;0 165;0 60" dur="5s" repeatCount="indefinite"/></g>
+<text x="20" y="382" font-size="22" font-weight="700" fill="#343a40">start rakety</text>`;
+
+const volnyPad = () => `<rect width="640" height="400" fill="#e7f5ff"/><line x1="320" y1="75" x2="320" y2="350" stroke="#868e96" stroke-width="5"/>
+	${[70, 87, 138, 223, 342].map((y) => `<line x1="300" y1="${y}" x2="340" y2="${y}" stroke="#495057" stroke-width="4"/>`).join('')}
+<g><circle cx="320" cy="0" r="22" fill="#e03131" stroke="#7f1d1d" stroke-width="3"/><path d="M320 -22 C319 -35 326 -40 337 -39" fill="none" stroke="#5c3d2e" stroke-width="5"/><ellipse cx="338" cy="-39" rx="11" ry="6" fill="#2f9e44" transform="rotate(-20 338 -39)"/>
+<animateTransform attributeName="transform" type="translate" values="0 70;0 87;0 138;0 223;0 342" dur="5s" repeatCount="indefinite"/></g>
+<text x="20" y="382" font-size="22" font-weight="700" fill="#343a40">volný pád jablka</text>`;
+
+const prevod = (hodnota: string, z: string, do_: string, barva: string) =>
+	`<rect width="640" height="400" fill="#fff9db"/><rect x="35" y="125" width="210" height="140" rx="22" fill="#fff" stroke="#333" stroke-width="4"/>
+<rect x="395" y="125" width="210" height="140" rx="22" fill="#fff" stroke="#333" stroke-width="4"/>
+<text x="140" y="180" text-anchor="middle" font-size="42" font-weight="800">${hodnota}</text><text x="140" y="230" text-anchor="middle" font-size="32">${z}</text>
+<text x="500" y="215" text-anchor="middle" font-size="34" font-weight="800">${do_}</text>
+<path d="M255 195 H385" stroke="#495057" stroke-width="7"/><polygon points="385,195 365,181 365,209" fill="#495057"/>
+<g><circle cx="0" cy="0" r="15" fill="${barva}" stroke="#333" stroke-width="3"/><animateTransform attributeName="transform" type="translate" values="275 195;365 195;275 195" dur="3s" repeatCount="indefinite"/></g>`;
+
+	function scenaSvg(s: string): string {
+		switch (s) {
+			case 'eskalator':
+				return eskalator();
+		case 'hodinova-rucicka':
+			return `<rect width="640" height="400" fill="#fff9db"/><circle cx="320" cy="205" r="150" fill="#fff" stroke="#333" stroke-width="5"/>
+<g fill="#495057">${[0, 60, 120, 180, 240, 300].map((a) => { const r = a * Math.PI / 180; return `<circle cx="${320 + Math.sin(r) * 128}" cy="${205 - Math.cos(r) * 128}" r="7"/>`; }).join('')}</g>
+<g><line x1="320" y1="205" x2="320" y2="85" stroke="#1971c2" stroke-width="10" stroke-linecap="round"/><circle cx="320" cy="85" r="12" fill="#fab005"/>
+<animateTransform attributeName="transform" type="rotate" from="0 320 205" to="360 320 205" dur="6s" repeatCount="indefinite"/></g><circle cx="320" cy="205" r="10" fill="#333"/>`;
+		case 'auto-dalnice':
+			return draha([80, 200, 320, 440, 560], '#e03131', '🚗', 'úsek dálnice');
+		case 'vlak-ostrava-praha':
+			return draha([50, 80, 140, 240, 340, 440, 500, 530], '#c2410c', '🚆', 'vlak Ostrava → Praha');
+			case 'auto-mesto':
+				return draha([60, 120, 180, 180, 300, 420, 420, 560], '#1971c2', '🚗', 'auto ve městě',
+					`<g fill="#adb5bd"><rect x="225" y="70" width="70" height="285"/><rect x="465" y="70" width="70" height="285"/></g>
+<g stroke="#fff" stroke-width="5" stroke-dasharray="18 15"><line x1="260" y1="80" x2="260" y2="350"/><line x1="500" y1="80" x2="500" y2="350"/></g>`);
+		case 'autobus-rozjezd':
+			return draha([80, 130, 220, 365, 560], '#2f9e44', '🚌', 'rozjíždění autobusu');
+		case 'start-rakety':
+			return raketa();
+		case 'volny-pad':
+			return volnyPad();
+		case 'vlak-brzdi':
+			return draha([80, 280, 425, 515, 560], '#c2410c', '🚆', 'brzdění vlaku');
+		case 'graf-klesajici':
+			return `<rect width="640" height="400" fill="#fff"/><g stroke="#333" stroke-width="5"><line x1="90" y1="45" x2="90" y2="335"/><line x1="90" y1="335" x2="590" y2="335"/></g>
+<text x="47" y="60" font-size="24" font-weight="700">v</text><text x="570" y="375" font-size="24" font-weight="700">t</text>
+<path d="M125 85 L555 305" fill="none" stroke="#1971c2" stroke-width="11" stroke-linecap="round" stroke-dasharray="485" stroke-dashoffset="485">
+<animate attributeName="stroke-dashoffset" from="485" to="0" dur="2.5s" repeatCount="indefinite"/></path>`;
+		case 'prevod-10ms': return prevod('10', 'm/s', 'km/h', '#e03131');
+		case 'prevod-20ms': return prevod('20', 'm/s', 'km/h', '#f08c00');
+		case 'prevod-36kmh': return prevod('36', 'km/h', 'm/s', '#1971c2');
+		case 'prevod-3-6kmh': return prevod('3,6', 'km/h', 'm/s', '#6741d9');
+		case 'prevod-90kmh': return prevod('90', 'km/h', 'm/s', '#2b8a3e');
+		default:
+			return '';
+	}
+}
+
+/** Svislé scény mají rámeček stranou od dráhy tělesa. */
+const RAMECEK: Record<string, [number, number]> = { 'start-rakety': [20, 260], 'volny-pad': [20, 260] };
+const scenyHtml: Record<string, string> = {};
+for (const c of karty) {
+	const [rx, rw] = RAMECEK[c.scena] ?? [100, 440];
+	scenyHtml[c.id] = `<svg viewBox="0 0 640 400" role="img" aria-label="${c.otazka}" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+${scenaSvg(c.scena)}
+<g data-odhal="1" opacity="0"><rect x="${rx}" y="2" width="${rw}" height="36" rx="12" fill="#fff" stroke="#2b8a3e" stroke-width="4"/>
+<text x="${rx + rw / 2}" y="29" text-anchor="middle" font-size="24" font-weight="800" fill="#1b4d2a">${NAPIS[c.id]}</text></g></svg>`;
+}
+const maxBodu = KOLA.reduce((s, k) => s + k.karty.length * k.body, 0);
+---
+
+<div id="hra-rychlost" data-kola={JSON.stringify(KOLA)}>
+	<section id="nastaveni">
+		<h1><span class="podtrh">⏱️ Jak rychle?</span></h1>
+		<p class="podnadpis">Hra pro třídu · Rychlost, dráha, čas · 7. ročník · asi 12 minut</p>
+		<ol class="pravidla">
+			<li><b>3 kola (5 + 5 + 5 karet):</b> Rovnoměrný, nebo nerovnoměrný? · Zrychlený, nebo zpomalený? · Násobit, nebo dělit číslem 3,6?</li>
+			<li>Na každé kartě je obrázek a otázka. Týmy se poradí a po odpočtu <b>zvednou kartu A, nebo B</b>.</li>
+			<li>Za správnou odpověď 1 bod, ve <b>FINÁLE 2 body</b>.</li>
+		</ol>
+		<p class="pozn">Karty A/B: <a href="/hry/karty" target="_blank">vytisknout</a> (C se nepoužije),
+			nebo stačí papír s velkým A a B. Maximum je {maxBodu} bodů.</p>
+		<div class="volby">
+			<label>Počet týmů
+				<select id="pocet-tymu">{[2, 3, 4, 5, 6].map((n) => <option value={n} selected={n === 4}>{n}</option>)}</select>
+			</label>
+			<label>Čas na kartu
+				<select id="cas-karty"><option value="10">10 s</option><option value="15" selected>15 s</option><option value="20">20 s</option></select>
+			</label>
+		</div>
+		<div id="jmena-tymu"></div>
+		<button id="start" class="velke-tlacitko">Začít hru ▶</button>
+	</section>
+
+	<section id="uvod-kola" hidden>
+		<p class="cislo-kola" id="uvod-cislo"></p>
+		<h1 id="uvod-nazev"></h1>
+		<p class="pravidlo" id="uvod-pravidlo"></p>
+		<div class="moznosti uvod-moznosti">
+			<div class="moznost moznost-A"><b>A</b><span><span class="m-popis" id="uvod-A"></span><small id="uvod-A2"></small></span></div>
+			<div class="moznost moznost-B"><b>B</b><span><span class="m-popis" id="uvod-B"></span><small id="uvod-B2"></small></span></div>
+		</div>
+		<p class="za-body" id="uvod-body"></p>
+		<button id="hrajeme" class="velke-tlacitko">Hrajeme ▶</button>
+	</section>
+
+	<section id="karta" hidden>
+		<header class="lista">
+			<span id="lista-kolo"></span>
+			<span id="lista-body" class="lista-body"></span>
+			<span id="odpocet-cislo" class="odpocet-cislo"></span>
+			<button id="cela-obrazovka" class="male-tlacitko" title="Celá obrazovka (na projektor)">⛶</button>
+		</header>
+		<div id="odpocet-pruh"><div id="odpocet-vypln"></div></div>
+		<div class="plocha">
+			<div class="leva">
+				<div class="scena-obal">
+					{karty.map((k) => <div class="scena skryta" data-karta={k.id} set:html={scenyHtml[k.id]} />)}
+				</div>
+					<div id="odhaleni" hidden>
+						<p id="proc" class="proc"></p>
+						<p class="pokyn">Klepni na týmy, které zvedly správnou kartu ↓</p>
+					</div>
+			</div>
+			<div class="prava">
+				<h2 id="otazka"></h2>
+				<div class="moznosti">
+					<div class="moznost moznost-A" data-m="A"><b>A</b><span><span class="m-popis"></span><small></small></span></div>
+					<div class="moznost moznost-B" data-m="B"><b>B</b><span><span class="m-popis"></span><small></small></span></div>
+				</div>
+				<div class="ovladani">
+					<button id="odhalit" class="velke-tlacitko">Odhalit odpověď ✔</button>
+					<button id="dalsi" class="velke-tlacitko" hidden>Další karta ▶</button>
+				</div>
+			</div>
+		</div>
+		<div id="tymy" class="tymy"></div>
+	</section>
+
+	<section id="vysledky" hidden>
+		<h1><span class="podtrh">🎉 Konečné pořadí</span></h1>
+		<ol id="podium"></ol>
+		<p class="shrnuti">Pamatuj: <b>rovnoměrný pohyb má stálou rychlost, při zrychleném se rychlost zvětšuje a při zpomaleném zmenšuje.</b>
+			Z m/s na km/h násobíme číslem 3,6, opačným směrem dělíme.</p>
+		<button id="znovu" class="velke-tlacitko">Nová hra 🔄</button>
+	</section>
+</div>
+
+<script>
+	type Odp = 'A' | 'B';
+	type Mozn = { popis: string; doplnek: string };
+	type K = { id: string; otazka: string; spravne: Odp; proc: string; moznosti?: Record<Odp, Mozn> };
+	type Kolo = { cislo: number; nazev: string; pravidlo: string; moznosti: Record<Odp, Mozn>; body: number; karty: K[] };
+	type Tym = { jmeno: string; body: number };
+
+	const $ = (id: string) => document.getElementById(id)!;
+	const KOLA: Kolo[] = JSON.parse($('hra-rychlost').dataset.kola!);
+	let tymy: Tym[] = [];
+	let iKolo = 0;
+	let iKarta = 0;
+	let casNaKartu = 15;
+	let odpocetId: ReturnType<typeof setInterval> | undefined;
+	let odhaleno = false;
+
+	const kolo = () => KOLA[iKolo];
+	const karta = () => kolo().karty[iKarta];
+
+	/** Pořadí: sestupně podle bodů, shoda bodů sdílí místo (1., 1., 3.). */
+	function poradi(t: Tym[]) {
+		const s = t.map((x, i) => ({ ...x, i })).sort((a, b) => b.body - a.body || a.i - b.i);
+		return s.map((x) => ({ jmeno: x.jmeno, body: x.body, misto: s.findIndex((u) => u.body === x.body) + 1 }));
+	}
+
+	function ukaz(sekce: string) {
+		for (const id of ['nastaveni', 'uvod-kola', 'karta', 'vysledky']) $(id).hidden = id !== sekce;
+		$('hra-rychlost').scrollIntoView({ block: 'start' });
+	}
+
+	function vykresliJmena() {
+		const n = +($('pocet-tymu') as HTMLSelectElement).value;
+		const barvy = ['Červení', 'Modří', 'Zelení', 'Žlutí', 'Fialoví', 'Oranžoví'];
+		$('jmena-tymu').innerHTML = Array.from({ length: n }, (_, i) =>
+			`<input class="jmeno-tymu" value="${barvy[i]}" maxlength="16">`).join('');
+	}
+	$('pocet-tymu').addEventListener('change', vykresliJmena);
+	vykresliJmena();
+
+	$('start').addEventListener('click', () => {
+		tymy = [...document.querySelectorAll<HTMLInputElement>('.jmeno-tymu')]
+			.map((el, i) => ({ jmeno: el.value.trim() || `Tým ${i + 1}`, body: 0 }));
+		casNaKartu = +($('cas-karty') as HTMLSelectElement).value;
+		iKolo = 0;
+		uvodKola();
+	});
+
+	function uvodKola() {
+		const k = kolo();
+		$('uvod-cislo').textContent = `Kolo ${k.cislo} ze ${KOLA.length}`;
+		$('uvod-nazev').textContent = k.nazev;
+		$('uvod-pravidlo').textContent = k.pravidlo;
+		$('uvod-A').textContent = k.moznosti.A.popis;
+		$('uvod-A2').textContent = k.moznosti.A.doplnek;
+		$('uvod-B').textContent = k.moznosti.B.popis;
+		$('uvod-B2').textContent = k.moznosti.B.doplnek;
+		$('uvod-body').textContent = k.body === 1 ? 'Za každou správnou kartu 1 bod.' : `Za každou správnou kartu ${k.body} body!`;
+		ukaz('uvod-kola');
+	}
+
+	$('hrajeme').addEventListener('click', () => {
+		iKarta = 0;
+		ukaz('karta');
+		zobrazKartu();
+	});
+
+	function zobrazKartu() {
+		const k = kolo();
+		const c = karta();
+		odhaleno = false;
+		$('lista-kolo').textContent = `Kolo ${k.cislo}/${KOLA.length} · karta ${iKarta + 1}/${k.karty.length}`;
+		$('lista-body').textContent = k.body === 1 ? 'za 1 bod' : `⭐ FINÁLE · za ${k.body} body`;
+		document.querySelectorAll<HTMLElement>('.scena').forEach((s) => s.classList.toggle('skryta', s.dataset.karta !== c.id));
+		const sv = document.querySelector<SVGSVGElement>('.scena[data-karta="' + c.id + '"] svg');
+		if (sv) { sv.unpauseAnimations?.(); sv.setCurrentTime?.(0); }
+		document.querySelectorAll(`.scena[data-karta="${c.id}"] [data-odhal]`).forEach((el) => el.setAttribute('opacity', '0'));
+		$('otazka').textContent = c.otazka;
+		const mz = c.moznosti ?? k.moznosti;
+		document.querySelectorAll<HTMLElement>('#karta .moznost').forEach((el) => {
+			const m = el.dataset.m as Odp;
+			el.querySelector('.m-popis')!.textContent = mz[m].popis;
+			el.querySelector('small')!.textContent = mz[m].doplnek;
+			el.classList.remove('spravna', 'spatna');
+		});
+		$('odhaleni').hidden = true;
+		$('odhalit').hidden = false;
+		$('dalsi').hidden = true;
+		vykresliTymy();
+		spustOdpocet();
+	}
+
+	function spustOdpocet() {
+		let zbyva = casNaKartu;
+		const vypln = $('odpocet-vypln');
+		$('odpocet-cislo').textContent = `${zbyva} s`;
+		vypln.style.transition = 'none';
+		vypln.style.width = '100%';
+		requestAnimationFrame(() => requestAnimationFrame(() => {
+			vypln.style.transition = `width ${casNaKartu}s linear`;
+			vypln.style.width = '0%';
+		}));
+		clearInterval(odpocetId);
+		odpocetId = setInterval(() => {
+			zbyva--;
+			$('odpocet-cislo').textContent = `${Math.max(zbyva, 0)} s`;
+			if (zbyva <= 3 && zbyva > 0) pipni(600);
+			if (zbyva <= 0) {
+				clearInterval(odpocetId);
+				pipni(880, 0.4);
+				$('odpocet-cislo').textContent = 'Zvedněte karty!';
+			}
+		}, 1000);
+	}
+
+	function pipni(frekvence: number, delka = 0.12) {
+		try {
+			const w = window as unknown as { _ctxHry?: AudioContext };
+			const ctx = (w._ctxHry ??= new AudioContext());
+			const osc = ctx.createOscillator();
+			const gain = ctx.createGain();
+			osc.frequency.value = frekvence;
+			gain.gain.value = 0.15;
+			osc.connect(gain).connect(ctx.destination);
+			osc.start();
+			osc.stop(ctx.currentTime + delka);
+		} catch { /* bez zvuku */ }
+	}
+
+	$('odhalit').addEventListener('click', () => {
+		clearInterval(odpocetId);
+		const c = karta();
+		odhaleno = true;
+		$('odpocet-cislo').textContent = '';
+		$('odpocet-vypln').style.transition = 'none';
+		$('odpocet-vypln').style.width = '0%';
+		document.querySelectorAll<HTMLElement>('#karta .moznost').forEach((el) => {
+			el.classList.toggle('spravna', el.dataset.m === c.spravne);
+			el.classList.toggle('spatna', el.dataset.m !== c.spravne);
+		});
+		document.querySelectorAll(`.scena[data-karta="${c.id}"] [data-odhal]`).forEach((el) => el.setAttribute('opacity', '1'));
+		$('proc').textContent = `✔ ${c.proc}`;
+		$('odhaleni').hidden = false;
+		$('odhalit').hidden = true;
+		$('dalsi').hidden = false;
+		vykresliTymy();
+	});
+
+	function vykresliTymy() {
+		$('tymy').innerHTML = tymy.map((t, i) => `
+			<div class="tym-obal">
+				<button class="tym" data-i="${i}" ${odhaleno ? '' : 'disabled'}>
+					<span class="tym-jmeno">${t.jmeno}</span><b class="tym-body">${t.body}</b>
+				</button>
+			</div>`).join('');
+		document.querySelectorAll<HTMLButtonElement>('.tym').forEach((b) =>
+			b.addEventListener('click', () => b.classList.toggle('oznaceny')));
+	}
+
+	$('dalsi').addEventListener('click', () => {
+		const body = kolo().body;
+		document.querySelectorAll<HTMLElement>('.tym.oznaceny').forEach((b) => (tymy[+b.dataset.i!].body += body));
+		iKarta++;
+		if (iKarta < kolo().karty.length) return zobrazKartu();
+		iKolo++;
+		if (iKolo < KOLA.length) return uvodKola();
+		konec();
+	});
+
+	function konec() {
+		clearInterval(odpocetId);
+		ukaz('vysledky');
+		const medaile = ['🥇', '🥈', '🥉'];
+		$('podium').innerHTML = poradi(tymy)
+			.map((t) => `<li class="podium-radek">${medaile[t.misto - 1] ?? '🏅'} ${t.misto}. <b>${t.jmeno}</b> — ${t.body} b.</li>`)
+			.join('');
+		for (let i = 0; i < 40; i++) {
+			const k = document.createElement('span');
+			k.className = 'konfeta';
+			k.textContent = ['🎉', '⭐', '🎊', '⏱️'][i % 4];
+			k.style.left = Math.random() * 100 + 'vw';
+			k.style.animationDelay = Math.random() * 2 + 's';
+			document.body.appendChild(k);
+		}
+	}
+
+	$('znovu').addEventListener('click', () => location.reload());
+	$('cela-obrazovka').addEventListener('click', () => {
+		if (document.fullscreenElement) document.exitFullscreen();
+		else $('hra-rychlost').requestFullscreen?.();
+	});
+</script>
+
+<style>
+	#hra-rychlost { max-width: 1200px; margin: 0 auto; background: var(--papir); }
+	#hra-rychlost:fullscreen { max-width: none; padding: 1rem 2rem; overflow: auto; }
+	.podnadpis { font-size: 1.3rem; color: #495057; margin-top: -0.6rem; }
+	.pravidla li { margin: 0.3rem 0; }
+	.pozn { color: #5c5f66; font-size: 1.1rem; }
+	.volby { display: flex; gap: 1.5rem; flex-wrap: wrap; margin: 1rem 0; }
+	.volby label { display: flex; flex-direction: column; font-weight: 700; gap: 0.3rem; }
+	.volby select { font-size: 1.2rem; padding: 0.3rem; }
+	#jmena-tymu { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1rem; }
+	#jmena-tymu :global(.jmeno-tymu) { font-size: 1.3rem; padding: 0.4rem; border: 2px solid #333; border-radius: 8px; width: 9rem; font-family: inherit; }
+	.velke-tlacitko { font-size: 1.5rem; padding: 0.6rem 2rem; border-radius: 12px; border: 3px solid #333;
+		background: #ffe066; cursor: pointer; font-weight: 800; font-family: inherit; }
+	.velke-tlacitko:hover { transform: scale(1.04); }
+	.male-tlacitko { font-size: 1rem; padding: 0.4rem 0.8rem; border-radius: 10px; border: 2px solid #888;
+		background: #fff; cursor: pointer; font-family: inherit; margin-left: auto; }
+	#uvod-kola { text-align: center; padding-top: 1rem; }
+	.cislo-kola { font-size: 1.6rem; font-weight: 800; color: #c2410c; margin: 0; }
+	#uvod-nazev { font-size: 2.9rem; margin: 0.1rem 0 0.4rem; line-height: 1.15; }
+	.pravidlo { font-size: 1.6rem; line-height: 1.35; max-width: 46rem; margin: 0 auto 1rem; }
+	.uvod-moznosti { max-width: 46rem; margin: 0 auto; text-align: left; }
+	.za-body { font-size: 1.6rem; font-weight: 800; }
+	.lista { display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+		font-size: 1.4rem; font-weight: 800; line-height: 1.2; }
+	.lista-body { color: #c2410c; flex: 1; text-align: center; }
+	.odpocet-cislo { min-width: 5rem; text-align: right; color: #c92a2a; }
+	#odpocet-pruh { height: 12px; background: #e9ecef; border-radius: 6px; overflow: hidden; margin: 0.3rem 0 0.6rem; }
+	#odpocet-vypln { height: 100%; width: 100%; background: linear-gradient(90deg, #40c057, #ffd43b, #fa5252); }
+	.plocha { display: grid; grid-template-columns: 3fr 2fr; gap: 1.2rem; align-items: start; }
+	.scena-obal { position: relative; }
+	.scena.skryta { visibility: hidden; position: absolute; top: 0; left: 0; width: 100%; pointer-events: none; }
+	.scena-obal :global(svg) { display: block; width: 100%; height: auto; border: 3px solid #333; border-radius: 14px; background: #fff; }
+	#otazka { font-size: 1.85rem; line-height: 1.2; margin: 0 0 0.8rem; }
+	.moznosti { display: grid; gap: 0.7rem; }
+	.moznost { display: flex; align-items: center; gap: 0.9rem; padding: 0.45rem 1rem; border: 4px solid #333;
+		border-radius: 14px; background: #fff; transition: opacity 0.3s; }
+	.moznost > b { flex: none; width: 3rem; height: 3rem; border-radius: 50%; color: #fff; font-size: 2rem;
+		display: flex; align-items: center; justify-content: center; }
+	.moznost-A > b { background: #e03131; }
+	.moznost-B > b { background: #1971c2; }
+	.m-popis { display: block; font-size: 2rem; font-weight: 800; line-height: 1.1; }
+	.moznost small { display: block; font-size: 1.1rem; color: #495057; line-height: 1.2; }
+	.moznost.spravna { background: #d3f9d8; border-color: #2b8a3e; box-shadow: 0 0 0 5px #8ce99a; }
+	.moznost.spatna { opacity: 0.35; }
+	.proc { font-size: 1.5rem; font-weight: 700; color: #1b4d2a; margin: 0.5rem 0 0.1rem; line-height: 1.25; }
+	.pokyn { font-weight: 700; margin: 0.2rem 0 0; font-size: 1.15rem; color: #495057; }
+	.tymy { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: flex-start; margin-top: 0.7rem; }
+	.tymy :global(.tym-obal) { display: flex; gap: 0.25rem; align-items: stretch; }
+	.tymy :global(.tym) { display: flex; align-items: center; gap: 0.6rem; font-size: 1.3rem; font-family: inherit;
+		padding: 0.3rem 0.8rem; border-radius: 12px; border: 3px solid #333; background: #fff; cursor: pointer; color: inherit; }
+	.tymy :global(.tym:disabled) { cursor: default; opacity: 1; }
+	.tymy :global(.tym-body) { font-size: 1.8rem; min-width: 2rem; text-align: center; }
+	.tymy :global(.tym.oznaceny) { background: #d3f9d8; border-color: #2b8a3e; }
+	.tymy :global(.tym.oznaceny .tym-body::after) { content: ' ✔'; color: #2b8a3e; }
+	.ovladani { display: flex; justify-content: flex-end; margin-top: 0.9rem; }
+	#podium { padding: 0; list-style: none; }
+	#podium :global(.podium-radek) { font-size: 2rem; margin: 0.5rem 0; }
+	.shrnuti { font-size: 1.4rem; }
+	:global(.konfeta) { position: fixed; top: -3rem; font-size: 1.8rem; animation: pad 3.2s linear infinite; z-index: 99; }
+	@keyframes pad { to { transform: translateY(110vh) rotate(360deg); } }
+	@media (max-width: 900px) {
+		.plocha { grid-template-columns: 1fr; }
+		#otazka { font-size: 1.5rem; }
+		.lista { font-size: 1.05rem; flex-wrap: wrap; gap: 0.3rem 0.6rem; }
+		.lista-body { white-space: nowrap; flex: none; }
+		.m-popis { font-size: 1.6rem; }
+	}
+</style>

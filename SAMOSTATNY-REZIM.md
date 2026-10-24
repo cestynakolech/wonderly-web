@@ -134,6 +134,7 @@ popsán, ne odstraněn (jeden platný návod) + zalomená cesta.
 - [skola2] **Přeskoky v pořadí úvodních map videí** — `kontrola_poradi.py`
   dlouhodobě hlásí 8 přeskoků (např. chybí zastávka ballon-d-alsace) — mají se
   mapy předělat?
+- (24. 10. 2026, W115 panely Elektrický náboj v pohybu, #172) PDF lekce 18 (FYZIKA 8, „Elektrický náboj, elektrování těles…“, s. 12–15; jiný zdroj – prezentace ani ŠVP fyziky – v /Users/Shared/Škola není) NEDOKLÁDÁ: (1) P1 rozdělení přebytečných elektronů mezi dvě kovové koule (PDF jen obecně „elektrony se přesunují při dotyku“, s. 12, a „kovy vedou“, s. 13); (2) P3 neutralizaci KLADNÉ koule elektrony přitékajícími ze Země (PDF s. 14 jen záporné těleso – Země přijme elektrony); (3) P3 drát držený za izolující plastovou rukojeť. Doloženo: kov vede/plast ne (s. 13), neutralizace dotykem opačných stejně velkých nábojů (s. 15), vybití záporného tělesa do Země (s. 14). Otázka: ponechat (1)–(3) jako zjednodušení na úrovni ŠVP, nebo je z panelů vyřadit? Do rozhodnutí se W115 nenasazuje. Citace: /tmp/wonderly-workery/w115/ZDROJ-lekce18.md.
 
 ## 📌 Živé zadání, fronta a reference
 

@@ -677,6 +677,11 @@
 			"podvrh": "Kopie komponenty s prodlouženou první oporou a vráceným atributem hidden u .scena, podvržená přes HRA_KOMPONENTA, skončila kódem 1 a test ukázal obě chyby.",
 			"zdravy": "Nad nezměněnou komponentou projde test kódem 0."
 		},
+		"hra-rychlost-draha-cas.mjs": {
+			"test": "testy/hra-rychlost-draha-cas.mjs",
+			"podvrh": "Kopie komponenty se změněnou jednou oporou a jednou správnou odpovědí, podvržená přes HRA_KOMPONENTA, skončila kódem 1 a test ukázal obě chyby.",
+			"zdravy": "Nad nezměněnou komponentou projde test kódem 0."
+		},
 		"uniky-laborek.mjs": {
 			"test": "testy/uniky-laborek-obousmerne.mjs",
 			"podvrh": "Tři skutečné úniky z dnešních kontrol laborek (texty z gitu): tip „Energii nelze vytvořit ani zničit“ × otázka 3 (1e81f77), tip rovinného zrcadla o vlastnostech obrazu × otázky 3 a 4 (fb7a1d4), tip Dlouhých strání × otázka 4 (cfec995) se najdou i v jiném pádu a velkými písmeny; opis otázky v cíli a v kroku (≥ 6 slov) se najde. Brána spuštěná na dočasném souboru s únikem skončí kódem 1.",
