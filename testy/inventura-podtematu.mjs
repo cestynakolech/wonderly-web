@@ -34,7 +34,8 @@ assert.deepEqual(
 		polemika: 'NEJISTÉ',
 		infografika: 'ANO',
 		kvíz: 'ANO',
-		písnička: 'NE',
+		// 24. 10. 2026: píseň „Vůči čemu?“ (pisen-vuci-cemu.m4a) nasazena → ANO; ANO jen z commitnutého stavu
+		písnička: 'ANO',
 		'laboratorní práce': 'ANO',
 	},
 	'Klid a pohyb tělesa se musí shodovat s ručně ověřenou tabulkou',
