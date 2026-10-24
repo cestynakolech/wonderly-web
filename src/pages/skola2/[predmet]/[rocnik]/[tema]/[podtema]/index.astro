@@ -610,6 +610,13 @@ const maPanely = mat.some((m) => m.druh === 'infografika' && (m.panely?.length ?
 			<a class="kviz-tlacitko laborka-odkaz" href="/hry/rychlost-draha-cas">Otevřít hru 🎮</a>
 		</section>
 	)}
+	{klicKvizu === 'fyzika/7-rocnik/pohyb-a-rychlost/priklady-na-vypocet-rychlosti' && (
+		<section class="ramecek laborka-pozvanka" id="hra">
+			<h2><span class="podtrh">🎮 Hra pro třídu</span></h2>
+			<p>Procvičování vzorců, jednotek, grafů a příkladů na rychlost ve třídě, po týmech (stránka je určená učiteli).</p>
+			<a class="kviz-tlacitko laborka-odkaz" href="/hry/priklady-na-vypocet-rychlosti">Otevřít hru 🎮</a>
+		</section>
+	)}
 	{otazky && <Kviz otazky={otazky} />}
 	{(predchozi || dalsi) && (
 		<nav class="sousedni-podtemata">

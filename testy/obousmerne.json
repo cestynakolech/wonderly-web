@@ -682,6 +682,11 @@
 			"podvrh": "Kopie komponenty se změněnou jednou oporou a jednou správnou odpovědí, podvržená přes HRA_KOMPONENTA, skončila kódem 1 a test ukázal obě chyby.",
 			"zdravy": "Nad nezměněnou komponentou projde test kódem 0."
 		},
+		"hra-priklady-na-vypocet-rychlosti.mjs": {
+			"test": "testy/hra-priklady-na-vypocet-rychlosti.mjs",
+			"podvrh": "Kopie komponenty v /tmp/wonderly-workery/podvrh-hra-priklady/ se změněnou první oporou a správnou odpovědí první karty, podvržená přes HRA_KOMPONENTA, skončila kódem 1 a test ukázal obě chyby.",
+			"zdravy": "Nad nezměněnou komponentou projde test kódem 0."
+		},
 		"uniky-laborek.mjs": {
 			"test": "testy/uniky-laborek-obousmerne.mjs",
 			"podvrh": "Tři skutečné úniky z dnešních kontrol laborek (texty z gitu): tip „Energii nelze vytvořit ani zničit“ × otázka 3 (1e81f77), tip rovinného zrcadla o vlastnostech obrazu × otázky 3 a 4 (fb7a1d4), tip Dlouhých strání × otázka 4 (cfec995) se najdou i v jiném pádu a velkými písmeny; opis otázky v cíli a v kroku (≥ 6 slov) se najde. Brána spuštěná na dočasném souboru s únikem skončí kódem 1.",
