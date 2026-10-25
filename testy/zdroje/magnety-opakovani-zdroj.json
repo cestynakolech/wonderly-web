@@ -1,0 +1,17 @@
+[
+  {"id":"k1-zelezo","otazka":"Přitáhne magnet silně železný hřebík?","spravne":"A","zdroj_strana":2,"zdroj_uryvek":"železo a sloučeniny železa (ocel), kobalt, nikl"},
+  {"id":"k1-hlinik","otazka":"Přitáhne magnet silně hliníkovou destičku?","spravne":"B","zdroj_strana":4,"zdroj_uryvek":"kovy - hliník, nerezová ocel, měď, zinek, stříbro, …"},
+  {"id":"k1-magnetit","otazka":"Je magnetit (magnetovec) umělý magnet?","spravne":"B","zdroj_strana":4,"zdroj_uryvek":"přírodní magnety: nerosty s obsahem železa: magnetit (magnetovec)"},
+  {"id":"k1-tuha","otazka":"Může tuha z tužky levitovat nad silnými magnety?","spravne":"A","zdroj_strana":4,"zdroj_uryvek":"tuha z tužky může levitovat nad silnými magnety"},
+  {"id":"k1-reproduktor","otazka":"Využívají se magnety v reproduktorech?","spravne":"A","zdroj_strana":17,"zdroj_uryvek":"reproduktory"},
+  {"id":"k2-okoli","otazka":"Vzniká magnetické pole jen uvnitř magnetu?","spravne":"B","zdroj_strana":7,"zdroj_uryvek":"Vzniká v okolí magnetů"},
+  {"id":"k2-stejne","otazka":"Je pole mezi dvěma stejnými póly nejsilnější?","spravne":"B","zdroj_strana":16,"zdroj_uryvek":"magnety jsou natočeny stejnými (souhlasnými) póly k sobě - mezi magnety je pole nejslabší"},
+  {"id":"k2-rozdel","otazka":"Budou mít obě části rozděleného magnetu znovu oba póly?","spravne":"A","zdroj_strana":6,"zdroj_uryvek":"i když magnet rozdělíme na části, každý nový magnet bude mít opět dva"},
+  {"id":"k2-netecne","otazka":"Přitahuje netečné pásmo magnetu nějaká tělesa?","spravne":"B","zdroj_strana":7,"zdroj_uryvek":"Netečné pásmo nepřitahuje žádná tělesa, ani magnety"},
+  {"id":"k2-blizko","otazka":"Je magnetická síla blízko magnetu větší než daleko od něj?","spravne":"A","zdroj_strana":7,"zdroj_uryvek":"Magnetická síla s rostoucí vzdáleností slábne"},
+  {"id":"k3-piliny","otazka":"Uspořádají se železné piliny nasypané na karton nad magnetem do obrazce?","spravne":"A","zdroj_strana":10,"zdroj_uryvek":"uspořádají ➪ vznikne tzv. pilinový obrazec"},
+  {"id":"k3-otevrene","otazka":"Jsou magnetické indukční čáry otevřené křivky?","spravne":"B","zdroj_strana":13,"zdroj_uryvek":"jsou to uzavřené křivky, které vychází ze severního magnetického pólu"},
+  {"id":"k3-smer","otazka":"Vedou indukční čáry vně magnetu od pólu N k pólu S?","spravne":"A","zdroj_strana":13,"zdroj_uryvek":"směřují k jižnímu magnetickému pólu (S)"},
+  {"id":"k3-zeme-ochrana","otazka":"Chrání magnetické pole Země před slunečním větrem?","spravne":"A","zdroj_strana":19,"zdroj_uryvek":"Magnetické pole Země nás chrání před slunečním větrem a kosmickým zářením"},
+  {"id":"k3-zeme-sever","otazka":"Leží na severním zeměpisném pólu Země severní magnetický pól?","spravne":"B","zdroj_strana":18,"zdroj_uryvek":"na severním zeměpisném pólu Země je jižní magnetický pól"}
+]

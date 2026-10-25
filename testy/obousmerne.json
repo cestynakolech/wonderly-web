@@ -682,6 +682,11 @@
 			"podvrh": "Kopie komponenty se změněnou jednou oporou a jednou správnou odpovědí, podvržená přes HRA_KOMPONENTA, skončila kódem 1 a test ukázal obě chyby.",
 			"zdravy": "Nad nezměněnou komponentou projde test kódem 0."
 		},
+		"hra-magnety-magneticke-pole-opakovani.mjs": {
+			"test": "testy/hra-magnety-magneticke-pole-opakovani.mjs",
+			"podvrh": "Kopie komponenty v /tmp/codex-hry/magnety-magneticke-pole-opakovani/podvrh/ se změněnou první oporou a správnou odpovědí první karty, podvržená přes HRA_KOMPONENTA, skončila kódem 1 a test ukázal obě chyby.",
+			"zdravy": "Nad nezměněnou komponentou projde test kódem 0."
+		},
 		"hra-vykon.mjs": {
 			"test": "testy/hra-vykon.mjs",
 			"podvrh": "Kopie komponenty v /tmp/codex-hry/vykon/podvrh/ se změněnou první oporou a správnou odpovědí první karty, podvržená přes HRA_KOMPONENTA, skončila kódem 1 a test ukázal obě chyby.",
