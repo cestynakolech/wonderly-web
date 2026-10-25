@@ -1,24 +1,16 @@
-## ⚡ ČÍM ZAČÍT — aktualizováno 18. 10. 2026 (audit)
+## ⚡ ČÍM ZAČÍT — aktualizováno 25. 10. 2026 (audit)
 
-- **Předávka:** nejnovější `Omega/predavka/*/PRIKAZ-NOVA-SESSION*.md`; před každou úlohou curl inventura živého webu ([[feedback-zivy-web-pred-vyberem]]). Starší odkazy na předávky 6./13./14. 10. → PROGRESS-ARCHIV.md § „Přesunuto ze SAMOSTATNY-REZIM 18. 10. 2026“.
+- **Předávka:** nejnovější `Omega/predavka/*/PRIKAZ-NOVA-SESSION*.md` (`ls -t`; k 25. 10. 2026 `2026-10-20/PRIKAZ-NOVA-SESSION-6.md`); před každou úlohou curl inventura živého webu ([[feedback-zivy-web-pred-vyberem]]). Starší odkazy na předávky 6./13./14. 10. → PROGRESS-ARCHIV.md § „Přesunuto ze SAMOSTATNY-REZIM.md — audit 18. 10. 2026“.
 
-- **WONDERLY AUDIT 18. 10. 2026:** opravy A (dokumentace), B (pravidla, test vrátného rc=0), C (třídy chyb) hotovy, nezcommitováno — `Omega/predavka/2026-10-18/OPRAVA-*.md`. Startovní čtení 107 952 → viz PROGRESS Historie. Fronta 📌: opravit `revize_automatu.py` (falešně hlásí 17× „POZASTAVENO, ale běží“ — launchctl to nepotvrdil).
+- **Audity:** 18. 10. — opravy A/B/C commitnuty (fa997f8, 591d3e4), `Omega/predavka/2026-10-18/OPRAVA-*.md`. 25. 10. — zprávy kontrolorů a opravy `Omega/predavka/2026-10-25/audit/`; velké nálezy ve frontě § 🆕 Velké nálezy auditu 25. 10. 2026.
 
-- **Codex:** rozdělení `Omega/koordinace/ROZDELENI.md`, kontext `CODEX-KONTEXT-WEBU.md`; Jev — souhlas učitele 30. 9. s podmínkou; mini GPU funkční. **Noční fronta:** animace + podkasty zapnuty 30. 9.
-
+- **Codex:** rozdělení `Omega/koordinace/ROZDELENI.md`, kontext `CODEX-KONTEXT-WEBU.md`; Jev — souhlas učitele 30. 9. s podmínkou; mini GPU funkční. Noční fronta: stav vede `Omega/AUTOMATY.md`.
 
 📌 Pořadí (učitel 29. 9. 2026): téma po tématu napříč 7./8./9. ročníkem — 1. téma všech tří kompletně (úvod, výklad, zápis, obrázky, kvíz, písnička, video), pak 2. téma…; 6. ročník až po nich.
-
-🟡 VRÁTNÝ orchestrator-guard.sh: ř.65 bere basename+lowercase → projde /tmp/x/GIT;
-ř.79 rm s ORCHESTRATOR_ON propustí i další cíle (rm -rf X ~/.claude/ORCHESTRATOR_ON
-→ ALLOW). orchestrator-prompt.md:48–56 rozpor s _SPOLECNE.md § Izolace jen
-popsán, ne odstraněn (jeden platný návod) + zalomená cesta.
-
 
 ## ❓ Otevřené dotazy na učitele (jediná sekce, oprava V8-6, 27. 9. 2026)
 
 - **18. 10. — `cz.wonderly.dodelej-animace`** je znovu načten (exit 1): nechat, nebo vypnout kvůli duplicitě s noční frontou?
-
 
 - **14. 10. 2026 (dávka 10) — dotazy:** (a) výklad podtématu alternativni-motory: věta „všechny čtyři doby probíhají současně“ nesedí na 3 komory Wankelova motoru (`Omega/predavka/2026-10-14/W38-kontrola3.md`) — upravit výklad? (b) infografika chemicke-zdroje-napeti je hotová, čeká na rozhodnutí o podtématu; (c) animace W26 (priklady-na-vypocet-rychlosti-dialog, posuvny-otacivy-pohyb-dialog2) ODLOŽENO po 4 pokusech — dokončit po renderu s meridlo_deje.
 
@@ -55,18 +47,16 @@ popsán, ne odstraněn (jeden platný návod) + zalomená cesta.
   se, co učiteli vypíše `https://wonderly.cz`. Pozn. 27. 9. 2026: rozhodovací tabulka,
   na kterou odkazoval starý `KE-SCHVALENI.md`, v něm už nebyla (soubor archivován) —
   potřeba znovu sestavit, pokud otázka stále trvá.
-- [skola2] **5 otevřených bodů z fyzikálních podkladů** (přeneseno z archivovaného
-  `KE-SCHVALENI.md`, 27. 9. 2026 — plné znění `wonderly-web/docs/archiv/KE-SCHVALENI.md`):
-  1) Účinnost (η = P : P₀) — na webu chybí, přidat jako nové podtéma/nadstavbu k `vykon`,
-     nebo nechat mimo? 3) PDF „Od_výbuchu_k_pohybu_Svět_motorů" navíc obsahuje Wankelův
-     motor, proudový/raketový motor a alternativní pohony (LPG/CNG, hybridy, elektromobily,
-     vodík) mimo rozsah `spalovaci-motory` — nové podtéma? 10) Podtémata „Kladka" a
-     „Nakloněná rovina" (F7, `jednoduche-stroje`) nemají zdrojový podklad ve Škole —
-     dodat podklad, nebo ponechat beze změny? 14) Práh proudu u „Účinky proudu, bezpečnost":
-     web „2–5 mA" vs. PDF „1–8 mA" (PDF rozsah by se překrýval se sousedními prahy
-     0,5–1 a 6–15 mA) — který platí? 15) Podtémata jaderné fyziky (F9, budoucí 5. celek:
-     radioaktivita, jaderná energie, jaderný reaktor) nemají zdrojový podklad — dodat,
-     nebo přestavět beze srovnání?
+- [skola2] **3 otevřené body z fyzikálních podkladů** (přeneseno z archivovaného
+  `KE-SCHVALENI.md`, 27. 9. 2026 — plné znění `wonderly-web/docs/archiv/KE-SCHVALENI.md`;
+  body 1) Účinnost a 3) Wankel/alternativní pohony jsou vyřízeny — podtémata `ucinnost`
+  a `alternativni-motory` existují v `temata.ts`, ověřeno 25. 10. 2026):
+  10) Podtémata „Kladka" a „Nakloněná rovina" (F7, `jednoduche-stroje`) nemají zdrojový
+  podklad ve Škole — dodat podklad, nebo ponechat beze změny? 14) Práh proudu u „Účinky
+  proudu, bezpečnost": web „2–5 mA" vs. PDF „1–8 mA" (PDF rozsah by se překrýval se
+  sousedními prahy 0,5–1 a 6–15 mA) — který platí? 15) Podtémata jaderné fyziky (F9,
+  budoucí 5. celek: radioaktivita, jaderná energie, jaderný reaktor) nemají zdrojový
+  podklad — dodat, nebo přestavět beze srovnání?
 - [skola2] F9 `chemicke-zdroje-napeti` — citronová baterie, palivový článek, polarita
   anody při nabíjení, „dva stejné kovy" nejsou v PDF (možná v prezentaci) — ponechat
   ve výkladu/kvízu, nebo vyřadit? (Kvíz `kvarky` vyřízen 13. 10. 2026: výjimka 14 otázek zapsána v OBSAH-PRAVIDLA kap. 4.)
@@ -83,16 +73,11 @@ popsán, ne odstraněn (jeden platný návod) + zalomená cesta.
   Zásah do LaunchAgentů.
 - [Omega] **Neplatné XML v `com.omega.zaloha-skola.plist` (K1-10)** — komentář s „--"
   uvnitř dělá `plistlib` slepým k automatu; oprava je editace plistu.
-- [skola2] **Hermes — sjednocení návodů** (audit z noci 29. 7.):
-  `Omega/dokumenty/HERMES-audit-navodu-2026-07-29.md` — Hermes JE nainstalovaný
-  (~/.hermes), návody z 11. 6. a pasáž v OFFLINE-REZIM.md zastaraly. Návrh: jeden
-  HERMES-NAVOD.md + pokyn v ~/.hermes/SOUL.md „čti CLAUDE.md/PROGRESS.md".
 - [skola2] **Automatický restart samostatného režimu po obnově tokenů:** šlo by
   naplánovanou úlohou (cron v danou hodinu spustí novou session). Nová trvalá
   konfigurace → jen se souhlasem.
 - [skola2] 22 kandidátů na zkrácení pravidel čeká na výběr učitele v
   `Omega/dokumenty/PRAVIDLA-AUDIT-2026-09-21.md`.
-- [Omega] **U16 znovu otevřeno (audit 18. 10. 2026):** `MEMORY.md` (Škola) má 138 ř. / 21 250 B > cíl 20 000 B — zhustit. Historie U1–U16/V18 → PROGRESS-ARCHIV.md.
 - [skola2] Denní rutina `pravidla-dluh-denne` založena, ale cron `30 7 * * 1-6`
   čeká na zaregistrování přes `/schedule` učitelem.
 - [cesty] **Smazat zbloudilé kopie v R2** na chybném klíči (2 soubory,
@@ -101,16 +86,16 @@ popsán, ne odstraněn (jeden platný návod) + zalomená cesta.
 - [cesty] **9 videí „k rozhodnutí"** — `Cestovatelský deník/KE-SCHVALENI.md`.
 - [cesty] **Rozmazávání SPZ** — návrh učitele 6. 8. posouzen (referenční fotky
   neřeší detekci), navržené řešení čeká na pokyn: nejdřív změřit dnešní stav na
-  zkušební sadě značek, pak přidat kontext auta. Plná analýza v sekci
-  „🚗 Nápad učitele 6. 8." níže.
+zkušební sadě značek, pak přidat kontext auta. Plná analýza: PROGRESS-ARCHIV.md
+  § „🚗 Nápad učitele 6. 8.“.
 - [skola2] Odkazy F9 `chemicke-zdroje-napeti` 4× doslova stejné jako u F8 stejného
   slugu (v „📥 Nálezy z historie" níže) — vada, nebo záměr?
 - [cesty] **Referenční tváře 2021** — z kandidátů vybrat a POTVRDIT (přidání tváře
   = ta osoba se přestane rozmazávat, potvrzuje vždy učitel).
 - [cesty] Videa, která dostala hudbu až po nahrání na YouTube — nahrát znovu a
   stará skrýt? (YouTube neumí vyměnit soubor.)
-- [skola2] Rozhodovací tabulky z 29. 7. (v „Přestěhováno z FRONTA-UKOLU.md" níže):
-  laboratorní práce (12 bodů), nové simulace (10), UX školy (8).
+- [skola2] Rozhodovací tabulky z 29. 7. (laboratorní práce 12 bodů, nové simulace 10,
+  UX školy 8) — samotné tabulky nedohledány, PROGRESS-ARCHIV.md § S13 má jen počty.
 - [cesty] Rozhodovací tabulka z 29. 7.: mapa+poutavost deníku (14 bodů).
 - [skola2] Odkaz na video „Teplota a její měření – Fyzika 6" chybí v soupisu kanálu —
   doplnit, nebo ověřit, že video vůbec existuje?
@@ -124,9 +109,8 @@ popsán, ne odstraněn (jeden platný návod) + zalomená cesta.
   deterministicky (regex „?" na konci řádku / klíčová slova „čeká na rozhodnutí",
   „ROZHODNOUT MUSÍ UČITEL" mimo tuto sekci) a hlásit, ne přesouvat samo.
 - [cesty] **Hudba pod videa podkástů ze Suno** (návrh učitele 16. 8., předplatné Pro) —
-  potvrdit rozsah: znělka, nebo podkres celého dílu? Jednotná znělka pro celou sérii,
-  nebo jiná ke každému dílu? Realizace čeká na učitele u počítače (přihlášení do Suno
-  účtu). Plné znění v „Přestěhováno z FRONTA-UKOLU.md" níže.
+  potvrdit rozsah: znělka, nebo podkres celého dílu? jednotná, nebo ke každému dílu?
+  Čeká na učitele u počítače (přihlášení do Suno). Plné znění: PROGRESS-ARCHIV.md § S13.
 - [skola2] **Fahrenheit — formulace** (díl 8 `teplota-a-jeji-mereni`): „v anglicky
   mluvících zemích" místo přesnějšího „hlavně v USA" — přeformulovat?
 - [skola2] **Klementinum — rok rekordu** (díl 8): zmíněn jen rok 1775 (začátek
@@ -140,35 +124,20 @@ popsán, ne odstraněn (jeden platný návod) + zalomená cesta.
 
 - **FRONTA (rozhodnutí učitele 4. 10. 2026, plán do hotového webu):** (1) nové video NotebookLM Tání 3–4 min s opravami (Cín, led plave, J/kg, sůl, délka). (2) Teplota Slunce na 4 500 °C podle PDF. (3) Zápisy do sešitu (pár řádků dle OBSAH-PRAVIDLA § zápis): 7, 8, 9 dokončit, pak 6. ročník (31 podtémat, zápisy chybí). (4) Po hotovém webu KVÍZY S OBRÁZKY, po tématech napříč 7/8/9 (téma 1 v 7., 8., 9., pak téma 2 …), nakonec 6. ročník. Pracovat samostatně.
 - **DROBNOST (kontrola-6e46c77.md):** šipka 5 N v TreniSimulace na telefonu neviditelná, legenda ji slibuje.
-- **DROBNOST (kontrola-uniky-paralel-rovina.md):** paralel: 3 starší nepřímé vazby 19→13, 10→2, 9→1.
 - **DROBNOST (opravy-simulaci-kolo4.md):** SilaVektor: chybí legenda pro 3 malé popisky.
 - **FRONTA:** do zadání agentů přidat zákaz `git stash` ve sdíleném repu (`Omega/predavka/2026-10-03/zapis-kviz-rychlost.md`).
 - **NotebookLM bonusová videa a Suno písničky zadávat po tématech (1–4); nejdřív inventura existujících** (inventura 2. 10. 2026: `Omega/predavka/2026-10-02/inventura-notebooklm.md`).
-- **Nevyřešené DROBNÉ/ODLOŽENO z 30. 9.–2. 10. 2026** (kontroly k3/k4/k6/k7, téma 1 a 2, ZVUK/PŘERUŠENO/DIAGNÓZA, „Fronta téma 3/4“, ODLOŽENO (a)–(f)): přesunuto auditem 11. 10. 2026 do SAMOSTATNY-REZIM-ARCHIV.md, plné znění s cestami k protokolům tam.
-> Uzavřená kola a historie jsou v `SAMOSTATNY-REZIM-ARCHIV.md` (přesun 6. 8. 2026,
-> nález auditu: 2 379 řádků četla každá session). Sem patří JEN živé věci;
-> hotová kola se na konci session stěhují do archivu.
 
-> **Stačí napsat `WONDERLY`.** Znamená to: vezmi první nehotový úkol z fronty níž
-> a pracuj samostatně (kontrolor, kotvy, obousměrné ověření, build, push).
-> Fronta je JEN tady — ve skillu se o pořadí práce nerozhoduje (viz `~/.claude/skills/wonderly/START.md`).
-
-> **wonderly je JEDEN web, tři sekce — fronta je SPOLEČNÁ pro všechny.** Každá
-> položka fronty nese na začátku značku sekce: `[fox]` = web pro 1. stupeň,
-> `[skola2]` = lab.wonderly.cz (2. stupeň, tenhle repo — dosud jediný obsah fronty),
-> `[cesty]` = cestovatelský deník. Bez značky se nezakládá nová položka.
+> **`WONDERLY` = první nehotový úkol z fronty níž, pracuj samostatně** (kontrolor, kotvy,
+> obousměrné ověření, build, push). Fronta je JEN tady; pořadí práce se ve skillu nerozhoduje
+> (`~/.claude/skills/wonderly/START.md`). **wonderly je JEDEN web, tři sekce — fronta je
+> SPOLEČNÁ.** Každá položka nese na začátku značku sekce: `[fox]` = web pro 1. stupeň,
+> `[skola2]` = lab.wonderly.cz (2. stupeň, tenhle repo), `[cesty]` = cestovatelský deník.
+> Bez značky se nezakládá nová položka.
 
 ### 🔴 PRIORITA — přestavba obsahu fyziky (zadáno 21. 9. 2026)
 
-Pravidla přestavby: `OBSAH-PRAVIDLA.md` kap. 3, 12–14; pořadí „téma po tématu napříč 7./8./9.“ viz 📌 Pořadí v ⚡ nahoře. Původní bloky A–E a definice „hotového tématu“ → PROGRESS-ARCHIV.md. **NIC SE NEMAŽE.**
-
-> ⤵️ Podrobný průběh 21.–22. 9. (PŘEDÁNÍ, sladění kvízů, past souběžného zápisu
-> `temata.ts`×`kvizy.ts`, mezery bran) přesunut do
-> [SAMOSTATNY-REZIM-ARCHIV.md](SAMOSTATNY-REZIM-ARCHIV.md) — audit 27. 9. 2026 (K3-Z9+K3-Z10).
-> Trvalá pravidla, která z toho zůstávají: brány běží nad celým repem — souběžné zápisy do
-> `temata.ts`/`kvizy.ts` se musí dokončovat po jednom; `cisla-ve-vykladu.mjs` přeskakuje
-> otázky s číslem v zadání; `uniky.mjs` porovnává jen uvnitř bloku, ne mezi blocky ani
-> přes skloňování; curl ověřovat s User-Agent i cache-busterem (`?cb=`).
+Pravidla přestavby: `OBSAH-PRAVIDLA.md` kap. 3, 12–14; pořadí „téma po tématu napříč 7./8./9.“ viz 📌 Pořadí v ⚡ nahoře. Definice „hotového tématu“ → SAMOSTATNY-REZIM-ARCHIV.md (grep „definice hotového“); původní bloky A–E v archivech NEDOLOŽENY (grep 25. 10. 2026: 0 výskytů) — hledat v `git log -S`. **NIC SE NEMAŽE.**
 
 ### 🆕 Znovu zařazeno do fronty (audit 27. 9. 2026, 2. kolo — kontrolor V4-2)
 
@@ -184,32 +153,14 @@ Systematický průchod archivu po nálezu, že se smazáním duplicit ztratily i
   úniky/duplicity MEZI bloky (např. páky × kladka) — doplnit.
 - [skola2] Ověřit odkazy u F7/F9 celků 1–5 (38 podtémat) — při sladění kvízů 22. 9.
   bylo „nezjišťováno".
-- [skola2] Podtémata bez názornosti (ověřeno `node testy/nazornost.mjs` 27. 9.: fyzika
-  7 z 120 — vše pololetní/roční shrnutí; informatika 15 z 47; prac. činnosti 1 z 3) —
-  otevřená otázka o osudu shrnutí je v sekci „❓ Otevřené dotazy na učitele" nahoře.
-- [skola2] 22 kandidátů na zkrácení pravidel a registrace cronu `pravidla-dluh-denne` —
-  přesunuto do sekce „❓ Otevřené dotazy na učitele" nahoře (V9-2, 27. 9. 2026).
 - [skola2] Kosmetika: blok `tepelna-vymena-a-teplo` má zápis „4200", sjednocení na
   „4 200" spouští bránu `uniky.mjs` (substring) — ponecháno, čeká na opravu měřidla
   nebo formátu.
-- [skola2] Terminologie vaty: staré názvy „VZOR 1"/„VZOR 2" (22.–24. 9., desítky
-  bloků) byly kalibrací 25. 9. přejmenovány/sloučeny na kvantifikátor / kategorické
-  slovo / tázací slovo / polarita — zbývající práce (VZOR 3 kategorické slovo,
-  VZOR 5 tázací slovo, viz sekce „26. 9. v noci" výše) se vede pod NOVÝMI názvy,
-  staré počty bloků (37/32 aj.) už neplatí a neopisují se.
+- [skola2] Terminologie vaty: staré názvy „VZOR 1"/„VZOR 2" přejmenovány kalibrací 25. 9. na kvantifikátor / kategorické slovo / tázací slovo / polarita; zbývající práce (kategorické slovo, tázací slovo) se vede pod novými názvy (SAMOSTATNY-REZIM-ARCHIV.md, grep „kategorické slovo“), staré počty bloků neplatí.
 
 ### 🆕 Znovu zařazeno do fronty (audit 27. 9. 2026, 3. kolo — kontrolor V6)
 
-- [skola2] **DALŠÍ KROK 22. 9. — chybějící složky prvního tématu napříč ročníky**
-  (nález z `INVENTURA-TEMAT.md`, `OBSAH-PRAVIDLA.md` kap. 12): F7 `pohyb-a-rychlost`
-  (4 podtémata) — chybí odkazy, video s animací, interaktivní infografika a hra u
-  všech 4, laborka navíc u 2 (posuvny-otacivy-pohyb, priklady-na-vypocet-rychlosti);
-  F8 `mechanicka-prace-a-vykon` (2 podtémata) — chybí video s animací, infografika
-  a hra u obou, laborka u `mechanicka-prace`; F9 `magneticke-pole` (3 podtémata) —
-  chybí video s animací, infografika, laborka a hra u všech 3. **STAV NEOVĚŘEN
-  ZNOVU** (zápis je z 22. 9., od té doby proběhla přestavba dalších celků i
-  podkasty) — než se bere jako úkol, přeměřit `node testy/nazornost.mjs` a
-  obsah `odkazy`/`materialy` u těchto 9 podtémat.
+- [skola2] Chybějící složky prvního tématu napříč ročníky (zápis z 22. 9. zastaral, `INVENTURA-TEMAT.md`, `OBSAH-PRAVIDLA.md` kap. 12): F7 `pohyb-a-rychlost`, F8 `mechanicka-prace-a-vykon`, F9 `magneticke-pole` — před úlohou přeměřit živým webem a `node inventura-podtematu.mjs`; původní znění s výčtem → SAMOSTATNY-REZIM-ARCHIV.md (audit 25. 10. 2026).
 - [Omega] K1-3: nedatovaný pád automatu v logu vypadá navěky čerstvý — `revize_automatu.py`
   má posuzovat stáří podle mtime souboru logu (`CHYBA_HORIZONT_DNU`), ne jen podle
   pozice v posledních 15 řádcích.
@@ -245,12 +196,7 @@ Systematický průchod archivu po nálezu, že se smazáním duplicit ztratily i
   aby se na deník ve frontě nezapomnělo.
 - [cesty] Doplnění cest z minulých let. Rozsah zadá učitel — zatím jen založeno,
   aby se na deník ve frontě nezapomnělo.
-- [příprava] Revidovat tabulku směrování modelů v `.claude/orchestrator-prompt.md`
-  směrem k lokálním modelům tam, kde to obstojí — PŘEFORMULOVÁNO 27. 9. 2026
-  (V4-8): „podle prvního měření" mířilo na zrušený úkol s Hermesem výše, dnes se
-  žádné takové měření nechystá; místo toho se řídit přímým srovnáním vision
-  (položka níže) a běžnou zkušeností z `ollama-log.md`. Výchozí tabulka je
-  zapsaná (15. 8. 2026).
+- [příprava] Revidovat tabulku směrování modelů v `.claude/orchestrator-prompt.md` směrem k lokálním modelům tam, kde to obstojí — řídit se přímým srovnáním vision (položka níže) a zkušeností z `ollama-log.md` (přeformulováno 27. 9., V4-8; výchozí tabulka zapsána 15. 8. 2026).
 - [příprava] Přímé srovnání vision: ThinkingCap vs qwen3.8:27b-mlx na jedné dávce
   ~10 map/fotek deníku (stejné obrázky, stejná otázka, `mapa_projde_kontrolou`);
   vítěz nahradí model v automatech. Zadáno 21. 9. 2026.
@@ -286,8 +232,6 @@ Systematický průchod archivu po nálezu, že se smazáním duplicit ztratily i
 - [skola2] Sloučit sandbox testů simulací — 23 kopií prologu (19 rozešlých
   variant, 767 řádků) do sdíleného `testy/sandbox-simulace.mjs` (do kořene
   testy/, NE do simulace/); postup po rodinách s mutací před/po každou.
-- [skola2] Odkazy F9 `chemicke-zdroje-napeti` 4× doslova stejné jako u F8 →
-  ❓ (viz sekce „❓ Otevřené dotazy na učitele" nahoře, V9-5).
 - [skola2] **Brána pro nové simulace** (nález nedělního auditu 20.–23. 9. 2026).
   Do `zkontroluj.mjs` chybí kontrola, která by u KAŽDÉ nové komponenty
   `*Simulace` vynutila vlastní test s aspoň jednou netautologickou asercí. Dnes
@@ -312,14 +256,9 @@ Systematický průchod archivu po nálezu, že se smazáním duplicit ztratily i
   (návrh `os.kill(1, 0)`); (D3) počítadlo `smazano` (`snimky_podkastu.py:7323-7324`)
   roste i po neúspěšném `rmtree(ignore_errors=True)`.
 
-> ⤵️ Starší blok (od původního řádku 235) je v [SAMOSTATNY-REZIM-ARCHIV.md](SAMOSTATNY-REZIM-ARCHIV.md) — beze změny, jen se nečte automaticky.
-
-> ⤵️ Otevřené dotazy na učitele jsou JEN v sekci „❓ Otevřené dotazy na učitele" na začátku souboru (V8-6, 27. 9. 2026) — sem se nezakládají nové.
-
 ## 🧰 POSTUP PRÁCE S KVÍZY (referenční zápis, ne úkol)
 
 Domov: `OBSAH-PRAVIDLA.md` kap. 4 (vč. „chudého podtématu“); nástroje `node testy/vypis-kviz.mjs <blok>`, `node testy/delky.mjs <blok> --odpovedi`. Původní znění a pozn. 1. 8. → PROGRESS-ARCHIV.md.
-
 
 ## Fronta nápadů (seřazeno podle priority)
 
@@ -349,12 +288,9 @@ Domov: `OBSAH-PRAVIDLA.md` kap. 4 (vč. „chudého podtématu“); nástroje `n
 - Úniky paralel (vysvětlení č. 13, 18, 19) a nakloněná rovina (vysvětlení č. 2, 12, 19) — `kontrola-vady-d1-d6.md`.
 - SVG N7 mřížka uhlíku `vnitrni-energie-obr-01` (věcná chyba); N6 bublina `pohybova-03` (`kontrola-5a9952f.md`, `kontrola-de827ed.md`).
 - SilaVektor: bílý text „bedna“, kontrast 3,6.
-- Reostat `kvizy.ts:4618`: distraktor = odpověď potenciometru.
 - `uniky.mjs:906` mlčí při cestě se symlinkem nebo diakritikou.
 - Test uniky-v-bloku nechytí 3 mutace (`kontrola-f261481.md`).
-- Práh uniky-v-bloku u tříslovných odpovědí.
 - Hlídač session nepozná agenta čekajícího na dotaz (6 h stání 3. 10.).
-- Homebrew whisper rozbitý (`oprava-whisper.md`).
 - ODLOŽENO: 18 zbylých nálezů uniky-v-bloku (hraniční/sporné).
 
 ### [drobnost] Zbytky po dnešní práci (3. 10. 2026)
@@ -363,7 +299,7 @@ Domov: `OBSAH-PRAVIDLA.md` kap. 4 (vč. „chudého podtématu“); nástroje `n
 - Zápisový skript vaty nenajde 26 bloků „shrnuti“.
 - 10 zamítnutých návrhů vaty z dávky 1 (k přepracování).
 - Další dávka vaty (20 položek) čeká na schválení učitele.
-- paralel: vazby 19→13 a 9→1 zůstávají, dva návrhy zamítnuty pro nové úniky 18→19 a 9→8 (kontrola-uniky-paralel-vazby.md); otázky se míchají, pořadí nechrání
+- paralel: vazby 19→13 a 9→1 (+10→2, `kontrola-uniky-paralel-rovina.md`) zůstávají, dva návrhy zamítnuty pro nové úniky 18→19 a 9→8 (kontrola-uniky-paralel-vazby.md); otázky se míchají, pořadí nechrání
 
 ### [drobnost] Dočasný profil Chromu zůstane v tmp po TERM/KILL (1. 10. 2026, kontrola stash F9, nález A)
 
@@ -396,42 +332,17 @@ obsah. Nejde o chybu blokující práci, jen prošetřit a případně soubor ro
 
 ### [skola2] ⛔ NESAHAT — UČITEL ROZHODNE SÁM — odpor lidské kůže (zjištěno 25. 9. 2026)
 
-→ ❓ (otázka „která verze PDF platí" je i v sekci „❓ Otevřené dotazy na učitele" výše,
-V12-1, 27. 9. 2026) — **zákaz NESAHAT platí dál, beze změny, viz níže.**
-
 **⛔ NESAHAT — UČITEL ROZHODNE SÁM** (řekl 25. 9. 2026: „ta čísla odporu kůže na webu
 nedávej, počkej na mě"). Čísla na webu NECHAT PŘESNĚ TAK, JAK JSOU, nic nepřepisovat,
 nedoplňovat ani nemazat — ani podle PDF, ani podle jiného zdroje. Platí pro `temata.ts`
 (F8 ~2713, F9 ~3062–3063) i `kvizy.ts` (~4344–4361, ~4713–4723).
 
-*(Zdůvodnění: PDF učitele „Účinky proudu na lidský organismus“ si v číslech odporu kůže odporuje; web uvádí sucho ~150 000 Ω, vlhko ~2 000 Ω. Plné znění → PROGRESS-ARCHIV.md. Otázka je v ❓.)*
-
-
-### [skola2] 🔒 Rohatka bez klíče tiše projde (zadáno 19. 8. 2026)
-
-Brána `zkontroluj.mjs` čte stropy rohatek z `testy/rohatka.json` vzorem `?? Infinity`.
-Když klíč v souboru chybí (překlep, ruční editace, poškozený nebo špatně slitý soubor),
-strop se stane nekonečnem a měřidlo **mlčky projde** místo aby build shodilo — zmizí
-celá kontrola a nikdo si toho nevšimne, protože build je zelený. Netýká se jen dnes
-zavedeného klíče `pocetNaskok10`, ale VŠECH stropů v souboru, například `pocetNejdelsi`.
-Řešení: chybějící klíč má být tvrdá chyba (build spadne s hláškou, který klíč chybí),
-ne tiché Infinity — nové rohatky se pak musí zakládat vědomě, ne vzniknout nedopatřením.
-Doloženo: nezávislý kontrolor 19. 8. 2026 při kontrole prahu délkové nápovědy — po
-odstranění klíče brána skončila exit 0.
-
-### [skola2] 🚴 Appka /tour — automatické přepínání mezi velkými závody (zadáno 4. 8. 2026)
-
-Návrh přesunut do PROGRESS-ARCHIV.md; paměť [[projekt-appka-tour-zavodnici]].
+*(Zdůvodnění: PDF učitele „Účinky proudu na lidský organismus“ si v číslech odporu kůže odporuje; web uvádí sucho ~150 000 Ω, vlhko ~2 000 Ω. Plné znění → PROGRESS-ARCHIV.md § S12.)*
 
 ### Přestěhováno z FRONTA-UKOLU.md (6. 8. 2026 — sloučení dvou front, nález auditu)
 
 Škola (web):
-- [skola2] Zpřesnit brány kvízové kontroly: `zkontroluj.mjs` bod 6d má
-  `const MALE = 12` a přeskakuje tak i menší desetinná čísla (past: 1,29 vs.
-  1,23 kg/m³ neodhaleno) — snížit práh nebo přidat kontrolu desetinných čísel;
-  do `zkontroluj.mjs` přidat měření náskoku délky správné odpovědi ≥10 znaků
-  (`uniky.mjs` délkovou nápovědu nehlídá vůbec, hlásil 0 tam, kde bylo 5 úniků
-  v 8 blocích). Zadáno 22. 9. 2026 noc při sladění kvízů 24 podtémat.
+- [skola2] Zpřesnit brány kvízové kontroly: `testy/cisla-ve-vykladu.mjs:25` má `const MALE = 12` a přeskakuje tak i menší desetinná čísla (past: 1,29 vs. 1,23 kg/m³ neodhaleno) — snížit práh nebo přidat kontrolu desetinných čísel. Zadáno 22. 9. 2026 noc při sladění kvízů 24 podtémat. (Část „měření náskoku ≥10 znaků“ HOTOVO: `zkontroluj.mjs:218` `pocetNaskok10`, `rohatka.json`.)
 - [skola2] `zkontroluj.mjs`: počítadlo otázek (`^\s*text:\s*'`) nepočítá starší jednořádkový
   zápis kvízů — jen kosmetika výpisu, opravit regex (nález 28. 7. u F8 tepelná výměna).
 - [skola2] Simulace „Změř to rukou, nebo teploměrem?" (tři kádinky) — F6 teplota.
@@ -474,20 +385,25 @@ Organizace:
 - [cesty] **`MISTA.xlsx` otevřený v Excelu** ukazuje starou kopii — zavřít bez ukládání
   (akce pro učitele, ne pro automat).
 
-### [cesty] 🚗 Nápad učitele 6. 8. — zlepšit rozmazávání SPZ (čeká na pokyn)
-
-Otázka je v ❓ nahoře; rozbor → PROGRESS-ARCHIV.md.
-
 ### 🆕 Velké nálezy auditu 18. 10. 2026 (1 řádek = 1 úkol; podrobnosti v `Omega/predavka/2026-10-18/`)
-- [Omega] K2-V1 (`AUDIT-K2-kod-vs-pravidla.md`): `test_povoleni_hook.py` rc=1 (9 selhání po přesunu do /Users/Shared 14. 10.; realpath pracovních míst, žurnál píše `/Users/Shared/Omega/…`) — sjednotit realpath ve vrátném + očekávání testu; `PRAVIDLA.md:593` „0 neshod“ je do opravy nepravda.
-- [Omega] K2-V2 (`AUDIT-K2-…`): `cz.wonderly.dodelej-animace` je znovu načten (exit 1), rozhodnutí učitele (vypnout kvůli duplicitě s noční frontou?) není v ❓ — zapsat tam.
 - [skola2] K1-T1 (`AUDIT-K1-tridy-chyb.md`): skript `obr_animovane.mjs <url>` (seznam animovaných obr-*), jeho výstup povinná příloha zadání panelu i kontroly (zdvojení panelu s animací se vrátilo 3× i po návodu).
 - [skola2] K1-T2/T9 (`AUDIT-K1-…`): sdílený automat snímků panelu (vzorkování cyklu po 250 ms) do `testy/nastroje/` + vision ANO/NE předkontrola (předměty bez opory, text předbíhá děj).
 - [skola2] K1-T3 (`AUDIT-K1-…`): měřidlo šipek sil (`data-sila`/`data-meritko`: délka a dotyk šipky s tělesem).
 - [skola2] K1-T4 (`AUDIT-K1-…`): render panelů s `prefers-reduced-motion` do PNG + vision ANO/NE; do PANELY-NAVOD doplnit bod o klidovém stavu.
 - [skola2] K1-T6 (`AUDIT-K1-…`): kontrast v produkci (169 textů pod 4,5; měřidlo `kontrast_textu_svg.py` není v bráně a nečte `<style>` fill) — zapojit do `npm test`/kontroly commitu.
 - [Omega] K1-T12 (`AUDIT-K1-…`): nálezy kontrol se nezapisují do `DENIK-CHYB.md` (144 protokolů → 0 obsahových záznamů) — skript z `predavka/*/*kontrola*.md`; zjistit, proč revize automatů nezapisuje od 11. 10.
-- [Omega] K3 (`AUDIT-K3-dokumentace.md`): doplnit řádek 18. 10. do `Omega/METRIKY-KOL.md` (startovní čtení po zkrácení změřit).
+- [Omega] K3 (`AUDIT-K3-dokumentace.md`): doplnit řádky 18. a 25. 10. do `Omega/METRIKY-KOL.md` (startovní čtení 18. 10.: 76 052 B; po auditu 25. 10. = 75124 B (před 80 298)).
+
+### 🆕 Velké nálezy auditu 25. 10. 2026 (1 řádek = 1 úkol; zprávy v `Omega/predavka/2026-10-25/audit/`)
+- [Omega] VRÁTNÝ `orchestrator-guard.sh` (přesunuto z ⚡): ř.65 bere basename+lowercase → projde `/tmp/x/GIT`; ř.79 `rm` s ORCHESTRATOR_ON propustí i další cíle (`rm -rf X ~/.claude/ORCHESTRATOR_ON` → ALLOW); `orchestrator-prompt.md:48–56` rozpor s `_SPOLECNE.md` § Izolace jen popsán, ne odstraněn + zalomená cesta.
+- [Omega] U16: `MEMORY.md` (Škola) 21 480 B / 140 ř. > cíl 20 000 B + 5 pamětí mimo rejstřík (feedback-kviz-vyjimka-chude-podtema, feedback-ollama-orchestrace, feedback-youtube-jen-oficialni-vlozeni, reference-plan-prace-skolni-schranka, +1 ověřit) — zhustit (`kontrolor3-dokumentace.md` § D3). Historie U1–U16/V18 → PROGRESS-ARCHIV.md.
+- [skola2] K3-D2: PANELY-NAVOD.md má DVA domovy (`wonderly-web/PANELY-NAVOD.md` 9 668 B × `Omega/predavka/2026-10-13/vlna1/PANELY-NAVOD.md` 7 770 B; zadání míří na starší) — sjednotit na repo, Omega kopii nahradit odkazem (`kontrolor3-dokumentace.md` § D2).
+- [skola2] K1-A1: T08 „tvrzení bez opory v PDF“ se vrací (d246dc7, W115) a brána neexistuje — skript nad SVG panely (zdroj: soubor, s. N) + obousměrný důkaz (`kontrolor1-tridy-chyb.md` § A1).
+- [Omega] K1-A2: limit pokusů opakovaně překročen (kontrola opus 9 kol u Magnety, kolo 6–7 u Výkon/Příklady) bez přeplánování — počitadlo kol + tvrdá stopka při 3. ZAMÍTNUTO (`kontrolor1-tridy-chyb.md` § A2).
+- [Omega] K1-A6: `revize_automatu.py` nezná `launchctl disable` (falešné poplachy „POZASTAVENO, ale běží“ 17× a „NENÍ nahraný“ 18×) — brát `print-disabled` jako pozastaveno (`kontrolor1-tridy-chyb.md` § A6; nahrazuje položku z ⚡ 18. 10.).
+- [skola2] Malé nálezy 25. 10.: kontrolor 1 (A3–A5, A7, B1–B3: SELHANI.md se nevede, testy z `/tmp/`, `git pull` exit 128, `denik_chyb.py --vypis`, ODLOZENE.md) `kontrolor1-tridy-chyb.md`; kontrolor 2 (12 malých, vč. #1 `vyjimky-hotove.md` (založen 25. 10.); #12 `.githooks/pre-commit` v indexu 100644 → `git update-index --chmod=+x`; #2 Hermes v `orchestrator-prompt.md:136–139`; #11 `SABLONY-ZADANI.md` na pevnou cestu) `kontrolor2-kod-pravidla.md`; kontrolor 3 (A19/B3/D6 ověřeno či zapsáno výše) `kontrolor3-dokumentace.md`.
+- [skola2] Appka /tour — automatické přepínání (zadáno 4. 8.): otevřený úkol, detail `PROGRESS-ARCHIV.md:2371`.
+- [skola2] D1: `~/.hermes` na disku zůstává (jen podsložka `node`, binárka `hermes-agent/venv/bin/hermes` neexistuje, ověřeno 25. 10.) — rozhodnout o smazání složky (jen s dokladem/zálohou).
 
 ### Další úkoly
 - [skola2] Média k Fyzice 6 (infografiky/písně/videa z YouTube automatu — dosud nedodělané)
@@ -508,7 +424,4 @@ nebo doprovázený „(" (např. odřezek shellové substituce) tak unikne detek
 regexu se dál neupravuje; oprava vyžaduje stejný „dočti zbytek a zeptej se na
 POZICI" postup jako `_tajemstvi_obecnym_vzorem`, jen pro tuto (`.env`) větev.
 
-
-
-
-Soupis dokončených kol a staré pointery: [SAMOSTATNY-REZIM-ARCHIV.md](SAMOSTATNY-REZIM-ARCHIV.md), PROGRESS-ARCHIV.md. Nové úkoly pro lokální graf zakládat ve `wonderly-fronta`; fronta Claude session je tady (`~/.claude/skills/wonderly/START.md`).
+Archivy: `SAMOSTATNY-REZIM-ARCHIV.md` (uzavřená kola od 6. 8.; nevyřešené DROBNÉ/ODLOŽENO z 30. 9.–2. 10. přesunuto 11. 10.; starší blok od původního ř. 235; podrobný průběh 21.–22. 9. — PŘEDÁNÍ, sladění kvízů, past souběžného zápisu `temata.ts`×`kvizy.ts`, mezery bran) a `PROGRESS-ARCHIV.md`. Sem patří JEN živé věci; hotová kola se na konci session stěhují do archivu. Nové úkoly pro lokální graf zakládat ve `wonderly-fronta`; fronta Claude session je tady (`~/.claude/skills/wonderly/START.md`).

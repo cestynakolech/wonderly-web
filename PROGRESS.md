@@ -2,23 +2,15 @@
 
 _Technický přehled projektu (základ z 31. 7. 2026). Souběžně čti `CLAUDE.md` (trvalý kontext)._
 
-> ## 🚩 NEJDŘÍV OTEVŘI `SAMOSTATNY-REZIM.md`
-> **Aktuální stav práce, živá fronta úkolů i jediný seznam otevřených dotazů na učitele
-> jsou v `SAMOSTATNY-REZIM.md`, v jeho NEJHORNĚJŠÍ sekci** — ne tady. Tenhle soubor je
-> spíš technická příručka (jak co přidat, kde co leží); jeho jednotlivé sekce mohou být
-> staršího data. Fronta je JEDINÁ pro celý web (sekce `[fox]`, `[skola2]`, `[cesty]`) —
-> každá položka nese na začátku značku, do které sekce patří.
->
+> ## 🚩 Aktuální stav, fronta i otevřené dotazy jsou v `SAMOSTATNY-REZIM.md` (⚡, 📌, ❓) — ne tady
+> Tenhle soubor je technická příručka (jak co přidat, kde co leží) a historie; sekce mohou být staršího data. Fronta je jedna pro celý web (značky `[fox]`/`[skola2]`/`[cesty]`).
 
 ## ⏩ Jak navázat v nové session
-_Aktuální stav přestavby výkladu vede `SAMOSTATNY-REZIM.md`, ne tato sekce._
-1. Přečti `CLAUDE.md`, pak **`SAMOSTATNY-REZIM.md` (horní sekce)** a podle potřeby tenhle soubor.
-2. Rychlá kontrola stavu:
-   ```
-   cd ~/Desktop/wonderly-web && git log --oneline -5 && node zkontroluj.mjs
-   ```
-   Brána musí skončit `✅ Vše zapojené správně.` — běží i sama v `prebuild`.
-3. Stav fyziky (není hotová dle `OBSAH-PRAVIDLA.md` kap. 12), fronta a odložená informatika: `SAMOSTATNY-REZIM.md` ⚡ ČÍM ZAČÍT + `OBSAH-PRAVIDLA.md` (preambule) (přesunuto auditem 11. 10. 2026, jediný domov).
+Postup čtení: `CLAUDE.md` (úvod) → `SAMOSTATNY-REZIM.md` (horní sekce); stav fyziky a odložená informatika: SR ⚡ + `OBSAH-PRAVIDLA.md` (preambule). Rychlá kontrola stavu:
+```
+cd ~/Desktop/wonderly-web && git log --oneline -5 && node zkontroluj.mjs
+```
+Brána musí skončit `✅ Vše zapojené správně.` — běží i sama v `prebuild`.
 
 ### 🔎 Měřidla a kontroly (co je po ruce)
 | Příkaz | K čemu |
@@ -57,12 +49,7 @@ Skutečný seznam a stav: `grep -A2 "podtema:" src/data/temata.ts` (celky/podté
 simulaci), aktuální fronta a co chybí je v nejhornější sekci `SAMOSTATNY-REZIM.md`.
 
 ## 🔜 ZBÝVÁ dodělat
-Stav fyziky a fronty vede VÝHRADNĚ `SAMOSTATNY-REZIM.md` (přesunuto auditem 11. 10. 2026, zkráceno; informatika odložena — `OBSAH-PRAVIDLA.md` preambule).
-
-> ⤵️ Historická část (od původního řádku 131) je v [PROGRESS-ARCHIV.md](PROGRESS-ARCHIV.md) — beze změny, jen se nečte automaticky.
-
-## 🎬 Videa (později, dávkově)
-Velká výkladová videa (>25 MB) → učitel nahraje na YouTube jako „nezařazená", dá odkazy (do txt souborů u zvuku ve sdílené složce). Pak se hromadně vloží do stránek (přidat do `materialy` u podtématu jako druh `video` s YouTube embedem, nebo malé mp4 přímo).
+Stav fyziky a fronty vede VÝHRADNĚ `SAMOSTATNY-REZIM.md`. Historická část (od původního řádku 131) je v [PROGRESS-ARCHIV.md](PROGRESS-ARCHIV.md) — jen se nečte automaticky.
 
 ## 🛠️ Build / git postup
 → jediný domov je [CLAUDE.md § Postup nasazení](CLAUDE.md) (build, commit, push, ověření curlem ve smyčce). Sem se neopisuje.
@@ -77,6 +64,9 @@ git push origin main                  # nasadí návrat
 ```
 Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `fyzika-7-hotova`), návrat `git revert` nebo `git checkout <tag> -- .`.
 **Milníky značíme tagem** po dokončení většího celku: `git tag -a <nazev> -m "popis" && git push origin <nazev>`.
+
+## Historie — 19.–25. 10. 2026: katalog pracantů, pojistka hotového, hry, audit 25. 10.
+19.–25. 10.: `KATALOG-PRACANTU.md` (21. 10., směrovací tabulka), `pojistka_hotove` (b1bd2c8, pre-commit + `npm test`), panely a hry pro třídu (Magnety, Příklady na výpočet rychlosti, Výkon, Mechanická práce…), odstranění externích odkazů z polí `odkazy` (58350d3, 25. 10.), `PANELY-NAVOD.md` do repa. 25. 10.: WONDERLY AUDIT — nálezy 10/13/45 (velké/střední/malé), podklady `Omega/predavka/2026-10-25/audit/`, startovní čtení zkráceno (80 298 B → viz SR). Strom byl 26 commitů pozadu → stash + záloha SVG (`Omega/smazano-zaloha/2026-10-25/web-untracked/`), nic nesmazáno. Brána lokálně padá jen kvůli nesledovaným měřidlům laborek (`audit/brana-laborky.md`).
 
 ## Historie — 12.–18. 10. 2026: panely W58–W116 a audit 18. 10.
 12.–15. 10.: ~107 commitů, panely „… v pohybu“ (W58–W116, podklady `Omega/predavka/2026-10-1*/`), pravidlo „živý web před výběrem úlohy“ ([[feedback-zivy-web-pred-vyberem]]), rozhodnutí o modelech agentů (1465ed0). 18. 10.: audit — opravy A/B/C (`Omega/predavka/2026-10-18/OPRAVA-*.md`), kotvy; startovní čtení 107 952 → 76 052 B (wc -c); velké nálezy ve frontě SAMOSTATNY-REZIM § 📌.
@@ -97,9 +87,6 @@ není v menu ani navigaci, web nemá sitemapu. Adresa: https://wonderly.cz/suplo
 
 Commit 1cb56ef, živě 7/7: F9 Elektrická energie, F7 Pascalův zákon, Hydrostatický tlak, Tlak, F8 Teplo a přeměny skupenství, Tání, Tuhnutí (48 obrázků, 7 kvízů po 21, 2 kola kontroly Claude + Codex). CI build spadl, nasazeno `wrangler deploy` (viz Omega `prace/ci-selhani.md`). Mobil dávka 1 (8 simulací) 8537ea4, měřidlo `testy/mobil-citelnost.mjs`. Zbytek fronty: `SAMOSTATNY-REZIM.md`.
 
-## Historie — 20.–27. 9. 2026: nedělní audity → PROGRESS-ARCHIV.md
-Audity 20.–27. 9.: `Omega/dokumenty/audit-2026-09-27.md`, čísla měření `Omega/METRIKY-KOL.md`. Plné znění 4 záznamů (včetně opsaných čísel 171 948 / 111 084 / ≈93 000 / 135 152) v PROGRESS-ARCHIV.md.
-
 ## Historie — 10. 9. 2026 (deterministická inventura podtématu)
 
 Přidán `inventura-podtematu.mjs`, který bez modelu a sítě vypíše pro jedno
@@ -109,16 +96,6 @@ jsou `NEJISTÉ`. Regresní test pokrývá ručně ověřené `Klid a pohyb těle
 MP4 písničku oddělenou od videa, souhrnný kvíz přiřazený za literálem a hlubší
 odsazení podtémat elektřiny F8.
 
-## Historie — 10. 9. 2026 (zápisy do sešitu, dělba práce s automatem) → PROGRESS-ARCHIV.md (tvrzení „ask-local neexistuje“ a „podkasty patří radekmicek“ neplatí).
-
 ## 📝 Pravidlo aktualizace (na konci každé session)
 Jediný domov: `CLAUDE.md` řádek 5 (nový datovaný záznam do Historie, HOTOVÉ/ZBÝVÁ,
 commit+push, tag po velkém celku). Sem se neopisuje (K3-Z7, 27. 9. 2026).
-
-
-
-
-
-## Historie — 28. 9. 2026: kontrola plných animací a test lokálního modelu
-
-Omega `9076e15`: skládání vyžaduje plné MP4 všech scén, ověřuje jejich délku a původ přes otisky textu, nahrávky, scénosledu i videa. Technická kontrola nenahrazuje prohlídku děje. Opraven NAVOD-ANIMACE-PODKASTU.md, návazný NAVOD-POLEMIKY-F6.md a skill podkast-video, který ještě vedl přes statické PNG. Tři výrobní služby pozastaveny; pět dokončených videí a šestý rozpracovaný díl ještě nejsou předělané. ThinkingCap Qwen3.8 Q4_K_M lokálně nainstalován a otestován na 90 případech; výchozí MLX ponechán (nestabilní jediný bod navíc, 2–2,9× pomalejší). Výsledky nezávisle přepočítané, viz Omega/dokumenty/thinkingcap-38-test-2026-09-28/STAV.md. Odeslání sedmi commitů Omegy do GitHub main odmítla automatická kontrola oprávnění; samostatný dotaz na tento přesný rozsah čeká na uživatele.

@@ -7938,3 +7938,134 @@ faster-whisper + Piper) — čeká se na spuštění Telegram brány ze session
 BEZ telegram kanálu (past jednoho bot tokenu). Obsahová práce dne
 (měď/hliník F9, bezpečné vzdálenosti F9) dokončena a nasazena, viz commity
 výše. Otevřené body čekají na rozhodnutí učitele 23. 8. (viz sekce výše).
+
+
+## Přesunuto ze SAMOSTATNY-REZIM.md — audit 25. 10. 2026 (verbatim)
+
+### Body 1) Účinnost a 3) Wankel/alternativní pohony z „5 otevřených bodů z fyzikálních podkladů“ (ř. 58–69; vyřízeno: podtémata ucinnost a alternativni-motory v temata.ts)
+
+- [skola2] **5 otevřených bodů z fyzikálních podkladů** (přeneseno z archivovaného
+  `KE-SCHVALENI.md`, 27. 9. 2026 — plné znění `wonderly-web/docs/archiv/KE-SCHVALENI.md`):
+  1) Účinnost (η = P : P₀) — na webu chybí, přidat jako nové podtéma/nadstavbu k `vykon`,
+     nebo nechat mimo? 3) PDF „Od_výbuchu_k_pohybu_Svět_motorů" navíc obsahuje Wankelův
+     motor, proudový/raketový motor a alternativní pohony (LPG/CNG, hybridy, elektromobily,
+     vodík) mimo rozsah `spalovaci-motory` — nové podtéma? 10) Podtémata „Kladka" a
+     „Nakloněná rovina" (F7, `jednoduche-stroje`) nemají zdrojový podklad ve Škole —
+     dodat podklad, nebo ponechat beze změny? 14) Práh proudu u „Účinky proudu, bezpečnost":
+     web „2–5 mA" vs. PDF „1–8 mA" (PDF rozsah by se překrýval se sousedními prahy
+     0,5–1 a 6–15 mA) — který platí? 15) Podtémata jaderné fyziky (F9, budoucí 5. celek:
+     radioaktivita, jaderná energie, jaderný reaktor) nemají zdrojový podklad — dodat,
+     nebo přestavět beze srovnání?
+
+### DALŠÍ KROK 22. 9. — chybějící složky prvního tématu (ř. 203–212; STAV NEOVĚŘEN, od té doby panely W58–W116 a hry)
+
+- [skola2] **DALŠÍ KROK 22. 9. — chybějící složky prvního tématu napříč ročníky**
+  (nález z `INVENTURA-TEMAT.md`, `OBSAH-PRAVIDLA.md` kap. 12): F7 `pohyb-a-rychlost`
+  (4 podtémata) — chybí odkazy, video s animací, interaktivní infografika a hra u
+  všech 4, laborka navíc u 2 (posuvny-otacivy-pohyb, priklady-na-vypocet-rychlosti);
+  F8 `mechanicka-prace-a-vykon` (2 podtémata) — chybí video s animací, infografika
+  a hra u obou, laborka u `mechanicka-prace`; F9 `magneticke-pole` (3 podtémata) —
+  chybí video s animací, infografika, laborka a hra u všech 3. **STAV NEOVĚŘEN
+  ZNOVU** (zápis je z 22. 9., od té doby proběhla přestavba dalších celků i
+  podkasty) — než se bere jako úkol, přeměřit `node testy/nazornost.mjs` a
+  obsah `odkazy`/`materialy` u těchto 9 podtémat.
+
+### Duplicity ❓ ve frontě (ř. 187–191: shrnutí bez názornosti → ❓ ř. 73; 22 kandidátů a cron → ❓ ř. 93–97)
+
+- [skola2] Podtémata bez názornosti (ověřeno `node testy/nazornost.mjs` 27. 9.: fyzika
+  7 z 120 — vše pololetní/roční shrnutí; informatika 15 z 47; prac. činnosti 1 z 3) —
+  otevřená otázka o osudu shrnutí je v sekci „❓ Otevřené dotazy na učitele" nahoře.
+- [skola2] 22 kandidátů na zkrácení pravidel a registrace cronu `pravidla-dluh-denne` —
+  přesunuto do sekce „❓ Otevřené dotazy na učitele" nahoře (V9-2, 27. 9. 2026).
+
+### K2-V1 (test_povoleni_hook rc=0, 271 případů — OPRAVA-B-pravidla.md:25) a K2-V2 (dodelej-animace je v ❓) — HOTOVO (ř. 482–483)
+
+- [Omega] K2-V1 (`AUDIT-K2-kod-vs-pravidla.md`): `test_povoleni_hook.py` rc=1 (9 selhání po přesunu do /Users/Shared 14. 10.; realpath pracovních míst, žurnál píše `/Users/Shared/Omega/…`) — sjednotit realpath ve vrátném + očekávání testu; `PRAVIDLA.md:593` „0 neshod“ je do opravy nepravda.
+- [Omega] K2-V2 (`AUDIT-K2-…`): `cz.wonderly.dodelej-animace` je znovu načten (exit 1), rozhodnutí učitele (vypnout kvůli duplicitě s noční frontou?) není v ❓ — zapsat tam.
+
+### Podrobný průběh 21.–22. 9. — ukazatel a „trvalá pravidla“ (ř. 165–171; curl s UA+cb = CLAUDE.md § Postup nasazení, souběžné zápisy po jednom = orchestrator-prompt.md:33, cisla-ve-vykladu/uniky = úkoly níže)
+
+> ⤵️ Podrobný průběh 21.–22. 9. (PŘEDÁNÍ, sladění kvízů, past souběžného zápisu
+> `temata.ts`×`kvizy.ts`, mezery bran) přesunut do
+> [SAMOSTATNY-REZIM-ARCHIV.md](SAMOSTATNY-REZIM-ARCHIV.md) — audit 27. 9. 2026 (K3-Z9+K3-Z10).
+> Trvalá pravidla, která z toho zůstávají: brány běží nad celým repem — souběžné zápisy do
+> `temata.ts`/`kvizy.ts` se musí dokončovat po jednom; `cisla-ve-vykladu.mjs` přeskakuje
+> otázky s číslem v zadání; `uniky.mjs` porovnává jen uvnitř bloku, ne mezi blocky ani
+> přes skloňování; curl ověřovat s User-Agent i cache-busterem (`?cb=`).
+
+### Revize směrování modelů (ř. 248–253; zmínka o zrušeném úkolu s Hermesem)
+
+- [příprava] Revidovat tabulku směrování modelů v `.claude/orchestrator-prompt.md`
+  směrem k lokálním modelům tam, kde to obstojí — PŘEFORMULOVÁNO 27. 9. 2026
+  (V4-8): „podle prvního měření" mířilo na zrušený úkol s Hermesem výše, dnes se
+  žádné takové měření nechystá; místo toho se řídit přímým srovnáním vision
+  (položka níže) a běžnou zkušeností z `ollama-log.md`. Výchozí tabulka je
+  zapsaná (15. 8. 2026).
+
+### Rohatka bez klíče tiše projde (ř. 410–421; HOTOVO: zkontroluj.mjs:150 „Chybějící klíč rohatky je TVRDÁ CHYBA (2. 10. 2026)“)
+
+### [skola2] 🔒 Rohatka bez klíče tiše projde (zadáno 19. 8. 2026)
+
+Brána `zkontroluj.mjs` čte stropy rohatek z `testy/rohatka.json` vzorem `?? Infinity`.
+Když klíč v souboru chybí (překlep, ruční editace, poškozený nebo špatně slitý soubor),
+strop se stane nekonečnem a měřidlo **mlčky projde** místo aby build shodilo — zmizí
+celá kontrola a nikdo si toho nevšimne, protože build je zelený. Netýká se jen dnes
+zavedeného klíče `pocetNaskok10`, ale VŠECH stropů v souboru, například `pocetNejdelsi`.
+Řešení: chybějící klíč má být tvrdá chyba (build spadne s hláškou, který klíč chybí),
+ne tiché Infinity — nové rohatky se pak musí zakládat vědomě, ne vzniknout nedopatřením.
+Doloženo: nezávislý kontrolor 19. 8. 2026 při kontrole prahu délkové nápovědy — po
+odstranění klíče brána skončila exit 0.
+
+
+### Terminologie vaty (ř. 195–199; odkaz na sekci „26. 9. v noci výše“ byl mrtvý)
+
+- [skola2] Terminologie vaty: staré názvy „VZOR 1"/„VZOR 2" (22.–24. 9., desítky
+  bloků) byly kalibrací 25. 9. přejmenovány/sloučeny na kvantifikátor / kategorické
+  slovo / tázací slovo / polarita — zbývající práce (VZOR 3 kategorické slovo,
+  VZOR 5 tázací slovo, viz sekce „26. 9. v noci" výše) se vede pod NOVÝMI názvy,
+  staré počty bloků (37/32 aj.) už neplatí a neopisují se.
+
+### Zpřesnit brány kvízové kontroly — část o měření náskoku ≥10 znaků (ř. 429–434; HOTOVO, zbytek MALE=12 zůstal ve frontě)
+
+- [skola2] Zpřesnit brány kvízové kontroly: `zkontroluj.mjs` bod 6d má
+  `const MALE = 12` a přeskakuje tak i menší desetinná čísla (past: 1,29 vs.
+  1,23 kg/m³ neodhaleno) — snížit práh nebo přidat kontrolu desetinných čísel;
+  do `zkontroluj.mjs` přidat měření náskoku délky správné odpovědi ≥10 znaků
+  (`uniky.mjs` délkovou nápovědu nehlídá vůbec, hlásil 0 tam, kde bylo 5 úniků
+  v 8 blocích). Zadáno 22. 9. 2026 noc při sladění kvízů 24 podtémat.
+
+### „Stačí napsat WONDERLY“ + značky sekcí (opis SKILL.md a START.md; ř. 152–159)
+
+> **Stačí napsat `WONDERLY`.** Znamená to: vezmi první nehotový úkol z fronty níž
+> a pracuj samostatně (kontrolor, kotvy, obousměrné ověření, build, push).
+> Fronta je JEN tady — ve skillu se o pořadí práce nerozhoduje (viz `~/.claude/skills/wonderly/START.md`).
+
+> **wonderly je JEDEN web, tři sekce — fronta je SPOLEČNÁ pro všechny.** Každá
+> položka fronty nese na začátku značku sekce: `[fox]` = web pro 1. stupeň,
+> `[skola2]` = lab.wonderly.cz (2. stupeň, tenhle repo — dosud jediný obsah fronty),
+> `[cesty]` = cestovatelský deník. Bez značky se nezakládá nová položka.
+
+### ⚡ ČÍM ZAČÍT (stav k 18. 10. 2026, ř. 1–16 původního souboru; úkol VRÁTNÝ orchestrator-guard přesunut do fronty, revize_automatu do fronty jako K1-A6)
+
+## ⚡ ČÍM ZAČÍT — aktualizováno 18. 10. 2026 (audit)
+
+- **Předávka:** nejnovější `Omega/predavka/*/PRIKAZ-NOVA-SESSION*.md`; před každou úlohou curl inventura živého webu ([[feedback-zivy-web-pred-vyberem]]). Starší odkazy na předávky 6./13./14. 10. → PROGRESS-ARCHIV.md § „Přesunuto ze SAMOSTATNY-REZIM 18. 10. 2026“.
+
+- **WONDERLY AUDIT 18. 10. 2026:** opravy A (dokumentace), B (pravidla, test vrátného rc=0), C (třídy chyb) hotovy, nezcommitováno — `Omega/predavka/2026-10-18/OPRAVA-*.md`. Startovní čtení 107 952 → viz PROGRESS Historie. Fronta 📌: opravit `revize_automatu.py` (falešně hlásí 17× „POZASTAVENO, ale běží“ — launchctl to nepotvrdil).
+
+- **Codex:** rozdělení `Omega/koordinace/ROZDELENI.md`, kontext `CODEX-KONTEXT-WEBU.md`; Jev — souhlas učitele 30. 9. s podmínkou; mini GPU funkční. **Noční fronta:** animace + podkasty zapnuty 30. 9.
+
+
+📌 Pořadí (učitel 29. 9. 2026): téma po tématu napříč 7./8./9. ročníkem — 1. téma všech tří kompletně (úvod, výklad, zápis, obrázky, kvíz, písnička, video), pak 2. téma…; 6. ročník až po nich.
+
+🟡 VRÁTNÝ orchestrator-guard.sh: ř.65 bere basename+lowercase → projde /tmp/x/GIT;
+ř.79 rm s ORCHESTRATOR_ON propustí i další cíle (rm -rf X ~/.claude/ORCHESTRATOR_ON
+→ ALLOW). orchestrator-prompt.md:48–56 rozpor s _SPOLECNE.md § Izolace jen
+popsán, ne odstraněn (jeden platný návod) + zalomená cesta.
+
+### ❓ Hermes — sjednocení návodů (ř. 86–89; bezpředmětné: Hermes odstraněn 14. 10. 2026, wonderly-web/CLAUDE.md § Technologie)
+
+- [skola2] **Hermes — sjednocení návodů** (audit z noci 29. 7.):
+  `Omega/dokumenty/HERMES-audit-navodu-2026-07-29.md` — Hermes JE nainstalovaný
+  (~/.hermes), návody z 11. 6. a pasáž v OFFLINE-REZIM.md zastaraly. Návrh: jeden
+  HERMES-NAVOD.md + pokyn v ~/.hermes/SOUL.md „čti CLAUDE.md/PROGRESS.md".

@@ -2773,3 +2773,66 @@ kola jedou hned za sebou. Kontext hlídat podle prahu ~70 %; na povel „smazat 
 
 | `~/Desktop/Omega/dokumenty/archiv/PLAN-PORADEK.md` | aktuální opravy + STOPKA (mechanismus a historie) — **kdo skutečně běží ověř `launchctl list \| grep cz.wonderly` / `com.omega`, ne datovaný text zde** (K3-R1: dokument sám hlásí stav jen k datu zápisu, řada automatů byla znovu vypnuta 12. 9. 2026); soubor je ARCHIVOVANÝ (přesunut z `Omega/PLAN-PORADEK.md`, nález V18-2 27. 9. 2026) |
 
+
+
+## Přesunuto z PROGRESS.md — audit 25. 10. 2026 (verbatim)
+
+### Historie — 28. 9. 2026 (kontrola plných animací a test lokálního modelu; ř. 122–124; dotaz „čeká na uživatele“ zastaralý)
+
+## Historie — 28. 9. 2026: kontrola plných animací a test lokálního modelu
+
+Omega `9076e15`: skládání vyžaduje plné MP4 všech scén, ověřuje jejich délku a původ přes otisky textu, nahrávky, scénosledu i videa. Technická kontrola nenahrazuje prohlídku děje. Opraven NAVOD-ANIMACE-PODKASTU.md, návazný NAVOD-POLEMIKY-F6.md a skill podkast-video, který ještě vedl přes statické PNG. Tři výrobní služby pozastaveny; pět dokončených videí a šestý rozpracovaný díl ještě nejsou předělané. ThinkingCap Qwen3.8 Q4_K_M lokálně nainstalován a otestován na 90 případech; výchozí MLX ponechán (nestabilní jediný bod navíc, 2–2,9× pomalejší). Výsledky nezávisle přepočítané, viz Omega/dokumenty/thinkingcap-38-test-2026-09-28/STAV.md. Odeslání sedmi commitů Omegy do GitHub main odmítla automatická kontrola oprávnění; samostatný dotaz na tento přesný rozsah čeká na uživatele.
+
+### ZBÝVÁ dodělat + 🎬 Videa (později, dávkově) (ř. 59–65; text o Videích je v rozporu s pravidlem „videa se nevyhledávají, vyrábí se automatem“ — SKILL.md, feedback-youtube-jen-oficialni-vlozeni)
+
+## 🔜 ZBÝVÁ dodělat
+Stav fyziky a fronty vede VÝHRADNĚ `SAMOSTATNY-REZIM.md` (přesunuto auditem 11. 10. 2026, zkráceno; informatika odložena — `OBSAH-PRAVIDLA.md` preambule).
+
+> ⤵️ Historická část (od původního řádku 131) je v [PROGRESS-ARCHIV.md](PROGRESS-ARCHIV.md) — beze změny, jen se nečte automaticky.
+
+## 🎬 Videa (později, dávkově)
+Velká výkladová videa (>25 MB) → učitel nahraje na YouTube jako „nezařazená", dá odkazy (do txt souborů u zvuku ve sdílené složce). Pak se hromadně vloží do stránek (přidat do `materialy` u podtématu jako druh `video` s YouTube embedem, nebo malé mp4 přímo).
+
+### Jak navázat v nové session — kroky 1–3 (ř. 13–21; opis CLAUDE.md a SKILL.md Krok 1)
+
+## ⏩ Jak navázat v nové session
+_Aktuální stav přestavby výkladu vede `SAMOSTATNY-REZIM.md`, ne tato sekce._
+1. Přečti `CLAUDE.md`, pak **`SAMOSTATNY-REZIM.md` (horní sekce)** a podle potřeby tenhle soubor.
+2. Rychlá kontrola stavu:
+   ```
+   cd ~/Desktop/wonderly-web && git log --oneline -5 && node zkontroluj.mjs
+   ```
+   Brána musí skončit `✅ Vše zapojené správně.` — běží i sama v `prebuild`.
+3. Stav fyziky (není hotová dle `OBSAH-PRAVIDLA.md` kap. 12), fronta a odložená informatika: `SAMOSTATNY-REZIM.md` ⚡ ČÍM ZAČÍT + `OBSAH-PRAVIDLA.md` (preambule) (přesunuto auditem 11. 10. 2026, jediný domov).
+
+### Banner „NEJDŘÍV OTEVŘI SAMOSTATNY-REZIM“ (ř. 5–12; opis CLAUDE.md:4–7)
+
+> ## 🚩 NEJDŘÍV OTEVŘI `SAMOSTATNY-REZIM.md`
+> **Aktuální stav práce, živá fronta úkolů i jediný seznam otevřených dotazů na učitele
+> jsou v `SAMOSTATNY-REZIM.md`, v jeho NEJHORNĚJŠÍ sekci** — ne tady. Tenhle soubor je
+> spíš technická příručka (jak co přidat, kde co leží); jeho jednotlivé sekce mohou být
+> staršího data. Fronta je JEDINÁ pro celý web (sekce `[fox]`, `[skola2]`, `[cesty]`) —
+> každá položka nese na začátku značku, do které sekce patří.
+>
+
+
+## Přesunuto ze SKILL.md (wonderly) — audit 25. 10. 2026 (verbatim)
+
+### SKILL.md ř. 230 Záloha Omegy (plné znění)
+
+- **Záloha Omegy** (`zaloha_git.py`, à 3 h) sama commituje a pushuje Omegu (`add -A`) — nové soubory v Omeze se na GitHub dostanou samy; nepulluje.
+
+### SKILL.md ř. 227–228 Poučení 15.–20. 10. (Dělba práce, Zprávy pro Codex)
+
+- **Dělba práce**: Claude jen plánuje, rozděluje, nasazuje a ověřuje otiskem. Codex vyrábí i kontroluje JINÝM modelem (+ skripty, lokální modely). Claude na mini = stejný limit tokenů, nekontroluje. Po 3 neúspěších NEodkládat, ale přeplánovat podle `Omega/koordinace/KATALOG-CHYB.md` (záznam selhání do `SELHANI.md`; typ chyby ≥3× → brána ve skriptu).
+- **Zprávy pro Codex**: `Omega/koordinace/zpravy/RRRR-MM-DD-HHMM-claude-codex-<tema>.md`; exekutor NESMÍ psát pod jménem `codex-claude` (stalo se 19. 10.).
+
+### SKILL.md ř. 44–45: schvalování (opis ~/.claude/CLAUDE.md § ZADÁNÍ = SCHVÁLENÍ)
+
+Read-only příkazy spouštěj rovnou bez ptaní; co už jednou schválil (build,
+git push), dělej příště automaticky.
+
+### SKILL.md ř. 5–6: blok „Nejdřív KATALOG PRACANTŮ“ (doslovná kopie ~/.claude/CLAUDE.md)
+
+## ⛔ Nejdřív KATALOG PRACANTŮ (pokyn učitele 21. 10. 2026)
+Před JAKOUKOLI prací na webu lab.wonderly.cz (doplnění z inventury, změna na webu, nový obsah: polemika, animace, zvuk, písnička, výklad, kvíz, panel, simulace…) si NEJDŘÍV přečti `Omega/dokumenty/KATALOG-PRACANTU.md` (mini `~/Desktop/Omega/dokumenty/`, MacBook `/Users/Shared/Omega/dokumenty/`) a práci zadej HOTOVÉMU automatu podle směrovací tabulky § 0 (pořadí: skript → lokální model → Claude → Codex; Suno a NotebookLM jsou jen cílové aplikace pro písničky a bonusová videa – katalog říká, kdo připraví podklady a kdo je do aplikace zadá). Sám vyrábět smíš jen to, pro co automat není, nebo když prokazatelně selhal — důvod napiš do hlášení. Je-li práce nová (v katalogu chybí): nejdřív rozvaha, kdo z hotových pracantů to zvládne nejpřesněji (přesnost první, pak cena), test na vzorku, pak výběr a ZÁPIS do katalogu (§ 0b, § 0, § 10) pro příště. Nový automat stav jen když žádný pracant nestačí a se souhlasem učitele. Hotové a dříve fungující je nejrychlejší, nejpřesnější a nejlevnější. Katalog určuje KDO a JAK; CO a JAK MÁ WEB VYPADAT určují ZÁSADY WEBU (předloha PDF + prezentace + zjednodušeně ŠVP, nic víc ani míň) – ty mají vždy přednost.

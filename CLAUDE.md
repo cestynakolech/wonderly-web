@@ -35,7 +35,7 @@ Statický web na doméně **wonderly.cz** (Cloudflare, zdarma). Tři sekce na su
 - **Cloudflare R2** — úložiště `wonderly-media` pro plnokvalitní fotky deníku (binding MEDIA).
 - Fonty: `@fontsource/patrick-hand` + `caveat` (kreslený „whiteboard" styl, latin-ext = česká diakritika).
 - `worker.js`, `wrangler.jsonc` — routing subdomén + R2. **NEMĚNIT bez důvodu.**
-- **Hermes** odstraněn 14. 10. 2026 ([[projekt-hermes-orchestrator-mini]]); staré zmínky v paměti jsou překonané.
+- **Hermes** odstraněn 14. 10. 2026 (binárka `~/.hermes/hermes-agent/venv/bin/hermes` neexistuje, ověřeno 25. 10.; na disku zůstala jen složka `~/.hermes/node`); staré zmínky v paměti a návodech jsou překonané.
 
 ## Kde co je (společná kostra)
 Každá sekce má soubory ve TŘECH podstromech — stránky, komponenty, data:
