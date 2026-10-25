@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // TEST HRY „Kdo má větší výkon?“ (Výkon, F8).
 // Podvrh komponenty lze předat přes HRA_KOMPONENTA=<cesta>.
-import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { spawnSync } from 'node:child_process';
@@ -411,9 +411,7 @@ ok(!/https?:\/\/(?!lab\.wonderly)/.test(zdroj.replace(/xmlns="[^"]+"/g, '')), 'k
 
 // m) Povinné mutace nad dočasnými kopiemi mimo repo.
 if (!process.env.HRA_MUTACNI_BEH) {
-	const zakladMutaci = '/tmp/codex-hry/vykon/mutace';
-	mkdirSync(zakladMutaci, { recursive: true });
-	const beh = mkdtempSync(join(zakladMutaci, 'beh-'));
+	const beh = mkdtempSync(join(tmpdir(), 'hra-vykon-'));
 	const mutace = [
 		['dvě správné odpovědi', (s) => s.replace(
 			"el.classList.toggle('spravna', el.dataset.m === c.spravne);",
