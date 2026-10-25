@@ -1,0 +1,90 @@
+<svg viewBox="0 0 460 556" width="460" height="556" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Elektrické pole v pohybu 4 ze 4, Nabití elektroskopu indukcí. Záporně nabitá tyč se přiblíží k desce elektroskopu. Ruka se dotkne desky a část elektronů odejde do Země. Nejdřív se odtáhne ruka a teprve potom tyč. Elektroskop zůstane kladně nabitý a ručička vychýlená." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title>Elektrické pole v pohybu 4/4: Nabití elektroskopu indukcí</title>
+  <style>
+    .rod { transform: translate(-10px,0); animation: rod 8s ease-in-out infinite; }
+    .hand { transform: translate(10px,0); animation: hand 8s ease-in-out infinite; }
+    .needle { transform: rotate(34deg); transform-origin: 205px 302px; transform-box: view-box; animation: needle 8s ease-in-out infinite; }
+    .needle-positive { transform: rotate(-34deg); transform-origin: 205px 335px; transform-box: view-box; animation: needle-positive 8s ease-in-out infinite; }
+    .neutral { opacity: 0; animation: neutral 8s step-end infinite; }
+    .polarized { opacity: 0; animation: polarized 8s step-end infinite; }
+    .grounded { opacity: 0; animation: grounded 8s step-end infinite; }
+    .positive { opacity: 1; animation: positive 8s step-end infinite; }
+    .electron-a, .electron-b { opacity: 0; animation: electron-a 8s linear infinite; }
+    .electron-b { animation-name: electron-b; }
+    .caption-a { opacity: 0; animation: caption-a 8s step-end infinite; }
+    .caption-b { opacity: 1; animation: caption-b 8s step-end infinite; }
+    .caption-c { opacity: 1; animation: caption-c 8s step-end infinite; }
+    .loop-fade { opacity: 0; animation: loop-fade 8s linear infinite; }
+    .step1 { fill: #fbfaf6; animation: step1 8s step-end infinite; }
+    .step2 { fill: #fbfaf6; animation: step2 8s step-end infinite; }
+    .step3 { fill: #fbfaf6; animation: step3 8s step-end infinite; }
+    .step4 { fill: #ffd8a8; animation: step4 8s step-end infinite; }
+    @keyframes rod { 0%,5% { transform: translate(-10px,0); } 18%,72% { transform: translate(28px,0); } 80%,100% { transform: translate(-10px,0); } }
+    @keyframes hand { 0%,24% { transform: translate(10px,0); } 32%,56% { transform: translate(0,0); } 64%,100% { transform: translate(10px,0); } }
+    @keyframes needle { 0%,18% { transform: rotate(0deg); } 29%,40% { transform: rotate(34deg); } 54%,82% { transform: rotate(0deg); } 90%,100% { transform: rotate(34deg); } }
+    @keyframes needle-positive { 0%,18% { transform: rotate(0deg); } 29%,40% { transform: rotate(-34deg); } 54%,82% { transform: rotate(0deg); } 90%,100% { transform: rotate(-34deg); } }
+    @keyframes neutral { 0%,13% { opacity: 1; } 18%,100% { opacity: 0; } }
+    @keyframes polarized { 0%,17% { opacity: 0; } 18%,33% { opacity: 1; } 34%,100% { opacity: 0; } }
+    @keyframes grounded { 0%,33% { opacity: 0; } 34%,80% { opacity: 1; } 81%,100% { opacity: 0; } }
+    @keyframes positive { 0%,80% { opacity: 0; } 81%,100% { opacity: 1; } }
+    @keyframes electron-a { 0%,33% { transform: translate(0,0); opacity: 0; } 34% { transform: translate(0,0); opacity: 1; } 36% { transform: translate(0,-64px); opacity: 1; } 38% { transform: translate(0,-70px); opacity: 1; } 40% { transform: translate(42px,-70px); opacity: 1; } 43% { transform: translate(95px,-25px); opacity: 1; } 46% { transform: translate(145px,25px); opacity: 1; } 48% { transform: translate(177px,56px); opacity: 1; } 49% { transform: translate(177px,84px); opacity: 1; } 50%,100% { transform: translate(177px,84px); opacity: 0; } }
+    @keyframes electron-b { 0%,33% { transform: translate(0,0); opacity: 0; } 34%,37% { transform: translate(0,0); opacity: 1; } 39% { transform: translate(18px,-27px); opacity: 1; } 42% { transform: translate(18px,-136px); opacity: 1; } 44% { transform: translate(40px,-136px); opacity: 1; } 46% { transform: translate(66px,-136px); opacity: 1; } 49% { transform: translate(113px,-89px); opacity: 1; } 52% { transform: translate(163px,-39px); opacity: 1; } 54% { transform: translate(195px,20px); opacity: 1; } 55%,100% { transform: translate(195px,20px); opacity: 0; } }
+    @keyframes caption-a { 0%,33% { opacity: 0; } 34%,55% { opacity: 1; } 56%,100% { opacity: 0; } }
+    @keyframes caption-b { 0%,55% { opacity: 0; } 56%,82% { opacity: 1; } 83%,100% { opacity: 0; } }
+    @keyframes caption-c { 0%,82% { opacity: 0; } 83%,100% { opacity: 1; } }
+    @keyframes loop-fade { 0%,96% { opacity: 0; } 100% { opacity: 1; } }
+    @keyframes step1 { 0%,23% { fill: #ffd8a8; } 24%,100% { fill: #fbfaf6; } }
+    @keyframes step2 { 0%,23% { fill: #fbfaf6; } 24%,55% { fill: #ffd8a8; } 56%,100% { fill: #fbfaf6; } }
+    @keyframes step3 { 0%,55% { fill: #fbfaf6; } 56%,71% { fill: #ffd8a8; } 72%,100% { fill: #fbfaf6; } }
+    @keyframes step4 { 0%,71% { fill: #fbfaf6; } 72%,94% { fill: #ffd8a8; } 95%,100% { fill: #fbfaf6; } }
+    @media (prefers-reduced-motion: reduce) {
+      .rod, .hand, .needle, .needle-positive, .neutral, .polarized, .grounded, .positive, .electron-a, .electron-b, .caption-a, .caption-b, .caption-c, .loop-fade, .step1, .step2, .step3, .step4 { animation: none; }
+      .rod { transform: translate(-10px,0); }
+      .hand { transform: translate(10px,0); }
+      .neutral, .polarized, .grounded, .electron-a, .electron-b, .caption-a, .caption-b, .loop-fade { opacity: 0; }
+      .positive, .caption-c { opacity: 1; }
+    }
+  </style>
+  <defs>
+    <linearGradient id="metal4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="0.55" stop-color="#dee2e6"/><stop offset="1" stop-color="#adb5bd"/></linearGradient>
+    <linearGradient id="rodFill4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#edf2ff"/><stop offset="1" stop-color="#dbe4ff"/></linearGradient>
+    <filter id="shadow4" x="-20%" y="-20%" width="150%" height="150%"><feDropShadow dx="6" dy="6" stdDeviation="0" flood-color="#2b2a26"/></filter>
+  </defs>
+  <rect width="460" height="556" fill="#f8f9fa"/>
+  <rect x="20" y="16" width="420" height="524" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" filter="url(#shadow4)"/>
+  <circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2"/>
+  <text x="52" y="57" text-anchor="middle" font-size="20" font-weight="bold" fill="#b8460b">4</text>
+  <text x="80" y="58" font-size="22" font-weight="bold" fill="#2b2a26">Nabití elektroskopu indukcí</text>
+
+  <g stroke="#2b2a26" stroke-width="2">
+    <circle class="step1" cx="151" cy="91" r="15"/><circle class="step2" cx="201" cy="91" r="15"/><circle class="step3" cx="251" cy="91" r="15"/><circle class="step4" cx="301" cy="91" r="15"/>
+  </g>
+  <g font-size="17" font-weight="bold" fill="#2b2a26" text-anchor="middle"><text x="151" y="97">1</text><text x="201" y="97">2</text><text x="251" y="97">3</text><text x="301" y="97">4</text></g>
+
+  <g class="rod"><rect x="45" y="150" width="80" height="42" rx="11" fill="url(#rodFill4)" stroke="#2b2a26" stroke-width="2.5"/><g fill="#0b4f91" font-size="25" font-weight="bold" text-anchor="middle" aria-label="záporný náboj"><text x="60" y="180">−</text><text x="85" y="180">−</text><text x="110" y="180">−</text></g></g>
+  <path d="M205 201V302" stroke="#495057" stroke-width="8" stroke-linecap="round"/>
+  <ellipse cx="205" cy="173" rx="33" ry="20" fill="url(#metal4)" stroke="#2b2a26" stroke-width="2.5"/>
+  <path d="M132 235Q132 218 149 218H261Q278 218 278 235V352Q278 369 261 369H149Q132 369 132 352Z" fill="#fff" fill-opacity="0.72" stroke="#495057" stroke-width="2.5"/>
+  <circle cx="205" cy="302" r="9" fill="#495057"/>
+  <g class="needle"><path d="M205 302L205 350" stroke="#2b2a26" stroke-width="8" stroke-linecap="round"/><g class="polarized"><circle cx="205" cy="335" r="10" fill="#1864ab" stroke="#2b2a26" stroke-width="1.5"/><path d="M200 335H210" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></g><g class="positive"><g class="needle-positive"><circle cx="205" cy="335" r="10" fill="#9c1c1c" stroke="#2b2a26" stroke-width="1.5"/><path d="M200 335H210M205 330V340" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></g></g><circle cx="205" cy="302" r="4.5" fill="#fbfaf6"/></g>
+  <path d="M161 386H249M176 371H234" stroke="#2b2a26" stroke-width="8" stroke-linecap="round"/>
+
+  <g class="neutral"><text x="188" y="181" font-size="23" font-weight="bold" fill="#9c1c1c">+</text><text x="213" y="181" font-size="25" font-weight="bold" fill="#0b4f91">−</text><text x="188" y="278" font-size="23" font-weight="bold" fill="#9c1c1c">+</text><text x="213" y="279" font-size="25" font-weight="bold" fill="#0b4f91">−</text></g>
+  <g class="polarized"><text x="186" y="181" font-size="24" font-weight="bold" fill="#9c1c1c">+</text><text x="213" y="181" font-size="24" font-weight="bold" fill="#9c1c1c">+</text><circle cx="205" cy="265" r="10" fill="#1864ab" stroke="#2b2a26" stroke-width="1.5"/><path d="M200 265H210" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></g>
+  <g class="hand">
+    <path d="M239 175C257 157 272 151 283 158C291 163 287 174 280 181L269 191L298 178C310 173 320 184 314 194L300 208L319 202C332 198 340 211 331 220L312 235L335 232C350 230 356 246 344 255L314 279L267 253L249 213L239 198Z" fill="#f3d2b3" stroke="#2b2a26" stroke-width="2.5"/>
+    <path d="M310 274L382 321L416 267L344 221Z" fill="#8ce99a" stroke="#2b2a26" stroke-width="2.5"/>
+  </g>
+  <path d="M382 321V349" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+  <g class="electron-a"><circle cx="205" cy="265" r="10" fill="#1864ab" stroke="#2b2a26" stroke-width="1.5"/><path d="M200 265H210" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></g>
+  <g class="electron-b"><circle cx="187" cy="329" r="10" fill="#1864ab" stroke="#2b2a26" stroke-width="1.5"/><path d="M182 329H192" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></g>
+  <g class="grounded"><text x="181" y="181" font-size="24" font-weight="bold" fill="#9c1c1c">+</text><text x="216" y="181" font-size="24" font-weight="bold" fill="#9c1c1c">+</text></g>
+  <g class="positive"><text x="181" y="181" font-size="24" font-weight="bold" fill="#9c1c1c">+</text></g>
+  <path d="M382 349V365M364 365H400M370 374H394M377 383H387" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+
+  <rect x="36" y="410" width="388" height="108" rx="10" fill="#fff" stroke="#adb5bd" stroke-width="2"/>
+  <g class="caption-a"><text x="52" y="452" font-size="20" font-weight="bold" fill="#2b2a26">Část elektronů odejde</text><text x="52" y="481" font-size="20" fill="#2b2a26">do Země.</text></g>
+  <g class="caption-b"><text x="52" y="452" font-size="19" font-weight="bold" fill="#2b2a26">Nejdřív odtáhneme ruku,</text><text x="52" y="481" font-size="19" fill="#2b2a26">potom tyč.</text></g>
+  <g class="caption-c"><text x="52" y="468" font-size="20" font-weight="bold" fill="#2b2a26">Elektroskop zůstane nabitý.</text></g>
+  <rect class="loop-fade" x="20" y="16" width="420" height="524" rx="10" fill="#fbfaf6"/>
+</svg>

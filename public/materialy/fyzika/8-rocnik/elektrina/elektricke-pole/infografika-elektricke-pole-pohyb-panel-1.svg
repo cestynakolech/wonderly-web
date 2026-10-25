@@ -1,0 +1,45 @@
+<svg viewBox="0 0 460 556" width="460" height="556" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Elektrické pole v pohybu 1 ze 4, Papírky bez dotyku. Záporně nabité pravítko se přiblíží k malým papírkům. Náboj v papírcích se rozdělí, papírky jsou přitahovány k pravítku bez dotyku a po jeho oddálení už nejsou přitahovány." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title>Elektrické pole v pohybu 1/4: Papírky bez dotyku</title>
+  <style>
+    .ruler { transform: translate(0,0); animation: ruler 8s ease-in-out infinite; }
+    .paper-a { transform: rotate(12deg); transform-origin: 162px 384px; animation: paper-a 8s ease-in-out infinite; }
+    .paper-b { transform: rotate(-10deg); transform-origin: 188px 384px; animation: paper-b 8s ease-in-out infinite; }
+    .paper-c { transform: rotate(11deg); transform-origin: 344px 384px; animation: paper-c 8s ease-in-out infinite; }
+    .charges { opacity: 1; animation: charges 8s step-end infinite; }
+    .caption-a { opacity: 0; animation: caption-a 8s step-end infinite; }
+    .caption-b { opacity: 1; animation: caption-b 8s step-end infinite; }
+    @keyframes ruler { 0%,10% { transform: translate(14px,-110px); } 28%,76% { transform: translate(0,0); } 90%,100% { transform: translate(14px,-110px); } }
+    @keyframes paper-a { 0%,34% { transform: rotate(0deg); } 48%,76% { transform: rotate(12deg); } 91%,100% { transform: rotate(0deg); } }
+    @keyframes paper-b { 0%,36% { transform: rotate(0deg); } 50%,76% { transform: rotate(-10deg); } 93%,100% { transform: rotate(0deg); } }
+    @keyframes paper-c { 0%,38% { transform: rotate(0deg); } 52%,76% { transform: rotate(11deg); } 95%,100% { transform: rotate(0deg); } }
+    @keyframes charges { 0%,27% { opacity: 0; } 31%,76% { opacity: 1; } 82%,100% { opacity: 0; } }
+    @keyframes caption-a { 0%,30% { opacity: 0; } 31%,47% { opacity: 1; } 48%,100% { opacity: 0; } }
+    @keyframes caption-b { 0%,47% { opacity: 0; } 48%,76% { opacity: 1; } 77%,100% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      .ruler, .paper-a, .paper-b, .paper-c, .charges, .caption-a, .caption-b { animation: none; }
+      .caption-a { opacity: 0; }
+      .caption-b, .charges { opacity: 1; }
+    }
+  </style>
+  <defs>
+    <linearGradient id="rulerFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#edf2ff"/><stop offset="1" stop-color="#dbe4ff"/></linearGradient>
+    <filter id="shadow1" x="-20%" y="-20%" width="150%" height="150%"><feDropShadow dx="6" dy="6" stdDeviation="0" flood-color="#2b2a26"/></filter>
+  </defs>
+  <rect width="460" height="556" fill="#f8f9fa"/>
+  <rect x="20" y="16" width="420" height="524" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" filter="url(#shadow1)"/>
+  <circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2"/>
+  <text x="52" y="57" text-anchor="middle" font-size="20" font-weight="bold" fill="#b8460b">1</text>
+  <text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Papírky bez dotyku</text>
+
+  <g class="ruler">
+    <rect x="145" y="238" width="270" height="48" rx="12" fill="url(#rulerFill)" stroke="#2b2a26" stroke-width="2.5"/>
+    <g fill="#0b4f91" font-size="25" font-weight="bold" text-anchor="middle" aria-label="záporný náboj"><text x="183" y="270">−</text><text x="222" y="270">−</text><text x="261" y="270">−</text><text x="300" y="270">−</text><text x="339" y="270">−</text><text x="378" y="270">−</text></g>
+  </g>
+  <path d="M56 384H404" stroke="#868e96" stroke-width="3" stroke-linecap="round"/>
+  <g class="paper-a"><rect x="94" y="336" width="68" height="48" rx="5" fill="#fff" stroke="#495057" stroke-width="2.5"/><g class="charges"><text x="119" y="354" font-size="23" font-weight="bold" fill="#9c1c1c">+</text><text x="119" y="380" font-size="25" font-weight="bold" fill="#0b4f91">−</text></g></g>
+  <g class="paper-b"><rect x="188" y="338" width="64" height="46" rx="5" fill="#fff" stroke="#495057" stroke-width="2.5"/><g class="charges"><text x="211" y="355" font-size="22" font-weight="bold" fill="#9c1c1c">+</text><text x="211" y="380" font-size="24" font-weight="bold" fill="#0b4f91">−</text></g></g>
+  <g class="paper-c"><rect x="276" y="334" width="68" height="50" rx="5" fill="#fff" stroke="#495057" stroke-width="2.5"/><g class="charges"><text x="301" y="353" font-size="23" font-weight="bold" fill="#9c1c1c">+</text><text x="301" y="380" font-size="25" font-weight="bold" fill="#0b4f91">−</text></g></g>
+  <rect x="36" y="412" width="388" height="106" rx="10" fill="#fff" stroke="#adb5bd" stroke-width="2"/>
+  <g class="caption-a"><text x="52" y="457" font-size="20" font-weight="bold" fill="#2b2a26">Pravítko polarizuje papírky.</text></g>
+  <g class="caption-b"><text x="52" y="447" font-size="20" font-weight="bold" fill="#2b2a26">Papírky jsou přitahovány</text><text x="52" y="476" font-size="20" fill="#2b2a26">bez dotyku.</text></g>
+</svg>

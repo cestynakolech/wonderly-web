@@ -3026,6 +3026,9 @@ export const temata: Record<string, Tema[]> = {
 						zvidave: "<p><strong>Faradayova klec</strong> je vodivý obal, který stíní své vnitřní prostředí před vnějším elektrostatickým polem. Volné elektrony se přerozdělí tak, že svým polem působení vnějšího pole uvnitř uzavřeného obalu vyrovnají.</p>\n<p>Kovová karoserie uzavřeného auta s pevnou kovovou střechou může při bouřce chránit posádku: výboj prochází hlavně vnějším kovovým pláštěm. Chrání kovový obal, nikoli gumové pneumatiky. Okna mají být zavřená a uvnitř se nedotýkáme kovových částí. Otevřený kabriolet takový úkryt neposkytuje. Také letadla mají ochranu proti účinkům blesku; zásah není důvod považovat vždy za neškodný nebo nepozorovatelný.</p>\n<p>Jinými příklady stínění jsou kovový oplet kabelu a mřížka dvířek mikrovlnné trouby. U vln záleží také na velikosti otvorů vůči vlnové délce: drobná oka mohou zadržovat mikrovlny, zatímco světlo jimi prochází.</p>",
 						zapis: {"body":["elektrické pole je kolem nabitého tělesa","působí elektrickou silou i bez dotyku","indukce přerozdělí náboj ve vodiči, polarizace v izolantu","siločáry míří od + k −","hustší siločáry znamenají silnější pole"]},
 						odkazy: [],
+						materialy: [
+							{ druh: 'infografika', nazev: 'Elektrické pole v pohybu', cesta: '/materialy/fyzika/8-rocnik/elektrina/elektricke-pole/infografika-elektricke-pole-pohyb-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/elektrina/elektricke-pole/infografika-elektricke-pole-pohyb-panel-1.svg', '/materialy/fyzika/8-rocnik/elektrina/elektricke-pole/infografika-elektricke-pole-pohyb-panel-2.svg', '/materialy/fyzika/8-rocnik/elektrina/elektricke-pole/infografika-elektricke-pole-pohyb-panel-3.svg', '/materialy/fyzika/8-rocnik/elektrina/elektricke-pole/infografika-elektricke-pole-pohyb-panel-4.svg'] },
+						],
 					},
 				{
 						slug: 'vznik-elektrickeho-proudu',
