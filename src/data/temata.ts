@@ -1191,11 +1191,7 @@ export const temata: Record<string, Tema[]> = {
 							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
 						},
 					],
-					odkazy: [
-						{ nazev: 'Fyzika na Vltavě — Přehled fyzikálních veličin ZŠ', url: 'https://www.zsvltava.cz/fyzika/?p=3432' },
-						{ nazev: 'Převody jednotek délky (Wordwall)', url: 'https://wordwall.net/cs/resource/26529328/p%C5%99evody-jednotek-d%C3%A9lky' },
-						{ nazev: 'Měření hmotnosti a objemu - měřidla (Wordwall)', url: 'https://wordwall.net/cs/resource/13392084/m%C4%9B%C5%99en%C3%AD-hmotnosti-a-objemu-m%C4%9B%C5%99idla' },
-					],
+					odkazy: [],
 				},
 			],
 		},
@@ -1943,11 +1939,7 @@ export const temata: Record<string, Tema[]> = {
 							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
 						},
 					],
-					odkazy: [
-						{ nazev: 'Pokus: Teplotní roztažnost plynů (balónek na lahvi) (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/6168-pokus-teplotni-roztaznost-plynu' },
-						{ nazev: 'Pokus: Pokusy s magnetismem (kompas, plovoucí jehla) (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/3414-pokusy-s-magnetismem' },
-						{ nazev: 'Pevnost poznání — Zkuste s námi fyzikální pokusy s vajíčky', url: 'https://www.pevnostpoznani.cz/zkuste-s-nami-fyzikalni-pokusy-s-vajicky/' },
-					],
+					odkazy: [],
 				},
 			],
 		},
@@ -1958,7 +1950,7 @@ export const temata: Record<string, Tema[]> = {
 			nazev: 'Pohyb a rychlost',
 			podtemata: [
 				{
-					odkazy: [{"nazev":"Pohyb tělesa (Fyzika na Vltavě)","url":"https://www.zsvltava.cz/fyzika/?p=805"},{"nazev":"Pohyb a klid těles (Učíme se rozumět světu kolem nás)","url":"https://ucim-se.webnode.cz/a9-tridy/a7-trida/pohyb-a-klid-teles/"},{"nazev":"Klid a pohyb těles — test (ZŠ Adolfovice)","url":"https://testy.zsadolfovice.cz/spustit-3"}],
+					odkazy: [],
 					slug: 'klid-a-pohyb-telesa',
 					nazev: 'Klid a pohyb tělesa',
 					interakce: 'relativita-pohybu',
@@ -1983,7 +1975,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
-					odkazy: [{"nazev":"Valení (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/pohyb/valeni"}],
+					odkazy: [],
 					slug: 'posuvny-otacivy-pohyb',
 					uvod: "Vlak jede po kolejích a celý se posouvá stejným směrem. Houpačka se naopak otáčí kolem místa, kde je zavěšená. Skoro každý pohyb kolem nás je posouvání, otáčení, nebo obojí dohromady.",
 					nazev: 'Posuvný a otáčivý pohyb',
@@ -2033,7 +2025,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
-					odkazy: [{"nazev":"Rychlost, dráha, čas: vzorce – 7. ročník (Umíme to)","url":"https://www.umimefakta.cz/fyzika/cviceni-rychlost-draha-cas-vzorce-7-trida"},{"nazev":"Rychlost – výpočet rychlosti, času, dráhy (Dopočítej.cz)","url":"https://www.dopocitej.cz/fyzika/rychlost.html"}],
+					odkazy: [],
 					slug: 'rychlost-draha-cas',
 					nazev: 'Rychlost, dráha, čas',
 					interakce: 'rychlost',
@@ -2065,7 +2057,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
-					odkazy: [{"nazev":"Příklady na výpočet rychlosti (+ řešení) (Fyzika na Vltavě)","url":"https://www.zsvltava.cz/fyzika/?p=6054"},{"nazev":"Rychlost, dráha, čas – 7. ročník (Umíme to)","url":"https://www.umimefakta.cz/fyzika/cviceni-rychlost-draha-cas-7-trida"}],
+					odkazy: [],
 					slug: 'priklady-na-vypocet-rychlosti',
 					nazev: 'Příklady na výpočet rychlosti',
 					interakce: 'vypocet-rychlosti',
@@ -2094,7 +2086,7 @@ export const temata: Record<string, Tema[]> = {
 			nazev: 'Síly kolem nás',
 			podtemata: [
 				{
-					odkazy: [{"nazev":"Síla a její účinky (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/sila/sila-jeji-ucinky"},{"nazev":"Fyzika 7. třída SÍLA – kvíz (Wordwall)","url":"https://wordwall.net/cs/resource/66154705/fyzika-7-t%C5%99%C3%ADda-s%C3%ADla"}],
+					odkazy: [],
 					slug: 'sila',
 					nazev: 'Síla',
 					interakce: 'sila-vektor',
@@ -2110,7 +2102,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
-					odkazy: [{"nazev":"Gravitační vs. tíhová síla a tíha – 7. ročník (Umíme to)","url":"https://www.umimefakta.cz/fyzika/cviceni-tiha-7-trida"}],
+					odkazy: [],
 					slug: 'gravitacni-sila',
 					interakce: 'vrh',
 					nazev: 'Gravitační síla',
@@ -2125,7 +2117,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
-					odkazy: [{"nazev":"Smykové tření (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/sila/odporove-sily/smykove-treni"},{"nazev":"Třecí síla / tření – kvíz (Wordwall)","url":"https://wordwall.net/cs/resource/29383261/fyzika/t%C5%99ec%C3%AD-s%C3%ADla-t%C5%99en%C3%AD"}],
+					odkazy: [],
 					slug: 'treci-sila',
 					interakce: 'treni',
 					nazev: 'Třecí síla',
@@ -2139,7 +2131,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
-					odkazy: [{"nazev":"Skládání sil – 7. ročník (Umíme to)","url":"https://www.umimefakta.cz/fyzika/cviceni-skladani-sil-7-trida"}],
+					odkazy: [],
 					slug: 'skladani-sil',
 					interakce: 'skladani-sil',
 					nazev: 'Skládání sil',
@@ -2154,7 +2146,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
-					odkazy: [{"nazev":"Těžiště (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/sila/teziste"},{"nazev":"Stabilita (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/sila/teziste/stabilita"}],
+					odkazy: [],
 					slug: 'teziste',
 					interakce: 'teziste',
 					interakce2: 'teziste-stabilita',
@@ -2183,10 +2175,7 @@ export const temata: Record<string, Tema[]> = {
 					uvod: "Když skáčeš na trampolíně, tlačíš na ni a trampolína zároveň tlačí na tebe. Skákací plocha se pod tebou prohne, ale hned se zase narovná a vymrští tě nahoru. Kousek modelíny, který zmáčkneš prstem, se ale nenarovná a zůstane zmáčknutý. Některé věci se tedy po zmáčknutí vrátí do původního tvaru a jiné ne.",
 					zvidave: "<p>Jestli je deformace pružná, nebo trvalá, nezáleží jen na materiálu, ale i na velikosti síly. Malou silou pružinu natáhneš a po puštění se vrátí. Příliš velkou silou ji ale natáhneš natrvalo a zůstane protažená.</p>\n<p>Slovo „plastický“ znamená „tvárný“, tedy takový, který lze přetvořit a on si nový tvar podrží. Odtud je i název plasty. Slovo „elastická“ znamená „pružná“.</p>\n<p>Kniha na stole je v klidu, protože na ni působí Země silou dolů a stůl ji drží silou nahoru. Tyto dvě síly se ruší. Stůl se přitom pod knihou nepatrně prohne, což je deformace, kterou očima nevidíš.</p>\n<p>Když síla míří mimo těžiště, těleso se obvykle nejen otáčí, ale zároveň se i posouvá. Zkus lehce šťouchnout prstem do rohu knihy ležící na stole: kniha se otočí a zároveň popojede.</p>\n<p>Pružná deformace pružiny je základem siloměru, který znáš z podtématu Síla: čím větší síla, tím víc se pružina natáhne.</p>",
 					zapis: {"body":["vzájemné působení (interakce) probíhá dotykem, nebo na dálku (silové pole)","síla je vektor: velikost, směr, působiště, kreslí se šipkou","účinky síly: posuvný (do těžiště), otáčivý (mimo těžiště), deformační","statické působení: klid, síly se ruší; dynamické: mění rychlost nebo směr","deformace: pružná se vrátí, trvalá zůstane změněná (míč, modelína)"]},
-					odkazy: [
-						{ nazev: 'Uč se online — Deformační účinky síly', url: 'https://www.ucseonline.cz/skola/zakladni-skola/skolni-zapisky/fyzika/deformacni-ucinky-sily/' },
-						{ nazev: 'TechMania — Deformace pevných těles', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/sila/deformace-pevnych-teles' },
-					],
+					odkazy: [],
 					materialy: [
 						{ druh: 'infografika', nazev: 'Infografika: Působení těles a deformace v kostce', cesta: '/materialy/fyzika/7-rocnik/jednoduche-stroje/pusobeni-teles-a-deformace/infografika-pusobeni-teles-a-deformace.svg', panely: ['/materialy/fyzika/7-rocnik/jednoduche-stroje/pusobeni-teles-a-deformace/infografika-pusobeni-teles-a-deformace-panel-1.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/pusobeni-teles-a-deformace/infografika-pusobeni-teles-a-deformace-panel-2.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/pusobeni-teles-a-deformace/infografika-pusobeni-teles-a-deformace-panel-3.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/pusobeni-teles-a-deformace/infografika-pusobeni-teles-a-deformace-panel-4.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/pusobeni-teles-a-deformace/infografika-pusobeni-teles-a-deformace-panel-5.svg'] },
 						{ druh: 'youtube', nazev: 'Video: Porozumění síle a deformaci', cesta: '0vmDKVXisgE' },
@@ -2201,9 +2190,7 @@ export const temata: Record<string, Tema[]> = {
 					uvod: "Víko plechovky s barvou rukou neotevřeš, ale lžící nebo šroubovákem ho otevřeš snadno. Tyč ti pomůže, protože rukou tlačíš na její dlouhý konec a na druhém konci se malá síla změní ve větší. Tyči, která se umí otáčet kolem jednoho pevného bodu, říkáme páka.",
 					zvidave: "<p>Kromě páky patří mezi jednoduché stroje také kladka, nakloněná rovina nebo kolo na hřídeli. Kladku a nakloněnou rovinu poznáš v dalších podtématech.</p>\n<p>Druh páky poznáš podle toho, kde je osa. Nůžky a kleště jsou dvojzvratné páky, protože osa leží mezi rukojetí a čepelemi, respektive čelistmi. Louskáček na ořechy a lis na česnek jsou jednozvratné páky. Osa je na jejich kraji a ořech nebo česnek je mezi osou a rukou.</p>\n<p>Co ušetříš na síle, to prohraješ na dráze. Když působíš silou na rameni třikrát delším, urazí tvoje ruka třikrát delší dráhu než náklad. U kolečka s rameny 40 cm a 120 cm ruka zvedne držadla třikrát výš, než se zvedne náklad.</p>\n<p>Na páce jsou zavěšena dvě závaží: m<sub>1</sub> = 2 kg na rameni a<sub>1</sub> = 9 cm a m<sub>2</sub> = 1 kg na rameni a<sub>2</sub> = 18 cm. Je páka v rovnováze?</p>\n<p>F<sub>g1</sub> = m<sub>1</sub> &middot; g = 2 &middot; 10 = 20 N</p>\n<p>F<sub>g2</sub> = m<sub>2</sub> &middot; g = 1 &middot; 10 = 10 N</p>\n<p>F<sub>g1</sub> &middot; a<sub>1</sub> = 20 &middot; 9 = 180 N &middot; cm</p>\n<p>F<sub>g2</sub> &middot; a<sub>2</sub> = 10 &middot; 18 = 180 N &middot; cm</p>\n<p>Obě strany se rovnají (180 = 180), páka je v rovnováze. Dvojnásobná síla si vystačí s polovičním ramenem.</p>\n<p>Ze vzorce F₁ · a₁ = F₂ · a₂ můžeš vyjádřit kteroukoli veličinu: F₁ = F₂ · a₂ : a₁, F₂ = F₁ · a₁ : a₂, a₁ = F₂ · a₂ : F₁ a a₂ = F₁ · a₁ : F₂.</p>\n<p>Převody: 1 kN = 1 000 N a 1 m = 100 cm. Do vzorce dosazuj síly v newtonech a obě ramena ve stejné jednotce délky, nejlépe v metrech.</p>",
 					zapis: {"vzorec":"M = F · a\nF₁ · a₁ = F₂ · a₂","jednotky":["M (N · m), F (N), a (m)"],"body":["páka je tuhá tyč otáčivá kolem osy, rameno a je kolmá vzdálenost osy od přímky síly","v rovnováze působí menší síla dál od osy, větší blíž k ose","dvojzvratná páka: síly na opačných stranách osy, jednozvratná: na stejné"]},
-					odkazy: [
-						{ nazev: 'Umíme fakta — Páky (lehké), cvičení', url: 'https://www.umimefakta.cz/fyzika/rozhodovacka-paky-1' },
-					],
+					odkazy: [],
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Páky — nadlidská síla', cesta: 'aXsCK4BXLe4' },
 						{ druh: 'youtube', nazev: 'Video: Páka — opakování', cesta: 'qLAoiYEeaSA' },
@@ -2221,10 +2208,7 @@ export const temata: Record<string, Tema[]> = {
 					uvod: "Vlajku na vysoký stožár vytáhneš tak, že táhneš lano dolů, a vlajka jede nahoru. Lano přitom vede přes kolo s drážkou, kterému říkáme kladka. Stejné kolo najdeš i u studny, kde s ním zvedáš okov s vodou. Na dvou druzích kladky si ukážeme, jak se s ní zvedá břemeno.",
 					zvidave: "<p>Kladka je kolo s drážkou, přes které vedeme lano. Patří mezi jednoduché stroje, stejně jako páka. Ta nám pomáhá zvednout těžké těleso menší silou.</p>\n<p>Pevná kladka <strong>mění směr</strong> tahu. Místo zvedání nahoru můžeme lano táhnout dolů. To je pohodlnější, protože se do lana můžeme opřít vlastní vahou. Výhodou pevné kladky je pohodlný směr tahu, například u vlajky na stožáru nebo u studny s okovem.</p>\n<p>U pevné kladky je síla na lano rovna tíze břemene (F = F<sub>G</sub>) a dráha lana je stejná jako výška zdvihu.</p>\n<p>Volná kladka se pohybuje spolu s břemenem. Břemeno visí přímo na její ose. Zvedneme ho poloviční silou (F = F<sub>G</sub> : 2), ale lano musíme vytáhnout dvakrát delší. Dráha lana je dvojnásobek výšky zdvihu. Co ušetříme na síle, doplatíme na dráze, a to platí u všech strojů.</p>\n<p>🎒 <strong>Jako pytlíky do schodů:</strong> deset kilo vyneseš buď najednou v jednom balíku (velká síla, jedna cesta), nebo desetkrát po jednom kile (malá síla, ale mnohem delší chození). Práce vykonaná na zvednutí nákladu je v obou případech stejná, vždycky je něco za něco.</p>\n<p>Spojením několika pevných a volných kladek vznikne <strong>kladkostroj</strong>. Používá se u jeřábů, na lodích nebo v dílnách. S kladkostrojem zvedneme i velmi těžká břemena malou silou. Platí: kolik částí lana nese břemeno, tolikrát menší silou ho zvedneme. Ke kladkostroji se vrátíš v 8. ročníku v podtématu Účinnost (obrázek kladkostroje).</p>\n<p><strong>Zlaté pravidlo mechaniky:</strong> u každého jednoduchého stroje platí, že kolikrát si usnadníme sílu, tolikrát delší dráhu musíme překonat. Práci si nikdy neušetříme, jen ji rozložíme pohodlněji.</p>\n<p>Břemeno má tíhu 100 N, tedy hmotnost 10 kg. Visí na volné kladce, kterou drží dvě části lana.</p>\n<p>Jednu část lana drží strop silou 50 N. Za druhou taháš ty, také silou 50 N.</p>\n<p>Obě síly se sečtou: 50 N + 50 N = 100 N. Dohromady udrží celé břemeno.</p>\n<p>Zvedneš tak břemeno o tíze 100 N pouhými 50 N, ale lano musíš vytáhnout dvakrát delší, než je výška zdvihu.</p>\n<p>Vzorce: pevná kladka F = F<sub>G</sub>, volná kladka F = F<sub>G</sub> : 2, odvozeně F<sub>G</sub> = 2 · F. Slovy: síla tahu u pevné kladky se rovná tíhové síle břemene, síla tahu u volné kladky je tíhová síla břemene děleno dvěma.</p>\n<p>Síla tahu se značí F a tíhová síla F<sub>G</sub>, obě mají jednotku N (newton). Převody: 1 kN = 1 000 N. Do vztahů dosazuj obě síly v newtonech.</p>",
 					zapis: {"vzorec":"pevná kladka: F = FG\nvolná kladka: F = FG : 2","jednotky":["F, FG (N), FG = m · g, g = 10 N/kg"],"body":["kladka je kolo s drážkou pro lano","pevná kladka sílu nešetří","volná kladka: poloviční síla, ale dvojnásobná dráha lana"]},
-					odkazy: [
-						{ nazev: 'Eductify — Kladka', url: 'https://www.eductify.com/cs/fyzika/c80/8-rocnik-zs/p-kl/kladka' },
-						{ nazev: 'Umíme fakta — Kladky (lehké), cvičení', url: 'https://www.umimefakta.cz/fyzika/rozhodovacka-kladky-1' },
-					],
+					odkazy: [],
 					materialy: [
 						{ druh: 'infografika', nazev: 'Infografika: Kladka v kostce', cesta: '/materialy/fyzika/7-rocnik/jednoduche-stroje/kladka/infografika-kladka.svg', panely: ['/materialy/fyzika/7-rocnik/jednoduche-stroje/kladka/infografika-kladka-panel-1.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/kladka/infografika-kladka-panel-2.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/kladka/infografika-kladka-panel-3.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/kladka/infografika-kladka-panel-4.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/kladka/infografika-kladka-panel-5.svg'] },
 						{
@@ -2322,9 +2306,7 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '/materialy/fyzika/7-rocnik/tlak-v-kapalinach/tlak/pisen-dneska-jedeme-tlak.mp4',
 						},
 					],
-					odkazy: [
-						{ nazev: 'Umíme fakta — Tlak a tlaková síla (7. třída), cvičení', url: 'https://www.umimefakta.cz/fyzika/cviceni-tlak-a-tlakova-sila-7-trida' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'pascaluv-zakon',
@@ -2369,9 +2351,7 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '/materialy/fyzika/7-rocnik/tlak-v-kapalinach/pascaluv-zakon/pisen-pascaluv-zakon.mp4',
 						},
 					],
-					odkazy: [
-						{ nazev: 'TechMania — Pascalův zákon', url: 'http://edu.techmania.cz/cs/encyklopedie/fyzika/tekutiny/pascaluv-zakon' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'hydrostaticky-tlak',
@@ -2403,9 +2383,7 @@ export const temata: Record<string, Tema[]> = {
 							],
 						},
 					],
-					odkazy: [
-						{ nazev: 'Umíme fakta — Hydrostatický tlak: intuitivně (7. třída), cvičení', url: 'https://www.umimefakta.cz/fyzika/cviceni-hydrostaticky-tlak-intuitivne-7-trida' },
-					],
+					odkazy: [],
 				},
 			],
 		},
@@ -2431,9 +2409,7 @@ export const temata: Record<string, Tema[]> = {
 							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
 						},
 					],
-					odkazy: [
-						{ nazev: 'TechMania — Vztlaková síla', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/tekutiny/vztlakova-sila' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'telesa-stejnoroda-a-nestejnoroda',
@@ -2446,9 +2422,7 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'infografika', nazev: 'Infografika: Potápěč a vztlaková vesta', cesta: '/materialy/fyzika/7-rocnik/vztlakova-sila-a-plovani-teles/telesa-stejnoroda-a-nestejnoroda/infografika-telesa-stejnoroda-a-nestejnoroda-panel-1.svg', panely: ['/materialy/fyzika/7-rocnik/vztlakova-sila-a-plovani-teles/telesa-stejnoroda-a-nestejnoroda/infografika-telesa-stejnoroda-a-nestejnoroda-panel-1.svg'] },
 						{ druh: 'youtube', nazev: 'Video: Ocelový paradox — tajemství vztlaku', cesta: 'XvJnyVH_WMk' },
 					],
-					odkazy: [
-						{ nazev: 'Eductify — Vztlaková síla kolem nás (7. ročník)', url: 'https://www.eductify.com/cs/fyzika/c70/7-rocnik-zs/p-vvs/vztlakova-sila-kolem-nas' },
-					],
+					odkazy: [],
 				},
 			],
 		},
@@ -2457,7 +2431,7 @@ export const temata: Record<string, Tema[]> = {
 			nazev: 'Atmosféra a tlak vzduchu',
 			podtemata: [
 				{
-					odkazy: [{"nazev":"Wikipedie: Atmosférický tlak","url":"https://cs.wikipedia.org/wiki/Atmosférický_tlak"},{"nazev":"Škola s nadhledem: Atmosférický tlak","url":"https://www.skolasnadhledem.cz/game/3913"},{"nazev":"Umíme to: Atmosférický tlak","url":"https://www.umimefakta.cz/fyzika/cviceni-atmosfericky-tlak"}],
+					odkazy: [],
 					slug: 'atmosfericky-tlak',
 					uvod: "Kolem Země je obal ze vzduchu. Země vzduch přitahuje, a proto horní vrstvy tlačí na spodní. Tomu tlačení říkáme atmosférický tlak. Čím výš v horách, tím méně vzduchu je nad tebou, a tím je tlak menší.",
 					nazev: 'Atmosférický tlak',
@@ -2470,7 +2444,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
-					odkazy: [{"nazev":"Wikipedie: Měření tlaku","url":"https://cs.wikipedia.org/wiki/Měření_tlaku"},{"nazev":"Škola s nadhledem: Přetlak, podtlak, vakuum","url":"https://www.skolasnadhledem.cz/game/3918"},{"nazev":"Eductify: Přetlak, podtlak, vakuum","url":"https://www.eductify.com/cs/fyzika/32/tlak/p-ppv/vakuum"}],
+					odkazy: [],
 					slug: 'pretlak-podtlak-vakuum',
 					uvod: "Do míče pumpičkou vtlačíš víc vzduchu, než v něm bylo, a míč je tvrdý. Uvnitř je přetlak, tedy větší tlak než venku. Když je tlak uvnitř menší než venku, je tam podtlak. A když z nádoby vyčerpáme skoro všechen vzduch, vznikne vakuum.",
 					nazev: 'Přetlak, podtlak, vakuum',
@@ -2484,7 +2458,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
-					odkazy: [{"nazev":"ČHMÚ: Meteorologická terminologie","url":"https://www.chmi.cz/predpoved-pocasi/meteorologicka-terminologie"},{"nazev":"Wikipedie: Anemometr","url":"https://cs.wikipedia.org/wiki/Anemometr"},{"nazev":"Škola s nadhledem: Atmosféra a meteorologie","url":"https://www.skolasnadhledem.cz/game/3915"}],
+					odkazy: [],
 					slug: 'meteorologie-a-mereni-tlaku',
 					uvod: "Vítr je vzduch, který se přesouvá. Proudí z místa, kde vzduch tlačí víc, na místo, kde tlačí míň. Podle toho, jak se tlak vzduchu mění, poznají meteorologové, jaké bude počasí. Když tlak klesá, počasí se obvykle kazí.",
 					nazev: 'Meteorologie a měření tlaku',
@@ -2504,7 +2478,7 @@ export const temata: Record<string, Tema[]> = {
 			nazev: 'Světlo a jeho šíření',
 			podtemata: [
 				{
-					odkazy: [{"nazev":"Světelný zdroj (Wikipedie)","url":"https://cs.wikipedia.org/wiki/Sv%C4%9Bteln%C3%BD_zdroj"},{"nazev":"Rychlost světla (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/svetlo/rychlost-svetla"},{"nazev":"Optické prostředí (Wikipedie)","url":"https://cs.wikipedia.org/wiki/Optick%C3%A9_prost%C5%99ed%C3%AD"},{"nazev":"Infračervené záření (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/elektromagneticke-vlny/infracervene-zareni"}],
+					odkazy: [],
 					slug: 'svetlo-jeho-zdroje',
 					uvod: "Slunce svítí samo, Měsíc ale ne. Měsíc jen odráží světlo ze Slunce. Věci, které světlo samy vyrábějí, jsou zdroje světla, třeba svíčka, žárovka nebo světluška. Ostatní věci vidíme proto, že odrážejí cizí světlo.",
 					nazev: 'Světlo a jeho zdroje',
@@ -2519,7 +2493,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
-					odkazy: [{"nazev":"Odraz a lom světla (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/svetlo/odraz-lom-svetla"}],
+					odkazy: [],
 					slug: 'odraz-svetla',
 					uvod: "Míč hozený na zeď se od ní odrazí. Podobně se od zrcadla odráží světlo. Odrazí se pod stejným úhlem, pod jakým dopadlo. Hladká lesklá plocha ho odráží uspořádaně, drsná plocha ho rozptýlí na všechny strany.",
 					nazev: 'Odraz světla, zákon odrazu',
@@ -2531,7 +2505,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
-					odkazy: [{"nazev":"Odraz a lom světla (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/svetlo/odraz-lom-svetla"},{"nazev":"Úplný odraz světla (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/svetlo/uplny-odraz-svetla"}],
+					odkazy: [],
 					slug: 'lom-svetla',
 					uvod: "Brčko ve sklenici vody vypadá jako zlomené. Světlo z něj totiž letí z vody do vzduchu, při přechodu změní rychlost, a tím i směr. Říkáme, že se láme.",
 					nazev: 'Lom světla',
@@ -2544,7 +2518,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
-					odkazy: [{"nazev":"Fáze Měsíce (astro.cz)","url":"https://planety.astro.cz/zeme/1959-faze-mesice"},{"nazev":"Zatmění Měsíce (astro.cz)","url":"https://www.astro.cz/na-obloze/mesic/zatmeni-mesice.html"},{"nazev":"Zatmění Slunce (astro.cz)","url":"https://www.astro.cz/na-obloze/slunce/zatmeni-slunce.html"}],
+					odkazy: [],
 					slug: 'stin-faze-mesice',
 					uvod: "Strom na slunci vrhá stín, protože světlo skrz něj neprojde. Měsíc sám nesvítí, jen ho osvětluje Slunce. Jak Měsíc obíhá kolem Země, vidíme jeho osvětlenou část pokaždé jinak velkou, od temného novu po celý úplněk.",
 					nazev: 'Stín a fáze Měsíce',
@@ -2563,7 +2537,7 @@ export const temata: Record<string, Tema[]> = {
 			nazev: 'Zrcadla a čočky',
 			podtemata: [
 				{
-					odkazy: [{"nazev":"Zrcadla (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/svetlo/opticke-zobrazovani/zrcadla"},{"nazev":"Zobrazení rovinným zrcadlem (ELUC)","url":"https://eluc.ikap.cz/lekce/zobrazeni-rovinnym-zrcadlem"},{"nazev":"Odraz světla a zrcadla – 7. ročník (Umíme fakta)","url":"https://www.umimefakta.cz/fyzika/cviceni-odraz-svetla-a-zrcadla-7-trida"}],
+					odkazy: [],
 					slug: 'optika-rovinneho-zrcadla',
 					uvod: "Když se podíváš do zrcadla, vidíš tam sebe. Zdá se, že stojíš za zrcadlem, stejně daleko, jako stojíš před ním. Ve skutečnosti tam nic není, obraz vytváří světlo, které se odrazilo a přišlo ti do očí. Pravá ruka se v zrcadle tváří jako levá.",
 					interakce: 'rovinne-zrcadlo',
@@ -2576,7 +2550,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
-					odkazy: [{"nazev":"Zrcadla (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/svetlo/opticke-zobrazovani/zrcadla"},{"nazev":"Zobrazení dutým zrcadlem (ELUC)","url":"https://eluc.ikap.cz/lekce/zobrazeni-dutym-zrcadlem"},{"nazev":"Zobrazení vypuklým zrcadlem (ELUC)","url":"https://eluc.ikap.cz/lekce/zobrazeni-vypuklym-zrcadlem"}],
+					odkazy: [],
 					slug: 'kulova-zrcadla-dute-zrcadlo',
 					uvod: "Zrcadlo nemusí být rovné. Duté zrcadlo sluneční světlo sebere do jednoho místa, a tam se dá dokonce zapálit oheň. Naopak žárovka v reflektoru auta svítí jedním směrem do dálky díky dutému zrcadlu za ní.",
 					nazev: 'Kulová zrcadla a duté zrcadlo',
@@ -2589,7 +2563,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
-					odkazy: [{"nazev":"Zobrazení tenkou spojkou (ELUC)","url":"https://eluc.ikap.cz/lekce/zobrazeni-tenkou-spojkou"},{"nazev":"Zobrazení tenkou rozptylkou (ELUC)","url":"https://eluc.ikap.cz/lekce/zobrazeni-tenkou-rozptylkou"},{"nazev":"Čočky (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/svetlo/opticke-zobrazovani/cocky"},{"nazev":"Čočky – kvíz (Wordwall)","url":"https://wordwall.net/cs/resource/112356120/f/%C4%8Do%C4%8Dky"}],
+					odkazy: [],
 					slug: 'opticka-cocka',
 					uvod: "Lupa, která zvětší malá písmenka, je čočka, tedy kousek průhledného skla se zakřiveným povrchem. Čočky jsou dvou druhů. Spojka je uprostřed nejtlustší a světlo sbírá do jednoho místa. Rozptylka je uprostřed nejtenčí a světlo rozptyluje.",
 					nazev: 'Optická čočka (spojky a rozptylky)',
@@ -2603,7 +2577,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
-					odkazy: [{"nazev":"Oční vady (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/svetlo/lidske-oko/ocni-vady"},{"nazev":"Krátkozrakost (myopie) – NZIP","url":"https://www.nzip.cz/clanek/382-kratkozrakost-myopie"},{"nazev":"Dalekozrakost (hypermetropie) – NZIP","url":"https://www.nzip.cz/clanek/385-dalekozrakost-hypermetropie"},{"nazev":"Vady oka (ELUC)","url":"https://eluc.ikap.cz/lekce/vady-oka"}],
+					odkazy: [],
 					slug: 'oko-vady-oka',
 					uvod: "Oko funguje trochu jako fotoaparát. Světlo projde zornicí a čočkou a na zadní stěně oka vznikne obraz. Čočka v oku mění tvar, aby bylo vidět ostře blízko i daleko. Když to nejde dobře, pomůžou brýle.",
 					nazev: 'Oko a vady oka',
@@ -2617,7 +2591,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
-					odkazy: [{"nazev":"Duha (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/svetlo/uplny-odraz-svetla/duha"},{"nazev":"Duha (Wikipedie)","url":"https://cs.wikipedia.org/wiki/Duha"},{"nazev":"Edutorium: Rozklad světla hranolem (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/katalog/edutorium/410/rozklad-svetla-hranolem"}],
+					odkazy: [],
 					slug: 'rozklad-svetla-duha',
 					uvod: "Sluneční světlo vypadá bíle, ale je složené z mnoha barev. Když projde průhledným hranolem nebo dešťovými kapkami, barvy se od sebe oddělí. Tak vzniká duha. Uvidíš ji, když máš Slunce za zády a déšť před sebou.",
 					nazev: 'Rozklad světla a duha',
@@ -2629,7 +2603,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
-					odkazy: [{"nazev":"Vnímání barev (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/svetlo/vnimani-barev"},{"nazev":"Mísení barev (ELUC)","url":"https://eluc.ikap.cz/lekce/miseni-barev"},{"nazev":"Barevný model (Wikipedie)","url":"https://cs.wikipedia.org/wiki/Barevn%C3%BD_model"}],
+					odkazy: [],
 					slug: 'vnimani-barev',
 					uvod: "Obrazovka ukazuje spoustu barev, a přitom svítí jen červeně, zeleně a modře. Když se všechna tři světla smíchají stejně silně, vznikne bílá. I v tvém oku jsou tři druhy buněk, každá citlivá na jednu z těchto barev. Výslednou barvu poskládá mozek.",
 					nazev: 'Vnímání barev (RGB a CMYK)',
@@ -2748,7 +2722,7 @@ export const temata: Record<string, Tema[]> = {
 					uvod: "Když tlačíš těžkou skříň a ona se pohne, děláš práci. Když do ní jen opřeš ruce a ona stojí, hodně se namáháš, ale práci pro fyziku neděláš. Fyzika o práci mluví tehdy, když do něčeho tlačíš nebo to táhneš a ono se kvůli tomu pohne.",
 					zvidave: "<p><strong>Na čem práce závisí.</strong> Malou silou po krátké dráze vykonáme málo práce, velkou silou po dlouhé dráze mnoho práce.</p>\n<p><strong>Síla kolmo na dráhu.</strong> Neseš tašku vodorovně. Tvoje síla míří nahoru (držíš tašku), ale taška se posouvá vodorovně. Síla svírá s dráhou pravý úhel, a proto práci ve fyzice nekonáš.</p>",
 					zapis: {"vzorec":"W = F · s","jednotky":["W (J, kJ, MJ), F (N), s (m)"],"vzorecSlovy":"práce = síla krát dráha","body":["práci koná síla, která posune těleso ve směru síly","bez síly nebo bez posunu je práce nulová"]},
-					odkazy: [{"nazev":"Wordwall — Práce, výkon, energie (veličiny a značky)","url":"https://wordwall.net/resource/79662704/fyzika/fyzika-pr%C3%A1ce-v%C3%BDkon-energie-veli%C4%8Diny-a-zna%C4%8Dky"},{"nazev":"Hra pro třídu: Mechanická práce a výkon (Fyzikální liga)","url":"/hry/liga-karty?rocnik=8&celek=mechanicka-prace-a-vykon"}],
+					odkazy: [{"nazev":"Hra pro třídu: Mechanická práce a výkon (Fyzikální liga)","url":"/hry/liga-karty?rocnik=8&celek=mechanicka-prace-a-vykon"}],
 					materialy: [{"druh":"video","nazev":"Píseň: Mechanická práce a výkon 🎵","cesta":"/materialy/fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace/pisen-mechanicka-prace-a-vykon.m4a"},{"druh":"infografika","nazev":"Infografika: Mechanická práce — tahák","cesta":"/materialy/fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace/infografika-mechanicka-prace.svg","panely":["/materialy/fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace/infografika-mechanicka-prace-panel-1.svg","/materialy/fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace/infografika-mechanicka-prace-panel-2.svg","/materialy/fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace/infografika-mechanicka-prace-panel-3.svg","/materialy/fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace/infografika-mechanicka-prace-panel-4.svg"]},{"druh":"video","nazev":"Mechanická práce — 1. díl: síla a posunutí","cesta":"/media/fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace/mechanicka-prace-dialog.mp4","ai":"Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program."},{"druh":"video","nazev":"Mechanická práce — 2. díl: násobit, nebo dělit?","cesta":"/media/fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace/mechanicka-prace-dialog2.mp4","ai":"Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program."},{"druh":"video","nazev":"Mechanická práce — 3. díl: práce při zvedání","cesta":"/media/fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace/mechanicka-prace-dialog3.mp4","ai":"Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program."},{"druh":"video","nazev":"Bonus z NotebookLM: Mechanická práce (video rozbor, doplněk k výkladu)","cesta":"/media/fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace/notebooklm-mechanicka-prace.mp4"}],
 				},
 				{
@@ -2760,7 +2734,7 @@ export const temata: Record<string, Tema[]> = {
 					uvod: "Představ si, že dva kluci mají uklidit stejně velký pokoj. První to uklidí za chvilku, druhý se s tím vleče celé odpoledne. Práci mají oba stejnou, ale první ji udělal rychleji. A právě tomu, jak rychle se práce dělá, říkáme ve fyzice výkon.",
 					zvidave: "<p><strong>Kde vídáme kilowatty a megawatty.</strong> Kilowatty vídáme třeba u vařiče nebo žehličky. Megawatty se používají u velkých strojů, třeba v elektrárnách.</p>\n<p><strong>Další příklad na čas.</strong> Elektrický vařič má výkon 1 000 W, tedy 1 kW. Za kolik sekund vykoná práci 5 000 J?<br>\nt = W : P = 5 000 : 1 000 = <strong>5 s</strong></p>\n<p><strong>Odkud se bere P = F · v.</strong> Práce je W = F · s a rychlost v = s : t. Když do P = W : t dosadíme W = F · s, dostaneme P = F · s : t = F · (s : t) = F · v.</p>",
 					zapis: {"vzorec":"P = W : t\nP = F · v","jednotky":["P (W, kW), W (J), t (s), F (N), v (m/s)"],"vzorecSlovy":"výkon = práce děleno čas","body":["výkon říká, jak rychle se koná práce","kilowatt je tisíc wattů"]},
-					odkazy: [{"nazev":"Umíme fakta — Výkon (cvičení)","url":"https://www.umimefakta.cz/fyzika/cviceni-vykon"},{"nazev":"Wordwall — Výkon","url":"https://wordwall.net/resource/64369600"},{"nazev":"Hra pro třídu: Mechanická práce a výkon (Fyzikální liga)","url":"/hry/liga-karty?rocnik=8&celek=mechanicka-prace-a-vykon"}],
+					odkazy: [{"nazev":"Hra pro třídu: Mechanická práce a výkon (Fyzikální liga)","url":"/hry/liga-karty?rocnik=8&celek=mechanicka-prace-a-vykon"}],
 				},
 				{
 					slug: 'ucinnost',
@@ -2795,9 +2769,7 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'youtube', nazev: 'Video: Zákon zachování energie', cesta: 'vDavukfb5qU' },
 						{ druh: 'video', nazev: 'Píseň: Nedá se zničit 🎵', cesta: '/materialy/fyzika/8-rocnik/energie/energie-a-jeji-premeny/pisen-neda-se-znicit.m4a' },
 					],
-					odkazy: [
-						{ nazev: 'Umíme fakta — Zákon zachování mechanické energie', url: 'https://www.umimefakta.cz/fyzika/cviceni-mechanicka-energie-zakon-zachovani-8-trida' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'pohybova-a-polohova-energie',
@@ -2807,9 +2779,7 @@ export const temata: Record<string, Tema[]> = {
 					uvod: "Rychle se kutálející koule srazí kuželky. Těžká věc zvednutá vysoko může při pádu něco rozbít. Obě mají schopnost něco posunout nebo rozbít a té schopnosti fyzici říkají energie. Jedna je schovaná v pohybu, druhá ve výšce.",
 					zvidave: "<p><strong>Příklad na výpočet.</strong> Cihla o hmotnosti 2 kg leží na lešení ve výšce 5 m, g = 10 N/kg. Její polohová energie je E<sub>p</sub> = m · g · h = 2 · 10 · 5 = 100 J.</p>\n<p><strong>Kolik musí cihla vážit?</strong> Aby ve stejné výšce 5 m měla polohovou energii 200 J, spočítáme m = E<sub>p</sub> : (g · h) = 200 : (10 · 5) = 4 kg.</p>\n<p><strong>Rychlost auta.</strong> Pravidlo „dvojnásobná rychlost, čtyřnásobná pohybová energie“ platí i pro auta. Auto, které místo 50 km/h jede 100 km/h, má čtyřikrát větší pohybovou energii.</p>\n<p><strong>Větší jednotky.</strong> Energie se někdy udává v kilojoulech a megajoulech: 1 kJ = 1 000 J a 1 MJ = 1 000 000 J.</p>\n<p><strong>Pinball.</strong> Ve hře pinball odražená pružina vystřelí kuličku na hrací plochu.</p>",
 					zapis: {"vzorec":"Eₚ = m · g · h","jednotky":["Eₖ, Eₚ (J), m (kg), h (m), g = 10 N/kg"],"body":["pohybová energie Eₖ roste s hmotností a rychlostí","polohová energie Eₚ je ve výšce nebo v napjatém pružném tělese","obě dohromady tvoří mechanickou energii"]},
-					odkazy: [
-						{ nazev: 'Wordwall — kvíz Energie (pohybová, polohová, zachování)', url: 'https://wordwall.net/resource/37856406/energie' },
-					],
+					odkazy: [],
 					materialy: [
 						{ druh: 'infografika', nazev: 'Infografika: Pohybová a polohová energie v kostce', cesta: '/materialy/fyzika/8-rocnik/energie/pohybova-a-polohova-energie/infografika-pohybova-a-polohova-energie.svg', panely: ['/materialy/fyzika/8-rocnik/energie/pohybova-a-polohova-energie/infografika-pohybova-a-polohova-energie-panel-1.svg', '/materialy/fyzika/8-rocnik/energie/pohybova-a-polohova-energie/infografika-pohybova-a-polohova-energie-panel-2.svg', '/materialy/fyzika/8-rocnik/energie/pohybova-a-polohova-energie/infografika-pohybova-a-polohova-energie-panel-3.svg', '/materialy/fyzika/8-rocnik/energie/pohybova-a-polohova-energie/infografika-pohybova-a-polohova-energie-panel-4.svg', '/materialy/fyzika/8-rocnik/energie/pohybova-a-polohova-energie/infografika-pohybova-a-polohova-energie-panel-5.svg', '/materialy/fyzika/8-rocnik/energie/pohybova-a-polohova-energie/infografika-pohybova-a-polohova-energie-panel-6.svg'] },
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Mechanická energie (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/energie/pohybova-a-polohova-energie/notebooklm-pohybova-a-polohova-energie.mp4' },
@@ -2823,9 +2793,7 @@ export const temata: Record<string, Tema[]> = {
 					uvod: "Když se houpeš, nahoře na okamžik zastavíš a dole jsi nejrychlejší. Energie výšky se tak mění na energii pohybu a zase zpátky. Nic se při tom nevyrobí ani nezničí, energie jen přechází z jedné podoby do druhé. Kdyby nic nebrzdilo, houpal by ses pořád stejně vysoko.",
 					zvidave: "<p><strong>Kam se energie ztratí.</strong> Když tření ubere skateboardistovi mechanickou energii, energie nezmizí. Kolečka, rampa a okolní vzduch se o trochu zahřejí, roste jejich vnitřní energie. Součet všech druhů energie se tedy nezmění, ubývá jen energie mechanické. Energie se nevyrábí a neničí ani při tření.</p>\n<p><strong>Pád ve skutečnosti.</strong> Parašutista s otevřeným padákem je brzděn vzduchem, takže při dopadu je jeho pohybová energie menší než polohová energie na začátku pádu. Rozdíl se přemění na vnitřní energii a zahřeje vzduch a padák. Zákon zachování mechanické energie ve tvaru „součet zůstává stejný“ platí přesně jen tehdy, když tření a odpor vzduchu nepůsobí (nebo jsou zanedbatelné).</p>\n<p><strong>Dopočítáme chybějící část.</strong> Známe-li celkovou energii E a jednu její část, druhou dopočítáme odečtením: E<sub>p</sub> = E − E<sub>k</sub> nebo E<sub>k</sub> = E − E<sub>p</sub>. U kuličky, která má E<sub>k</sub> = 4 J a E = 10 J, vyjde E<sub>p</sub> = 10 − 4 = 6 J. To odpovídá druhé poloze na obrázku.</p>\n<p><strong>Kámen ze skály.</strong> Kámen o hmotnosti 3 kg leží na skále ve výšce 4 m, g = 10 N/kg. Jeho polohová energie nahoře je E<sub>p</sub> = m · g · h = 3 · 10 · 4 = 120 J. Kámen spadne dolů, kde je výška nulová, a tedy i polohová energie nulová. Podle zákona zachování se celá polohová energie proměnila na pohybovou, takže těsně nad zemí má kámen pohybovou energii E<sub>k</sub> = 120 J.</p>\n<p><strong>Jak vysoko doletí míč.</strong> Chlapec hodí míček o hmotnosti 1 kg svisle vzhůru a na začátku mu dá pohybovou energii 20 J. V nejvyšším bodě je celá tato energie polohová, E<sub>p</sub> = 20 J. Výšku výstupu spočítáme ze vzorce E<sub>p</sub> = m · g · h: h = E<sub>p</sub> : (m · g) = 20 : (1 · 10) = 2 m.</p>",
 					zapis: {"zakon":"Pokud se mechanická energie nemění v jiné druhy energie, je součet Eₚ + Eₖ stejný.","vzorec":"E = Eₚ + Eₖ","jednotky":["E, Eₚ, Eₖ (J)"],"body":["při pádu se polohová energie mění na pohybovou","při tření se část energie mění na vnitřní"]},
-					odkazy: [
-						{ nazev: 'Eductify — Zákon zachování energie (8. ročník)', url: 'https://www.eductify.com/cs/fyzika/c80/8-rocnik-zs/p-zzche/zakon-zachovani-energie' },
-					],
+					odkazy: [],
 					materialy: [
 						{ druh: 'infografika', nazev: 'Infografika: Zákon zachování mechanické energie v kostce', cesta: '/materialy/fyzika/8-rocnik/energie/zakon-zachovani-mechanicke-energie/infografika-zakon-zachovani-mechanicke-energie.svg', panely: ['/materialy/fyzika/8-rocnik/energie/zakon-zachovani-mechanicke-energie/infografika-zakon-zachovani-mechanicke-energie-panel-1.svg', '/materialy/fyzika/8-rocnik/energie/zakon-zachovani-mechanicke-energie/infografika-zakon-zachovani-mechanicke-energie-panel-2.svg', '/materialy/fyzika/8-rocnik/energie/zakon-zachovani-mechanicke-energie/infografika-zakon-zachovani-mechanicke-energie-panel-3.svg', '/materialy/fyzika/8-rocnik/energie/zakon-zachovani-mechanicke-energie/infografika-zakon-zachovani-mechanicke-energie-panel-4.svg', '/materialy/fyzika/8-rocnik/energie/zakon-zachovani-mechanicke-energie/infografika-zakon-zachovani-mechanicke-energie-panel-5.svg'] },
 						{ druh: 'youtube', nazev: 'Video: Zákon zachování energie', cesta: 'vDavukfb5qU' },
@@ -2839,10 +2807,7 @@ export const temata: Record<string, Tema[]> = {
 					uvod: "Jídlo je pro tělo něco jako palivo. Když se najíš, získáš energii na běhání, na hraní i na přemýšlení. Kolik energie jídlo obsahuje, zjistíme tak, že se kousek jídla spálí a změří se teplo, které při tom vznikne.",
 					zvidave: "<p><strong>Energie se nevyrábí.</strong> Energie z jídla nevzniká z ničeho. Chemická energie potravy se v těle přeměňuje na pohybovou energii svalů, na elektrickou energii v mozku a na vnitřní energii. Proto se při sportu zahřejeme. Celkové množství energie se přitom nezmění.</p>\n<p><strong>Kilojoule a kalorie.</strong> Předpona kilo- znamená tisíc, takže 1 kJ = 1 000 J. Kalorie a joule měří totéž, energii, jen v jiné jednotce. Na obalech potravin bývá energie uvedená v kJ i v kcal. Převod je asi 1 kcal ≈ 4,2 kJ; berme ho jen jako údaj, který si můžeš na obalu ověřit, a počítat s ním nebudeme.</p>\n<p><strong>Které živiny dávají nejvíc energie.</strong> Jídlo obsahuje tři hlavní živiny: bílkoviny, sacharidy (cukry a škroby) a tuky. Bílkoviny i sacharidy dají na 1 gram asi 17 kJ. Tuky dají na 1 gram asi 38 kJ, tedy víc než dvojnásobek. Molekuly tuku obsahují hodně uhlíku a vodíku a málo kyslíku. Při spalování se s kyslíkem slučují a uvolňují teplo, proto má tučné jídlo víc energie na stejnou hmotnost.</p>\n<p><strong>Energetická hodnota na obalu.</strong> Na obalu potraviny bývá energetická hodnota napsaná dvakrát. Jednou na 100 gramů, aby šly potraviny mezi sebou porovnat. Podruhé na jednu porci, tedy na to, kolik sníš doopravdy najednou.</p>\n<p><strong>Kolik energie tělo potřebuje.</strong> Náctiletý člověk, který se běžně hýbe (škola, chůze, trochu sportu), potřebuje za den asi 9 000 až 10 000 kJ. Kdo sportuje víc, potřebuje energie víc, klidně přes 12 000 kJ. Kdo se málo hýbe, potřebuje méně. Když člověk sní víc energie, než tělo spotřebuje, přebytek se v těle uloží jako tuk.</p>\n<p><strong>Kolik energie spotřebuje pohyb.</strong> Orientačně za jednu hodinu:</p>\n<ul>\n<li>chůze: asi 1 200 kJ (20 kJ za minutu)</li>\n<li>běh: asi 2 400 kJ (40 kJ za minutu)</li>\n<li>plavání: asi 3 000 kJ (50 kJ za minutu)</li>\n</ul>\n<p><strong>Počítáme energii porce.</strong> Vzorec E = (m : 100) · E<sub>100</sub> říká, že hmotnost porce srovnáme se 100 g. Když je porce poloviční, je poloviční i energie. Když je jedenapůlkrát větší, přidáme k hodnotě na 100 g její polovinu. Počítáme jen s celými čísly.</p>\n<p>Müsli tyčinka má na obalu „1 700 kJ / 100 g“ a jedna tyčinka váží 50 g, tedy polovinu ze 100 g. Kolik kJ sníš, když ji sníš celou?</p>\n<p>E = 1 700 : 2 = 850 kJ</p>\n<figure><a href=\"/obrazky/fyzika/8-rocnik/energie/energeticka-hodnota-potravin/energeticka-hodnota-potravin-obr-04.svg\" target=\"_blank\" rel=\"noopener\"><img src=\"/obrazky/fyzika/8-rocnik/energie/energeticka-hodnota-potravin/energeticka-hodnota-potravin-obr-04.svg\" alt=\"Obal müsli tyčinky s tabulkou: 1 700 kJ ve 100 g a 850 kJ v jedné tyčince o hmotnosti 50 g; jednotky J, kJ a starší cal, kcal.\" /></a><figcaption>Na obalu je energetická hodnota ve 100 g i v jedné porci. Udává se v kJ, starší jednotkou je kcal.</figcaption></figure>\n<p>Jogurt má na obalu „400 kJ / 100 g“ a kelímek váží 150 g, tedy 100 g a ještě 50 g. Kolik kJ je v celém kelímku?</p>\n<p>E = 400 + 400 : 2 = 400 + 200 = 600 kJ</p>\n<figure><a href=\"/obrazky/fyzika/8-rocnik/energie/energeticka-hodnota-potravin/energeticka-hodnota-potravin-obr-05.svg\" target=\"_blank\" rel=\"noopener\"><img src=\"/obrazky/fyzika/8-rocnik/energie/energeticka-hodnota-potravin/energeticka-hodnota-potravin-obr-05.svg\" alt=\"Animace výpočtu: jogurt 150 g na váze, 100 g má 400 kJ, 50 g má 200 kJ, celkem 600 kJ.\" /></a><figcaption>Energii porce spočítáme podle její hmotnosti: kelímek 150 g = 100 g + 50 g, tedy 400 kJ + 200 kJ = 600 kJ.</figcaption></figure>\n<p>Dvě müsli tyčinky dají 2 · 850 = 1 700 kJ. Hodina běhu spotřebuje asi 2 400 kJ, tedy víc, než ti dvě tyčinky dodají. Zbytek si tělo vezme z vlastních zásob.</p>",
 					zapis: {"vzorec":"E = (m : 100) · E₁₀₀","jednotky":["E (J, kJ), m (g)"],"body":["energii získává člověk hlavně z potravy","tělo mění chemickou energii potravy na práci svalů","energetická hodnota se udává na 100 g potraviny"]},
-					odkazy: [
-						{ nazev: 'Společnost pro výživu — Energetická hodnota potravin', url: 'https://www.vyzivaspol.cz/energeticka-hodnota-potravin/' },
-						{ nazev: '100+1 zahraniční zajímavost — Jak se zjišťuje energetická hodnota potravin', url: 'https://www.stoplusjednicka.cz/kdyz-se-pali-jidlo-jak-se-zjistuje-energeticka-hodnota-potravin' },
-					],
+					odkazy: [],
 					materialy: [
 						{ druh: 'infografika', nazev: 'Infografika: Energetická hodnota potravin v kostce', cesta: '/materialy/fyzika/8-rocnik/energie/energeticka-hodnota-potravin/infografika-energeticka-hodnota-potravin.svg', panely: ['/materialy/fyzika/8-rocnik/energie/energeticka-hodnota-potravin/infografika-energeticka-hodnota-potravin-panel-1.svg', '/materialy/fyzika/8-rocnik/energie/energeticka-hodnota-potravin/infografika-energeticka-hodnota-potravin-panel-2.svg', '/materialy/fyzika/8-rocnik/energie/energeticka-hodnota-potravin/infografika-energeticka-hodnota-potravin-panel-3.svg', '/materialy/fyzika/8-rocnik/energie/energeticka-hodnota-potravin/infografika-energeticka-hodnota-potravin-panel-4.svg', '/materialy/fyzika/8-rocnik/energie/energeticka-hodnota-potravin/infografika-energeticka-hodnota-potravin-panel-5.svg'] },
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Energie v potravinách (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/energie/energeticka-hodnota-potravin/notebooklm-energeticka-hodnota-potravin.mp4' },
@@ -2856,10 +2821,7 @@ export const temata: Record<string, Tema[]> = {
 					uvod: "Všechno kolem nás se skládá z maličkých částeček, které se pořád pohybují. Každá z nich má trochu energie a všechny dohromady mají vnitřní energii tělesa. Když si třeš dlaně o sebe, přidáš jim energii a ruce se zahřejí.",
 					zvidave: "<p><strong>Proč se pylová zrnka chvějí.</strong> Zrnka pylu na vodě se pod mikroskopem stále chvějí, protože do nich narážejí rychle se pohybující částice vody. Brownův pohyb je tedy vidět, i když samotné částice vody vidět nejsou.</p>\n<p><strong>Teplota a vnitřní energie nejsou totéž.</strong> Vana horké vody a hrnek horké vody mohou mít stejnou teplotu, ale vana má mnohem víc částic, a proto i mnohem větší vnitřní energii. Při tání ledu navíc tělesu energii dodáváme, a přesto se jeho teplota po dobu tání nemění: dodaná energie se spotřebuje na změnu skupenství, tedy na změnu uspořádání a vzájemné polohy částic.</p>\n<p><strong>Energie se nevyrábí.</strong> Když se zahřívají brzdy, energie nevzniká z ničeho. Pohybová energie auta se při brzdění přeměňuje na vnitřní energii brzd, a celková energie se přitom nezmění.</p>\n<p><strong>Oheň třením.</strong> Oheň se dá rozdělat i třením dřeva o dřevo: dřevo se třením zahřívá, až se vznítí.</p>\n<p><strong>Značka.</strong> Vnitřní energie nemá na základní škole zvláštní značku, aby se nepletla s napětím U.</p>",
 					zapis: {"jednotky":["vnitřní energie (J)"],"body":["vnitřní energie je součet energií všech částic tělesa","závisí na počtu částic a na teplotě","mění se konáním práce nebo tepelnou výměnou","když vnitřní energie téhož tělesa roste, roste i jeho teplota (mimo změnu skupenství)"]},
-					odkazy: [
-						{ nazev: 'Fyzika007 — Vnitřní energie tělesa (výklad + příklady)', url: 'https://www.fyzika007.cz/molekulov%C3%A1-fyzika-atermika/vnit%C5%99n%C3%AD-energie-t%C4%9Blesa' },
-						{ nazev: 'Eductify — procvičení: Změny vnitřní energie (8. ročník)', url: 'https://www.eductify.com/cs/fyzika/c80/8-rocnik-zs/p-zvet/zmeny-vnitrne-energie' },
-					],
+					odkazy: [],
 					materialy: [
 						{ druh: 'infografika', nazev: 'Infografika: Vnitřní energie tělesa v kostce', cesta: '/materialy/fyzika/8-rocnik/energie/vnitrni-energie-telesa/infografika-vnitrni-energie-telesa.svg', panely: ['/materialy/fyzika/8-rocnik/energie/vnitrni-energie-telesa/infografika-vnitrni-energie-telesa-panel-1.svg', '/materialy/fyzika/8-rocnik/energie/vnitrni-energie-telesa/infografika-vnitrni-energie-telesa-panel-2.svg', '/materialy/fyzika/8-rocnik/energie/vnitrni-energie-telesa/infografika-vnitrni-energie-telesa-panel-3.svg', '/materialy/fyzika/8-rocnik/energie/vnitrni-energie-telesa/infografika-vnitrni-energie-telesa-panel-4.svg', '/materialy/fyzika/8-rocnik/energie/vnitrni-energie-telesa/infografika-vnitrni-energie-telesa-panel-5.svg', '/materialy/fyzika/8-rocnik/energie/vnitrni-energie-telesa/infografika-vnitrni-energie-telesa-panel-6.svg', '/materialy/fyzika/8-rocnik/energie/vnitrni-energie-telesa/infografika-vnitrni-energie-telesa-panel-7.svg'] },
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Vnitřní energie tělesa (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/energie/vnitrni-energie-telesa/notebooklm-vnitrni-energie-telesa.mp4' },
@@ -2873,10 +2835,7 @@ export const temata: Record<string, Tema[]> = {
 					uvod: "Když naliješ horký čaj do studeného hrnku, hrnek se zahřeje a čaj trochu vychladne. Teplejší věc totiž předává studenější věci část své energie a té říkáme teplo. Předávání skončí, až mají obě věci stejnou teplotu.",
 					zvidave: "<p><strong>Když se těleso ochlazuje.</strong> Vzorec Q = m · c · (t<sub>2</sub> − t<sub>1</sub>) platí i pro ochlazování. Konečná teplota je pak nižší než počáteční, rozdíl t<sub>2</sub> − t<sub>1</sub> vyjde záporný, a proto i Q vyjde záporné — těleso teplo odevzdává. Například 3 kg vody se ochladí z 80 °C na 60 °C: t<sub>2</sub> − t<sub>1</sub> = 60 − 80 = −20 °C, Q = 3 · 4 200 · (−20) = −252 000 J. Voda tedy odevzdá teplo 252 000 J.</p>\n<p><strong>Ze vzorce dopočítáme i hmotnost nebo měrnou tepelnou kapacitu.</strong> Platí m = Q : [c · (t<sub>2</sub> − t<sub>1</sub>)] a c = Q : [m · (t<sub>2</sub> − t<sub>1</sub>)]. Kolik kg vody ohřejeme o 10 °C teplem 42 000 J? m = 42 000 : (4 200 · 10) = 42 000 : 42 000 = 1 kg.</p>\n<p><strong>Větší jednotky.</strong> 1 kJ = 1 000 J, 1 MJ = 1 000 000 J a 1 kg = 1 000 g. Do vzorce dosazujeme teplo v joulech, hmotnost v kilogramech, měrnou tepelnou kapacitu v J/(kg · °C) a teploty ve °C.</p>\n<p><strong>Míchání teplé a studené vody.</strong> Když smícháme stejná množství studené a teplé vody (dvě stejné hmotnosti), teplejší voda odevzdá tolik tepla, kolik studenější přijme, a výsledná teplota vyjde přibližně jako průměr teploty studené a teplé vody: (teplota studené vody + teplota teplé vody) : 2. (Značky t<sub>1</sub> a t<sub>2</sub> ze vzorce pro teplo tu nepoužíváme, ty patří počáteční a konečné teplotě jednoho tělesa.) Kdybychom smíchali víc studené vody než teplé, vyjde teplota blíž teplotě studené. Naměřená hodnota bývá o kousek nižší, protože trocha tepla uniká do okolí.</p>\n<p><strong>Měrná tepelná kapacita a vedení tepla jsou dvě různé věci.</strong> Měrná tepelná kapacita říká, kolik tepla látka potřebuje na ohřátí. Jak dobře látka teplo vede, je jiná vlastnost: kovy teplo vedou dobře (tepelné vodiče), zatímco tepelné izolanty ho vedou špatně. Voda se sice ohřívá pomalu, ale tepelný izolant to není.</p>",
 					zapis: {"vzorec":"Q = m · c · (t₂ − t₁)","jednotky":["Q (J), m (kg), t (°C), c (J/(kg · °C))"],"body":["teplo je energie předaná teplejším tělesem chladnějšímu","výměna končí vyrovnáním teplot","měrná tepelná kapacita c: voda ji má vysokou, kovy nízkou"]},
-					odkazy: [
-						{ nazev: 'Fyzika na Vltavě — Šíření tepla – přehled', url: 'https://www.zsvltava.cz/fyzika/?p=5470' },
-						{ nazev: 'Uč se online — Vnitřní energie, teplo (8. ročník)', url: 'https://www.ucseonline.cz/skola/zakladni-skola/skolni-zapisky/fyzika/vnitrni-energie-teplo/' },
-					],
+					odkazy: [],
 					materialy: [
 						{ druh: 'infografika', nazev: 'Infografika: Tepelná výměna a teplo v kostce', cesta: '/materialy/fyzika/8-rocnik/energie/tepelna-vymena-a-teplo/infografika-tepelna-vymena-a-teplo.svg', panely: ['/materialy/fyzika/8-rocnik/energie/tepelna-vymena-a-teplo/infografika-tepelna-vymena-a-teplo-panel-1.svg', '/materialy/fyzika/8-rocnik/energie/tepelna-vymena-a-teplo/infografika-tepelna-vymena-a-teplo-panel-2.svg', '/materialy/fyzika/8-rocnik/energie/tepelna-vymena-a-teplo/infografika-tepelna-vymena-a-teplo-panel-3.svg', '/materialy/fyzika/8-rocnik/energie/tepelna-vymena-a-teplo/infografika-tepelna-vymena-a-teplo-panel-4.svg', '/materialy/fyzika/8-rocnik/energie/tepelna-vymena-a-teplo/infografika-tepelna-vymena-a-teplo-panel-5.svg', '/materialy/fyzika/8-rocnik/energie/tepelna-vymena-a-teplo/infografika-tepelna-vymena-a-teplo-panel-6.svg'] },
 						{ druh: 'youtube', nazev: 'Video: Teplo a teplota (ústřední topení)', cesta: 'YLiXzSWoRRg' },
@@ -2901,11 +2860,7 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'youtube', nazev: 'Video: Parní stroj — Síla moderního světa', cesta: '1mdQ5Th3Vro' },
 						{ druh: 'video', nazev: 'Píseň: Teplo na pohyb 🎵', cesta: '/materialy/fyzika/8-rocnik/tepelne-motory/tepelny-motor-parni-stroj/pisen-teplo-na-pohyb.m4a' },
 					],
-					odkazy: [
-						{ nazev: 'ČT edu — Vznik parního stroje', url: 'https://edu.ceskatelevize.cz/video/3536-vznik-parniho-stroje' },
-						{ nazev: 'Techmania — Princip parního stroje (animace)', url: 'https://digital.techmania.cz/stroje/princip-parniho-stroje/' },
-						{ nazev: 'Wordwall — kvíz Tepelné motory', url: 'https://wordwall.net/cs/resource/111383163/tepeln%C3%A9-motory' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'spalovaci-motory',
@@ -2915,10 +2870,7 @@ export const temata: Record<string, Tema[]> = {
 					uvod: "Když táta nastartuje auto, motor zabrumlá a auto se rozjede. Uvnitř motoru se v malých válcích pálí palivo. Hořící palivo tlačí kus kovu, kterému se říká píst, a ten pomocí dalších částí roztočí kola.",
 					zvidave: "<p><strong>Kolikrát se otočí klika.</strong> U čtyřtaktního motoru se píst za jeden cyklus dvakrát posune dolů a dvakrát nahoru, klikový hřídel se tedy otočí dvakrát. Práci koná jen jedna doba, výbuch. Zbylé tři doby píst projde díky roztočenému setrvačníku a díky ostatním válcům. U dvoutaktního motoru stačí na celý cyklus jedna otáčka.</p>\n<p><strong>Proč se stlačením plyn zahřeje.</strong> Vyzkoušej si to s pumpičkou na kolo. Když zacpeš otvor a rychle stlačíš vzduch, pumpička se zahřeje. Píst při stlačování koná na plynu práci a ta zvětší jeho vnitřní energii. Ve vznětovém motoru se vzduch zahřeje tak, že se nafta sama vznítí.</p>\n<p><strong>Energie se nevyrábí.</strong> Motor energii jen přeměňuje. Část energie paliva se změní na pohyb, zbytek odejde jako odpadní teplo do okolí, spalinami a chladicí kapalinou. Proto nemůže být účinnost žádného motoru 100 %.</p>\n<p><strong>Větší jednotka.</strong> 1 kJ (kilojoule) = 1 000 J.</p>\n<p><strong>Počítáme.</strong> Zážehový motor má v tomto příkladu účinnost 20 %. Sportovní auto spálí palivo s energií 25 000 kJ. Kolik z této energie motor skutečně promění na pohyb auta?</p>\n<p>20 % z 25 000 kJ = 25 000 : 100 · 20 = 5 000 kJ.</p>\n<p>Zbylých 20 000 kJ (80 %) se ztratí jako odpadní teplo. Vznětový motor je úspornější — má v tomto příkladu účinnost 40 %. Nákladní auto spálí naftu s energií 15 000 kJ. Na pohyb z ní motor využije:</p>\n<p>40 % z 15 000 kJ = 15 000 : 100 · 40 = 6 000 kJ.</p>",
 					zapis: {"jednotky":["účinnost (%)"],"body":["palivo hoří uvnitř válce a vzniklé horké plyny tlačí píst","zážehový čtyřtakt: sání, stlačení, výbuch, výfuk","vznětový motor spaluje naftu a svíčku nepotřebuje","jen část energie paliva se změní na pohyb, zbytek je odpadní teplo"]},
-					odkazy: [
-						{ nazev: 'Techmania — Čtyřdobý zážehový motor', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/plyny/tepelne-motory/ctyrdoby-zazehovy-motor' },
-						{ nazev: 'Wordwall — kvíz Spalovací motory', url: 'https://wordwall.net/cs/resource/108360943/spalovací-motory-kviz' },
-					],
+					odkazy: [],
 					materialy: [
 						{ druh: 'infografika', nazev: 'Infografika: Spalovací motory v kostce', cesta: '/materialy/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/infografika-spalovaci-motory.svg', panely: ['/materialy/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/infografika-spalovaci-motory-panel-1.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/infografika-spalovaci-motory-panel-2.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/infografika-spalovaci-motory-panel-3.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/infografika-spalovaci-motory-panel-4.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/infografika-spalovaci-motory-panel-5.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/infografika-spalovaci-motory-panel-6.svg'] },
 						{ druh: 'infografika', nazev: 'Infografika: Spalovací motory v pohybu', cesta: '/materialy/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/infografika-spalovaci-motory-pohyb-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/infografika-spalovaci-motory-pohyb-panel-1.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/infografika-spalovaci-motory-pohyb-panel-2.svg'] },
@@ -2937,9 +2889,7 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'infografika', nazev: 'Infografika: Alternativní motory a pohony v kostce', cesta: '/materialy/fyzika/8-rocnik/tepelne-motory/alternativni-motory/infografika-alternativni-motory.svg', panely: ['/materialy/fyzika/8-rocnik/tepelne-motory/alternativni-motory/infografika-alternativni-motory-panel-1.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/alternativni-motory/infografika-alternativni-motory-panel-2.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/alternativni-motory/infografika-alternativni-motory-panel-3.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/alternativni-motory/infografika-alternativni-motory-panel-4.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/alternativni-motory/infografika-alternativni-motory-panel-5.svg'] },
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Alternativní motory a pohony (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/tepelne-motory/alternativni-motory/notebooklm-alternativni-motory.mp4' },
 					],
-					odkazy: [
-						{ nazev: 'TechMania — Reaktivní motory (proudový a raketový)', url: 'http://edu.techmania.cz/cs/encyklopedie/fyzika/plyny/tepelne-motory/reaktivni-motory' },
-					],
+					odkazy: [],
 				},
 			],
 		},
@@ -2954,10 +2904,7 @@ export const temata: Record<string, Tema[]> = {
 					obsah: "<h2>Teplo a přeměny skupenství látek</h2>\n\n<p>Látky se vyskytují ve třech skupenstvích: <strong>pevném, kapalném a plynném</strong>. Ve všech třech je látka tvořená stále stejnými atomy nebo molekulami, takže má stejné složení. Skupenství se liší tím, jak se částice látky chovají. Skupenství látky je dané pohybem částic a jejich vzájemným silovým působením. Například voda je jako led pevná, jako voda kapalná a jako pára plynná.</p>\n\n<figure><a href=\"/obrazky/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi/teplo-a-premeny-skupenstvi-obr-01.svg\" target=\"_blank\" rel=\"noopener\"><img src=\"/obrazky/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi/teplo-a-premeny-skupenstvi-obr-01.svg\" alt=\"Vlevo ledová kra plave na vodě (nad hladinou jen asi desetina, zbytek pod vodou) s popiskem Led – pevný (tmavý rámeček), ve vodě popisek Voda – kapalina (modrý rámeček), vpravo nad vodou stoupají vlnité šipky s popiskem Pára – plyn (šedý rámeček).\" /></a><figcaption>Led je pevný, voda kapalná, pára plynná.</figcaption></figure>\n\n<h3>Jak se částice chovají</h3>\n<ul>\n<li><strong>pevné látky</strong> — částice jsou blízko sebe a působí na sebe velkými silami, proto jsou tělesa pevná; částice se nemohou volně pohybovat, kmitají stále kolem svých stálých poloh, a proto mají tělesa stálý tvar</li>\n<li><strong>kapalné látky</strong> — částice jsou také blízko sebe, proto se kapalina <strong>nedá stlačit</strong>; velké síly mezi částicemi drží kapalinu pohromadě, a proto tvoří kapky; částice často mění své polohy a kloužou po sobě, takže kapalina nemá stálý tvar, teče a v klidu tvoří vodorovnou hladinu</li>\n<li><strong>plynné látky</strong> — částice jsou velmi daleko od sebe, proto se plyn dá <strong>lehce stlačit</strong>; nejsou na sebe vázány a pohybují se velmi rychle, zcela volně a neuspořádaně; plyn nemá svůj tvar a <strong>rozpíná se</strong>, vyplní celou nádobu</li>\n</ul>\n\n<figure><a href=\"/obrazky/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi/teplo-a-premeny-skupenstvi-obr-02.svg\" target=\"_blank\" rel=\"noopener\"><img src=\"/obrazky/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi/teplo-a-premeny-skupenstvi-obr-02.svg\" alt=\"Tři rámečky Pevná látka (25 oranžových kuliček v pravidelných řadách), Kapalná látka (16 kuliček nepravidelně blízko sebe), Plynná látka (tři kuličky daleko od sebe); všechny kuličky stejné.\" /></a><figcaption>V pevné látce jsou částice v pravidelných řadách těsně u sebe, v kapalné blízko sebe nepravidelně, v plynné daleko od sebe.</figcaption></figure>\n\n<h3>Krystalické a amorfní látky</h3>\n<p><strong>Krystalické látky</strong> mají částice uspořádané geometricky pravidelně. Bývají velmi tvrdé a tvoří krystaly. Patří sem například led, sůl, cukr, křemen, diamant, drahokamy a kovy.</p>\n\n<figure><a href=\"/obrazky/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi/teplo-a-premeny-skupenstvi-obr-03.svg\" target=\"_blank\" rel=\"noopener\"><img src=\"/obrazky/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi/teplo-a-premeny-skupenstvi-obr-03.svg\" alt=\"Vlevo struktura slídy: pravidelná mřížka stejných kuliček s mezerami; vpravo struktura grafenu: kuličky spojené úsečkami do pravidelných šestiúhelníků jako včelí plástev.\" /></a><figcaption>Struktura slídy je pravidelná mřížka kuliček, struktura grafenu má kuličky spojené do šestiúhelníků.</figcaption></figure>\n\n<p><strong>Amorfní (beztvaré) látky</strong> mají částice uspořádané nepravidelně. Jsou méně tvrdé než krystaly, často tvárné a pružné. Při zahřátí postupně měknou a není u nich jasné rozhraní mezi pevným a kapalným skupenstvím. Patří sem například vosk (parafín), plasty, čokoláda, sklo, asfalt a mnohé látky živých organismů.</p>\n\n<h3>Co mění skupenství</h3>\n<p>Ve všech třech skupenstvích se částice neustále a neuspořádaně pohybují. Největší vliv na změnu skupenství má <strong>teplota</strong>. Teplota ovlivňuje rychlost částic, rychlost částic ovlivňuje volnost jejich pohybu a ta určuje skupenství látky.</p>\n<ul>\n<li>jsou-li částice pomalé, neuvolní se z přitažlivých sil a kmitají kolem rovnovážných poloh (<strong>pevné</strong> skupenství),</li>\n<li>jsou-li částice rychlejší, mohou měnit své polohy, ale nemají dost energie, aby se vzdálily od ostatních částic (<strong>kapalné</strong> skupenství),</li>\n<li>jsou-li částice velmi rychlé, mají dost energie, aby se uvolnily z přitažlivých sil a volně se pohybovaly prostorem (<strong>plynné</strong> skupenství).</li>\n</ul>\n<p>Určitý vliv má i <strong>tlak</strong> okolí. Vysoký tlak brání částicím uvolnit se z přitažlivých sil, velmi nízký tlak jim naopak pomáhá volně se pohybovat.</p>\n\n<p><strong>Když látce teplo dodáváme</strong>, její teplota i rychlost částic se zvyšují a částice se pohybují volněji. Když teplota dosáhne určité hodnoty, mění se pevné skupenství na kapalné (<strong>tání</strong>) a kapalné na plynné (<strong>vypařování a var</strong>).</p>\n<p><strong>Když teplo odebíráme</strong>, teplota i rychlost částic klesají a částice jsou víc zachycené přitažlivými silami ostatních částic. Když teplota klesne na určitou hodnotu, mění se plynné skupenství na kapalné (<strong>kapalnění, kondenzace</strong>) a kapalné na pevné (<strong>tuhnutí</strong>). Každé z těchto změn se podrobně věnuje další kapitola.</p>\n\n<figure><a href=\"/obrazky/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi/teplo-a-premeny-skupenstvi-obr-04.svg\" target=\"_blank\" rel=\"noopener\"><img src=\"/obrazky/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi/teplo-a-premeny-skupenstvi-obr-04.svg\" alt=\"Zleva šedá kostka Pevná látka, kapka Kapalina, rámeček se třemi kuličkami Plyn; nahoře šipky doprava TÁNÍ a VAR, VYPAŘOVÁNÍ, dole šipky doleva TUHNUTÍ a KAPALNĚNÍ (kondenzace); nad nimi červená šipka zvyšování teploty, dodávání tepla, pod nimi modrá šipka snižování teploty, uvolňování tepla.\" /></a><figcaption>Tání, var a vypařování probíhají při zvyšování teploty, tuhnutí a kapalnění při snižování teploty.</figcaption></figure>\n\n<h3>Sublimace</h3>\n<p>U některých látek se může pevné skupenství změnit rovnou na plynné. Příkladem je jód, který se mění z krystalků rovnou na fialovou páru. Říká se tomu <strong>sublimace</strong>. S tímto jevem se setkáme například při vzniku ohonu komet. Opačný děj se nazývá <strong>desublimace</strong>.</p>\n\n<h3>Shrnutí</h3>\n<p>Látka bývá pevná, kapalná nebo plynná. Skupenství určuje pohyb částic a jejich vzájemné působení. V pevné látce kmitají částice na místě, v kapalině kloužou po sobě a v plynu se volně pohybují daleko od sebe. Pevné látky jsou krystalické (pravidelné uspořádání) nebo amorfní (nepravidelné uspořádání). Skupenství mění hlavně teplota a trochu i tlak. Při dodávání tepla látka taje a vypařuje se, při odebírání tepla se plyn mění na kapalinu a kapalina tuhne.</p>",
 					uvod: "Led se v teple změní na vodu a voda ve varné konvici na páru. Pořád je to stejná látka, jen se mění to, jak se chovají její drobounké částice. V ledu sedí těsně vedle sebe a chvějí se na místě, ve vodě po sobě kloužou a v páře poletují daleko od sebe. Čím víc tepla částice dostanou, tím rychleji se pohybují, a když jsou dost rychlé, skupenství se změní.",
 					zapis: {"body":["látky mají tři skupenství: pevné, kapalné a plynné","pevné částice kmitají na místě, kapalné kloužou, plynné jsou daleko od sebe","pevné látky jsou krystalické nebo amorfní","skupenství mění hlavně teplota","sublimace mění pevnou látku rovnou na plyn"]},
-					odkazy: [
-						{ nazev: 'Změny skupenství — tuhnutí, tání, var, kondenzace, sublimace (OnlineSchool.cz)', url: 'https://onlineschool.cz/fyzika/zmeny-skupenstvi/' },
-						{ nazev: 'Skupenství látek (Fyzika na Vltavě)', url: 'https://www.zsvltava.cz/fyzika/?p=253' },
-					],
+					odkazy: [],
 					materialy: [
 						{ druh: 'video', nazev: 'Píseň: Teplo mění skupenství 🎵', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi/pisen-teplo-meni-skupenstvi.m4a' },
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Teplo a skupenství látek (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi/notebooklm-teplo-a-premeny-skupenstvi.mp4' },
@@ -2972,10 +2919,7 @@ export const temata: Record<string, Tema[]> = {
 					uvod: "Kostka ledu ti na dlani zmizí a zbude z ní kaluž vody. Tomu se říká tání. Led k tomu potřebuje teplo, třeba z tvé ruky nebo ze slunce. Když teplo dostane, roztaje.",
 					zvidave: "<p>💡 Vzorec L<sub>t</sub> = l<sub>t</sub> · m jde přepočítat i obráceně. Když známe teplo a měrné skupenské teplo, dopočítáme hmotnost: m = L<sub>t</sub> : l<sub>t</sub>. Když známe teplo a hmotnost, dopočítáme měrné skupenské teplo: l<sub>t</sub> = L<sub>t</sub> : m. Do vzorců dosazujeme teplo v J, měrné skupenské teplo v J/kg a hmotnost v kg. Platí 1 kJ = 1 000 J.</p>\n<p>🧮 Příklad. Kostka ledu má hmotnost 2 kg a měrné skupenské teplo tání ledu je 332 000 J/kg (332 kJ/kg). Kolik tepla potřebujeme, aby celá kostka roztála? Řešení: L<sub>t</sub> = l<sub>t</sub> · m = 332 000 · 2 = 664 000 J = 664 kJ.</p>\n<p>🧮 Počítáme dál. Na roztátí jiného kusu ledu jsme dodali 996 000 J tepla (996 kJ). Kolik ledu roztálo? Řešení: m = L<sub>t</sub> : l<sub>t</sub> = 996 000 : 332 000 = 3 kg.</p>",
 					zapis: {"vzorec":"Lₜ = lₜ · m","jednotky":["Lₜ (J), lₜ (J/kg), m (kg)"],"body":["tání mění pevnou látku na kapalnou","během tání se teplota nemění","led taje při teplotě 0 °C"]},
-					odkazy: [
-						{ nazev: 'Techmania Edu — Tání a tuhnutí', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/skupenstvi/tani-tuhnuti' },
-						{ nazev: 'Fyzika 8. ročník, změny skupenství (Wordwall)', url: 'https://wordwall.net/cs/resource/42774194/fyzika-8-ro%C4%8Dn%C3%ADk-zm%C4%9Bny-skupenstv%C3%AD' },
-					],
+					odkazy: [],
 					materialy: [
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Tání a skupenské teplo (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tani/notebooklm-tani-a-skupenske-teplo.mp4' },
 						{ druh: 'video', nazev: 'Píseň: Tání 🎵', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tani/pisen-tani.m4a' },
@@ -2990,10 +2934,7 @@ export const temata: Record<string, Tema[]> = {
 					uvod: "Když v zimě necháš venku kalíšek s vodou, ráno je v něm led. Mráz vodě vzal teplo, a proto ztuhla. Takhle se kapalina, které teplo odebereme, změní na pevnou látku. Tomu se říká tuhnutí.",
 					zvidave: "<p>💡 Kdyby led neplaval. Zkus si domyslet, co by se stalo, kdyby voda byla jako ostatní látky. Led by byl hustší než voda a klesal by ke dnu. Rybník by pak nezamrzal shora, ale ode dna, a mohl by promrznout skrz naskrz. Ledová vrstva na hladině navíc funguje jako přikrývka, která chrání vodu i život pod ní.</p>\n<p>💡 Solení silnic. Čistá voda mrzne při 0 °C. Když v ní rozpustíme sůl, částicím to brání srovnat se do pravidelné ledové mřížky, a proto voda potřebuje větší zimu, než zmrzne. Sůl led nezahřívá, jen mu sníží teplotu tuhnutí. Proto zůstane voda na solené silnici kapalná i při −20 °C.</p>\n<p>💡 Podchlazená voda. Čistá voda bez pevného jádra může zůstat kapalná i pod nulou. Stačí do ní pak vhodit ledový krystalek nebo smítko prachu a během okamžiku v ní vznikne led. Neztuhne proto, že by se ochladila, ale proto, že konečně dostala, od čeho začít.</p>\n<p>💡 Počítáme teplo při tuhnutí. Teplo, které se při tuhnutí uvolní, umíme spočítat. Skupenské teplo tuhnutí značíme L<sub>t</sub>, hmotnost m a měrné skupenské teplo tuhnutí l<sub>t</sub>. Pro led je l<sub>t</sub> = 332 000 J/kg (332 kJ/kg), stejně jako u tání, protože měrné skupenské teplo tání a tuhnutí má u téže látky stejnou hodnotu. Počítáme podle vzorce L<sub>t</sub> = l<sub>t</sub> · m.</p>\n<p>🧮 Příklad. Kbelík s 5 kg vody přes noc úplně zmrzne. Kolik tepla se přitom uvolní do okolí? Řešení: L<sub>t</sub> = l<sub>t</sub> · m = 332 000 · 5 = 1 660 000 J = 1 660 kJ.</p>",
 					zapis: {"body":["tuhnutí mění kapalinu na pevnou látku","krystalické látky tuhnou při teplotě tání, amorfní v rozmezí teplot","během tuhnutí se teplota nemění","při tuhnutí se skupenské teplo uvolňuje do okolí","voda při tuhnutí zvětšuje objem, proto led plave"]},
-					odkazy: [
-						{ nazev: 'Techmania Edu — Tání a tuhnutí', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/skupenstvi/tani-tuhnuti' },
-						{ nazev: 'Jak vlastně funguje solení silnic v zimě? (Zeptej se vědce)', url: 'https://zeptejsevedce.cz/dotazy-a-odpovedi/jak-vlastne-funguje-soleni-silnic-v-zime/' },
-					],
+					odkazy: [],
 					materialy: [
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Fyzika tuhnutí (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tuhnuti/notebooklm-tuhnuti.mp4' },
 						{ druh: 'video', nazev: 'Píseň: Tuhnutí 🎵', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tuhnuti/pisen-tuhnuti.m4a' },
@@ -3008,9 +2949,7 @@ export const temata: Record<string, Tema[]> = {
 					uvod: "Mokrý ručník po čase uschne. Voda z něj odejde do vzduchu, i když ji nevidíš. Na slunci a ve větru to jde rychleji.",
 					zvidave: "<p>Při porovnávání schnutí měníme vždy jednu podmínku a ostatní ponecháme stejné. Jinak bychom nemuseli poznat, co schnutí urychlilo: zda vyšší teplota, rozložení ručníku, nebo vítr. V běžném životě se tyto vlivy často spojují. Rozložené prádlo na slunci ve větru využívá větší povrch, teplo i odvádění páry současně.</p>",
 					zapis: {"body":["vypařování mění kapalinu na plyn jen z povrchu","probíhá při každé teplotě kapaliny","rychlost závisí na teplotě, povrchu a odvádění páry","vypařování odebírá teplo a ochlazuje","páry těkavých látek bývají snadno hořlavé"]},
-					odkazy: [
-						{ nazev: 'Vypařování, var a kapalnění (Fyzika007)', url: 'https://www.fyzika007.cz/struktura-avlastnosti-l%C3%A1tek/vypa%C5%99ov%C3%A1n%C3%AD-var-a-kapaln%C4%9Bn%C3%AD' },
-					],
+					odkazy: [],
 					materialy: [
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Tajemství vypařování (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/vyparovani/notebooklm-vyparovani.mp4' },
 						{ druh: 'video', nazev: 'Píseň: Vypařování 🎵', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/vyparovani/pisen-vyparovani.m4a' },
@@ -3025,10 +2964,7 @@ export const temata: Record<string, Tema[]> = {
 					uvod: "Voda v zahřívaném hrnci začne bublat. Vodu opouští pára, která není vidět. Aby voda takto bublala dál, potřebuje další teplo.",
 					zvidave: "<p>V hrnci jsou 3 kg vody již zahřáté na 100 °C. Za běžného atmosférického tlaku potřebujeme na její vyvaření L<sub>v</sub> = 2 260 000 · 3 = 6 780 000 J = 6 780 kJ. Nezapočítáváme ohřívání studené vody ani tepelné ztráty.</p>\n<p>Obráceně: na samotný var bylo dodáno 2 260 kJ. Hmotnost vyvařené vody je m = L<sub>v</sub> : l<sub>v</sub> = 2 260 : 2 260 = 1 kg.</p>\n<p>Vzorec lze upravit také na l<sub>v</sub> = L<sub>v</sub> : m. Platí převody 1 kJ = 1 000 J a 1 MJ = 1 000 000 J. V jednom výpočtu vždy používej odpovídající jednotky tepla a měrného skupenského tepla.</p>",
 					zapis: {"vzorec":"Lᵥ = lᵥ · m","jednotky":["Lᵥ (J), lᵥ (J/kg), m (kg)"],"body":["var probíhá v celém objemu, vypařování jen z povrchu","voda vře za běžného tlaku při 100 °C","nižší tlak snižuje teplotu varu"]},
-					odkazy: [
-						{ nazev: 'Pokus: Var vody — osolená vs. neosolená (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/6143-pokus-var-vody' },
-						{ nazev: 'Pokus: Závislost teploty varu na tlaku (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/6330-pokus-zavislost-teploty-varu-na-tlaku' },
-					],
+					odkazy: [],
 					materialy: [
 						{ druh: 'video', nazev: 'Píseň: Var 🎵', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/var/pisen-var.m4a' },
 						{ druh: 'infografika', nazev: 'Infografika: Var a destilace (panely pro tabuli)', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/var/infografika-var-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/var/infografika-var-panel-1.svg', '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/var/infografika-var-panel-2.svg'] },
@@ -3042,9 +2978,7 @@ export const temata: Record<string, Tema[]> = {
 					uvod: "Studená sklenice se zvenku pokryje kapkami. Ta voda byla předtím ve vzduchu a nebyla vidět. U studeného skla se z ní udělaly malé kapky.",
 					zvidave: "<h3>Jak získat kapalný plyn</h3>\n<p>Některé plyny je nutné velmi silně ochladit. Při běžném atmosférickém tlaku kapalní kyslík přibližně při −183 °C, dusík při −196 °C a vodík při −253 °C. Tak lze například získat kapalný dusík známý z fyzikálních ukázek.</p>\n<p>Kapalná látka zabírá méně místa než stejné množství plynu. To se využívá při přepravě a skladování. Nádoba s plynem pod tlakem však nemusí obsahovat kapalinu. Například dusík a kyslík nelze při pokojové teplotě zkapalnit pouhým stlačením; potřebují silné ochlazení.</p>\n\n<figure><a href=\"/obrazky/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/kondenzace/kondenzace-obr-04.svg\" target=\"_blank\" rel=\"noopener\"><img src=\"/obrazky/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/kondenzace/kondenzace-obr-04.svg\" alt=\"Vlevo podsaditá propan-butanová láhev s ochranným límcem kolem ventilu a patkou, v řezu dole světle modrá kapalina a nad ní plyn. Vpravo dvě vysoké úzké tlakové láhve s ochranným kloboukem, kyslík s bílým hrdlem a dusík s černým hrdlem; v řezu jen kuličky plynu bez hladiny.\" /></a><figcaption>Propan-butan je v láhvi zkapalněný stlačením. Kyslík a dusík jsou v tlakové láhvi jen stlačený plyn.</figcaption></figure>\n\n<h3>Teplo uvolněné při kapalnění</h3>\n<p>Při kapalnění se teplo uvolňuje do okolí. Za stejných podmínek má stejnou velikost jako teplo spotřebované opačnou přeměnou. U vody při 100 °C a běžném atmosférickém tlaku počítáme s 2 260 kJ na kilogram.</p>\n<p>Proto může pára při 100 °C při stejném množství způsobit těžší popálení než voda při 100 °C: nejprve zkondenzuje a odevzdá skupenské teplo, potom vzniklá voda chladne. Nedávej ruce nad vroucí hrnec ani k ventilu tlakového hrnce. Kondenzace může sloužit i k vytápění, například v parních radiátorech továren a lodí.</p>\n<p>Při kondenzaci 3 kg páry při 100 °C se uvolní L<sub>v</sub> = l<sub>v</sub> · m = 2 260 · 3 = 6 780 kJ. Ohřátí 3 kg vody z 0 °C na 100 °C vyžaduje Q = m · c · (t<sub>2</sub> − t<sub>1</sub>) = 3 · 4 200 · 100 = 1 260 000 J = 1 260 kJ. Samotná kondenzace v tomto příkladu uvolní více než pětinásobek.</p>\n<p>Radiátor předal kondenzací 9 040 kJ: m = L<sub>v</sub> : l<sub>v</sub> = 9 040 : 2 260 = 4 kg páry. Také platí l<sub>v</sub> = L<sub>v</sub> : m. Při výpočtu v joulech používáme l<sub>v</sub> = 2 260 000 J/kg a hmotnost v kg.</p>\n<p>I 1 g páry při 100 °C uvolní při kondenzaci 2 260 J, protože 1 kg má 1 000 g. Pro srovnání: ohřátí 6 g vody z 20 °C na 100 °C vyžaduje 6 · 4 200 · 80 : 1 000 = 2 016 J. Už samotná kondenzace gramu páry poskytne více tepla. Počítáme bez tepelných ztrát.</p>\n<h3>Orosená okna</h3>\n<p>Okna se v zimě mohou orosit zevnitř. Teplý vlhký vzduch v pokoji se u studeného skla ochladí a vodní pára se na něm změní v kapky.</p>\n<h3>Propan-butan v láhvi</h3>\n<p>Propan-butan v láhvi na vaření je zkapalněný stlačením. V kapalném stavu zabírá méně místa než stejné množství plynu, takže se do láhve vejde více paliva.</p>",
 					zapis: {"body":["kondenzace mění plyn na kapalinu, je opakem vypařování","ochlazené částice se shlukují do kapiček","kapičky často vznikají na prachu nebo chladném povrchu","mlha a obláček jsou kapičky, pára je neviditelná","příklady: rosa, orosená sklenice, oblaka"]},
-					odkazy: [
-						{ nazev: 'Techmania Edu — Vypařování a kondenzace', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/skupenstvi/vyparovani-kondenzace' },
-					],
+					odkazy: [],
 					materialy: [
 						{ druh: 'video', nazev: 'Píseň: Kondenzace 🎵', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/kondenzace/pisen-kondenzace.m4a' },
 						{ druh: 'infografika', nazev: 'Infografika: Kondenzace v pohybu', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/kondenzace/infografika-kondenzace-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/kondenzace/infografika-kondenzace-panel-1.svg', '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/kondenzace/infografika-kondenzace-panel-2.svg', '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/kondenzace/infografika-kondenzace-panel-3.svg'] },
@@ -3058,10 +2992,7 @@ export const temata: Record<string, Tema[]> = {
 					uvod: "Po dešti kaluže postupně mizí. Voda odejde do vzduchu a později se může vrátit jako déšť. V zimě ji venku najdeme také jako sníh nebo led.",
 					zvidave: "<h3>Sublimace sněhu a ledu</h3>\n<p>Ze sněhu nebo ledu může voda přecházet rovnou na páru, bez předchozího tání. Tento děj se nazývá <strong>sublimace</strong> a může pomalu probíhat i v mrazu. Částice na povrchu přijímají energii například od Slunce a uvolňují se. Sublimace bývá pomalejší a méně nápadná než vypařování kapalné vody.</p>\n<h3>Druhy vysokých oblaků</h3>\n<p><strong>Cirrus</strong>, česky řasa, má tenká bílá vlákna připomínající rozčesané pramínky a může předcházet změně počasí.</p>\n<p><strong>Cirrocumulus</strong> tvoří drobné bílé chomáčky ve skupinách nebo vlnách, označované jako beránky. <strong>Cirrostratus</strong> připomíná průsvitný závoj a může provázet světelný kruh kolem Slunce či Měsíce, zvaný halo. Přehled na obrázku porovnává vysoké, střední a nízké oblaky: nízká sahají do 2 000 m, střední od 2 000 do 6 000 m a vysoké jsou nad 6 000 m; mohutný cumulonimbus prochází všemi patry (PDF Skupenské změny vody v přírodě, s. 12).</p>\n\n<figure><a href=\"/obrazky/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/skupenske-zmeny-vody-v-prirode/skupenske-zmeny-vody-v-prirode-obr-04.svg\" target=\"_blank\" rel=\"noopener\"><img src=\"/obrazky/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/skupenske-zmeny-vody-v-prirode/skupenske-zmeny-vody-v-prirode-obr-04.svg\" alt=\"Tenké bílé vláknité pásy cirru vysoko na modré obloze.\" /></a><figcaption>Tenké vláknité pásy vysoko na obloze.</figcaption></figure>\n\n<figure><a href=\"/obrazky/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/skupenske-zmeny-vody-v-prirode/skupenske-zmeny-vody-v-prirode-obr-05.svg\" target=\"_blank\" rel=\"noopener\"><img src=\"/obrazky/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/skupenske-zmeny-vody-v-prirode/skupenske-zmeny-vody-v-prirode-obr-05.svg\" alt=\"Drobné bílé oblačné chomáčky cirrocumulu rozložené po modré obloze.\" /></a><figcaption>Drobné oblačné chomáčky ve skupinách.</figcaption></figure>\n\n<figure><a href=\"/obrazky/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/skupenske-zmeny-vody-v-prirode/skupenske-zmeny-vody-v-prirode-obr-06.svg\" target=\"_blank\" rel=\"noopener\"><img src=\"/obrazky/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/skupenske-zmeny-vody-v-prirode/skupenske-zmeny-vody-v-prirode-obr-06.svg\" alt=\"Tenký světlý závoj cirrostratu na obloze a kolem Slunce kruhové halo.\" /></a><figcaption>Tenký závoj může vytvořit halo kolem Slunce.</figcaption></figure>\n\n<figure><a href=\"/obrazky/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/skupenske-zmeny-vody-v-prirode/skupenske-zmeny-vody-v-prirode-obr-08.svg\" target=\"_blank\" rel=\"noopener\"><img src=\"/obrazky/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/skupenske-zmeny-vody-v-prirode/skupenske-zmeny-vody-v-prirode-obr-08.svg\" alt=\"Obloha rozdělená na tři patra s výškami; vlevo ilustrovaná oblaka každého patra, ve vysokém s názvy cirrus, cirrocumulus a cirrostratus; vpravo mohutný cumulonimbus s kovadlinou nahoře ve vysokém patře a širokou tmavší základnou nad krajinou, pod ní déšť.\" /></a><figcaption>Nízká oblaka sahají do 2 000 m, střední od 2 000 do 6 000 m, vysoká jsou nad 6 000 m; mohutný cumulonimbus prochází všemi patry.</figcaption></figure>\n\n<h3>Voda a energie</h3>\n<p>Slunce dodává energii pro koloběh, vypařování teplo spotřebovává a kondenzace je uvolňuje. Voda tak přenáší energii z teplého povrchu do atmosféry. V rámci koloběhu se voda přemísťuje mezi zásobami v moři, vzduchu, řekách a ledu; při těchto fyzikálních přeměnách nemizí. Voda, kterou pijeme, už mohla mnohokrát projít mořem i oblaky.</p>\n<p>Mlha je oblak u zemského povrchu. Z kopce můžeme hledět na stejnou vrstvu, v níž jsme dole stáli. Viditelnou mlhu, obláček od úst a obláček nad hrncem tvoří kapičky, ne samotná pára; bílá oblaka však mohou obsahovat i ledové krystaly.</p>\n<p>Kroupy mohou být větší než centimetr a mohou mít vrstvy jako cibule. Také dešťové kapky mohou za vhodných podmínek při pádu zmrznout v drobné ledové částice.</p>\n\n",
 					zapis: {"body":["voda se vypařuje a pára se mění na kapičky","kapičky tvoří rosu, mlhu a oblaka","srážky vracejí vodu na zem: déšť, sníh, kroupy","vzniká koloběh vody: výpar, kondenzace, srážky","srážkoměr měří srážky v milimetrech"]},
-					odkazy: [
-						{ nazev: 'Jak vznikají kroupy? (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/15702-jak-vznikaji-kroupy' },
-						{ nazev: 'Techmania Edu — Atmosférické srážky', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/meteorologie/atmosfericke-srazky' },
-					],
+					odkazy: [],
 					materialy: [
 						{ druh: 'infografika', nazev: 'Infografika: Voda v přírodě v pohybu', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/skupenske-zmeny-vody-v-prirode/infografika-skupenske-zmeny-vody-v-prirode-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/skupenske-zmeny-vody-v-prirode/infografika-skupenske-zmeny-vody-v-prirode-panel-1.svg', '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/skupenske-zmeny-vody-v-prirode/infografika-skupenske-zmeny-vody-v-prirode-panel-2.svg', '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/skupenske-zmeny-vody-v-prirode/infografika-skupenske-zmeny-vody-v-prirode-panel-3.svg', '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/skupenske-zmeny-vody-v-prirode/infografika-skupenske-zmeny-vody-v-prirode-panel-4.svg'] },
 						{ druh: 'video', nazev: 'Píseň: Koloběh vody 🎵', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/skupenske-zmeny-vody-v-prirode/pisen-skupenske-zmeny-vody-v-prirode.m4a' },
@@ -3081,9 +3012,7 @@ export const temata: Record<string, Tema[]> = {
 						uvod: "Po česání se ti někdy vlasy lepí na hřeben. Hřeben i vlasy se při tření elektricky nabijí. Vlasy se navzájem odstrkují, ale ke hřebenu se přitahují.",
 						zvidave: "<p>Elementární náboj je fyzikální konstanta. Náboji o velikosti 1 C odpovídá přebytek nebo nedostatek přibližně 6 · 10<sup>18</sup> elektronů.</p>\n<p>Menší jednotky jsou milicoulomb (mC), mikrocoulomb (μC) a nanocoulomb (nC). Platí 1 C = 1 000 mC = 1 000 000 μC = 1 000 000 000 nC. Například 5 mC = 5 000 μC a 2 000 μC = 2 mC. Jde o převody jednotek, nikoli o typický náboj vlasů či hřebenu.</p>\n<p>U baterie rozlišujeme celkový náboj jejího tělesa a náboj, který může dodat obvodem při vybíjení. Pro dodaný náboj se používají také ampérhodiny (Ah) a miliampérhodiny (mAh). Ty souvisejí s proudem a dobou vybíjení; neříkají, že má baterie jako celek přebytek záporného náboje.</p>",
 						zapis: {"jednotky":["Q (C, coulomb)"],"body":["proton má náboj +e, elektron −e, neutron nemá náboj","neutrální atom má stejně protonů a elektronů","při tření a dotyku se přenášejí elektrony","souhlasné náboje se odpuzují, nesouhlasné přitahují"]},
-						odkazy: [
-							{ nazev: 'Elekrostatika – 8. ročník ZŠ (test, 13 otázek) — testi.cz', url: 'https://testi.cz/testy/fyzika/elekrostatika-8.rocnik-zs/' },
-						],
+						odkazy: [],
 						materialy: [
 							{ druh: 'infografika', nazev: 'Elektrický náboj v pohybu', cesta: '/materialy/fyzika/8-rocnik/elektrina/elektricky-naboj/infografika-elektricky-naboj-pohyb-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/elektrina/elektricky-naboj/infografika-elektricky-naboj-pohyb-panel-1.svg', '/materialy/fyzika/8-rocnik/elektrina/elektricky-naboj/infografika-elektricky-naboj-pohyb-panel-2.svg', '/materialy/fyzika/8-rocnik/elektrina/elektricky-naboj/infografika-elektricky-naboj-pohyb-panel-3.svg'] },
 						],
@@ -3096,10 +3025,7 @@ export const temata: Record<string, Tema[]> = {
 						uvod: "Nabitý hřeben může přitáhnout papírky, aniž se jich dotkne. Působí na ně silou přes prostor kolem sebe. Této oblasti říkáme elektrické pole.",
 						zvidave: "<p><strong>Faradayova klec</strong> je vodivý obal, který stíní své vnitřní prostředí před vnějším elektrostatickým polem. Volné elektrony se přerozdělí tak, že svým polem působení vnějšího pole uvnitř uzavřeného obalu vyrovnají.</p>\n<p>Kovová karoserie uzavřeného auta s pevnou kovovou střechou může při bouřce chránit posádku: výboj prochází hlavně vnějším kovovým pláštěm. Chrání kovový obal, nikoli gumové pneumatiky. Okna mají být zavřená a uvnitř se nedotýkáme kovových částí. Otevřený kabriolet takový úkryt neposkytuje. Také letadla mají ochranu proti účinkům blesku; zásah není důvod považovat vždy za neškodný nebo nepozorovatelný.</p>\n<p>Jinými příklady stínění jsou kovový oplet kabelu a mřížka dvířek mikrovlnné trouby. U vln záleží také na velikosti otvorů vůči vlnové délce: drobná oka mohou zadržovat mikrovlny, zatímco světlo jimi prochází.</p>",
 						zapis: {"body":["elektrické pole je kolem nabitého tělesa","působí elektrickou silou i bez dotyku","indukce přerozdělí náboj ve vodiči, polarizace v izolantu","siločáry míří od + k −","hustší siločáry znamenají silnější pole"]},
-						odkazy: [
-							{ nazev: 'Elektrický náboj a elektrické pole — rozcestník videí (ČT edu)', url: 'https://edu.ceskatelevize.cz/tema/elektricky-naboj-a-elektricke-pole' },
-							{ nazev: 'Pokusy: Umělé blesky — Faradayova klec (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/5393-pokusy-umele-blesky' },
-						],
+						odkazy: [],
 					},
 				{
 						slug: 'vznik-elektrickeho-proudu',
@@ -3109,10 +3035,7 @@ export const temata: Record<string, Tema[]> = {
 						uvod: "Když připojíš baterii do svítilny a zapneš ji, žárovka se rozsvítí. V drátech se začnou drobné nabité částice pohybovat společným směrem. Tomuto pohybu říkáme elektrický proud.",
 						zvidave: "<p>Elektrická energie vzniká přeměnou jiných druhů energie. V generátoru se mění energie otáčivého pohybu: roztáčí jej třeba větrná, vodní nebo parní turbína. Turbína je kolo roztáčené proudícím vzduchem, vodou nebo párou. Generátor může pohánět také naftový motor elektrocentrály.</p>\n<p>V článcích a akumulátorech se při vybíjení využívají chemické děje, solární panely mění energii slunečního záření. Energie se tedy nevytváří z ničeho, mění se její podoba.</p>\n<p>Dohodnutý směr proudu ve vnějším obvodu je od + k −. Volné elektrony v kovu se přitom pohybují opačně, od − k +. Dohodnutý směr a směr elektronů popisují dvě různé věci, takže si neodporují.</p>\n<p>Iont může vzniknout například z atomu přijetím nebo ztrátou elektronů. V roztoku kuchyňské soli se uvolňují ionty, které už byly v krystalu soli; není třeba je vyrábět přenosem elektronů mezi atomy ve vodě.</p>",
 								zapis: {"body":["proud je uspořádaný pohyb volných nabitých částic","v kovech ho přenášejí elektrony, v roztocích ionty","napětí zdroje pohyb částic usměrňuje","obvod musí být uzavřený","stejnosměrný proud (DC) nemění směr, střídavý (AC) ano"]},
-								odkazy: [
-							{ nazev: 'ČT edu — Elektrický proud a napětí (video, 2 min)', url: 'https://edu.ceskatelevize.cz/video/1921-elektricky-proud-a-napeti' },
-							{ nazev: 'Wordwall — Elektrický proud a napětí, 8. třída (kvíz)', url: 'https://wordwall.net/cs/resource/89308040' },
-						],
+								odkazy: [],
 					},
 				{
 						slug: 'chemicke-zdroje-napeti',
@@ -3122,11 +3045,7 @@ export const temata: Record<string, Tema[]> = {
 						obsah: "<h2>Chemické zdroje napětí — galvanické články</h2>\n\n<p>Galvanický článek vyrábí elektrické napětí chemickou reakcí. Do vodivého roztoku, kterému říkáme elektrolyt, se ponoří dvě elektrody z různých materiálů — obvykle kovů, ale i uhlík se hodí. Reakce mezi elektrolytem a elektrodami nabije jednu elektrodu záporně a druhou kladně — vznikne napětí. Když elektrody spojíme drátem se žárovkou, tečou elektrony drátem od záporné elektrody ke kladné a žárovka svítí.</p>\n<ul>\n<li>záporná elektroda (nazývá se <strong>anoda</strong>) — např. zinek, lithium, kadmium</li>\n<li>kladná elektroda (nazývá se <strong>katoda</strong>) — např. uhlík (grafit) nebo měď</li>\n</ul>\n<p>Jako elektrolyt slouží vodný roztok silné kyseliny nebo soli, případně hustá pasta se solí rozpuštěnou ve zvláštním rozpouštědle.</p>\n<figure><a href=\"/obrazky/fyzika/8-rocnik/elektrina/chemicke-zdroje-napeti/chemicke-zdroje-napeti-obr-01.svg\" target=\"_blank\" rel=\"noopener\"><img src=\"/obrazky/fyzika/8-rocnik/elektrina/chemicke-zdroje-napeti/chemicke-zdroje-napeti-obr-01.svg\" alt=\"Galvanický článek: v elektrolytu je zinková elektroda (anoda, záporná) a měděná elektroda (katoda, kladná). Elektrody spojuje drát se žárovkou, elektrony tečou drátem od zinku k mědi a zinek se rozpouští.\" /></a><figcaption>Galvanický článek: elektrony tečou drátem od záporné elektrody (anody) ke kladné (katodě).</figcaption></figure>\n\n<h3>Nejznámější články</h3>\n<ul>\n<li><strong>Suchý článek</strong> — zinková nádoba (anoda) a uhlíková tyčinka obalená oxidem manganičitým (katoda), elektrolyt je salmiaková pasta. Napětí <strong>1,5 V</strong>, na jedno použití (hračky). Vybitý může vytéct.</li>\n<li><strong>Plochá baterie</strong> — tři suché články za sebou → <strong>4,5 V</strong></li>\n<li><strong>Alkalické články</strong> — vyšší kapacita a delší životnost, zvládnou i velký nárazový odběr (blesk fotoaparátu, MP3 přehrávač)</li>\n<li><strong>Lithiové články</strong> (jednorázové) — kvalitní i po letech skladování; hodinky, klíč od auta, baterie na základní desce počítače. (Mobil, fotoaparát a notebook mají jiný typ — dobíjecí <strong>lithium-iontový akumulátor</strong>.)</li>\n<li><strong>Olověný akumulátor</strong> — záporná elektroda z olova, kladná z olověné mřížky s oxidem olovičitým. Velká kapacita, <strong>dobíjecí</strong>, napětí <strong>12 V</strong> (autobaterie)</li>\n</ul>\n<figure><a href=\"/obrazky/fyzika/8-rocnik/elektrina/chemicke-zdroje-napeti/chemicke-zdroje-napeti-obr-02.svg\" target=\"_blank\" rel=\"noopener\"><img src=\"/obrazky/fyzika/8-rocnik/elektrina/chemicke-zdroje-napeti/chemicke-zdroje-napeti-obr-02.svg\" alt=\"Řez suchým článkem 1,5 V: vně zinková nádoba (anoda), uvnitř salmiaková pasta (elektrolyt), uprostřed uhlíková tyčinka (katoda) obalená oxidem manganičitým. Elektrony tečou drátem přes žárovku od zinku k uhlíku.\" /></a><figcaption>Suchý článek: zinková nádoba je záporná, uhlíková tyčinka kladná, mezi nimi salmiaková pasta.</figcaption></figure>\n<p>Baterie je jednorázová a nedobíjí se. Akumulátor je dobíjecí a použiješ ho opakovaně.</p>\n\n<h3>Proč se baterie vybije</h3>\n<p>Napětí nevzniká z ničeho — při reakci se rozpouští kov elektrody. Když se látky uvnitř spotřebují, reakce skončí a napětí zmizí. Baterie je vlastně zásobník chemické energie.</p>\n<p>V akumulátoru dokáže nabíjení reakci obrátit a látky obnovit. Při nabíjení připojíme akumulátor k nabíječce, která žene elektrony obvodem opačným směrem než při vybíjení. V jednorázovém článku reakci obrátit nejde. Vybitý zinkový článek navíc často vyteče: nádobka je prožraná a agresivní pasta unikne ven. Vybité články proto nenech ve spotřebiči.</p>\n<figure><a href=\"/obrazky/fyzika/8-rocnik/elektrina/chemicke-zdroje-napeti/chemicke-zdroje-napeti-obr-03.svg\" target=\"_blank\" rel=\"noopener\"><img src=\"/obrazky/fyzika/8-rocnik/elektrina/chemicke-zdroje-napeti/chemicke-zdroje-napeti-obr-03.svg\" alt=\"Olověný akumulátor 12 V. Při vybíjení svítí žárovka a zásoba chemické energie ubývá. Při nabíjení z nabíječky tečou elektrony opačným směrem, látky uvnitř se obnovují a zásoba přibývá.\" /></a><figcaption>Akumulátor se vybíjí i znovu nabíjí – nabíjení obnoví látky uvnitř.</figcaption></figure>\n\n<h3>Napětí se sčítá — proto plochá baterie</h3>\n<p>Jeden suchý článek dá 1,5 V a víc z něj nedostaneš — napětí určuje dvojice použitých kovů, ne velikost článku. Chceš-li víc, zapoj články za sebou a napětí se sečte.</p>\n<ul>\n<li>plochá baterie = 3 články → 3 · 1,5 V = <strong>4,5 V</strong></li>\n<li>devítivoltová baterie = 6 článků → 6 · 1,5 V = <strong>9 V</strong></li>\n</ul>\n<figure><a href=\"/obrazky/fyzika/8-rocnik/elektrina/chemicke-zdroje-napeti/chemicke-zdroje-napeti-obr-04.svg\" target=\"_blank\" rel=\"noopener\"><img src=\"/obrazky/fyzika/8-rocnik/elektrina/chemicke-zdroje-napeti/chemicke-zdroje-napeti-obr-04.svg\" alt=\"Tři suché články po 1,5 V zapojené za sebou: 1,5 V + 1,5 V + 1,5 V = 4,5 V. Tak je složená plochá baterie.\" /></a><figcaption>Články za sebou: napětí se sečte, tři články dají plochou baterii 4,5 V.</figcaption></figure>\n\n<h3>Kapacita — jak dlouho baterie vydrží</h3>\n<p>Malá tužková AA a velká buřtová D mají obě 1,5 V. Větší článek neznamená větší napětí — znamená, že vydrží déle. Tomu se říká <strong>kapacita</strong> a udává se v mAh. Větší jednotka je ampérhodina: 1 Ah = 1 000 mAh.</p>\n<p>Článek s kapacitou 2 000 mAh dodá proud 2 000 mA po dobu jedné hodiny, nebo menší proud 200 mA po deset hodin.</p>\n\n<h3>Bezpečnost a co s vybitými</h3>\n<ul>\n<li>Baterii <strong>nikdy nezkratuj</strong> drátem — proud se prudce zvedne a článek se rozpálí. Lithiový článek se nesmí ani propichovat a mačkat, hrozí požár.</li>\n<li><strong>Nemíchej staré a nové</strong> články ani různé typy v jednom přístroji — silnější tlačí do slabšího a ten může vytéct.</li>\n<li><strong>Baterie nepatří do koše.</strong> Obsahují těžké kovy, které by se dostaly do půdy a vody. Sběrné nádoby jsou ve školách, obchodech i na úřadech a kovy z nich se dají znovu použít.</li>\n</ul>\n\n<h3>Pro zvídavé: počítáme</h3>\n<p>Celkové napětí baterie ze stejných článků za sebou spočítáme jako počet článků krát napětí jednoho článku. Devítivoltová baterie má 6 článků po 1,5 V:</p>\n<p>U = n · U₁ = 6 · 1,5 = 9 V</p>",
 							zapis: {"vzorec":"U = n · U₁","jednotky":["U, U₁ (V), n (počet článků), kapacita (mAh)"],"vzorecSlovy":"napětí baterie = počet článků krát napětí jednoho článku","body":["galvanický článek vyrábí napětí chemickou reakcí","články zapojené za sebou napětí sčítají","baterie je jednorázová, akumulátor se dobíjí"]},
 						materialy: [{ druh: 'infografika', nazev: 'Infografika: Vybité články a jejich sběr', cesta: '/materialy/fyzika/8-rocnik/elektrina/chemicke-zdroje-napeti/infografika-chemicke-zdroje-napeti-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/elektrina/chemicke-zdroje-napeti/infografika-chemicke-zdroje-napeti-panel-1.svg', '/materialy/fyzika/8-rocnik/elektrina/chemicke-zdroje-napeti/infografika-chemicke-zdroje-napeti-panel-2.svg'] }, ],
-							odkazy: [
-							{ nazev: 'Pokus: Elektřina z ovoce a zeleniny (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/5524-pokus-elektrina-z-ovoce-a-zeleniny' },
-							{ nazev: 'Jak probíhá recyklace baterií (ECOBAT)', url: 'https://www.ecobat.cz/jak-probiha-recyklace-baterii/' },
-							{ nazev: 'Druhy baterií — spojovačka (Wordwall)', url: 'https://wordwall.net/cs/resource/71804207/druhy-bateri%C3%AD' },
-						],
+							odkazy: [],
 					},
 				{
 						slug: 'elektricke-obvody',
@@ -3137,10 +3056,7 @@ export const temata: Record<string, Tema[]> = {
 						zvidave: "<p>V elektronických přístrojích jsou obvody mnohem složitější. Přístroj může obsahovat desítky, stovky či tisíce součástek. Uvnitř některých součástek jsou další stovky, tisíce až miliony prvků. V různých částech se kombinuje sériové i paralelní zapojení.</p>",
 						zapis: {"body":["obvod tvoří zdroj napětí, vodiče a spotřebič","proud prochází jen uzavřenou vodivou cestou","spotřebiče zapojujeme sériově nebo paralelně","zkrat způsobí velký proud, pojistka obvod přeruší","obvod sestavíme bez zdroje, zkontrolujeme a teprve pak připojíme"]},
 						materialy: [{ druh: 'infografika', nazev: 'Infografika: Elektrické obvody v kostce', cesta: '/materialy/fyzika/8-rocnik/elektrina/elektricke-obvody/infografika-elektricke-obvody-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/elektrina/elektricke-obvody/infografika-elektricke-obvody-panel-1.svg', '/materialy/fyzika/8-rocnik/elektrina/elektricke-obvody/infografika-elektricke-obvody-panel-2.svg'] }, ],
-						odkazy: [
-							{ nazev: 'Pokus: Elektrické obvody (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/3427-pokus-elektricke-obvody' },
-							{ nazev: 'Pokus: Elektrický zkrat (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/6931-pokus-elektricky-zkrat' },
-						],
+						odkazy: [],
 					},
 				{
 						slug: 'elektricky-proud-mereni',
@@ -3153,10 +3069,7 @@ export const temata: Record<string, Tema[]> = {
 						materialy: [
 							{ druh: 'infografika', nazev: 'Měření proudu v pohybu', cesta: '/materialy/fyzika/8-rocnik/elektrina/elektricky-proud-mereni/infografika-elektricky-proud-mereni-pohyb-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/elektrina/elektricky-proud-mereni/infografika-elektricky-proud-mereni-pohyb-panel-1.svg'] },
 						],
-						odkazy: [
-							{ nazev: 'Měření elektrického proudu ampérmetrem (RVP.CZ)', url: 'https://dum.rvp.cz/materialy/mereni-elektrickeho-proudu-ampermetrem.html' },
-							{ nazev: 'Elektrický proud a napětí — převody jednotek (Wordwall)', url: 'https://wordwall.net/cs/resource/74196967/elektrick%C3%BD-proud-a-nap%C4%9Bt%C3%AD-p%C5%99evody-jednotek' },
-						],
+						odkazy: [],
 					},
 				{
 						slug: 'elektricke-napeti-mereni',
@@ -3169,10 +3082,7 @@ export const temata: Record<string, Tema[]> = {
 						materialy: [
 							{ druh: 'infografika', nazev: 'Napětí v pohybu', cesta: '/materialy/fyzika/8-rocnik/elektrina/elektricke-napeti-mereni/infografika-elektricke-napeti-mereni-pohyb-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/elektrina/elektricke-napeti-mereni/infografika-elektricke-napeti-mereni-pohyb-panel-1.svg'] },
 						],
-						odkazy: [
-							{ nazev: 'Elektrický proud a napětí (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/1921-elektricky-proud-a-napeti' },
-							{ nazev: 'Elektrický proud, napětí, odpor, Ohmův zákon — test (testi.cz)', url: 'https://testi.cz/testy/fyzika/elektricky-proud-napeti-odpor-ohmuv-zakon/' },
-						],
+						odkazy: [],
 					},
 				{
 						slug: 'elektricky-proud-v-kovech-odpor',
@@ -3182,9 +3092,7 @@ export const temata: Record<string, Tema[]> = {
 						uvod: "V konvici se voda ohřívá díky elektřině. Proud zahřívá kovové topné těleso. Stejný jev může pomáhat, ale přehřátý kabel může být nebezpečný.",
 						zvidave: "<p>Nichrom je slitina niklu a chromu využívaná na topné spirály. V topinkovači může odkrytá spirála žhnout. U konvice se teplo předává vodě; její topné těleso za běžného provozu nemusí žhnout doruda. To, jak se konkrétní kabel nebo topné těleso zahřeje, neurčuje jen název kovu.</p>",
 						zapis: {"jednotky":["R (Ω)"],"body":["proud v kovu je usměrněný pohyb volných elektronů","odpor závisí na materiálu, délce, průřezu a teplotě","delší drát má větší odpor, tlustší menší","rezistor je součástka s daným odporem"]},
-						odkazy: [
-							{ nazev: 'Nebezpečná elektřina (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/5416-nebezpecna-elektrina' },
-						],
+						odkazy: [],
 					},
 				{
 						slug: 'zavislost-odporu-na-vodici',
@@ -3193,9 +3101,7 @@ export const temata: Record<string, Tema[]> = {
 						interakce: 'odpor-vodice',
 						obsah: "\n\t\t\t\t\t\t\t<h2>Závislost odporu na vlastnostech vodiče (nad rámec RVP)</h2>\n\t\t\t\t\t\t\t<p>Elektrický odpor vodiče <strong>R</strong> ukazuje, jak moc vodič brání průchodu proudu. Měříme ho v jednotce <strong>ohm</strong> — píšeme řeckým písmenem Ω, čteme „óm\". Násobky jsou kiloohm (kΩ) a megaohm (MΩ): 1 kΩ = 1 000 Ω, 1 MΩ = 1 000 000 Ω.</p>\n\t\t\t\t\t\t\t<p>Čím větší odpor, tím hůř proud vodičem prochází. Odpor závisí na čtyřech věcech: na délce vodiče, na jeho tloušťce, na materiálu a na teplotě.</p>\n\t\t\t\t\t\t\t<h3>Délka a tloušťka vodiče</h3>\n\t\t\t\t\t\t\t<p>Čím je vodič delší, tím větší má odpor. Elektrony totiž na cestě narazí do víc atomů a víc se brzdí.</p><figure><a href=\"/obrazky/fyzika/8-rocnik/elektrina/zavislost-odporu-na-vodici/zavislost-odporu-na-vodici-obr-01.svg\" target=\"_blank\" rel=\"noopener\"><img src=\"/obrazky/fyzika/8-rocnik/elektrina/zavislost-odporu-na-vodici/zavislost-odporu-na-vodici-obr-01.svg\" alt=\"Kratší a delší měděný drát stejné tloušťky. Elektrony v delším drátu narazí do více atomů, proto má delší drát větší odpor.\" loading=\"lazy\" /></a><figcaption>Čím delší drát, tím víc atomů elektrony na cestě potkají – odpor je větší.</figcaption></figure><p>Tloušťka (odborně <strong>průřez</strong>) funguje obráceně: čím je vodič tenčí, tím míň místa mají elektrony k pohybu, a odpor je větší. Tlustý vodič má proto menší odpor než tenký.</p><figure><a href=\"/obrazky/fyzika/8-rocnik/elektrina/zavislost-odporu-na-vodici/zavislost-odporu-na-vodici-obr-02.svg\" target=\"_blank\" rel=\"noopener\"><img src=\"/obrazky/fyzika/8-rocnik/elektrina/zavislost-odporu-na-vodici/zavislost-odporu-na-vodici-obr-02.svg\" alt=\"Tenký a tlustý drát stejné délky. V tenkém mají elektrony jednu úzkou cestičku, v tlustém tři, proto má tlustý drát menší odpor.\" loading=\"lazy\" /></a><figcaption>Tenký drát dává elektronům málo místa – má větší odpor než tlustý.</figcaption></figure>\n\t\t\t\t\t\t\t<p>Délku vodiče značíme <strong>l</strong> a měříme v metrech (m). Průřez vodiče značíme <strong>S</strong> a měříme v metrech čtverečních (m²). U kulatého drátu ho spočítáme ze vzorce S = π·r², kde r je poloměr drátu.</p><figure><a href=\"/obrazky/fyzika/8-rocnik/elektrina/zavislost-odporu-na-vodici/zavislost-odporu-na-vodici-obr-03.svg\" target=\"_blank\" rel=\"noopener\"><img src=\"/obrazky/fyzika/8-rocnik/elektrina/zavislost-odporu-na-vodici/zavislost-odporu-na-vodici-obr-03.svg\" alt=\"Šedý válec – kus vodiče – s vyznačeným průřezem S, poloměrem r a délkou l. Pro kulatý drát platí S = π · r².\" loading=\"lazy\" /></a><figcaption>Průřez S je plocha, kterou uvidíme, když drát rovně přestřihneme.</figcaption></figure>\n\t\t\t\t\t\t\t<h3>Materiál a teplota vodiče</h3>\n\t\t\t\t\t\t\t<p>Odpor závisí i na materiálu, ze kterého je vodič vyrobený. Popisuje ho <strong>měrný odpor</strong> (rezistivita), značka <strong>ρ</strong> (řecké písmeno ró), jednotka Ω·m. Udává, jaký odpor by měl vodič z dané látky dlouhý 1 m s průřezem 1 m². Hodnoty pro různé látky najdeme ve fyzikálních tabulkách.</p>\n\t\t\t\t\t\t\t<p>Hodnoty bývají velmi malé, proto se často udávají v mikroohmmetrech (μΩ·m), což je 0,000 001 Ω·m. Nejmenší měrný odpor mají nejlepší vodiče — stříbro, měď, zlato a hliník.</p>\n\t\t\t\t\t\t\t<p>Odpor kovů roste i s teplotou. Čím je vodič teplejší, tím víc atomy v mřížce kmitají a víc brzdí elektrony, takže odpor je větší.</p>\n\t\t\t\t\t\t\t<h3>Vzorec pro výpočet odporu</h3>\n\t\t\t\t\t\t\t<p>Pro vodič o délce l a průřezu S platí vzorec:</p>\n\t\t\t\t\t\t\t<p style=\"font-size:1.3rem\"><strong>R = ρ · l : S</strong></p>\n\t\t\t\t\t\t\t<p>Ze vzorce vyjádříme i l = R · S : ρ, S = ρ · l : R a ρ = R · S : l.</p>\n\t\t\t\t\t\t\t<p>Všechny veličiny dosazujeme v základních jednotkách — délku v metrech, průřez v metrech čtverečních a měrný odpor v Ω·m.</p>\n\t\t\t\t\t\t\t<p>💡 V praxi je ale průřez drátu jen zlomek milimetru čtverečního a v metrech čtverečních se s ním počítá špatně. Tabulky proto uvádějí měrný odpor i v jednotce Ω·mm²/m. Pak dosazujeme délku v metrech a průřez rovnou v mm² a vyjde stejný výsledek. Převod: 1 mm² = 0,000 001 m².</p>\n\t\t\t\t\t\t\t<p>V těchto jednotkách má měď ρ = 0,018, hliník 0,028, konstantan 0,50 a nichrom asi 1,1 Ω·mm²/m. Proto se topná spirála z nichromu rozžhaví, kdežto přívodní měděný kabel zůstane studený. (Je to týž údaj jen v jiných jednotkách: 0,018 Ω·mm²/m = 0,000 000 018 Ω·m.)</p><figure><a href=\"/obrazky/fyzika/8-rocnik/elektrina/zavislost-odporu-na-vodici/zavislost-odporu-na-vodici-obr-04.svg\" target=\"_blank\" rel=\"noopener\"><img src=\"/obrazky/fyzika/8-rocnik/elektrina/zavislost-odporu-na-vodici/zavislost-odporu-na-vodici-obr-04.svg\" alt=\"Obvod s měděným kabelem a nichromovou spirálou; po sepnutí spínače spirála žhne. Pod ním sloupce měrného odporu mědi, hliníku, konstantanu a nichromu.\" loading=\"lazy\" /></a><figcaption>Nichrom má mnohem větší měrný odpor než měď: spirála se rozžhaví, měděný kabel zůstane studený. Hodnoty měrného odporu jsou z fyzikálních tabulek (při 20 °C).</figcaption></figure>\n\t\t\t\t\t\t\t<h3>Rezistor</h3>\n\t\t\t\t\t\t\t<p>Rezistor je součástka s přesně danou hodnotou odporu. Tvoří ho dlouhý tenký odporový drát z konstantanu, izolovaný a navinutý na keramickém válečku. Velikost jeho odporu určuje materiál i rozměry vodiče.</p>\n\t\t\t\t\t\t\t<p>Hodnotu poznáme podle barevných proužků. Ve schématu ho kreslíme jako obdélník. Rezistor se používá k regulaci proudu v obvodu.</p><figure><a href=\"/obrazky/fyzika/8-rocnik/elektrina/zavislost-odporu-na-vodici/zavislost-odporu-na-vodici-obr-05.svg\" target=\"_blank\" rel=\"noopener\"><img src=\"/obrazky/fyzika/8-rocnik/elektrina/zavislost-odporu-na-vodici/zavislost-odporu-na-vodici-obr-05.svg\" alt=\"Rezistor s barevnými proužky, jeho vnitřek s odporovým drátem navinutým na keramickém válečku a jeho značka ve schématu – obdélník.\" loading=\"lazy\" /></a><figcaption>Proužky hnědá (1), červená (2) a oranžová (000) dávají 12 000 Ω = 12 kΩ. Uvnitř je tenký drát z konstantanu navinutý na keramickém válečku.</figcaption></figure>\n\t\t\t\t\t\t\t<h3>Pro zvídavé: počítáme</h3>\n\t\t\t\t\t\t\t<p>Odporový drát je z konstantanu (ρ = 0,50 Ω·mm²/m), má délku 10 m a průřez 1 mm². Jaký má odpor?</p>\n\t\t\t\t\t\t\t<p>R = ρ · l : S = 0,50 · 10 : 1 = 5 : 1 = 5 Ω</p>\n\t\t\t\t\t\t\t<p>Zkusíme to i obráceně. Topný drát z nichromu (ρ = 1,1 Ω·mm²/m) má průřez 1 mm² a odpor 22 Ω. Jak dlouhý drát potřebujeme?</p>\n\t\t\t\t\t\t\t<p>l = R · S : ρ = 22 · 1 : 1,1 = 22 : 1,1 = 20 m</p>\n\t\t\t\t\t\t",
 						zapis: {"vzorec":"R = ρ · l : S","jednotky":["R (Ω), ρ (Ω·m), l (m), S (m²)"],"vzorecSlovy":"odpor = měrný odpor krát délka děleno průřez","body":["delší vodič má větší odpor","tenčí vodič má větší odpor","odpor závisí i na materiálu a teplotě"]},
-						odkazy: [
-							{ nazev: 'Odpor vodiče (Eduportál Techmania)', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/elektricky-proud/odpor-vodice' },
-						],
+						odkazy: [],
 					},
 				{
 						slug: 'ohmuv-zakon',
@@ -3205,10 +3111,7 @@ export const temata: Record<string, Tema[]> = {
 						uvod: "Se slabou baterií svítí žárovka méně. S čerstvou baterií může svítit jasněji. Čím silněji baterie „tlačí“, tím víc elektřiny žárovkou prochází.",
 						zvidave: "<p><strong>Další procvičení.</strong> Rezistor 6 Ω připojený k napětí 12 V vede proud I = 12 : 6 = 2 A. Rezistorem 4 Ω prochází proud 3 A: napětí je U = 4 · 3 = 12 V. Počítáme s danými stálými odpory. Další převod napětí: 1 kV = 1 000 V.</p>",
 						zapis: {"vzorec":"I = U : R","jednotky":["I (A), U (V), R (Ω)"],"vzorecSlovy":"proud = napětí děleno odporem","body":["větší napětí dává větší proud","větší odpor dává menší proud","platí za stálé teploty vodiče"]},
-						odkazy: [
-							{ nazev: 'Pokus: Elektrický proud a Ohmův zákon (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/5420-pokus-elektricky-proud-a-ohmuv-zakon' },
-							{ nazev: 'Ohmův zákon pro část obvodu — 8. ročník (Umíme fakta)', url: 'https://www.umimefakta.cz/cviceni-ohmuv-zakon-pro-cast-obvodu-8-trida' },
-						],
+						odkazy: [],
 						materialy: [
 							{ druh: 'infografika', nazev: 'Ohmův zákon v pohybu', cesta: '/materialy/fyzika/8-rocnik/elektrina/ohmuv-zakon/infografika-ohmuv-zakon-pohyb-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/elektrina/ohmuv-zakon/infografika-ohmuv-zakon-pohyb-panel-1.svg', '/materialy/fyzika/8-rocnik/elektrina/ohmuv-zakon/infografika-ohmuv-zakon-pohyb-panel-2.svg', '/materialy/fyzika/8-rocnik/elektrina/ohmuv-zakon/infografika-ohmuv-zakon-pohyb-panel-3.svg'] },
 							{ druh: 'video', nazev: 'Píseň: U děleno R 🎵', cesta: '/materialy/fyzika/8-rocnik/elektrina/ohmuv-zakon/pisen-u-deleno-r.m4a' },
@@ -3225,10 +3128,7 @@ export const temata: Record<string, Tema[]> = {
 						materialy: [
 							{ druh: 'infografika', nazev: 'Zapojení za sebou v pohybu', cesta: '/materialy/fyzika/8-rocnik/elektrina/zapojeni-spotrebicu-za-sebou/infografika-zapojeni-spotrebicu-za-sebou-pohyb-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/elektrina/zapojeni-spotrebicu-za-sebou/infografika-zapojeni-spotrebicu-za-sebou-pohyb-panel-1.svg', '/materialy/fyzika/8-rocnik/elektrina/zapojeni-spotrebicu-za-sebou/infografika-zapojeni-spotrebicu-za-sebou-pohyb-panel-2.svg'] },
 						],
-						odkazy: [
-							{ nazev: 'Sériové a paralelní zapojení — výklad (E-manuel.cz)', url: 'https://e-manuel.cz/kapitoly/elektricke-obvody/vyklad/seriove-a-paralelni-zapojeni/' },
-							{ nazev: 'Sériové a paralelní zapojení v obvodu — test (testi.cz)', url: 'https://testi.cz/testy/fyzika/seriove-a-paralelni-zapojeni-v-obvodu/' },
-						],
+						odkazy: [],
 					},
 				{
 						slug: 'zapojeni-spotrebicu-vedle-sebe',
@@ -3241,9 +3141,7 @@ export const temata: Record<string, Tema[]> = {
 						materialy: [
 							{ druh: 'infografika', nazev: 'Zapojení vedle sebe v pohybu', cesta: '/materialy/fyzika/8-rocnik/elektrina/zapojeni-spotrebicu-vedle-sebe/infografika-zapojeni-spotrebicu-vedle-sebe-pohyb-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/elektrina/zapojeni-spotrebicu-vedle-sebe/infografika-zapojeni-spotrebicu-vedle-sebe-pohyb-panel-1.svg', '/materialy/fyzika/8-rocnik/elektrina/zapojeni-spotrebicu-vedle-sebe/infografika-zapojeni-spotrebicu-vedle-sebe-pohyb-panel-2.svg'] },
 						],
-						odkazy: [
-							{ nazev: 'Sériové a paralelní zapojení (E-manuel.cz)', url: 'https://e-manuel.cz/kapitoly/elektricke-obvody/vyklad/seriove-a-paralelni-zapojeni/' },
-						],
+						odkazy: [],
 					},
 				{
 						slug: 'rezistor-s-promennym-odporem',
@@ -3253,10 +3151,7 @@ export const temata: Record<string, Tema[]> = {
 						uvod: "Otočíš knoflíkem rádia a zvuk zesílí. Uvnitř se může posunout malý kontakt, který změní, kolik elektřiny projde do reproduktoru. Podobná součástka s posuvným jezdcem nám pomůže měnit proud v obvodu.",
 						zvidave: "<h3>Konstrukce a zahřívání</h3><p>Odporový drát může být například z nichromu nebo konstantanu. Má vyšší odpor než měděný vodič. Izolační nosič musí odpovídat zahřívání součástky. Ne každý proměnný rezistor je drátový: existují i odporové vrstvy.</p><p>Výkon měněný na teplo spočítáme jako P = U · I nebo P = I² · R. Výrobce určuje dovolený výkon a proud. Při překročení se součástka může poškodit. Při nastavení téměř nulového odporu reostat proud téměř neomezuje; dál jej omezují ostatní části obvodu. Před zapnutím je proto nutné zkontrolovat nastavení.</p><p>V početním modelu připojíme odpor 6 Ω k napětí 12 V: proud je 12 : 6 = 2 A. Při odporu 3 Ω je 12 : 3 = 4 A a výkon 12 · 4 = 48 W. To je více než dovolených 25 W u uvažované součástky; takové zapojení by ji přetěžovalo. Nejde o návod k pokusu.</p><p>Potenciometr může snímat polohu pedálu nebo páky herního ovladače. Starší odporové stmívání nahrazují elektronické obvody například s tranzistory nebo triaky. I ty mají ztráty. Převody jednotek: 1 000 mA = 1 A, 1 kV = 1 000 V, 1 kΩ = 1 000 Ω, 1 kW = 1 000 W.</p>",
 						zapis: {"body":["proměnný odpor nastavujeme polohou jezdce","delší zapojený drát má větší odpor","reostat mění proud, potenciometr dělí napětí","použití: hlasitost, jas, řízení motorů"]},
-						odkazy: [
-							{ nazev: 'Reostat, dělič napětí (potenciometr) — F8 (vyuka.p3k.eu)', url: 'https://vyuka.p3k.eu/f8-reostat-delic-napeti-potenciometr/' },
-							{ nazev: 'Rezistory s proměnnou hodnotou (Wikipedie)', url: 'https://cs.wikipedia.org/wiki/Rezistory_s_prom%C4%9Bnnou_hodnotou' },
-						],
+						odkazy: [],
 					},
 				{
 						slug: 'elektricka-prace-a-vykon',
@@ -3270,11 +3165,7 @@ export const temata: Record<string, Tema[]> = {
 							{ druh: 'infografika', nazev: 'Elektrická práce a výkon v pohybu', cesta: '/materialy/fyzika/8-rocnik/elektrina/elektricka-prace-a-vykon/infografika-elektricka-prace-a-vykon-pohyb-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/elektrina/elektricka-prace-a-vykon/infografika-elektricka-prace-a-vykon-pohyb-panel-1.svg', '/materialy/fyzika/8-rocnik/elektrina/elektricka-prace-a-vykon/infografika-elektricka-prace-a-vykon-pohyb-panel-2.svg'] },
 							{ druh: 'youtube', nazev: 'Video: Elektrická práce, výkon a účinnost spotřebičů', cesta: 'jPZ2a2J8MHc' },
 						],
-						odkazy: [
-							{ nazev: 'Procvičování: Elektrická práce a výkon (Umíme fakta)', url: 'https://www.umimefakta.cz/fyzika/cviceni-elektricka-prace-a-vykon' },
-							{ nazev: 'Prezentace: Kolik zaplatíme za elektřinu (PDF, ZŠ Horšovský Týn)', url: 'https://www.zshtyn.cz/wp-content/uploads/2021/04/Elektrick%C3%A1-pr%C3%A1ce-a-v%C3%BDkon-II-PDF.pdf' },
-							{ nazev: 'Práce a výkon elektrického proudu (Eduportál Techmania)', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/elektricky-proud/prace-vykon-elektrickeho-proudu' },
-						],
+						odkazy: [],
 					},
 				{
 						slug: 'ucinky-proudu-a-bezpecnost',
@@ -3287,12 +3178,7 @@ export const temata: Record<string, Tema[]> = {
 						materialy: [
 							{ druh: 'youtube', nazev: 'Video: Účinky elektrického proudu na lidský organismus', cesta: 'VfCqvZDHUWQ' },
 						],
-						odkazy: [
-							{ nazev: 'Video: Nebezpečná elektřina (ČT edu, pořad PORT)', url: 'https://edu.ceskatelevize.cz/video/5416-nebezpecna-elektrina' },
-							{ nazev: 'Bezpečnost a první pomoc při zásahu proudem (ČEZ)', url: 'https://www.cez.cz/cs/clanky/bezpecnost-a-prvni-pomoc-pri-zasahu-elektrickym-proudem-163506' },
-							{ nazev: 'První pomoc krok za krokem: úraz elektrickým proudem (Stačí málo)', url: 'https://www.staci-malo.cz/detail/co-delat-pri-urazu-elektrickym-proudem' },
-							{ nazev: 'Prevence úrazů elektřinou doma (Dětství bez úrazů)', url: 'https://detstvibezurazu.cz/prevence-urazu-deti/bezpecny-domov/urazy-elektrickym-proudem/' },
-						],
+						odkazy: [],
 					},
 			],
 		},
@@ -3301,7 +3187,7 @@ export const temata: Record<string, Tema[]> = {
 			nazev: 'Zvuk',
 			podtemata: [
 				{
-					odkazy: [{"nazev":"Techmania: Kmitání","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/akustika/kmitani"},{"nazev":"Techmania: Vlnění","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/akustika/vlneni"},{"nazev":"Wikipedie: Vlnová délka","url":"https://cs.wikipedia.org/wiki/Vlnov%C3%A1_d%C3%A9lka"},{"nazev":"Umíme to: Vlnění, pojmy (8. třída)","url":"https://www.umimefakta.cz/fyzika/cviceni-vlneni-pojmy-8-trida"}],
+					odkazy: [],
 					slug: 'kmitani-a-vlneni',
 					uvod: "Dítě na houpačce se pořád vrací tam a zpátky. Takovému pohybu říkáme kmitání. Když hodíš kamínek do vody, rozkmitá se voda v místě dopadu a kmitání se šíří dál jako vlny.",
 					nazev: 'Kmitání a vlnění (nad rámec RVP)',
@@ -3318,7 +3204,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
-					odkazy: [{"nazev":"Techmania: Vznik a druhy zvuku","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/akustika/vznik-druhy-zvuku"},{"nazev":"Techmania: Šíření zvuku","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/akustika/sireni-zvuku"},{"nazev":"Techmania: Ozvěna a dozvuk","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/akustika/ozvena-dozvuk"},{"nazev":"Techmania: Výška zvuku","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/akustika/vyska-zvuku"}],
+					odkazy: [],
 					slug: 'zvuk-vznik-a-sireni',
 					uvod: "Když drnkneš na strunu kytary, vidíš, že se chvěje. Zvuk vzniká právě chvěním. Chvějící se těleso střídavě stlačuje a zřeďuje vzduch kolem sebe, a tak se zvuk šíří dál. Bez vzduchu nebo jiné látky by se zvuk nešířil.",
 					nazev: 'Zvuk, vznik a šíření zvuku',
@@ -3341,7 +3227,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
-					odkazy: [{"nazev":"NZIP: Ucho, sluch a rovnováha","url":"https://www.nzip.cz/clanek/1507-ucho-sluch-rovnovaha"},{"nazev":"Techmania: Intenzita zvuku","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/akustika/intenzita-zvuku"},{"nazev":"NZIP: Ochrana zdraví před hlukem","url":"https://www.nzip.cz/clanek/1046-ochrana-zdravi-pred-hlukem"},{"nazev":"NZIP: Zdravotní účinky hluku","url":"https://www.nzip.cz/clanek/1045-zdravotni-ucinky-hluku"}],
+					odkazy: [],
 					slug: 'vnimani-zvuku-a-hlasitost',
 					uvod: "Zvuk, který slyšíš, musí projít celým uchem. Zachytí ho boltec, rozkmitá bubínek a přes kůstky a hlemýždě se změní na signál, který nerv vede do mozku. Příliš hlasitý hluk může jemné buňky ve vnitřním uchu poškodit navždy, proto sluch chráníme.",
 					nazev: 'Vnímání zvuku, hlasitost zvuku',
@@ -3458,7 +3344,7 @@ export const temata: Record<string, Tema[]> = {
 					uvod: "Určitě znáš magnet na lednici. Magnet umí přitáhnout třeba hřebík nebo sponku a nemusí se jich ani dotknout. Kolem magnetu je totiž neviditelné místo, kde jeho síla působí. Tomu místu říkáme magnetické pole.",
 					zapis: {"zakon":"Stejné póly se odpuzují, opačné přitahují.","body":["magnet má severní a jižní pól","magnet přitahuje železo, ocel, kobalt a nikl","magnetické pole zjistíme magnetkou","Země je velký magnet"]},
 					materialy: [{"druh":"video","nazev":"Píseň: Ze severu na jih 🎵","cesta":"/materialy/fyzika/9-rocnik/magneticke-pole/magnety-magneticke-pole-opakovani/pisen-ze-severu-na-jih.m4a"},{"druh":"infografika","nazev":"Infografika: Magnety a magnetické pole","cesta":"/materialy/fyzika/9-rocnik/magneticke-pole/magnety-magneticke-pole-opakovani/infografika-magnety-prehled.png"},{"druh":"infografika","nazev":"Infografika: Magnety v pohybu","cesta":"/materialy/fyzika/9-rocnik/magneticke-pole/magnety-magneticke-pole-opakovani/infografika-magnety-magneticke-pole-opakovani-pohyb-panel-1.svg","panely":["/materialy/fyzika/9-rocnik/magneticke-pole/magnety-magneticke-pole-opakovani/infografika-magnety-magneticke-pole-opakovani-pohyb-panel-1.svg","/materialy/fyzika/9-rocnik/magneticke-pole/magnety-magneticke-pole-opakovani/infografika-magnety-magneticke-pole-opakovani-pohyb-panel-2.svg","/materialy/fyzika/9-rocnik/magneticke-pole/magnety-magneticke-pole-opakovani/infografika-magnety-magneticke-pole-opakovani-pohyb-panel-3.svg"]},{"druh":"video","nazev":"Co magnet přitáhne a proč má dva póly — 1. díl","cesta":"/media/fyzika/9-rocnik/magneticke-pole/magnety-magneticke-pole-opakovani/magnety-opakovani-dialog1.mp4","ai":"Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program."},{"druh":"video","nazev":"Jak poznáme neviditelné magnetické pole — 2. díl","cesta":"/media/fyzika/9-rocnik/magneticke-pole/magnety-magneticke-pole-opakovani/magnety-opakovani-dialog2.mp4","ai":"Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program."},{"druh":"video","nazev":"Země, kompas a polární záře — 3. díl","cesta":"/media/fyzika/9-rocnik/magneticke-pole/magnety-magneticke-pole-opakovani/magnety-opakovani-dialog3.mp4","ai":"Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program."}],
-					odkazy: [{"nazev":"Magnetismus — kvíz (Wordwall)","url":"https://wordwall.net/cs/resource/27704217/magnetismus-2"},{"nazev":"Simulace: Magnet a kompas (PhET, česky)","url":"https://phet.colorado.edu/sims/html/magnet-and-compass/latest/magnet-and-compass_all.html?locale=cs"},{"nazev":"Fyzikální liga: Magnetické pole","url":"/hry/liga-karty/?rocnik=9&celek=magneticke-pole"}],
+					odkazy: [{"nazev":"Fyzikální liga: Magnetické pole","url":"/hry/liga-karty/?rocnik=9&celek=magneticke-pole"}],
 				},
 				{
 					materialy: [{"druh":"infografika","nazev":"Infografika: Magnetické pole vodiče a cívky","cesta":"/materialy/fyzika/9-rocnik/magneticke-pole/magneticke-pole-vodice-a-civky/infografika-vodic-civka-prehled.png","panely":["/materialy/fyzika/9-rocnik/magneticke-pole/magneticke-pole-vodice-a-civky/infografika-magneticke-pole-vodice-a-civky-panel-1.svg","/materialy/fyzika/9-rocnik/magneticke-pole/magneticke-pole-vodice-a-civky/infografika-magneticke-pole-vodice-a-civky-panel-2.svg","/materialy/fyzika/9-rocnik/magneticke-pole/magneticke-pole-vodice-a-civky/infografika-magneticke-pole-vodice-a-civky-panel-3.svg","/materialy/fyzika/9-rocnik/magneticke-pole/magneticke-pole-vodice-a-civky/infografika-magneticke-pole-vodice-a-civky-panel-4.svg","/materialy/fyzika/9-rocnik/magneticke-pole/magneticke-pole-vodice-a-civky/infografika-magneticke-pole-vodice-a-civky-panel-5.svg"]},{"druh":"video","nazev":"Píseň: Ze severu na jih 🎵","cesta":"/materialy/fyzika/9-rocnik/magneticke-pole/magnety-magneticke-pole-opakovani/pisen-ze-severu-na-jih.m4a"},{"druh":"audio","nazev":"Polemika: Proč se u vodiče otočí magnetka 🎧","cesta":"/media/fyzika/9-rocnik/magneticke-pole/magneticke-pole-vodice-a-civky/vodic-civka-dialog1-omnivoice.mp3","ai":"Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice)."},{"druh":"video","nazev":"Proč se u vodiče otočí magnetka — 1. díl","cesta":"/media/fyzika/9-rocnik/magneticke-pole/magneticke-pole-vodice-a-civky/vodic-civka-dialog1.mp4","ai":"Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program."},{"druh":"video","nazev":"Kdy se vodiče přitahují a co rozhýbe reproduktor — 2. díl","cesta":"/media/fyzika/9-rocnik/magneticke-pole/magneticke-pole-vodice-a-civky/vodic-civka-dialog2.mp4","ai":"Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program."},{"druh":"video","nazev":"Cívka jako magnet a druhé pravidlo pravé ruky — 3. díl","cesta":"/media/fyzika/9-rocnik/magneticke-pole/magneticke-pole-vodice-a-civky/vodic-civka-dialog3.mp4","ai":"Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program."}],
@@ -3470,7 +3356,7 @@ export const temata: Record<string, Tema[]> = {
 					uvod: "Kolem drátu, kterým teče elektřina z baterie, je neviditelné magnetické pole. Když drát vedeme nad kompas a zapneme proud, střelka kompasu se vychýlí, stejně jako u magnetu. Když drát namotáme do spirály jako pružinku, pole je mnohem silnější. Taková spirála se pak chová jako magnet.",
 					zvidave: "<p>💡 Pro zajímavost (nadstavba): Čím víc má cívka závitů, tím je její magnetické pole silnější — každý další závit k poli přidá.</p>\n<p>💡 Proč se používá zrovna pravá ruka? Fyzikové se dohodli, že proud teče od plusu k mínusu. Kdybys použil levou ruku, vyšlo by ti všechno obráceně.</p>\n<p>💡 Cívka je magnet, který se dá vypnout — stačí vypnout proud. Cívka také rozkmitá membránu v reproduktoru a sluchátkách, a tak vzniká zvuk.</p>",
 					zapis: {"zakon":"Pravidlo pravé ruky: u vodiče palec ukazuje směr proudu, prsty směr indukčních čar.","body":["proud vytváří kolem vodiče magnetické pole","pole přímého vodiče tvoří soustředné kružnice","cívka s proudem se chová jako tyčový magnet","železné jádro pole zesílí"]},
-					odkazy: [{"nazev":"Test: Cívka a magnetické pole (Wordwall)","url":"https://wordwall.net/cs/resource/113962641/test-c%C3%ADvka-a-magnetick%C3%A9-pole"},{"nazev":"Fyzikální liga: Magnetické pole","url":"/hry/liga-karty/?rocnik=9&celek=magneticke-pole"}],
+					odkazy: [{"nazev":"Fyzikální liga: Magnetické pole","url":"/hry/liga-karty/?rocnik=9&celek=magneticke-pole"}],
 				},
 				{
 					materialy: [{"druh":"video","nazev":"Píseň: Ze severu na jih 🎵","cesta":"/materialy/fyzika/9-rocnik/magneticke-pole/magnety-magneticke-pole-opakovani/pisen-ze-severu-na-jih.m4a"},{"druh":"infografika","nazev":"Infografika: Elektromagnet a jeho využití","cesta":"/materialy/fyzika/9-rocnik/magneticke-pole/elektromagnet/infografika-elektromagnet-prehled.png"},{"druh":"infografika","nazev":"Infografika: Zvonek, relé a jistič v pohybu","cesta":"/materialy/fyzika/9-rocnik/magneticke-pole/elektromagnet/infografika-elektromagnet-panel-1.svg","panely":["/materialy/fyzika/9-rocnik/magneticke-pole/elektromagnet/infografika-elektromagnet-panel-1.svg","/materialy/fyzika/9-rocnik/magneticke-pole/elektromagnet/infografika-elektromagnet-panel-2.svg","/materialy/fyzika/9-rocnik/magneticke-pole/elektromagnet/infografika-elektromagnet-panel-3.svg","/materialy/fyzika/9-rocnik/magneticke-pole/elektromagnet/infografika-elektromagnet-panel-4.svg","/materialy/fyzika/9-rocnik/magneticke-pole/elektromagnet/infografika-elektromagnet-panel-5.svg"]},{"druh":"video","nazev":"Magnet, který ovládáme proudem — 1. díl","cesta":"/media/fyzika/9-rocnik/magneticke-pole/elektromagnet/elektromagnet-dialog1.mp4","ai":"Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program."},{"druh":"video","nazev":"Jeřáb a jistič: přitáhnout nebo rozpojit — 2. díl","cesta":"/media/fyzika/9-rocnik/magneticke-pole/elektromagnet/elektromagnet-dialog2.mp4","ai":"Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program."},{"druh":"video","nazev":"Zvonek a relé: magnet jako spínač — 3. díl","cesta":"/media/fyzika/9-rocnik/magneticke-pole/elektromagnet/elektromagnet-dialog3.mp4","ai":"Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program."}],
@@ -3480,7 +3366,7 @@ export const temata: Record<string, Tema[]> = {
 					obsah: "<h2>Elektromagnet a jeho využití</h2>\n\n<p>Elektromagnet je součástka, která využívá magnetické vlastnosti <strong>cívky</strong>. Cívku už znáš: je to vodič navinutý do mnoha závitů. Do cívky se vloží <strong>jádro</strong> z <strong>magneticky měkké oceli</strong> — a je z ní elektromagnet.</p>\n\n<figure><a href=\"/obrazky/fyzika/9-rocnik/magneticke-pole/elektromagnet/elektromagnet-obr-01.svg\" target=\"_blank\" rel=\"noopener\"><img src=\"/obrazky/fyzika/9-rocnik/magneticke-pole/elektromagnet/elektromagnet-obr-01.svg\" alt=\"Baterie, drát a hřebík s vinutím: elektromagnet se sponkami na obou koncích, severní pól vlevo a jižní vpravo\" /></a><figcaption>Jednoduchý elektromagnet z hřebíku, drátu a baterie.</figcaption></figure>\n\n<h3>Jak elektromagnet funguje</h3>\n<p>Magneticky měkká ocel se při zapnutí proudu <strong>velmi rychle zmagnetuje</strong>. Po vypnutí proudu její magnetické pole <strong>velmi rychle zanikne</strong>. Magnetické pole elektromagnetu je stejné jako pole tyčového magnetu.</p>\n\n<h3>Jak elektromagnet zesílit</h3>\n<p>Nejsilnější pole má cívka s největším počtem závitů. Může jich mít i několik tisíc. Čím <strong>více závitů</strong>, tím silnější magnetické pole. Sílu pole ovlivníme také velikostí proudu: čím <strong>větší proud</strong> cívkou teče, tím je pole silnější.</p>\n\n<h3>Co umí elektromagnet navíc oproti obyčejnému magnetu</h3>\n<ul>\n<li>Jde ho <strong>zapnout a vypnout</strong> — stačí zapnout nebo vypnout elektrický proud.</li>\n<li>Jde mu <strong>prohodit póly</strong> — severní a jižní pól si vymění místa, když obrátíme póly zdroje.</li>\n<li>Jeho pole bývá <strong>mnohonásobně silnější</strong> než u obyčejných (permanentních) magnetů.</li>\n</ul>\n\n<h3>Kde se elektromagnet využívá</h3>\n<ul>\n<li><strong>Jeřáb</strong> na nakládání železného šrotu — magnet se zapne, přitáhne kov, a po přenesení se zase vypne.</li>\n<li><strong>Elektromotor</strong>.</li>\n<li><strong>Jistič</strong> — přeruší elektrický obvod, třeba doma při přetížení nebo při zkratu (kdy se vodiče spojí bez spotřebiče). Přetížení vznikne například tehdy, když zapneme příliš mnoho spotřebičů najednou. Obvodem pak teče příliš velký proud, elektromagnet vytvoří silné pole a přitáhne <strong>kotvu</strong> jističe (pohyblivou kovovou část). Tím se obvod rozpojí a změní se poloha ručky jističe. Výhoda proti tavné pojistce: jistič můžeme ručně zase zapnout.</li>\n<li><strong>Zvonek</strong> — viz níže.</li>\n<li><strong>Automatické systémy</strong> — používají <strong>relé</strong>, tedy elektromagnetický spínač. Je to spínač proudu v obvodu, který je řízený jiným obvodem se slabým signálem. Příkladem jsou automatické závory u kolejí: když vlak svými železnými koly spojí obě kolejnice, sepne se řídicí obvod a ten zapne spouštění závor.</li>\n<li><strong>Oční lékařství</strong> — vytahování kovových pilin z oka.</li>\n</ul>\n\n<figure><a href=\"/obrazky/fyzika/9-rocnik/magneticke-pole/elektromagnet/elektromagnet-obr-02.svg\" target=\"_blank\" rel=\"noopener\"><img src=\"/obrazky/fyzika/9-rocnik/magneticke-pole/elektromagnet/elektromagnet-obr-02.svg\" alt=\"Schéma jističe při normálním proudu a při přetížení: cívka přitáhne kotvu, páčka rozpojí kontakt\" /></a><figcaption>Jistič vypne obvod elektromagnetem při přetížení.</figcaption></figure>\n<figure><a href=\"/obrazky/fyzika/9-rocnik/magneticke-pole/elektromagnet/elektromagnet-obr-04.svg\" target=\"_blank\" rel=\"noopener\"><img src=\"/obrazky/fyzika/9-rocnik/magneticke-pole/elektromagnet/elektromagnet-obr-04.svg\" alt=\"Schéma relé: řídicí obvod se spínačem a cívkou, kotva a kontakty výkonového obvodu\" /></a><figcaption>Relé: malý proud v cívce spíná větší proud.</figcaption></figure>\n\n<h3>Jak funguje elektrický zvonek</h3>\n<p>Zmáčkneme tlačítko (K) zvonku. Obvodem teče proud a elektromagnet (E) vytvoří magnetické pole. Pole přitáhne kotvu (A) a její kladívko udeří na zvonek (B). Zároveň kotva se ale odtrhne od přerušovače (T) a přeruší obvod, takže proud přestane téct.</p>\n<p>Bez proudu pole zanikne a kotva se vrátí do původní polohy. Tím se přerušovač (T) zase sepne a obvodem znovu začne procházet proud. Všechno se opakuje stále dokola, dokud držíme tlačítko zvonku zmáčknuté.</p>\n<figure><a href=\"/obrazky/fyzika/9-rocnik/magneticke-pole/elektromagnet/elektromagnet-obr-03.svg\" target=\"_blank\" rel=\"noopener\"><img src=\"/obrazky/fyzika/9-rocnik/magneticke-pole/elektromagnet/elektromagnet-obr-03.svg\" alt=\"Schéma elektrického zvonku se součástmi E, A, B, K, U a T a čtyřmi kroky činnosti\" /></a><figcaption>Elektrický zvonek: elektromagnet střídavě přitahuje a pouští kotvu.</figcaption></figure>\n\n<h3>Shrnutí</h3>\n<p>Elektromagnet je cívka s jádrem z magneticky měkké oceli. Pole vzniká po zapnutí proudu a po vypnutí zaniká. Silnější je s více závity a větším proudem. Používá se v jeřábu, zvonku, jističi, relé, elektromotoru i v lékařství.</p>\n",
 					uvod: "Zvonek u dveří zvoní, jen když zmáčkneš tlačítko. Uvnitř něj je magnet, který se dá zapnout a vypnout: když ho zapneš, přitahuje, a když ho vypneš, přestane. Takovému magnetu říkáme elektromagnet.",
 					zapis: {"body":["elektromagnet je cívka s železným jádrem","při proudu se jádro zmagnetuje, bez proudu pole zmizí","víc závitů a větší proud dávají silnější pole","pole jde zapnout, vypnout i přepólovat","využití: jeřáb, zvonek, relé"]},
-					odkazy: [{"nazev":"Elektromagnet, elektromotor — kvíz (Wordwall)","url":"https://wordwall.net/cs/resource/100782493/fyzika/elektromagnet-elektromotor"},{"nazev":"Fyzikální liga: Magnetické pole","url":"/hry/liga-karty/?rocnik=9&celek=magneticke-pole"}],
+					odkazy: [{"nazev":"Fyzikální liga: Magnetické pole","url":"/hry/liga-karty/?rocnik=9&celek=magneticke-pole"}],
 				},
 			],
 		},
@@ -3510,9 +3396,7 @@ export const temata: Record<string, Tema[]> = {
 					uvod: "Malý generátor na kole (lidově dynamo) je přístroj, který rozsvítí světlo, jen když se točí kolo. Uvnitř něj se točí magnet kousek od drátu a v drátu se z toho objeví elektřina. Když magnet stojí, nic se neděje. Tomu říkáme elektromagnetická indukce.",
 					zvidave: "<p>💡 Pusť malý silný magnet do svislé trubky z mědi. Měď sama magnet nepřitahuje, a přesto magnet trubkou padá pomalu. Při jeho pádu se v trubce indukují vířivé proudy, které působí proti pohybu magnetu a brzdí ho. Na stejném principu fungují indukční brzdy.</p>\n<p>💡 Když zasouváš magnet do cívky, která je zapojená do uzavřeného obvodu, cítíš slabý odpor. Ten je cenou za elektřinu: práce tvé ruky se mění na elektrickou energii, a proto se energie neztrácí ani nevzniká z ničeho.</p>",
 					zapis: {"body":["indukce vzniká změnou magnetického pole u cívky","v uzavřeném obvodu vznikne indukovaný proud","magnet v klidu nic neindukuje","větší napětí: rychlejší pohyb, silnější magnet, víc závitů","využití: dynamo, alternátor, transformátor"]},
-					odkazy: [
-						{ nazev: 'Umíme fakta — Elektromagnetická indukce: základy', url: 'https://www.umimefakta.cz/fyzika/cviceni-elektromagneticka-indukce-zaklady' },
-					],
+					odkazy: [],
 					materialy: [
 						{ druh: 'infografika', nazev: 'Infografika: Elektromagnetická indukce v kostce', cesta: '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/elektromagneticka-indukce/infografika-elektromagneticka-indukce.svg', panely: ['/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/elektromagneticka-indukce/infografika-elektromagneticka-indukce-panel-1.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/elektromagneticka-indukce/infografika-elektromagneticka-indukce-panel-2.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/elektromagneticka-indukce/infografika-elektromagneticka-indukce-panel-3.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/elektromagneticka-indukce/infografika-elektromagneticka-indukce-panel-4.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/elektromagneticka-indukce/infografika-elektromagneticka-indukce-panel-5.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/elektromagneticka-indukce/infografika-elektromagneticka-indukce-panel-6.svg'] },
 						{ druh: 'youtube', nazev: 'Video: Elektromagnetická indukce 1', cesta: 'HTQTf58aXBQ' },
@@ -3592,9 +3476,7 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'infografika', nazev: 'Infografika: Proud v kapalinách a elektrolýza v kostce', cesta: '/materialy/fyzika/9-rocnik/elektricky-proud-v-latkach/vedeni-proudu-v-kapalinach/infografika-vedeni-proudu-v-kapalinach.svg', panely: ['/materialy/fyzika/9-rocnik/elektricky-proud-v-latkach/vedeni-proudu-v-kapalinach/infografika-vedeni-proudu-v-kapalinach-panel-1.svg', '/materialy/fyzika/9-rocnik/elektricky-proud-v-latkach/vedeni-proudu-v-kapalinach/infografika-vedeni-proudu-v-kapalinach-panel-2.svg', '/materialy/fyzika/9-rocnik/elektricky-proud-v-latkach/vedeni-proudu-v-kapalinach/infografika-vedeni-proudu-v-kapalinach-panel-3.svg', '/materialy/fyzika/9-rocnik/elektricky-proud-v-latkach/vedeni-proudu-v-kapalinach/infografika-vedeni-proudu-v-kapalinach-panel-4.svg', '/materialy/fyzika/9-rocnik/elektricky-proud-v-latkach/vedeni-proudu-v-kapalinach/infografika-vedeni-proudu-v-kapalinach-panel-5.svg', '/materialy/fyzika/9-rocnik/elektricky-proud-v-latkach/vedeni-proudu-v-kapalinach/infografika-vedeni-proudu-v-kapalinach-panel-6.svg'] },
 						{ druh: 'youtube', nazev: 'Video: Vedení proudu v kapalinách', cesta: 'D_aMAsD-EKM' },
 					],
-					odkazy: [
-						{ nazev: 'TechMania — Elektrolýza', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/elektricky-proud/elektricky-proud-v-kapalinach/elektrolyza' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'chemicke-zdroje-napeti',
@@ -3608,13 +3490,7 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'infografika', nazev: 'Infografika: Chemické zdroje napětí v kostce', cesta: '/materialy/fyzika/9-rocnik/elektricky-proud-v-latkach/chemicke-zdroje-napeti/infografika-chemicke-zdroje-napeti-panel-1.svg', panely: ['/materialy/fyzika/9-rocnik/elektricky-proud-v-latkach/chemicke-zdroje-napeti/infografika-chemicke-zdroje-napeti-panel-1.svg', '/materialy/fyzika/9-rocnik/elektricky-proud-v-latkach/chemicke-zdroje-napeti/infografika-chemicke-zdroje-napeti-panel-2.svg', '/materialy/fyzika/9-rocnik/elektricky-proud-v-latkach/chemicke-zdroje-napeti/infografika-chemicke-zdroje-napeti-panel-3.svg', '/materialy/fyzika/9-rocnik/elektricky-proud-v-latkach/chemicke-zdroje-napeti/infografika-chemicke-zdroje-napeti-panel-4.svg'] },
 						{ druh: 'youtube', nazev: 'Video: Chemické zdroje elektrického napětí', cesta: 'wC1cAYJitUk' },
 					],
-					odkazy: [
-						{ nazev: 'Pokus: Elektřina z ovoce a zeleniny (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/5524-pokus-elektrina-z-ovoce-a-zeleniny' },
-						{ nazev: 'Jak probíhá recyklace baterií (ECOBAT)', url: 'https://www.ecobat.cz/jak-probiha-recyklace-baterii/' },
-						{ nazev: 'Druhy baterií — spojovačka (Wordwall)', url: 'https://wordwall.net/cs/resource/71804207/druhy-bateri%C3%AD' },
-						{ nazev: 'Pokus: Citronová baterie (Sbírka pokusů MFF UK)', url: 'https://fyzikalnipokusy.cz/2206/citronova-baterie' },
-						{ nazev: 'Galvanické články — zápisky (Uč se online)', url: 'https://www.ucseonline.cz/skola/zakladni-skola/skolni-zapisky/chemie/galvanicke-clanky/' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'vedeni-proudu-v-plynech',
@@ -3629,9 +3505,7 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'infografika', nazev: 'Infografika: Zředěný vzduch svítí', cesta: '/materialy/fyzika/9-rocnik/elektricky-proud-v-latkach/vedeni-proudu-v-plynech/infografika-vedeni-proudu-v-plynech-pohyb-panel-1.svg', panely: ['/materialy/fyzika/9-rocnik/elektricky-proud-v-latkach/vedeni-proudu-v-plynech/infografika-vedeni-proudu-v-plynech-pohyb-panel-1.svg'] },
 						{ druh: 'youtube', nazev: 'Video: Jak funguje blesk', cesta: 'rTo2z2xTOGk' },
 					],
-					odkazy: [
-						{ nazev: 'TechMania — Elektrický proud v plynech', url: 'http://edu.techmania.cz/cs/encyklopedie/fyzika/elektricky-proud/elektricky-proud-v-plynech' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'polovodice-vlastni-vodivost',
@@ -3652,9 +3526,7 @@ export const temata: Record<string, Tema[]> = {
 							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
 						},
 					],
-					odkazy: [
-						{ nazev: 'TechMania — Polovodiče', url: 'http://edu.techmania.cz/cs/encyklopedie/fyzika/elektricky-proud/polovodice' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'polovodice-typu-n-a-p-dioda',
@@ -3679,9 +3551,7 @@ export const temata: Record<string, Tema[]> = {
 							],
 						},
 					],
-					odkazy: [
-						{ nazev: 'TechMania — Polovodičové součástky (dioda)', url: 'http://edu.techmania.cz/cs/encyklopedie/fyzika/elektricky-proud/polovodice/polovodicove-soucastky' },
-					],
+					odkazy: [],
 				},
 			],
 		},
@@ -3701,10 +3571,7 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'video', nazev: 'Píseň: Dobrý sluha, zlý pán 🎵', cesta: '/materialy/fyzika/9-rocnik/elektricka-energie-a-bezpecnost/elektricka-energie-a-premeny/pisen-dobry-sluha-zly-pan.m4a' },
 						{ druh: 'infografika', nazev: 'Infografika: Elektrická energie a její přeměny v kostce', cesta: '/materialy/fyzika/9-rocnik/elektricka-energie-a-bezpecnost/elektricka-energie-a-premeny/infografika-elektricka-energie-a-premeny-panel-1.svg', panely: ['/materialy/fyzika/9-rocnik/elektricka-energie-a-bezpecnost/elektricka-energie-a-premeny/infografika-elektricka-energie-a-premeny-panel-1.svg', '/materialy/fyzika/9-rocnik/elektricka-energie-a-bezpecnost/elektricka-energie-a-premeny/infografika-elektricka-energie-a-premeny-panel-2.svg', '/materialy/fyzika/9-rocnik/elektricka-energie-a-bezpecnost/elektricka-energie-a-premeny/infografika-elektricka-energie-a-premeny-panel-3.svg'] },
 					],
-					odkazy: [
-						{ nazev: 'Video: Generátor elektrického proudu (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/3524-generator-elektrickeho-proudu' },
-						{ nazev: 'Video: Solární panely (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/1924-solarni-panely' },
-					],
+					odkazy: [],
 					interakce: 'premeny-energie',
 				},
 				{
@@ -3720,9 +3587,7 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'video', nazev: 'Píseň: Účinky proudu a bezpečnost 🎵', cesta: '/materialy/fyzika/9-rocnik/elektricka-energie-a-bezpecnost/ucinky-proudu-bezpecnost/pisen-ucinky-proudu.m4a' },
 						{ druh: 'infografika', nazev: 'Infografika: Proud a tělo, první pomoc', cesta: '/materialy/fyzika/9-rocnik/elektricka-energie-a-bezpecnost/ucinky-proudu-bezpecnost/infografika-ucinky-proudu-bezpecnost-panel-1.svg', panely: ['/materialy/fyzika/9-rocnik/elektricka-energie-a-bezpecnost/ucinky-proudu-bezpecnost/infografika-ucinky-proudu-bezpecnost-panel-1.svg', '/materialy/fyzika/9-rocnik/elektricka-energie-a-bezpecnost/ucinky-proudu-bezpecnost/infografika-ucinky-proudu-bezpecnost-panel-2.svg', '/materialy/fyzika/9-rocnik/elektricka-energie-a-bezpecnost/ucinky-proudu-bezpecnost/infografika-ucinky-proudu-bezpecnost-panel-3.svg'] },
 					],
-					odkazy: [
-						{ nazev: 'Bezpečně s elektřinou (ČEZ Distribuce)', url: 'https://www.cezdistribuce.cz/cs/bezpecnost/bezpecnost-a-ochrana-zdravi/bezpecne-s-elektrinou' },
-					],
+					odkazy: [],
 				},
 			],
 		},
@@ -3764,9 +3629,7 @@ export const temata: Record<string, Tema[]> = {
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Radioaktivita — neviditelná síla', cesta: '8QArttMYsHA' },
 					],
-					odkazy: [
-						{ nazev: 'Fyzika na Vltavě — Záření a rozpady alfa, beta, gama', url: 'https://www.zsvltava.cz/fyzika/?p=5849' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'jaderna-energie-a-reakce',
@@ -3778,10 +3641,7 @@ export const temata: Record<string, Tema[]> = {
 					materialy: [
 						{ druh: 'infografika', nazev: 'Jaderná energie v pohybu', cesta: '/materialy/fyzika/9-rocnik/jaderna-fyzika/jaderna-energie-a-reakce/infografika-jaderna-energie-a-reakce-pohyb-panel-1.svg', panely: ['/materialy/fyzika/9-rocnik/jaderna-fyzika/jaderna-energie-a-reakce/infografika-jaderna-energie-a-reakce-pohyb-panel-1.svg', '/materialy/fyzika/9-rocnik/jaderna-fyzika/jaderna-energie-a-reakce/infografika-jaderna-energie-a-reakce-pohyb-panel-2.svg'] },
 					],
-					odkazy: [
-						{ nazev: 'e-manuel.cz: Umělé jaderné reakce (štěpení, fúze)', url: 'https://e-manuel.cz/kapitoly/jaderna-fyzika/vyklad/umele-reakce/' },
-						{ nazev: 'Techmania: Štěpení jader', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/atomy-castice/stepeni-jader' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'jaderny-reaktor-elektrarna',
@@ -3812,14 +3672,10 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'infografika', nazev: 'Zdroje energie v pohybu', cesta: '/materialy/fyzika/9-rocnik/energie-a-vesmir/obnovitelne-a-neobnovitelne-zdroje/infografika-obnovitelne-a-neobnovitelne-zdroje-pohyb-panel-1.svg', panely: ['/materialy/fyzika/9-rocnik/energie-a-vesmir/obnovitelne-a-neobnovitelne-zdroje/infografika-obnovitelne-a-neobnovitelne-zdroje-pohyb-panel-1.svg', '/materialy/fyzika/9-rocnik/energie-a-vesmir/obnovitelne-a-neobnovitelne-zdroje/infografika-obnovitelne-a-neobnovitelne-zdroje-pohyb-panel-2.svg', '/materialy/fyzika/9-rocnik/energie-a-vesmir/obnovitelne-a-neobnovitelne-zdroje/infografika-obnovitelne-a-neobnovitelne-zdroje-pohyb-panel-3.svg'] },
 					],
 					interakce: 'obnovitelne-zdroje',
-					odkazy: [
-						{ nazev: 'Obnovitelné zdroje energie (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/2605-obnovitelne-zdroje-energie' },
-						{ nazev: 'Přečerpávací elektrárna Dlouhé stráně (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/8796-precerpavaci-elektrarna-dlouhe-strane' },
-						{ nazev: 'Výroba elektřiny (Svět energie, ČEZ)', url: 'https://www.svetenergie.cz/cz/elektrina/vyroba-elektriny' },
-					],
+					odkazy: [],
 				},
 				{
-					odkazy: [{"nazev":"Planety.astro.cz: Sluneční soustava","url":"https://planety.astro.cz/soustava/1864-slunecni-soustava"},{"nazev":"Wikipedie: Sluneční soustava","url":"https://cs.wikipedia.org/wiki/Slune%C4%8Dn%C3%AD_soustava"}],
+					odkazy: [],
 					slug: 'slunecni-soustava',
 					nazev: 'Sluneční soustava',
 					interakce: 'soustava',
@@ -3838,10 +3694,7 @@ export const temata: Record<string, Tema[]> = {
 					obsah: "\n\t\t\t\t\t\t<h2>Vesmír a jeho vznik</h2>\n\t\t\t\t\t\t<p>Vesmír vznikl před přibližně <strong>13,8 miliardami let</strong> z extrémně hustého a horkého stavu. Této události říkáme <strong>velký třesk</strong>. Jednoduše řečeno: vesmír je starý asi 14 miliard let.</p>\n\n\t\t\t\t\t\t<h3>Jak šel vývoj vesmíru za sebou</h3>\n\t\t\t\t\t\t<ol>\n\t\t\t\t\t\t\t<li><strong>Velký třesk</strong> — vesmír vznikl z velmi malého, hustého a horkého bodu</li>\n\t\t\t\t\t\t\t<li><strong>Rychlé rozpínání</strong> — vesmír se okamžitě začal zvětšovat (a rozpíná se dodnes)</li>\n\t\t\t\t\t\t\t<li><strong>Vznik částic</strong> — po krátké chvíli se vytvořily protony a neutrony</li>\n\t\t\t\t\t\t\t<li><strong>Tvorba lehkých prvků</strong> — z částic vznikala jádra nejlehčích prvků, hlavně vodíku a helia</li>\n\t\t\t\t\t\t\t<li><strong>Horké plazma</strong> — vesmír byl dlouho plný směsi nabitých částic a světla</li>\n\t\t\t\t\t\t\t<li><strong>Vznik atomů</strong> — asi po 380 000 letech se elektrony spojily s jádry do neutrálních atomů. Vesmír se tím stal průhledným.</li>\n\t\t\t\t\t\t\t<li><strong>Vznik prvních hvězd</strong> — asi po 400 milionech let se z plynu zažehly první hvězdy</li>\n\t\t\t\t\t\t</ol>\n<figure><a href=\"/obrazky/fyzika/9-rocnik/energie-a-vesmir/vesmir-a-galaxie/vesmir-a-galaxie-obr-01.svg\" target=\"_blank\" rel=\"noopener\"><img src=\"/obrazky/fyzika/9-rocnik/energie-a-vesmir/vesmir-a-galaxie/vesmir-a-galaxie-obr-01.svg\" alt=\"Vývoj vesmíru v osmi krocích od velkého třesku po vznik galaxií\" /></a><figcaption>Od velkého třesku k prvním hvězdám a galaxiím. Časová osa není v měřítku.</figcaption></figure>\n\n\t\t\t\t\t\t<h3>Galaxie</h3>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li><strong>Galaxie</strong> je obrovské seskupení hvězd, plynu, prachu a temné hmoty, které drží pohromadě <strong>gravitace</strong>.</li>\n\t\t\t\t\t\t\t<li>Uprostřed většiny velkých galaxií je obří <strong>černá díra</strong>, i uprostřed té naší.</li>\n\t\t\t\t\t\t\t<li>Podle tvaru rozlišujeme galaxie <strong>spirální, eliptické, čočkovité a nepravidelné</strong>.</li>\n\t\t\t\t\t\t</ul>\n<figure><a href=\"/obrazky/fyzika/9-rocnik/energie-a-vesmir/vesmir-a-galaxie/vesmir-a-galaxie-obr-03.svg\" target=\"_blank\" rel=\"noopener\"><img src=\"/obrazky/fyzika/9-rocnik/energie-a-vesmir/vesmir-a-galaxie/vesmir-a-galaxie-obr-03.svg\" alt=\"Čtyři tvary galaxií: spirální, eliptická, čočkovitá a nepravidelná\" /></a><figcaption>Podle tvaru rozlišujeme galaxie spirální, eliptické, čočkovité a nepravidelné.</figcaption></figure>\n\n\t\t\t\t\t\t<h3>Naše galaxie — Mléčná dráha</h3>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>je to <strong>spirální galaxie s příčkou</strong></li>\n\t\t\t\t\t\t\t<li>průměr má zhruba <strong>100 000 světelných let</strong></li>\n\t\t\t\t\t\t\t<li>disk je silný asi <strong>3 000 světelných let</strong></li>\n\t\t\t\t\t\t\t<li>obsahuje řádově <strong>stovky miliard hvězd</strong> (uvádí se kolem 300 miliard)</li>\n\t\t\t\t\t\t\t<li><strong>Slunce</strong> leží v jednom ze spirálních ramen — je to jedna obyčejná hvězda z mnoha</li>\n\t\t\t\t\t\t</ul>\n<figure><a href=\"/obrazky/fyzika/9-rocnik/energie-a-vesmir/vesmir-a-galaxie/vesmir-a-galaxie-obr-04.svg\" target=\"_blank\" rel=\"noopener\"><img src=\"/obrazky/fyzika/9-rocnik/energie-a-vesmir/vesmir-a-galaxie/vesmir-a-galaxie-obr-04.svg\" alt=\"Mléčná dráha shora a z boku se Sluncem v rameni a černou dírou uprostřed\" /></a><figcaption>Mléčná dráha: spirální galaxie s příčkou, Slunce leží v jednom z ramen.</figcaption></figure>\n\n\t\t\t\t\t\t<h3>Jak vidíme Mléčnou dráhu na obloze</h3>\n\t\t\t\t\t\t<p>V noci na tmavém místě vidíme Mléčnou dráhu jako světlý <strong>mléčný pás</strong>. Díváme se přitom na <strong>hlavní rovinu</strong> naší galaxie.</p>\n<figure><a href=\"/obrazky/fyzika/9-rocnik/energie-a-vesmir/vesmir-a-galaxie/vesmir-a-galaxie-obr-05.svg\" target=\"_blank\" rel=\"noopener\"><img src=\"/obrazky/fyzika/9-rocnik/energie-a-vesmir/vesmir-a-galaxie/vesmir-a-galaxie-obr-05.svg\" alt=\"Mléčná dráha jako světlý pás na noční obloze a vysvětlení pohledem z boku\" /></a><figcaption>Mléčný pás na obloze je pohled podél hlavní roviny naší galaxie.</figcaption></figure>\n\n\t\t\t\t\t\t<h3>Vesmír se rozpíná</h3>\n\t\t\t\t\t\t<p>Vzdálené galaxie se od nás vzdalují — jejich světlo je posunuté k červené barvě (<strong>rudý posuv</strong>). Čím je galaxie dál, tím rychleji se vzdaluje (<strong>Hubbleův zákon</strong>). Právě to je hlavní důkaz, že se vesmír stále <strong>rozpíná</strong>. Rozpínání se navíc zrychluje — za to může záhadná <strong>temná energie</strong>.</p>\n<figure><a href=\"/obrazky/fyzika/9-rocnik/energie-a-vesmir/vesmir-a-galaxie/vesmir-a-galaxie-obr-02.svg\" target=\"_blank\" rel=\"noopener\"><img src=\"/obrazky/fyzika/9-rocnik/energie-a-vesmir/vesmir-a-galaxie/vesmir-a-galaxie-obr-02.svg\" alt=\"Galaxie se od nás vzdalují, vzdálenější rychleji, a jejich světlo je posunuté k červené\" /></a><figcaption>Čím je galaxie dál, tím rychleji se vzdaluje (Hubbleův zákon); její světlo je posunuté k červené.</figcaption></figure>\n\n\t\t\t\t\t\t<h3>Černé díry</h3>\n\t\t\t\t\t\t<p><strong>Černá díra</strong> je objekt s tak silnou gravitací, že z něj neunikne ani světlo. Uprostřed Mléčné dráhy je obří černá díra jménem <strong>Sagittarius A*</strong>. Je hmotná jako miliony Sluncí dohromady. Černé díry pomáhají formovat a ovlivňovat galaxie, ve kterých se nacházejí.</p>\n<figure><a href=\"/obrazky/fyzika/9-rocnik/energie-a-vesmir/vesmir-a-galaxie/vesmir-a-galaxie-obr-06.svg\" target=\"_blank\" rel=\"noopener\"><img src=\"/obrazky/fyzika/9-rocnik/energie-a-vesmir/vesmir-a-galaxie/vesmir-a-galaxie-obr-06.svg\" alt=\"Černá díra Sagittarius A*, do které světlo padá, ale ven neunikne\" /></a><figcaption>Z černé díry neunikne ani světlo.</figcaption></figure>\n\n\t\t\t\t\t\t<h3>✏️ Věděl(a) jsi, že...</h3>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>Galaxie se mohou přitahovat a spojovat. Naše Mléčná dráha se řítí vstříc sousední galaxii <strong>Andromeda</strong> a za přibližně <strong>4,5 miliardy let</strong> se s ní srazí. Jednotlivé hvězdy se ale skoro určitě do sebe nenarazí, protože jsou od sebe nesmírně daleko.</li>\n\t\t\t\t\t\t\t<li>Ve viditelném vesmíru je odhadem <strong>200 miliard galaxií</strong> — a v každé z nich mohou být stovky miliard hvězd.</li>\n\t\t\t\t\t\t\t<li>Světlo z nejvzdálenějších galaxií k nám letí miliardy let. Když se na ně díváme, vidíme vesmír takový, jaký vypadal dávno v minulosti.</li>\n\t\t\t\t\t\t</ul>\n<figure><a href=\"/obrazky/fyzika/9-rocnik/energie-a-vesmir/vesmir-a-galaxie/vesmir-a-galaxie-obr-07.svg\" target=\"_blank\" rel=\"noopener\"><img src=\"/obrazky/fyzika/9-rocnik/energie-a-vesmir/vesmir-a-galaxie/vesmir-a-galaxie-obr-07.svg\" alt=\"Mléčná dráha a galaxie Andromeda se gravitací přibližují\" /></a><figcaption>Mléčná dráha a Andromeda se k sobě blíží; hvězdy se skoro jistě nesrazí.</figcaption></figure>\n\t\t\t\t\t",
 					zapis: {"body":["vesmír se rozpíná","jeho počátku říkáme velký třesk","je starý asi 14 miliard let","ve vesmíru jsou galaxie","uprostřed galaxie je černá díra"]},
 					interakce: 'rozpinani-vesmiru',
-					odkazy: [
-						{ nazev: 'ČT edu: Velký třesk', url: 'https://edu.ceskatelevize.cz/video/2317-velky-tresk' },
-						{ nazev: 'ČT edu: Vznik vesmíru (rozšiřující, spíše pro SŠ)', url: 'https://edu.ceskatelevize.cz/video/2319-vznik-vesmiru' },
-					],
+					odkazy: [],
 				},
 			],
 		},
@@ -3935,11 +3788,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>Když podmínka nemůže nikdy nastat, program se opakuje donekonečna. To někdy chceme (kulisy hry), ale jindy je to <strong>chyba</strong>. Poznáš ji podle toho, že program „jede" a nic se neděje — a příčina bývá pořád stejná: <strong>uvnitř smyčky se nemění nic, co by podmínku mohlo splnit</strong>. Když čekáš, až <em>životy = 0</em>, musí uvnitř být blok, který životy ubírá.</p>
 						<p>🐭 Vyzkoušej na <a href="https://scratch.mit.edu" target="_blank" rel="noopener">scratch.mit.edu</a> — učebnice <a href="https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-pro-2-stupen-zakladni-skoly.html" target="_blank" rel="noopener">Programování ve Scratchi</a>, kapitola 4.</p>
 					`,
-					odkazy: [
-						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
-						{ nazev: 'učebnice Scratch (zdarma)', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-pro-2-stupen-zakladni-skoly.html' },
-						{ nazev: 'Blockly Games — hry s bloky', url: 'https://blockly.games/?lang=cs' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'udalosti-a-vstupy',
@@ -3970,11 +3819,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>💡 Program řízený událostmi nedělá věci „od začátku do konce", ale <strong>reaguje na to, co uděláš</strong> — stejně jako mobil čeká na tvé ťuknutí.</p>
 						<p>📗 Učebnice <a href="https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-pro-2-stupen-zakladni-skoly.html" target="_blank" rel="noopener">Programování ve Scratchi</a> (NPI ČR), kapitola 5 — Myš a klávesnice.</p>
 					`,
-					odkazy: [
-						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
-						{ nazev: 'učebnice Scratch (zdarma)', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-pro-2-stupen-zakladni-skoly.html' },
-						{ nazev: 'Programování — podmínky, postavy a události (Nová informatika, ZŠ Holice)', url: 'https://vyuka.zsholice.cz/programovani-podminky-postavy-a-udalosti/' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'posilani-zprav',
@@ -4007,11 +3852,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>Vytvoř scénku se dvěma postavami, které se střídají v dialogu pomocí zpráv — přesně tak se programují animované příběhy.</p>
 						<p>📗 Učebnice Scratch, kapitola 6 (Posílání zpráv).</p>
 					`,
-					odkazy: [
-						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
-						{ nazev: 'učebnice Scratch (zdarma)', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-pro-2-stupen-zakladni-skoly.html' },
-						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
-					],
+					odkazy: [],
 				},
 			],
 		},
@@ -4040,10 +3881,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>Nakresli schéma cesty do školy: kroužky = místa, čáry = cesty. Právě jsi vytvořil(a) <strong>graf</strong> — víc v další kapitole!</p>
 						<p>🦫 Úlohy s modely najdeš v archivu soutěže <a href="https://www.ibobr.cz/test/archiv" target="_blank" rel="noopener">Bobřík informatiky</a> — kategorie <strong>Benjamin</strong> pro 6.–7. třídu, <strong>Kadet</strong> pro 8.–9.</p>
 					`,
-					odkazy: [
-						{ nazev: 'učebnice Základy informatiky', url: 'https://archiv-imysleni.npi.cz/ucebnice/zaklady-informatiky-pro-zakladni-skoly.html' },
-						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'ohodnocene-grafy',
@@ -4062,11 +3900,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>👉 Systematicky: postupuj od startu, u každého vrcholu si zapisuj <strong>nejmenší dosažený součet</strong> a škrtej horší možnosti. Nezkoušej cesty náhodně — přesnost vyhrává nad rychlostí.</p>
 						<p>🦫 V testech <a href="https://www.ibobr.cz/test/archiv" target="_blank" rel="noopener">Bobříka informatiky</a> jsou grafové úlohy každý rok.</p>
 					`,
-					odkazy: [
-						{ nazev: 'učebnice Základy informatiky', url: 'https://archiv-imysleni.npi.cz/ucebnice/zaklady-informatiky-pro-zakladni-skoly.html' },
-						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
-						{ nazev: 'Blockly Games — hry s bloky', url: 'https://blockly.games/?lang=cs' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'orientovane-grafy-a-automaty',
@@ -4096,10 +3930,7 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Souběžné (paralelní) činnosti</h3>
 						<p>Model umí zachytit i činnosti běžící <strong>zároveň</strong>: zatímco se vaří těstoviny, krájíme zeleninu. Ve Scratchi běží scénáře postav také souběžně — každá postava si jede ten svůj.</p>
 					`,
-					odkazy: [
-						{ nazev: 'učebnice Základy informatiky', url: 'https://archiv-imysleni.npi.cz/ucebnice/zaklady-informatiky-pro-zakladni-skoly.html' },
-						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
-					],
+					odkazy: [],
 				},
 			],
 		},
@@ -4144,11 +3975,7 @@ export const temata: Record<string, Tema[]> = {
 							dělají z programu hru.</p>
 						<p>📗 Učebnice Scratch, kapitola 7 (Rozhodování).</p>
 					`,
-					odkazy: [
-						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
-						{ nazev: 'učebnice Scratch (zdarma)', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-pro-2-stupen-zakladni-skoly.html' },
-						{ nazev: 'Blockly Games — hry s bloky', url: 'https://blockly.games/?lang=cs' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'souradnice-a-kresleni',
@@ -4179,11 +4006,7 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>📗 Učebnice Scratch, kapitola 8 (Souřadnice).</p>
 					`,
-					odkazy: [
-						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
-						{ nazev: 'učebnice Scratch (zdarma)', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-pro-2-stupen-zakladni-skoly.html' },
-						{ nazev: 'Blockly Games — hry s bloky', url: 'https://blockly.games/?lang=cs' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'vlastni-bloky-s-parametry',
@@ -4208,10 +4031,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>👉 Rozdělení programu na vlastní bloky = <strong>rozklad problému na části</strong>. Každou část si vyzkoušíš zvlášť — v jednom obřím scénáři se chyba hledá dlouho. To je jedna z nejdůležitějších dovedností programátora (a hodí se i mimo informatiku).</p>
 						<p>📗 Učebnice <a href="https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-ii-projekty-pro-2-stupen-zakladni-skoly.html" target="_blank" rel="noopener">Programování ve Scratchi II</a> (NPI ČR), kapitola 9 — Parametry.</p>
 					`,
-					odkazy: [
-						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
-						{ nazev: 'učebnice Scratch (zdarma)', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-pro-2-stupen-zakladni-skoly.html' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'promenne',
@@ -4237,11 +4057,7 @@ export const temata: Record<string, Tema[]> = {
 							<p>Novou proměnnou vytvoříš v paletě <strong>Proměnné</strong> tlačítkem <strong>„Vytvoř proměnnou"</strong>. Při vytváření volíš, jestli platí <strong>pro všechny postavy</strong> (sdílená, např. skóre), nebo <strong>„Jen pro tuto postavu"</strong> (každá postava má svou). Když <strong>zaškrtneš políčko</strong> vedle jména proměnné v paletě, ukáže se na scéně okénko s její aktuální hodnotou — hodí se na sledování skóre při hraní.</p>
 							<p>📗 Učebnice Scratch, kapitola 10 (Proměnné).</p>
 					`,
-					odkazy: [
-						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
-						{ nazev: 'učebnice Scratch (zdarma)', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-pro-2-stupen-zakladni-skoly.html' },
-						{ nazev: 'Lekce 4 — Proměnné ve Scratchi (ITnetwork)', url: 'https://www.itnetwork.cz/pro-deti/scratch/promenne-ve-scratchi' },
-					],
+					odkazy: [],
 				},
 ],
 		},
@@ -4270,10 +4086,7 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Pořádek se vyplatí</h3>
 						<p>👉 Promyšlená struktura složek (Škola → Informatika → Projekty) + rozumné názvy souborů = za půl roku najdeš, co hledáš. „bezejmenný_final2_OPRAVDU.docx" ne. 🙂</p>
 					`,
-					odkazy: [
-						{ nazev: 'Jak na internet (CZ.NIC)', url: 'https://www.jaknainternet.cz' },
-						{ nazev: 'Datová Lhota (ČT :D)', url: 'https://decko.ceskatelevize.cz/datova-lhota' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'site-internet-email',
@@ -4293,11 +4106,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>👉 Vyzkoušej nakreslit <strong>model své domácí sítě</strong>: co všechno je u vás připojené k routeru?</p>
 						<p>📺 Pěkně to vysvětluje seriál <a href="https://decko.ceskatelevize.cz/datova-lhota" target="_blank" rel="noopener">Datová Lhota</a> (ČT :D).</p>
 					`,
-					odkazy: [
-						{ nazev: 'Jak na internet (CZ.NIC)', url: 'https://www.jaknainternet.cz' },
-						{ nazev: 'Datová Lhota (ČT :D)', url: 'https://decko.ceskatelevize.cz/datova-lhota' },
-						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'zabezpeceni-a-digitalni-stopa',
@@ -4316,11 +4125,7 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Digitální stopa</h3>
 						<p>👉 Všechno, co na internetu uděláš, někde <strong>zanechá záznam</strong>: fotky, komentáře, lajky, poloha mobilu. Stopa se <strong>nedá spolehlivě smazat</strong> — než něco pošleš, rozmysli si, jestli to může vidět kdokoli a navždy.</p>
 					`,
-					odkazy: [
-						{ nazev: 'E-Bezpečí', url: 'https://www.e-bezpeci.cz' },
-						{ nazev: 'kurzy NÚKIB — osveta.nukib.cz', url: 'https://osveta.nukib.gov.cz/' },
-						{ nazev: 'Jak na internet (CZ.NIC)', url: 'https://www.jaknainternet.cz' },
-					],
+					odkazy: [],
 				},
 			],
 		},
@@ -4364,10 +4169,7 @@ export const temata: Record<string, Tema[]> = {
 						<li>hra na čas: proměnná čas, po 60 sekundách konec</li>
 						</ul>
 					`,
-					odkazy: [
-						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
-						{ nazev: 'učebnice Scratch (zdarma)', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-pro-2-stupen-zakladni-skoly.html' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'hra-bludiste',
@@ -4428,10 +4230,7 @@ export const temata: Record<string, Tema[]> = {
 						<li>přidej hlídače, který se pohybuje po chodbě blokem ⟨klouzej ( ) sekund na x: ( ) y: ( )⟩ — dotyk = návrat na start</li>
 						</ul>
 					`,
-					odkazy: [
-						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
-						{ nazev: 'učebnice Scratch (zdarma)', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-pro-2-stupen-zakladni-skoly.html' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'hra-honicka',
@@ -4475,10 +4274,7 @@ export const temata: Record<string, Tema[]> = {
 						<li>na scéně se objevuje sýr — sebrání přidá body</li>
 						</ul>
 					`,
-					odkazy: [
-						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
-						{ nazev: 'učebnice Scratch (zdarma)', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-pro-2-stupen-zakladni-skoly.html' },
-					],
+					odkazy: [],
 				},
 			],
 		},
@@ -4497,9 +4293,7 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>👉 Souhrnný kvíz níže se skládá automaticky z otázek probraných podtémat.</p>
 					`,
-					odkazy: [
-						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'rocni-shrnuti',
@@ -4513,9 +4307,7 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>👉 Souhrnný kvíz níže prověří celý ročník. Trénovat můžeš i v archivu <a href="https://www.ibobr.cz/test/archiv" target="_blank" rel="noopener">Bobříka informatiky</a> (Benjamin).</p>
 					`,
-					odkazy: [
-						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
-					],
+					odkazy: [],
 				},
 			],
 		},
@@ -4554,9 +4346,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>👉 První program má být <strong>jednoduchý a hned vyzkoušený</strong> — dvě sekundy dopředu stačí. Pak přidávej <strong>po malých krocích</strong> a po každém přidání robota pusť. Když se něco pokazí, víš přesně který kousek za to může; ve dvaceti blocích přidaných najednou bys chybu hledal(a) dlouho.</p>
 						<p>📗 Učebnice <a href="https://archiv-imysleni.npi.cz/ucebnice/robotika-na-2-stupni-zakladni-skoly-s-lego-mindstorms.html" target="_blank" rel="noopener">Robotika s LEGO Mindstorms</a>, kap. 1–2.</p>
 					`,
-					odkazy: [
-						{ nazev: 'učebnice LEGO robotika', url: 'https://archiv-imysleni.npi.cz/ucebnice/robotika-na-2-stupni-zakladni-skoly-s-lego-mindstorms.html' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'motory-displej-zvuk',
@@ -4592,9 +4382,7 @@ export const temata: Record<string, Tema[]> = {
 						nebyla splněná. Robot ti tím ukáže, kudy program běžel, i když ho máš na zemi přes půl třídy.</p>
 						<p>📗 Učebnice <a href="https://archiv-imysleni.npi.cz/ucebnice/robotika-na-2-stupni-zakladni-skoly-s-lego-mindstorms.html" target="_blank" rel="noopener">Robotika s LEGO Mindstorms</a> (NPI ČR), kap. 3–6.</p>
 					`,
-					odkazy: [
-						{ nazev: 'učebnice LEGO robotika', url: 'https://archiv-imysleni.npi.cz/ucebnice/robotika-na-2-stupni-zakladni-skoly-s-lego-mindstorms.html' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'senzory-robota',
@@ -4619,10 +4407,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>👉 Proč je v programu opakování s podmínkou, a ne jediný příkaz <em>jeď</em>? Bez opakování by robot změřil vzdálenost jen jednou na začátku a pak by jel naslepo. Měřit se musí <strong>průběžně</strong>, jinak nemá podmínka co hlídat.</p>
 						<p>📗 Učebnice <a href="https://archiv-imysleni.npi.cz/ucebnice/robotika-na-2-stupni-zakladni-skoly-s-lego-mindstorms.html" target="_blank" rel="noopener">Robotika s LEGO Mindstorms</a> (NPI ČR), kap. 7–9.</p>
 					`,
-					odkazy: [
-						{ nazev: 'učebnice LEGO robotika', url: 'https://archiv-imysleni.npi.cz/ucebnice/robotika-na-2-stupni-zakladni-skoly-s-lego-mindstorms.html' },
-						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'projekt-muj-robot',
@@ -4655,10 +4440,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>👉 Hodnotí se nejen výsledek, ale hlavně <strong>postup řešení</strong>: rozklad na části, testování, opravy chyb. Při předvádění vysvětli, jak program funguje — tím ukážeš, že mu opravdu rozumíš.</p>
 						<p>👉 Zkouška nanečisto odhalí, co se zasekne. Před třídou už na opravu nebývá čas.</p>
 					`,
-					odkazy: [
-						{ nazev: 'učebnice LEGO robotika', url: 'https://archiv-imysleni.npi.cz/ucebnice/robotika-na-2-stupni-zakladni-skoly-s-lego-mindstorms.html' },
-						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
-					],
+					odkazy: [],
 				},
 			],
 		},
@@ -4689,11 +4471,7 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>📗 Učebnice <a href="https://archiv-imysleni.npi.cz/ucebnice/18-robotika-pro-zakladni-skoly-programujeme-micro-bit-pomoci-makecode.html" target="_blank" rel="noopener">Programujeme micro:bit pomocí MakeCode</a>, kap. 1.</p>
 					`,
-					odkazy: [
-						{ nazev: 'MakeCode — simulátor micro:bitu', url: 'https://makecode.microbit.org' },
-						{ nazev: 'učebnice micro:bit', url: 'https://archiv-imysleni.npi.cz/ucebnice/18-robotika-pro-zakladni-skoly-programujeme-micro-bit-pomoci-makecode.html' },
-						{ nazev: 'Micro:bit ve výuce — nápady na projekty (microbiti.cz)', url: 'https://www.microbiti.cz/search/label/projekty' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'tlacitka-naklon-zvuk',
@@ -4722,11 +4500,7 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>📗 Učebnice <a href="https://archiv-imysleni.npi.cz/ucebnice/18-robotika-pro-zakladni-skoly-programujeme-micro-bit-pomoci-makecode.html" target="_blank" rel="noopener">Programujeme micro:bit pomocí MakeCode</a> (NPI ČR), kap. 2–4.</p>
 					`,
-					odkazy: [
-						{ nazev: 'MakeCode — simulátor micro:bitu', url: 'https://makecode.microbit.org' },
-						{ nazev: 'učebnice micro:bit', url: 'https://archiv-imysleni.npi.cz/ucebnice/18-robotika-pro-zakladni-skoly-programujeme-micro-bit-pomoci-makecode.html' },
-						{ nazev: 'Micro:bit ve výuce — nápady na projekty (microbiti.cz)', url: 'https://www.microbiti.cz/search/label/projekty' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'propojeni-a-externi-zarizeni',
@@ -4752,11 +4526,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>Navrhni a předveď vlastní zařízení s micro:bitem — od nápadu přes program po ukázku. Postup jako u robota: rozděl, testuj, dolaď.</p>
 						<p>📗 Učebnice <a href="https://archiv-imysleni.npi.cz/ucebnice/18-robotika-pro-zakladni-skoly-programujeme-micro-bit-pomoci-makecode.html" target="_blank" rel="noopener">Programujeme micro:bit pomocí MakeCode</a> (NPI ČR), kap. 5–6.</p>
 					`,
-					odkazy: [
-						{ nazev: 'MakeCode — simulátor micro:bitu', url: 'https://makecode.microbit.org' },
-						{ nazev: 'učebnice micro:bit', url: 'https://archiv-imysleni.npi.cz/ucebnice/18-robotika-pro-zakladni-skoly-programujeme-micro-bit-pomoci-makecode.html' },
-						{ nazev: 'Micro:bit ve výuce — nápady na projekty (microbiti.cz)', url: 'https://www.microbiti.cz/search/label/projekty' },
-					],
+					odkazy: [],
 				},
 			],
 		},
@@ -4781,9 +4551,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>Když vzorec <strong>kopíruješ</strong> dolů, adresy se posouvají s ním (<em>relativní</em>: z B2 se stane B3). Když má adresa zůstat na místě, <strong>ukotvi ji dolarem</strong>: <code>$B$1</code> (<em>absolutní</em>).</p>
 						<p>👉 Typická úloha: sloupec cen × jeden kurz eura v buňce <code>$B$1</code>. Kurz se ukotví, ceny se posouvají.</p>
 					`,
-					odkazy: [
-						{ nazev: 'Jak na internet (CZ.NIC)', url: 'https://www.jaknainternet.cz' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'funkce-v-tabulkach',
@@ -4835,9 +4603,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>👉 „Velké státy mají víc obyvatel než malé — platí to vždy?" S tabulkou stovek států to zjistíš za minutu: seřaď, filtruj, spočítej průměr, vytvoř graf. <strong>Odpovídej na základě dat, ne dojmů.</strong></p>
 						<p>🗂️ Cvičná data: <a href="http://dbs.pf.jcu.cz/simandl/" target="_blank" rel="noopener">Online přípravna úloh pro ICT</a> (v nabídce je i geografie států světa).</p>
 					`,
-					odkazy: [
-						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
-					],
+					odkazy: [],
 				},
 			],
 		},
@@ -4911,10 +4677,7 @@ export const temata: Record<string, Tema[]> = {
 						odrazit. Zkus směr počítat z rozdílu x míčku a x pálky. Hra tím rázem dostane taktiku.</li>
 						</ul>
 					`,
-					odkazy: [
-						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
-						{ nazev: 'učebnice Scratch II — projekty', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-ii-projekty-pro-2-stupen-zakladni-skoly.html' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'hra-vesmirna-strilecka',
@@ -4979,10 +4742,7 @@ export const temata: Record<string, Tema[]> = {
 						Kdyby byla proměnná společná pro všechny, sdílelo by ji všech dvacet meteorů naráz.</li>
 						</ul>
 					`,
-					odkazy: [
-						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
-						{ nazev: 'učebnice Scratch II — projekty', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-ii-projekty-pro-2-stupen-zakladni-skoly.html' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'hra-skakacka',
@@ -5048,10 +4808,7 @@ export const temata: Record<string, Tema[]> = {
 						když je skóre větší — a hlavně ji na startu hry <em>ne</em>nuluj, jinak žádný rekord nevznikne</li>
 						</ul>
 					`,
-					odkazy: [
-						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
-						{ nazev: 'učebnice Scratch II — projekty', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-ii-projekty-pro-2-stupen-zakladni-skoly.html' },
-					],
+					odkazy: [],
 				},
 			],
 		},
@@ -5099,9 +4856,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>S roboty VEX IQ se jezdí i celosvětová soutěž <strong>VEX IQ Robotics Competition</strong> — každý rok nová hra, týmy sbírají body jízdou i autonomními programy.</p>
 					`,
 					odkazy: [
-						{ nazev: 'VEXcode IQ — programování v prohlížeči', url: 'https://codeiq.vex.com' },
 						{ nazev: 'Návod česky: první program ve VEXcode', url: 'https://lab.wonderly.cz/informatika/8-rocnik/vex-iq/vexcode-prvni-program/' },
-						{ nazev: 'vexrobotics.com — stavebnice VEX IQ', url: 'https://www.vexrobotics.com/iq' },
 					],
 				},
 				{
@@ -5131,7 +4886,6 @@ export const temata: Record<string, Tema[]> = {
 						</ol>
 					`,
 					odkazy: [
-						{ nazev: 'VEXcode IQ — programování v prohlížeči', url: 'https://codeiq.vex.com' },
 						{ nazev: 'Návod česky: první program ve VEXcode', url: 'https://lab.wonderly.cz/informatika/8-rocnik/vex-iq/vexcode-prvni-program/' },
 					],
 				},
@@ -5187,9 +4941,7 @@ export const temata: Record<string, Tema[]> = {
 						</ol>
 						<p>👉 Nefunguje to? Zkontroluj: správné porty v Devices, zapnutý mozek, vybraný správný program. A hodnoty čidel si nech vypisovat blokem <strong>print</strong>.</p>
 					`,
-					odkazy: [
-						{ nazev: 'VEXcode IQ — programování v prohlížeči', url: 'https://codeiq.vex.com' },
-					],
+					odkazy: [],
 				},
 			],
 		},
@@ -5207,9 +4959,7 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>👉 Souhrnný kvíz níže se skládá automaticky z otázek probraných podtémat.</p>
 					`,
-					odkazy: [
-						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'rocni-shrnuti',
@@ -5223,9 +4973,7 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>👉 Souhrnný kvíz níže prověří celý ročník. Trénovat můžeš i v archivu <a href="https://www.ibobr.cz/test/archiv" target="_blank" rel="noopener">Bobříka informatiky</a> (Kadet).</p>
 					`,
-					odkazy: [
-						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
-					],
+					odkazy: [],
 				},
 			],
 		},
@@ -5263,10 +5011,7 @@ export const temata: Record<string, Tema[]> = {
 						<h3>První projekty</h3>
 						<p><strong>Nákupní seznam</strong> (přidávání a mazání položek v seznamu) a <strong>Kulička</strong> (ovládání myší, posílání zpráv) — rozcvička na velké hry.</p>
 					`,
-					odkazy: [
-						{ nazev: 'učebnice Scratch II — projekty', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-ii-projekty-pro-2-stupen-zakladni-skoly.html' },
-						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'seznamy-a-promenne-v-projektech',
@@ -5295,10 +5040,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>Deset kontaktů by se dalo uložit i do deseti proměnných — jenže každou bys musel(a) v programu obsloužit zvlášť a jedenáctý kontakt bys už neměl(a) kam dát. Seznam se dá <strong>projít jedním opakováním</strong> a <strong>rozšířit na libovolný počet položek</strong>. Uložit do něj jde text i čísla.</p>
 						<p>👉 Kombinace <strong>seznam + opakování + proměnná</strong> je základ skoro každé skutečné aplikace (kontakty, playlist, chat…).</p>
 					`,
-					odkazy: [
-						{ nazev: 'učebnice Scratch II — projekty', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-ii-projekty-pro-2-stupen-zakladni-skoly.html' },
-						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'klonovani-animace-hry',
@@ -5327,11 +5069,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>👉 Dobrá hra vzniká <strong>postupným přidáváním</strong>: nejdřív se hýbe postava, pak přibude cíl, pak překážky… Po každém kroku hru otestuj!</p>
 						<p>🦫 Trénink logiky: archiv <a href="https://www.ibobr.cz/test/archiv" target="_blank" rel="noopener">Bobříka informatiky</a> (kategorie Kadet).</p>
 					`,
-					odkazy: [
-						{ nazev: 'učebnice Scratch II — projekty', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-ii-projekty-pro-2-stupen-zakladni-skoly.html' },
-						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
-						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
-					],
+					odkazy: [],
 				},
 			],
 		},
@@ -5372,11 +5110,7 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>👉 Zkus si o tom popovídat doma: co tyhle technologie mění na tom, jak žijeme — a co za to platíme? Mikrolekce a pracovní sešity k tématu jsou na <a href="https://opocitacich.cz" target="_blank" rel="noopener">opocitacich.cz</a> (část obsahu je placená).</p>
 					`,
-					odkazy: [
-						{ nazev: 'opocitacich.cz — digitální technologie', url: 'https://opocitacich.cz' },
-						{ nazev: 'Jak na internet (CZ.NIC)', url: 'https://www.jaknainternet.cz' },
-						{ nazev: 'Datová Lhota (ČT :D)', url: 'https://decko.ceskatelevize.cz/datova-lhota' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'pocitacove-site-a-internet',
@@ -5396,11 +5130,7 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Cloud a datacentra</h3>
 						<p>👉 „Cloud" nejsou obláčky — jsou to <strong>obrovské haly plné serverů</strong> (datacentra). Tvoje fotky „v cloudu" leží na konkrétních discích, jen ne u tebe doma.</p>
 					`,
-					odkazy: [
-						{ nazev: 'Jak na internet (CZ.NIC)', url: 'https://www.jaknainternet.cz' },
-						{ nazev: 'opocitacich.cz — digitální technologie', url: 'https://opocitacich.cz' },
-						{ nazev: 'Datová Lhota (ČT :D)', url: 'https://decko.ceskatelevize.cz/datova-lhota' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'bezpecnost-pocitace-a-dat',
@@ -5436,11 +5166,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>👉 Když se to přesto stane: odpoj počítač od sítě, hesla měň <strong>z jiného zařízení</strong> a útok nahlas. Výkupné se platit nemá — zaplacení nezaručí vůbec nic a útočníka to jen povzbudí.</p>
 						<p>👉 Žádná obrana není stoprocentní — cíl je útočníkovi práci co nejvíc <strong>ztížit</strong> a mít <strong>zálohu</strong> pro případ nejhoršího.</p>
 					`,
-					odkazy: [
-						{ nazev: 'E-Bezpečí', url: 'https://www.e-bezpeci.cz' },
-						{ nazev: 'kurzy NÚKIB — osveta.nukib.cz', url: 'https://osveta.nukib.gov.cz/' },
-						{ nazev: 'Jak na internet (CZ.NIC)', url: 'https://www.jaknainternet.cz' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'digitalni-stopa-a-identita',
@@ -5472,11 +5198,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>Fotku ani zprávu, která ti ubližuje, neřeš sám/sama a hlavně <strong>neodpovídej útočníkovi</strong>. Ulož si důkaz (snímek obrazovky s datem), <strong>podej hlášení přímo v aplikaci</strong> a řekni to dospělému. Pomoc je i na lince <strong>116 111</strong>, která je zdarma a nonstop. O výmaz svých údajů jde požádat i provozovatele webu — <strong>právo na výmaz</strong> platí v celé Evropské unii. Požádat můžeš i <strong>sám/sama</strong>, za mladší děti to zařídí rodič; rodičům to ale řekni, pomůžou ti to dotáhnout. Není to jistota na sto procent — ze zákona existují výjimky, kdy se údaje smazat nesmějí.</p>
 						<p>👉 Úplně smazat digitální stopu nejde — obsah bývá zkopírovaný jinam. Dá se ale <strong>zmenšit</strong> a hlavně od dneška zvětšovat pomaleji.</p>
 					`,
-					odkazy: [
-						{ nazev: 'E-Bezpečí', url: 'https://www.e-bezpeci.cz' },
-						{ nazev: 'kurzy NÚKIB — osveta.nukib.cz', url: 'https://osveta.nukib.gov.cz/' },
-						{ nazev: 'Jak na internet (CZ.NIC)', url: 'https://www.jaknainternet.cz' },
-					],
+					odkazy: [],
 				},
 			],
 		},
@@ -5522,11 +5244,7 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>👉 Projekt je tvoje <strong>vizitka z informatiky</strong> — vyber si téma, které tě opravdu baví. Když se nakonec něco nepovede dotáhnout, popiš, kde to uvázlo a proč; to je poctivější (a lépe hodnocené) než tvrdit, že je hotovo.</p>
 					`,
-					odkazy: [
-						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
-						{ nazev: 'MakeCode — simulátor micro:bitu', url: 'https://makecode.microbit.org' },
-						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
-					],
+					odkazy: [],
 				},
 			],
 		},
@@ -5559,7 +5277,6 @@ export const temata: Record<string, Tema[]> = {
 						<p>👉 U každé výzvy: nejdřív <strong>plán na papír</strong> (rozklad na části), pak program po kouscích testuj — jako u každého projektu. <strong>VIQRC</strong> je soutěž s roboty VEX IQ. Novou hru vyhlásí na začátku sezony a tým pak celý rok robota staví, přestavuje a ladí program — příprava je vlastně to hlavní, co se na soutěži zúročí.</p>
 					`,
 					odkazy: [
-						{ nazev: 'VEXcode IQ — programování v prohlížeči', url: 'https://codeiq.vex.com' },
 						{ nazev: 'Návod česky: první program ve VEXcode', url: 'https://lab.wonderly.cz/informatika/8-rocnik/vex-iq/vexcode-prvni-program/' },
 					],
 				},
@@ -5579,9 +5296,7 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>👉 Souhrnný kvíz níže se skládá automaticky z otázek probraných podtémat.</p>
 					`,
-					odkazy: [
-						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
-					],
+					odkazy: [],
 				},
 				{
 					slug: 'rocni-shrnuti',
@@ -5594,9 +5309,7 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>👉 Souhrnný kvíz níže prověří celý ročník — dobrá příprava i na střední školu. Trénink: archiv <a href="https://www.ibobr.cz/test/archiv" target="_blank" rel="noopener">Bobříka informatiky</a> (Kadet).</p>
 					`,
-					odkazy: [
-						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
-					],
+					odkazy: [],
 				},
 			],
 		},
@@ -5651,9 +5364,7 @@ export const temata: Record<string, Tema[]> = {
 						<h3>💾 Uložení a 3D tisk</h3>
 						<p>Návrh se ukládá sám. Pro tisk: <strong>Export → .STL</strong> — soubor pak učitel pošle do 3D tiskárny.</p>
 					`,
-					odkazy: [
-						{ nazev: 'Tinkercad — spustit v prohlížeči', url: 'https://www.tinkercad.com' },
-					],
+					odkazy: [],
 					interakce: 'tinkercad',
 				},
 				{
@@ -5691,9 +5402,7 @@ export const temata: Record<string, Tema[]> = {
 							<li>ulož přes <strong>Save</strong> — příště pokračuješ, kde jsi skončil</li>
 						</ul>
 					`,
-					odkazy: [
-						{ nazev: 'SketchUp Free — spustit v prohlížeči', url: 'https://app.sketchup.com' },
-					],
+					odkazy: [],
 					interakce: 'sketchup',
 				},
 			],
@@ -5714,10 +5423,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>👉 Souhrnný kvíz níže se skládá automaticky z otázek obou návodů — projdi si ho, až budeš chtít zjistit, co ti z 3D modelování zůstalo v hlavě.</p>
 						<p>ℹ️ <em>3D modelování nejede podle časového plánu, vracíme se k němu průběžně. Shrnutí proto ber jako opakování, ne jako zkoušení k termínu.</em></p>
 					`,
-					odkazy: [
-						{ nazev: 'Tinkercad — kreslit v prohlížeči', url: 'https://www.tinkercad.com' },
-						{ nazev: 'SketchUp Free — spustit v prohlížeči', url: 'https://app.sketchup.com' },
-					],
+					odkazy: [],
 				},
 			],
 		},
