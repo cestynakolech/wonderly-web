@@ -1,0 +1,79 @@
+<svg viewBox="0 0 460 590" width="460" height="590" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Elektrický náboj v pohybu 3/3, Uzemnění. Záporně nabité těleso se vodivě spojí se Zemí. Přebytečné elektrony přejdou do Země, která je přijme, a těleso se vybije." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Elektrický náboj v pohybu 3/3: Uzemnění</title>
+	<!-- W115, oprava 25. 10. 2026. Opora: PDF 18 s. 14: uzemnění je vodivé spojení nabitého tělesa se Zemí, která přijme všechny volné elektrony z nabitého tělesa. Zobrazen je pouze doložený směr ze záporného tělesa do Země; bez ruky a rukojeti. Cyklus 8 s. -->
+	<style>
+		.sc3 { opacity: 1; animation: sc3 8s linear infinite; }
+		@keyframes sc3 { 0% { opacity: 1; } 95% { opacity: 1; } 96.5% { opacity: 0; } 98.5% { opacity: 0; } 100% { opacity: 1; } }
+		.w1 { transform: rotate(11deg); animation: w1 8s linear infinite; }
+		@keyframes w1 { 0% { transform: rotate(11.000deg); } 6% { transform: rotate(11.000deg); } 6.5% { transform: rotate(10.876deg); } 7% { transform: rotate(10.527deg); } 7.5% { transform: rotate(9.985deg); } 8% { transform: rotate(9.281deg); } 8.5% { transform: rotate(8.449deg); } 9% { transform: rotate(7.520deg); } 9.5% { transform: rotate(6.526deg); } 10% { transform: rotate(5.500deg); } 10.5% { transform: rotate(4.474deg); } 11% { transform: rotate(3.480deg); } 11.5% { transform: rotate(2.551deg); } 12% { transform: rotate(1.719deg); } 12.5% { transform: rotate(1.015deg); } 13% { transform: rotate(0.473deg); } 13.5% { transform: rotate(0.124deg); } 14% { transform: rotate(0.000deg); } 40% { transform: rotate(0.000deg); } 40.5% { transform: rotate(0.216deg); } 41% { transform: rotate(0.815deg); } 41.5% { transform: rotate(1.719deg); } 42% { transform: rotate(2.852deg); } 42.5% { transform: rotate(4.138deg); } 43% { transform: rotate(5.500deg); } 43.5% { transform: rotate(6.862deg); } 44% { transform: rotate(8.148deg); } 44.5% { transform: rotate(9.281deg); } 45% { transform: rotate(10.185deg); } 45.5% { transform: rotate(10.784deg); } 46% { transform: rotate(11.000deg); } 100% { transform: rotate(11.000deg); } }
+		.e10 { transform: translate(202.00px, 390.00px); opacity: 0; animation: e10 8s linear infinite; }
+		@keyframes e10 { 0% { transform: translate(112.00px, 258.00px); opacity: 1; } 18% { transform: translate(112.00px, 258.00px); opacity: 1; } 21% { transform: translate(130.00px, 236.00px); opacity: 1; } 24% { transform: translate(202.00px, 236.00px); opacity: 1; } 28% { transform: translate(202.00px, 368.00px); opacity: 1; } 29.8% { transform: translate(202.00px, 390.00px); opacity: 0; } 96.8% { transform: translate(202.00px, 390.00px); opacity: 0; } 97% { transform: translate(112.00px, 258.00px); opacity: 1; } 100% { transform: translate(112.00px, 258.00px); opacity: 1; } }
+		.e11 { transform: translate(202.00px, 390.00px); opacity: 0; animation: e11 8s linear infinite; }
+		@keyframes e11 { 0% { transform: translate(90.00px, 258.00px); opacity: 1; } 22% { transform: translate(90.00px, 258.00px); opacity: 1; } 25% { transform: translate(130.00px, 236.00px); opacity: 1; } 28% { transform: translate(202.00px, 236.00px); opacity: 1; } 32% { transform: translate(202.00px, 368.00px); opacity: 1; } 33.8% { transform: translate(202.00px, 390.00px); opacity: 0; } 96.8% { transform: translate(202.00px, 390.00px); opacity: 0; } 97% { transform: translate(90.00px, 258.00px); opacity: 1; } 100% { transform: translate(90.00px, 258.00px); opacity: 1; } }
+		.e12 { transform: translate(202.00px, 390.00px); opacity: 0; animation: e12 8s linear infinite; }
+		@keyframes e12 { 0% { transform: translate(68.00px, 258.00px); opacity: 1; } 26% { transform: translate(68.00px, 258.00px); opacity: 1; } 29% { transform: translate(130.00px, 236.00px); opacity: 1; } 32% { transform: translate(202.00px, 236.00px); opacity: 1; } 36% { transform: translate(202.00px, 368.00px); opacity: 1; } 37.8% { transform: translate(202.00px, 390.00px); opacity: 0; } 96.8% { transform: translate(202.00px, 390.00px); opacity: 0; } 97% { transform: translate(68.00px, 258.00px); opacity: 1; } 100% { transform: translate(68.00px, 258.00px); opacity: 1; } }
+		.n1a { opacity: 0; animation: n1a 8s step-end infinite; }
+		@keyframes n1a { 0% { opacity: 1; } 37.95% { opacity: 0; } 97% { opacity: 1; } 100% { opacity: 0; } }
+		.n1b { opacity: 1; animation: n1b 8s step-end infinite; }
+		@keyframes n1b { 0% { opacity: 0; } 37.95% { opacity: 1; } 97% { opacity: 0; } 100% { opacity: 0; } }
+		.s10 { opacity: 0; animation: s10 8s step-end infinite; }
+		@keyframes s10 { 0% { opacity: 1; } 29.95% { opacity: 0; } 97% { opacity: 1; } 100% { opacity: 0; } }
+		.s11 { opacity: 0; animation: s11 8s step-end infinite; }
+		@keyframes s11 { 0% { opacity: 0; } 29.95% { opacity: 1; } 33.95% { opacity: 0; } 100% { opacity: 0; } }
+		.s12 { opacity: 0; animation: s12 8s step-end infinite; }
+		@keyframes s12 { 0% { opacity: 0; } 33.95% { opacity: 1; } 37.95% { opacity: 0; } 100% { opacity: 0; } }
+		.tok { opacity: 0; animation: tok 8s step-end infinite; }
+		@keyframes tok { 0%, 18% { opacity: 0; } 18.1%, 38% { opacity: 1; } 38.1%, 100% { opacity: 0; } }
+		.spojeni { opacity: 0; animation: spojeni 8s step-end infinite; }
+		@keyframes spojeni { 0%, 13.9% { opacity: 0; } 14%, 40% { opacity: 1; } 40.1%, 100% { opacity: 0; } }
+		.t1 { opacity: 0; animation: t1 8s step-end infinite; }
+		@keyframes t1 { 0% { opacity: 0; } 3% { opacity: 1; } 18% { opacity: 0; } 100% { opacity: 0; } }
+		.t2 { opacity: 1; animation: t2 8s step-end infinite; }
+		@keyframes t2 { 0% { opacity: 0; } 18% { opacity: 1; } 97% { opacity: 0; } 100% { opacity: 0; } }
+		.t5 { opacity: 1; animation: t5 8s step-end infinite; }
+		@keyframes t5 { 0% { opacity: 0; } 40% { opacity: 1; } 97% { opacity: 0; } 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) {
+			.sc3, .w1, .e10, .e11, .e12, .n1a, .n1b, .s10, .s11, .s12, .tok, .spojeni, .t1, .t2, .t5 { animation: none; }
+		}
+	</style>
+	<defs>
+		<g id="p"><circle r="10" fill="#c92a2a" stroke="#212529" stroke-width="1.5" /><path d="M-5.5 0H5.5M0 -5.5V5.5" stroke="#fff" stroke-width="2.2" stroke-linecap="round" /></g>
+		<g id="e"><circle r="10" fill="#1864ab" stroke="#212529" stroke-width="1.5" /><path d="M-5.5 0H5.5" stroke="#fff" stroke-width="2.2" stroke-linecap="round" /></g>
+		<radialGradient id="kov" cx="0.38" cy="0.32" r="0.75"><stop offset="0" stop-color="#ffffff" /><stop offset="0.55" stop-color="#e9ecef" /><stop offset="1" stop-color="#c3c9cf" /></radialGradient>
+	</defs>
+	<rect x="0" y="0" width="460" height="590" fill="#f8f9fa" />
+	<rect x="26" y="22" width="420" height="558" rx="10" fill="#2b2a26" />
+	<rect x="20" y="16" width="420" height="558" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="52" y="57" text-anchor="middle" font-size="20" font-weight="bold" fill="#b8460b">3</text>
+	<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Uzemnění</text>
+	<g class="sc3">
+	<rect x="21" y="350" width="418" height="70" fill="#d9b38c" />
+	<path d="M21 350H439" stroke="#2b8a3e" stroke-width="4" />
+	<text x="230" y="408" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">Země</text>
+	<rect x="85" y="274" width="10" height="66" fill="#ffe066" stroke="#2b2a26" stroke-width="2" /><rect x="56" y="340" width="68" height="10" rx="3" fill="#495057" stroke="#2b2a26" stroke-width="2" /><circle cx="90" cy="236" r="42" fill="url(#kov)" stroke="#2b2a26" stroke-width="2.5" />
+	<use href="#p" x="68" y="214" /><use href="#p" x="90" y="214" /><use href="#p" x="112" y="214" />
+	<use href="#e" x="68" y="236" /><use href="#e" x="90" y="236" /><use href="#e" x="112" y="236" />
+	<path d="M202 384L197 374V350H207V374Z" fill="#868e96" stroke="#2b2a26" stroke-width="1.5" />
+	<g transform="translate(202 350)"><g class="w1"><path d="M0 0V-114" stroke="#868e96" stroke-width="5" stroke-linecap="round" /><rect x="-70" y="-116.5" width="70" height="5" fill="#868e96" /></g></g>
+		<text class="spojeni" x="240" y="300" font-size="18" font-weight="bold" fill="#495057" text-anchor="start">vodivé spojení</text>
+	<g class="e10"><use href="#e" x="0" y="0" /></g>
+	<g class="e11"><use href="#e" x="0" y="0" /></g>
+	<g class="e12"><use href="#e" x="0" y="0" /></g>
+		<g class="n1a"><text x="130" y="104" font-size="19" font-weight="bold" fill="#1864ab" text-anchor="middle">záporné těleso</text></g>
+			<g class="n1b"><text x="130" y="104" font-size="19" font-weight="bold" fill="#2b2a26" text-anchor="middle">vybité těleso</text></g>
+	<g class="s10"><text x="130" y="130" font-size="17" font-weight="normal" fill="#2b2a26" text-anchor="middle">3 elektrony navíc</text></g>
+	<g class="s11"><text x="130" y="130" font-size="17" font-weight="normal" fill="#2b2a26" text-anchor="middle">2 elektrony navíc</text></g>
+	<g class="s12"><text x="130" y="130" font-size="17" font-weight="normal" fill="#2b2a26" text-anchor="middle">1 elektron navíc</text></g>
+		<g class="tok">
+			<text x="320" y="220" font-size="17" fill="#2b2a26" text-anchor="middle">elektrony míří</text>
+			<text x="320" y="244" font-size="17" fill="#2b2a26" text-anchor="middle">do Země</text>
+			<path d="M222 260V322M212 312L222 322L232 312" fill="none" stroke="#1864ab" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	<rect x="36" y="440" width="388" height="116" rx="10" fill="#fff" stroke="#adb5bd" stroke-width="2" />
+		<g class="t1"><text x="52" y="470" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="start">Záporné těleso spojíme se Zemí.</text></g>
+	<g class="t2"><text x="52" y="470" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="start">Země přebytečné elektrony přijme.</text></g>
+		<text x="52" y="510" font-size="19" fill="#2b2a26" text-anchor="start">Uzemnění je vodivé spojení se Zemí.</text>
+		<g class="t5"><text x="52" y="534" font-size="20" font-weight="normal" fill="#2b2a26" text-anchor="start">Záporné těleso se vybilo.</text></g>
+	</g>
+</svg>

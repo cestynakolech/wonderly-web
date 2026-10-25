@@ -1,0 +1,74 @@
+<svg viewBox="0 0 460 556" width="460" height="556" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Elektrický náboj v pohybu 2/3, Náboje se vyrovnají: levá kovová koule má 3 elektrony navíc, pravé 3 elektrony chybí. Ruka přisune pravou kouli k levé. Při dotyku přejdou 3 elektrony z levé koule na pravou. Obě koule jsou neutrální. Celkový náboj obou koulí byl 0 a zůstal 0." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Elektrický náboj v pohybu 2/3: Náboje se vyrovnají</title>
+	<!-- W115. Opora: PDF 18 s. 15: dotknou-li se dvě tělesa se stejně velkým opačným nábojem, jejich celkový náboj je nulový a při dotyku se zneutralizují; celkový elektrický náboj se v izolované soustavě nemění. Čísla 3 a 0 jsou celočíselný obraz stejně velkých opačných nábojů. Cyklus 8 s. -->
+	<style>
+		.sc2 { opacity: 1; animation: sc2 8s linear infinite; }
+		@keyframes sc2 { 0% { opacity: 1; } 95% { opacity: 1; } 96.5% { opacity: 0; } 98.5% { opacity: 0; } 100% { opacity: 1; } }
+		.hr { transform: translate(-126.00px, 0.00px); animation: hr 8s linear infinite; }
+		@keyframes hr { 0% { transform: translate(0.00px, 0.00px); } 8% { transform: translate(0.00px, 0.00px); } 8.5% { transform: translate(-0.47px, 0.00px); } 9% { transform: translate(-1.84px, 0.00px); } 9.5% { transform: translate(-4.03px, 0.00px); } 10% { transform: translate(-6.98px, 0.00px); } 10.5% { transform: translate(-10.62px, 0.00px); } 11% { transform: translate(-14.88px, 0.00px); } 11.5% { transform: translate(-19.69px, 0.00px); } 12% { transform: translate(-24.98px, 0.00px); } 12.5% { transform: translate(-30.68px, 0.00px); } 13% { transform: translate(-36.73px, 0.00px); } 13.5% { transform: translate(-43.06px, 0.00px); } 14% { transform: translate(-49.59px, 0.00px); } 14.5% { transform: translate(-56.26px, 0.00px); } 15% { transform: translate(-63.00px, 0.00px); } 15.5% { transform: translate(-69.74px, 0.00px); } 16% { transform: translate(-76.41px, 0.00px); } 16.5% { transform: translate(-82.94px, 0.00px); } 17% { transform: translate(-89.27px, 0.00px); } 17.5% { transform: translate(-95.32px, 0.00px); } 18% { transform: translate(-101.02px, 0.00px); } 18.5% { transform: translate(-106.31px, 0.00px); } 19% { transform: translate(-111.12px, 0.00px); } 19.5% { transform: translate(-115.38px, 0.00px); } 20% { transform: translate(-119.02px, 0.00px); } 20.5% { transform: translate(-121.97px, 0.00px); } 21% { transform: translate(-124.16px, 0.00px); } 21.5% { transform: translate(-125.53px, 0.00px); } 22% { transform: translate(-126.00px, 0.00px); } 96.5% { transform: translate(-126.00px, 0.00px); } 97% { transform: translate(0.00px, 0.00px); } 100% { transform: translate(0.00px, 0.00px); } }
+		.e0 { transform: translate(226.00px, 150.00px); opacity: 1; animation: e0 8s linear infinite; }
+		@keyframes e0 { 0% { transform: translate(142.00px, 172.00px); opacity: 1; } 25% { transform: translate(142.00px, 172.00px); opacity: 1; } 28.5% { transform: translate(160.00px, 150.00px); opacity: 1; } 32% { transform: translate(226.00px, 150.00px); opacity: 1; } 96.8% { transform: translate(226.00px, 150.00px); opacity: 1; } 97% { transform: translate(142.00px, 172.00px); opacity: 1; } 100% { transform: translate(142.00px, 172.00px); opacity: 1; } }
+		.e1 { transform: translate(204.00px, 150.00px); opacity: 1; animation: e1 8s linear infinite; }
+		@keyframes e1 { 0% { transform: translate(120.00px, 172.00px); opacity: 1; } 28.5% { transform: translate(120.00px, 172.00px); opacity: 1; } 32% { transform: translate(160.00px, 150.00px); opacity: 1; } 35.5% { transform: translate(204.00px, 150.00px); opacity: 1; } 96.8% { transform: translate(204.00px, 150.00px); opacity: 1; } 97% { transform: translate(120.00px, 172.00px); opacity: 1; } 100% { transform: translate(120.00px, 172.00px); opacity: 1; } }
+		.e2 { transform: translate(182.00px, 150.00px); opacity: 1; animation: e2 8s linear infinite; }
+		@keyframes e2 { 0% { transform: translate(98.00px, 172.00px); opacity: 1; } 32% { transform: translate(98.00px, 172.00px); opacity: 1; } 35.5% { transform: translate(160.00px, 150.00px); opacity: 1; } 39% { transform: translate(182.00px, 150.00px); opacity: 1; } 96.8% { transform: translate(182.00px, 150.00px); opacity: 1; } 97% { transform: translate(98.00px, 172.00px); opacity: 1; } 100% { transform: translate(98.00px, 172.00px); opacity: 1; } }
+		.sl0 { opacity: 0; animation: sl0 8s step-end infinite; }
+		@keyframes sl0 { 0% { opacity: 1; } 32% { opacity: 0; } 97% { opacity: 1; } 100% { opacity: 0; } }
+		.sr0 { opacity: 0; animation: sr0 8s step-end infinite; }
+		@keyframes sr0 { 0% { opacity: 1; } 32% { opacity: 0; } 97% { opacity: 1; } 100% { opacity: 0; } }
+		.sl1 { opacity: 0; animation: sl1 8s step-end infinite; }
+		@keyframes sl1 { 0% { opacity: 0; } 32% { opacity: 1; } 35.5% { opacity: 0; } 100% { opacity: 0; } }
+		.sr1 { opacity: 0; animation: sr1 8s step-end infinite; }
+		@keyframes sr1 { 0% { opacity: 0; } 32% { opacity: 1; } 35.5% { opacity: 0; } 100% { opacity: 0; } }
+		.sl2 { opacity: 0; animation: sl2 8s step-end infinite; }
+		@keyframes sl2 { 0% { opacity: 0; } 35.5% { opacity: 1; } 39% { opacity: 0; } 100% { opacity: 0; } }
+		.sr2 { opacity: 0; animation: sr2 8s step-end infinite; }
+		@keyframes sr2 { 0% { opacity: 0; } 35.5% { opacity: 1; } 39% { opacity: 0; } 100% { opacity: 0; } }
+		.sl3 { opacity: 1; animation: sl3 8s step-end infinite; }
+		@keyframes sl3 { 0% { opacity: 0; } 39% { opacity: 1; } 97% { opacity: 0; } 100% { opacity: 0; } }
+		.sr3 { opacity: 1; animation: sr3 8s step-end infinite; }
+		@keyframes sr3 { 0% { opacity: 0; } 39% { opacity: 1; } 97% { opacity: 0; } 100% { opacity: 0; } }
+		.t1 { opacity: 0; animation: t1 8s step-end infinite; }
+		@keyframes t1 { 0% { opacity: 0; } 3% { opacity: 1; } 24% { opacity: 0; } 100% { opacity: 0; } }
+		.t2 { opacity: 1; animation: t2 8s step-end infinite; }
+		@keyframes t2 { 0% { opacity: 0; } 24% { opacity: 1; } 97% { opacity: 0; } 100% { opacity: 0; } }
+		.t3 { opacity: 1; animation: t3 8s step-end infinite; }
+		@keyframes t3 { 0% { opacity: 0; } 39% { opacity: 1; } 97% { opacity: 0; } 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) {
+			.sc2, .hr, .e0, .e1, .e2, .sl0, .sr0, .sl1, .sr1, .sl2, .sr2, .sl3, .sr3, .t1, .t2, .t3 { animation: none; }
+		}
+	</style>
+	<defs>
+		<g id="p"><circle r="10" fill="#c92a2a" stroke="#212529" stroke-width="1.5" /><path d="M-5.5 0H5.5M0 -5.5V5.5" stroke="#fff" stroke-width="2.2" stroke-linecap="round" /></g>
+		<g id="e"><circle r="10" fill="#1864ab" stroke="#212529" stroke-width="1.5" /><path d="M-5.5 0H5.5" stroke="#fff" stroke-width="2.2" stroke-linecap="round" /></g>
+		<radialGradient id="kov" cx="0.38" cy="0.32" r="0.75"><stop offset="0" stop-color="#ffffff" /><stop offset="0.55" stop-color="#e9ecef" /><stop offset="1" stop-color="#c3c9cf" /></radialGradient>
+			<clipPath id="kr"><rect x="20" y="80" width="420" height="320" /></clipPath>
+	</defs>
+	<rect x="0" y="0" width="460" height="556" fill="#f8f9fa" />
+	<rect x="26" y="22" width="420" height="524" rx="10" fill="#2b2a26" />
+	<rect x="20" y="16" width="420" height="524" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="52" y="57" text-anchor="middle" font-size="20" font-weight="bold" fill="#b8460b">2</text>
+	<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Náboje se vyrovnají</text>
+	<g class="sc2">
+	<rect x="115" y="188" width="10" height="68" fill="#ffe066" stroke="#2b2a26" stroke-width="2" /><rect x="86" y="256" width="68" height="10" rx="3" fill="#495057" stroke="#2b2a26" stroke-width="2" /><circle cx="120" cy="150" r="42" fill="url(#kov)" stroke="#2b2a26" stroke-width="2.5" /><use href="#p" x="98" y="128" /><use href="#e" x="98" y="150" /><use href="#p" x="120" y="128" /><use href="#e" x="120" y="150" /><use href="#p" x="142" y="128" /><use href="#e" x="142" y="150" />
+	<g clip-path="url(#kr)"><g class="hr"><rect x="325" y="188" width="10" height="68" fill="#ffe066" stroke="#2b2a26" stroke-width="2" /><rect x="296" y="256" width="68" height="10" rx="3" fill="#495057" stroke="#2b2a26" stroke-width="2" /><circle cx="330" cy="150" r="42" fill="url(#kov)" stroke="#2b2a26" stroke-width="2.5" /><rect x="344" y="218" width="246" height="28" fill="#8ce99a" stroke="#2b2a26" stroke-width="2" /><rect x="318" y="215" width="30" height="34" rx="10" fill="#f3d2b3" stroke="#2b2a26" stroke-width="2" /><path d="M318 226H336M318 237H336" stroke="#a9805c" stroke-width="1.6" stroke-linecap="round" /><ellipse cx="326" cy="215" rx="9" ry="5" fill="#f3d2b3" stroke="#2b2a26" stroke-width="2" /><use href="#p" x="308" y="128" /><use href="#p" x="330" y="128" /><use href="#p" x="352" y="128" /></g></g>
+	<g class="e0"><use href="#e" x="0" y="0" /></g>
+	<g class="e1"><use href="#e" x="0" y="0" /></g>
+	<g class="e2"><use href="#e" x="0" y="0" /></g>
+	<rect x="36" y="276" width="388" height="104" rx="10" fill="#f1f3f5" stroke="#ced4da" stroke-width="2" />
+	<g class="sl0"><text x="52" y="302" font-size="19" font-weight="normal" fill="#2b2a26" text-anchor="start">levá koule:</text><text x="170" y="302" font-size="19" font-weight="bold" fill="#1864ab" text-anchor="start">3 elektrony navíc</text></g>
+	<g class="sr0"><text x="52" y="332" font-size="19" font-weight="normal" fill="#2b2a26" text-anchor="start">pravá koule:</text><text x="170" y="332" font-size="19" font-weight="bold" fill="#c92a2a" text-anchor="start">chybí 3 elektrony</text></g>
+	<g class="sl1"><text x="52" y="302" font-size="19" font-weight="normal" fill="#2b2a26" text-anchor="start">levá koule:</text><text x="170" y="302" font-size="19" font-weight="bold" fill="#1864ab" text-anchor="start">2 elektrony navíc</text></g>
+	<g class="sr1"><text x="52" y="332" font-size="19" font-weight="normal" fill="#2b2a26" text-anchor="start">pravá koule:</text><text x="170" y="332" font-size="19" font-weight="bold" fill="#c92a2a" text-anchor="start">chybí 2 elektrony</text></g>
+	<g class="sl2"><text x="52" y="302" font-size="19" font-weight="normal" fill="#2b2a26" text-anchor="start">levá koule:</text><text x="170" y="302" font-size="19" font-weight="bold" fill="#1864ab" text-anchor="start">1 elektron navíc</text></g>
+	<g class="sr2"><text x="52" y="332" font-size="19" font-weight="normal" fill="#2b2a26" text-anchor="start">pravá koule:</text><text x="170" y="332" font-size="19" font-weight="bold" fill="#c92a2a" text-anchor="start">chybí 1 elektron</text></g>
+	<g class="sl3"><text x="52" y="302" font-size="19" font-weight="normal" fill="#2b2a26" text-anchor="start">levá koule:</text><text x="170" y="302" font-size="19" font-weight="bold" fill="#2b2a26" text-anchor="start">neutrální</text></g>
+	<g class="sr3"><text x="52" y="332" font-size="19" font-weight="normal" fill="#2b2a26" text-anchor="start">pravá koule:</text><text x="170" y="332" font-size="19" font-weight="bold" fill="#2b2a26" text-anchor="start">neutrální</text></g>
+	<text x="52" y="364" font-size="19" font-weight="bold" fill="#2b2a26" text-anchor="start">Celkový náboj obou koulí: 0</text>
+	<rect x="36" y="402" width="388" height="124" rx="10" fill="#fff" stroke="#adb5bd" stroke-width="2" />
+	<g class="t1"><text x="52" y="432" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="start">Stejně velké opačné náboje.</text><text x="52" y="457" font-size="20" font-weight="normal" fill="#2b2a26" text-anchor="start">Ruka přisune pravou kouli.</text></g>
+	<g class="t2"><text x="52" y="432" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="start">Při dotyku přejdou 3 elektrony</text><text x="52" y="457" font-size="20" font-weight="normal" fill="#2b2a26" text-anchor="start">z levé koule na pravou.</text></g>
+	<g class="t3"><text x="52" y="490" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="start">Obě jsou neutrální, celkový</text><text x="52" y="515" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="start">náboj se nezměnil.</text></g>
+	</g>
+</svg>

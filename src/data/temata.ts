@@ -3084,6 +3084,9 @@ export const temata: Record<string, Tema[]> = {
 						odkazy: [
 							{ nazev: 'Elekrostatika – 8. ročník ZŠ (test, 13 otázek) — testi.cz', url: 'https://testi.cz/testy/fyzika/elekrostatika-8.rocnik-zs/' },
 						],
+						materialy: [
+							{ druh: 'infografika', nazev: 'Elektrický náboj v pohybu', cesta: '/materialy/fyzika/8-rocnik/elektrina/elektricky-naboj/infografika-elektricky-naboj-pohyb-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/elektrina/elektricky-naboj/infografika-elektricky-naboj-pohyb-panel-1.svg', '/materialy/fyzika/8-rocnik/elektrina/elektricky-naboj/infografika-elektricky-naboj-pohyb-panel-2.svg', '/materialy/fyzika/8-rocnik/elektrina/elektricky-naboj/infografika-elektricky-naboj-pohyb-panel-3.svg'] },
+						],
 					},
 				{
 						slug: 'elektricke-pole',

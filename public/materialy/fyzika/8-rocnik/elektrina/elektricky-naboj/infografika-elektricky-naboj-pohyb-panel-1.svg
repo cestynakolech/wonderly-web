@@ -1,0 +1,66 @@
+<svg viewBox="0 0 460 765" width="460" height="765" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Elektrický náboj v pohybu 1/3, Kov vede, plast ne. Při dotyku nabitého tělesa s kovovou tyčí se elektron přesune na kov, protože kov vede. Při dotyku s plastovou tyčí se elektron nepřesune, protože plast brání přenosu náboje." font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+	<title>Elektrický náboj v pohybu 1/3: Kov vede, plast ne</title>
+	<!-- W115, oprava 25. 10. 2026. Opora: PDF 18 s. 12: elektrony se mohou přesunovat z jednoho tělesa do druhého při vzájemném dotyku; s. 13: všechny kovy přenášejí elektrický náboj, plast brání přenosu náboje. Bez tvrzení o rozdělení náboje mezi dvě koule. Cyklus 8 s. -->
+	<style>
+		.sc1 { opacity: 1; animation: sc1 8s linear infinite; }
+		@keyframes sc1 { 0% { opacity: 1; } 95% { opacity: 1; } 96.5% { opacity: 0; } 98.5% { opacity: 0; } 100% { opacity: 1; } }
+		.metal { transform: translate(0, 0); animation: metal 8s ease-in-out infinite; }
+		@keyframes metal { 0%, 7% { transform: translate(40px, 0); } 18%, 96.8% { transform: translate(0, 0); } 97%, 100% { transform: translate(40px, 0); } }
+		.transfer { transform: translate(258px, 235px); animation: transfer 8s ease-in-out infinite; }
+		@keyframes transfer { 0%, 18% { transform: translate(160px, 235px); } 35%, 96.8% { transform: translate(258px, 235px); } 97%, 100% { transform: translate(160px, 235px); } }
+		.plastic { transform: translate(0, 0); animation: plastic 8s ease-in-out infinite; }
+		@keyframes plastic { 0%, 50% { transform: translate(40px, 0); } 62%, 96.8% { transform: translate(0, 0); } 97%, 100% { transform: translate(40px, 0); } }
+		.nabite { opacity: 0; animation: nabite 8s step-end infinite; }
+		@keyframes nabite { 0% { opacity: 1; } 35% { opacity: 0; } 97% { opacity: 1; } 100% { opacity: 0; } }
+		.teleso { opacity: 1; animation: teleso 8s step-end infinite; }
+		@keyframes teleso { 0%, 35% { opacity: 0; } 35.1%, 95% { opacity: 1; } 97%, 100% { opacity: 0; } }
+		.m1 { opacity: 0; animation: m1 8s step-end infinite; }
+		@keyframes m1 { 0% { opacity: 1; } 35% { opacity: 0; } 97% { opacity: 1; } 100% { opacity: 0; } }
+		.m2 { opacity: 1; animation: m2 8s step-end infinite; }
+		@keyframes m2 { 0%, 35% { opacity: 0; } 35.1%, 95% { opacity: 1; } 97%, 100% { opacity: 0; } }
+		.p1 { opacity: 0; animation: p1 8s step-end infinite; }
+		@keyframes p1 { 0%, 48% { opacity: 0; } 48.1%, 68% { opacity: 1; } 68.1%, 100% { opacity: 0; } }
+		.p2 { opacity: 1; animation: p2 8s step-end infinite; }
+		@keyframes p2 { 0%, 68% { opacity: 0; } 68.1%, 95% { opacity: 1; } 97%, 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) {
+			.sc1, .metal, .transfer, .plastic, .nabite, .teleso, .m1, .m2, .p1, .p2 { animation: none; }
+		}
+	</style>
+	<defs>
+		<g id="p"><circle r="10" fill="#c92a2a" stroke="#212529" stroke-width="1.5" /><path d="M-5.5 0H5.5M0 -5.5V5.5" stroke="#fff" stroke-width="2.2" stroke-linecap="round" /></g>
+		<g id="e"><circle r="10" fill="#1864ab" stroke="#212529" stroke-width="1.5" /><path d="M-5.5 0H5.5" stroke="#fff" stroke-width="2.2" stroke-linecap="round" /></g>
+		<radialGradient id="kov" cx="0.38" cy="0.32" r="0.75"><stop offset="0" stop-color="#ffffff" /><stop offset="0.55" stop-color="#e9ecef" /><stop offset="1" stop-color="#c3c9cf" /></radialGradient>
+		<linearGradient id="tyc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1f3f5" /><stop offset="1" stop-color="#b5bcc3" /></linearGradient>
+	</defs>
+	<rect x="0" y="0" width="460" height="765" fill="#f8f9fa" />
+	<rect x="26" y="22" width="420" height="733" rx="10" fill="#2b2a26" />
+	<rect x="20" y="16" width="420" height="733" rx="10" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2.5" />
+	<circle cx="52" cy="50" r="17" fill="#fbfaf6" stroke="#2b2a26" stroke-width="2" />
+	<text x="52" y="57" text-anchor="middle" font-size="20" font-weight="bold" fill="#b8460b">1</text>
+	<text x="80" y="59" font-size="26" font-weight="bold" fill="#2b2a26">Kov vede, plast ne</text>
+	<g class="sc1">
+	<path d="M36 352H424" stroke="#ced4da" stroke-width="2" />
+	<text x="40" y="104" font-size="19" font-weight="bold" fill="#495057">1) Dotyk s kovovou tyčí</text>
+	<circle cx="130" cy="235" r="46" fill="url(#kov)" stroke="#2b2a26" stroke-width="2.5" />
+		<text class="nabite" x="130" y="305" font-size="18" font-weight="bold" fill="#1864ab" text-anchor="middle">nabité těleso</text>
+		<text class="teleso" x="130" y="305" font-size="18" font-weight="bold" fill="#2b2a26" text-anchor="middle">těleso</text>
+	<g class="metal"><rect x="176" y="224" width="210" height="22" rx="8" fill="url(#tyc)" stroke="#2b2a26" stroke-width="2.5" /><text x="292" y="213" font-size="18" font-weight="bold" fill="#495057" text-anchor="middle">kov</text></g>
+	<use href="#p" x="112" y="222" /><use href="#e" x="112" y="246" />
+	<use href="#p" x="138" y="222" /><use href="#e" x="138" y="246" />
+	<g class="transfer"><use href="#e" /></g>
+	<g class="m1"><text x="230" y="330" font-size="18" fill="#2b2a26" text-anchor="middle">Tyč se dotkne tělesa.</text></g>
+	<g class="m2"><text x="230" y="330" font-size="18" font-weight="bold" fill="#2b2a26" text-anchor="middle">Elektron se při dotyku přesune na kov.</text></g>
+	<text x="40" y="400" font-size="19" font-weight="bold" fill="#495057">2) Dotyk s plastovou tyčí</text>
+	<circle cx="130" cy="510" r="46" fill="url(#kov)" stroke="#2b2a26" stroke-width="2.5" />
+	<text x="130" y="580" font-size="18" font-weight="bold" fill="#1864ab" text-anchor="middle">nabité těleso</text>
+	<g class="plastic"><rect x="176" y="499" width="210" height="22" rx="8" fill="#ffe066" stroke="#2b2a26" stroke-width="2.5" /><text x="292" y="488" font-size="18" font-weight="bold" fill="#495057" text-anchor="middle">plast</text></g>
+	<use href="#p" x="112" y="497" /><use href="#e" x="112" y="521" />
+	<use href="#p" x="138" y="497" /><use href="#e" x="138" y="521" />
+	<use href="#e" x="130" y="545" />
+	<g class="p1"><text x="230" y="606" font-size="18" fill="#2b2a26" text-anchor="middle">Tyč se dotkne tělesa.</text></g>
+	<g class="p2"><text x="230" y="606" font-size="18" font-weight="bold" fill="#2b2a26" text-anchor="middle">Elektron se nepřesune.</text></g>
+	<rect x="36" y="628" width="388" height="111" rx="10" fill="#fff" stroke="#adb5bd" stroke-width="2" />
+	<text x="52" y="662" font-size="20" font-weight="bold" fill="#2b2a26">Kov vede elektrický náboj.</text>
+	<text x="52" y="697" font-size="20" font-weight="bold" fill="#2b2a26">Plast brání přenosu náboje.</text>
+	</g>
+</svg>
