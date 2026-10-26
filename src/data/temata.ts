@@ -2077,6 +2077,12 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '/materialy/fyzika/7-rocnik/pohyb-a-rychlost/priklady-na-vypocet-rychlosti/ozobot-drahy.pdf',
 						},
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Klíč k rychlosti (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/7-rocnik/pohyb-a-rychlost/priklady-na-vypocet-rychlosti/notebooklm-priklady-na-vypocet-rychlosti.mp4' },
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Příklady na výpočet rychlosti (3/3) — 3. díl',
+							cesta: '/media/fyzika/7-rocnik/pohyb-a-rychlost/priklady-na-vypocet-rychlosti/priklady-na-vypocet-rychlosti-dialog3.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 			],
