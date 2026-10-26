@@ -2083,6 +2083,12 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '/media/fyzika/7-rocnik/pohyb-a-rychlost/priklady-na-vypocet-rychlosti/priklady-na-vypocet-rychlosti-dialog3.mp4',
 							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
 						},
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Příklady na výpočet rychlosti (2/3) — 2. díl',
+							cesta: '/media/fyzika/7-rocnik/pohyb-a-rychlost/priklady-na-vypocet-rychlosti/priklady-na-vypocet-rychlosti-dialog2.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 			],
