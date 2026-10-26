@@ -2790,6 +2790,12 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '/media/fyzika/8-rocnik/mechanicka-prace-a-vykon/ucinnost/ucinnost-dialog.mp4',
 							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
 						},
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Účinnost (2/2) — 2. díl',
+							cesta: '/media/fyzika/8-rocnik/mechanicka-prace-a-vykon/ucinnost/ucinnost-dialog2.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 			],
