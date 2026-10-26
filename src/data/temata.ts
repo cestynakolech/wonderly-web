@@ -2198,6 +2198,30 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'infografika', nazev: 'Infografika: Páka v kostce', cesta: '/materialy/fyzika/7-rocnik/jednoduche-stroje/jednoduche-stroje-paky/infografika-jednoduche-stroje-paky-panel-1.svg', panely: ['/materialy/fyzika/7-rocnik/jednoduche-stroje/jednoduche-stroje-paky/infografika-jednoduche-stroje-paky-panel-1.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/jednoduche-stroje-paky/infografika-jednoduche-stroje-paky-panel-2.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/jednoduche-stroje-paky/infografika-jednoduche-stroje-paky-panel-3.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/jednoduche-stroje-paky/infografika-jednoduche-stroje-paky-panel-4.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/jednoduche-stroje-paky/infografika-jednoduche-stroje-paky-panel-5.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/jednoduche-stroje-paky/infografika-jednoduche-stroje-paky-panel-6.svg'] },
 						{ druh: 'infografika', nazev: 'Infografika: Páka v pohybu', cesta: '/materialy/fyzika/7-rocnik/jednoduche-stroje/jednoduche-stroje-paky/infografika-jednoduche-stroje-paky-pohyb-panel-1.svg', panely: ['/materialy/fyzika/7-rocnik/jednoduche-stroje/jednoduche-stroje-paky/infografika-jednoduche-stroje-paky-pohyb-panel-1.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/jednoduche-stroje-paky/infografika-jednoduche-stroje-paky-pohyb-panel-2.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/jednoduche-stroje-paky/infografika-jednoduche-stroje-paky-pohyb-panel-3.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/jednoduche-stroje-paky/infografika-jednoduche-stroje-paky-pohyb-panel-4.svg'] },
 						{ druh: 'video', nazev: 'Píseň: Něco za něco 🎵', cesta: '/materialy/fyzika/7-rocnik/jednoduche-stroje/jednoduche-stroje-paky/pisen-neco-za-neco.m4a' },
+						{
+							druh: 'video',
+							nazev: 'Páka, rameno a moment síly — 1. díl',
+							cesta: '/media/fyzika/7-rocnik/jednoduche-stroje/jednoduche-stroje-paky/jednoduche-stroje-paky-dialog1.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
+						{
+							druh: 'video',
+							nazev: 'Rovnováha na páce — 2. díl',
+							cesta: '/media/fyzika/7-rocnik/jednoduche-stroje/jednoduche-stroje-paky/jednoduche-stroje-paky-dialog2.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
+						{
+							druh: 'video',
+							nazev: 'Dvojzvratná a jednozvratná páka — 3. díl',
+							cesta: '/media/fyzika/7-rocnik/jednoduche-stroje/jednoduche-stroje-paky/jednoduche-stroje-paky-dialog3.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
+						{
+							druh: 'video',
+							nazev: 'Páka v lidském těle — 4. díl',
+							cesta: '/media/fyzika/7-rocnik/jednoduche-stroje/jednoduche-stroje-paky/jednoduche-stroje-paky-dialog4.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 				{
