@@ -2784,6 +2784,12 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Tajemství účinnosti (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/mechanicka-prace-a-vykon/ucinnost/notebooklm-ucinnost.mp4' },
 						{ druh: 'infografika', nazev: 'Infografika: Účinnost — tahák', cesta: '/materialy/fyzika/8-rocnik/mechanicka-prace-a-vykon/ucinnost/infografika-ucinnost.svg', panely: ['/materialy/fyzika/8-rocnik/mechanicka-prace-a-vykon/ucinnost/infografika-ucinnost-panel-1.svg', '/materialy/fyzika/8-rocnik/mechanicka-prace-a-vykon/ucinnost/infografika-ucinnost-panel-2.svg', '/materialy/fyzika/8-rocnik/mechanicka-prace-a-vykon/ucinnost/infografika-ucinnost-panel-3.svg', '/materialy/fyzika/8-rocnik/mechanicka-prace-a-vykon/ucinnost/infografika-ucinnost-panel-4.svg'] },
 						{ druh: 'infografika', nazev: 'Účinnost v pohybu', cesta: '/materialy/fyzika/8-rocnik/mechanicka-prace-a-vykon/ucinnost/infografika-ucinnost-pohyb-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/mechanicka-prace-a-vykon/ucinnost/infografika-ucinnost-pohyb-panel-1.svg', '/materialy/fyzika/8-rocnik/mechanicka-prace-a-vykon/ucinnost/infografika-ucinnost-pohyb-panel-2.svg', '/materialy/fyzika/8-rocnik/mechanicka-prace-a-vykon/ucinnost/infografika-ucinnost-pohyb-panel-3.svg'] },
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Účinnost (1/2) — 1. díl',
+							cesta: '/media/fyzika/8-rocnik/mechanicka-prace-a-vykon/ucinnost/ucinnost-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 			],
