@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="500" viewBox="0 0 460 500" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Obvod se zdrojem a rezistorem. Modré elektrony proudí od záporného pólu zdroje obvodem ke kladnému pólu. Nejdřív je v obvodu rezistor s menším odporem: elektrony proudí rychle, proud je větší. Rezistor vyměníme – obvod je na chvíli přerušený a proud neprochází. Pak je v obvodu rezistor s větším odporem: elektrony proudí pomalu, proud je menší. Rezistor se používá k regulaci velikosti proudu v obvodu. Bez animace: v obvodu je rezistor s větším odporem a proud je menší.">
+<title>Rezistor reguluje proud</title>
+<style>
+/* Předloha: PDF lekce 26 „Závislost elektrického odporu na vlastnostech vodiče“, s. 4 (rezistor se používá k regulaci
+   velikosti proudu procházejícího obvodem; schematická značka obdélník) a s. 1 (odpor charakterizuje, jak vodič brání
+   průchodu proudu). Zdroj a vodiče kresleny jako obr-04, elektrony jako obr-01 (modré, od − ke +).
+   8 s: 0–42 % rezistor s menším odporem, elektrony rychle; 42–50 % výměna rezistoru, obvod přerušen, elektrony stojí;
+   50–92 % rezistor s větším odporem, elektrony pomalu; 92–100 % výměna zpět.
+   Bez animace (reduced-motion) = rezistor s větším odporem, menší proud. Délky drah: skript gen_panel.py. */
+.e0 { animation: e0 8s linear infinite; } .e1 { animation: e1 8s linear infinite; } .e2 { animation: e2 8s linear infinite; } .e3 { animation: e3 8s linear infinite; } .e4 { animation: e4 8s linear infinite; } .e5 { animation: e5 8s linear infinite; } .e6 { animation: e6 8s linear infinite; } .e7 { animation: e7 8s linear infinite; } .e8 { animation: e8 8s linear infinite; } .e9 { animation: e9 8s linear infinite; } .e10 { animation: e10 8s linear infinite; } .e11 { animation: e11 8s linear infinite; } .e12 { animation: e12 8s linear infinite; } .e13 { animation: e13 8s linear infinite; }
+@keyframes e0 { 0% { transform: translate(60px, 290px); } 1.31% { transform: translate(60px, 310px); } 24.94% { transform: translate(420px, 310px); } 38.06% { transform: translate(420px, 110px); } 42% { transform: translate(360px, 110px); } 50% { transform: translate(360px, 110px); } 92% { transform: translate(120px, 110px); } 100% { transform: translate(120px, 110px); } }
+@keyframes e1 { 0% { transform: translate(120px, 310px); } 19.69% { transform: translate(420px, 310px); } 32.81% { transform: translate(420px, 110px); } 42% { transform: translate(280px, 110px); } 50% { transform: translate(280px, 110px); } 88.5% { transform: translate(60px, 110px); } 92% { transform: translate(60px, 130px); } 100% { transform: translate(60px, 130px); } }
+@keyframes e2 { 0% { transform: translate(200px, 310px); } 14.44% { transform: translate(420px, 310px); } 27.56% { transform: translate(420px, 110px); } 42% { transform: translate(200px, 110px); } 50% { transform: translate(200px, 110px); } 74.5% { transform: translate(60px, 110px); } 88.5% { transform: translate(60px, 190px); } 92% { transform: translate(60px, 210px); } 100% { transform: translate(60px, 210px); } }
+@keyframes e3 { 0% { transform: translate(280px, 310px); } 9.19% { transform: translate(420px, 310px); } 22.31% { transform: translate(420px, 110px); } 42% { transform: translate(120px, 110px); } 50% { transform: translate(120px, 110px); } 60.5% { transform: translate(60px, 110px); } 74.5% { transform: translate(60px, 190px); } 80.8% { transform: translate(60px, 226px); } 92% { transform: translate(60px, 290px); } 100% { transform: translate(60px, 290px); } }
+@keyframes e4 { 0% { transform: translate(360px, 310px); } 3.94% { transform: translate(420px, 310px); } 17.06% { transform: translate(420px, 110px); } 40.69% { transform: translate(60px, 110px); } 42% { transform: translate(60px, 130px); } 50% { transform: translate(60px, 130px); } 60.5% { transform: translate(60px, 190px); } 66.8% { transform: translate(60px, 226px); } 81.5% { transform: translate(60px, 310px); } 92% { transform: translate(120px, 310px); } 100% { transform: translate(120px, 310px); } }
+@keyframes e5 { 0% { transform: translate(420px, 290px); } 11.81% { transform: translate(420px, 110px); } 35.44% { transform: translate(60px, 110px); } 40.69% { transform: translate(60px, 190px); } 42% { transform: translate(60px, 210px); } 50% { transform: translate(60px, 210px); } 52.8% { transform: translate(60px, 226px); } 67.5% { transform: translate(60px, 310px); } 92% { transform: translate(200px, 310px); } 100% { transform: translate(200px, 310px); } }
+@keyframes e6 { 0% { transform: translate(420px, 210px); } 6.56% { transform: translate(420px, 110px); } 30.19% { transform: translate(60px, 110px); } 35.44% { transform: translate(60px, 190px); } 37.8% { transform: translate(60px, 226px); } 42% { transform: translate(60px, 290px); } 50% { transform: translate(60px, 290px); } 53.5% { transform: translate(60px, 310px); } 92% { transform: translate(280px, 310px); } 100% { transform: translate(280px, 310px); } }
+@keyframes e7 { 0% { transform: translate(420px, 130px); } 1.31% { transform: translate(420px, 110px); } 24.94% { transform: translate(60px, 110px); } 30.19% { transform: translate(60px, 190px); } 32.55% { transform: translate(60px, 226px); } 38.06% { transform: translate(60px, 310px); } 42% { transform: translate(120px, 310px); } 50% { transform: translate(120px, 310px); } 92% { transform: translate(360px, 310px); } 100% { transform: translate(360px, 310px); } }
+@keyframes e8 { 0% { transform: translate(360px, 110px); } 19.69% { transform: translate(60px, 110px); } 24.94% { transform: translate(60px, 190px); } 27.3% { transform: translate(60px, 226px); } 32.81% { transform: translate(60px, 310px); } 42% { transform: translate(200px, 310px); } 50% { transform: translate(200px, 310px); } 88.5% { transform: translate(420px, 310px); } 92% { transform: translate(420px, 290px); } 100% { transform: translate(420px, 290px); } }
+@keyframes e9 { 0% { transform: translate(280px, 110px); } 14.44% { transform: translate(60px, 110px); } 19.69% { transform: translate(60px, 190px); } 22.05% { transform: translate(60px, 226px); } 27.56% { transform: translate(60px, 310px); } 42% { transform: translate(280px, 310px); } 50% { transform: translate(280px, 310px); } 74.5% { transform: translate(420px, 310px); } 92% { transform: translate(420px, 210px); } 100% { transform: translate(420px, 210px); } }
+@keyframes e10 { 0% { transform: translate(200px, 110px); } 9.19% { transform: translate(60px, 110px); } 14.44% { transform: translate(60px, 190px); } 16.8% { transform: translate(60px, 226px); } 22.31% { transform: translate(60px, 310px); } 42% { transform: translate(360px, 310px); } 50% { transform: translate(360px, 310px); } 60.5% { transform: translate(420px, 310px); } 92% { transform: translate(420px, 130px); } 100% { transform: translate(420px, 130px); } }
+@keyframes e11 { 0% { transform: translate(120px, 110px); } 3.94% { transform: translate(60px, 110px); } 9.19% { transform: translate(60px, 190px); } 11.55% { transform: translate(60px, 226px); } 17.06% { transform: translate(60px, 310px); } 40.69% { transform: translate(420px, 310px); } 42% { transform: translate(420px, 290px); } 50% { transform: translate(420px, 290px); } 81.5% { transform: translate(420px, 110px); } 92% { transform: translate(360px, 110px); } 100% { transform: translate(360px, 110px); } }
+@keyframes e12 { 0% { transform: translate(60px, 130px); } 3.94% { transform: translate(60px, 190px); } 6.3% { transform: translate(60px, 226px); } 11.81% { transform: translate(60px, 310px); } 35.44% { transform: translate(420px, 310px); } 42% { transform: translate(420px, 210px); } 50% { transform: translate(420px, 210px); } 67.5% { transform: translate(420px, 110px); } 92% { transform: translate(280px, 110px); } 100% { transform: translate(280px, 110px); } }
+@keyframes e13 { 0% { transform: translate(60px, 210px); } 1.05% { transform: translate(60px, 226px); } 6.56% { transform: translate(60px, 310px); } 30.19% { transform: translate(420px, 310px); } 42% { transform: translate(420px, 130px); } 50% { transform: translate(420px, 130px); } 53.5% { transform: translate(420px, 110px); } 92% { transform: translate(200px, 110px); } 100% { transform: translate(200px, 110px); } }
+.ra { animation: ra 8s ease-in-out infinite; }
+@keyframes ra { 0%, 42% { transform: translateY(0px); opacity: 1; } 46%, 95% { transform: translateY(44px); opacity: 0; } 99%, 100% { transform: translateY(0px); opacity: 1; } }
+.rb { animation: rb 8s ease-in-out infinite; }
+@keyframes rb { 0%, 46% { transform: translateY(44px); opacity: 0; } 50%, 92% { transform: translateY(0px); opacity: 1; } 95%, 100% { transform: translateY(44px); opacity: 0; } }
+.ta { animation: ta 8s step-end infinite; } .tv { animation: tv 8s step-end infinite; } .tb { animation: tb 8s step-end infinite; }
+@keyframes ta { 0% { opacity: 1; } 42% { opacity: 0; } 99% { opacity: 1; } }
+@keyframes tv { 0% { opacity: 0; } 42% { opacity: 1; } 50% { opacity: 0; } 92% { opacity: 1; } 99% { opacity: 0; } }
+@keyframes tb { 0% { opacity: 0; } 50% { opacity: 1; } 92% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .e0, .e1, .e2, .e3, .e4, .e5, .e6, .e7, .e8, .e9, .e10, .e11, .e12, .e13, .ra, .rb, .ta, .tv, .tb { animation: none; } }
+</style>
+<rect x="0" y="0" width="460" height="500" fill="#f8f9fa"/>
+<rect x="6" y="6" width="448" height="488" rx="12" fill="#f8f9fa" stroke="#ced4da" stroke-width="2"/>
+<text x="230" y="40" font-size="25" font-weight="bold" fill="#212529" text-anchor="middle">Rezistor reguluje proud</text>
+<path d="M60 190V110H210" fill="none" stroke-linejoin="round" stroke-linecap="round" stroke="#7a3e12" stroke-width="11"/><path d="M60 190V110H210" fill="none" stroke-linejoin="round" stroke-linecap="round" stroke="#c87533" stroke-width="7"/>
+<path d="M270 110H420V310H60V226" fill="none" stroke-linejoin="round" stroke-linecap="round" stroke="#7a3e12" stroke-width="11"/><path d="M270 110H420V310H60V226" fill="none" stroke-linejoin="round" stroke-linecap="round" stroke="#c87533" stroke-width="7"/>
+<circle class="e e0" r="6" fill="#1971c2" stroke="#0b3d6e" stroke-width="1.5" transform="translate(60 290)"/>
+<circle class="e e1" r="6" fill="#1971c2" stroke="#0b3d6e" stroke-width="1.5" transform="translate(120 310)"/>
+<circle class="e e2" r="6" fill="#1971c2" stroke="#0b3d6e" stroke-width="1.5" transform="translate(200 310)"/>
+<circle class="e e3" r="6" fill="#1971c2" stroke="#0b3d6e" stroke-width="1.5" transform="translate(280 310)"/>
+<circle class="e e4" r="6" fill="#1971c2" stroke="#0b3d6e" stroke-width="1.5" transform="translate(360 310)"/>
+<circle class="e e5" r="6" fill="#1971c2" stroke="#0b3d6e" stroke-width="1.5" transform="translate(420 290)"/>
+<circle class="e e6" r="6" fill="#1971c2" stroke="#0b3d6e" stroke-width="1.5" transform="translate(420 210)"/>
+<circle class="e e7" r="6" fill="#1971c2" stroke="#0b3d6e" stroke-width="1.5" transform="translate(420 130)"/>
+<circle class="e e8" r="6" fill="#1971c2" stroke="#0b3d6e" stroke-width="1.5" transform="translate(360 110)"/>
+<circle class="e e9" r="6" fill="#1971c2" stroke="#0b3d6e" stroke-width="1.5" transform="translate(280 110)"/>
+<circle class="e e10" r="6" fill="#1971c2" stroke="#0b3d6e" stroke-width="1.5" transform="translate(200 110)"/>
+<circle class="e e11" r="6" fill="#1971c2" stroke="#0b3d6e" stroke-width="1.5" transform="translate(120 110)"/>
+<circle class="e e12" r="6" fill="#1971c2" stroke="#0b3d6e" stroke-width="1.5" transform="translate(60 130)"/>
+<circle class="e e13" r="6" fill="#1971c2" stroke="#0b3d6e" stroke-width="1.5" transform="translate(60 210)"/>
+<rect x="34" y="194" width="52" height="28" fill="#f8f9fa"/>
+<path d="M32 190H88" stroke="#212529" stroke-width="4"/><path d="M48 226H72" stroke="#212529" stroke-width="9"/>
+<path d="M14 178H28M21 171V185" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/><path d="M14 238H28" stroke="#1864ab" stroke-width="4" stroke-linecap="round"/>
+<text x="98" y="215" font-size="22" fill="#212529">zdroj</text>
+<g class="ra" opacity="0">
+<rect x="210" y="94" width="60" height="32" fill="#fff" stroke="#212529" stroke-width="4"/>
+<text x="240" y="80" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">rezistor s menším odporem</text>
+</g>
+<g class="rb">
+<rect x="210" y="94" width="60" height="32" fill="#fff" stroke="#212529" stroke-width="4"/>
+<text x="240" y="80" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">rezistor s větším odporem</text>
+</g>
+<text x="240" y="268" font-size="22" fill="#212529" text-anchor="middle">elektrony: od − ke +</text>
+<text class="ta" opacity="0" x="230" y="360" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">Menší odpor: proud je větší.</text>
+<text class="tv" opacity="0" x="230" y="360" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">Výměna: obvod je přerušený.</text>
+<text class="tb" x="230" y="360" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">Větší odpor: proud je menší.</text>
+<path d="M24 384H436" stroke="#ced4da" stroke-width="2"/>
+<text x="230" y="420" font-size="22" fill="#212529" text-anchor="middle">Rezistor se používá k regulaci</text>
+<text x="230" y="448" font-size="22" fill="#212529" text-anchor="middle">velikosti proudu v obvodu.</text>
+<circle cx="150" cy="474" r="6" fill="#1971c2" stroke="#0b3d6e" stroke-width="1.5"/>
+<text x="164" y="481" font-size="20" fill="#212529">volný elektron</text>
+</svg>
