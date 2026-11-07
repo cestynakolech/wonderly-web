@@ -2128,6 +2128,12 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'infografika', nazev: 'Gravitační síla v pohybu', cesta: '/materialy/fyzika/7-rocnik/sily-kolem-nas/gravitacni-sila/infografika-gravitacni-sila-pohyb-panel-1.svg', panely: ['/materialy/fyzika/7-rocnik/sily-kolem-nas/gravitacni-sila/infografika-gravitacni-sila-pohyb-panel-1.svg', '/materialy/fyzika/7-rocnik/sily-kolem-nas/gravitacni-sila/infografika-gravitacni-sila-pohyb-panel-2.svg'] },
 						{ druh: 'video', nazev: 'Píseň: F g se rovná m krát g 🎵', cesta: '/materialy/fyzika/7-rocnik/sily-kolem-nas/gravitacni-sila/pisen-f-g-se-rovna-m-krat-g.m4a' },
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Tajemství gravitace (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/7-rocnik/sily-kolem-nas/gravitacni-sila/notebooklm-gravitacni-sila.mp4' },
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Gravitační síla — 1. díl',
+							cesta: '/media/fyzika/7-rocnik/sily-kolem-nas/gravitacni-sila/gravitacni-sila-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 				{
