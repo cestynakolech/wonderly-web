@@ -65,6 +65,9 @@ git push origin main                  # nasadí návrat
 Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `fyzika-7-hotova`), návrat `git revert` nebo `git checkout <tag> -- .`.
 **Milníky značíme tagem** po dokončení většího celku: `git tag -a <nazev> -m "popis" && git push origin <nazev>`.
 
+## Historie — 7. 11. 2026: gravitační síla 7. r., polemika 1. díl
+7. 11.: video `gravitacni-sila-dialog.mp4` (281,6 s, modul 88265ffd) nasazeno do R2 + odkaz v temata.ts (commit eb51af3, `wrangler deploy` 6bb3c89c), výjimky učitele: kvíz 17/21 a brána pohybu s10/s12/s14; SEZNAM #23.
+
 ## Historie — 19.–25. 10. 2026: katalog pracantů, pojistka hotového, hry, audit 25. 10.
 19.–25. 10.: `KATALOG-PRACANTU.md` (21. 10., směrovací tabulka), `pojistka_hotove` (b1bd2c8, pre-commit + `npm test`), panely a hry pro třídu (Magnety, Příklady na výpočet rychlosti, Výkon, Mechanická práce…), odstranění externích odkazů z polí `odkazy` (58350d3, 25. 10.), `PANELY-NAVOD.md` do repa. 25. 10.: WONDERLY AUDIT — nálezy 10/13/45 (velké/střední/malé), podklady `Omega/predavka/2026-10-25/audit/`, startovní čtení zkráceno (80 298 B → viz SR). Strom byl 26 commitů pozadu → stash + záloha SVG (`Omega/smazano-zaloha/2026-10-25/web-untracked/`), nic nesmazáno. Brána lokálně padá jen kvůli nesledovaným měřidlům laborek (`audit/brana-laborky.md`).
 
