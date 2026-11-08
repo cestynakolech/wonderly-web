@@ -301,6 +301,9 @@ Zbylé drobnosti → SAMOSTATNY-REZIM-ARCHIV.md § W3. Živé věcné vady (uzem
 - [ ] [skola2] [kontrast-panelů] 24 nesledovaných panelů s kontrastem < 4,5:1 (atmosfericky-tlak-panel-2 1,35:1, archimeduv-zakon-panel-2 1,0:1) — KOTVY 2
 - [ ] [skola2] [vady-uzemnění-NS] „Země přijme volné elektrony“ (temata 1×, kvizy 1×), „N — north“ (temata 2×) živé — viz 🔴 PRIORITA výše — C#3
 - [ ] [skola2] [SR-⚡] obnovit ⚡ ČÍM ZAČÍT a PRIKAZ-NOVA-SESSION — C R4 (⚡ aktualizováno 8. 11.; PRIKAZ-NOVA-SESSION zbývá)
+- [ ] [kanárek] cz.wonderly.kanarek padá na 25min limitu (kanarek.py:44) — úvodní sken `stav_animaci.py` (ffmpeg nad všemi díly) trvá déle a týž sken běží i z `hlaseni_animace.py`; řešení: sken jednou, výsledek sdílet, nebo limit podle počtu dílů — rozhodnout a opravit
+- [ ] [plist-xml] plisty cz.wonderly.kanarek a com.omega.zaloha-skola mají v XML komentáři `--` → `revize_automatu.py` je nepřečte (ExpatError); opravit komentář (technické, malé)
+- [ ] [test-vrátného] skripty/testy/test_povoleni_hook.py neprochází (4 případy `rm tmp-*` hook zamítá, HEAD verze 11) — rozhodnout, zda platí test nebo hook, pak commit
 
 ### Další úkoly
 - [skola2] Média k Fyzice 6 (infografiky/písně/videa z YouTube automatu — dosud nedodělané)
