@@ -8,7 +8,7 @@ import { nactiData } from './data.mjs';
 
 const koren = join(dirname(fileURLToPath(import.meta.url)), '..');
 const cestaKomponenty = process.env.HRA_KOMPONENTA || join(koren, 'src/components/hry/HraPrikladyNaVypocetRychlosti.astro');
-const cestaPdf = '/tmp/codex-hry/pdf-text/7-04-rovnomerny-pohyb-vypocty.txt';
+const cestaPdf = join(koren, 'testy/zdroje/pdf-text/7-04-rovnomerny-pohyb-vypocty.txt');
 // Citace zdroje (15 krátkých úryvků z PDF 7) jsou v repu; celý text PDF se nezveřejňuje.
 const cestaZdroju = join(koren, 'testy/zdroje/priklady-zdroj.json');
 const zdroj = readFileSync(cestaKomponenty, 'utf8');

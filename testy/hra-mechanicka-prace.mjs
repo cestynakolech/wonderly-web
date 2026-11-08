@@ -8,7 +8,7 @@ import { nactiData } from './data.mjs';
 const koren = join(dirname(fileURLToPath(import.meta.url)), '..');
 const cestaKomponenty = process.env.HRA_KOMPONENTA || join(koren, 'src/components/hry/HraMechanickaPrace.astro');
 const zdroj = readFileSync(cestaKomponenty, 'utf8');
-const pdfCesta = process.env.HRA_PDF || '/tmp/codex-hry/pdf-text/8-mechanicka-prace.txt';
+const pdfCesta = process.env.HRA_PDF || join(koren, 'testy/zdroje/pdf-text/8-mechanicka-prace.txt');
 // Citace zdroje (15 krátkých úryvků z PDF 8) jsou v repu; celý text PDF se nezveřejňuje.
 const cestaZdroju = join(koren, 'testy/zdroje/mechanicka-prace-zdroj.json');
 let pdf = null;

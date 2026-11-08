@@ -10,7 +10,7 @@
 // a každý svítil jinde.
 //
 // JAK SE MĚŘÍ, ANIŽ BY VZNIKLA KOPIE PRAVIDLA: převod GPS na mapu má jediný domov
-// v `Omega/skripty/projekce_mapy.py` a hlídá ho test_bez_kopii. Brána běží v Node
+// v `Omega/skripty/projekce_mapy.py` (hlídač test_bez_kopii.py neexistuje, odkaz zrušen 8. 11. 2026). Brána běží v Node
 // (i na Cloudflare, kde žádný Python není), takže se koeficienty NEOPISUJÍ. Místo
 // toho se měří vnitřní shoda dat, na kterou projekce není potřeba:
 //   1. totéž město = tentýž bod, napříč všemi roky (tolerance 3 km),

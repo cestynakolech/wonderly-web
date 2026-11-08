@@ -553,6 +553,20 @@ if (chceUtahnout) {
 	if (process.env.TEMATA_CESTA) console.log(`ℹ️  obrázky/figure: kontrolováno ${process.env.TEMATA_CESTA}, holých ${holych}`);
 }
 
+// 6i) Žádný soubor v testy/ nesmí obsahovat literál '/tmp/' (audit 8. 11. 2026, K-9): testy čtoucí
+// dočasné soubory mimo repo se na jiném stroji / po restartu tiše přeskočí. Řádky celé v komentáři se
+// nepočítají (návody k použití). TESTY_DIR jen pro obousměrný důkaz na podvrhu v kopii.
+{
+	const koreniTestu = process.env.TESTY_DIR || join(koren, 'testy');
+	const projdi = (d) => readdirSync(d, { withFileTypes: true }).flatMap((e) =>
+		e.isDirectory() ? projdi(join(d, e.name)) : /\.(mjs|js|ts|py)$/.test(e.name) ? [join(d, e.name)] : []);
+	for (const f of projdi(koreniTestu)) {
+		readFileSync(f, 'utf8').split('\n').forEach((radek, i) => {
+			if (!radek.trim().startsWith('//') && radek.includes('/tmp/')) chyby.push(`literál '/tmp/' v testech: ${f.replace(koren + '/', '')}:${i + 1}`);
+		});
+	}
+}
+
 if (chyby.length === 0) {
 	console.log('✅ Vše zapojené správně.');
 	process.exit(0);

@@ -23,7 +23,7 @@ import { nactiData } from './data.mjs';
 
 const koren = join(dirname(fileURLToPath(import.meta.url)), '..');
 const cestaKomponenty = process.env.HRA_KOMPONENTA || join(koren, 'src/components/hry/HraMagnetyOpakovani.astro');
-const cestaPdf = '/tmp/codex-hry/pdf-text/9-magnety-opakovani.txt';
+const cestaPdf = join(koren, 'testy/zdroje/pdf-text/9-magnety-opakovani.txt');
 // Citace zdroje (krátké úryvky z PDF 9) jsou v repu; celý text PDF se nezveřejňuje.
 const cestaZdroju = join(koren, 'testy/zdroje/magnety-opakovani-zdroj.json');
 const zdroj = readFileSync(cestaKomponenty, 'utf8');
