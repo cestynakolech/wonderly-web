@@ -719,6 +719,18 @@
 			"podvrh": "Mutace vynechávající výměnu B, míchající nezměněné otázky A a neodebírající náhradu z poolu musejí selhat. Mutace přiřazení klíče z = na ||= zamrazí první vykreslení a je odmítnuta porovnáním skutečného HTML klíče s aktuálními otázkami A/B po výměně. Šest CSS mutací: skryté obrázky (!important), skrytý obrazovkový arch, pevná čtvrtina s ořezem, chybějící nová stránka kopie, mobilní nulová výška a neviditelný předek jsou odmítnuty vyhodnocením kaskády.",
 			"zdravy": "Skutečný inline skript v Node VM nad importovaným blokem F8: výměna pouze jedné identity A/B, zachování ostatních otázek a odpovědí, přepočet skutečně vykresleného HTML klíče pro A/B při každé výměně i po resetu (správné písmeno odvozeno z původních importovaných odpovědí), preference poolu, vyčerpání, reset, obě ovládání a obrazové HTML. Obrázkový tisk: 4 úplné kopie se všemi 7 obrázky, samostatné stránky, přirozená paginace bez pevné výšky, obrázky do 70 mm; textové archy zachovány. PostCSS vyhodnocuje kaskádu a viditelnost všech předků pro screen 375/1280 a print, ovládání ↻ je prověřeno i v novém obrázkovém archu. Bez prohlížeče; neměří pixelové zalomení.",
 			"overeno": "2026-10-21"
+		},
+		"bezpecnost-laborek.mjs": {
+			"test": "testy/bezpecnost-laborek-obousmerne.mjs",
+			"podvrh": "Tři podvrhy bezpečnosti obvodů v laborkách (B1/B2/B3) se najdou.",
+			"zdravy": "Čtyři zdravé vzorky bezpečnosti obvodů v laborkách mlčí.",
+			"overeno": "2026-11-08 (node testy/bezpecnost-laborek-obousmerne.mjs, exit 0)"
+		},
+		"cela-cisla-laborek.mjs": {
+			"test": "testy/cela-cisla-laborek-obousmerne.mjs",
+			"podvrh": "Kopie zdravé laborky s podstrčeným desetinným číslem ve výpočtové otázce, kroku postupu a cíli se najde (pole otazka[0], postup[1], cil).",
+			"zdravy": "Zdravá laborka s celými čísly mlčí; desetinné číslo bez výpočetního slovesa také. Skutečná data laborek se načtou (není falešná nula).",
+			"overeno": "2026-11-08 (node testy/cela-cisla-laborek-obousmerne.mjs, exit 0)"
 		}
 	}
 }

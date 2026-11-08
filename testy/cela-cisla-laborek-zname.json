@@ -1,0 +1,10 @@
+{
+ "komentar": "Ručně posouzené výjimky (11. 10. 2026, audit). Platí jen pro přesný text pole.",
+ "zname": {
+  "fyzika/9-rocnik/energie-a-vesmir/slunecni-soustava|postup[3]|2e28e15aef41": "tabulková astronomická data (au), žák jen převádí jednotky",
+  "fyzika/7-rocnik/pohyb-a-rychlost/priklady-na-vypocet-rychlosti|postup[3]|cce3d975dc70": "pokyn k zaokrouhlení výsledku, ne zadání",
+  "fyzika/7-rocnik/pohyb-a-rychlost/priklady-na-vypocet-rychlosti|otazka[3]|985f555a47a7": "protipříklad (špatný průměr 4,5 cm/s), žák ho vyvrací celými čísly",
+  "fyzika/8-rocnik/mechanicka-prace-a-vykon/ucinnost|otazka[3]|4251dc6c95e8": "75 % zapsáno i jako 0,75 — zadání je celé procento",
+  "fyzika/8-rocnik/elektrina/zavislost-odporu-na-vodici|otazka[3]|ed57c7006f03": "tabulková konstanta měrného odporu konstantanu"
+ }
+}
