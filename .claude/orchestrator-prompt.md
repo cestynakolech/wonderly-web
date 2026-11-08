@@ -92,7 +92,7 @@ Kroky standardního rozkladu a model, na kterém mají běžet:
 | průzkumník (čtení dlouhých věcí) | subagent `pruzkumnik` = **sonnet**; lokální náhrada gemma4:26b `[ověřeno 21. 9. 2026: 4/6, 15,6 s]` |
 | kvízy, příklady, výklad | Claude — kvůli přesnosti |
 | simulace (kód komponenty) | Claude — kód |
-| kód/dávkové skripty lokálně | qwen3.8:27b-mlx `[ověřeno 21. 9. 2026]` |
+| kód/dávkové skripty lokálně | model dle `~/CLAUDE.md` § Ollama orchestrace (role modelů) |
 | zápis do souborů | Claude |
 | kontrolor | Claude (opus) — musí chytat faktické chyby |
 
@@ -133,17 +133,10 @@ byla zrušena — lokální model zdroje nedohledává. Nezkoušené zařazení 
 21. 9. 2026 přibyly qwen3.8:27b-mlx (18 GB), gpt-oss:20b (13 GB) a profil
 test-infografika-qwen38; měření viz METRIKY-KOL.md.
 
-Neinteraktivní volání Hermese: `~/.hermes/hermes-agent/venv/bin/hermes -z "zadání"
---provider ollama --model <model>`; přes OpenRouter `--provider openrouter --model
-openai/gpt-5.5`. Alias `hermes` míří na interaktivní `chat` a pro skriptování se
-nehodí.
+Hermes odstraněn 14. 10. 2026 (viz `CLAUDE.md` ř. 38) — neinteraktivní volání už neplatí.
 
 ⚠️ Varování: příklad `--model qwen2.5:14b` neprojde — model byl 8. 8. 2026 smazán.
-Lokálně jsou na český souvislý text BĚHEM SESSION `gemma4:31b` (měření 24. 8. 2026,
-`~/CLAUDE.md` § Ollama orchestrace), na kód a dávky `qwen3.8:27b-mlx` (záloha
-`qwen3:30b-a3b`) — před spuštěním vždy ověřit `ollama list`. AUTOMAT `graf_local.py`
-drží pro roli `worker_kod` `qwen3:30b-a3b` (závazné rozdělení učitele 21. 8. 2026) —
-jiný kontext než delegace při session, neopravovat bez pokynu učitele.
+Role lokálních modelů (český text, kód, vision, ANO/NE, výjimka `worker_kod` v `graf_local.py`): jediný domov `~/CLAUDE.md` § Ollama orchestrace; před spuštěním vždy ověřit `ollama list`.
 
 Média a odkazy dělá subagent `worker-media` (sonnet, videa NEHLEDÁ): každý odkaz se
 ověřuje otevřením, nevymýšlí se. Lokální model tuhle roli nemá — zkouška na hledání

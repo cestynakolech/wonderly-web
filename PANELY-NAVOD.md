@@ -85,6 +85,10 @@ Výroba infografik „… v pohybu“ (31 nasazeno). Polovina panelů byla napop
 12. **Žádná naměřená čísla v komentářích** (audit 18. 10., T8, 16 protokolů): komentář v SVG/komponentě nesmí tvrdit hodnotu („na 375 px ≥ 14 px“, „měřítko 1,8“), kterou kód nedrží. Napsat jen odkaz na měřidlo (`testy/…`, `skripty/kontrast_textu_svg.py`) nebo číslo přímo odvodit z atributu.
 13. **Jeden tvar = jeden význam i u písmen** (T10): zakázaná písmena podle tématu viz `predavka/2026-10-01/SABLONY-ZADANI.md` § D (N = newton × pól).
 
+## Poučení 15.–20. 10. 2026 (přeneseno ze skillu wonderly, W11)
+
+- **Zdvojení s animovaným obr-\*** = panel vyřadit (přesun do `Omega/predavka/vyrazene-panely/<datum>-Wxx/` + `SEZNAM.md`). Nic se nehýbe samo, nic neprochází stěnou, kresba konzistentní napříč stránkami (žárovka: přívody na závit a spodní kontakt; baterie a lampa s kabelem dle W107/W108; náboje/částice dle W110), scéna viditelná od 0 s, SVG do ~40 kB/panel, commit jmenovitě.
+
 ## Animace (rozhodnutí učitele 21. 10.)
 - Nové panely: animované SVG (SMIL nebo CSS uvnitř SVG, bez JS) všude, kde pohyb vysvětluje příčinu/děj; statické jen tam, kde se nic neděje (tabulky značek, legendy).
 - Výjimka z pojistky hotového (1814) udělená učitelem: smí se nahradit soubor nasazeného panelu jeho animovanou verzí se STEJNÝM jménem, stejným textem a dějem (jen přidaný pohyb, případně opravené chyby). Nic jiného nasazeného se nepřepisuje.

@@ -1,4 +1,8 @@
-## ⚡ ČÍM ZAČÍT — aktualizováno 25. 10. 2026 (audit)
+## ⚡ ČÍM ZAČÍT — aktualizováno 8. 11. 2026 (nedělní audit)
+
+- **PRVNÍ ÚKOL (8. 11. 2026): nálezy auditu 8. 11.** — fronta § 🆕 Velké nálezy – audit 8. 11. 2026 (13 řádků; zprávy `Omega/predavka/2026-11-08/audit/`, soupis `AKCE.md`); dotazy učiteli (K-4, K-5, K-8, K-14, R1, R2) v tabulce na začátku ❓ níže. Dokumenty zkráceny (ze SR přesunuto do SAMOSTATNY-REZIM-ARCHIV.md § W1–W8). Brána opravena (obousměrné testy `bezpecnost-laborek`, `cela-cisla-laborek`, commit b2a40e2).
+
+- Startovní čtení 8. 11. 2026: 90 099 B (CLAUDE.md+PROGRESS.md+SR+SKILL.md; wonderly-web/CLAUDE.md, wonderly-web/PROGRESS.md, wonderly-web/SAMOSTATNY-REZIM.md, ~/.claude/skills/wonderly/SKILL.md), 25. 10.: 75 124 B
 
 - **Předávka:** nejnovější `Omega/predavka/*/PRIKAZ-NOVA-SESSION*.md` (`ls -t`; k 25. 10. 2026 `2026-10-20/PRIKAZ-NOVA-SESSION-6.md`); před každou úlohou curl inventura živého webu ([[feedback-zivy-web-pred-vyberem]]). Starší odkazy na předávky 6./13./14. 10. → PROGRESS-ARCHIV.md § „Přesunuto ze SAMOSTATNY-REZIM.md — audit 18. 10. 2026“.
 
@@ -9,6 +13,17 @@
 📌 Pořadí (učitel 29. 9. 2026): téma po tématu napříč 7./8./9. ročníkem — 1. téma všech tří kompletně (úvod, výklad, zápis, obrázky, kvíz, písnička, video), pak 2. téma…; 6. ročník až po nich.
 
 ## ❓ Otevřené dotazy na učitele (jediná sekce, oprava V8-6, 27. 9. 2026)
+
+### Tabulka pro učitele – audit 8. 11. 2026 (rozhodnutí jedním slovem stačí)
+
+| # | o co jde | možnosti | doporučení |
+|---|---|---|---|
+| K-4 | `graf_local.py` ROLE `worker_rychly` = `qwen3:8b`, ale `~/CLAUDE.md` ř. 31 říká ANO/NE = `gemma4:26b` | A) změnit ROLE na gemma4:26b; B) opravit `~/CLAUDE.md` na qwen3:8b | A – měření v CLAUDE.md je novější |
+| K-5 | `cz.wonderly.nocni-fronta`: plist je, ale `launchctl` hlásí „Could not find service“; `PRAVIDLA.md:720` a `AUTOMATY.md:90` ho vedou jako ✅ | A) zapnout; B) nechat vypnutý a v dokumentech dát ⏸ | ⏸ dokud učitel neřekne |
+| K-8 | `AUTOMATY.md` vede deník jako POZASTAVENO, ale běží `com.omega.foto-hlidac`, `foto-kontrola-kvality`, `foto-pipeline`, `hlidac-session`, `hlidac-zaseknuti`, `kontrola-alba` | A) nechat běžet a opravit dokument; B) vypnout | A – ponechat běžící, opravit dokument |
+| K-14 | „gravitační zrychlení, jinak zvané gravitační konstanta“ (`VrhSimulace.astro:37`, `kvizy.ts`, `14-EVA.txt`); `RETEZ-gravitacni-sila-7.md:18,101` „uzavřeno“ × `HOTOVO-gravitace-7-kolo12.md:99` „věcná chyba“ | A) psát jen „gravitační zrychlení g“; B) ponechat | A – gravitační konstanta κ je jiná veličina |
+| R1 | limit pokusů: `~/.claude/CLAUDE.md` ř. 19–20 a SR (3× → jiný přístup, ~6 → ODLOŽ) × `SKILL.md` ř. 24, 225 + paměť `feedback-katalog-chyb-misto-odkladani` (3× → NEodkládat, přeplánovat dle KATALOG-CHYB) | A) platí SKILL.md; B) platí CLAUDE.md | A – novější pokyn 19. 10.; `~/.claude/CLAUDE.md` srovnat |
+| R2 | záloha při `mv` mimo projekt: `~/.claude/CLAUDE.md` ř. 39 (zálohuje se) × `Omega/PRAVIDLA.md` ř. 587 (bez zálohy, K5-1) | A) zálohovat; B) nezálohovat | rozhodne kód vrátného `/Users/Shared/povoleni_hook.py` (ověřit) a dokumenty se srovnají |
 
 - **30. 10. 2026 — (x) Panel 7. r. „Tělesa stejnorodá a nestejnorodá“ (SEZNAM #167, animace panelu) – BLOKOVANO po 3 kartách Codexu, jde o změnu kostry.** Kontrolor (opus, protokol /tmp/wonderly-workery/protokoly-panelu/7/telesa-stejnoroda-a-nestejnoroda.protokol-panelu.md) dal NEPROŠLO 0/1/2: střední K1-1 – vesta se zvětšuje (`transform-origin: 515px 327px` + `scaleX()`) uvnitř obalu `g scale(0.657142857)` = past Safari/WebKit; oprava vyžaduje odstranit obal g a zmenšení řešit `viewBox`, tj. změnit kostru statického panelu (700×690 → 460×454, přidaná hadice lahev→vesta a `path.vzduch`). Karta k3 (kotva rc 2, 0 SVG ve `vystup/`): „NEPROŠLO: vyžaduje změnu kostry – řádek výjimky učitele“ a „v originálu chybí hadice z lahve do vesty a prvek proudu vzduchu potřebný pro K1-3. Jejich přidání karta zakazuje.“ Nic nezměněno. Volby: (a) povolit výjimku kostry jen pro tento panel (řádek výjimky zapíše učitel; hadice + proud vzduchu + viewBox místo obalu g), opraví Claude exekutor opus s kotvou `kotva_animace.py` a kontrolou Safari (`kontrola_safari_svg.mjs`), Codex ne; (b) panel vyřadit, zůstane statická verze; (c) jiný pracant bez změny kostry – nejde, hadice a vzduch jsou nutná příčina pohybu. **Doporučení: (a).** Do rozhodnutí panel stojí (BLOKOVANO). → **VYŘEŠENO 30. 10. 2026:** učitel: „Ano, výjimka“ – výjimka z hotového pro kostru panelu 7-telesa (varianta a); opravu dělá jiný exekutor.
 - **30. 10. 2026 — (y) Panel 8. r. „Závislost odporu na vodiči“ (SEZNAM #208, nový panel) – BLOKOVANO po 3 kartách Codexu, chybí podklad.** Karta k3 (volba.md, /Users/radek_soukromy/Desktop/Omega/tovarna/panely-codex/panel-8-zavislost-odporu-na-vodici-k3/vystup/volba.md): „NEHOTOVO — nelze vybrat dva nové děje bez zdvojení“; „V povolených podkladech nebyly nalezeny dva různé děje, které současně mají oporu v PDF a nezdvojují obsah uvedený v části ‚Co stránka už má‘. Prezentace podle predloha.md chybí.“ Délku vodiče animuje obr-01 a mění simulace odpor-vodice, tloušťku obr-02 (příčný řez i obr-03), materiál simulace a obr-04, konstrukci rezistoru a proužky obr-05; zbývá jediný kandidát „regulace proudu rezistorem“ (PDF s. 4: „používá se k regulaci velikosti proudu procházejícího obvodem“), a požadované minimum jsou dva panely. Volby: (a) nasadit jen 1 panel (regulace proudu rezistorem) a minimum dvou snížit na 1 pro tuto stránku; (b) panel vyřadit – stránka už děje má; (c) doplnit podklad (chybějící prezentace k tématu) a zadat znovu. **Doporučení: (a)** – jediný doložený a dosud nezobrazený děj má oporu v PDF a nic se nezdvojí; (c) jen pokud se prezentace najde. Do rozhodnutí panel stojí (BLOKOVANO). → **VYŘEŠENO 30. 10. 2026:** učitel: „Jen 1 panel: regulace proudu rezistorem“ – vyrobí se jediný panel s dějem regulace proudu rezistorem (PDF s. 4), ne dva.
@@ -53,13 +68,12 @@
 
 - **14. 10. 2026 (dávka 10) — dotazy:** (a) výklad podtématu alternativni-motory: věta „všechny čtyři doby probíhají současně“ nesedí na 3 komory Wankelova motoru (`Omega/predavka/2026-10-14/W38-kontrola3.md`) — upravit výklad? (b) infografika chemicke-zdroje-napeti je hotová, čeká na rozhodnutí o podtématu; (c) animace W26 (priklady-na-vypocet-rychlosti-dialog, posuvny-otacivy-pohyb-dialog2) ODLOŽENO po 4 pokusech — dokončit po renderu s meridlo_deje.
 
-- **14. 10. 2026 — nové dotazy (podrobně `Omega/predavka/2026-10-14/PREDAVKA-14-10.md`):** (1) Cloudflare Always Use HTTPS (viz níže); (2) 20 dalších odkazů ČT edu vede na video + 3 nefunkční (`predavka/2026-10-13/vlna1/KONTROLA-5b9d5e2.md`) — odstranit? (3) laborka pro kvarky nedává smysl (zrušeno) — vyjmout z měřidla? (4) doplňky ke shrnutím (laborka pololetni-shrnuti F8 napsaná, POZASTAVENA) — dělat? (5) obr-11 u alternátoru má čísla mimo výklad; (6) úvod těžiště „prst podpírá těžiště“ — těžiště je nad prstem; (7) lab.wonderly.cz vrací 403 na požadavky bez User-Agent (Cloudflare ochrana proti botům?) — souvislost se školními PC ověřit.
+- **14. 10. 2026 — nové dotazy (podrobně `Omega/predavka/2026-10-14/PREDAVKA-14-10.md`):** (1) Cloudflare Always Use HTTPS (zapnout v Cloudflare SSL/TLS → Edge Certificates; diagnostika `Omega/predavka/2026-10-13/NEZABEZPECENA-STRANKA.md`); (2) 20 dalších odkazů ČT edu vede na video + 3 nefunkční (`predavka/2026-10-13/vlna1/KONTROLA-5b9d5e2.md`) — odstranit? (3) laborka pro kvarky nedává smysl (zrušeno) — vyjmout z měřidla? (4) doplňky ke shrnutím (laborka pololetni-shrnuti F8 napsaná, POZASTAVENA) — dělat? (5) obr-11 u alternátoru má čísla mimo výklad; (6) úvod těžiště „prst podpírá těžiště“ — těžiště je nad prstem; (7) lab.wonderly.cz vrací 403 na požadavky bez User-Agent (Cloudflare ochrana proti botům?) — souvislost se školními PC ověřit.
 
 - **13. 10. 2026 (vlna 1) — dotazy:** (1) odkaz na video ČT edu v temata.ts ~ř. 2668 (zákon zachování energie) porušuje zákaz cizích videí — odstranit? (2) 4 podtémata bez vhodného českého odkazu (ucinnost, alternator, elektromotor, vlastnosti střídavého proudu); (3) nesoulad výkladu a kvízu pololetí F9 (temata.ts ~3621 × kvizy.ts ~6154); (4) necommitovaná stará zamítnutá `SilaInfografika.astro` (v1) — odstranit? (5) scénář 8/rocni-shrnuti ODLOŽEN (3× neprošel), rozhodnout spolu s 7/rocni-shrnuti. Podrobně `Omega/predavka/2026-10-13/PREDAVKA-VLNA1.md`.
 
-- **14. 10. 2026 — Cloudflare „Always Use HTTPS“ (učitel):** zapnout v nastavení Cloudflare (SSL/TLS → Edge Certificates); diagnostika `Omega/predavka/2026-10-13/NEZABEZPECENA-STRANKA.md`.
 
-- **3. 10. 2026 (b) — video NotebookLM „Tání“ (8. ročník):** kontrola `Omega/predavka/2026-10-03/kontrola-video-tani.md` = použitelné, 2 střední vady (teploměr na snímku 2 má nesmyslnou stupnici, „L_t“ na snímku 11 s podtržítkem). Volba: **A přegenerovat (doporučeno)** / B použít tak, jak je / C nepoužít; k tomu rozhodnout licenci (podmínky použití videí z NotebookLM).
+- **3. 10. 2026 (b) — video NotebookLM „Tání“ (8. ročník):** zbývá rozhodnout LICENCI (podmínky použití videí z NotebookLM); kontrola a volba A/B/C → SAMOSTATNY-REZIM-ARCHIV.md § W5.
 
 - **K1 — [téma 5] Po209 v PDF Radioaktivita s. 9** má poločas 0,000 000 3 s (zřejmě záměna izotopu; v žákovském textu vypuštěno) — co s tím? (podrobnosti: `Omega/predavka/2026-10-01-noc/kontrola-codex-b12.md` § K1: a) opravit na Po212, b) ponechat Po209 a uvést asi 125 let, c) polonium vynechat = současný stav)
 
@@ -69,13 +83,7 @@
 - **[téma 3] d)** Simulace těžiště používá ilustrační čísla (náklaďák kola 180 cm, těžiště 150 cm → 31°; formule 200 cm, 30 cm → 74°), v PDF nejsou — ke schválení.
 - **[téma 3] e)** Kapaliny: doplněná zmínka o tavenině (výroba hliníku) nad rámec PDF — ponechat/vypustit.
 
-- [Omega] **Škola/podkasty — formální schválení výjimky** — složka
-  `/Users/Shared/Škola/podkasty` patří `radek_soukromy`, existuje, obsahuje
-  produkční mp3/přepisy (7/8/9, ověřeno `ls` 28. 9. 2026) a `vyrob_omnivoice.py`
-  do ní aktivně zapisuje — jde o zavedenou, živě používanou výjimku ze
-  „Škola = jen číst" (`_SPOLECNE.md` § Izolace ji tak popisuje). Git historie
-  Omegy neobsahuje žádný commit s výslovným schválením učitele — jde o zavedenou
-  praxi, ne o formálně odklikanou výjimku; učitel má rozhodnout, zda ji potvrdit.
+- [Omega] **Škola/podkasty — formální schválení výjimky** (zapisování mp3 do `/Users/Shared/Škola/podkasty` je zavedená praxe bez výslovného schválení v git historii; učitel má potvrdit) — plné znění SAMOSTATNY-REZIM-ARCHIV.md § W6.
 - [cesty] **KOLODĚJE** — pečlivá anonymizace hotová, kontrolor 0 nálezů, čeká od 21:24.
   `pecliva_videa.py --schvaleno` (nebo `--zamitnuto "důvod"`).
 - [cesty] **Le Bourg-d'Oisans + kapitoly** — tři varianty s cenou (na YouTube je verze
@@ -168,16 +176,35 @@ zkušební sadě značek, pak přidat kontext auta. Plná analýza: PROGRESS-ARC
 - **FRONTA:** do zadání agentů přidat zákaz `git stash` ve sdíleném repu (`Omega/predavka/2026-10-03/zapis-kviz-rychlost.md`).
 - **NotebookLM bonusová videa a Suno písničky zadávat po tématech (1–4); nejdřív inventura existujících** (inventura 2. 10. 2026: `Omega/predavka/2026-10-02/inventura-notebooklm.md`).
 
-> **`WONDERLY` = první nehotový úkol z fronty níž, pracuj samostatně** (kontrolor, kotvy,
-> obousměrné ověření, build, push). Fronta je JEN tady; pořadí práce se ve skillu nerozhoduje
-> (`~/.claude/skills/wonderly/START.md`). **wonderly je JEDEN web, tři sekce — fronta je
-> SPOLEČNÁ.** Každá položka nese na začátku značku sekce: `[fox]` = web pro 1. stupeň,
-> `[skola2]` = lab.wonderly.cz (2. stupeň, tenhle repo), `[cesty]` = cestovatelský deník.
-> Bez značky se nezakládá nová položka.
+> **`WONDERLY` = první nehotový úkol z fronty, pracuj samostatně** — plné znění a pravidla značek `[fox]`/`[skola2]`/`[cesty]`: `~/.claude/skills/wonderly/START.md` ř. 8–16 a 24–44 (původní blok SAMOSTATNY-REZIM-ARCHIV.md § W7). Fronta je JEN tady.
 
 ### 🔴 PRIORITA — přestavba obsahu fyziky (zadáno 21. 9. 2026)
 
 Pravidla přestavby: `OBSAH-PRAVIDLA.md` kap. 3, 12–14; pořadí „téma po tématu napříč 7./8./9.“ viz 📌 Pořadí v ⚡ nahoře. Definice „hotového tématu“ → SAMOSTATNY-REZIM-ARCHIV.md (grep „definice hotového“); původní bloky A–E v archivech NEDOLOŽENY (grep 25. 10. 2026: 0 výskytů) — hledat v `git log -S`. **NIC SE NEMAŽE.**
+
+#### Živé věcné vady (přesunuto z „Organizace“ 8. 11. 2026 — OPRAVIT, nečeká se na rozhodnutí)
+
+- [skola2] **Uzemnění — jednosměrná formulace** (viz nález #16). V `temata.ts`
+  (~ř. 1196) i v kvízu `kvizy.ts` (~ř. 1574) stojí „Země přijme volné elektrony
+  a těleso se vybije" — platí jen pro záporně nabité těleso, u kladně nabitého
+  proudí elektrony opačně (ze Země do tělesa). Nový doklad: video dílu 10
+  ilustruje právě kladně nabitou cisternu s benzínem, takže obrázek a text si
+  u tohoto příkladu odporují (mluvený dialog se pasti vyhnul — mluví neutrálně
+  o „odvedení přebytečného náboje"). Návrh: přeformulovat obousměrně na „náboj
+  se odvede do země / vyrovná se se zemí". OPRAVIT podle tohoto návrhu (věcně
+  správné pro obě polarity, dialogu neodporuje) — nečeká se na rozhodnutí.
+- [skola2] **Značení magnetických pólů — N/S vs. S/J (rozpor napříč webem).** Text i kvíz
+  značí póly anglicky: `temata.ts` ř. 1121 a 1140, `kvizy.ts` ř. 1453 a 1492 („severní
+  (N — north, značí se červeně) a jižní (S — south)", „vycházejí z N a směřují k S").
+  Video a dialog dílu 11 ale používají české S = severní (červená) / J = jižní (modrá)
+  — všech 13 snímků. Písmeno „S" tak v textu znamená jižní pól a ve videu severní pól,
+  tedy přesný opak. Žák, který si pustí video i přečte text, to má proti sobě. Týká se
+  i tématu `magneticke-pole` (temata.ts ř. 3885, 3895), nejde o ojedinělý překlep.
+  Doporučení: sjednotit na české S/J (běžné v českých učebnicích) a v textu jednou
+  větou zmínit, že na koupených magnetech bývá anglické N/S, kde N = severní.
+  OPRAVIT: sjednotit na české S/J podle videa (dominantní ve všech 13 snímcích) a
+  doplnit větu o anglické konvenci N/S — oprava je mechanická (text + kvíz, videa
+  konvenci už mají), nečeká se na rozhodnutí.
 
 ### 🆕 Znovu zařazeno do fronty (audit 27. 9. 2026, 2. kolo — kontrolor V4-2)
 
@@ -241,60 +268,9 @@ Systematický průchod archivu po nálezu, že se smazáním duplicit ztratily i
   ~10 map/fotek deníku (stejné obrázky, stejná otázka, `mapa_projde_kontrolou`);
   vítěz nahradí model v automatech. Zadáno 21. 9. 2026.
 
-### 📥 Nálezy z historie, dosud nevyřešené (přesunuto a otagováno 16. 8. 2026)
+### 📥 Nálezy z historie, dosud nevyřešené
 
-- [cesty] Ručně opravit pořadová čísla u 2 videí na kanálu (přání učitele):
-  `u4NmKbMRhiE` a `9Sv4exafb-c` (tvar `01 · DD. MM. · …`) — stroj na ně
-  nesahá, titulek psal učitel ručně.
-- [cesty] Manifest médií deníku — pro každé místo strojový soupis (zdroje,
-  GPS/čas, anonymizace, výběr do galerie/videa, otisk, odkazy); největší
-  architektonické vylepšení deníku, samostatné kolo.
-- [cesty] Atomická publikace galerií (`nahraj_fotky.py`) — nahrávat do nové
-  verze a zveřejnit jedním manifestem, ať výpadek nenechá venku neúplnou galerii.
-- [cesty] **Úplnost médií ve videích (manifesty)** — přeneseno z archivovaného
-  `Omega/PLAN-PORADEK.md` kroku D2 (27. 9. 2026): u videí bez manifestu doplnit
-  MANIFEST (seznam médií skutečně ve videu) a porovnat s albem/galerií — rozdíl
-  znamená přestavět video; k tomu dvě konkrétní dvojice k ověření, jestli
-  nejsou duplicitně pokryté: Saint-Sauveur ↔ Luxeuil a Neumagen ↔ Trittenheim.
-- [cesty] **Denní kontrola „album+galerie+vklad ↔ manifest videa"** — přeneseno
-  z archivovaného `Omega/PLAN-PORADEK.md`, sekce G bod 2 (27. 9. 2026): dosud
-  jen jednorázový běh `poradek_medii.py` (26 médií do Le Lavandou, 10. 8. 2026),
-  chybí pravidelné/denní měřidlo — navazuje na bod výše (manifest je vstup).
-- [skola2] Typová kontrola (`astro check`) hlásí 5219 chyb — než se zavede
-  jako brána, napřed hlášky probrat (samostatný úkol, ne desetiminutovka).
-- [skola2] Telemetrii (zdravotní reporty automatů) přesunout do zvláštní
-  složky/větve, ať je historie čitelná.
-- [skola2] Sjednotit dokumentaci do tří vrstev (až nakonec, je v ní nasbírané
-  know-how).
-- [skola2] Skript `kontrola_navodu` — deterministická kontrola návodů
-  (existence odkazovaných cest, zakázané opsané konstanty, mrtvé křížové
-  odkazy); nahradí ruční smyčku po /clear.
-- [skola2] Sloučit sandbox testů simulací — 23 kopií prologu (19 rozešlých
-  variant, 767 řádků) do sdíleného `testy/sandbox-simulace.mjs` (do kořene
-  testy/, NE do simulace/); postup po rodinách s mutací před/po každou.
-- [skola2] **Brána pro nové simulace** (nález nedělního auditu 20.–23. 9. 2026).
-  Do `zkontroluj.mjs` chybí kontrola, která by u KAŽDÉ nové komponenty
-  `*Simulace` vynutila vlastní test s aspoň jednou netautologickou asercí. Dnes
-  existují jen testy dopsané POTÉ, co se chyba našla (třída chyby
-  `obsah-simulace`, 19 nálezů z 13. 8. 2026 u tří simulací). Pozn. pro toho, kdo
-  to vezme: nové měřidlo musí mít obousměrný důkaz v `testy/obousmerne.json`,
-  jinak shodí build, a musí být kalibrované na už přijaté práci (131 existujících
-  komponent nesmí shodit bránu).
-- [skola2] **Měřidlo šablon nevidí skládaná id** (nález nedělního auditu
-  20.–23. 9. 2026). Brána hlásí „SestaveniRobotaSimulace: id se skládá výrazem,
-  tahle část se neměří" — kontrola tedy tiše pokrývá jen část vstupů.
-- [skola2] **Laťku kvízů lze utáhnout** (nález nedělního auditu 20.–23. 9. 2026).
-  Brána hlásí zlepšení (612 otázek / 22 %, obří náskok správné odpovědi klesl na
-  264 otázek) a nabízí `npm run prijmi-latku`. Utáhnout, ať se zlepšení nemůže
-  vrátit zpátky.
-- [omega] **Drobnosti z úklidu profilů Chromu** (kontrola zelená, Omega commit
-  `00c7be0`, zdroj `Omega/predavka/2026-10-02/prace/kontrola-00c7be0.md`):
-  (D1) test `test_nevyhodnotitelny_zamek_se_nemaze`
-  (`Omega/testy/test_pojistka_jedno_misto.py:291-293`) zakládá zámek až po
-  `os.utime(-2 h)`, takže se profil přeskočí kvůli stáří, ne kvůli zámku;
-  (D2) větev `PermissionError` z `os.kill` (`snimky_podkastu.py:7295`) nemá test
-  (návrh `os.kill(1, 0)`); (D3) počítadlo `smazano` (`snimky_podkastu.py:7323-7324`)
-  roste i po neúspěšném `rmtree(ignore_errors=True)`.
+Přesunuto 8. 11. 2026 do SAMOSTATNY-REZIM-ARCHIV.md § W2 (~25 otevřených drobných úkolů deníku/skola2 — při výběru práce tam grepnout „[cesty]“ / „[skola2]“).
 
 ## 🧰 POSTUP PRÁCE S KVÍZY (referenční zápis, ne úkol)
 
@@ -302,73 +278,7 @@ Domov: `OBSAH-PRAVIDLA.md` kap. 4 (vč. „chudého podtématu“); nástroje `n
 
 ## Fronta nápadů (seřazeno podle priority)
 
-### [odloženo] Zbytek po opravě 4 úniků (2. 10. 2026)
-- Automat `Omega/skripty/trideni_uniku_krizove.py` zůstává jen PŘEDFILTR s ruční kontrolou (přesnost 7/10 na held-out, nezapojovat do bran): `Omega/predavka/2026-10-02/trideni-uniku-v3.md`, `prace/kalibrace-trideni.md`.
-- Drobnosti z `Omega/predavka/2026-10-02/prace/kontrola-rada-pojistka.md`: mutace v `automat_podkastu.py:627` bez testu; hláška ve `video_podkastu.py:134` (výroba snímků s ročníkovou cestou není zapojena).
-
-### [drobnost] Teplo F8: 3 zbylé nálezy kola 3 (3. 10. 2026, `Omega/predavka/2026-10-03/kontrola-teplo-f8-kolo3.md`)
-- Z1: správná odpověď Q5 (vzorec Q = m · c · (t₂ − t₁)) napovídá nevýpočetní Q7/Q8 (víc m / větší rozdíl → víc Q); vazba je jádrem učiva, jen evidovat.
-- Z2: správná odpověď Q10 (ohřátí 1 kg o 1 °C) napovídá jednotku v Q11 (jmenovatel kg · °C); vlastní vazba učiva, jen evidovat.
-- Z3: vysvětlení Q11 jen popisuje zápis jednotky a neříká „proč“ (OBSAH-PRAVIDLA.md:265); možná oprava bez úniku přes c = Q : (m · Δt) → J : (kg · °C).
-
-### [drobnost] kontrola_uniku_mini a ochranné pásmo — zbytky po opravách (3. 10. 2026)
-- (a) test `kontrola_uniku_mini` nepozná podřetězec sedící na 1 blok („odraz-svetl“ → 21).
-- (b) ostrý běh `kontrola_uniku_mini` ověřuje další blok až po práci na předchozím a výsledky se ztratí.
-- (c) ochranné pásmo: zdůvodnění odkazuje na § 46 odst. 3 a 8, účel je v odst. 1; podobné formulace se opakují v definici, větě „pravidlo pro stavby a práce“ a vysvětleních `kvizy.ts` 5126/5130.
-
-### [fronta] Fronta po 3. 10. odpoledne (doklady v `Omega/predavka/2026-10-03/`)
-- FRONTA: opravit ~34 skutečných drobných úniků z uniky-v-bloku (seznam v `Omega/predavka/2026-10-03/kalibrace-uniky-v-bloku.md`), pak měřidlo zapojit do prebuild.
-- FRONTA: doladit práh měřidla u tříslovných odpovědí (únik 2 ze 3 slov propadne) a únik do distraktoru (`kontrola-56c1b08.md`).
-- FRONTA drobnost: reostat (`kvizy.ts:4618`) má jako distraktor doslova správnou odpověď potenciometru; posoudit, jestli je to záměr.
-- FRONTA: homebrew whisper rozbitý (numba × NumPy 2.5); automaty používají venv a fungují; až vyjde nová numba, brew upgrade (`oprava-whisper.md`).
-- Drobnost: zápisový protokol davka6 uvádí #39 místo #38.
-
-### [fronta] Fronta po 3. 10. pozdě večer (doklady v `Omega/predavka/2026-10-03/`)
-- F7: 2 podtémata přišla o odkaz Techmanie (nad úroveň) — náhrada: pohyb HOTOVO (výklad ucim-se.webnode.cz + test zsadolfovice, `kontrola-nahrady-odkazu-f7.md`); tíha bez náhrady (nic vhodného nenalezeno), zůstává s 1 odkazem. Doklad: `Omega/predavka/2026-10-03/oprava-odkazu-f7-f9.md`.
-- Úniky paralel (vysvětlení č. 13, 18, 19) a nakloněná rovina (vysvětlení č. 2, 12, 19) — `kontrola-vady-d1-d6.md`.
-- SVG N7 mřížka uhlíku `vnitrni-energie-obr-01` (věcná chyba); N6 bublina `pohybova-03` (`kontrola-5a9952f.md`, `kontrola-de827ed.md`).
-- SilaVektor: bílý text „bedna“, kontrast 3,6.
-- `uniky.mjs:906` mlčí při cestě se symlinkem nebo diakritikou.
-- Test uniky-v-bloku nechytí 3 mutace (`kontrola-f261481.md`).
-- Hlídač session nepozná agenta čekajícího na dotaz (6 h stání 3. 10.).
-- ODLOŽENO: 18 zbylých nálezů uniky-v-bloku (hraniční/sporné).
-
-### [drobnost] Zbytky po dnešní práci (3. 10. 2026)
-- Šipka páry u tlakového hrnce: `src/components/skola2/VarSimulace.astro:224–228` (kontrola3).
-- Vata `teziste#17#1`: potřebuje nový návrh.
-- Zápisový skript vaty nenajde 26 bloků „shrnuti“.
-- 10 zamítnutých návrhů vaty z dávky 1 (k přepracování).
-- Další dávka vaty (20 položek) čeká na schválení učitele.
-- paralel: vazby 19→13 a 9→1 (+10→2, `kontrola-uniky-paralel-rovina.md`) zůstávají, dva návrhy zamítnuty pro nové úniky 18→19 a 9→8 (kontrola-uniky-paralel-vazby.md); otázky se míchají, pořadí nechrání
-
-### [drobnost] Dočasný profil Chromu zůstane v tmp po TERM/KILL (1. 10. 2026, kontrola stash F9, nález A)
-
-`Omega/skripty/snimky_podkastu.py:~7395` (`_spust`, `tempfile.mkdtemp`) maže profil přes `atexit`; při SIGTERM/SIGKILL (např. timeout v `automat_podkastu.spust`) atexit neproběhne a `$TMPDIR/omega-chrome-*` (~2,8 MB) zůstane. Chrome sám nevisí (končí se zavřením roury). Důkaz: po TERM i KILL „profil ZUSTAL“, po INT smazán. Podrobnosti: `Omega/predavka/2026-10-01-den/kontrola-stash-f9.md` (A1). Oprava: signal handler pro TERM, nebo úklid starých `omega-chrome-*` při startu.
-
-### [drobnost] BezpecnaVzdalenostVedeni: pahýl drátu vede skrz stožár (1. 10. 2026, kontrola 3 simulace F9, N4)
-
-`src/components/skola2/BezpecnaVzdalenostVedeniSimulace.astro` ř.~156: pahýl levého vodiče z ramene (160,90) šikmo doprava protíná sloup u (198,109) a pravou vzpěru u (204,112) — drát prochází konstrukcí. Totéž měl už původní levý vodič. Náprava: vést pahýl před/za stožárem tak, aby konstrukcí neprocházel. Protokol: `Omega/predavka/2026-10-01-den/kontrola3-simulace-f9.md` (N4).
-
-### [drobnost] BezpecnaVzdalenostVedeni: roztřepené konce drátu vypadají jako šipky (1. 10. 2026, kontrola 3 simulace F9, N5)
-
-Tentýž soubor, `strapek()` ř.~162–168: 3 čárky rozevřené ±0,6 rad vypadají jako hrot šipky (konec na zemi x=246, pahýl dolů‑doprava), žák je může číst jako směr proudu (jeden tvar = jeden význam). Náprava: nepravidelné kratší střapce bez společného hrotu, nebo bez rozevření. Protokol: `Omega/predavka/2026-10-01-den/kontrola3-simulace-f9.md` (N5).
-
-### [drobnost] Pojistka slugu jde obejít přímým spuštěním snimky_/animace_podkastu.py (1. 10. 2026, kontrola 3)
-
-`skripty/snimky_podkastu.py:7256-7268` a `animace_podkastu.py:4996-5025` zapisují do `podkasty-snimky/<slug>` bez `over_kolizi_slugu` / kontroly značky ročníku; přímé volání dokumentuje `skills/podkast-video/SKILL.md:90`. Náprava (návrh): volat pojistku + `zapis_vlastnika` i v `main()` obou skriptů. Protokol: `Omega/predavka/2026-10-01-den/kontrola3-video-automatu.md` (nález 1).
-
-### [drobnost] Značka ročníku slugu není atomická (1. 10. 2026, kontrola 3)
-
-`automat_podkastu.py` a `dodelej_animace.py` mají různé zámky; zápis značky (`video_podkastu.py:88-100`, `exists()+write_text`) není atomický a po zápisu se nečte, čí značka vyhrála (okno teoretické). Náprava: zápis `O_EXCL` + po zápisu ověřit vlastní ročník, jinak KOLIZE. Protokol: tentýž soubor, nález 2 (důkaz `race.txt`).
-
-### [drobnost] KE-SCHVALENI.md v deníku má 280 MB (zjištěno 27. 9. 2026, V18 kolo 2)
-
-`/Users/Shared/Cestovatelský deník/KE-SCHVALENI.md` je append-only provozní log, do
-kterého zapisuje ~13 automatů deníku (`Omega/skripty/*.py`, grep `KE_SCHVALENI`) —
-27. 9. 2026 měl **280 954 572 bajtů**. Podezření: nějaký automat čte/zapisuje soubor
-přes `read_text()`/append opakovaně a hromadí duplicity, nebo omylem zapisuje binární
-obsah. Nejde o chybu blokující práci, jen prošetřit a případně soubor rozdělit/otočit
-(log rotation), ať nezpomaluje čtení a needitovatelný soubor v editorech.
+Drobnosti a odložené zbytky z 1.–3. 10. 2026 přesunuty 8. 11. 2026 do SAMOSTATNY-REZIM-ARCHIV.md § W1 (nic nesmazáno; úkoly zůstávají otevřené).
 
 ### [skola2] ⛔ NESAHAT — UČITEL ROZHODNE SÁM — odpor lidské kůže (zjištěno 25. 9. 2026)
 
@@ -379,51 +289,9 @@ nedoplňovat ani nemazat — ani podle PDF, ani podle jiného zdroje. Platí pro
 
 *(Zdůvodnění: PDF učitele „Účinky proudu na lidský organismus“ si v číslech odporu kůže odporuje; web uvádí sucho ~150 000 Ω, vlhko ~2 000 Ω. Plné znění → PROGRESS-ARCHIV.md § S12.)*
 
-### Přestěhováno z FRONTA-UKOLU.md (6. 8. 2026 — sloučení dvou front, nález auditu)
+### Přestěhováno z FRONTA-UKOLU.md (6. 8. 2026)
 
-Škola (web):
-- [skola2] Zpřesnit brány kvízové kontroly: `testy/cisla-ve-vykladu.mjs:25` má `const MALE = 12` a přeskakuje tak i menší desetinná čísla (past: 1,29 vs. 1,23 kg/m³ neodhaleno) — snížit práh nebo přidat kontrolu desetinných čísel. Zadáno 22. 9. 2026 noc při sladění kvízů 24 podtémat. (Část „měření náskoku ≥10 znaků“ HOTOVO: `zkontroluj.mjs:218` `pocetNaskok10`, `rohatka.json`.)
-- [skola2] `zkontroluj.mjs`: počítadlo otázek (`^\s*text:\s*'`) nepočítá starší jednořádkový
-  zápis kvízů — jen kosmetika výpisu, opravit regex (nález 28. 7. u F8 tepelná výměna).
-- [skola2] Simulace „Změř to rukou, nebo teploměrem?" (tři kádinky) — F6 teplota.
-- [skola2] Generátor příkladů na průměrnou teplotu s grafem (celá čísla) — F6.
-- [skola2] Doplnit kompenzátor (expanzní smyčku) do výkladu teplotní roztažnosti.
-
-Deník:
-- [cesty] Opravit 8 VAD z auditu webu 29. 7. (datum „červenec 2026" v EN/DE, neklikací
-  piny bez JS, překryv pinů roků, atribuce mapy, video bez datové předpony,
-  `satisfies` v preklady.ts) — drobné, bez rozhodování.
-- [cesty] Připomínky učitele 29. 7.: úvodní mapa roku začíná doma (jižní Čechy) ·
-  u karty místa jen jeho vlastní video · fotogalerie u míst 2026 (náhled + zvětšení).
-- [cesty] Stará videa a fotky k bodům starších cest (zadání 2. 8., postup
-  v `Cestovatelský deník/KE-SCHVALENI.md`) — začít bodem (a): `videa_k_mistum.py`.
-
-Organizace:
-- [skola2] Po sjednocení úložiště modelů znovu ostrý test `graf_local.py` (dva modely).
-
-- [skola2] **Uzemnění — jednosměrná formulace** (viz nález #16). V `temata.ts`
-  (~ř. 1196) i v kvízu `kvizy.ts` (~ř. 1574) stojí „Země přijme volné elektrony
-  a těleso se vybije" — platí jen pro záporně nabité těleso, u kladně nabitého
-  proudí elektrony opačně (ze Země do tělesa). Nový doklad: video dílu 10
-  ilustruje právě kladně nabitou cisternu s benzínem, takže obrázek a text si
-  u tohoto příkladu odporují (mluvený dialog se pasti vyhnul — mluví neutrálně
-  o „odvedení přebytečného náboje"). Návrh: přeformulovat obousměrně na „náboj
-  se odvede do země / vyrovná se se zemí". OPRAVIT podle tohoto návrhu (věcně
-  správné pro obě polarity, dialogu neodporuje) — nečeká se na rozhodnutí.
-- [skola2] **Značení magnetických pólů — N/S vs. S/J (rozpor napříč webem).** Text i kvíz
-  značí póly anglicky: `temata.ts` ř. 1121 a 1140, `kvizy.ts` ř. 1453 a 1492 („severní
-  (N — north, značí se červeně) a jižní (S — south)", „vycházejí z N a směřují k S").
-  Video a dialog dílu 11 ale používají české S = severní (červená) / J = jižní (modrá)
-  — všech 13 snímků. Písmeno „S" tak v textu znamená jižní pól a ve videu severní pól,
-  tedy přesný opak. Žák, který si pustí video i přečte text, to má proti sobě. Týká se
-  i tématu `magneticke-pole` (temata.ts ř. 3885, 3895), nejde o ojedinělý překlep.
-  Doporučení: sjednotit na české S/J (běžné v českých učebnicích) a v textu jednou
-  větou zmínit, že na koupených magnetech bývá anglické N/S, kde N = severní.
-  OPRAVIT: sjednotit na české S/J podle videa (dominantní ve všech 13 snímcích) a
-  doplnit větu o anglické konvenci N/S — oprava je mechanická (text + kvíz, videa
-  konvenci už mají), nečeká se na rozhodnutí.
-- [cesty] **`MISTA.xlsx` otevřený v Excelu** ukazuje starou kopii — zavřít bez ukládání
-  (akce pro učitele, ne pro automat).
+Zbylé drobnosti → SAMOSTATNY-REZIM-ARCHIV.md § W3. Živé věcné vady (uzemnění, N/S) jsou nahoře v 🔴 PRIORITA.
 
 ### 🆕 Velké nálezy auditu 18. 10. 2026 (1 řádek = 1 úkol; podrobnosti v `Omega/predavka/2026-10-18/`)
 - [skola2] K1-T1 (`AUDIT-K1-tridy-chyb.md`): skript `obr_animovane.mjs <url>` (seznam animovaných obr-*), jeho výstup povinná příloha zadání panelu i kontroly (zdvojení panelu s animací se vrátilo 3× i po návodu).
@@ -445,6 +313,21 @@ Organizace:
 - [skola2] Appka /tour — automatické přepínání (zadáno 4. 8.): otevřený úkol, detail `PROGRESS-ARCHIV.md:2371`.
 - [skola2] D1: `~/.hermes` na disku zůstává (jen podsložka `node`, binárka `hermes-agent/venv/bin/hermes` neexistuje, ověřeno 25. 10.) — rozhodnout o smazání složky (jen s dokladem/zálohou).
 
+### 🆕 Velké nálezy – audit 8. 11. 2026 (1 řádek = 1 úkol; zprávy v `Omega/predavka/2026-11-08/audit/`, soupis `AKCE.md`)
+- [ ] [skola2] [T08-brána] brána proti tvrzení bez opory (zdroj: soubor, s. N; obousměrný důkaz W115, píseň 49 k1) — A#1, ≥7 výskytů
+- [ ] [Omega] [limit-kol] počitadlo kol mimo automat: 3. NEPROŠLO = rc 2 + zpráva preplanovani — A#2 (Magnety 9, gravitace 12, render 15–22)
+- [ ] [Omega] [záznamy-chyb] brána NEPROŠLO protokoly vs. SELHANI; `protokoly_do_deniku.py` do dispečera (`denik-chyb.json` od 26. 10. prázdný) — A#3, třetí audit
+- [ ] [skola2] [T01-obr_animovane] `obr_animovane.mjs` + příloha zadání panelu — A#4
+- [ ] [skola2] [T03/T05/T06/T11] `meridlo_obrazu.py` na SVG panely + kalibrace — A#5
+- [ ] [Omega] [metriky] pevná množina startovního čtení do METRIKY-KOL.md (97 637 B bez / 119 117 B s MEMORY.md) — KOTVY 6, C1
+- [ ] [Omega] [odložené-15] ověřit `pololetni-shrnuti-dialog{,2,3,4}.mp4` proti přepisu 21. 8. — A#11
+- [ ] [Omega] [odložené-mini] ověřit na mini plánovač vs. dispečer, `inventura.py` od 27. 10. — A#12
+- [ ] [Omega] [odložené-Chatterbox] → dotaz učiteli (>3 měsíce) — A#13
+- [ ] [skola2] [SR-dotazy] potvrdit zastaralost KOLODĚJE, Le Bourg, Chrome (v ❓ výše) — C#7
+- [ ] [skola2] [kontrast-panelů] 24 nesledovaných panelů s kontrastem < 4,5:1 (atmosfericky-tlak-panel-2 1,35:1, archimeduv-zakon-panel-2 1,0:1) — KOTVY 2
+- [ ] [skola2] [vady-uzemnění-NS] „Země přijme volné elektrony“ (temata 1×, kvizy 1×), „N — north“ (temata 2×) živé — viz 🔴 PRIORITA výše — C#3
+- [ ] [skola2] [SR-⚡] obnovit ⚡ ČÍM ZAČÍT a PRIKAZ-NOVA-SESSION — C R4 (⚡ aktualizováno 8. 11.; PRIKAZ-NOVA-SESSION zbývá)
+
 ### Další úkoly
 - [skola2] Média k Fyzice 6 (infografiky/písně/videa z YouTube automatu — dosud nedodělané)
 - [skola2] Projít prezentace /Users/Shared/Škola/6/ — DOKONČIT: zbývá „Stavba látek" (snímky 4+ bez textu — jen obrázky), „TEPLOTA" snímky 2–10 (obrázky), „Dráha puzzle", „Fyzika opakování rok"; z „Síla 6" zpracována tabulka planet (kolo 15)
@@ -454,14 +337,6 @@ Organizace:
 
 ## Odloženo — zaseklo se (max 3 pokusy na problém, pak sem a dál)
 
-### ODLOŽENO: detektor tajemství propustí hodnotu bez uvozovek s „(" hned za ní (audit 27. 9. 2026)
-`Omega/skripty/zaloha_git.py` (`_tajemstvi_mimo_python`, ř. 205–210) — pro
-nekótovanou hodnotu (shell/.env tvar) se celý nález zahodí, pokud hodnota
-OBSAHUJE „(" kdekoli (`if "." in hodnota or "$" in hodnota or "(" in hodnota:
-continue`), ne jen bezprostředně za koncem tokenu — skutečný token zakončený
-nebo doprovázený „(" (např. odřezek shellové substituce) tak unikne detekci.
-Řešeno už 3× (V7→V10→V13→V16, viz komentář v kódu u `_VZOR_E69BBA1`), princip
-regexu se dál neupravuje; oprava vyžaduje stejný „dočti zbytek a zeptej se na
-POZICI" postup jako `_tajemstvi_obecnym_vzorem`, jen pro tuto (`.env`) větev.
+### ODLOŽENO: detektor tajemství (`Omega/skripty/zaloha_git.py`) — plné znění a stav v `Omega/ODLOZENE.md`; původní text SAMOSTATNY-REZIM-ARCHIV.md § W8.
 
 Archivy: `SAMOSTATNY-REZIM-ARCHIV.md` (uzavřená kola od 6. 8.; nevyřešené DROBNÉ/ODLOŽENO z 30. 9.–2. 10. přesunuto 11. 10.; starší blok od původního ř. 235; podrobný průběh 21.–22. 9. — PŘEDÁNÍ, sladění kvízů, past souběžného zápisu `temata.ts`×`kvizy.ts`, mezery bran) a `PROGRESS-ARCHIV.md`. Sem patří JEN živé věci; hotová kola se na konci session stěhují do archivu. Nové úkoly pro lokální graf zakládat ve `wonderly-fronta`; fronta Claude session je tady (`~/.claude/skills/wonderly/START.md`).

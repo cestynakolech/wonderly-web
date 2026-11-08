@@ -65,6 +65,9 @@ git push origin main                  # nasadí návrat
 Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `fyzika-7-hotova`), návrat `git revert` nebo `git checkout <tag> -- .`.
 **Milníky značíme tagem** po dokončení většího celku: `git tag -a <nazev> -m "popis" && git push origin <nazev>`.
 
+## Historie — 8. 11. 2026: nedělní audit
+Nálezy: kontrolor A 13 (5 velkých, 8 malých), B závažné 3 (K4, K8, noční fronta; mrtvé cesty 4, kopie 8), C 18 položek úspor (≈ 19 870 B). Brána opravena (b2a40e2: obousměrné testy `bezpecnost-laborek`, `cela-cisla-laborek`). Dokumenty: SAMOSTATNY-REZIM.md zkrácen přesunem W1–W3, W5–W8 do SAMOSTATNY-REZIM-ARCHIV.md § „Přesunuto … audit 8. 11. 2026“ (66 008 → 56 400 B), fronta „Velké nálezy – audit 8. 11. 2026“ (13 řádků), tabulka dotazů pro učitele (K-4, K-5, K-8, K-14, R1, R2), W10–W13 a W11 (PANELY-NAVOD.md § Poučení 15.–20. 10.). Kód: testy `hra-*` bez `/tmp/` (cesta `testy/zdroje/pdf-text/`, text PDF už není k dispozici → kontrola úryvků se přeskočí), nová kontrola v `zkontroluj.mjs` (literál `/tmp/` v testy/*.mjs|js|ts|py, obousměrně ověřeno na podvrhu v kopii), `.githooks/pre-commit` mód +x, odkaz na neexistující `test_bez_kopii.py` zrušen. Startovní čtení 8. 11.: 90 099 B (CLAUDE.md+PROGRESS.md+SR+SKILL.md), 25. 10.: 75 124 B. Protokol: `Omega/predavka/2026-11-08/audit/EXEKUTOR-W.md`.
+
 ## Historie — 7. 11. 2026: gravitační síla 7. r., polemika 1. díl
 7. 11.: video `gravitacni-sila-dialog.mp4` (281,6 s, modul 88265ffd) nasazeno do R2 + odkaz v temata.ts (commit eb51af3, `wrangler deploy` 6bb3c89c), výjimky učitele: kvíz 17/21 a brána pohybu s10/s12/s14; SEZNAM #23.
 
