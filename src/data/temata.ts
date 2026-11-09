@@ -2901,6 +2901,7 @@ export const temata: Record<string, Tema[]> = {
 					materialy: [
 						{ druh: 'infografika', nazev: 'Infografika: Tepelná výměna a teplo v kostce', cesta: '/materialy/fyzika/8-rocnik/energie/tepelna-vymena-a-teplo/infografika-tepelna-vymena-a-teplo.svg', panely: ['/materialy/fyzika/8-rocnik/energie/tepelna-vymena-a-teplo/infografika-tepelna-vymena-a-teplo-panel-1.svg', '/materialy/fyzika/8-rocnik/energie/tepelna-vymena-a-teplo/infografika-tepelna-vymena-a-teplo-panel-2.svg', '/materialy/fyzika/8-rocnik/energie/tepelna-vymena-a-teplo/infografika-tepelna-vymena-a-teplo-panel-3.svg', '/materialy/fyzika/8-rocnik/energie/tepelna-vymena-a-teplo/infografika-tepelna-vymena-a-teplo-panel-4.svg', '/materialy/fyzika/8-rocnik/energie/tepelna-vymena-a-teplo/infografika-tepelna-vymena-a-teplo-panel-5.svg', '/materialy/fyzika/8-rocnik/energie/tepelna-vymena-a-teplo/infografika-tepelna-vymena-a-teplo-panel-6.svg'] },
 						{ druh: 'youtube', nazev: 'Video: Teplo a teplota (ústřední topení)', cesta: 'YLiXzSWoRRg' },
+						{ druh: 'video', nazev: 'Píseň: Tepelná výměna a teplo 🎵', cesta: '/materialy/fyzika/8-rocnik/energie/tepelna-vymena-a-teplo/pisen-tepelna-vymena-a-teplo.m4a' },
 					],
 				},
 			],
@@ -3453,6 +3454,8 @@ export const temata: Record<string, Tema[]> = {
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Jak se točí elektromotory', cesta: 'Hi-Tc84eglY' },
 						{ druh: 'infografika', nazev: 'Infografika: Jak se točí elektromotor', cesta: '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/pusobeni-pole-na-vodic-elektromotor/infografika-pusobeni-pole-na-vodic-elektromotor-panel-1.svg', panely: ['/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/pusobeni-pole-na-vodic-elektromotor/infografika-pusobeni-pole-na-vodic-elektromotor-panel-1.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/pusobeni-pole-na-vodic-elektromotor/infografika-pusobeni-pole-na-vodic-elektromotor-panel-2.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/pusobeni-pole-na-vodic-elektromotor/infografika-pusobeni-pole-na-vodic-elektromotor-panel-3.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/pusobeni-pole-na-vodic-elektromotor/infografika-pusobeni-pole-na-vodic-elektromotor-panel-4.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/pusobeni-pole-na-vodic-elektromotor/infografika-pusobeni-pole-na-vodic-elektromotor-panel-5.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/pusobeni-pole-na-vodic-elektromotor/infografika-pusobeni-pole-na-vodic-elektromotor-panel-6.svg'] },
+						{ druh: 'video', nazev: 'Píseň: Levá ruka a motor 🎵', cesta: '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/pusobeni-pole-na-vodic-elektromotor/pisen-leva-ruka-a-motor.mp4' },
+						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Jak komutátor roztočí stejnosměrný elektromotor (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/9-rocnik/indukce-a-stridavy-proud/pusobeni-pole-na-vodic-elektromotor/notebooklm-pusobeni-pole-na-vodic-elektromotor.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
 					],
 				},
 				{
@@ -3572,6 +3575,7 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'infografika', nazev: 'Infografika: Proud v plynech v kostce', cesta: '/materialy/fyzika/9-rocnik/elektricky-proud-v-latkach/vedeni-proudu-v-plynech/infografika-vedeni-proudu-v-plynech.svg', panely: ['/materialy/fyzika/9-rocnik/elektricky-proud-v-latkach/vedeni-proudu-v-plynech/infografika-vedeni-proudu-v-plynech-panel-1.svg', '/materialy/fyzika/9-rocnik/elektricky-proud-v-latkach/vedeni-proudu-v-plynech/infografika-vedeni-proudu-v-plynech-panel-2.svg', '/materialy/fyzika/9-rocnik/elektricky-proud-v-latkach/vedeni-proudu-v-plynech/infografika-vedeni-proudu-v-plynech-panel-3.svg', '/materialy/fyzika/9-rocnik/elektricky-proud-v-latkach/vedeni-proudu-v-plynech/infografika-vedeni-proudu-v-plynech-panel-4.svg', '/materialy/fyzika/9-rocnik/elektricky-proud-v-latkach/vedeni-proudu-v-plynech/infografika-vedeni-proudu-v-plynech-panel-5.svg', '/materialy/fyzika/9-rocnik/elektricky-proud-v-latkach/vedeni-proudu-v-plynech/infografika-vedeni-proudu-v-plynech-panel-6.svg'] },
 						{ druh: 'infografika', nazev: 'Infografika: Zředěný vzduch svítí', cesta: '/materialy/fyzika/9-rocnik/elektricky-proud-v-latkach/vedeni-proudu-v-plynech/infografika-vedeni-proudu-v-plynech-pohyb-panel-1.svg', panely: ['/materialy/fyzika/9-rocnik/elektricky-proud-v-latkach/vedeni-proudu-v-plynech/infografika-vedeni-proudu-v-plynech-pohyb-panel-1.svg'] },
 						{ druh: 'youtube', nazev: 'Video: Jak funguje blesk', cesta: 'rTo2z2xTOGk' },
+						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Je vzduch izolant, nebo špatný vodič? (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/9-rocnik/elektricky-proud-v-latkach/vedeni-proudu-v-plynech/notebooklm-vedeni-proudu-v-plynech.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
 					],
 					odkazy: [],
 				},
@@ -3618,6 +3622,7 @@ export const temata: Record<string, Tema[]> = {
 								'/materialy/fyzika/9-rocnik/elektricky-proud-v-latkach/polovodice-typu-n-a-p-dioda/infografika-polovodice-typu-n-a-p-dioda-panel-4.svg',
 							],
 						},
+						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Hradlová vrstva versus elektrony a díry (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/9-rocnik/elektricky-proud-v-latkach/polovodice-typu-n-a-p-dioda/notebooklm-polovodice-typu-n-a-p-dioda.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
 					],
 					odkazy: [],
 				},
