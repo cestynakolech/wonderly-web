@@ -2829,6 +2829,7 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'infografika', nazev: 'Infografika: Energie a její přeměny v kostce', cesta: '/materialy/fyzika/8-rocnik/energie/energie-a-jeji-premeny/infografika-energie-a-jeji-premeny.svg', panely: ['/materialy/fyzika/8-rocnik/energie/energie-a-jeji-premeny/infografika-energie-a-jeji-premeny-panel-1.svg', '/materialy/fyzika/8-rocnik/energie/energie-a-jeji-premeny/infografika-energie-a-jeji-premeny-panel-2.svg', '/materialy/fyzika/8-rocnik/energie/energie-a-jeji-premeny/infografika-energie-a-jeji-premeny-panel-3.svg', '/materialy/fyzika/8-rocnik/energie/energie-a-jeji-premeny/infografika-energie-a-jeji-premeny-panel-4.svg', '/materialy/fyzika/8-rocnik/energie/energie-a-jeji-premeny/infografika-energie-a-jeji-premeny-panel-5.svg'] },
 						{ druh: 'youtube', nazev: 'Video: Zákon zachování energie', cesta: 'vDavukfb5qU' },
 						{ druh: 'video', nazev: 'Píseň: Nedá se zničit 🎵', cesta: '/materialy/fyzika/8-rocnik/energie/energie-a-jeji-premeny/pisen-neda-se-znicit.m4a' },
+						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Cesta energie od Slunce k žárovce (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/8-rocnik/energie/energie-a-jeji-premeny/notebooklm-energie-a-jeji-premeny.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
 					],
 					odkazy: [],
 				},
