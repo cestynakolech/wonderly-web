@@ -2808,6 +2808,7 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '/media/fyzika/8-rocnik/mechanicka-prace-a-vykon/ucinnost/ucinnost-dialog2.mp4',
 							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
 						},
+						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Proč je stoprocentní účinnost fyzikálně nemožná (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/8-rocnik/mechanicka-prace-a-vykon/ucinnost/notebooklm-ucinnost.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
 					],
 				},
 			],
