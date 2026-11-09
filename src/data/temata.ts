@@ -2862,6 +2862,7 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'video', nazev: 'Píseň: Součet se nemění 🎵', cesta: '/materialy/fyzika/8-rocnik/energie/zakon-zachovani-mechanicke-energie/pisen-zakon-zachovani-mechanicke-energie.m4a' },
 						{ druh: 'infografika', nazev: 'Infografika: Zákon zachování mechanické energie v kostce', cesta: '/materialy/fyzika/8-rocnik/energie/zakon-zachovani-mechanicke-energie/infografika-zakon-zachovani-mechanicke-energie.svg', panely: ['/materialy/fyzika/8-rocnik/energie/zakon-zachovani-mechanicke-energie/infografika-zakon-zachovani-mechanicke-energie-panel-1.svg', '/materialy/fyzika/8-rocnik/energie/zakon-zachovani-mechanicke-energie/infografika-zakon-zachovani-mechanicke-energie-panel-2.svg', '/materialy/fyzika/8-rocnik/energie/zakon-zachovani-mechanicke-energie/infografika-zakon-zachovani-mechanicke-energie-panel-3.svg', '/materialy/fyzika/8-rocnik/energie/zakon-zachovani-mechanicke-energie/infografika-zakon-zachovani-mechanicke-energie-panel-4.svg', '/materialy/fyzika/8-rocnik/energie/zakon-zachovani-mechanicke-energie/infografika-zakon-zachovani-mechanicke-energie-panel-5.svg'] },
 						{ druh: 'youtube', nazev: 'Video: Zákon zachování energie', cesta: 'vDavukfb5qU' },
+						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Kam mizí mechanická energie na U-rampě (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/8-rocnik/energie/zakon-zachovani-mechanicke-energie/notebooklm-zakon-zachovani-mechanicke-energie.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
 					],
 				},
 				{
@@ -2876,6 +2877,7 @@ export const temata: Record<string, Tema[]> = {
 					materialy: [
 						{ druh: 'infografika', nazev: 'Infografika: Energetická hodnota potravin v kostce', cesta: '/materialy/fyzika/8-rocnik/energie/energeticka-hodnota-potravin/infografika-energeticka-hodnota-potravin.svg', panely: ['/materialy/fyzika/8-rocnik/energie/energeticka-hodnota-potravin/infografika-energeticka-hodnota-potravin-panel-1.svg', '/materialy/fyzika/8-rocnik/energie/energeticka-hodnota-potravin/infografika-energeticka-hodnota-potravin-panel-2.svg', '/materialy/fyzika/8-rocnik/energie/energeticka-hodnota-potravin/infografika-energeticka-hodnota-potravin-panel-3.svg', '/materialy/fyzika/8-rocnik/energie/energeticka-hodnota-potravin/infografika-energeticka-hodnota-potravin-panel-4.svg', '/materialy/fyzika/8-rocnik/energie/energeticka-hodnota-potravin/infografika-energeticka-hodnota-potravin-panel-5.svg'] },
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Energie v potravinách (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/energie/energeticka-hodnota-potravin/notebooklm-energeticka-hodnota-potravin.mp4' },
+						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Kalorie na obalu versus skutečná porce (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/8-rocnik/energie/energeticka-hodnota-potravin/notebooklm-energeticka-hodnota-potravin.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
 					],
 				},
 				{
