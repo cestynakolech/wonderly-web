@@ -40,7 +40,7 @@ Tři pravidla řetězu — platí na KAŽDÝ článek zvlášť:
    která není v PDF, v prezentaci ani v ŠVP. **Co ŠVP požaduje a v PDF ani prezentaci chybí, se MUSÍ doplnit – zjednodušeně, na úrovni 1. stupně** (učitel 21. 10. 2026).
 2. **Nic nesmí vypadnout.** Článek musí pokrýt všechno z předchozího.
    Výklad pokrývá celé PDF + prezentaci; kvíz pokrývá celý výklad;
-   video (polemika) pokrývá všechny kvízové otázky tématu.
+   díl polemiky Evy a Marka pokrývá otázky podtématu, ke kterému patří (rozhodnutí učitele 10. 11. 2026).
 3. **Žák si musí mít možnost procvičit VŠECHNO, co je ve výkladu.**
    Když je ve výkladu jev, ke kterému není otázka, chybí otázka — ne naopak.
 
@@ -105,6 +105,7 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
 
 ## 3. VÝKLAD (temata.ts)
 
+- **Text se píše vždy nově, obrázky se kreslí nové; nic se nekopíruje** (autorská práva; rozhodnutí učitele 10. 11. 2026).
 - Vzniká **z PDF + z popisu prezentace** k témuž podtématu. Jiný zdroj se používá jen na ověření, ne jako předloha – výjimka: co požaduje ŠVP a v předloze chybí, se doplní zjednodušeně na úrovni 1. stupně (kap. 1, bod 1).
 - **PREZENTACE JSOU ROVNOCENNÝ ZDROJ S PDF** (rozhodnutí učitele 19. 8. 2026 — bod B), ne podřízený.
   Dřívější formulace „určující je vždy PDF" **NEPLATÍ** a je z `src/pages/skola2/_CLAUDE.md` odstraněna.
@@ -128,12 +129,12 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
   věcně správně (zjednodušení nesmí být nepravda). Je to vstup do problematiky, ne náhrada výkladu.
 - **ZÁPIS DO SEŠITU = jen pár řádků, ne celá A4** (pravidlo učitele 4. 10. 2026: „děti by to
   nestihly opsat ani se naučit. Krátce a všeobecně, žádná přesná data; nejvýš 1 klíčové číslo“;
-  nahrazuje dřívější limit 8 řádků / ~70 slov). **KOTVA: max ~5 bodů, každý jedna krátká věta**
-  (limit auditu: >5 bodů nebo >60 slov = nad limitem). Co je navíc, patří do výkladu, ne do zápisu. Vzorec, zákon a řádky jednotek se do 5 bodů NEpočítají, do 60 slov ANO (učitel 21. 10. 2026).
+  nahrazuje dřívější limit 8 řádků / ~70 slov). **KOTVA (rozhodnutí učitele 10. 11. 2026, nahrazuje limit 5 bodů / 60 slov): zápis se řídí obsahem — pevné části: co to je (jedna věta), vzorec se značkami a jednotkami, jeden příklad nebo typická hodnota, případně „pozor na“. Strop 8 bodů a 100 slov, každý bod jedna krátká věta**
+  (nad 8 bodů nebo 100 slov = nad limitem). Co je navíc, patří do výkladu, ne do zápisu. Vzorec, zákon a řádky jednotek se do bodů NEpočítají, do slov ANO. Ze zápisu nebo výkladu musí jít najít odpověď na KAŽDOU otázku kvízu podtématu (ověřuje skript na kontrolu zápisu proti kvízu a kontrolor). Platí jen pro NOVÉ a doplňované stránky; hotové se nepředělávají.
   Zápis vysvětluje látku tématu na úrovni 1. stupně (pravidlo učitele 12. 10. 2026): srozumitelný malému dítěti, odborný termín jen s jednoduchým vysvětlením, jinak vynechat (ρ, Brownův pohyb, protony bez vysvětlení ne).
-  Vzorec slovy jako 6. řádek zůstává (je krátký, do limitu bodů se nepočítá; rozhodnutí orchestrátora 5. 10. 2026).
+  Vzorec slovy jako samostatný řádek zůstává (je krátký, do limitu bodů se nepočítá; rozhodnutí orchestrátora 5. 10. 2026).
   Vzor (vesmír): rozpíná se; počátek = velký třesk; stáří ~14 mld. let; tvoří ho galaxie;
-  v galaxii je černá díra. Audit: `node Omega/skripty/audit_zapisu.mjs` → `Omega/predavka/<datum>/audit-zapisu.md`.
+  v galaxii je černá díra. Audit: `node Omega/skripty/audit_zapisu.mjs` → `Omega/predavka/<datum>/audit-zapisu.md` (skript dosud počítá starý limit 5/60; do jeho úpravy platí limit z této kapitoly).
 - **OBRÁZKY ZE ZDROJE — vlastní překreslený protějšek každého** (pokyn učitele 29. 9. 2026:
   „koukni na obrázky v PDF, jsou tam dobře udělaný, nekopíruj je, potřebuji, aby sis je ty nebo
   jiný model nakreslil, ale aby tam byly ty obrázky podobné a všechny“). Každý obrázek z PDF /
@@ -144,7 +145,7 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
   vznikne soupis obrázků zdroje (id, strana, typ, obsah, způsob překreslení); počet obrázků ve zdroji
   = počet protějšků, výjimka jen s písemným důvodem (např. čistě dekorativní foto). Každý protějšek
   ověří **nezávislý kontrolor** (obsahová shoda s předlohou + není kopie). Zavádí se v pilotu
-  a téma po tématu napříč 7/8/9 dle kap. 13.
+  a dále podle časového plánu výuky dle kap. 13.
 - Vhodné animace z učitelových prezentací (pptx) se využijí jako předloha pro vlastní animaci/simulaci (překreslit, nekopírovat) — pokyn učitele 2. 10. 2026.
 - **PŘEKRESLIT PODLE PŘEDLOHY, NE SKLÁDAT TVARY** (závazné pravidlo učitele 1. 10. 2026:
   „Obrázky výkladu se NEkopírují z PDF, ale PŘEKRESLUJÍ podle předlohy z PDF (stejný děj, předměty,
@@ -172,7 +173,7 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
 - Odkazy uvnitř webu **relativní**.
 - **ŽÁDNÉ EXTERNÍ ODKAZY (rozhodnutí učitele 22. 10. 2026 — JEDINÝ DOMOV tohoto pravidla, jinde jen odkaz sem; nahrazuje dřívější „externí odkazy jen české“):** učitel doslova: „ty nemáš vkládat žádné odkazy ty máš vyrábět vlastní videa animace“.
   „Na web lab.wonderly.cz se NEVKLÁDAJÍ ŽÁDNÉ externí odkazy (ani české stránky, ani Wordwall a jiné externí kvízy/hry). Místo odkazů se vyrábějí VLASTNÍ videa a animace (polemiky, animace scén, panely, simulace). Už nasazené odkazy zůstávají (zásada 3 – hotové se nepředělává), dokud nerozhodne učitel. Odkazy uvnitř webu (relativní) jsou v pořádku.“
-  Agent `worker-media` je pro web vyřazen (nespouští se). Paměť `feedback-odkazy-jen-cesky` je tímto překonána.
+  Agent `worker-media` je odstraněn (rozhodnutí učitele 10. 11. 2026); nové externí odkazy se nevkládají. Paměť `feedback-odkazy-jen-cesky` je tímto překonána.
 - Zdroj pravidel: `src/pages/skola2/_CLAUDE.md`, agent `worker-vyklad`, paměti
   `feedback-kontrolovat-spravnost-textu`, `feedback-odkazy-jen-cesky` (překonáno pravidlem „žádné externí odkazy“ výše).
 
@@ -226,7 +227,7 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
 - Výběr učiva ve hře jde omezit na ročník/celek — hra se staví jen z probrané látky.
 - Zdroj: `feedback-wordwall-kontrola-pokryti`, `/Users/Shared/Škola/Hry/NAVOD-hry-pro-tridu.md`.
 
-## 6. VIDEA a podkásty (polemiky)
+## 6. VIDEA a podkásty (polemiky Evy a Marka) a bonus z NotebookLM
 
 - Video ke školnímu webu se **VYRÁBÍ vlastním automatem** (obrázky + zvuková stopa, hlas lokálním OmniVoice).
   **Videa se NEVYHLEDÁVAJÍ** — viz zákazy.
@@ -251,16 +252,19 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
 - Text jde do syntézy doslova: žádný markdown, žádné číslice, žádné značky jednotek („pět set osmdesát newtonů").
 - **Schémata kreslí KÓD**, obrázkový model jen ilustrace bez měřitelného obsahu.
   Hotové snímky se VŽDY prohlédnou očima.
-- **Doplňky ke každému podtématu (pokyn učitele 30. 9. 2026 — JEDINÝ DOMOV tohoto pravidla, jinde jen odkaz):**
-  1. **Písnička ze Suno** — stávající samoobslužný řetěz (paměť `feedback-pisnicky-samoobsluzne`, `projekt-hudba-suno`).
-  2. **Video-rozbor z NotebookLM (fronta B, rozhodnutí učitele 4. 10. 2026)** — ke KAŽDÉMU podtématu jedno video;
-     JEN doplněk, NIKDY náhrada polemiky; zdroj = výklad podtématu. Obsah se NEKONTROLUJE a nasazuje se rovnou
-     (ruší dřívější „až po učiteli" / „před nasazením ověřit licenci"). Úplnost obsahu hlídají polemiky.
-  3. **Vlastní video-polemika s POHYBLIVÝMI animacemi**, ne statickými obrázky (kap. 12 bod 6).
-  Co jde, dělají lokální modely; Codex pracuje přes soubory v `Omega/koordinace/zpravy/`.
-- **Fronty videí (rozhodnutí učitele 4. 10. 2026, JEDINÝ DOMOV):** každé podtéma má aspoň 1 video; kde žádné není,
-  vyrábí se NEJDŘÍV polemika. Pořadí: téma 1 napříč 7/8/9, pak téma 2 … (`Omega/dokumenty/PORADI-TEMAT-7-9.md`);
-  6. ročník až po 7–9. Zdroj pravdy front: `~/Desktop/Omega/fronty/FRONTA-VIDEI.md`.
+- **Doplňky k podtématům (pokyn učitele 30. 9. 2026, upraveno rozhodnutími 10. 11. 2026 — JEDINÝ DOMOV tohoto pravidla, jinde jen odkaz):**
+  1. **Písnička ze Suno** — zpestření; stávající samoobslužný řetěz (paměť `feedback-pisnicky-samoobsluzne`, `projekt-hudba-suno`).
+  2. **Bonus z NotebookLM (rozhodnutí učitele 10. 11. 2026; ruší pravidlo ze 4. 10. 2026 „obsah se nekontroluje a nasazuje se rovnou“)** — ke každému podtématu
+     **bonusová debata** (zvuk z NotebookLM, česky, 5–8 minut, soubor `notebooklm-<slug-podtématu>.m4a`); video rozbor jen na přání učitele.
+     JEN doplněk na doma, bez animací, NIKDY náhrada výkladu ani polemiky Evy a Marka; zdroj = výklad podtématu. **Před nasazením se kontroluje přepis:**
+     lokální přepis whisperem → Opus v čerstvém kontextu porovná přepis s výkladem → PROŠLO / NEPROŠLO. Nasazuje se jen s PROŠLO, neprošlé se generuje znovu
+     (podrobnosti `Omega/dokumenty/CO-WEB-PRIJME.md`). Vyrábějí boti z jedné fronty; do repa nezapisují.
+  3. **Polemika Evy a Marka (video) s POHYBLIVÝMI animacemi**, ne statickými obrázky (kap. 12). **Jedna na TÉMA, ne na podtéma**; které podtéma ji dostane, určí učitel
+     nebo propustka; vyrábí se až za jádrem (rozhodnutí učitele 10. 11. 2026). Slovo „polemika“ bez přívlastku se nepoužívá.
+  Co jde, dělají lokální modely.
+- **Pořadí práce a fronta (rozhodnutí učitele 10. 11. 2026, JEDINÝ DOMOV; nahrazuje „Fronty videí“ ze 4. 10. 2026):** nejdřív jádro (výklad, zápis, kvíz),
+  teprve potom doplňky. Pořadí určuje ČASOVÝ PLÁN VÝUKY: nejdřív učivo příštího měsíce v 7., 8. a 9. ročníku, pak další měsíc; odučené učivo a 6. ročník až nakonec
+  (`Omega/dokumenty/PORADI-TEMAT-7-9.md` je jen přehled témat). Zdroj pravdy: jedna fronta `~/Desktop/Omega/fronty/SEZNAM-CHYBEJICIHO.md`.
 - Zdroj: `~/Desktop/Omega/dokumenty/NAVOD-POLEMIKY-F6.md`, skill `/podkast-video`.
 
 ## 7. SIMULACE
@@ -271,7 +275,7 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
 - Výchozí hodnoty i **všechny polohy posuvníků** musí dávat celé výsledky.
 - Stav viditelný v náhledu musí být SVG atribut, ne CSS třída; vizuální prohlídku dělá **nezávislý kontrolor**.
 - **Čitelnost na telefonu (varianta A, učitel 30. 9. 2026; měřidlo `testy/mobil-citelnost.mjs`, okno 375 px):** scéna se SVG s drobnými texty (< 12 px) musí mít pod sebou HTML obraz (prvek s třídou `…-mobil`/`…-legenda` nebo `data-mobil-obraz`; písmo ≥ 14 px, kontrast ≥ 4,5:1, neprázdný). NUTNÝ popisek = `<text id=…>` (dynamický výstup) nebo atribut `data-nutne`; musí být ≥ 12 px, nebo jeho text doslova stát v HTML obrazu. Ostatní drobné doplňkové popisky ve scéně se tolerují (kontrast ≥ 4,5:1 platí pro všechny).
-- Měřidlo je zatím jen hlášení (není v prebuildu), exit ≠ 0 při selhání; kontrola starého stavu: `MOBIL_KOMP=<složka komponent z git archive HEAD> node testy/mobil-citelnost.mjs <názvy>`. Postup předělání: `Omega/predavka/2026-10-01/prace/mobil/davka1-v3.md` (§ Vzor postupu) (vzor pro Codex).
+- Měřidlo je zatím jen hlášení (není v prebuildu), exit ≠ 0 při selhání; kontrola starého stavu: `MOBIL_KOMP=<složka komponent z git archive HEAD> node testy/mobil-citelnost.mjs <názvy>`. Postup předělání: `Omega/predavka/2026-10-01/prace/mobil/davka1-v3.md` (§ Vzor postupu).
 - Zdroj: `feedback-simulace-realisticke`, agent `worker-simulace`, skill `/simulace`.
 
 ---
@@ -354,10 +358,11 @@ ne rozpis hodin.
 **F. Kratší díly vs. povinné pokrytí celého kvízu.** `NAVOD-POLEMIKY-F6.md` chce
 „jedno vysvětlení na díl" (rozhodnutí 6. 8. 2026) a zároveň „polemika pokrývá VŠECHNY
 kvízové otázky tématu". Po rozhodnutí A (cíl 21 otázek na podtéma) se to pere ještě víc
-než dřív. ROZHODNUTO podle zavedené praxe: kvíz tématu pokrývá **SÉRIE dílů
-dohromady**, jednotlivý díl pokrýt celý kvíz nemusí. Brána `pokryti_kvizu.py` dál
-měří JEDNOTLIVÝ DÍL, protože měřidlo na sérii zatím neexistuje — do jeho vzniku se
-sladění kvízu se sérií ověřuje ručně (viz `PROGRESS.md` „sladění kvízů").
+než dřív. ROZHODNUTO podle zavedené praxe a PŘEPSÁNO rozhodnutím učitele 10. 11. 2026:
+polemika Evy a Marka je **jedna na téma**, díl pokrývá kvízové otázky **podtématu, ke
+kterému patří** (kap. 1, bod 2). Série dílů se štítkem `"skupina"` (posuzování dílů dohromady)
+zůstává jen pro už existující trojice. Brána `pokryti_kvizu.py` měří JEDNOTLIVÝ DÍL
+(popř. skupinu), sladění kvízu s dílem se ověřuje ručně (viz `PROGRESS.md` „sladění kvízů").
 
 Nic dalšího otevřené není — body A–H učitel rozhodl 19. 8. 2026 a jsou zapsané
 výše v těle ústavy (A → kap. 4, B → kap. 3, C → kap. 2, D → kap. 10, E → kap. 5,
@@ -365,45 +370,28 @@ G → kap. 9 bod 1, H → preambule), F je vyřešen zavedenou praxí výše.
 
 ---
 
-## 12. HOTOVÉ TÉMA — rozšířená definice (rozhodnutí učitele 22. 9. 2026, upraveno 23. 9. 2026)
+## 12. HOTOVÉ PODTÉMA (rozhodnutí učitele 10. 11. 2026; nahrazuje definici o devíti složkách z 22./23. 9. 2026)
 
-Téma je HOTOVÉ, teprve když má VŠECH těchto devět složek:
+Podtéma je HOTOVÉ, když má tři věci nasazené a ověřené curl:
 
-1. přestavěný výklad (text seřízený podle zadání této ústavy),
+1. výklad (text seřízený podle zadání této ústavy, s úvodem „Jednoduše řečeno“),
 2. zápis do sešitu (limit viz kap. 3),
-3. kvíz 21 otázek sladěný s výkladem (prošlý dvěma koly nezávislé kontroly),
-4. **simulace (= interaktivní infografika)** — klikací/odkrývací schéma i simulace
-   s posuvníkem/parametry se počítají jako TOTÉŽ, jedna složka, ne dvě
-   (rozhodnutí učitele 23. 9. 2026, varianta B z `docs/archiv/NAVRH-CHYBEJICI-KATEGORIE.md`),
-5. ~~české odkazy~~ — **ZRUŠENO 22. 10. 2026** (žádné externí odkazy, viz kap. 3; už nasazené zůstávají),
-6. **video-polemiku s ANIMACÍ toho, o čem se v ní mluví** — ne statické obrázky,
-   ne jen audiostopa,
-7. panelovou infografiku (statickou nebo animované SVG se SMIL/CSS, bez JS a bez interakce — odlišnou od bodu 4); u dějů má animace přednost,
-8. laboratorní práci,
-9. **hru pro skupinu** — SAMOSTATNÁ hra vázaná na konkrétní podtéma (plná varianta),
-   NE pouhé rozšíření Fyzikální ligy o výběr podtématu (rozhodnutí učitele 23. 9. 2026).
+3. kvíz 21 otázek sladěný s výkladem (prošlý dvěma koly nezávislé kontroly).
 
-**Změna 23. 9. 2026 — proč z deseti na devět:** původní znění z 22. 9. 2026 mělo
-deset složek a rozlišovalo body 4 (simulace) a 8 (interaktivní infografika) jako
-dvě různé věci. Učitel na kontrolní otázku přiznal, že jde o totéž — obojí je
-interaktivní ukázka, jen s jiným ovládacím prvkem — a rozhodl je sloučit
-(viz `docs/archiv/NAVRH-CHYBEJICI-KATEGORIE.md`, varianta B). Hotových 92 simulací tím
-POKRÝVÁ tuto sloučenou složku. U hry pro skupinu učitel zároveň upřesnil, že
-nestačí rozšířit Fyzikální ligu o výběr podtématu — má jít o plnohodnotnou
-samostatnou hru vázanou na dané podtéma.
+Ostatní složky jsou VÝBĚROVÉ nebo DOPLŇKY a do „hotového“ se NEPOČÍTAJÍ:
 
-**Doplňkové složky ke každému podtématu (pokyn učitele 30. 9. 2026; do devíti se NEPOČÍTAJÍ,
-pravidlo a podmínky viz kap. 6 „Doplňky ke každému podtématu"):** písnička ze Suno a bonusový
-video-rozbor z NotebookLM (fronta B, nasazuje se rovnou bez kontroly obsahu — kap. 6; zdroj = výklad; nikdy náhrada polemiky).
-Video-polemika (bod 6) je vždy s pohyblivými animacemi.
+- **v hodině výběrově:** simulace (= interaktivní infografika; klikací/odkrývací schéma i simulace s posuvníkem se počítají jako totéž),
+  panelová infografika (statická nebo animované SVG se SMIL/CSS, bez JS; u dějů má animace přednost), laboratorní práce, animace z učitelových prezentací;
+- **na doma:** bonusová debata z NotebookLM (kap. 6, s kontrolou přepisu), **polemika Evy a Marka** (video s ANIMACÍ toho, o čem se v ní mluví — ne statické obrázky,
+  ne jen audiostopa; JEDNA NA TÉMA, ne ke každému podtématu), rozbor;
+- **zpestření:** písnička ze Suno.
 
-**Pořadí práce:** 1. téma se dodělá KOMPLET (všech 9 složek) u 7., 8. i 9. ročníku
-naráz, teprve pak se stejně KOMPLET dodělá 2. téma u všech tří ročníků, atd. —
-nedodělává se jeden ročník do konce, zatímco ostatní čekají.
+Nové hry se nevyrábějí (už nasazené zůstávají). Externí odkazy se neřeší (kap. 3).
 
 **Přechodné ustanovení:** kde dnes existuje jen audiostopa bez animace, zůstává
 zveřejněná a animace se k ní doplní postupně; videa se statickými obrázky se
-postupně vymění za animace. Chybějící animace tedy NENÍ důvod stahovat z webu
+postupně vymění za animace — až po doplnění všeho chybějícího; do té doby se kvůli tomu nic nepředělává
+(rozhodnutí učitele 11. 11. 2026). Chybějící animace tedy NENÍ důvod stahovat z webu
 hotové audio, které tam už je.
 
 Tato definice je jediné platné a úplné znění — nahrazuje a rozšiřuje dřívější
@@ -425,16 +413,18 @@ užší definici v `SAMOSTATNY-REZIM.md`, bod E (ii); tam zůstává jen odkaz s
 Pravidla kap. 3 (úvod „Jednoduše řečeno“, rozsah = PDF + prezentace + zjednodušeně ŠVP, zápis – limit viz kap. 3) se zavádějí takto:
 
 1. **Pilot na 2 podtématech** — výsledek ukáže učiteli; **bez jeho schválení se dál nejde**.
-2. Po schválení **téma po tématu napříč ročníky 7/8/9** (pokyn učitele 29. 9. 2026, večer): nejdřív
-   1. téma F7 + 1. téma F8 + 1. téma F9 KOMPLETNĚ (úvod, výklad v rozsahu PDF + prezentace + zjednodušeně ŠVP, zápis, všechny obrázky
-   z PDF překreslené, kvíz, písnička, video), teprve pak 2. téma všech tří ročníků atd. — v pořadí
-   témat, jak se učí. **6. ročník až po 7–9.** Přehled: `Omega/dokumenty/PORADI-TEMAT-7-9.md`.
-3. Obrázky (kap. 3, „OBRÁZKY ZE ZDROJE“) se zavádějí stejně: pilot → po schválení téma po tématu napříč 7/8/9.
+2. Po schválení se postupuje podle **ČASOVÉHO PLÁNU VÝUKY** (rozhodnutí učitele 10. 11. 2026; nahrazuje „téma po tématu napříč 7/8/9“ z 29. 9. 2026):
+   nejdřív učivo příštího měsíce v 7., 8. a 9. ročníku (úvod, výklad v rozsahu PDF + prezentace + zjednodušeně ŠVP, zápis, překreslené obrázky z PDF, kvíz),
+   pak další měsíc; odučené učivo a 6. ročník až nakonec. Písnička, bonus z NotebookLM a polemika Evy a Marka jsou doplňky za jádrem (kap. 6, 12).
+   Přehled témat: `Omega/dokumenty/PORADI-TEMAT-7-9.md`.
+3. Obrázky (kap. 3, „OBRÁZKY ZE ZDROJE“) se zavádějí stejně: pilot → po schválení podle časového plánu výuky.
 4. Každé upravené podtéma projde **nezávislým kontrolorem** (čerstvý kontext): věcná správnost
    zjednodušení, pokrytí PDF a prezentace, nic nevypadlo (přebytek: u hotových ponechán v „Pro zvídavé“,
    v novém obsahu se nepíše) a kvíz dál pokrývá výklad.
 
 **Pilot schválen učitelem 29. 9. 2026 (Klid a pohyb 7, Výkon 8).**
+
+**Pořadí doplňování a oprav (rozhodnutí učitele 11. 11. 2026):** nejdřív se postupně dodělá všechno chybějící a hotové se nechává být; opravy a výměny starších věcí (včetně nálezů ze zpětné kontroly) přicházejí až potom.
 
 ## 14. PŘEDLOHOVÁ STRÁNKA — méně textu, více obrázků, děje animací (pokyn učitele 3. 10. 2026)
 
