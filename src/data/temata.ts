@@ -2945,6 +2945,7 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'infografika', nazev: 'Infografika: Spalovací motory v kostce', cesta: '/materialy/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/infografika-spalovaci-motory.svg', panely: ['/materialy/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/infografika-spalovaci-motory-panel-1.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/infografika-spalovaci-motory-panel-2.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/infografika-spalovaci-motory-panel-3.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/infografika-spalovaci-motory-panel-4.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/infografika-spalovaci-motory-panel-5.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/infografika-spalovaci-motory-panel-6.svg'] },
 						{ druh: 'infografika', nazev: 'Infografika: Spalovací motory v pohybu', cesta: '/materialy/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/infografika-spalovaci-motory-pohyb-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/infografika-spalovaci-motory-pohyb-panel-1.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/infografika-spalovaci-motory-pohyb-panel-2.svg'] },
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Tajemství spalovacích motorů (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/notebooklm-spalovaci-motory.mp4' },
+						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Spalovací motor promění většinu energie v teplo (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/notebooklm-spalovaci-motory.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
 					],
 				},
 				{
@@ -2958,6 +2959,7 @@ export const temata: Record<string, Tema[]> = {
 					materialy: [
 						{ druh: 'infografika', nazev: 'Infografika: Alternativní motory a pohony v kostce', cesta: '/materialy/fyzika/8-rocnik/tepelne-motory/alternativni-motory/infografika-alternativni-motory.svg', panely: ['/materialy/fyzika/8-rocnik/tepelne-motory/alternativni-motory/infografika-alternativni-motory-panel-1.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/alternativni-motory/infografika-alternativni-motory-panel-2.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/alternativni-motory/infografika-alternativni-motory-panel-3.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/alternativni-motory/infografika-alternativni-motory-panel-4.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/alternativni-motory/infografika-alternativni-motory-panel-5.svg'] },
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Alternativní motory a pohony (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/tepelne-motory/alternativni-motory/notebooklm-alternativni-motory.mp4' },
+						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Odkud berou sílu alternativní motory (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/8-rocnik/tepelne-motory/alternativni-motory/notebooklm-alternativni-motory.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
 					],
 					odkazy: [],
 				},
@@ -2979,6 +2981,7 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'video', nazev: 'Píseň: Teplo mění skupenství 🎵', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi/pisen-teplo-meni-skupenstvi.m4a' },
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Teplo a skupenství látek (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi/notebooklm-teplo-a-premeny-skupenstvi.mp4' },
 						{ druh: 'infografika', nazev: 'Infografika: Sublimace jódu — panel', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi/infografika-teplo-a-premeny-skupenstvi-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi/infografika-teplo-a-premeny-skupenstvi-panel-1.svg'] },
+						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Proč se vařící voda už neohřívá (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi/notebooklm-teplo-a-premeny-skupenstvi.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
 					],
 				},
 				{
