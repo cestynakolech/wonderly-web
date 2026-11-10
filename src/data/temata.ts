@@ -3044,6 +3044,7 @@ export const temata: Record<string, Tema[]> = {
 					materialy: [
 						{ druh: 'video', nazev: 'Píseň: Var 🎵', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/var/pisen-var.m4a' },
 						{ druh: 'infografika', nazev: 'Infografika: Var a destilace (panely pro tabuli)', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/var/infografika-var-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/var/infografika-var-panel-1.svg', '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/var/infografika-var-panel-2.svg'] },
+						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Proč voda nevře vždy při sto stupních (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/var/notebooklm-var.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
 					],
 				},
 				{
@@ -3058,6 +3059,7 @@ export const temata: Record<string, Tema[]> = {
 					materialy: [
 						{ druh: 'video', nazev: 'Píseň: Kondenzace 🎵', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/kondenzace/pisen-kondenzace.m4a' },
 						{ druh: 'infografika', nazev: 'Infografika: Kondenzace v pohybu', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/kondenzace/infografika-kondenzace-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/kondenzace/infografika-kondenzace-panel-1.svg', '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/kondenzace/infografika-kondenzace-panel-2.svg', '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/kondenzace/infografika-kondenzace-panel-3.svg'] },
+						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Jak pára ztrácí teplo při kondenzaci (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/kondenzace/notebooklm-kondenzace.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
 					],
 				},
 				{
