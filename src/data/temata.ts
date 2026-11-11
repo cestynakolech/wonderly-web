@@ -2135,6 +2135,12 @@ export const temata: Record<string, Tema[]> = {
 							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
 						},
 						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Gravitační síla (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/7-rocnik/sily-kolem-nas/gravitacni-sila/notebooklm-gravitacni-sila.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Gravitační síla — 2. díl',
+							cesta: '/media/fyzika/7-rocnik/sily-kolem-nas/gravitacni-sila/gravitacni-sila-dialog2.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 				{
