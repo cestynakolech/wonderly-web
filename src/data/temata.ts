@@ -2134,6 +2134,7 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '/media/fyzika/7-rocnik/sily-kolem-nas/gravitacni-sila/gravitacni-sila-dialog.mp4',
 							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
 						},
+						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Gravitační síla (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/7-rocnik/sily-kolem-nas/gravitacni-sila/notebooklm-gravitacni-sila.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
 					],
 				},
 				{
@@ -2149,6 +2150,7 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'infografika', nazev: 'Infografika: Třecí síla v kostce', cesta: '/materialy/fyzika/7-rocnik/sily-kolem-nas/treci-sila/infografika-treci-sila.svg', panely: ['/materialy/fyzika/7-rocnik/sily-kolem-nas/treci-sila/infografika-treci-sila-panel-1.svg', '/materialy/fyzika/7-rocnik/sily-kolem-nas/treci-sila/infografika-treci-sila-panel-2.svg', '/materialy/fyzika/7-rocnik/sily-kolem-nas/treci-sila/infografika-treci-sila-panel-3.svg', '/materialy/fyzika/7-rocnik/sily-kolem-nas/treci-sila/infografika-treci-sila-panel-4.svg', '/materialy/fyzika/7-rocnik/sily-kolem-nas/treci-sila/infografika-treci-sila-panel-5.svg'] },
 						{ druh: 'video', nazev: 'Píseň: Tření brzdí 🎵', cesta: '/materialy/fyzika/7-rocnik/sily-kolem-nas/treci-sila/pisen-treni-brzdi.m4a' },
 						{ druh: 'youtube', nazev: 'Video: Třecí síla', cesta: '7JG_JbKRw70' },
+						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Třecí síla (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/7-rocnik/sily-kolem-nas/treci-sila/notebooklm-treci-sila.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
 					],
 				},
 				{
@@ -2182,6 +2184,7 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'infografika', nazev: 'Infografika: Těžiště v kostce', cesta: '/materialy/fyzika/7-rocnik/sily-kolem-nas/teziste/infografika-teziste.svg', panely: ['/materialy/fyzika/7-rocnik/sily-kolem-nas/teziste/infografika-teziste-panel-1.svg', '/materialy/fyzika/7-rocnik/sily-kolem-nas/teziste/infografika-teziste-panel-2.svg', '/materialy/fyzika/7-rocnik/sily-kolem-nas/teziste/infografika-teziste-panel-3.svg', '/materialy/fyzika/7-rocnik/sily-kolem-nas/teziste/infografika-teziste-panel-4.svg', '/materialy/fyzika/7-rocnik/sily-kolem-nas/teziste/infografika-teziste-panel-5.svg', '/materialy/fyzika/7-rocnik/sily-kolem-nas/teziste/infografika-teziste-panel-6.svg'] },
 						{ druh: 'infografika', nazev: 'Těžiště v pohybu', cesta: '/materialy/fyzika/7-rocnik/sily-kolem-nas/teziste/infografika-teziste-pohyb-panel-1.svg', panely: ['/materialy/fyzika/7-rocnik/sily-kolem-nas/teziste/infografika-teziste-pohyb-panel-1.svg', '/materialy/fyzika/7-rocnik/sily-kolem-nas/teziste/infografika-teziste-pohyb-panel-2.svg', '/materialy/fyzika/7-rocnik/sily-kolem-nas/teziste/infografika-teziste-pohyb-panel-3.svg', '/materialy/fyzika/7-rocnik/sily-kolem-nas/teziste/infografika-teziste-pohyb-panel-4.svg'] },
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Záhada rovnováhy (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/7-rocnik/sily-kolem-nas/teziste/notebooklm-teziste.mp4' },
+						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Těžiště (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/7-rocnik/sily-kolem-nas/teziste/notebooklm-teziste.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
 					],
 				},
 			],
@@ -2245,6 +2248,7 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '/media/fyzika/7-rocnik/jednoduche-stroje/jednoduche-stroje-paky/jednoduche-stroje-paky-dialog4.mp4',
 							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
 						},
+						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Páka (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/7-rocnik/jednoduche-stroje/jednoduche-stroje-paky/notebooklm-jednoduche-stroje-paky.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
 					],
 				},
 				{
@@ -2294,6 +2298,7 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '/media/fyzika/7-rocnik/jednoduche-stroje/kladka/jednoduche-stroje-kladka-kladkostroj-dialog.mp4',
 							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
 						},
+						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Kladka (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/7-rocnik/jednoduche-stroje/kladka/notebooklm-kladka.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
 					],
 				},
 				{
@@ -2306,6 +2311,7 @@ export const temata: Record<string, Tema[]> = {
 					materialy: [
 						{ druh: 'infografika', nazev: 'Infografika: Nakloněná rovina v kostce', cesta: '/materialy/fyzika/7-rocnik/jednoduche-stroje/naklonena-rovina/infografika-naklonena-rovina.svg', panely: ['/materialy/fyzika/7-rocnik/jednoduche-stroje/naklonena-rovina/infografika-naklonena-rovina-panel-1.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/naklonena-rovina/infografika-naklonena-rovina-panel-2.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/naklonena-rovina/infografika-naklonena-rovina-panel-3.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/naklonena-rovina/infografika-naklonena-rovina-panel-4.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/naklonena-rovina/infografika-naklonena-rovina-panel-5.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/naklonena-rovina/infografika-naklonena-rovina-panel-6.svg'] },
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Nakloněná rovina (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/7-rocnik/jednoduche-stroje/naklonena-rovina/notebooklm-naklonena-rovina.mp4' },
+						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Nakloněná rovina (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/7-rocnik/jednoduche-stroje/naklonena-rovina/notebooklm-naklonena-rovina.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
 					],
 				},
 				{
@@ -2318,6 +2324,7 @@ export const temata: Record<string, Tema[]> = {
 					materialy: [
 						{ druh: 'infografika', nazev: 'Klín: z čeho je, co se pohybuje, kolem nás, menší síla a delší dráha (panely pro tabuli)', cesta: '/materialy/fyzika/7-rocnik/jednoduche-stroje/klin/infografika-klin-panel-1.svg', panely: ['/materialy/fyzika/7-rocnik/jednoduche-stroje/klin/infografika-klin-panel-1.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/klin/infografika-klin-panel-2.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/klin/infografika-klin-panel-3.svg', '/materialy/fyzika/7-rocnik/jednoduche-stroje/klin/infografika-klin-panel-4.svg'] },
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Tajná fyzika nástrojů – klín (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/7-rocnik/jednoduche-stroje/klin/notebooklm-klin.mp4' },
+						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Klín (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/7-rocnik/jednoduche-stroje/klin/notebooklm-klin.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
 					],
 				},
 			],
@@ -2929,6 +2936,7 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'infografika', nazev: 'Infografika: Tepelný motor a parní stroj v kostce', cesta: '/materialy/fyzika/8-rocnik/tepelne-motory/tepelny-motor-parni-stroj/infografika-tepelny-motor-parni-stroj.svg', panely: ['/materialy/fyzika/8-rocnik/tepelne-motory/tepelny-motor-parni-stroj/infografika-tepelny-motor-parni-stroj-panel-1.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/tepelny-motor-parni-stroj/infografika-tepelny-motor-parni-stroj-panel-2.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/tepelny-motor-parni-stroj/infografika-tepelny-motor-parni-stroj-panel-3.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/tepelny-motor-parni-stroj/infografika-tepelny-motor-parni-stroj-panel-4.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/tepelny-motor-parni-stroj/infografika-tepelny-motor-parni-stroj-panel-5.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/tepelny-motor-parni-stroj/infografika-tepelny-motor-parni-stroj-panel-6-sikmo.svg'] },
 						{ druh: 'youtube', nazev: 'Video: Parní stroj — Síla moderního světa', cesta: '1mdQ5Th3Vro' },
 						{ druh: 'video', nazev: 'Píseň: Teplo na pohyb 🎵', cesta: '/materialy/fyzika/8-rocnik/tepelne-motory/tepelny-motor-parni-stroj/pisen-teplo-na-pohyb.m4a' },
+						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Tepelný motor, parní stroj, parní turbína (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/8-rocnik/tepelne-motory/tepelny-motor-parni-stroj/notebooklm-tepelny-motor-parni-stroj.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
 					],
 					odkazy: [],
 				},
