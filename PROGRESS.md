@@ -6,9 +6,9 @@ _Technický přehled projektu (základ z 31. 7. 2026). Souběžně čti `CLAUDE.
 > Tenhle soubor je technická příručka (jak co přidat, kde co leží) a historie; sekce mohou být staršího data. Fronta je jedna pro celý web (značky `[fox]`/`[skola2]`/`[cesty]`).
 
 ## ⏩ Jak navázat v nové session
-Postup čtení: `CLAUDE.md` (úvod) → `SAMOSTATNY-REZIM.md` (horní sekce); stav fyziky a odložená informatika: SR ⚡ + `OBSAH-PRAVIDLA.md` (preambule). Rychlá kontrola stavu:
+Start podle ústavy v6 (`/Library/Application Support/ClaudeCode/wonderly/USTAVA-WEBU.md` § START: `start_web.py`, nejnovější `PREDAVKA-*.md`, `Omega/fronty/SEZNAM-CHYBEJICIHO.md`, `KATALOG-PRACANTU.md` § 0). Rychlá kontrola stavu (repo na mini `~/wonderly-nasazeni`):
 ```
-cd ~/Desktop/wonderly-web && git log --oneline -5 && node zkontroluj.mjs
+cd ~/wonderly-nasazeni && git log --oneline -5 && node zkontroluj.mjs
 ```
 Brána musí skončit `✅ Vše zapojené správně.` — běží i sama v `prebuild`.
 
@@ -57,12 +57,12 @@ Stav fyziky a fronty vede VÝHRADNĚ `SAMOSTATNY-REZIM.md`. Historická část (
 ## 🔄 Jak se vrátit zpět, když se něco nepovede
 Každý `git push` = uložená verze na GitHubu (restore point). Web jde vrátit do libovolného dřívějšího stavu:
 ```
-cd ~/Desktop/wonderly-web
+cd ~/wonderly-nasazeni
 git log --oneline -20                 # seznam verzí (nahoře nejnovější)
 git revert <hash>                     # vrátí konkrétní změnu (bezpečné, vytvoří nový commit)
 git push origin main                  # nasadí návrat
 ```
-Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `fyzika-7-hotova`), návrat `git revert` nebo `git checkout <tag> -- .`.
+Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `fyzika-7-hotova`), návrat `git revert` (hotové a nasazené se bez výjimky učitele nepřepisuje; ústava v6 § HOTOVÉ A MAZÁNÍ). Návrat dělá jen exekutor z mini (ústava v6 § ŘÍZENÍ A NASAZENÍ).
 **Milníky značíme tagem** po dokončení většího celku: `git tag -a <nazev> -m "popis" && git push origin <nazev>`.
 
 ## Historie — 8. 11. 2026: nedělní audit
@@ -102,6 +102,5 @@ jsou `NEJISTÉ`. Regresní test pokrývá ručně ověřené `Klid a pohyb těle
 MP4 písničku oddělenou od videa, souhrnný kvíz přiřazený za literálem a hlubší
 odsazení podtémat elektřiny F8.
 
-## 📝 Pravidlo aktualizace (na konci každé session)
-Jediný domov: `CLAUDE.md` řádek 5 (nový datovaný záznam do Historie, HOTOVÉ/ZBÝVÁ,
-commit+push, tag po velkém celku). Sem se neopisuje (K3-Z7, 27. 9. 2026).
+## 📝 Konec session
+Předávka jen skriptem `predavka.py` (ústava v6 § PŘEDÁVKA). Do repa zapisuje a nasazuje jen exekutor (ústava v6 § ŘÍZENÍ A NASAZENÍ).

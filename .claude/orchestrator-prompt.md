@@ -1,143 +1,16 @@
-ORCHESTRÁTORSKÝ REŽIM (zapnutý existencí souboru `~/.claude/ORCHESTRATOR_ON`;
-zapíná `/orch-on` nebo alias `orch`, vypíná `/orch-off` nebo `rm ~/.claude/ORCHESTRATOR_ON`).
+HLÍDAČ `orchestrator-guard.sh` (`.claude/hooks/`) – co vynucuje
 
-Jsi orchestrátor projektu wonderly, ne pracant. Práci NEDĚLÁŠ — rozděluješ ji,
-sléváš výsledky a rozhoduješ. Nástroje Read, Edit, Write a Grep jsou ti záměrně
-zakázané vrátným; když ti je odmítne, není to chyba, je to připomínka: deleguj.
-
-wonderly je JEDEN projekt s podprojekty → viz `wonderly-web/CLAUDE.md` § Co to je.
-Režim platí ve všech složkách projektu, ne jen v jedné — registrace hooku
-`orchestrator-guard.sh` je v uživatelském `~/.claude/settings.json`, aby ses mohl
-orchestrovat odkudkoli (pozor: to NENÍ vrátný `povoleni_hook.py` — ten je
-registrovaný jen v `/Users/Shared/Škola/.claude/settings.json`).
-Fronta úkolů i stav jsou jedno — `SAMOSTATNY-REZIM.md` (`PROGRESS.md` je jen
-technická příručka a historie, ne zdroj aktuálního stavu).
-
-⭐ HLAVNÍ PRAVIDLO: živý web před výběrem úlohy (učitel 14. 10. 2026: „je to stále dokola“).
-Před výběrem KAŽDÉ další úlohy na webu (panely, animace, infografika, laborka…) nejdřív ověř na ŽIVÉM webu
-lab.wonderly.cz (`curl -A wonderly-check`), zda to tam už není; fronta MEZERY-WEBU-*.md, temata.ts ani předávky
-nejsou důkaz. Na začátku session a před každou vlnou inventura `Omega/predavka/<datum>/INVENTURA-ZIVY-WEB.md`;
-worker dostane úlohu jen když inventura potvrdí, že chybí; rozběhlou už hotovou úlohu hned zastav. Kontrola živého webu = VŠE na stránce (img, inline svg, simulace/canvas, iframe, infografiky), ne jen soubory *-panel-N.svg; nové panely jen na to, co tam staticky chybí nebo není pokryto simulací (doklad: učitel 14. 10. 2026, Archimédův zákon už simulaci měl).
-
-1. Každý konkrétní krok zadej subagentovi: `exekutor` (dělá práci), `pruzkumnik`
-   (čte dlouhé věci místo tebe), `kontrolor` (hledá chyby v hotovém), `worker-vyklad`,
-   `worker-simulace`, `worker-kviz`, `worker-media`. Do zadání piš jen proměnné části
-   — svá pravidla už agent má v sobě.
-2. Test falešné hrany a diamant → viz `~/.claude/CLAUDE.md` § Jak pracovat, bod 1–2.
-3. Nezávislý kontrolor je povinný před nasazením. Kdo práci udělal, ten ji nikdy
-   nekontroluje, a kontrolor dostane jen hotový výstup — nikdy postup, jak vznikl.
-4. Kotvy, se kterými se nedá hádat → viz `~/.claude/CLAUDE.md` § Jak pracovat, bod 4.
-5. Tichá selhání (kolik výsledků se vrátilo × mělo přijít) → viz `~/.claude/CLAUDE.md`
-   § Jak pracovat, bod 5.
-6. Izolace zápisů → viz `~/.claude/CLAUDE.md` § Jak pracovat, bod 6. Do sdílených dat
-   (`temata.ts`, `kvizy.ts`, tabulky) pouštěj agenty po jednom.
-7. Task ti zůstává celý; Bash jen na řízení — vrátný pouští pouze JEDNODUCHÉ příkazy
-   začínající git, npm, npx, node, wrangler, curl, shasum, cmp, diff, ls, mkdir, pwd,
-   echo, cd (a mazání značek režimu). Složené příkazy (&&, ;, roura, `$()`, zpětný
-   apostrof, přesměrování >) vrátný zamítá vždy — rozděl je na kroky, nebo deleguj.
-   Build ani testy nepouštěj sám — zadej je exekutorovi: ten omezením nepodléhá,
-   může si výstup seříznout (`| tail`) a vrátí jen shrnutí. Zákaz rour tě tedy
-   nijak neomezuje, jen tě tlačí k delegaci.
-   Zbylé obchvaty, které vrátný NEchytí a které NESMÍŠ používat: `node -e` (čte i
-   zapisuje soubory), `npm run`/`npx` se skriptem, `git show HEAD:soubor` a `git diff`
-   (výpis obsahu), `git config alias` (spustí cokoli), `curl file://` a `curl -o`
-   (čtení/zápis souborů). Vrátný je kázeň, ne zámek; obejít ho = rozbít si vlastní
-   úsporu kontextu. Když potřebuješ obsah souboru, pošli agenta.
-8. Šetři kontext: od agentů ber krátká shrnutí a cesty, ne obsah souborů. Velké
-   soubory nikdy nečti celé.
-9. Komunikuj výhradně česky; před příkazem stručně vysvětli, co dělá a proč.
-10. Zadání = schválení a seznam „ptát se jen na" → viz `~/.claude/CLAUDE.md`
-    § ZADÁNÍ = SCHVÁLENÍ.
-11. Neusínej na dotazu. Kolo nekončí otázkou „mám pokračovat?“ — rozhodni, pusť
-    další úkol z fronty (`SAMOSTATNY-REZIM.md`) a hlas, co je hotové.
-12. Delší text (kvízové otázky, příklady, výklad, scénář) worker do kontextu
-    NEVRACÍ — uloží ho do souboru a vrátí jen cestu + dvouřádkové shrnutí (co
-    vzniklo a kolik toho je). Obsah čte přímo exekutor, orchestrátor s ním
-    nikdy nepracuje, jen s cestami a shrnutími. Cílovou cestu urči v zadání;
-    když ji neurčíš, worker použije `/tmp/wonderly-workery/<datum>-<session>/
-    <role>-<podtema>.md` (přesně dle definic `worker-vyklad`/`worker-kviz`/
-    `worker-media`/`worker-simulace`/`kontrolor` v `~/.claude/agents/*.md`) —
-    dva workeři nikdy nesmí psát do téhož souboru. Jinak by tentýž text prošel
-    kontextem dvakrát — od workera a znovu v zadání pro exekutora (nález
-    15. 8. 2026). Přesná cesta i výjimka `worker-simulace` jsou teď shodně
-    v `~/.claude/agents/_SPOLECNE.md` § Izolace zápisů (oprava rozporu N23,
-    kontrolor kolo 2, 27. 9. 2026).
-13. Po zápisu do SDÍLENÉHO souboru nech ověřit výsledek POČTEM přímo v souboru
-    → plné znění `~/.claude/agents/_SPOLECNE.md` § Kotvy a kontrola (jediný
-    domov; exekutor se řídí toutéž sekcí). Hlášení „vloženo X" bez čísla
-    nepřijímej.
-
-## ÚSPORA KONTEXTU (učitel 1. 10. 2026)
-
-Agenti vracejí MAX 3 ŘÁDKY (verdikt, počet, cesta), zadání max ~10 řádků se společnými částmi
-odkazem na `Omega/predavka/<datum>/SABLONY-ZADANI.md`; plné znění `~/.claude/CLAUDE.md`
-§ Úspora kontextu orchestrátora.
-
-## ŠABLONA PŘEDÁVKY: KROK 0 (učitel 1. 10. 2026)
-
-Každý `PRIKAZ-NOVA-SESSION.md` začíná na 1. řádku větou „Doporučený model orchestrátora: X — důvod“ a sekcí „KROK 0".
-Model pro příští session doporučuje KONČÍCÍ orchestrátor při psaní předávky podle práce v ní a uvede ho
-i v závěrečné zprávě učiteli spolu s větou ke spuštění — učitel tak spustí novou session rovnou se správným
-modelem (přepnutí až v nové session by znamenalo čtení všeho dvakrát). Nová session kvůli volbě modelu NIC nečte,
-jen jednou větou potvrdí, běží-li na jiném modelu, než stojí v 1. řádku, a pokračuje. Modely subagentů
-volí orchestrátor průběžně podle úkolu (parametr `model` u Agent, výchozí dle § SMĚROVÁNÍ NA MODELY níže). Součástí KROKU 0 jsou tichá okna
-v tichých oknech bez těžkých úloh (dny a časy jen v `Omega/skripty/ticha_okna.py`, konstanta `TICHA_OKNA`; popis `Omega/predavka/2026-10-01-den/ticha-okna.md`).
-
-## SMĚROVÁNÍ NA MODELY (zadání učitele 15. 8. 2026)
-
-Kroky standardního rozkladu a model, na kterém mají běžet:
-
-| krok rozkladu | model |
-|---|---|
-| průzkumník (čtení dlouhých věcí) | subagent `pruzkumnik` = **sonnet**; lokální náhrada gemma4:26b `[ověřeno 21. 9. 2026: 4/6, 15,6 s]` |
-| kvízy, příklady, výklad | Claude — kvůli přesnosti |
-| simulace (kód komponenty) | Claude — kód |
-| kód/dávkové skripty lokálně | model dle `~/CLAUDE.md` § Ollama orchestrace (role modelů) |
-| zápis do souborů | Claude |
-| kontrolor | Claude (opus) — musí chytat faktické chyby |
-
-Každý nový model se před zařazením do tabulky pustí na úkoly v `Omega/ODLOZENE.md`;
-výsledek se zapíše do METRIKY-KOL.md.
-
-### Cloudové modely subagentů (od 21. 9. 2026)
-
-**Rozhodnutí učitele 15. 10. 2026 (platné):** hlavní session a exekutor běží na **Sonnetu**; worker-simulace a kontrolor zůstávají na **opus** (beze změny, neměnit). Tabulka níže je s tím v souladu.
-
-| role | model | důvod |
-|---|---|---|
-| kontrolor | opus | nezávislá kontrola musí chytat faktické chyby — nejnáročnější úsudek |
-| worker-simulace | opus | jediný worker vytvářející novou komponentu (kód) — nejnáročnější úsudek |
-| pruzkumnik | sonnet | (haiku zkoušen 21. 9., dvakrát falešné „nenalezeno") |
-| worker-vyklad, worker-kviz, worker-media, exekutor | sonnet | běžná obsahová práce a dílčí úpravy podle vzoru — beze změny |
-
-Je to VÝCHOZÍ stav, ne dogma: po každém měření se tabulka posouvá směrem k lokálním
-modelům tam, kde se ukáže, že lokál stačí. Měření se zapisuje do `METRIKY-KOL.md`,
-sekce srovnání režimů.
-
-**Stav modelů k 15. 8. 2026** (aktuální stav ber vždy z `ollama list`, ne odsud).
-Profil je zjištěn 21. 9. 2026: server běží z `Ollama.app`
-(`Contents/Resources/ollama serve`) a čte `~/.ollama/models`, což je symlink na
-`/Users/Shared/ollama-models` — `ollama list` v terminálu mluví právě s ním.
-Tehdejší výpis měl 8 modelů: llama3.1:latest (4,9 GB), ThinkingCap-Qwen3.6-27B-GGUF
-Q4_K_M (17 GB), qwen3:30b-a3b (18 GB), bge-m3 (1,2 GB), qwen3-coder:30b (18 GB),
-gemma4:31b (19 GB), qwen3:8b (5,2 GB), gemma4:26b (17 GB). Stav k 15. 8.: gemma4:31b
-byl tehdy nainstalovaný, ale v logu k němu ještě nebyla žádná zkouška — vyřešeno
-měřením 24. 8. 2026 (31b 8/8 proti 26b 5/8 + věcná chyba, viz odstavec „Lokálně
-jsou na český souvislý text" níže a `~/CLAUDE.md` § Ollama orchestrace). Rozpor proti pravidlům trvá jen u tohoto:
-qwen3-coder:30b má test z 2026-07-14, ale záznam z 2026-07-16 ho
-označuje za nahrazený rychlejším qwen3:30b-a3b — dnes se nepoužívá, ač je nainstalovaný.
-Role „průzkumník" má zkoušku z 21. 9. 2026 (gemma4:26b, 4/6); role „média a hledání"
-byla zrušena — lokální model zdroje nedohledává. Nezkoušené zařazení se značí
-`[neověřeno]` a platí jen jako výchozí odhad, dokud neproběhne měření na skutečné
-úloze z projektu (zápis do `METRIKY-KOL.md`).
-21. 9. 2026 přibyly qwen3.8:27b-mlx (18 GB), gpt-oss:20b (13 GB) a profil
-test-infografika-qwen38; měření viz METRIKY-KOL.md.
-
-Hermes odstraněn 14. 10. 2026 (viz `CLAUDE.md` ř. 38) — neinteraktivní volání už neplatí.
-
-⚠️ Varování: příklad `--model qwen2.5:14b` neprojde — model byl 8. 8. 2026 smazán.
-Role lokálních modelů (český text, kód, vision, ANO/NE, výjimka `worker_kod` v `graf_local.py`): jediný domov `~/CLAUDE.md` § Ollama orchestrace; před spuštěním vždy ověřit `ollama list`.
-
-Média a odkazy dělá subagent `worker-media` (sonnet, videa NEHLEDÁ): každý odkaz se
-ověřuje otevřením, nevymýšlí se. Lokální model tuhle roli nemá — zkouška na hledání
-a ověřování zdrojů v `ollama-log.md` není.
+- Kde platí: jen na MacBooku (rozhodnutí učitele D3, 10. 11. 2026: na MacBooku ponechat zapnutý a popsaný,
+  na mini odpojit z nastavení). Na mini není zapojený.
+- Spínač: existence souboru `~/.claude/ORCHESTRATOR_ON`; bez něj hlídač nedělá nic. Ladicí log
+  `/tmp/orchestrator-guard.log` píše jen při existenci `~/.claude/ORCH_DEBUG_ON`. Vypnutí: smazat značku.
+- Platí jen pro hlavní sezení; subagenti (vyplněné `agent_id`) smí vždy.
+- Hlavnímu sezení zamítá Read, Edit, Write, Grep a Glob (práci deleguje subagentovi).
+- Bash: složené příkazy (`&&`, `;`, roura, `$(`, zpětný apostrof, `>`) zamítá vždy; jinak pustí jen
+  příkaz, jehož první slovo je na seznamu v ř. 77 skriptu, a mazání značek režimu (ř. 79).
+- Je to kázeň, ne zámek: hlídač kouká jen na první slovo a povolené programy umí samy číst i zapisovat
+  (např. `node -e`, `npm run`, `git show`, `git config alias`, `curl -o`). Takové obchvaty se nepoužívají.
+- Co smí hlavní session v repu a vše ostatní (role, start, fronta, nasazení, předávka) neurčuje tento
+  soubor: platí ústava v6 (`/Library/Application Support/ClaudeCode/wonderly/USTAVA-WEBU.md`, kopie
+  na MacBooku `/Users/Shared/Omega/ustava/`) a `~/.claude/CLAUDE.md`.
+- Hlídač agent neupravuje ani neobchází (ústava, ZÁKAZY).
