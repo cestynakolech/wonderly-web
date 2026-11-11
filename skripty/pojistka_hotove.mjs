@@ -74,7 +74,7 @@ function materialoveCesty(n, out = []) {
 function rozborSouboru(text) {
   let ast;
   try { ast = parse(text, {sourceType: 'module', plugins: ['typescript']}); } catch (e) { throw new Error(`src/data/temata.ts nelze rozparsovat (${e.message}); změna odmítnuta.`); }
-  const mats = [], pole = [], adresy = new Map(), kont = new Map(), kolize = [], divne = [];
+  const mats = [], pole = [], adresy = new Map(), kont = new Map(), kolize = [], divne = [], podtemata = new Map();
   const slug = el => el?.type === 'ObjectExpression' ? el.properties.find(p => p.type === 'ObjectProperty' && klic(p) === 'slug' && p.value.type === 'StringLiteral')?.value.value : undefined;
   // cista = uzel leží v doslovné struktuře: deklarace na nejvyšší úrovni -> init -> jen objekty a pole.
   const walk = (node, path, cista) => {
@@ -98,6 +98,7 @@ function rozborSouboru(text) {
     }
     if (node.type === 'ArrayExpression') {
       const s = node.elements.map(slug), jedinecne = new Set(s.filter(Boolean)).size === s.filter(Boolean).length;
+      if (path.endsWith('.podtemata')) podtemata.set(path, {node, slugy: s});
       node.elements.forEach((el, i) => walk(el, `${path}[${jedinecne && s[i] ? 'slug=' + s[i] : i}]`, cista === true));
       return;
     }
@@ -112,7 +113,7 @@ function rozborSouboru(text) {
   walk(ast.program, '', 'koren');
   const radky = [0];
   for (let i = 0; i < text.length; i++) if (text[i] === '\n') radky.push(i + 1);
-  return {text, mats, pole, adresy, kont, kolize, divne, radky, line: n => text.slice(radky[n - 1], (radky[n] ?? text.length + 1) - 1)};
+  return {text, mats, pole, adresy, kont, kolize, divne, podtemata, radky, line: n => text.slice(radky[n - 1], (radky[n] ?? text.length + 1) - 1)};
 }
 function cestyObjektu(o) {
   const out = [];
@@ -208,6 +209,35 @@ function zmenySeSoubory(diff, {stary, novy}) {
   }
   for (const [adr, kn] of N.kont) if (kn.materialy && !O.kont.get(adr)?.materialy) for (const e of kn.materialy.value.elements) for (const p of materialoveCesty(e)) nove.add(p);
 
+  // Nová podtémata: celé objekty v poli podtemata, jejichž slug v tomtéž poli staré verze není (slugy nové verze
+  // jedinečné a doslovné). Pustí se jen, když nová verze bez jejich celých řádků je PŘESNĚ stará verze
+  // (nic se nemaže ani nemění; rozhoduje celý soubor, ne okno diffu). Jinak platí řádková politika níže.
+  const novaPodtemata = [];
+  for (const [adr, pn] of N.podtemata) {
+    const po = O.podtemata.get(adr);
+    if (!po || pn.slugy.some(s => s === undefined) || new Set(pn.slugy).size !== pn.slugy.length) continue;
+    pn.node.elements.forEach((el, i) => { if (!po.slugy.includes(pn.slugy[i])) novaPodtemata.push(el); });
+  }
+  let jenNovaPodtemata = false;
+  if (novaPodtemata.length) {
+    const vynech = new Set();
+    jenNovaPodtemata = novaPodtemata.every(el => {
+      // Tvar: prosté klíče (identifikátor, bez spreadu, vypočtených a uvozovkových klíčů), každý nejvýš jednou
+      // (JavaScript bere poslední výskyt, pojistka by viděla první), slug ve tvaru ^[a-z0-9]+(-[a-z0-9]+)*$.
+      const k = el.properties.map(p => p.type === 'ObjectProperty' && !p.computed && !p.shorthand && p.key.type === 'Identifier' ? p.key.name : null);
+      if (k.includes(null) || new Set(k).size !== k.length) return false;
+      if (!el.properties.every(p => doslovne(p.value))) return false;
+      const s = el.properties.find(p => p.key.name === 'slug')?.value;
+      if (s?.type !== 'StringLiteral' || !/^[a-z0-9]+(-[a-z0-9]+)*$/.test(s.value)) return false;
+      const a = el.loc.start.line, b = el.loc.end.line;
+      if (N.text.slice(N.radky[a - 1], el.start).trim() || !/^,?[ \t]*$/.test(N.text.slice(el.end, N.radky[b - 1] + N.line(b).length))) return false;
+      for (let k = a; k <= b; k++) vynech.add(k);
+      return true;
+    }) && N.text.split('\n').filter((_, k) => !vynech.has(k + 1)).join('\n') === O.text;
+    // Ve staré verzi se nic nezměnilo; změněné řádky nové verze jsou právě řádky nových podtémat.
+    if (jenNovaPodtemata) { zmeneno['-'] = new Set(); zmeneno['+'] = vynech; }
+  }
+
   // Materiálové objekty mimo pole materialy (např. samostatný objekt s cestou) a odkazy: jako v kole 1.
   const vMaterialech = path => path.includes('.materialy[');
   for (const sign of ['-', '+']) {
@@ -225,7 +255,7 @@ function zmenySeSoubory(diff, {stary, novy}) {
       let zbytek = line;
       for (const m of maska) if (m.start < b && m.end > a) { const x = Math.max(m.start, a) - a, y = Math.min(m.end, b) - a; zbytek = zbytek.slice(0, x) + ' '.repeat(y - x) + zbytek.slice(y); }
       for (const mm of zbytek.matchAll(/["'`](\/materialy\/[^"'`\s]+)["'`]/g)) stavajici.add('public' + mm[1]);
-      if (dotcene.some(m => m.node.start < b && m.node.end > a) || !line.trim()) continue;
+      if (dotcene.some(m => m.node.start < b && m.node.end > a) || !line.trim() || jenNovaPodtemata) continue;
       // Řádek mimo materiálové objekty projde, jen když celý leží ve vlastnosti odkazy nebo materialy.
       const t0 = a + line.length - line.trimStart().length, t1 = a + line.trimEnd().length;
       if (!s.pole.some(({node: p}) => p.start <= t0 && (t1 <= p.end || (t1 === p.end + 1 && s.text[p.end] === ',')))) throw new Error('Změněný materiál nemá v omezeném diffu úplné hranice objektu; změna odmítnuta.');
