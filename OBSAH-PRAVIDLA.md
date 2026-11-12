@@ -74,7 +74,7 @@ Není to „hezké mít", je to vstupní podmínka: než začne výklad/kvíz/si
 **Počet prezentací se needituje ručně** (rozpor 39 vs. 40 mezi touto větou a tabulkou
 níže, ani jedno číslo nebylo ověřitelné) — zjisti živě:
 `find "/Users/Shared/Škola" -iname "*.pptx" | wc -l` (celkem) a
-`find "/Users/Shared/Škola" -iname "*.pptx" | while read f; do [ -f "~/Desktop/Omega/dokumenty/prezentace-popisy/$(basename "$f" .pptx).md" ] || echo "$f"; done`
+`find "/Users/Shared/Škola" -iname "*.pptx" | while read f; do [ -f "$HOME/Desktop/Omega/dokumenty/prezentace-popisy/$(basename "$f" .pptx).md" ] || echo "$f"; done`
 (chybí popis). Stav k 21. 9. 2026 měl 3 chybějící popisy v 6. ročníku
 (`6/01 Látka/Stavba látek  .pptx`, `6/02 Síla/Síla 6 .pptx`,
 `6/07 Opakování rok/Fyzika opakování  rok 6 r. .pptx`) — ověř znovu příkazem výše,
@@ -91,9 +91,9 @@ než na to spoléháš.
 | **Tematické plány 7/8/9** | tamtéž, `Tematický plán - Fyzika_1-<r>_ ročník.docx` | |
 | **Časové plány 2026/27** | `/Users/Shared/Škola/2 stupen/Rozvrh časový plán/Casovy plan - Fyzika <7B/8B/9> - 2026-27.xlsx` | co se kdy probírá |
 | hotová kontrola souladu plán ↔ web | tamtéž, `KONTROLA-souladu-planu-a-webu.md` | zdroj otevřených otázek níže |
-| **výklad na webu** | `~/Desktop/wonderly-web/src/data/temata.ts` | velký soubor — **nečíst celý**, jen výřezem |
-| **kvízy** | `~/Desktop/wonderly-web/src/data/kvizy.ts` | klíč `předmět/ročník/téma/podtéma`; fyzika: 6→21, 7→33, 8→37, 9→25 bloků |
-| hry | `~/Desktop/wonderly-web/src/data/hry.ts` (+ návod `/Users/Shared/Škola/Hry/NAVOD-hry-pro-tridu.md`) | otázky si berou z `kvizy.ts` |
+| **výklad na webu** | `~/wonderly-nasazeni/src/data/temata.ts` (repo webu na mini) | velký soubor — **nečíst celý**, jen výřezem |
+| **kvízy** | `~/wonderly-nasazeni/src/data/kvizy.ts` | klíč `předmět/ročník/téma/podtéma`; fyzika: 6→21, 7→33, 8→37, 9→25 bloků |
+| hry | `~/wonderly-nasazeni/src/data/hry.ts` (+ návod `/Users/Shared/Škola/Hry/NAVOD-hry-pro-tridu.md`) | otázky si berou z `kvizy.ts` |
 | scénáře videí/podkástů | `~/Desktop/Omega/podkasty-scenare/<ročník>/` | postup `Omega/dokumenty/NAVOD-POLEMIKY-F6.md` |
 
 Struktura složek učitele je zároveň **struktura učiva**:
@@ -247,7 +247,7 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
   Jinak to není polemika, ale skrytý výklad.
 - **Omyl nikdy nezazní jako tvrzení** — vždy jako cizí názor či domněnka („spousta lidí to bere tak").
   Dítě si zapamatuje i větu, která je vzápětí opravena.
-- **Brána pokrytí kvízu je povinná:** `python3 skripty/pokryti_kvizu.py <slug>-dialog --tema …`;
+- **Brána pokrytí kvízu je povinná:** `python3 ~/Desktop/Omega/skripty/pokryti_kvizu.py <slug>-dialog --tema …`;
   dokud nehlásí „pokrývá celý kvíz", díl se nevyrábí. (Měří význam, ne jen podíl slov.)
 - Text jde do syntézy doslova: žádný markdown, žádné číslice, žádné značky jednotek („pět set osmdesát newtonů").
 - **Schémata kreslí KÓD**, obrázkový model jen ilustrace bez měřitelného obsahu.
@@ -264,7 +264,7 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
   Co jde, dělají lokální modely.
 - **Pořadí práce a fronta (rozhodnutí učitele 10. 11. 2026, JEDINÝ DOMOV; nahrazuje „Fronty videí“ ze 4. 10. 2026):** nejdřív jádro (výklad, zápis, kvíz),
   teprve potom doplňky. Pořadí určuje ČASOVÝ PLÁN VÝUKY: nejdřív učivo příštího měsíce v 7., 8. a 9. ročníku, pak další měsíc; odučené učivo a 6. ročník až nakonec
-  (`Omega/dokumenty/PORADI-TEMAT-7-9.md` je jen přehled témat). Zdroj pravdy: jedna fronta `~/Desktop/Omega/fronty/SEZNAM-CHYBEJICIHO.md`.
+  (časové plány: `/Users/Shared/Škola/2 stupen/Rozvrh časový plán/`). Zdroj pravdy: jedna fronta `~/Desktop/Omega/fronty/SEZNAM-CHYBEJICIHO.md`.
 - Zdroj: `~/Desktop/Omega/dokumenty/NAVOD-POLEMIKY-F6.md`, skill `/podkast-video`.
 
 ## 7. SIMULACE
@@ -275,7 +275,7 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
 - Výchozí hodnoty i **všechny polohy posuvníků** musí dávat celé výsledky.
 - Stav viditelný v náhledu musí být SVG atribut, ne CSS třída; vizuální prohlídku dělá **nezávislý kontrolor**.
 - **Čitelnost na telefonu (varianta A, učitel 30. 9. 2026; měřidlo `testy/mobil-citelnost.mjs`, okno 375 px):** scéna se SVG s drobnými texty (< 12 px) musí mít pod sebou HTML obraz (prvek s třídou `…-mobil`/`…-legenda` nebo `data-mobil-obraz`; písmo ≥ 14 px, kontrast ≥ 4,5:1, neprázdný). NUTNÝ popisek = `<text id=…>` (dynamický výstup) nebo atribut `data-nutne`; musí být ≥ 12 px, nebo jeho text doslova stát v HTML obrazu. Ostatní drobné doplňkové popisky ve scéně se tolerují (kontrast ≥ 4,5:1 platí pro všechny).
-- Měřidlo je zatím jen hlášení (není v prebuildu), exit ≠ 0 při selhání; kontrola starého stavu: `MOBIL_KOMP=<složka komponent z git archive HEAD> node testy/mobil-citelnost.mjs <názvy>`. Postup předělání: `Omega/predavka/2026-10-01/prace/mobil/davka1-v3.md` (§ Vzor postupu).
+- Měřidlo je zatím jen hlášení (není v prebuildu), exit ≠ 0 při selhání; kontrola starého stavu: `MOBIL_KOMP=<složka komponent z git archive HEAD> node testy/mobil-citelnost.mjs <názvy>`. Dřívější postup předělání `Omega/predavka/2026-10-01/prace/mobil/davka1-v3.md` už neexistuje.
 - Zdroj: `feedback-simulace-realisticke`, agent `worker-simulace`, skill `/simulace`.
 
 ---
@@ -362,7 +362,7 @@ než dřív. ROZHODNUTO podle zavedené praxe a PŘEPSÁNO rozhodnutím učitele
 polemika Evy a Marka je **jedna na téma**, díl pokrývá kvízové otázky **podtématu, ke
 kterému patří** (kap. 1, bod 2). Série dílů se štítkem `"skupina"` (posuzování dílů dohromady)
 zůstává jen pro už existující trojice. Brána `pokryti_kvizu.py` měří JEDNOTLIVÝ DÍL
-(popř. skupinu), sladění kvízu s dílem se ověřuje ručně (viz `PROGRESS.md` „sladění kvízů").
+(popř. skupinu), sladění kvízu s dílem se ověřuje ručně (viz `PROGRESS-ARCHIV.md` „sladění kvízů").
 
 Nic dalšího otevřené není — body A–H učitel rozhodl 19. 8. 2026 a jsou zapsané
 výše v těle ústavy (A → kap. 4, B → kap. 3, C → kap. 2, D → kap. 10, E → kap. 5,
@@ -395,7 +395,7 @@ postupně vymění za animace — až po doplnění všeho chybějícího; do t�
 hotové audio, které tam už je.
 
 Tato definice je jediné platné a úplné znění — nahrazuje a rozšiřuje dřívější
-užší definici v `SAMOSTATNY-REZIM.md`, bod E (ii); tam zůstává jen odkaz sem.
+užší definici (dříve v `SAMOSTATNY-REZIM.md`, bod E (ii); tam už není).
 
 **Animace celé polemiky — závazné upřesnění učitele 28. 9. 2026:**
 
@@ -416,7 +416,7 @@ Pravidla kap. 3 (úvod „Jednoduše řečeno“, rozsah = PDF + prezentace + zj
 2. Po schválení se postupuje podle **ČASOVÉHO PLÁNU VÝUKY** (rozhodnutí učitele 10. 11. 2026; nahrazuje „téma po tématu napříč 7/8/9“ z 29. 9. 2026):
    nejdřív učivo příštího měsíce v 7., 8. a 9. ročníku (úvod, výklad v rozsahu PDF + prezentace + zjednodušeně ŠVP, zápis, překreslené obrázky z PDF, kvíz),
    pak další měsíc; odučené učivo a 6. ročník až nakonec. Písnička, bonus z NotebookLM a polemika Evy a Marka jsou doplňky za jádrem (kap. 6, 12).
-   Přehled témat: `Omega/dokumenty/PORADI-TEMAT-7-9.md`.
+   Časové plány: `/Users/Shared/Škola/2 stupen/Rozvrh časový plán/`.
 3. Obrázky (kap. 3, „OBRÁZKY ZE ZDROJE“) se zavádějí stejně: pilot → po schválení podle časového plánu výuky.
 4. Každé upravené podtéma projde **nezávislým kontrolorem** (čerstvý kontext): věcná správnost
    zjednodušení, pokrytí PDF a prezentace, nic nevypadlo (přebytek: u hotových ponechán v „Pro zvídavé“,
@@ -436,4 +436,4 @@ Učitel doslova: „Klid a pohyb tělesa je dobře udělaná stránka a mohla by
 - **Obrázky podle předlohového PDF:** počet a téma obrázků vychází ze stran PDF; obrázek se z PDF PŘEKRESLUJE (ne kopie), viz kap. 3 a `feedback-obrazek-prekreslit-z-pdf`.
 - **Panelová infografika může být i animace**, není jen statickým obrázkem. U dějů má přednost animované SVG (SMIL/CSS, bez JS). Platí `PANELY-NAVOD.md`, sekce Animace: pohyb musí ukazovat příčinu a průběh děje, smyčka 4–8 s, srozumitelný koncový stav, `prefers-reduced-motion` s úplným nejvýmluvnějším snímkem a T11 (čísla rovnou správná, bez mezistavů).
 - **Děje** (pohyb, ohřev, změny skupenství apod.) vyjádřit animací/simulací (kap. 7), je-li co ukázat; statický jev stačí obrázkem.
-- Šablona zadání workerů `Omega/predavka/2026-10-01/SABLONY-ZADANI.md` odkazuje na tuto kapitolu; rozsah výkladu je jednoznačně: ~650 slov = přibližné maximum, ne cíl (viz měřítko výše; šablona to přebírá, rozpor už není).
+- Rozsah výkladu je jednoznačně: ~650 slov = přibližné maximum, ne cíl (viz měřítko výše).

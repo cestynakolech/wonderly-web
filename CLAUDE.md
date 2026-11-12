@@ -1,21 +1,20 @@
 # CLAUDE.md — trvalý kontext projektu wonderly-web
 
 > **Komunikuj vždy česky** (uživatel je učitel-laik; před spouštěním příkazů krátce vysvětli, co dělají).
-> **Na začátku každé session si přečti `SAMOSTATNY-REZIM.md`** — aktuální stav je v nejhornější
-> sekci ⚡ ČÍM ZAČÍT, živá fronta úkolů v sekci 📌 a jediný seznam otevřených dotazů v sekci ❓.
+> **Na začátku každé session proveď START podle ústavy webu** (`/Library/Application Support/ClaudeCode/wonderly/USTAVA-WEBU.md`
+> § START; kopie na MacBooku `/Users/Shared/Omega/ustava/`): `start_web.py`, nejnovější `Omega/koordinace/zpravy/PREDAVKA-*.md`,
+> `Omega/fronty/SEZNAM-CHYBEJICIHO.md`, `Omega/dokumenty/KATALOG-PRACANTU.md` § 0. SAMOSTATNY-REZIM.md: ❓ otevřené dotazy na učitele a zákaz ⛔ NESAHAT (odpor kůže); fronta je jen SEZNAM-CHYBEJICIHO.md.
 > `PROGRESS.md` je jen
 > technická příručka (jak co přidat, kde co leží) a historie — nečti ji jako zdroj aktuálního stavu.
-> **Na KONCI každé session `PROGRESS.md` aktualizuj** (přidej datovaný záznam do sekce Historie) a
-> **commitni + pushni** — tím se historie uloží na GitHub jako vratná verze. Po dokončení celého
-> ročníku přidej git tag jako milník.
+> **Na KONCI session a před /clear** se dělá předávka jen skriptem `predavka.py` (ústava § PŘEDÁVKA).
+> Do repa zapisuje a nasazuje jen exekutor, jen z mini (ústava § ŘÍZENÍ A NASAZENÍ).
 
 ## Co to je
-**wonderly je JEDEN projekt a jedna webová stránka** (tohle je jeho jediný popis, jinde
-se neopisuje), jen se dělí na podprojekty: web v tomhle repu, cestovatelský deník
-cesty.wonderly.cz, propustka z hodiny (Apps Script), YouTube automat, appka `/tour`,
-pracovní prostor a skripty `~/Desktop/Omega` a zdrojové školní podklady
-`/Users/Shared/Škola`. Podprojekt není jiný projekt: fronta úkolů i aktuální stav
-jsou jedno — `SAMOSTATNY-REZIM.md`.
+**Školní web lab.wonderly.cz** (tohle repo) je projekt, na který se vztahuje ústava webu. Patří k němu propustka
+z hodiny (Apps Script), pracovní prostor a skripty `~/Desktop/Omega` a zdrojové školní podklady
+`/Users/Shared/Škola`. **Cestování a volný čas** (cestovatelský deník cesty.wonderly.cz, YouTube automat,
+appka `/tour`) je oddělený projekt, spí; návod ve skillu `cestovani`, pravidla webu se na něj nevztahují.
+Fronta úkolů webu je jedna — `Omega/fronty/SEZNAM-CHYBEJICIHO.md`.
 
 Statický web na doméně **wonderly.cz** (Cloudflare, zdarma). Tři sekce na subdoménách:
 - **lab.wonderly.cz** = `/skola2` — 2. stupeň ZŠ. Specifika: `src/pages/skola2/_CLAUDE.md`.
@@ -31,11 +30,10 @@ Statický web na doméně **wonderly.cz** (Cloudflare, zdarma). Tři sekce na su
 
 ## Technologie
 - **Astro** (statický generátor), TypeScript. Build: `npm run build` (výstup do `dist/`).
-- **Cloudflare Workers** — auto-deploy z GitHub větve `main` (~1 min po pushi).
+- **Cloudflare Workers** — auto-deploy z GitHub větve `main` (asi 6 minut po pushi; sestavení ~4,5 min).
 - **Cloudflare R2** — úložiště `wonderly-media` pro plnokvalitní fotky deníku (binding MEDIA).
 - Fonty: `@fontsource/patrick-hand` + `caveat` (kreslený „whiteboard" styl, latin-ext = česká diakritika).
 - `worker.js`, `wrangler.jsonc` — routing subdomén + R2. **NEMĚNIT bez důvodu.**
-- **Hermes** odstraněn 14. 10. 2026 (staré zmínky v paměti a návodech jsou překonané).
 
 ## Kde co je (společná kostra)
 Každá sekce má soubory ve TŘECH podstromech — stránky, komponenty, data:
@@ -47,24 +45,25 @@ src/data/                ← datové soubory školy; src/data/cesty/ = data den�
 public/                  ← statické soubory (materialy/ škola, obrazky/, cesty/)
 ```
 
-**Orchestrátorský režim:** zapíná se příkazem `/orch-on` (vytvoří značku `~/.claude/ORCHESTRATOR_ON`; vrátný pak hlavnímu sezení blokuje Read/Edit/Write/Grep/Glob i neřídicí Bash a práce se deleguje subagentům), vypíná `/orch-off` nebo `rm ~/.claude/ORCHESTRATOR_ON`.
+**Hlídač `orchestrator-guard.sh`:** zapnutý jen na MacBooku (rozhodnutí učitele D3, 10. 11. 2026), na mini odpojený; co vynucuje, popisuje `.claude/orchestrator-prompt.md`.
 
 ## Pravidlo řezu dokumentace
-Do tohoto souboru jen to, co platí pro všechny sekce; specifika sekce jen do jejího souboru; **nic nesmí být na dvou místech**. Ukazatelové `CLAUDE.md` (jednořádkový `@import`) nejsou kopie — obsah žije vždy jen v `src/pages/<sekce>/_CLAUDE.md`. Orchestrátor tato specifika sám nevidí (má zakázané čtení) — musí nechat příslušný `_CLAUDE.md` načíst agentovi, který v dané sekci pracuje.
+Do tohoto souboru jen to, co platí pro všechny sekce; specifika sekce jen do jejího souboru; **nic nesmí být na dvou místech**. Ukazatelové `CLAUDE.md` (jednořádkový `@import`) nejsou kopie — obsah žije vždy jen v `src/pages/<sekce>/_CLAUDE.md`. Specifika sekce si přečte agent, který v dané sekci pracuje.
 
-## Postup nasazení (společný pro všechny sekce)
+## Postup nasazení (společný pro všechny sekce; dělá jen exekutor z mini, jeden naráz)
 ```
 # obsah: src/data/temata.ts (výklad+materiály), src/data/kvizy.ts (otázky)
 # média: public/materialy/fyzika/<rocnik>/<tema>/<podtema>/
 #        infografiky zmenšit na ~1200px jpg q82 (PIL), písničky WAV→m4a/mp3 (ffmpeg)
 npm run build                 # ověří, že se web sestaví (prebuild = zkontroluj.mjs + testy simulací + obousmerne.mjs)
-git add <vlastní cesty v src public/materialy testy>   # nikdy -A (Codex na stejném disku); testy: nová komponenta bez zapsaného testy/simulace/*.mjs a
+npm test                      # testy musí projít před commitem
+git add <vlastní cesty v src public/materialy testy>   # nikdy -A (jen vlastní cesty); testy: nová komponenta bez zapsaného testy/simulace/*.mjs a
                                          # doloženého testy/obousmerne.json by na Cloudflare spadla na prebuildu
 git commit -m "..."           # commit = jedno téma, nepřibalovat nesouvisející soubory
-git push origin main          # Cloudflare nasadí sám do ~1 min — VŠECHNY sekce naráz
-# ověření (Cloudflare chvíli vrací starou verzi z cache, proto ve smyčce
-# S CACHE-BUSTEREM i User-Agent — bez ?cb= může vrátit "cf-cache-status: HIT" a stará data):
-for i in $(seq 8); do curl -s -A wonderly-check "https://lab.wonderly.cz/<cesta>/?cb=$(date +%s)$RANDOM" | grep -q "Spustit kvíz" && echo OK && break; sleep 10; done
+git push origin main          # Cloudflare nasadí sám asi za 6 minut — VŠECHNY sekce naráz
+# ověření: asi po 6 minutách curl živé stránky s cache-busterem ?x= (bez něj může vrátit starou verzi z cache):
+curl -s -A wonderly-check "https://lab.wonderly.cz/<cesta>/?x=$RANDOM$RANDOM" | grep -q "Spustit kvíz" && echo OK
+# ruční `npx wrangler deploy` jen když se změna neobjeví do 8 minut
 ```
 
 Tenhle blok je JEDINÝ domov postupu nasazení — PROGRESS.md i skill `/wonderly` sem odkazují, neopisují.

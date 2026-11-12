@@ -1,10 +1,7 @@
-# wonderly-web — pokyn pro Codex
+# wonderly-web — AGENTS.md
 
 Komunikuj výhradně česky.
 
-Web je doména Claude. Bez karty tu Codex jen ČTE a změny navrhuje zprávou do
-`/Users/radek_soukromy/Desktop/Omega/koordinace/zpravy/` (formát v jejím README).
-VÝJIMKA (rozhodnutí učitele 23. 10. 2026): když Codex běží přes kartu spuštěnou
-`~/Desktop/Omega/skripty/codex_karta.py`, SMÍ měnit přesně soubory ze sekce MĚŇ té karty
-(a nic jiného). Necommituje, nepushuje, nemaže. Návod: `~/Desktop/Omega/dokumenty/NAVOD-RIZENI-CODEXU.md`.
-Rozdělení vlastnictví: `/Users/radek_soukromy/Desktop/Omega/koordinace/ROZDELENI.md`.
+Codex se pro web nepoužívá; jen na výslovný pokyn učitele (rozhodnutí učitele 10. 11. 2026, bod 2; ústava v6, ZÁKAZY).
+Pravidla repa: [`CLAUDE.md`](CLAUDE.md) a ústava webu v6 (`/Library/Application Support/ClaudeCode/wonderly/USTAVA-WEBU.md`;
+kopie na MacBooku `/Users/Shared/Omega/ustava/`).

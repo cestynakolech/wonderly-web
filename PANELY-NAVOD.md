@@ -61,9 +61,9 @@ Typ: `Material.panely?: string[]` (src/data/temata.ts).
 ## Ověření (po každém novém panelování)
 
 1. `npm run build` + `npm test` rc=0.
-2. Snímky: `node /private/tmp/panely/svgtest.mjs` (panely na t = 0 / t = 2500 ms) a
-   `node /private/tmp/panely/strana.mjs` (náhled `python3 -m http.server 4329` v dist,
-   šířky 375/1280/1920, lupa, šipky, Esc) — upravit URL a názvy souborů.
+2. Snímky: panely na t = 0 / t = 2500 ms a stránka (náhled `python3 -m http.server 4329` v dist,
+   šířky 375/1280/1920, lupa, šipky, Esc). Dřívější skripty `/private/tmp/panely/svgtest.mjs`
+   a `strana.mjs` už neexistují (ležely v /tmp).
    Pozn.: přímý `page.goto` na .svg soubor v headless Chromiu visí → SVG vkládat inline.
 3. Prohlédnout: telefon 1 sloupec čitelný, 1920 velké panely, lupa co největší.
 
@@ -71,7 +71,7 @@ Typ: `Material.panely?: string[]` (src/data/temata.ts).
 
 Výroba infografik „… v pohybu“ (31 nasazeno). Polovina panelů byla napoprvé zamítnuta.
 
-1. **Nejčastější zamítnutí = zdvojení.** Před výrobou stáhnout obr-* stránky, zjistit, které jsou ANIMOVANÉ (`<animate>`, `@keyframes`) a jaký děj ukazují, plus simulace a videa. Panel smí ukázat jen děj, který stránka nemá. Zdvojující panel se VYŘADÍ (přesune vyráběcí worker u panelů Clauda: mv do /Users/Shared/Omega/predavka/vyrazene-panely/<datum>-Wxx/, nic se nemaže; panely Codexu Claude jen nepřevezme – Codexovy soubory v Omeze zůstávají), neopravuje se.
+1. **Nejčastější zamítnutí = zdvojení.** Před výrobou stáhnout obr-* stránky, zjistit, které jsou ANIMOVANÉ (`<animate>`, `@keyframes`) a jaký děj ukazují, plus simulace a videa. Panel smí ukázat jen děj, který stránka nemá. Zdvojující panel se VYŘADÍ (přesune vyráběcí worker u panelů Clauda: mv do /Users/Shared/Omega/predavka/vyrazene-panely/<datum>-Wxx/, nic se nemaže), neopravuje se.
 2. **Fyzikální realismus.** Hladina kapaliny vždy vodorovná (i při náklonu – clipPath). Nic se nevznáší: těleso hustší než voda leží na dně nebo visí na provázku vedoucím k ruce. Měřítko sedí s objemem/hmotností (kádinka pojme nalitý objem; pytel 100 kg neexistuje → 4 × 25 kg). Nástroje a anatomie podle předlohy z PDF/obr-* (ucho převzít z obr-01, mikrometr dle fotky v PDF). Smyčec napříč strunou.
 3. **Jednotnost.** Barvy/tvary/značky stejně jako obr-* téže stránky a nasazené panely tématu (tyrkys = napětí, barvu elektronu nepoužít na nic jiného, hvězda štěpení žlutá + obrys #c92a2a). Značky (např. póly N/S) vždy ověřit v PDF učitele, NE „opravovat“ podle dojmu.
 4. **Text nesmí předbíhat děj ani zůstat po jeho skončení** – vzorkovat celý cyklus (po 25–100 ms).
@@ -80,10 +80,10 @@ Výroba infografik „… v pohybu“ (31 nasazeno). Polovina panelů byla napop
 7. **Opora:** PDF nebo výklad. Odečet měření smí být desetinné číslo (0,06 mm; výjimka učitele 4. 10. 2026, `wonderly-web/OBSAH-PRAVIDLA.md` § 8 „Celá čísla“), výpočty a příklady jen celá čísla. Co nemá oporu, nekreslit (vynechat i „logický důsledek“, pokud ho kontrolor neuzná).
 8. **Bezpečnost:** žádné návody k nebezpečným pokusům (lupa nezapaluje papír; varování „nedívej se do Slunce“).
 9. **Postup:** výroba → kontrola (čerstvý kontext) → opravy → jediný zapisovatel temata.ts → kontrola commitu na čisté kopii (`git clone --local`, build + `npm test`) → push přesného hashe → ověření `curl ?x=` + shasum. Čekací smyčky psát v BASHI (zsh smyčka hlásí falešné nuly).
-10. **Pravidlo 3 pokusů platí i pro panely:** po 3. zamítnutí změnit přístup (převzít kresbu z obr-*, přepočítat poměr, vyřadit panel, převzít Codexův panel a dokončit sám).
+10. **Pravidlo 3 pokusů platí i pro panely:** po 3. zamítnutí změnit přístup (převzít kresbu z obr-*, přepočítat poměr, vyřadit panel).
 11. **Klidový stav (`prefers-reduced-motion`)** – audit 18. 10. 2026 (T4, 28 protokolů): při vypnuté animaci musí panel zůstat ÚPLNÝ a odpovídat popisku/alt (spínač sepnutý jen tehdy, když to říká popisek; skříňka nesmí zůstat nakloněná; všechny texty viditelné). Worker i kontrolor vykreslí panel s `--force-prefers-reduced-motion` a prohlédnou ho.
 12. **Žádná naměřená čísla v komentářích** (audit 18. 10., T8, 16 protokolů): komentář v SVG/komponentě nesmí tvrdit hodnotu („na 375 px ≥ 14 px“, „měřítko 1,8“), kterou kód nedrží. Napsat jen odkaz na měřidlo (`testy/…`, `skripty/kontrast_textu_svg.py`) nebo číslo přímo odvodit z atributu.
-13. **Jeden tvar = jeden význam i u písmen** (T10): zakázaná písmena podle tématu viz `predavka/2026-10-01/SABLONY-ZADANI.md` § D (N = newton × pól).
+13. **Jeden tvar = jeden význam i u písmen** (T10): zakázaná písmena podle tématu (např. N = newton × pól; dřívější seznam v `predavka/2026-10-01/SABLONY-ZADANI.md` § D už neexistuje).
 
 ## Poučení 15.–20. 10. 2026 (přeneseno ze skillu wonderly, W11)
 
@@ -94,5 +94,5 @@ Výroba infografik „… v pohybu“ (31 nasazeno). Polovina panelů byla napop
 - Výjimka z pojistky hotového (1814) udělená učitelem: smí se nahradit soubor nasazeného panelu jeho animovanou verzí se STEJNÝM jménem, stejným textem a dějem (jen přidaný pohyb, případně opravené chyby). Nic jiného nasazeného se nepřepisuje.
 - Povinné: smyčka 4–8 s a stav na konci srozumitelný; čísla se objeví rovnou správná (T11, žádné mezistavy); @media (prefers-reduced-motion: reduce) zastaví animaci na nejvýmluvnějším snímku; Safari (kontrola_safari_svg.mjs) a kontrast ≥ 4,5 na statickém i výsledném snímku; velikost souboru ≤ 2× statického.
 - Kontrola animace = PŘEHRÁNÍ: kontrolor nechá na Intelu (ssh intel, Chrome headless, vzor ~/wonderly-render/prace/dil2-scena4-v3/) vyrenderovat snímky v čase 0, 25, 50, 75, 100 % smyčky + reduced-motion, a prohlédne je. Na mini prohlížeč nespouštět.
-- Pořadí náhrad: 1) F8 elektrické obvody (pilot, 2 panely), 2) W39 přenos el. energie (7), 3) W41 chemické zdroje napětí 9. r. (4), 4) F8 chemické zdroje napětí (2), 5) F7 tělesa – vesta (1); dál podle inventury.
+- Náhrady starších panelů až po doplnění všeho chybějícího; do té doby se kvůli nim nic nepředělává (rozhodnutí učitele 11. 11. 2026, `Omega/koordinace/rozhodnuti-ucitele-2026-11-10.md`, „POŘADÍ DOPLŇOVÁNÍ × OPRAVY“). Původní pořadí náhrad (21. 10.): 1) F8 elektrické obvody (pilot, 2 panely), 2) W39 přenos el. energie (7), 3) W41 chemické zdroje napětí 9. r. (4), 4) F8 chemické zdroje napětí (2), 5) F7 tělesa – vesta (1); dál podle inventury.
 - (doplněno 21. 10. po pilotu) Pohyb MUSÍ ukazovat příčinu a průběh děje (tok proudu/nosičů po vodiči, ohřev změnou barvy/žhnutím, tání, zastavení toku, rozsvícení/zhasnutí). Pouhé postupné zvýrazňování částí nebo přepnutí ‚před/po‘ NESTAČÍ. Žádné texty typu ‚zvýraznění neznázorňuje proud‘. Text panelu se smí minimálně upravit, aby odpovídal pohybu (fakta beze změny, opora ve výkladu). Kontrolor odpovídá i na otázku ‚Vysvětluje pohyb příčinu děje lépe než statický obrázek? ANO/NE‘ – NE = ZAMÍTNUTO.
