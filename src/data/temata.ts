@@ -3796,6 +3796,12 @@ export const temata: Record<string, Tema[]> = {
 					materialy: [
 						{ druh: 'video', nazev: 'Píseň: Od uhlí ke hvězdám 🎵', cesta: '/materialy/fyzika/9-rocnik/energie-a-vesmir/obnovitelne-a-neobnovitelne-zdroje/pisen-od-uhli-ke-hvezdam.m4a' },
 						{ druh: 'infografika', nazev: 'Zdroje energie v pohybu', cesta: '/materialy/fyzika/9-rocnik/energie-a-vesmir/obnovitelne-a-neobnovitelne-zdroje/infografika-obnovitelne-a-neobnovitelne-zdroje-pohyb-panel-1.svg', panely: ['/materialy/fyzika/9-rocnik/energie-a-vesmir/obnovitelne-a-neobnovitelne-zdroje/infografika-obnovitelne-a-neobnovitelne-zdroje-pohyb-panel-1.svg', '/materialy/fyzika/9-rocnik/energie-a-vesmir/obnovitelne-a-neobnovitelne-zdroje/infografika-obnovitelne-a-neobnovitelne-zdroje-pohyb-panel-2.svg', '/materialy/fyzika/9-rocnik/energie-a-vesmir/obnovitelne-a-neobnovitelne-zdroje/infografika-obnovitelne-a-neobnovitelne-zdroje-pohyb-panel-3.svg'] },
+						{
+							druh: 'video',
+							nazev: 'Obnovitelné a neobnovitelné zdroje — 1. díl',
+							cesta: '/media/fyzika/9-rocnik/energie-a-vesmir/obnovitelne-a-neobnovitelne-zdroje/obnovitelne-a-neobnovitelne-zdroje-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 					interakce: 'obnovitelne-zdroje',
 					odkazy: [],
