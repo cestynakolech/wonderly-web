@@ -2365,6 +2365,12 @@ export const temata: Record<string, Tema[]> = {
 							nazev: 'Píseň: Dneska jedeme tlak 🎵',
 							cesta: '/materialy/fyzika/7-rocnik/tlak-v-kapalinach/tlak/pisen-dneska-jedeme-tlak.mp4',
 						},
+						{
+							druh: 'video',
+							nazev: 'Tlak — 1. díl',
+							cesta: '/media/fyzika/7-rocnik/tlak-v-kapalinach/tlak/tlak-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 					odkazy: [],
 				},
