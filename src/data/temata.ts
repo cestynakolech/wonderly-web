@@ -3779,6 +3779,12 @@ export const temata: Record<string, Tema[]> = {
 					materialy: [
 						{ druh: 'infografika', nazev: 'Jaderná elektrárna v pohybu', cesta: '/materialy/fyzika/9-rocnik/jaderna-fyzika/jaderny-reaktor-elektrarna/infografika-jaderny-reaktor-elektrarna-pohyb-panel-1.svg', panely: ['/materialy/fyzika/9-rocnik/jaderna-fyzika/jaderny-reaktor-elektrarna/infografika-jaderny-reaktor-elektrarna-pohyb-panel-1.svg', '/materialy/fyzika/9-rocnik/jaderna-fyzika/jaderny-reaktor-elektrarna/infografika-jaderny-reaktor-elektrarna-pohyb-panel-2.svg', '/materialy/fyzika/9-rocnik/jaderna-fyzika/jaderny-reaktor-elektrarna/infografika-jaderny-reaktor-elektrarna-pohyb-panel-3.svg'] },
 						{ druh: 'youtube', nazev: 'Video: Jak funguje jaderná elektrárna', cesta: 'BJbAvgpwCWc' },
+						{
+							druh: 'video',
+							nazev: 'Jaderný reaktor, jaderná elektrárna — 1. díl',
+							cesta: '/media/fyzika/9-rocnik/jaderna-fyzika/jaderny-reaktor-elektrarna/jaderny-reaktor-elektrarna-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 			],
