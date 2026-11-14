@@ -2922,6 +2922,12 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'youtube', nazev: 'Video: Teplo a teplota (ústřední topení)', cesta: 'YLiXzSWoRRg' },
 						{ druh: 'video', nazev: 'Píseň: Tepelná výměna a teplo 🎵', cesta: '/materialy/fyzika/8-rocnik/energie/tepelna-vymena-a-teplo/pisen-tepelna-vymena-a-teplo.m4a' },
 						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Proč v horkém čaji není teplo (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/8-rocnik/energie/tepelna-vymena-a-teplo/notebooklm-tepelna-vymena-a-teplo.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
+						{
+							druh: 'video',
+							nazev: 'Tepelná výměna, teplo, měrná tepelná kapacita — 1. díl',
+							cesta: '/media/fyzika/8-rocnik/energie/tepelna-vymena-a-teplo/tepelna-vymena-a-teplo-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 				{
