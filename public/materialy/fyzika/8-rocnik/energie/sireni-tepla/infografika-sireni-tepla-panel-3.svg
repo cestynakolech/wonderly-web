@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 565" width="460" height="565" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Proudění tepla v pokoji: vzduch se u topení ohřeje a stoupá ke stropu, tam se ochladí, klesne k podlaze a vrací se k topení. Prouděním se teplo šíří jen v kapalinách a plynech; teplý vzduch má menší hustotu, proto stoupá, studenější klesá, stejně se chová voda. V pevné látce proudění nenastane.">
+	<title>Šíření tepla 3/6: Proudění tepla</title>
+	<!-- Panel 3/6, nová kresba (wonderly, 14. 11. 2026). Opora: výklad podtématu na webu (temata.ts) a ŠVP 8. r. Základní stav = konečný stav děje. -->
+	<style>
+		@keyframes s3-mv { 0% { transform: translate(100px, 335px); } 18.75% { transform: translate(100px, 155px); } 50.0% { transform: translate(400px, 155px); } 68.75% { transform: translate(400px, 335px); } 100.0% { transform: translate(100px, 335px); } }
+		@keyframes s3-fl { 0%, 36% { fill: #e03131; } 54%, 90% { fill: #1c7ed6; } 99%, 100% { fill: #e03131; } }
+		.s3-mv { animation: s3-mv 8s linear infinite; }
+		.s3-fl { animation: s3-fl 8s linear infinite; }
+		@media (prefers-reduced-motion: reduce) { .s3-mv { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) { .s3-mv, .s3-fl { animation: none; } }
+	</style>
+	<defs><marker id="s3-r" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c92a2a" /></marker><marker id="s3-g" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#495057" /></marker><marker id="s3-b" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1864ab" /></marker></defs>
+	<rect x="0" y="0" width="460" height="565" fill="#f8f9fa" />
+	<rect x="10" y="10" width="440" height="545" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+	<text x="26" y="44" font-size="25" fill="#2b2a26" font-weight="bold">Proudění tepla</text>
+	<text x="26" y="78" font-size="22" fill="#2b2a26">Jen v kapalinách a plynech: ohřátá</text>
+<text x="26" y="106" font-size="22" fill="#2b2a26">látka se přesune a nese teplo s sebou.</text>
+	<rect x="30" y="130" width="400" height="240" fill="#ffffff" stroke="#868e96" stroke-width="2" />
+	<line x1="26" y1="370" x2="434" y2="370" stroke="#868e96" stroke-width="5" />
+	<rect x="40" y="280" width="42" height="82" rx="4" fill="#ffc9c9" stroke="#c92a2a" stroke-width="2.5" />
+	<line x1="51" y1="286" x2="51" y2="356" stroke="#c92a2a" stroke-width="2" />
+	<line x1="61" y1="286" x2="61" y2="356" stroke="#c92a2a" stroke-width="2" />
+	<line x1="71" y1="286" x2="71" y2="356" stroke="#c92a2a" stroke-width="2" />
+	<text x="61" y="270" font-size="18" fill="#2b2a26" font-weight="bold" text-anchor="middle">topení</text>
+	<path d="M100,335 V165" fill="none" stroke="#c92a2a" stroke-width="3" marker-end="url(#s3-r)" />
+	<path d="M100,155 H390" fill="none" stroke="#495057" stroke-width="3" marker-end="url(#s3-g)" />
+	<path d="M400,155 V325" fill="none" stroke="#1864ab" stroke-width="3" marker-end="url(#s3-b)" />
+	<path d="M400,335 H110" fill="none" stroke="#1864ab" stroke-width="3" marker-end="url(#s3-b)" />
+	<g class="s3-mv" style="animation-delay: -0s;"><circle class="s3-fl" style="animation-delay: -0s;" cx="0" cy="0" r="8" fill="#e03131" stroke="#ffffff" stroke-width="1.5" /></g>
+	<g class="s3-mv" style="animation-delay: -1s;"><circle class="s3-fl" style="animation-delay: -1s;" cx="0" cy="0" r="8" fill="#e03131" stroke="#ffffff" stroke-width="1.5" /></g>
+	<g class="s3-mv" style="animation-delay: -2s;"><circle class="s3-fl" style="animation-delay: -2s;" cx="0" cy="0" r="8" fill="#e03131" stroke="#ffffff" stroke-width="1.5" /></g>
+	<g class="s3-mv" style="animation-delay: -3s;"><circle class="s3-fl" style="animation-delay: -3s;" cx="0" cy="0" r="8" fill="#e03131" stroke="#ffffff" stroke-width="1.5" /></g>
+	<g class="s3-mv" style="animation-delay: -4s;"><circle class="s3-fl" style="animation-delay: -4s;" cx="0" cy="0" r="8" fill="#e03131" stroke="#ffffff" stroke-width="1.5" /></g>
+	<g class="s3-mv" style="animation-delay: -5s;"><circle class="s3-fl" style="animation-delay: -5s;" cx="0" cy="0" r="8" fill="#e03131" stroke="#ffffff" stroke-width="1.5" /></g>
+	<g class="s3-mv" style="animation-delay: -6s;"><circle class="s3-fl" style="animation-delay: -6s;" cx="0" cy="0" r="8" fill="#e03131" stroke="#ffffff" stroke-width="1.5" /></g>
+	<g class="s3-mv" style="animation-delay: -7s;"><circle class="s3-fl" style="animation-delay: -7s;" cx="0" cy="0" r="8" fill="#e03131" stroke="#ffffff" stroke-width="1.5" /></g>
+	<text x="116" y="232" font-size="19" fill="#a61e1e" font-weight="bold">teplý vzduch stoupá</text>
+	<text x="250" y="186" font-size="19" fill="#2b2a26" text-anchor="middle">u stropu se ochladí</text>
+	<text x="388" y="288" font-size="19" fill="#1864ab" font-weight="bold" text-anchor="end">studený klesá</text>
+	<text x="250" y="318" font-size="19" fill="#1864ab" text-anchor="middle">vrací se k topení</text>
+	<text x="26" y="412" font-size="22" fill="#2b2a26">Teplý vzduch má menší hustotu než</text>
+<text x="26" y="440" font-size="22" fill="#2b2a26">studený, proto stoupá. Studenější</text>
+<text x="26" y="468" font-size="22" fill="#2b2a26">klesá. Stejně se chová i voda.</text>
+	<text x="26" y="510" font-size="22" fill="#2b2a26">V pevné látce proudění nenastane:</text>
+<text x="26" y="538" font-size="22" fill="#2b2a26">částice zůstávají na svých místech.</text>
+</svg>

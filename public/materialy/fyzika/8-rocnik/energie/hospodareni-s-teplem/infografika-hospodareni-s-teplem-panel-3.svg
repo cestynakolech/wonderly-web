@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 565" width="460" height="565" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Zavřená lednice v řezu: teplo z kuchyně jde dovnitř pořád, tepelný izolant ve stěnách ho pouští jen pomalu. Lednice teplo odvádí ven a bere na to elektrickou energii ze zásuvky. Mrazák: otevřít krátce a hned zavřít; když zůstane otevřený, potraviny přijímají teplo a začnou tát.">
+	<title>Hospodaření s teplem 3/4: Izolant ve stěnách</title>
+	<!-- Panel 3/4, nová kresba (wonderly, 14. 11. 2026). Opora: výklad podtématu na webu (temata.ts) a ŠVP 8. r. Základní stav = konečný stav děje. -->
+	<style>
+		.h3-in0 { animation: h3-in0 8s linear infinite; }
+		@keyframes h3-in0 { 0% { transform: translate(0px, 0px); opacity: 0; } 8% { opacity: 1; } 85% { transform: translate(60px, 0px); opacity: 1; } 95%, 100% { transform: translate(60px, 0px); opacity: 0; } }
+		.h3-in1 { animation: h3-in1 8s linear infinite; }
+		@keyframes h3-in1 { 0% { transform: translate(0px, 0px); opacity: 0; } 8% { opacity: 1; } 85% { transform: translate(60px, 0px); opacity: 1; } 95%, 100% { transform: translate(60px, 0px); opacity: 0; } }
+		.h3-ven0 { animation: h3-ven 3s linear infinite; animation-delay: -0s; }
+		.h3-ven1 { animation: h3-ven 3s linear infinite; animation-delay: -1s; }
+		.h3-ven2 { animation: h3-ven 3s linear infinite; animation-delay: -2s; }
+		@keyframes h3-ven { 0% { transform: translate(280px, 230px); opacity: 0; } 15% { opacity: 1; } 100% { transform: translate(430px, 230px); opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) { .h3-ven0, .h3-ven1, .h3-ven2 { opacity: 0; } }
+		.h3-el0 { animation: h3-el 3s linear infinite; animation-delay: -0s; }
+		.h3-el1 { animation: h3-el 3s linear infinite; animation-delay: -1s; }
+		.h3-el2 { animation: h3-el 3s linear infinite; animation-delay: -2s; }
+		@keyframes h3-el { 0% { transform: translate(398px, 389px); opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { transform: translate(322px, 389px); opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) { .h3-el0, .h3-el1, .h3-el2 { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) { .h3-in0, .h3-in1, .h3-ven0, .h3-ven1, .h3-ven2, .h3-el0, .h3-el1, .h3-el2 { animation: none; } }
+	</style>
+	<defs><marker id="h3-r" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c92a2a" /></marker><marker id="h3-k" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#495057" /></marker></defs>
+	<rect x="0" y="0" width="460" height="565" fill="#f8f9fa" />
+	<rect x="10" y="10" width="440" height="545" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+	<text x="26" y="44" font-size="25" fill="#2b2a26" font-weight="bold">Izolant ve stěnách</text>
+	<text x="26" y="78" font-size="22" fill="#2b2a26">Teplo z kuchyně jde dovnitř pořád.</text>
+<text x="26" y="106" font-size="22" fill="#2b2a26">Izolant ve stěnách ho pouští jen</text>
+<text x="26" y="134" font-size="22" fill="#2b2a26">pomalu. Lednice teplo odvádí ven</text>
+<text x="26" y="162" font-size="22" fill="#2b2a26">a bere na to elektrickou energii.</text>
+	<line x1="26" y1="420" x2="434" y2="420" stroke="#868e96" stroke-width="5" />
+	<rect x="140" y="190" width="180" height="226" rx="6" fill="#fff3bf" stroke="#495057" stroke-width="3" />
+	<rect x="164" y="214" width="132" height="178" fill="#e7f5ff" stroke="#495057" stroke-width="2" />
+	<circle cx="152" cy="222" r="4" fill="none" stroke="#e67700" stroke-width="1.5" /><circle cx="308" cy="222" r="4" fill="none" stroke="#e67700" stroke-width="1.5" />
+	<circle cx="152" cy="252" r="4" fill="none" stroke="#e67700" stroke-width="1.5" /><circle cx="308" cy="252" r="4" fill="none" stroke="#e67700" stroke-width="1.5" />
+	<circle cx="152" cy="282" r="4" fill="none" stroke="#e67700" stroke-width="1.5" /><circle cx="308" cy="282" r="4" fill="none" stroke="#e67700" stroke-width="1.5" />
+	<circle cx="152" cy="312" r="4" fill="none" stroke="#e67700" stroke-width="1.5" /><circle cx="308" cy="312" r="4" fill="none" stroke="#e67700" stroke-width="1.5" />
+	<circle cx="152" cy="342" r="4" fill="none" stroke="#e67700" stroke-width="1.5" /><circle cx="308" cy="342" r="4" fill="none" stroke="#e67700" stroke-width="1.5" />
+	<circle cx="152" cy="372" r="4" fill="none" stroke="#e67700" stroke-width="1.5" /><circle cx="308" cy="372" r="4" fill="none" stroke="#e67700" stroke-width="1.5" />
+	<text x="176" y="246" font-size="18" fill="#2b2a26" font-weight="bold">tepelný</text>
+	<text x="176" y="268" font-size="18" fill="#2b2a26" font-weight="bold">izolant</text>
+	<line x1="174" y1="257" x2="158" y2="257" stroke="#495057" stroke-width="2" marker-end="url(#h3-k)" />
+	<g transform="translate(96,300)"><g class="h3-in0"><line x1="0" y1="0" x2="34" y2="0" stroke="#c92a2a" stroke-width="4" /><path d="M32,-7 L46,0 L32,7 z" fill="#c92a2a" /></g></g>
+	<g transform="translate(96,360)"><g class="h3-in1"><line x1="0" y1="0" x2="34" y2="0" stroke="#c92a2a" stroke-width="4" /><path d="M32,-7 L46,0 L32,7 z" fill="#c92a2a" /></g></g>
+	<text x="26" y="256" font-size="19" fill="#a61e1e" font-weight="bold">teplo</text>
+	<text x="26" y="278" font-size="19" fill="#a61e1e" font-weight="bold">z kuchyně</text>
+	<rect x="296" y="224" width="120" height="12" fill="#adb5bd" stroke="#495057" stroke-width="2" />
+	<g class="h3-ven0"><circle cx="0" cy="0" r="6" fill="#e03131" stroke="#ffffff" stroke-width="1.5" /></g>
+	<g class="h3-ven1"><circle cx="0" cy="0" r="6" fill="#e03131" stroke="#ffffff" stroke-width="1.5" /></g>
+	<g class="h3-ven2"><circle cx="0" cy="0" r="6" fill="#e03131" stroke="#ffffff" stroke-width="1.5" /></g>
+	<path d="M330,212 H410" stroke="#c92a2a" stroke-width="3" fill="none" marker-end="url(#h3-r)" />
+	<text x="434" y="202" font-size="19" fill="#a61e1e" font-weight="bold" text-anchor="end">teplo ven</text>
+	<rect x="400" y="372" width="30" height="34" rx="5" fill="#ffffff" stroke="#495057" stroke-width="2.5" />
+	<path d="M400,389 H320" stroke="#495057" stroke-width="4" fill="none" />
+	<g class="h3-el0"><circle cx="0" cy="0" r="6" fill="#fcc419" stroke="#e67700" stroke-width="2" /></g>
+	<g class="h3-el1"><circle cx="0" cy="0" r="6" fill="#fcc419" stroke="#e67700" stroke-width="2" /></g>
+	<g class="h3-el2"><circle cx="0" cy="0" r="6" fill="#fcc419" stroke="#e67700" stroke-width="2" /></g>
+	<text x="434" y="446" font-size="19" fill="#2b2a26" font-weight="bold" text-anchor="end">elektrická energie</text>
+	<text x="26" y="484" font-size="22" fill="#2b2a26">Mrazák: otevřít krátce a hned zavřít.</text>
+<text x="26" y="512" font-size="22" fill="#2b2a26">Když zůstane otevřený, potraviny</text>
+<text x="26" y="540" font-size="22" fill="#2b2a26">přijímají teplo a začnou tát.</text>
+</svg>

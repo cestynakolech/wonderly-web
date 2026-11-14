@@ -2943,7 +2943,9 @@ export const temata: Record<string, Tema[]> = {
 					uvod: "Když držíš hrnek s horkým čajem, ruce se ti ohřejí. Nad topením stoupá teplý vzduch až ke stropu. A na sluníčku tě hřeje, i když se Slunce vůbec nedotýkáš. Teplo tedy umí cestovat třemi různými způsoby.",
 					zapis: {"body":["teplo se šíří vedením, prouděním a zářením (sáláním)","vedení: částice si předávají energii nárazy, látka se přitom nepřemisťuje","kovy teplo vedou dobře (vodiče), dřevo, plast a vzduch špatně (izolanty)","proudění: teplá kapalina nebo plyn stoupá a nese teplo s sebou","záření: teplo se šíří i prázdným prostorem, tak nás hřeje Slunce","tmavé povrchy záření pohlcují víc než světlé","příklady: lžička v čaji (vedení), topení (proudění), táborák (záření)","pozor: v pevných látkách teplo neproudí, částice zůstávají na místě"]},
 					odkazy: [],
-					materialy: [],
+					materialy: [
+						{ druh: 'infografika', nazev: 'Infografika: Šíření tepla v kostce', cesta: '/materialy/fyzika/8-rocnik/energie/sireni-tepla/infografika-sireni-tepla-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/energie/sireni-tepla/infografika-sireni-tepla-panel-1.svg', '/materialy/fyzika/8-rocnik/energie/sireni-tepla/infografika-sireni-tepla-panel-2.svg', '/materialy/fyzika/8-rocnik/energie/sireni-tepla/infografika-sireni-tepla-panel-3.svg', '/materialy/fyzika/8-rocnik/energie/sireni-tepla/infografika-sireni-tepla-panel-4.svg', '/materialy/fyzika/8-rocnik/energie/sireni-tepla/infografika-sireni-tepla-panel-5.svg', '/materialy/fyzika/8-rocnik/energie/sireni-tepla/infografika-sireni-tepla-panel-6.svg'] },
+					],
 				},
 				{
 					slug: 'hospodareni-s-teplem',
@@ -2952,7 +2954,9 @@ export const temata: Record<string, Tema[]> = {
 					uvod: "Když necháš lednici otevřenou, vypadne z ní studený vzduch a dovnitř vleze teplý. Lednice pak musí víc pracovat, aby jídlo zase vychladila. Když dáš na hrnec poklici, voda předá okolí méně tepla a uvaří se dřív. Šetřit energií znamená nepustit teplo tam, kde ho nechceme.",
 					zapis: {"vzorec": "η = P : P₀", "jednotky": ["η (%), P a P₀ (W)"], "vzorecSlovy": "účinnost = výkon děleno příkon", "body": ["účinnost říká, jak velká část dodané energie se využije", "energie, která uteče jinam, je ztráta", "lednici a mrazák otvírej krátce, jinak dovnitř proudí teplý vzduch", "poklice brání úniku tepla z hrnce, voda se uvaří dřív", "pozor: uniklé teplo nezmizí, jen ohřeje kuchyň a nevyužijeme ho"]},
 					odkazy: [],
-					materialy: [],
+					materialy: [
+						{ druh: 'infografika', nazev: 'Infografika: Hospodaření s teplem v kostce', cesta: '/materialy/fyzika/8-rocnik/energie/hospodareni-s-teplem/infografika-hospodareni-s-teplem-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/energie/hospodareni-s-teplem/infografika-hospodareni-s-teplem-panel-1.svg', '/materialy/fyzika/8-rocnik/energie/hospodareni-s-teplem/infografika-hospodareni-s-teplem-panel-2.svg', '/materialy/fyzika/8-rocnik/energie/hospodareni-s-teplem/infografika-hospodareni-s-teplem-panel-3.svg', '/materialy/fyzika/8-rocnik/energie/hospodareni-s-teplem/infografika-hospodareni-s-teplem-panel-4.svg'] },
+					],
 				},
 			],
 		},

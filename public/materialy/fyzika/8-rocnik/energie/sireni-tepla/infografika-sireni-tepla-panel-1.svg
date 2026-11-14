@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 610" width="460" height="610" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Vedení tepla: lžička stojí v horkém čaji a teplo po ní postupuje od čaje až ke konci v ruce. V lupě si částice lžičky předávají energii nárazy jako štafetu, látka se nepřemisťuje. Tepelné vodiče (hlavně kovy) vedou teplo dobře, tepelné izolanty (dřevo, plast, vlna, vzduch) špatně.">
+	<title>Šíření tepla 1/6: Vedení tepla</title>
+	<!-- Panel 1/6, nová kresba (wonderly, 14. 11. 2026). Opora: výklad podtématu na webu (temata.ts) a ŠVP 8. r. Základní stav = konečný stav děje. -->
+	<style>
+		.s1-seg0 { animation: s1-seg0 8s linear infinite; }
+		@keyframes s1-seg0 { 0%, 6% { fill: #ced4da; } 12%, 88% { fill: #ff8787; } 95%, 100% { fill: #ced4da; } }
+		.s1-seg1 { animation: s1-seg1 8s linear infinite; }
+		@keyframes s1-seg1 { 0%, 12% { fill: #ced4da; } 18%, 88% { fill: #ff8787; } 95%, 100% { fill: #ced4da; } }
+		.s1-seg2 { animation: s1-seg2 8s linear infinite; }
+		@keyframes s1-seg2 { 0%, 18% { fill: #ced4da; } 24%, 88% { fill: #ff8787; } 95%, 100% { fill: #ced4da; } }
+		.s1-seg3 { animation: s1-seg3 8s linear infinite; }
+		@keyframes s1-seg3 { 0%, 24% { fill: #ced4da; } 30%, 88% { fill: #ff8787; } 95%, 100% { fill: #ced4da; } }
+		.s1-seg4 { animation: s1-seg4 8s linear infinite; }
+		@keyframes s1-seg4 { 0%, 30% { fill: #ced4da; } 36%, 88% { fill: #ff8787; } 95%, 100% { fill: #ced4da; } }
+		.s1-seg5 { animation: s1-seg5 8s linear infinite; }
+		@keyframes s1-seg5 { 0%, 36% { fill: #ced4da; } 42%, 88% { fill: #ff8787; } 95%, 100% { fill: #ced4da; } }
+		.s1-seg6 { animation: s1-seg6 8s linear infinite; }
+		@keyframes s1-seg6 { 0%, 42% { fill: #ced4da; } 48%, 88% { fill: #ff8787; } 95%, 100% { fill: #ced4da; } }
+		.s1-seg7 { animation: s1-seg7 8s linear infinite; }
+		@keyframes s1-seg7 { 0%, 48% { fill: #ced4da; } 54%, 88% { fill: #ff8787; } 95%, 100% { fill: #ced4da; } }
+		.s1-h0 { animation: s1-h0 8s linear infinite; }
+		.s1-c0 { animation: s1-c0 8s linear infinite; }
+		@keyframes s1-h0 { 0%, 8% { opacity: 0; } 13%, 88% { opacity: 1; } 95%, 100% { opacity: 0; } }
+		@keyframes s1-c0 { 0%, 8% { opacity: 1; } 13%, 88% { opacity: 0; } 95%, 100% { opacity: 1; } }
+		.s1-h1 { animation: s1-h1 8s linear infinite; }
+		.s1-c1 { animation: s1-c1 8s linear infinite; }
+		@keyframes s1-h1 { 0%, 19% { opacity: 0; } 24%, 88% { opacity: 1; } 95%, 100% { opacity: 0; } }
+		@keyframes s1-c1 { 0%, 19% { opacity: 1; } 24%, 88% { opacity: 0; } 95%, 100% { opacity: 1; } }
+		.s1-h2 { animation: s1-h2 8s linear infinite; }
+		.s1-c2 { animation: s1-c2 8s linear infinite; }
+		@keyframes s1-h2 { 0%, 30% { opacity: 0; } 35%, 88% { opacity: 1; } 95%, 100% { opacity: 0; } }
+		@keyframes s1-c2 { 0%, 30% { opacity: 1; } 35%, 88% { opacity: 0; } 95%, 100% { opacity: 1; } }
+		.s1-h3 { animation: s1-h3 8s linear infinite; }
+		.s1-c3 { animation: s1-c3 8s linear infinite; }
+		@keyframes s1-h3 { 0%, 41% { opacity: 0; } 46%, 88% { opacity: 1; } 95%, 100% { opacity: 0; } }
+		@keyframes s1-c3 { 0%, 41% { opacity: 1; } 46%, 88% { opacity: 0; } 95%, 100% { opacity: 1; } }
+		.s1-h4 { animation: s1-h4 8s linear infinite; }
+		.s1-c4 { animation: s1-c4 8s linear infinite; }
+		@keyframes s1-h4 { 0%, 52% { opacity: 0; } 57%, 88% { opacity: 1; } 95%, 100% { opacity: 0; } }
+		@keyframes s1-c4 { 0%, 52% { opacity: 1; } 57%, 88% { opacity: 0; } 95%, 100% { opacity: 1; } }
+		.s1-txt { animation: s1-txt 8s linear infinite; }
+		@keyframes s1-txt { 0%, 56% { opacity: 0; } 60%, 88% { opacity: 1; } 95%, 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) { .chvej, .s1-seg0, .s1-seg1, .s1-seg2, .s1-seg3, .s1-seg4, .s1-seg5, .s1-seg6, .s1-seg7, .s1-h0, .s1-c0, .s1-h1, .s1-c1, .s1-h2, .s1-c2, .s1-h3, .s1-c3, .s1-h4, .s1-c4, .s1-txt { animation: none; } }
+	</style>
+	<defs><marker id="s1-sip" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c92a2a" /></marker></defs>
+	<rect x="0" y="0" width="460" height="610" fill="#f8f9fa" />
+	<rect x="10" y="10" width="440" height="590" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+	<text x="26" y="44" font-size="25" fill="#2b2a26" font-weight="bold">Vedení tepla</text>
+	<path d="M80,238 C70,226 90,216 80,204 M108,238 C98,226 118,216 108,204" fill="none" stroke="#adb5bd" stroke-width="3" />
+	<g transform="translate(60,345) rotate(-50)">
+<rect x="-4" y="-6" width="118" height="12" fill="#ff8787" />
+<rect class="s1-seg0" x="110" y="-6" width="21" height="12" fill="#ff8787" />
+<rect class="s1-seg1" x="130" y="-6" width="21" height="12" fill="#ff8787" />
+<rect class="s1-seg2" x="150" y="-6" width="21" height="12" fill="#ff8787" />
+<rect class="s1-seg3" x="170" y="-6" width="21" height="12" fill="#ff8787" />
+<rect class="s1-seg4" x="190" y="-6" width="21" height="12" fill="#ff8787" />
+<rect class="s1-seg5" x="210" y="-6" width="21" height="12" fill="#ff8787" />
+<rect class="s1-seg6" x="230" y="-6" width="21" height="12" fill="#ff8787" />
+<rect class="s1-seg7" x="250" y="-6" width="21" height="12" fill="#ff8787" />
+<rect x="-4" y="-6" width="274" height="12" rx="6" fill="none" stroke="#495057" stroke-width="2" />
+<rect x="232" y="-15" width="46" height="30" rx="11" fill="#f1c9a5" stroke="#8a5a2b" stroke-width="2" />
+<line x1="244" y1="-15" x2="244" y2="4" stroke="#8a5a2b" stroke-width="2" />
+<line x1="255" y1="-15" x2="255" y2="4" stroke="#8a5a2b" stroke-width="2" />
+<line x1="266" y1="-15" x2="266" y2="4" stroke="#8a5a2b" stroke-width="2" />
+</g>
+	<path d="M50,270 C20,270 20,330 50,330" fill="none" stroke="#495057" stroke-width="8" />
+	<rect x="50" y="245" width="120" height="110" rx="10" fill="#ffffff" stroke="#495057" stroke-width="3" />
+	<rect x="53" y="262" width="114" height="90" rx="8" fill="#c8874a" />
+	<text x="110" y="382" font-size="20" fill="#a61e1e" font-weight="bold" text-anchor="middle">horký čaj</text>
+	<line x1="189" y1="192" x2="264" y2="215" stroke="#495057" stroke-width="2" stroke-dasharray="5,3" />
+	<rect x="264" y="160" width="168" height="140" rx="10" fill="#ffffff" stroke="#495057" stroke-width="3" />
+	<text x="348" y="184" font-size="18" fill="#2b2a26" text-anchor="middle">částice lžičky</text>
+	<line x1="290" y1="206" x2="402" y2="206" stroke="#c92a2a" stroke-width="3" marker-end="url(#s1-sip)" />
+	<circle class="s1-c0" cx="290" cy="240" r="10" fill="#74c0fc" stroke="#1864ab" stroke-width="2" opacity="0" />
+	<g class="s1-h0" opacity="1"><g transform="translate(290,240)"><g class="chvej"><circle cx="0" cy="0" r="10" fill="#ff6b6b" stroke="#c92a2a" stroke-width="2" /></g></g></g>
+	<circle class="s1-c1" cx="320" cy="240" r="10" fill="#74c0fc" stroke="#1864ab" stroke-width="2" opacity="0" />
+	<g class="s1-h1" opacity="1"><g transform="translate(320,240)"><g class="chvej"><circle cx="0" cy="0" r="10" fill="#ff6b6b" stroke="#c92a2a" stroke-width="2" /></g></g></g>
+	<circle class="s1-c2" cx="350" cy="240" r="10" fill="#74c0fc" stroke="#1864ab" stroke-width="2" opacity="0" />
+	<g class="s1-h2" opacity="1"><g transform="translate(350,240)"><g class="chvej"><circle cx="0" cy="0" r="10" fill="#ff6b6b" stroke="#c92a2a" stroke-width="2" /></g></g></g>
+	<circle class="s1-c3" cx="380" cy="240" r="10" fill="#74c0fc" stroke="#1864ab" stroke-width="2" opacity="0" />
+	<g class="s1-h3" opacity="1"><g transform="translate(380,240)"><g class="chvej"><circle cx="0" cy="0" r="10" fill="#ff6b6b" stroke="#c92a2a" stroke-width="2" /></g></g></g>
+	<circle class="s1-c4" cx="410" cy="240" r="10" fill="#74c0fc" stroke="#1864ab" stroke-width="2" opacity="0" />
+	<g class="s1-h4" opacity="1"><g transform="translate(410,240)"><g class="chvej"><circle cx="0" cy="0" r="10" fill="#ff6b6b" stroke="#c92a2a" stroke-width="2" /></g></g></g>
+	<text x="278" y="284" font-size="18" fill="#2b2a26">u čaje</text>
+	<text x="420" y="284" font-size="18" fill="#2b2a26" text-anchor="end">u ruky</text>
+	<text x="262" y="142" font-size="19" fill="#a61e1e" font-weight="bold" class="s1-txt">konec se ohřeje</text>
+	<text x="186" y="134" font-size="19" fill="#2b2a26" font-weight="bold" text-anchor="end">ruka</text>
+	<text x="26" y="78" font-size="22" fill="#2b2a26">Částice si předávají energii nárazy,</text>
+<text x="26" y="106" font-size="22" fill="#2b2a26">jako štafetu. Látka se nepřemisťuje.</text>
+	<text x="26" y="420" font-size="22" fill="#2b2a26">Lžička v horkém čaji: za chvíli se</text>
+<text x="26" y="448" font-size="22" fill="#2b2a26">ohřeje i konec, který držíš v ruce.</text>
+	<text x="26" y="486" font-size="22" fill="#2b2a26"><tspan font-weight="bold">Tepelné vodiče</tspan> vedou teplo dobře:</text>
+	<text x="26" y="514" font-size="22" fill="#2b2a26">hlavně kovy (hrnec, pánev, chladič).</text>
+	<text x="26" y="552" font-size="22" fill="#2b2a26"><tspan font-weight="bold">Tepelné izolanty</tspan> vedou teplo špatně:</text>
+	<text x="26" y="580" font-size="22" fill="#2b2a26">dřevo, plast, vlna, vzduch.</text>
+</svg>

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 610" width="460" height="610" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Poklice na hrnci: bez poklice ohřátý vzduch a pára stoupají a odnášejí teplo do kuchyně. S poklicí zůstanou pod ní, voda je teplá dřív. S poklicí se voda uvaří dřív a plotnu vypneš dřív, spotřebuje se méně energie a účinnost vaření je vyšší. Ani tak hrnec nedostane všechno, část tepla jde zářením do kuchyně.">
+	<title>Hospodaření s teplem 4/4: Poklice na hrnci</title>
+	<!-- Panel 4/4, nová kresba (wonderly, 14. 11. 2026). Opora: výklad podtématu na webu (temata.ts) a ŠVP 8. r. Základní stav = konečný stav děje. -->
+	<style>
+		.h4-vl { animation: h4-vl 8s linear infinite; }
+		@keyframes h4-vl { 0%, 5% { fill: #d0ebff; } 80%, 90% { fill: #ffc9c9; } 97%, 100% { fill: #d0ebff; } }
+		.h4-vp { animation: h4-vp 8s linear infinite; }
+		@keyframes h4-vp { 0%, 5% { fill: #d0ebff; } 45%, 90% { fill: #ffc9c9; } 97%, 100% { fill: #d0ebff; } }
+		.h4-l0 { animation: h4-l 3s linear infinite; animation-delay: -0s; }
+		.h4-l1 { animation: h4-l 3s linear infinite; animation-delay: -1s; }
+		.h4-l2 { animation: h4-l 3s linear infinite; animation-delay: -2s; }
+		@keyframes h4-l { 0% { transform: translate(0px, 282px); opacity: 0; } 10% { opacity: 1; } 75% { opacity: 1; } 100% { transform: translate(0px, 160px); opacity: 0; } }
+		.h4-p0 { animation: h4-p 3s ease-in-out infinite; animation-delay: -0s; }
+		.h4-p1 { animation: h4-p 3s ease-in-out infinite; animation-delay: -1s; }
+		.h4-p2 { animation: h4-p 3s ease-in-out infinite; animation-delay: -2s; }
+		@keyframes h4-p { 0%, 100% { transform: translate(0px, 282px); } 50% { transform: translate(0px, 268px); } }
+		@media (prefers-reduced-motion: reduce) { .h4-l0, .h4-l1, .h4-l2, .h4-p0, .h4-p1, .h4-p2 { opacity: 0; } }
+		.h4-txt { animation: h4-txt 8s linear infinite; }
+		@keyframes h4-txt { 0%, 45% { opacity: 0; } 48%, 90% { opacity: 1; } 97%, 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) { .h4-vl, .h4-vp, .h4-l0, .h4-l1, .h4-l2, .h4-p0, .h4-p1, .h4-p2, .h4-txt { animation: none; } }
+	</style>
+	<defs><marker id="h4-r" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c92a2a" /></marker></defs>
+	<rect x="0" y="0" width="460" height="610" fill="#f8f9fa" />
+	<rect x="10" y="10" width="440" height="590" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+	<text x="26" y="44" font-size="25" fill="#2b2a26" font-weight="bold">Poklice na hrnci</text>
+	<text x="26" y="78" font-size="22" fill="#2b2a26">Ohřátý vzduch a pára stoupají</text>
+<text x="26" y="106" font-size="22" fill="#2b2a26">a odnášejí teplo do kuchyně.</text>
+<text x="26" y="134" font-size="22" fill="#2b2a26">Poklice jim zastoupí cestu.</text>
+	<rect x="45" y="362" width="150" height="18" rx="3" fill="#495057" /><line x1="53" y1="361" x2="187" y2="361" stroke="#e03131" stroke-width="4" stroke-linecap="round" />
+	<rect x="60" y="262" width="120" height="100" fill="#ffffff" stroke="#495057" stroke-width="3" />
+	<line x1="54" y1="262" x2="186" y2="262" stroke="#495057" stroke-width="6" stroke-linecap="round" />
+	<rect x="265" y="362" width="150" height="18" rx="3" fill="#495057" /><line x1="273" y1="361" x2="407" y2="361" stroke="#e03131" stroke-width="4" stroke-linecap="round" />
+	<rect x="280" y="262" width="120" height="100" fill="#ffffff" stroke="#495057" stroke-width="3" />
+	<line x1="274" y1="262" x2="406" y2="262" stroke="#495057" stroke-width="6" stroke-linecap="round" />
+	<rect class="h4-vl" x="63" y="285" width="114" height="74" fill="#ecd7df" />
+	<rect class="h4-vp" x="283" y="285" width="114" height="74" fill="#ffc9c9" />
+	<rect x="272" y="248" width="136" height="11" rx="5" fill="#adb5bd" stroke="#495057" stroke-width="2.5" />
+	<rect x="331" y="236" width="18" height="12" rx="3" fill="#343a40" />
+	<g transform="translate(90,0)"><g class="h4-l0"><circle cx="0" cy="0" r="7" fill="#e03131" stroke="#ffffff" stroke-width="1.5" /></g></g>
+	<g transform="translate(120,0)"><g class="h4-l1"><circle cx="0" cy="0" r="7" fill="#e03131" stroke="#ffffff" stroke-width="1.5" /></g></g>
+	<g transform="translate(150,0)"><g class="h4-l2"><circle cx="0" cy="0" r="7" fill="#e03131" stroke="#ffffff" stroke-width="1.5" /></g></g>
+	<g transform="translate(310,0)"><g class="h4-p0"><circle cx="0" cy="0" r="7" fill="#e03131" stroke="#ffffff" stroke-width="1.5" /></g></g>
+	<g transform="translate(340,0)"><g class="h4-p1"><circle cx="0" cy="0" r="7" fill="#e03131" stroke="#ffffff" stroke-width="1.5" /></g></g>
+	<g transform="translate(370,0)"><g class="h4-p2"><circle cx="0" cy="0" r="7" fill="#e03131" stroke="#ffffff" stroke-width="1.5" /></g></g>
+	<path d="M120,250 V190" stroke="#c92a2a" stroke-width="3" fill="none" marker-end="url(#h4-r)" />
+	<text x="190" y="196" font-size="19" fill="#a61e1e" font-weight="bold">teplo uniká</text>
+	<text x="340" y="226" font-size="19" fill="#a61e1e" font-weight="bold" text-anchor="middle" class="h4-txt">voda je teplá dřív</text>
+	<text x="120" y="408" font-size="19" fill="#2b2a26" font-weight="bold" text-anchor="middle">bez poklice</text>
+	<text x="340" y="408" font-size="19" fill="#2b2a26" font-weight="bold" text-anchor="middle">s poklicí</text>
+	<text x="26" y="452" font-size="22" fill="#2b2a26">S poklicí se voda uvaří dřív a plotnu</text>
+<text x="26" y="480" font-size="22" fill="#2b2a26">vypneš dřív. Spotřebuje se méně</text>
+<text x="26" y="508" font-size="22" fill="#2b2a26">energie, účinnost vaření je vyšší.</text>
+	<text x="26" y="548" font-size="22" fill="#2b2a26">Ani tak hrnec nedostane všechno:</text>
+<text x="26" y="576" font-size="22" fill="#2b2a26">část tepla jde zářením do kuchyně.</text>
+</svg>

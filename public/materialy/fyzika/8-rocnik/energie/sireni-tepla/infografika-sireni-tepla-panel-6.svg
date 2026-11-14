@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 530" width="460" height="530" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Často všechno najednou: při vaření vody v hrnci na plotně se dno hrnce ohřeje od plotny vedením (1), voda se prohřeje prouděním, teplá stoupá a studenější klesá (2), a ruka kousek vedle plotny cítí teplo, které k ní přichází zářením (3).">
+	<title>Šíření tepla 6/6: Často všechno najednou</title>
+	<!-- Panel 6/6, nová kresba (wonderly, 14. 11. 2026). Opora: výklad podtématu na webu (temata.ts) a ŠVP 8. r. Základní stav = konečný stav děje. -->
+	<style>
+		.vlna { stroke-dasharray: 12 8; animation: vlna 1s linear infinite; }
+		@keyframes vlna { from { stroke-dashoffset: 20; } to { stroke-dashoffset: 0; } }
+		.s6-dno { animation: s6-dno 6s linear infinite; }
+		@keyframes s6-dno { 0%, 2% { fill: #ced4da; } 12%, 90% { fill: #ff8787; } 97%, 100% { fill: #ced4da; } }
+		@keyframes s6l-mv { 0% { transform: translate(135px, 275px); } 31.03% { transform: translate(135px, 185px); } 50.0% { transform: translate(80px, 185px); } 81.03% { transform: translate(80px, 275px); } 100.0% { transform: translate(135px, 275px); } }
+		@keyframes s6l-fl { 0%, 28% { fill: #e03131; } 45%, 85% { fill: #1c7ed6; } 97%, 100% { fill: #e03131; } }
+		.s6l-mv { animation: s6l-mv 6s linear infinite; }
+		.s6l-fl { animation: s6l-fl 6s linear infinite; }
+		@media (prefers-reduced-motion: reduce) { .s6l-mv { opacity: 0; } }
+		@keyframes s6p-mv { 0% { transform: translate(145px, 275px); } 31.03% { transform: translate(145px, 185px); } 50.0% { transform: translate(200px, 185px); } 81.03% { transform: translate(200px, 275px); } 100.0% { transform: translate(145px, 275px); } }
+		@keyframes s6p-fl { 0%, 28% { fill: #e03131; } 45%, 85% { fill: #1c7ed6; } 97%, 100% { fill: #e03131; } }
+		.s6p-mv { animation: s6p-mv 6s linear infinite; }
+		.s6p-fl { animation: s6p-fl 6s linear infinite; }
+		@media (prefers-reduced-motion: reduce) { .s6p-mv { opacity: 0; } }
+		.s6-ruka { animation: s6-ruka 6s linear infinite; }
+		@keyframes s6-ruka { 0%, 10% { opacity: 0; } 40%, 90% { opacity: 0.7; } 97%, 100% { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) { .vlna, .s6-dno, .s6l-mv, .s6l-fl, .s6p-mv, .s6p-fl, .s6-ruka { animation: none; } }
+	</style>
+	<defs><marker id="s6-sip" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9480f" /></marker><marker id="s6-r" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c92a2a" /></marker><marker id="s6-b" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1864ab" /></marker></defs>
+	<rect x="0" y="0" width="460" height="530" fill="#f8f9fa" />
+	<rect x="10" y="10" width="440" height="510" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+	<text x="26" y="44" font-size="25" fill="#2b2a26" font-weight="bold">Často všechno najednou</text>
+	<text x="26" y="78" font-size="22" fill="#2b2a26">Vaříš vodu v hrnci na plotně:</text>
+	<rect x="40" y="300" width="200" height="18" rx="3" fill="#495057" /><line x1="48" y1="299" x2="232" y2="299" stroke="#e03131" stroke-width="4" stroke-linecap="round" />
+	<rect x="55" y="140" width="170" height="160" fill="#ffffff" stroke="#495057" stroke-width="3" />
+	<rect x="58" y="165" width="164" height="124" fill="#d0ebff" />
+	<rect class="s6-dno" x="55" y="289" width="170" height="11" fill="#ff8787" stroke="#495057" stroke-width="2" />
+	<line x1="49" y1="140" x2="231" y2="140" stroke="#495057" stroke-width="6" stroke-linecap="round" />
+	<path d="M140,280 V190" stroke="#c92a2a" stroke-width="3" fill="none" marker-end="url(#s6-r)" />
+	<path d="M80,190 V270" stroke="#1864ab" stroke-width="3" fill="none" marker-end="url(#s6-b)" />
+	<path d="M200,190 V270" stroke="#1864ab" stroke-width="3" fill="none" marker-end="url(#s6-b)" />
+	<g class="s6l-mv" style="animation-delay: -0s;"><circle class="s6l-fl" style="animation-delay: -0s;" cx="0" cy="0" r="6" fill="#e03131" stroke="#ffffff" stroke-width="1.5" /></g>
+	<g class="s6l-mv" style="animation-delay: -1.5s;"><circle class="s6l-fl" style="animation-delay: -1.5s;" cx="0" cy="0" r="6" fill="#e03131" stroke="#ffffff" stroke-width="1.5" /></g>
+	<g class="s6l-mv" style="animation-delay: -3s;"><circle class="s6l-fl" style="animation-delay: -3s;" cx="0" cy="0" r="6" fill="#e03131" stroke="#ffffff" stroke-width="1.5" /></g>
+	<g class="s6l-mv" style="animation-delay: -4.5s;"><circle class="s6l-fl" style="animation-delay: -4.5s;" cx="0" cy="0" r="6" fill="#e03131" stroke="#ffffff" stroke-width="1.5" /></g>
+	<g class="s6p-mv" style="animation-delay: -0.8s;"><circle class="s6p-fl" style="animation-delay: -0.8s;" cx="0" cy="0" r="6" fill="#e03131" stroke="#ffffff" stroke-width="1.5" /></g>
+	<g class="s6p-mv" style="animation-delay: -2.2s;"><circle class="s6p-fl" style="animation-delay: -2.2s;" cx="0" cy="0" r="6" fill="#e03131" stroke="#ffffff" stroke-width="1.5" /></g>
+	<g class="s6p-mv" style="animation-delay: -3.8s;"><circle class="s6p-fl" style="animation-delay: -3.8s;" cx="0" cy="0" r="6" fill="#e03131" stroke="#ffffff" stroke-width="1.5" /></g>
+	<g class="s6p-mv" style="animation-delay: -5.2s;"><circle class="s6p-fl" style="animation-delay: -5.2s;" cx="0" cy="0" r="6" fill="#e03131" stroke="#ffffff" stroke-width="1.5" /></g>
+	<path class="vlna" d="M248,296 L251,297.9 L253.3,298.2 L254.7,296.2 L255.5,292.8 L256.3,289.4 L257.9,287.8 L260.3,288.4 L263.3,290.4 L266.2,292.1 L268.4,292.1 L269.7,289.8 L270.4,286.3 L271.4,283.1 L273,281.8 L275.6,282.7 L278.6,284.8 L281.4,286.3 L283.5,286 L284.7,283.4 L285.4,279.8 L286.4,276.8 L288.2,275.8 L290.9,277 L293.9,279.1 L296.7,280.5 L298.6,279.8 L299.6,277 L300.4,273.3 L301.5,270.6 L303.4,269.9 L306.2,271.3 L309.2,273.5 L311.9,274.6 L313.6,273.5 L314.6,270.5 L315.4,266.9 L316.6,264.4" fill="none" stroke="#d9480f" stroke-width="3" marker-end="url(#s6-sip)" />
+	<path class="vlna" d="M248,312 L250.5,314.5 L252.7,315.3 L254.5,313.7 L256,310.4 L257.5,307.3 L259.3,306 L261.6,307 L264.1,309.6 L266.5,312 L268.7,312.5 L270.4,310.6 L271.9,307.3 L273.5,304.4 L275.3,303.3 L277.6,304.6 L280.1,307.2 L282.6,309.4 L284.7,309.7 L286.4,307.6 L287.8,304.2 L289.4,301.4 L291.3,300.6 L293.7,302.1 L296.2,304.8 L298.6,306.9 L300.6,306.9 L302.3,304.5 L303.8,301.2 L305.4,298.5 L307.4,298 L309.7,299.7 L312.2,302.4 L314.6,304.3 L316.6,304 L318.3,301.5" fill="none" stroke="#d9480f" stroke-width="3" marker-end="url(#s6-sip)" />
+	<rect x="366" y="280" width="68" height="30" rx="6" fill="#a5d8ff" stroke="#1864ab" stroke-width="2.5" /><rect x="326" y="250" width="46" height="66" rx="14" fill="#f1c9a5" stroke="#8a5a2b" stroke-width="2.5" /><line x1="338" y1="252" x2="338" y2="272" stroke="#8a5a2b" stroke-width="2" /><line x1="349" y1="252" x2="349" y2="272" stroke="#8a5a2b" stroke-width="2" /><line x1="360" y1="252" x2="360" y2="272" stroke="#8a5a2b" stroke-width="2" />
+	<rect class="s6-ruka" x="328" y="252" width="14" height="62" rx="10" fill="#ff8787" opacity="0.7" />
+	<circle cx="28" cy="292" r="14" fill="#343a40" /><text x="28" y="298" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">1</text>
+	<circle cx="108" cy="230" r="14" fill="#343a40" /><text x="108" y="236" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">2</text>
+	<circle cx="290" cy="250" r="14" fill="#343a40" /><text x="290" y="256" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">3</text>
+	<circle cx="40" cy="366" r="14" fill="#343a40" /><text x="40" y="372" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">1</text>
+	<text x="62" y="373" font-size="22" fill="#2b2a26"><tspan font-weight="bold">vedení:</tspan> plotna ohřeje dno hrnce</text>
+	<circle cx="40" cy="412" r="14" fill="#343a40" /><text x="40" y="418" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">2</text>
+	<text x="62" y="419" font-size="22" fill="#2b2a26"><tspan font-weight="bold">proudění:</tspan> teplá voda stoupá,</text>
+	<text x="62" y="447" font-size="22" fill="#2b2a26">studenější klesá, voda se promíchá</text>
+	<circle cx="40" cy="486" r="14" fill="#343a40" /><text x="40" y="492" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">3</text>
+	<text x="62" y="493" font-size="22" fill="#2b2a26"><tspan font-weight="bold">záření:</tspan> ruka vedle plotny cítí teplo</text>
+</svg>

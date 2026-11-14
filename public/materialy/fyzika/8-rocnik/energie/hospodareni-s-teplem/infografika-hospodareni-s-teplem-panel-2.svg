@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 580" width="460" height="580" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Otevřená lednice: studený vzduch má větší hustotu, klesá a dole z lednice vytéká ven, horem proudí dovnitř teplý vzduch z kuchyně. Dveře otvírej jen na chvilku a hned je zavři; nejdřív si rozmysli, co chceš vyndat.">
+	<title>Hospodaření s teplem 2/4: Otevřená lednice</title>
+	<!-- Panel 2/4, nová kresba (wonderly, 14. 11. 2026). Opora: výklad podtématu na webu (temata.ts) a ŠVP 8. r. Základní stav = konečný stav děje. -->
+	<style>
+		@keyframes h2t0 { 0% { transform: translate(430px, 218px); opacity: 1; } 70% { transform: translate(200px, 218px); opacity: 1; } 100% { transform: translate(160px, 222px); opacity: 0; } }
+		.h2t0 { animation: h2t0 6s linear infinite; animation-delay: -0s; }
+		@keyframes h2s0 { 0% { transform: translate(150px, 398px); opacity: 1; } 25% { transform: translate(250px, 400px); opacity: 1; } 55% { transform: translate(330px, 418px); opacity: 1; } 100% { transform: translate(430px, 418px); opacity: 0; } }
+		.h2s0 { animation: h2s0 6s linear infinite; animation-delay: -0.4s; }
+		@keyframes h2t1 { 0% { transform: translate(430px, 218px); opacity: 1; } 70% { transform: translate(200px, 218px); opacity: 1; } 100% { transform: translate(160px, 222px); opacity: 0; } }
+		.h2t1 { animation: h2t1 6s linear infinite; animation-delay: -1.5s; }
+		@keyframes h2s1 { 0% { transform: translate(150px, 398px); opacity: 1; } 25% { transform: translate(250px, 400px); opacity: 1; } 55% { transform: translate(330px, 418px); opacity: 1; } 100% { transform: translate(430px, 418px); opacity: 0; } }
+		.h2s1 { animation: h2s1 6s linear infinite; animation-delay: -1.9s; }
+		@keyframes h2t2 { 0% { transform: translate(430px, 218px); opacity: 1; } 70% { transform: translate(200px, 218px); opacity: 1; } 100% { transform: translate(160px, 222px); opacity: 0; } }
+		.h2t2 { animation: h2t2 6s linear infinite; animation-delay: -3s; }
+		@keyframes h2s2 { 0% { transform: translate(150px, 398px); opacity: 1; } 25% { transform: translate(250px, 400px); opacity: 1; } 55% { transform: translate(330px, 418px); opacity: 1; } 100% { transform: translate(430px, 418px); opacity: 0; } }
+		.h2s2 { animation: h2s2 6s linear infinite; animation-delay: -3.4s; }
+		@keyframes h2t3 { 0% { transform: translate(430px, 218px); opacity: 1; } 70% { transform: translate(200px, 218px); opacity: 1; } 100% { transform: translate(160px, 222px); opacity: 0; } }
+		.h2t3 { animation: h2t3 6s linear infinite; animation-delay: -4.5s; }
+		@keyframes h2s3 { 0% { transform: translate(150px, 398px); opacity: 1; } 25% { transform: translate(250px, 400px); opacity: 1; } 55% { transform: translate(330px, 418px); opacity: 1; } 100% { transform: translate(430px, 418px); opacity: 0; } }
+		.h2s3 { animation: h2s3 6s linear infinite; animation-delay: -4.9s; }
+		@media (prefers-reduced-motion: reduce) { .h2t0, .h2t1, .h2t2, .h2t3, .h2s0, .h2s1, .h2s2, .h2s3 { opacity: 0; } }
+		@media (prefers-reduced-motion: reduce) { .h2t0, .h2s0, .h2t1, .h2s1, .h2t2, .h2s2, .h2t3, .h2s3 { animation: none; } }
+	</style>
+	<defs><marker id="h2-r" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c92a2a" /></marker><marker id="h2-b" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1864ab" /></marker></defs>
+	<rect x="0" y="0" width="460" height="580" fill="#f8f9fa" />
+	<rect x="10" y="10" width="440" height="560" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+	<text x="26" y="44" font-size="25" fill="#2b2a26" font-weight="bold">Otevřená lednice</text>
+	<text x="26" y="78" font-size="22" fill="#2b2a26">Studený vzduch má větší hustotu,</text>
+<text x="26" y="106" font-size="22" fill="#2b2a26">klesá a dole z lednice vytéká ven.</text>
+<text x="26" y="134" font-size="22" fill="#2b2a26">Horem proudí dovnitř teplý vzduch.</text>
+	<line x1="26" y1="430" x2="434" y2="430" stroke="#868e96" stroke-width="5" />
+	<rect x="114" y="199" width="136" height="212" fill="#e7f5ff" />
+	<rect x="100" y="185" width="14" height="240" fill="#ced4da" stroke="#495057" stroke-width="2.5" />
+	<rect x="100" y="185" width="150" height="14" fill="#ced4da" stroke="#495057" stroke-width="2.5" />
+	<rect x="100" y="411" width="150" height="14" fill="#ced4da" stroke="#495057" stroke-width="2.5" />
+	<line x1="114" y1="255" x2="236" y2="255" stroke="#495057" stroke-width="3" />
+	<line x1="114" y1="315" x2="236" y2="315" stroke="#495057" stroke-width="3" />
+	<line x1="114" y1="370" x2="236" y2="370" stroke="#495057" stroke-width="3" />
+	<rect x="252" y="187" width="50" height="236" fill="#f1f3f5" stroke="#868e96" stroke-width="2" stroke-dasharray="6,4" />
+	<rect x="260" y="250" width="34" height="14" fill="#e7f5ff" stroke="#868e96" stroke-width="2" />
+	<rect x="260" y="320" width="34" height="14" fill="#e7f5ff" stroke="#868e96" stroke-width="2" />
+	<text x="277" y="452" font-size="18" fill="#2b2a26" text-anchor="middle">otevřené dveře</text>
+	<g class="h2t0"><circle cx="0" cy="0" r="8" fill="#e03131" stroke="#ffffff" stroke-width="1.5" /></g>
+	<g class="h2s0"><circle cx="0" cy="0" r="8" fill="#1c7ed6" stroke="#ffffff" stroke-width="1.5" /></g>
+	<g class="h2t1"><circle cx="0" cy="0" r="8" fill="#e03131" stroke="#ffffff" stroke-width="1.5" /></g>
+	<g class="h2s1"><circle cx="0" cy="0" r="8" fill="#1c7ed6" stroke="#ffffff" stroke-width="1.5" /></g>
+	<g class="h2t2"><circle cx="0" cy="0" r="8" fill="#e03131" stroke="#ffffff" stroke-width="1.5" /></g>
+	<g class="h2s2"><circle cx="0" cy="0" r="8" fill="#1c7ed6" stroke="#ffffff" stroke-width="1.5" /></g>
+	<g class="h2t3"><circle cx="0" cy="0" r="8" fill="#e03131" stroke="#ffffff" stroke-width="1.5" /></g>
+	<g class="h2s3"><circle cx="0" cy="0" r="8" fill="#1c7ed6" stroke="#ffffff" stroke-width="1.5" /></g>
+	<path d="M420,218 H210" stroke="#c92a2a" stroke-width="3" fill="none" marker-end="url(#h2-r)" />
+	<path d="M160,400 H250 L330,418 H420" stroke="#1864ab" stroke-width="3" fill="none" marker-end="url(#h2-b)" />
+	<text x="434" y="172" font-size="19" fill="#a61e1e" font-weight="bold" text-anchor="end">teplý vzduch dovnitř</text>
+	<text x="434" y="352" font-size="19" fill="#1864ab" font-weight="bold" text-anchor="end">studený</text>
+	<text x="434" y="374" font-size="19" fill="#1864ab" font-weight="bold" text-anchor="end">vzduch ven</text>
+	<text x="175" y="290" font-size="18" fill="#2b2a26" text-anchor="middle">lednice</text>
+	<text x="26" y="492" font-size="22" fill="#2b2a26">Dveře otvírej jen na chvilku a hned</text>
+<text x="26" y="520" font-size="22" fill="#2b2a26">je zavři. Nejdřív si rozmysli, co</text>
+<text x="26" y="548" font-size="22" fill="#2b2a26">chceš vyndat, a teprve pak otevři.</text>
+</svg>

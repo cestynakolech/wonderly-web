@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 535" width="460" height="535" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Hrnec na plotně: kovová stěna hrnce se ohřívá od dna nahoru, protože kov vede teplo dobře. Rukojeť z plastu nebo ze dřeva vede teplo špatně. Na horký plech bereme chňapku. Svetr drží mezi vlákny vzduch, ten vede teplo špatně, a tak teplo z těla uniká pomaleji.">
+	<title>Šíření tepla 2/6: Rukojeť, chňapka, svetr</title>
+	<!-- Panel 2/6, nová kresba (wonderly, 14. 11. 2026). Opora: výklad podtématu na webu (temata.ts) a ŠVP 8. r. Základní stav = konečný stav děje. -->
+	<style>
+		.s2-p0 { animation: s2-p0 8s linear infinite; }
+		@keyframes s2-p0 { 0%, 5% { fill: #ced4da; } 12%, 88% { fill: #ff8787; } 95%, 100% { fill: #ced4da; } }
+		.s2-p1 { animation: s2-p1 8s linear infinite; }
+		@keyframes s2-p1 { 0%, 14% { fill: #ced4da; } 21%, 88% { fill: #ff8787; } 95%, 100% { fill: #ced4da; } }
+		.s2-p2 { animation: s2-p2 8s linear infinite; }
+		@keyframes s2-p2 { 0%, 23% { fill: #ced4da; } 30%, 88% { fill: #ff8787; } 95%, 100% { fill: #ced4da; } }
+		.s2-p3 { animation: s2-p3 8s linear infinite; }
+		@keyframes s2-p3 { 0%, 32% { fill: #ced4da; } 39%, 88% { fill: #ff8787; } 95%, 100% { fill: #ced4da; } }
+		.s2-p4 { animation: s2-p4 8s linear infinite; }
+		@keyframes s2-p4 { 0%, 41% { fill: #ced4da; } 48%, 88% { fill: #ff8787; } 95%, 100% { fill: #ced4da; } }
+		.s2-spoj { animation: s2-spoj 8s linear infinite; }
+		@keyframes s2-spoj { 0%, 48% { fill: #ced4da; } 54%, 88% { fill: #ff8787; } 95%, 100% { fill: #ced4da; } }
+		@media (prefers-reduced-motion: reduce) { .s2-p0, .s2-p1, .s2-p2, .s2-p3, .s2-p4, .s2-spoj { animation: none; } }
+	</style>
+	
+	<rect x="0" y="0" width="460" height="535" fill="#f8f9fa" />
+	<rect x="10" y="10" width="440" height="515" rx="12" fill="#ffffff" stroke="#ced4da" stroke-width="2" />
+	<text x="26" y="44" font-size="25" fill="#2b2a26" font-weight="bold">Rukojeť, chňapka, svetr</text>
+	<text x="26" y="78" font-size="22" fill="#2b2a26">Kovový hrnec vede teplo dobře.</text>
+<text x="26" y="106" font-size="22" fill="#2b2a26">Rukojeť je z plastu nebo ze dřeva,</text>
+<text x="26" y="134" font-size="22" fill="#2b2a26">ty vedou teplo špatně.</text>
+	<rect x="70" y="322" width="180" height="18" rx="3" fill="#495057" /><line x1="78" y1="321" x2="242" y2="321" stroke="#e03131" stroke-width="4" stroke-linecap="round" />
+	<rect class="s2-p0" x="85" y="298" width="150" height="23" fill="#ff8787" />
+	<rect class="s2-p1" x="85" y="276" width="150" height="23" fill="#ff8787" />
+	<rect class="s2-p2" x="85" y="254" width="150" height="23" fill="#ff8787" />
+	<rect class="s2-p3" x="85" y="232" width="150" height="23" fill="#ff8787" />
+	<rect class="s2-p4" x="85" y="210" width="150" height="23" fill="#ff8787" />
+	<rect x="85" y="210" width="150" height="110" fill="none" stroke="#495057" stroke-width="3" />
+	<line x1="79" y1="210" x2="241" y2="210" stroke="#495057" stroke-width="6" stroke-linecap="round" />
+	<rect class="s2-spoj" x="235" y="227" width="16" height="16" fill="#ff8787" stroke="#495057" stroke-width="2" />
+	<rect x="251" y="225" width="120" height="20" rx="9" fill="#343a40" />
+	<text x="160" y="196" font-size="19" fill="#2b2a26" font-weight="bold" text-anchor="middle">kovový hrnec</text>
+	<text x="262" y="212" font-size="19" fill="#2b2a26" font-weight="bold">rukojeť z plastu</text>
+	<text x="160" y="364" font-size="19" fill="#2b2a26" text-anchor="middle">plotna</text>
+	<text x="26" y="410" font-size="22" fill="#2b2a26">Na horký plech bereme chňapku.</text>
+	<text x="26" y="452" font-size="22" fill="#2b2a26">Svetr drží mezi vlákny vzduch.</text>
+<text x="26" y="480" font-size="22" fill="#2b2a26">Vzduch vede teplo špatně, a tak</text>
+<text x="26" y="508" font-size="22" fill="#2b2a26">teplo z těla uniká pomaleji.</text>
+</svg>
