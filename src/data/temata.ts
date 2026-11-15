@@ -2163,6 +2163,12 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '/media/fyzika/7-rocnik/sily-kolem-nas/treci-sila/treci-sila-dialog.mp4',
 							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
 						},
+						{
+							druh: 'video',
+							nazev: 'Třecí síla — polemika, 2. díl: chůze, zrcadla, valení a výpočet',
+							cesta: '/media/fyzika/7-rocnik/sily-kolem-nas/treci-sila/treci-sila-dialog2.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 				{
