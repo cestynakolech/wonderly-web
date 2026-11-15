@@ -3076,6 +3076,12 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'video', nazev: 'Píseň: Tání 🎵', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tani/pisen-tani.m4a' },
 						{ druh: 'infografika', nazev: 'Infografika: Tání v pohybu — částice, led a parafín, pájení', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tani/infografika-tani-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tani/infografika-tani-panel-1.svg', '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tani/infografika-tani-panel-2.svg', '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tani/infografika-tani-panel-3.svg'] },
 						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Kam mizí teplo při tání ledu (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tani/notebooklm-tani.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
+						{
+							druh: 'video',
+							nazev: 'Tání — 1. díl',
+							cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tani/tani-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 				{
