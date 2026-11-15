@@ -2157,6 +2157,12 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'video', nazev: 'Píseň: Tření brzdí 🎵', cesta: '/materialy/fyzika/7-rocnik/sily-kolem-nas/treci-sila/pisen-treni-brzdi.m4a' },
 						{ druh: 'youtube', nazev: 'Video: Třecí síla', cesta: '7JG_JbKRw70' },
 						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Třecí síla (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/7-rocnik/sily-kolem-nas/treci-sila/notebooklm-treci-sila.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
+						{
+							druh: 'video',
+							nazev: 'Třecí síla — polemika',
+							cesta: '/media/fyzika/7-rocnik/sily-kolem-nas/treci-sila/treci-sila-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 				{
