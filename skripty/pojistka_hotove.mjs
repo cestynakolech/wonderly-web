@@ -8,7 +8,7 @@ const VYJIMKY = '/Users/Shared/Omega/koordinace/vyjimky-hotove.md';
 const hash = b => createHash('sha256').update(b).digest('hex');
 export function vyjimky(text) {
   return new Set(text.split('\n').flatMap(line => {
-    const m = line.match(/^\s*(public\/materialy\/[^|]+|src\/data\/temata\.ts)\s*\|\s*(\d{4}-\d{2}-\d{2})\s*\|\s*(.+?)\s*$/);
+    const m = line.match(/^\s*(public\/materialy\/[^|]+|src\/data\/temata\.ts|text:[a-z0-9-]+\/[a-z0-9-]+\/[a-z0-9-]+\/[a-z0-9-]+)\s*\|\s*(\d{4}-\d{2}-\d{2})\s*\|\s*(.+?)\s*$/);
     return m && /[„“"«][^„“"»]{5,}[“"»]/u.test(m[3]) && !Number.isNaN(Date.parse(m[2])) ? [m[1].trim()] : [];
   }));
 }
@@ -113,7 +113,12 @@ function rozborSouboru(text) {
   walk(ast.program, '', 'koren');
   const radky = [0];
   for (let i = 0; i < text.length; i++) if (text[i] === '\n') radky.push(i + 1);
-  return {text, mats, pole, adresy, kont, kolize, divne, podtemata, radky, line: n => text.slice(radky[n - 1], (radky[n] ?? text.length + 1) - 1)};
+  // Výjimka „text:“: vlastnosti obsah/zapis podtémat v export const temata, adresa předmět/ročník/téma/podtéma (jednoznačná).
+  const textove = [], pocty = new Map(), pole0 = n => n?.type === 'ArrayExpression' ? n.elements : [];
+  for (const st of ast.program.body) for (const d of st.type === 'ExportNamedDeclaration' && st.declaration?.type === 'VariableDeclaration' ? st.declaration.declarations : [])
+    if (d.id?.name === 'temata' && d.init?.type === 'ObjectExpression') for (const r of d.init.properties) for (const t of pole0(r.value)) for (const pt of pole0(t?.properties?.find(p => klic(p) === 'podtemata')?.value))
+      for (const p of pt?.type === 'ObjectExpression' && slug(t) && slug(pt) ? pt.properties.filter(p => ['obsah','zapis'].includes(klic(p))) : []) { const a = `text:${klic(r)}/${slug(t)}/${slug(pt)}#${klic(p)}`; pocty.set(a, (pocty.get(a) ?? 0) + 1); textove.push({a, node: p}); }
+  return {text, mats, pole, adresy, kont, kolize, divne, podtemata, radky, textove: textove.filter(x => pocty.get(x.a) === 1 && doslovne(x.node.value)), line: n => text.slice(radky[n - 1], (radky[n] ?? text.length + 1) - 1)};
 }
 function cestyObjektu(o) {
   const out = [];
@@ -131,7 +136,7 @@ function cestyObjektu(o) {
 // pole materialy se porovnají sémanticky po adresách podtémat.
 // Vrací množinu cest; navíc .nove (položky připojené na konec pole, ve staré verzi neexistovaly)
 // a .stavajici (všechny ostatní započtené cesty – na ně se plošná výjimka pro temata.ts nevztahuje).
-function zmenySeSoubory(diff, {stary, novy}) {
+function zmenySeSoubory(diff, {stary, novy}, text = new Set()) {
   const strany = {'-': rozborSouboru(stary), '+': rozborSouboru(novy)};
   const zmeneno = {'-': new Set(), '+': new Set()};
   const hlavicky = [...diff.matchAll(/^@@ -(\d+)(?:,(\d+))? \+(\d+)(?:,(\d+))? @@.*$/gm)];
@@ -258,14 +263,16 @@ function zmenySeSoubory(diff, {stary, novy}) {
       if (dotcene.some(m => m.node.start < b && m.node.end > a) || !line.trim() || jenNovaPodtemata) continue;
       // Řádek mimo materiálové objekty projde, jen když celý leží ve vlastnosti odkazy nebo materialy.
       const t0 = a + line.length - line.trimStart().length, t1 = a + line.trimEnd().length;
-      if (!s.pole.some(({node: p}) => p.start <= t0 && (t1 <= p.end || (t1 === p.end + 1 && s.text[p.end] === ',')))) throw new Error('Změněný materiál nemá v omezeném diffu úplné hranice objektu; změna odmítnuta.');
+      const cely = p => p.start <= t0 && (t1 <= p.end || (t1 === p.end + 1 && s.text[p.end] === ','));
+      // Výjimka učitele „text:…“: řádek celý v obsah/zapis vyjmenovaného podtématu (v dané verzi souboru).
+      if (!s.pole.some(({node: p}) => cely(p)) && !s.textove.some(x => text.has(x.a.split('#')[0]) && cely(x.node))) throw new Error('Změněný materiál nemá v omezeném diffu úplné hranice objektu; změna odmítnuta.');
     }
   }
   const paths = new Set([...nove, ...stavajici]);
   return Object.assign(paths, {nove, stavajici});
 }
-export function zmenyMaterialu(diff, soubory) {
-  if (soubory) return zmenySeSoubory(diff, soubory);
+export function zmenyMaterialu(diff, soubory, text) {
+  if (soubory) return zmenySeSoubory(diff, soubory, text);
   const paths = new Set();
   for (const hunk of diff.split(/^@@.*@@.*$/m).slice(1)) {
     for (const sign of ['-', '+']) {
@@ -325,10 +332,10 @@ export function kontrola({ cwd = process.cwd(), staged = false, fetchLive = stah
       soubory = {stary: git('show', 'HEAD:src/data/temata.ts').toString(), novy: staged ? git('show', ':src/data/temata.ts').toString() : readFileSync(`${cwd}/src/data/temata.ts`, 'utf8')};
     } catch { soubory = undefined; }
   }
-  const refs = zmenyMaterialu(diff, soubory);
+  const allowed = exceptions ?? vyjimky(existsSync(VYJIMKY) ? readFileSync(VYJIMKY, 'utf8') : '');
+  const refs = zmenyMaterialu(diff, soubory, allowed);
   // Plošná výjimka pro temata.ts platí jen pro nově připojené položky (bez celých souborů: žádné nové).
   const nove = refs.nove ?? new Set(), stavajici = refs.stavajici ?? refs;
-  const allowed = exceptions ?? vyjimky(existsSync(VYJIMKY) ? readFileSync(VYJIMKY, 'utf8') : '');
   for (const p of refs) files.add(p);
   const results = [];
   for (const p of [...files].sort()) {

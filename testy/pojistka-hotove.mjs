@@ -194,6 +194,59 @@ test('dynamický seznam panelů se odmítne',()=>assert.throws(()=>zmenyMaterial
   test('N nové podtéma bez materiálů projde přes kontrola()',()=>assert.equal(k4(naKonec,[]).length,0));
   test('N nové podtéma + změna hotového přes kontrola() odmítnuta',()=>assert.throws(()=>k4(uprav(N=>{N.splice(konecPodtemat,0,...podt('c')); N[ix("          nazev: 'B',")]="          nazev: 'Bé',";}),[]),/hranice/));
 }
+// Výjimka učitele „text:“ (15. 11. 2026): změna obsah/zapis jen vyjmenovaného podtématu; oba směry.
+{
+  const tmp=mkdtempSync(join(tmpdir(),'omega-pojistka-text-'));
+  const dif=(a,b)=>{writeFileSync(join(tmp,'a'),a); writeFileSync(join(tmp,'b'),b); return spawnSync('git',['diff','--no-index','--unified=3','a','b'],{cwd:tmp,encoding:'utf8'}).stdout;};
+  const E='text:fyzika/7-rocnik/tlak/p', E2='text:fyzika/7-rocnik/tlak/p-2';
+  const zaklad=['export const temata = {',"  'fyzika/7-rocnik': [",'    {',"      slug: 'tlak',","      nazev: 'Tlak',",'      podtemata: [',
+    '        {',"          slug: 'p',","          nazev: 'P',",'          uvod: "Úvod p",','          obsah: "<p>text p</p>",','          zapis: {"body":["bod 1"]},','          odkazy: [],','          materialy: [',"            { druh: 'infografika', nazev: 'Inf P', cesta: '/materialy/p.svg' },",'          ],','        },',
+    '        {',"          slug: 'p-2',","          nazev: 'P2',",'          obsah: "<p>text p2</p>",','          materialy: [],','        },',
+    '      ],','    },','    {',"      slug: 'jine',","      nazev: 'Jiné',",'      podtemata: [',
+    '        {',"          slug: 'p',","          nazev: 'P jinde',",'          obsah: "<p>text jinde</p>",','          materialy: [],','        },',
+    '      ],','    },','  ],','};',''].join('\n');
+  const Z=zaklad.split('\n'); const ix=(t,od=0)=>{const i=Z.indexOf(t,od); assert(i>=0,t); return i;};
+  const uprav=(f)=>{const N=[...Z]; f(N); return N.join('\n');};
+  const zt=(novy,exc=[])=>zmenyMaterialu(dif(zaklad,novy),{stary:zaklad,novy},new Set(exc));
+  const doplnP=uprav(N=>{N[ix('          obsah: "<p>text p</p>",')]='          obsah: "<p>text p</p>\\n<h3>Nový oddíl</h3>\\n<p>doplněno</p>",'; N[ix('          zapis: {"body":["bod 1"]},')]='          zapis: {"body":["bod 1","bod 2"]},';});
+  const doplnP2=uprav(N=>{N[ix('          obsah: "<p>text p2</p>",')]='          obsah: "<p>text p2</p><p>doplněno</p>",';});
+  const doplnJinde=uprav(N=>{N[ix('          obsah: "<p>text jinde</p>",')]='          obsah: "<p>text jinde</p><p>doplněno</p>",';});
+  test('T s výjimkou text: doplnění obsah a zapis podtématu projde',()=>assert.equal(zt(doplnP,[E]).size,0));
+  test('T bez výjimky doplnění obsah a zapis se odmítne jako dřív',()=>assert.throws(()=>zt(doplnP),/hranice/));
+  test('T plošná výjimka src/data/temata.ts doplnění textu nepustí',()=>assert.throws(()=>zt(doplnP,['src/data/temata.ts']),/hranice/));
+  test('T výjimka pro p nepustí p-2 (prefix)',()=>assert.throws(()=>zt(doplnP2,[E]),/hranice/));
+  test('T výjimka pro p nepustí stejný slug v jiném tématu',()=>assert.throws(()=>zt(doplnJinde,[E]),/hranice/));
+  test('T výjimka pro p-2 nepustí p',()=>assert.throws(()=>zt(doplnP,[E2]),/hranice/));
+  test('T výjimka pro p: doplnění p + změna p-2 se odmítne',()=>assert.throws(()=>zt(uprav(N=>{N[ix('          obsah: "<p>text p</p>",')]='          obsah: "<p>text p</p><p>x</p>",'; N[ix('          obsah: "<p>text p2</p>",')]='          obsah: "<p>text p2 x</p>",';}),[E]),/hranice/));
+  test('T s výjimkou změna nazev se odmítne',()=>assert.throws(()=>zt(uprav(N=>{N[ix("          nazev: 'P',")]="          nazev: 'PP',";}),[E]),/hranice/));
+  test('T s výjimkou změna uvod se odmítne',()=>assert.throws(()=>zt(uprav(N=>{N[ix('          uvod: "Úvod p",')]='          uvod: "Úvod pp",';}),[E]),/hranice/));
+  test('T s výjimkou nový klíč na řádce obsah se odmítne',()=>assert.throws(()=>zt(uprav(N=>{N[ix('          obsah: "<p>text p</p>",')]='          obsah: "<p>text p</p>", nazev2: "x",';}),[E]),/hranice/));
+  test('T s výjimkou zdvojený klíč obsah se odmítne',()=>assert.throws(()=>zt(uprav(N=>{N.splice(ix('          obsah: "<p>text p</p>",')+1,0,'          obsah: "<p>podvrh</p>",');}),[E]),/hranice/));
+  test('T s výjimkou nedoslovný obsah (volání, ${}) se odmítne',()=>{
+    assert.throws(()=>zt(uprav(N=>{N[ix('          obsah: "<p>text p</p>",')]='          obsah: String("<p>text p</p>"),';}),[E]),/hranice/);
+    assert.throws(()=>zt(uprav(N=>{N[ix('          obsah: "<p>text p</p>",')]='          obsah: `<p>${1+1}</p>`,';}),[E]),/hranice/);
+  });
+  const zmenaCesty=uprav(N=>{const i=ix("            { druh: 'infografika', nazev: 'Inf P', cesta: '/materialy/p.svg' },"); N[i]=N[i].replace('p.svg','p2.svg');});
+  test('T s výjimkou změna cesty materiálu dál zachycena jako stávající',()=>assert.deepEqual([...zt(zmenaCesty,[E]).stavajici].sort(),['public/materialy/p.svg','public/materialy/p2.svg']));
+  test('T vyjimky() rozpozná řádek text: jen v platném tvaru',()=>{
+    assert.deepEqual([...vyjimky('text:fyzika/7-rocnik/tlak/p | 2026-11-15 | „pokyn učitele zde“')],[E]);
+    for (const r of ['text:fyzika/7-rocnik/tlak/p | 2026-11-15 | ano','- text:fyzika/7-rocnik/tlak/p | 2026-11-15 | „pokyn učitele“','text:fyzika/7-rocnik/p | 2026-11-15 | „pokyn učitele“','text:Fyzika/7-rocnik/tlak/p | 2026-11-15 | „pokyn učitele“','text:fyzika/7-rocnik/tlak/p | 15. 11. 2026 | „pokyn učitele“'])
+      assert.equal(vyjimky(r).size,0,r);
+  });
+  // Celou cestou kontrola(): git repo se starou verzí v HEAD, nová v pracovní kopii; materiál nasazený (200 = HEAD).
+  const r5=mkdtempSync(join(tmpdir(),'omega-pojistka-t5-')); const g5=(...a)=>execFileSync('git',a,{cwd:r5,stdio:'pipe'});
+  g5('init'); g5('config','user.email','test@example.invalid'); g5('config','user.name','Test');
+  mkdirSync(join(r5,'public/materialy'),{recursive:true}); mkdirSync(join(r5,'src/data'),{recursive:true});
+  writeFileSync(join(r5,'public/materialy/p.svg'),'p'); writeFileSync(join(r5,'src/data/temata.ts'),zaklad); g5('add','.'); g5('commit','-m','t5');
+  const nasaz=()=>({status:200,body:Buffer.from('p')});
+  const k5=(text,exc)=>{writeFileSync(join(r5,'src/data/temata.ts'),text); return kontrola({cwd:r5,fetchLive:nasaz,exceptions:vyjimky(exc)});};
+  const RADEK='text:fyzika/7-rocnik/tlak/p | 2026-11-15 | „pokyn učitele zde“';
+  test('T kontrola(): s řádkem text: doplnění projde',()=>assert.equal(k5(doplnP,RADEK).length,0));
+  test('T kontrola(): bez řádku text: doplnění odmítnuto',()=>assert.throws(()=>k5(doplnP,''),/hranice/));
+  test('T kontrola(): s řádkem text: doplnění + změna cesty materiálu odmítnuta',()=>assert.throws(()=>k5(uprav(N=>{N[ix('          obsah: "<p>text p</p>",')]='          obsah: "<p>text p</p><p>x</p>",'; const i=ix("            { druh: 'infografika', nazev: 'Inf P', cesta: '/materialy/p.svg' },"); N[i]=N[i].replace('p.svg','p2.svg');}),RADEK),/hotový a nasazený/));
+  test('T kontrola(): s řádkem text: změna souboru materiálu odmítnuta',()=>{const f=join(r5,'public/materialy/p.svg'); writeFileSync(f,'zmeneno'); try { assert.throws(()=>k5(doplnP,RADEK),/hotový a nasazený/); } finally { writeFileSync(f,'p'); }});
+  writeFileSync(join(r5,'src/data/temata.ts'),zaklad);
+}
 if(process.argv.includes('--live')) {
  const repo='/Users/Shared/wonderly-web';
  const files=execFileSync('git',['ls-tree','-r','--name-only','HEAD','--','public/materialy/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila'],{cwd:repo,encoding:'utf8'}).trim().split('\n');
