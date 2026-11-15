@@ -3098,6 +3098,12 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'video', nazev: 'Píseň: Tuhnutí 🎵', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tuhnuti/pisen-tuhnuti.m4a' },
 						{ druh: 'infografika', nazev: 'Infografika: Tuhnutí v pohybu — krystalizace, rybník, potrubí', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tuhnuti/infografika-tuhnuti-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tuhnuti/infografika-tuhnuti-panel-1.svg', '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tuhnuti/infografika-tuhnuti-panel-2.svg', '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tuhnuti/infografika-tuhnuti-panel-3.svg'] },
 						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Proč teplota vody při tuhnutí neklesá (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tuhnuti/notebooklm-tuhnuti.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
+						{
+							druh: 'video',
+							nazev: 'Tuhnutí — 1. díl',
+							cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tuhnuti/tuhnuti-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 				{
