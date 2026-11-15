@@ -3120,6 +3120,12 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'video', nazev: 'Píseň: Vypařování 🎵', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/vyparovani/pisen-vyparovani.m4a' },
 						{ druh: 'infografika', nazev: 'Infografika: Vypařování a ochlazování (panely pro tabuli)', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/vyparovani/infografika-vyparovani-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/vyparovani/infografika-vyparovani-panel-1.svg', '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/vyparovani/infografika-vyparovani-panel-2.svg'] },
 						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Proč se voda vypařuje bez varu (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/vyparovani/notebooklm-vyparovani.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
+						{
+							druh: 'video',
+							nazev: 'Vypařování — 1. díl',
+							cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/vyparovani/vyparovani-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 				{
