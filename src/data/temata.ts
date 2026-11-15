@@ -2951,6 +2951,12 @@ export const temata: Record<string, Tema[]> = {
 					odkazy: [],
 					materialy: [
 						{ druh: 'infografika', nazev: 'Infografika: Šíření tepla v kostce', cesta: '/materialy/fyzika/8-rocnik/energie/sireni-tepla/infografika-sireni-tepla-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/energie/sireni-tepla/infografika-sireni-tepla-panel-1.svg', '/materialy/fyzika/8-rocnik/energie/sireni-tepla/infografika-sireni-tepla-panel-2.svg', '/materialy/fyzika/8-rocnik/energie/sireni-tepla/infografika-sireni-tepla-panel-3.svg', '/materialy/fyzika/8-rocnik/energie/sireni-tepla/infografika-sireni-tepla-panel-4.svg', '/materialy/fyzika/8-rocnik/energie/sireni-tepla/infografika-sireni-tepla-panel-5.svg', '/materialy/fyzika/8-rocnik/energie/sireni-tepla/infografika-sireni-tepla-panel-6.svg'] },
+						{
+							druh: 'video',
+							nazev: 'Šíření tepla vedením, prouděním a zářením — polemika',
+							cesta: '/media/fyzika/8-rocnik/energie/sireni-tepla/sireni-tepla-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 				{
