@@ -3579,6 +3579,12 @@ export const temata: Record<string, Tema[]> = {
 					materialy: [
 						{ druh: 'infografika', nazev: 'Infografika: Vznik střídavého proudu a alternátor v kostce', cesta: '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/vznik-stridaveho-proudu-alternator/infografika-vznik-stridaveho-proudu-alternator.svg', panely: ['/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/vznik-stridaveho-proudu-alternator/infografika-vznik-stridaveho-proudu-alternator-panel-1.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/vznik-stridaveho-proudu-alternator/infografika-vznik-stridaveho-proudu-alternator-panel-2.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/vznik-stridaveho-proudu-alternator/infografika-vznik-stridaveho-proudu-alternator-panel-3.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/vznik-stridaveho-proudu-alternator/infografika-vznik-stridaveho-proudu-alternator-panel-4.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/vznik-stridaveho-proudu-alternator/infografika-vznik-stridaveho-proudu-alternator-panel-5.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/vznik-stridaveho-proudu-alternator/infografika-vznik-stridaveho-proudu-alternator-panel-6.svg'] },
 						{ druh: 'youtube', nazev: 'Video: Příběh střídavého proudu (generátor)', cesta: '3Y_USuTTVbw' },
+						{
+							druh: 'video',
+							nazev: 'Vznik střídavého proudu, alternátor — 1. díl',
+							cesta: '/media/fyzika/9-rocnik/indukce-a-stridavy-proud/vznik-stridaveho-proudu-alternator/vznik-stridaveho-proudu-alternator-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 				{
