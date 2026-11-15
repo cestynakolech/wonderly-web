@@ -3560,6 +3560,12 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'youtube', nazev: 'Video: Elektromagnetická indukce 1', cesta: 'HTQTf58aXBQ' },
 						{ druh: 'youtube', nazev: 'Video: Elektromagnetická indukce 2', cesta: 'gn-CN3StDUs' },
 						{ druh: 'video', nazev: 'Píseň: Magnet v pohybu 🎵', cesta: '/materialy/fyzika/9-rocnik/magneticke-pole/elektromagneticka-indukce/pisen-magnet-v-pohybu.m4a' },
+						{
+							druh: 'video',
+							nazev: 'Elektromagnetická indukce — 1. díl',
+							cesta: '/media/fyzika/9-rocnik/indukce-a-stridavy-proud/elektromagneticka-indukce/elektromagneticka-indukce-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 				{
