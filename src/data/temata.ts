@@ -3054,6 +3054,12 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Teplo a skupenství látek (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi/notebooklm-teplo-a-premeny-skupenstvi.mp4' },
 						{ druh: 'infografika', nazev: 'Infografika: Sublimace jódu — panel', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi/infografika-teplo-a-premeny-skupenstvi-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi/infografika-teplo-a-premeny-skupenstvi-panel-1.svg'] },
 						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Proč se vařící voda už neohřívá (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi/notebooklm-teplo-a-premeny-skupenstvi.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
+						{
+							druh: 'video',
+							nazev: 'Teplo a přeměny skupenství látek — 1. díl',
+							cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi/teplo-a-premeny-skupenstvi-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 				{
