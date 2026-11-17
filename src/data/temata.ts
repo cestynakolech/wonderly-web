@@ -3633,6 +3633,12 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '/media/fyzika/9-rocnik/indukce-a-stridavy-proud/vznik-stridaveho-proudu-alternator/vznik-stridaveho-proudu-alternator-dialog.mp4',
 							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
 						},
+						{
+							druh: 'video',
+							nazev: 'Vznik střídavého proudu, alternátor — 2. díl',
+							cesta: '/media/fyzika/9-rocnik/indukce-a-stridavy-proud/vznik-stridaveho-proudu-alternator/vznik-stridaveho-proudu-alternator-dialog2.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 				{
