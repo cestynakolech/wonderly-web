@@ -3162,6 +3162,12 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'video', nazev: 'Píseň: Kondenzace 🎵', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/kondenzace/pisen-kondenzace.m4a' },
 						{ druh: 'infografika', nazev: 'Infografika: Kondenzace v pohybu', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/kondenzace/infografika-kondenzace-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/kondenzace/infografika-kondenzace-panel-1.svg', '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/kondenzace/infografika-kondenzace-panel-2.svg', '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/kondenzace/infografika-kondenzace-panel-3.svg'] },
 						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Jak pára ztrácí teplo při kondenzaci (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/kondenzace/notebooklm-kondenzace.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
+						{
+							druh: 'video',
+							nazev: 'Kondenzace — 1. díl',
+							cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/kondenzace/kondenzace-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 				{
