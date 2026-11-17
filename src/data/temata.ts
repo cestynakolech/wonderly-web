@@ -2428,6 +2428,12 @@ export const temata: Record<string, Tema[]> = {
 							nazev: 'Píseň: Pascalův zákon 🎵',
 							cesta: '/materialy/fyzika/7-rocnik/tlak-v-kapalinach/pascaluv-zakon/pisen-pascaluv-zakon.mp4',
 						},
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Pascalův zákon — 2. díl',
+							cesta: '/media/fyzika/7-rocnik/tlak-v-kapalinach/pascaluv-zakon/pascaluv-zakon-dialog2.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 					odkazy: [],
 				},
