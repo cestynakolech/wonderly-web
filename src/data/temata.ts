@@ -3110,6 +3110,12 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tuhnuti/tuhnuti-dialog.mp4',
 							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
 						},
+						{
+							druh: 'video',
+							nazev: 'Tuhnutí — 2. díl',
+							cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tuhnuti/tuhnuti-dialog2.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 				{
