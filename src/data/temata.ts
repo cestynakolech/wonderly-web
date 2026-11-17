@@ -3165,6 +3165,12 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/var/var-dialog.mp4',
 							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
 						},
+						{
+							druh: 'video',
+							nazev: 'Var — 2. díl',
+							cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/var/var-dialog2.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 				{
