@@ -2440,6 +2440,12 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '/media/fyzika/7-rocnik/tlak-v-kapalinach/pascaluv-zakon/pascaluv-zakon-dialog2.mp4',
 							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
 						},
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Pascalův zákon — 1. díl',
+							cesta: '/media/fyzika/7-rocnik/tlak-v-kapalinach/pascaluv-zakon/pascaluv-zakon-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 					odkazy: [],
 				},
