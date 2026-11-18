@@ -2912,6 +2912,12 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'infografika', nazev: 'Infografika: Zákon zachování mechanické energie v kostce', cesta: '/materialy/fyzika/8-rocnik/energie/zakon-zachovani-mechanicke-energie/infografika-zakon-zachovani-mechanicke-energie.svg', panely: ['/materialy/fyzika/8-rocnik/energie/zakon-zachovani-mechanicke-energie/infografika-zakon-zachovani-mechanicke-energie-panel-1.svg', '/materialy/fyzika/8-rocnik/energie/zakon-zachovani-mechanicke-energie/infografika-zakon-zachovani-mechanicke-energie-panel-2.svg', '/materialy/fyzika/8-rocnik/energie/zakon-zachovani-mechanicke-energie/infografika-zakon-zachovani-mechanicke-energie-panel-3.svg', '/materialy/fyzika/8-rocnik/energie/zakon-zachovani-mechanicke-energie/infografika-zakon-zachovani-mechanicke-energie-panel-4.svg', '/materialy/fyzika/8-rocnik/energie/zakon-zachovani-mechanicke-energie/infografika-zakon-zachovani-mechanicke-energie-panel-5.svg'] },
 						{ druh: 'youtube', nazev: 'Video: Zákon zachování energie', cesta: 'vDavukfb5qU' },
 						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Kam mizí mechanická energie na U-rampě (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/8-rocnik/energie/zakon-zachovani-mechanicke-energie/notebooklm-zakon-zachovani-mechanicke-energie.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
+						{
+							druh: 'video',
+							nazev: 'Zákon zachování mechanické energie — 1. díl',
+							cesta: '/media/fyzika/8-rocnik/energie/zakon-zachovani-mechanicke-energie/zakon-zachovani-mechanicke-energie-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 				{
