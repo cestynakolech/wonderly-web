@@ -3908,6 +3908,12 @@ export const temata: Record<string, Tema[]> = {
 					zapis: {"zakon":"Při jaderných reakcích se zachovává celkový počet nukleonů i protonů.","body":["jaderná energie je uložená v jádře atomu","štěpení: jádro uranu 235 se rozdělí a uvolní neutrony","neutrony štěpí další jádra, vzniká řetězová reakce","fúze: lehká jádra se slučují, ve hvězdách vodík na helium"]},
 					materialy: [
 						{ druh: 'infografika', nazev: 'Jaderná energie v pohybu', cesta: '/materialy/fyzika/9-rocnik/jaderna-fyzika/jaderna-energie-a-reakce/infografika-jaderna-energie-a-reakce-pohyb-panel-1.svg', panely: ['/materialy/fyzika/9-rocnik/jaderna-fyzika/jaderna-energie-a-reakce/infografika-jaderna-energie-a-reakce-pohyb-panel-1.svg', '/materialy/fyzika/9-rocnik/jaderna-fyzika/jaderna-energie-a-reakce/infografika-jaderna-energie-a-reakce-pohyb-panel-2.svg'] },
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Jaderná energie, jaderná reakce — 1. díl',
+							cesta: '/media/fyzika/9-rocnik/jaderna-fyzika/jaderna-energie-a-reakce/jaderna-energie-a-reakce-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 					odkazy: [],
 				},
