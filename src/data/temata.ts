@@ -2930,6 +2930,12 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'infografika', nazev: 'Infografika: Vnitřní energie tělesa v kostce', cesta: '/materialy/fyzika/8-rocnik/energie/vnitrni-energie-telesa/infografika-vnitrni-energie-telesa.svg', panely: ['/materialy/fyzika/8-rocnik/energie/vnitrni-energie-telesa/infografika-vnitrni-energie-telesa-panel-1.svg', '/materialy/fyzika/8-rocnik/energie/vnitrni-energie-telesa/infografika-vnitrni-energie-telesa-panel-2.svg', '/materialy/fyzika/8-rocnik/energie/vnitrni-energie-telesa/infografika-vnitrni-energie-telesa-panel-3.svg', '/materialy/fyzika/8-rocnik/energie/vnitrni-energie-telesa/infografika-vnitrni-energie-telesa-panel-4.svg', '/materialy/fyzika/8-rocnik/energie/vnitrni-energie-telesa/infografika-vnitrni-energie-telesa-panel-5.svg', '/materialy/fyzika/8-rocnik/energie/vnitrni-energie-telesa/infografika-vnitrni-energie-telesa-panel-6.svg', '/materialy/fyzika/8-rocnik/energie/vnitrni-energie-telesa/infografika-vnitrni-energie-telesa-panel-7.svg'] },
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Vnitřní energie tělesa (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/energie/vnitrni-energie-telesa/notebooklm-vnitrni-energie-telesa.mp4' },
 						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Proč rozpálené brzdy nepřijaly žádné teplo (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/8-rocnik/energie/vnitrni-energie-telesa/notebooklm-vnitrni-energie-telesa.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
+						{
+							druh: 'video',
+							nazev: 'Vnitřní energie tělesa — 1. díl',
+							cesta: '/media/fyzika/8-rocnik/energie/vnitrni-energie-telesa/vnitrni-energie-telesa-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 				{
