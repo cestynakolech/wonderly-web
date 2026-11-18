@@ -2203,6 +2203,12 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'infografika', nazev: 'Těžiště v pohybu', cesta: '/materialy/fyzika/7-rocnik/sily-kolem-nas/teziste/infografika-teziste-pohyb-panel-1.svg', panely: ['/materialy/fyzika/7-rocnik/sily-kolem-nas/teziste/infografika-teziste-pohyb-panel-1.svg', '/materialy/fyzika/7-rocnik/sily-kolem-nas/teziste/infografika-teziste-pohyb-panel-2.svg', '/materialy/fyzika/7-rocnik/sily-kolem-nas/teziste/infografika-teziste-pohyb-panel-3.svg', '/materialy/fyzika/7-rocnik/sily-kolem-nas/teziste/infografika-teziste-pohyb-panel-4.svg'] },
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Záhada rovnováhy (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/7-rocnik/sily-kolem-nas/teziste/notebooklm-teziste.mp4' },
 						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Těžiště (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/7-rocnik/sily-kolem-nas/teziste/notebooklm-teziste.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Těžiště — 1. díl',
+							cesta: '/media/fyzika/7-rocnik/sily-kolem-nas/teziste/teziste-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 			],
