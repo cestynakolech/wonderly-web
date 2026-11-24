@@ -3054,6 +3054,12 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'infografika', nazev: 'Infografika: Spalovací motory v pohybu', cesta: '/materialy/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/infografika-spalovaci-motory-pohyb-panel-1.svg', panely: ['/materialy/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/infografika-spalovaci-motory-pohyb-panel-1.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/infografika-spalovaci-motory-pohyb-panel-2.svg'] },
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Tajemství spalovacích motorů (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/notebooklm-spalovaci-motory.mp4' },
 						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Spalovací motor promění většinu energie v teplo (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/notebooklm-spalovaci-motory.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
+						{
+							druh: 'video',
+							nazev: 'Spalovací motory — 1. díl',
+							cesta: '/media/fyzika/8-rocnik/tepelne-motory/spalovaci-motory/spalovaci-motory-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 				{
