@@ -2478,6 +2478,12 @@ export const temata: Record<string, Tema[]> = {
 								'/materialy/fyzika/7-rocnik/tlak-v-kapalinach/hydrostaticky-tlak/infografika-hydrostaticky-tlak-panel-6.svg',
 							],
 						},
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Hydrostatický tlak — 1. díl',
+							cesta: '/media/fyzika/7-rocnik/tlak-v-kapalinach/hydrostaticky-tlak/hydrostaticky-tlak-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 					odkazy: [],
 				},
