@@ -3726,6 +3726,12 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'infografika', nazev: 'Infografika: Transformátor v kostce', cesta: '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/transformator/infografika-transformator.svg', panely: ['/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/transformator/infografika-transformator-panel-1.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/transformator/infografika-transformator-panel-2.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/transformator/infografika-transformator-panel-3.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/transformator/infografika-transformator-panel-4.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/transformator/infografika-transformator-panel-5.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/transformator/infografika-transformator-panel-6.svg'] },
 						{ druh: 'infografika', nazev: 'Infografika: Transformátor v pohybu', cesta: '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/transformator/infografika-transformator-pohyb-panel-1.svg', panely: ['/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/transformator/infografika-transformator-pohyb-panel-1.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/transformator/infografika-transformator-pohyb-panel-2.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/transformator/infografika-transformator-pohyb-panel-3.svg'] },
 						{ druh: 'youtube', nazev: 'Video: Transformátor — skrytý motor našeho světa', cesta: 'Zme6eL0Mzr8' },
+						{
+							druh: 'video',
+							nazev: 'Transformátor — 1. díl',
+							cesta: '/media/fyzika/9-rocnik/indukce-a-stridavy-proud/transformator/transformator-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 			],
