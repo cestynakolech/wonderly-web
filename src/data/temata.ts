@@ -3651,6 +3651,12 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'infografika', nazev: 'Infografika: Jak se točí elektromotor', cesta: '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/pusobeni-pole-na-vodic-elektromotor/infografika-pusobeni-pole-na-vodic-elektromotor-panel-1.svg', panely: ['/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/pusobeni-pole-na-vodic-elektromotor/infografika-pusobeni-pole-na-vodic-elektromotor-panel-1.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/pusobeni-pole-na-vodic-elektromotor/infografika-pusobeni-pole-na-vodic-elektromotor-panel-2.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/pusobeni-pole-na-vodic-elektromotor/infografika-pusobeni-pole-na-vodic-elektromotor-panel-3.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/pusobeni-pole-na-vodic-elektromotor/infografika-pusobeni-pole-na-vodic-elektromotor-panel-4.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/pusobeni-pole-na-vodic-elektromotor/infografika-pusobeni-pole-na-vodic-elektromotor-panel-5.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/pusobeni-pole-na-vodic-elektromotor/infografika-pusobeni-pole-na-vodic-elektromotor-panel-6.svg'] },
 						{ druh: 'video', nazev: 'Píseň: Levá ruka a motor 🎵', cesta: '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/pusobeni-pole-na-vodic-elektromotor/pisen-leva-ruka-a-motor.mp4' },
 						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Jak komutátor roztočí stejnosměrný elektromotor (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/9-rocnik/indukce-a-stridavy-proud/pusobeni-pole-na-vodic-elektromotor/notebooklm-pusobeni-pole-na-vodic-elektromotor.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
+						{
+							druh: 'video',
+							nazev: 'Působení magnetického pole na vodič s proudem, elektromotor — 1. díl',
+							cesta: '/media/fyzika/9-rocnik/indukce-a-stridavy-proud/pusobeni-pole-na-vodic-elektromotor/pusobeni-pole-na-vodic-elektromotor-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 				{
