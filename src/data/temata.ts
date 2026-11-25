@@ -3074,6 +3074,12 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'infografika', nazev: 'Infografika: Alternativní motory a pohony v kostce', cesta: '/materialy/fyzika/8-rocnik/tepelne-motory/alternativni-motory/infografika-alternativni-motory.svg', panely: ['/materialy/fyzika/8-rocnik/tepelne-motory/alternativni-motory/infografika-alternativni-motory-panel-1.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/alternativni-motory/infografika-alternativni-motory-panel-2.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/alternativni-motory/infografika-alternativni-motory-panel-3.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/alternativni-motory/infografika-alternativni-motory-panel-4.svg', '/materialy/fyzika/8-rocnik/tepelne-motory/alternativni-motory/infografika-alternativni-motory-panel-5.svg'] },
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Alternativní motory a pohony (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/tepelne-motory/alternativni-motory/notebooklm-alternativni-motory.mp4' },
 						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Odkud berou sílu alternativní motory (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/8-rocnik/tepelne-motory/alternativni-motory/notebooklm-alternativni-motory.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
+						{
+							druh: 'video',
+							nazev: 'Alternativní motory a pohony — 1. díl',
+							cesta: '/media/fyzika/8-rocnik/tepelne-motory/alternativni-motory/alternativni-motory-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 					odkazy: [],
 				},
