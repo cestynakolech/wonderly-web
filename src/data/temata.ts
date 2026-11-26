@@ -3055,6 +3055,12 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '/media/fyzika/8-rocnik/tepelne-motory/tepelny-motor-parni-stroj/tepelny-motor-parni-stroj-dialog3.mp4',
 							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
 						},
+						{
+							druh: 'video',
+							nazev: 'Tepelný motor, parní stroj, parní turbína — 4. díl',
+							cesta: '/media/fyzika/8-rocnik/tepelne-motory/tepelny-motor-parni-stroj/tepelny-motor-parni-stroj-dialog4.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 					odkazy: [],
 				},
