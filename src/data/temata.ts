@@ -3037,6 +3037,12 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'youtube', nazev: 'Video: Parní stroj — Síla moderního světa', cesta: '1mdQ5Th3Vro' },
 						{ druh: 'video', nazev: 'Píseň: Teplo na pohyb 🎵', cesta: '/materialy/fyzika/8-rocnik/tepelne-motory/tepelny-motor-parni-stroj/pisen-teplo-na-pohyb.m4a' },
 						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Tepelný motor, parní stroj, parní turbína (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/8-rocnik/tepelne-motory/tepelny-motor-parni-stroj/notebooklm-tepelny-motor-parni-stroj.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
+						{
+							druh: 'video',
+							nazev: 'Tepelný motor, parní stroj, parní turbína — 1. díl',
+							cesta: '/media/fyzika/8-rocnik/tepelne-motory/tepelny-motor-parni-stroj/tepelny-motor-parni-stroj-dialog1.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 					odkazy: [],
 				},
