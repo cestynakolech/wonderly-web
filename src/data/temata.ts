@@ -2191,6 +2191,12 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'infografika', nazev: 'Infografika: Skládání sil v kostce', cesta: '/materialy/fyzika/7-rocnik/sily-kolem-nas/skladani-sil/infografika-skladani-sil.svg', panely: ['/materialy/fyzika/7-rocnik/sily-kolem-nas/skladani-sil/infografika-skladani-sil-panel-1.svg', '/materialy/fyzika/7-rocnik/sily-kolem-nas/skladani-sil/infografika-skladani-sil-panel-2.svg', '/materialy/fyzika/7-rocnik/sily-kolem-nas/skladani-sil/infografika-skladani-sil-panel-3.svg', '/materialy/fyzika/7-rocnik/sily-kolem-nas/skladani-sil/infografika-skladani-sil-panel-4.svg', '/materialy/fyzika/7-rocnik/sily-kolem-nas/skladani-sil/infografika-skladani-sil-panel-5.svg'] },
 						{ druh: 'youtube', nazev: 'Video: Skládání sil', cesta: 'GWJnn_4_zHc' },
 						{ druh: 'audio', nazev: 'Poslech: jak složit síly do jedné výslednice 🎧', cesta: '/materialy/fyzika/7-rocnik/sily-kolem-nas/skladani-sil/audio-pravidlo-rovnobezniku.mp3' },
+						{
+							druh: 'video',
+							nazev: 'Skládání sil — 1. díl',
+							cesta: '/media/fyzika/7-rocnik/sily-kolem-nas/skladani-sil/skladani-sil-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 				{
