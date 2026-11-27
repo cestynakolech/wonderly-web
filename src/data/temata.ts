@@ -2885,6 +2885,12 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'youtube', nazev: 'Video: Zákon zachování energie', cesta: 'vDavukfb5qU' },
 						{ druh: 'video', nazev: 'Píseň: Nedá se zničit 🎵', cesta: '/materialy/fyzika/8-rocnik/energie/energie-a-jeji-premeny/pisen-neda-se-znicit.m4a' },
 						{ druh: 'audio', nazev: 'Bonus z NotebookLM: Cesta energie od Slunce k žárovce (audio debata, doplněk k výkladu) 🎧', cesta: '/media/fyzika/8-rocnik/energie/energie-a-jeji-premeny/notebooklm-energie-a-jeji-premeny.m4a', ai: 'Audio debatu vytvořil nástroj NotebookLM (umělá inteligence) podle výkladu; jde o doplněk, ne o polemiku Evy a Marka.' },
+						{
+							druh: 'video',
+							nazev: 'Energie a její přeměny — 1. díl',
+							cesta: '/media/fyzika/8-rocnik/energie/energie-a-jeji-premeny/energie-a-jeji-premeny-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 					odkazy: [],
 				},
