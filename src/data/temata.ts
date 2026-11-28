@@ -3760,6 +3760,12 @@ export const temata: Record<string, Tema[]> = {
 					materialy: [
 						{ druh: 'infografika', nazev: 'Infografika: Vlastnosti střídavého proudu v kostce', cesta: '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/vlastnosti-stridaveho-proudu/infografika-vlastnosti-stridaveho-proudu.svg', panely: ['/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/vlastnosti-stridaveho-proudu/infografika-vlastnosti-stridaveho-proudu-panel-1.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/vlastnosti-stridaveho-proudu/infografika-vlastnosti-stridaveho-proudu-panel-2.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/vlastnosti-stridaveho-proudu/infografika-vlastnosti-stridaveho-proudu-panel-3.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/vlastnosti-stridaveho-proudu/infografika-vlastnosti-stridaveho-proudu-panel-4.svg', '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/vlastnosti-stridaveho-proudu/infografika-vlastnosti-stridaveho-proudu-panel-5.svg'] },
 						{ druh: 'video', nazev: 'Bonus z NotebookLM: Střídavý proud (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/9-rocnik/indukce-a-stridavy-proud/vlastnosti-stridaveho-proudu/notebooklm-vlastnosti-stridaveho-proudu.mp4' },
+						{
+							druh: 'video',
+							nazev: 'Vlastnosti střídavého proudu — 1. díl',
+							cesta: '/media/fyzika/9-rocnik/indukce-a-stridavy-proud/vlastnosti-stridaveho-proudu/vlastnosti-stridaveho-proudu-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 				{
